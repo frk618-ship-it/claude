@@ -1,0 +1,276 @@
+# 靶材(Sputtering Target)產業新聞蒐集 — 追蹤清單與設定
+#
+# entities:
+#   name            顯示名稱
+#   role            producer(生產商) / distributor(銷售商、代理商) / topic(產業主題,不屬特定公司)
+#   region          地區,僅供報告顯示
+#   ticker          股票代號(選填)
+#   aliases         用來搜尋與比對新聞的名稱(中英日皆可)
+#   require_context true = 公司業務範圍廣(例如 Honeywell、三菱綜合材料),
+#                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
+#   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
+
+settings:
+  days: 3                     # 只保留最近 N 天的新聞
+  request_delay: 0.6          # 每次抓取之間的間隔秒數,避免被來源限流
+  default_editions: [zh-TW, en]
+  sources:
+    google_news: true
+    bing_news: false          # 可改 true 作為第二來源
+    feeds: []                 # 自訂 RSS,例如公司新聞稿 RSS:
+                              #  - {name: "Materion News", url: "https://..."}
+
+  editions:
+    zh-TW: {hl: zh-TW, gl: TW, ceid: "TW:zh-Hant"}
+    zh-CN: {hl: zh-CN, gl: CN, ceid: "CN:zh-Hans"}
+    en:    {hl: en-US, gl: US, ceid: "US:en"}
+    ja:    {hl: ja,    gl: JP, ceid: "JP:ja"}
+    ko:    {hl: ko,    gl: KR, ceid: "KR:ko"}
+
+  # 寬業務公司(require_context)搜尋時附加的字詞,保持精簡以免查詢過長
+  query_context_terms: [靶材, 濺鍍, 溅射, sputtering, スパッタリング]
+
+  # 本地過濾用:判斷「與靶材相關」的字詞(require_context 的公司必須命中其一)
+  context_terms:
+    - 靶材
+    - 濺鍍
+    - 濺射
+    - 溅射
+    - 镀膜材料
+    - 鍍膜材料
+    - 高純
+    - 高纯
+    - sputtering
+    - sputter target
+    - target material
+    - thin film
+    - PVD
+    - ITO
+    - スパッタリング
+    - ターゲット
+    - 스퍼터링
+    - 타겟
+
+  # 新聞分類(依關鍵字比對,可多選);LLM 摘要啟用時會再校正分類
+  categories:
+    擴產與投資: [擴產, 扩产, 新廠, 新厂, 產能, 产能, 投資, 投资, 建廠, 建厂, 增資, 定增, expansion, expand, new plant, new facility, capacity, invest, 増産, 新工場, 設備投資]
+    營收與財報: [營收, 营收, 財報, 财报, 獲利, 盈利, 淨利, 净利, 毛利, EPS, 業績, 业绩, revenue, earnings, profit, quarter, guidance, 決算, 売上, 営業利益]
+    併購與合作: [併購, 并购, 收購, 收购, 合併, 合资, 合資, 策略聯盟, 戰略合作, 战略合作, 簽約, 签约, acquisition, acquire, merger, joint venture, partnership, agreement, 買収, 提携, 合弁]
+    原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ]
+    技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産]
+    客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer]
+    政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税]
+
+  # 熱門關鍵字統計的候選詞(材料、應用)
+  hot_terms: [鉭, 钽, 銅, 铜, 鋁, 铝, 鈦, 钛, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 鉑, ITO, IGZO, 氧化物, tantalum, copper, aluminum, titanium, cobalt, tungsten, molybdenum, ruthenium, 半導體, 半导体, 面板, 光伏, 太陽能, HJT, 先進封裝, 先进封装, semiconductor, display, solar, AI, HBM]
+
+entities:
+  # ---------- 生產商:日本 ----------
+  - name: JX金屬 (JX Advanced Metals)
+    role: producer
+    region: 日本
+    ticker: "5016.T"
+    aliases: [JX金屬, JX金属, JX Advanced Metals, JX Nippon Mining]
+    require_context: false
+    editions: [zh-TW, en, ja]
+  - name: 東曹 (Tosoh)
+    role: producer
+    region: 日本
+    ticker: "4042.T"
+    aliases: [東曹, 东曹, Tosoh, 東ソー]
+    require_context: true
+    editions: [zh-TW, en, ja]
+  - name: 三井金屬 (Mitsui Kinzoku)
+    role: producer
+    region: 日本
+    ticker: "5706.T"
+    aliases: [三井金屬, 三井金属, Mitsui Kinzoku, Mitsui Mining & Smelting]
+    require_context: true
+    editions: [zh-TW, en, ja]
+  - name: 三菱綜合材料 (Mitsubishi Materials)
+    role: producer
+    region: 日本
+    ticker: "5711.T"
+    aliases: [三菱綜合材料, 三菱综合材料, Mitsubishi Materials, 三菱マテリアル]
+    require_context: true
+    editions: [en, ja]
+  - name: 住友金屬礦山 (Sumitomo Metal Mining)
+    role: producer
+    region: 日本
+    ticker: "5713.T"
+    aliases: [住友金屬礦山, 住友金属矿山, Sumitomo Metal Mining, 住友金属鉱山]
+    require_context: true
+    editions: [en, ja]
+  - name: 愛發科 (ULVAC)
+    role: producer
+    region: 日本
+    ticker: "6728.T"
+    aliases: [愛發科, 爱发科, ULVAC, アルバック]
+    require_context: true
+    editions: [zh-TW, en, ja]
+  - name: 古屋金屬 (Furuya Metal)
+    role: producer
+    region: 日本
+    ticker: "7826.T"
+    aliases: [古屋金屬, Furuya Metal, フルヤ金属]
+    require_context: false
+    editions: [en, ja]
+  - name: 田中貴金屬 (Tanaka Precious Metals)
+    role: producer
+    region: 日本
+    aliases: [田中貴金屬, 田中贵金属, Tanaka Precious Metal, TANAKA Kikinzoku, 田中貴金属]
+    require_context: true
+    editions: [zh-TW, en, ja]
+  - name: Proterial (原日立金屬)
+    role: producer
+    region: 日本
+    aliases: [Proterial, プロテリアル, 日立金屬, Hitachi Metals]
+    require_context: true
+    editions: [en, ja]
+
+  # ---------- 生產商:歐美 ----------
+  - name: Honeywell 電子材料
+    role: producer
+    region: 美國
+    ticker: HON
+    aliases: [Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合]
+    require_context: true
+    editions: [zh-TW, en]
+  - name: Materion
+    role: producer
+    region: 美國
+    ticker: MTRN
+    aliases: [Materion, 美題隆, 美题隆]
+    require_context: false
+    editions: [zh-TW, en]
+  - name: Plansee
+    role: producer
+    region: 奧地利
+    aliases: [Plansee, 普蘭西, 攀時]
+    require_context: false
+    editions: [en]
+  - name: Heraeus
+    role: producer
+    region: 德國
+    aliases: [Heraeus, 賀利氏, 贺利氏]
+    require_context: true
+    editions: [zh-TW, en]
+  - name: Umicore
+    role: producer
+    region: 比利時
+    aliases: [Umicore, 優美科, 优美科]
+    require_context: true
+    editions: [en]
+
+  # ---------- 生產商:中國大陸 ----------
+  - name: 江豐電子 (KFMI)
+    role: producer
+    region: 中國大陸
+    ticker: "300666.SZ"
+    aliases: [江豐電子, 江丰电子, Konfoong]
+    require_context: false
+    editions: [zh-TW, zh-CN]
+  - name: 有研新材 (GRINM)
+    role: producer
+    region: 中國大陸
+    ticker: "600206.SS"
+    aliases: [有研新材, 有研億金, 有研亿金, GRINM]
+    require_context: false
+    editions: [zh-CN]
+  - name: 阿石創 (Acetron)
+    role: producer
+    region: 中國大陸
+    ticker: "300706.SZ"
+    aliases: [阿石創, 阿石创]
+    require_context: false
+    editions: [zh-CN]
+  - name: 隆華科技
+    role: producer
+    region: 中國大陸
+    ticker: "300263.SZ"
+    aliases: [隆華科技, 隆华科技]
+    require_context: true
+    editions: [zh-CN]
+  - name: 先導稀材 (Vital Materials)
+    role: producer
+    region: 中國大陸
+    aliases: [先導稀材, 先导稀材, 先導薄膜, 先导薄膜, Vital Materials]
+    require_context: false
+    editions: [zh-CN, en]
+  - name: 歐萊新材
+    role: producer
+    region: 中國大陸
+    ticker: "688530.SS"
+    aliases: [歐萊新材, 欧莱新材]
+    require_context: false
+    editions: [zh-CN]
+
+  # ---------- 生產商:台灣 ----------
+  - name: 光洋科 (Solar Applied Materials)
+    role: producer
+    region: 台灣
+    ticker: "1785"
+    aliases: [光洋科, 光洋應用材料, Solar Applied Materials]
+    require_context: false
+    editions: [zh-TW, en]
+  - name: 鑫科材料 (Thintech)
+    role: producer
+    region: 台灣
+    ticker: "3663"
+    aliases: [鑫科材料, 鑫科, Thintech Materials]
+    require_context: true
+    editions: [zh-TW]
+
+  # ---------- 銷售商 / 代理商 ----------
+  - name: Kurt J. Lesker
+    role: distributor
+    region: 美國
+    aliases: [Kurt J. Lesker]
+    require_context: false
+    editions: [en]
+  - name: Stanford Advanced Materials
+    role: distributor
+    region: 美國
+    aliases: [Stanford Advanced Materials]
+    require_context: false
+    editions: [en]
+  - name: American Elements
+    role: distributor
+    region: 美國
+    aliases: [American Elements]
+    require_context: true
+    editions: [en]
+  - name: Angstrom Sciences
+    role: distributor
+    region: 美國
+    aliases: [Angstrom Sciences]
+    require_context: false
+    editions: [en]
+  - name: Testbourne
+    role: distributor
+    region: 英國
+    aliases: [Testbourne]
+    require_context: false
+    editions: [en]
+
+  # ---------- 產業主題(不限公司) ----------
+  - name: 產業綜合:濺鍍靶材
+    role: topic
+    region: 全球
+    aliases: [濺鍍靶材, 半導體靶材, 靶材 擴產]
+    editions: [zh-TW]
+  - name: 產業綜合:溅射靶材
+    role: topic
+    region: 全球
+    aliases: [溅射靶材, 半导体靶材, 靶材 国产化]
+    editions: [zh-CN]
+  - name: 產業綜合:Sputtering Target
+    role: topic
+    region: 全球
+    aliases: [sputtering target, sputtering targets market, ITO target]
+    editions: [en]
+  - name: 產業綜合:スパッタリングターゲット
+    role: topic
+    region: 全球
+    aliases: [スパッタリングターゲット]
+    editions: [ja]
