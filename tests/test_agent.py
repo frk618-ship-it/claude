@@ -234,3 +234,59 @@ def test_notion_setup_and_sync_cli(tmp_path, monkeypatch, config):
     monkeypatch.setenv("NOTION_DATABASE_ID", "db-123")
     assert main(["notion-sync", "--reports-dir", str(tmp_path)]) == 0
     assert sum(1 for m, p, b in fake.calls if p == "/pages") == len(items)
+
+
+def test_build_site_from_reports(tmp_path, config):
+    from target_news_agent.site import build_site, item_kind
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    for date, subset in (("2026-10-12", items[:1]), ("2026-10-13", items)):
+        data = {"generated": f"{date}T08:30:00+08:00", "days": 3, "digest": {}, "items": [i.to_dict() for i in subset]}
+        (reports / f"{date}.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        (reports / f"{date}.md").write_text("# report", encoding="utf-8")
+    (reports / "notes.json").write_text("{}", encoding="utf-8")  # not a dated report; ignored
+
+    out = tmp_path / "site" / "news"
+    build_site(reports, out, config)
+
+    index = (out / "index.html").read_text(encoding="utf-8")
+    assert index == (out / "2026-10-13.html").read_text(encoding="utf-8")
+    assert (out / "2026-10-12.html").exists()
+    assert (out / "data" / "2026-10-13.json").exists() and (out / "data" / "2026-10-13.md").exists()
+    assert index.count('class="item') >= len(items)
+    assert "Spokane" in index and 'href="2026-10-12.html"' in index
+    assert "Solstice" in index and "生產商 · 台灣" in index
+    assert "<script>alert" not in index
+
+    assert item_kind({"title": "1785 光洋科 - 心得 - 股市爆料同學會", "source": "CMoney"}) == "forum"
+    assert item_kind({"title": "欧莱新材(688530):募集说明书", "source": "中财网"}) == "filing"
+    assert item_kind({"title": "江丰电子10月12日主力资金净卖出", "source": "证券之星"}) == "market"
+    assert item_kind({"title": "Copper Sputtering Target Market report", "source": "x", "entities": ["產業綜合:Sputtering Target"]}) == "research"
+    assert item_kind({"title": "有研新材前三季度营收84.62亿元", "source": "观点网"}) == "news"
+
+
+def test_site_escapes_untrusted_titles(tmp_path, config):
+    from target_news_agent.site import build_site
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    evil = {"title": '<script>alert(1)</script>"', "link": 'https://x.test/"onmouseover="a', "source": "<b>", "published": "2026-10-13T00:00:00+00:00",
+            "entities": ["光洋科 (Solar Applied Materials)"], "categories": [], "score": 1, "id": "x"}
+    (reports / "2026-10-13.json").write_text(json.dumps({"items": [evil]}), encoding="utf-8")
+    build_site(reports, tmp_path / "out", config)
+    page = (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+    assert "<script>alert(1)" not in page and "&lt;script&gt;alert(1)" in page
+    assert 'href="https://x.test/&quot;onmouseover=&quot;a"' in page
+
+
+def test_site_drops_non_http_links(tmp_path, config):
+    from target_news_agent.site import build_site
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    item = {"title": "bad link", "link": "javascript:alert(1)", "source": "x", "published": None, "entities": ["光洋科"], "id": "y"}
+    (reports / "2026-10-13.json").write_text(json.dumps({"items": [item]}), encoding="utf-8")
+    build_site(reports, tmp_path / "out", config)
+    assert "javascript:" not in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")

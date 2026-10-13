@@ -16,6 +16,7 @@ from .config import load_config
 from .models import NewsItem
 from .processing import process
 from .report import write_reports
+from .site import build_site
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
 from .summarizer import Digest, Summarizer, llm_available
@@ -41,6 +42,11 @@ def main(argv: list[str] | None = None) -> int:
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
 
+    st = sub.add_parser("site", help="由 reports/ 的報告 JSON 產生靜態網站(GitHub Pages 用)")
+    st.add_argument("-c", "--config", default="config/watchlist.yaml")
+    st.add_argument("-i", "--reports-dir", default="reports")
+    st.add_argument("-o", "--out", default="site/news")
+
     ns = sub.add_parser("notion-sync", help="把報告 JSON 的新聞寫入 Notion 資料庫(需 NOTION_TOKEN、NOTION_DATABASE_ID)")
     ns.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
     ns.add_argument("--reports-dir", default="reports")
@@ -65,6 +71,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "queries":
         for url in iter_feed_urls(config):
             print(url)
+        return 0
+
+    if args.command == "site":
+        written = build_site(args.reports_dir, args.out, config)
+        print(f"{len(written)} pages -> {args.out}")
         return 0
 
     if args.days:

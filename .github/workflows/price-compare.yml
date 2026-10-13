@@ -59,7 +59,9 @@ jobs:
       - name: Build site
         env:
           NEW_QUERY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/price-compare.yml
-        run: python -m price_compare site -i reports/prices -o site --new-query-url "$NEW_QUERY_URL"
+        run: |
+          python -m price_compare site -i reports/prices -o site --new-query-url "$NEW_QUERY_URL"
+          python -m target_news_agent site -i reports -o site/news   # 靶材新聞也在同一個 Pages 網站
 
       - uses: actions/configure-pages@v5
 

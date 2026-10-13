@@ -58,6 +58,15 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 `.github/workflows/target-news.yml` 每天台北時間 08:23 執行,並把報告與已讀紀錄 commit 回 repo。也可在 Actions 頁面手動觸發並指定天數。若要啟用 Claude 摘要,請在 repo 的 *Settings → Secrets and variables → Actions* 新增 `ANTHROPIC_API_KEY`。(排程只會在預設分支上執行。)
 
+### 新聞網站(GitHub Pages)
+
+每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁是最新一期(本期總結、重點新聞、可依類型與公司篩選的全部新聞、追蹤清單),並保留歷次報告與原始 MD / JSON 下載。
+
+- 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄是物料比價網站)。GitHub Pages 一個 repo 只有一個網站,所以兩個 workflow 都會建置**完整網站**再發布,不會互相覆蓋。
+- 每則新聞會自動標上類型(新聞、公司公告、行情數據、論壇與自媒體、市場報告、資料頁),方便略過雜訊。
+- 本機預覽:`python -m target_news_agent site -o site/news`,再開 `site/news/index.html`。
+- 啟用方式同比價網站:*Settings → Pages → Source* 選 **GitHub Actions**。網站是公開的。
+
 ### 同步到 Notion(選用)
 
 每則新聞會成為 Notion 資料庫的一列,欄位有:標題、日期、公司、類別、來源、語系、重要度、分數、摘要、連結、ID。可以在 Notion 依公司、類別、日期篩選、排序或做看板。已在資料庫中的新聞(依 ID 判斷)不會重複新增。

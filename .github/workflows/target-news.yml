@@ -13,6 +13,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: target-news
@@ -49,6 +51,31 @@ jobs:
           git diff --cached --quiet || git commit -m "news: 靶材產業新聞 $(TZ=Asia/Taipei date +%F)"
           git push
 
+      # GitHub Pages 只有一個網站:物料比價在根目錄、靶材新聞在 /news/,兩個 workflow 都建置完整網站再發布
+      - name: Build site
+        env:
+          NEW_QUERY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/price-compare.yml
+        run: |
+          python -m price_compare site -i reports/prices -o site --new-query-url "$NEW_QUERY_URL"
+          python -m target_news_agent site -i reports -o site/news
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
       - name: Sync to Notion
         if: env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != ''
+        continue-on-error: true   # Notion 失敗只顯示警告,不擋網站發布;可之後手動重跑 notion-sync
         run: python -m target_news_agent -v notion-sync
+
+  deploy:
+    needs: collect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
