@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-13T22:48:22.998223+08:00",
+  "generated": "2026-10-13T22:56:44.993143+08:00",
   "days": 3,
   "digest": {
     "overview": "",
@@ -784,280 +784,175 @@
   ],
   "papers": [
     {
-      "id": "p-5c8e2a01158a9dbe",
-      "title": "A Rapid and Uniform Magnetization Method for Fe 3 O 4 Nanoparticles Assisted by Rotating Magnetic Fields for Microrobots",
-      "link": "https://doi.org/10.1002/smtd.71102",
+      "id": "p-ef145b1630cbe27c",
+      "title": "A Novel Low–Temperature One–Step Method for Recycling and Resource Utilization of Spent ITO Targets",
+      "link": "https://doi.org/10.3390/pr14203252",
       "published": "2026-10-10T00:00:00+00:00",
-      "venue": "Small Methods",
+      "venue": "Processes",
       "authors": [
-        "Teng Shen",
-        "Tingting Lin",
-        "陈开鑫 Chen Kaixin",
-        "Jianbo Ren",
-        "Shaonan Zhang",
-        "Zidong Chen",
-        "Lu Chen",
-        "Qindan Zhang",
-        "Chaozhan Chen",
-        "Jianhui Zhang"
+        "Wenjie Xu",
+        "Wenlong Jiang",
+        "Dachun Liu",
+        "Xiumin Chen"
       ],
-      "abstract": "ABSTRACT Micro/nanorobots have garnered significant attention due to their potential applications in biomedical fields such as minimally invasive surgery, targeted drug delivery, and cell manipulation. Magnetic field actuation, as a non‐invasive and highly biocompatible driving method, has become a research hotspot. However, traditional magnetic functionalization methods like magnetron sputtering suffer from complex processes, high costs, and poor biocompatibility. Meanwhile, the mixture method combining magnetic particles with photoresist is constrained by particle dispersion and molding quality. To address these challenges, this study developed a low‐cost, rapid, efficient, uniform, and stable magnetic coating method for Fe 3 O 4 nanoparticles. This technique utilizes a rotating magnetic field to rapidly transport and concentrate Fe 3 O 4 nanoparticles around the photoresist microstructure, where the kinetic energy imparted by the magnetic field forcefully overcomes interfacial electrostatic repulsion, allowing strong van der Waals forces to drive their firm and uniform adhesion within 5 min. Systematic experiments demonstrate that this method exhibits outstanding performance in particle attachment uniformity, motion stability, durability, and biological environments. Its motion capabilities are comparable to those achieved by conventional magnetron sputtering, providing significant reference for the functional design and biomedical applications of magnetic micro/nanorobots.",
-      "doi": "10.1002/smtd.71102",
+      "abstract": "Hydrogen reduction of spent indium tin oxide (ITO) targets is a feasible route for indium recovery from electronic waste. However, conventional hydrogen–reduction processes face critical challenges: they operate above 1173 K, inducing severe indium volatilization through gaseous In2O formation and substantial energy consumption. They also require complex downstream separation, purification and alloying procedures to obtain usable indium–based materials. To address these drawbacks, this work develops a Sn–mediated strategy to fundamentally alter the reaction pathway, enabling one–step low–temperature conversion of spent ITO into value–added In52Sn48 alloy. The added metallic Sn transforms direct hydrogen reduction of ITO into a two–step cyclic reaction: Sn first reacts with ITO to form metallic In and SnO, and SnO is subsequently reduced back to Sn by H2. At the optimized Sn/ITO mass ratio of 0.69, the reaction temperature is reduced by 200 K and the holding time is reduced from 2 h to 1 h, effectively suppressing gaseous In2O formation and indium volatilization. Preliminary theoretical energy consumption assessment shows that the total energy consumption is reduced by 48.9%. The present route directly produces In–Sn alloy products, removing tedious downstream separation and purification steps inherent in conventional recovery processes. The proposed strategy is potentially scalable and offers a new direction for the resource utilization of spent ITO.",
+      "doi": "10.3390/pr14203252",
       "source": "OpenAlex",
       "topics": [
-        "其他靶材研究"
+        "高純化與雜質控制",
+        "陶瓷與氧化物靶",
+        "合金與複合靶",
+        "濺鍍行為與靶材利用率",
+        "回收與再利用"
       ],
       "summary": "",
       "importance": 0
     },
     {
-      "id": "p-b1b48376ba3f8315",
-      "title": "Influence of the Incidence Angle of Sputtered Particles on the Surface, Interface, and Magnetic Properties of Fe/Si Multilayers Deposited by DC Magnetron Sputtering Technique with Large-Area Rectangular-Target",
-      "link": "https://doi.org/10.1088/1674-1056/aeb240",
-      "published": "2026-10-09T00:00:00+00:00",
-      "venue": "Chinese Physics B",
-      "authors": [
-        "Simeng Xiang",
-        "Zhong Zhang",
-        "Fengrui Tang",
-        "Yibo Wang",
-        "WANG Zhanshan"
-      ],
-      "abstract": "Abstract Fe/Si multilayer are widely used in polarized-neutron applications because of their high theoretical polarization efficiency. Reducing interface roughness is critical for maintaining the polarization performance of Fe/Si multilayers. In this paper, the honeycomb mask was designed to limit large-angle incident particles during the large-area rectangular-target direct current magnetron sputtering for lower interface and surface roughness of Fe/Si multilayers. The surface and interface performance were charactered with grazing incidence X-ray reflectivity, X-ray diffuse scattering, atomic force microscope and optical profilometer (OP). Hysteresis loop was measured to characterize the magnetic properties. The Fe-on-Si/Si-on-Fe interface widths decreased from 0.79/0.58 nm to 0.53/0.45 nm according to fitted Grazing incidence X-ray reflectivity (GIXR) curves. The surface roughness was reduced from 0.29/0.67 nm RMS in AFM/OP to 0.16/0.39 nm. The Fe-on-Si/Si-on-Fe interface roughness decreased from 0.71/0.50 nm to 0.47/0.40 nm according to fitted X-ray diffuse scattering (XRS) curves. The coercivity decreased from 50 Oe to 25 Oe in hysteresis loop results. These results indicate that limiting large-angle incident particles can reduce the coercivity by improving the interface and surface quality without changing the crystallite size These results indicate that limiting large-angle incident particles can reduce the coercivity by improving the interface and surface quality without changing the crystallite size",
-      "doi": "10.1088/1674-1056/aeb240",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-bd6408f0ecf87e39",
-      "title": "Thermoelectric Power Factor of BiCuSeO Thin Film Fabricated by Two-Step Reactive Magnetron Co-sputtering Technique",
-      "link": "https://doi.org/10.1021/acsaem.6c02985",
-      "published": "2026-10-08T00:00:00+00:00",
-      "venue": "ACS Applied Energy Materials",
-      "authors": [
-        "Ponmudi Bhagyashree",
-        "Badhirappan Geetha Priyadarshini"
-      ],
-      "abstract": "Abstract Bismuth copper oxyselenide (BiCuSeO) is a highly promising p-type thermoelectric (TE) material due to its intrinsically layered structural property. However, conventional thin-film fabrication methods, such as pulsed laser deposition and multi-step selenization, often struggle with industrial scalability, stoichiometric control, and phase purity. In this study, we report the successful fabrication of high-quality BiCuSeO thin films using a scalable, two-step reactive magnetron co-sputtering technique utilizing Bi2Se3 and Cu targets in an Ar/O2 atmosphere. Thin films subjected to vacuum annealing at 350 °C exhibited a highly crystalline tetragonal P4/nmm phase, as confirmed by X-ray diffraction and high-resolution transmission electron microscopy. X-ray photoelectron and Raman spectroscopies validated the expected chemical states and vibrational modes, while surface analysis revealed a dense, uniform, and crack-free morphology optimal for charge transport. TE evaluations up to 250 °C demonstrated a clear transition from n-type conduction in pristine Bi2Se3 to robust p-type transport in the quaternary films. By effectively decoupling the inverse relationship between electrical conductivity and the Seebeck coefficient, the BiCuSeO phase achieved a superior peak power factor of 1.71 mW m–1 K–2 at 250 °C. The power factor is approximately 1.5 folds higher than that of pristine Bi2Se3 and 3 folds higher than that of the intermediate BiSe–Cu films. Our findings establish reactive magnetron co-sputtering as a highly effective, industry-compatible platform for developing next-generation oxychalcogenide thin-film TE devices.",
-      "doi": "10.1021/acsaem.6c02985",
-      "source": "OpenAlex",
-      "topics": [
-        "塑性加工與晶粒織構"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-16bb13d3f64433ae",
-      "title": "FHiVI$^{2}$: A Fast High-Voltage approach for Ionisation Improvement in the context of plasma-assisted magnetron sputtering",
-      "link": "https://doi.org/10.48550/arxiv.2610.12020",
-      "published": "2026-10-08T00:00:00+00:00",
-      "venue": "arXiv (Cornell University)",
-      "authors": [
-        "Ronny Jean-marie-desiree",
-        "L. De Poucques",
-        "S. Cuynet"
-      ],
-      "abstract": "Ionisation control remains a key challenge in plasma-assisted processes and more particularly in magnetron sputtering. In this context, the former directly governs species transport and thin-film properties. Although HiPIMS substantially enhances the ionisation rate of sputtered species, its performance remains constrained by the coupling between sputtering and ionisation, which limits discharge tunability. Here, we introduce Fast High Voltage for Ionisation Improvement (FHiVI$^{2}$), a new transient electrical regime designed to improve the ionisation rate without requiring additional elements. By applying an ad hoc very short, high-voltage pulse during plasma sputtering processes, FHiVI$^{2}$ regime is expected to induce a strongly anisotropic electric-field burst intended to enhance sputtered metallic species ionisation while limiting back-attraction losses and sputtering. To assess the ionising potential of this regime, optical emission spectroscopy together with mass spectrometry were carried out. More particularly, mass spectrometry measurements show an improvement of the ionisation rate by a factor of 2.7 compared with the HiPIMS regime, for an applied voltage of 2 kV which correspond to an additional mean power of only 1.2 W, using a 2-inch tungsten target. These findings suggest that FHiVI$^{2}$ provides a flexible route towards improved ionisation control in magnetron sputtering and opens new perspectives for plasma-assisted processes.",
-      "doi": "10.48550/arxiv.2610.12020",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-fbdcbedcbedbe953",
-      "title": "Tantalum interlayer-engineered niobium-based bipolar plate materials with reduced Pt loading for durable PEM water electrolyzers",
-      "link": "https://doi.org/10.1016/j.electacta.2026.150162",
-      "published": "2026-10-05T00:00:00+00:00",
-      "venue": "Electrochimica Acta",
-      "authors": [
-        "Yasin Mehdizadeh Chellehbari",
-        "Mohammadhossein Johar",
-        "Leila Moradizadeh",
-        "Amirhossein Amirsoleymani",
-        "Xianguo Li",
-        "Samaneh Shahgaldi"
-      ],
-      "abstract": "The durability and electrical conductivity of metallic bipolar plates (BPPs) remain critical challenges for the large-scale deployment of proton exchange membrane (PEM) water electrolyzers (PEMWEs). In this study, niobium (Nb)-based substrates modified with tantalum (Ta)-platinum (Pt) multilayer coatings were investigated as corrosion-resistant and low-contact-resistance BPP materials under PEMWE conditions. Ta interlayers with controlled thicknesses were deposited by direct current magnetron sputtering, followed by a thin Pt top layer to stabilize interfacial conductivity and enhance durability. Electrochemical performance was evaluated using potentiodynamic polarization, chronoamperometry, and chronopotentiometry durability tests, as well as electrochemical impedance spectroscopy in simulated anodic PEMWE environments. The optimized Nb-Ta-Pt configuration exhibited corrosion current densities approaching the 2025 U.S. Department of Energy (DOE) target of +1.0 µA.cm -2 and maintained stable operation for 50-h at +2.0 A.cm -2 , outperforming reference BPP systems. Interfacial contact resistance measurements demonstrated a significant reduction compared to uncoated Nb, reaching values below 10.0 mΩ.cm 2 at a compaction pressure of 1.4 MPa, consistent with DOE performance benchmarks. These findings identify an optimal Ta thickness window that balances corrosion resistance, electrical performance, and coating efficiency. Overall, Nb–Ta–Pt multilayer coatings provide a promising strategy for durable, low-Pt BPP materials in PEMWE applications.",
-      "doi": "10.1016/j.electacta.2026.150162",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-4b7e2a30b9e70c9f",
-      "title": "Synthesis of boron-based films using ns and fs pulsed laser deposition",
-      "link": "https://doi.org/10.1016/j.apsusc.2026.168572",
-      "published": "2026-10-01T00:00:00+00:00",
-      "venue": "Applied Surface Science",
-      "authors": [
-        "D. Dellasega",
-        "Federico Gaspari",
-        "Alessandro Casali",
-        "D. Vavassori",
-        "Alessandro Maffini",
-        "Davide Orecchia",
-        "Pasquale Salvatore Formicola",
-        "Guglielmo Albani",
-        "M. Passoni"
-      ],
-      "abstract": "In this experimental study, we present nanosecond and femtosecond Pulsed Laser Deposition (ns-/fs-PLD) as effective methods to quickly produce micrometer-thick boron films with a morphology ranging from compact to porous nanoparticles assembled. The produced layers are characterized in terms of surface morphology, density, oxygen content, internal structure and surface chemical state. The ns regime produces compact, homogeneous and stable films in vacuum conditions. When a background Ar pressure is present, boron nanoparticles are formed and deposited in form of a film. Such film readily react with ambient air, forming boric acid that causes strong film degradation. Femtosecond PLD leads to the deposition of porous nanostructured films even in vacuum. The addition of a proper Ar pressure allows to further control the morphology, nanoparticles dimensions and growth regime, without affecting the stability of the films when exposed to ambient air. Surface XPS analysis highlights different kind of B-O bonds in the films produced with the two techniques that could determine the film stability. Short range crystalline order have been investigated by means of Raman spectroscopy showing how, differently from the ns-PLD boron films, the boron film produced by fs-PLD retains a \"crystalline memory\" of the starting target material.",
-      "doi": "10.1016/j.apsusc.2026.168572",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-69b8c5d58dc445a1",
-      "title": "Exploring wetting and optical properties of CuAg alloys via surface texture morphology analysis",
-      "link": "https://doi.org/10.1016/j.apsusc.2026.168538",
+      "id": "p-e60ef8f669cde706",
+      "title": "Hydrothermally assisted sintering of calcium hydroxide sputtering targets: a route to quantum-grade CaO thin films",
+      "link": "https://doi.org/10.1007/s10853-026-13788-4",
       "published": "2026-09-29T00:00:00+00:00",
-      "venue": "Applied Surface Science",
+      "venue": "Journal of Materials Science",
       "authors": [
-        "Krzysztof Wieczerzak",
-        "Grzegorz Cios",
-        "Piotr Bala",
-        "Johann Michler",
-        "Benedykt R. Jany"
+        "Jake A. DeChiara",
+        "Tainara Coutinho",
+        "Alexandru H. Marin",
+        "Saeed S. I. Almishal",
+        "Jon-Paul Maria"
       ],
-      "abstract": "Copper–silver (CuAg) alloys are increasingly explored for applications in high-performance electrical and electronic systems, owing to their unique combination of high electrical and thermal conductivity and enhanced mechanical strength. Nevertheless, a thorough understanding of how these alloys surface characteristics influence properties remains largely underdeveloped. Here, we explored the complex interplay between surface texture morphology, layer composition, wetting, and optical properties of Cu, Ag, and CuAg thin films deposited on textured silicon substrates via magnetron sputtering. Employing data mining and machine learning techniques, we identified correlations between contact angle and surface fractal dimension across all layer types promoting Cassie-Baxter surface state formation. Our analysis revealed a connection between layer thickness and surface topography entropy deficit, suggesting a dynamic evolution of surface order/disorder during metal film growth. Furthermore, we observed that contact angle sensitivity to layer thickness implied correlation with microstructure evolution. Through K-Means clustering, we successfully categorized the formed surface textures morphology. Finally, a Random Forest regression model was developed to predict water contact angles (Mean Absolute Error around 5 deg) using only texture and optical parameters. The model, along with Python code, is publicly available. Our findings establish pathway towards targeted surface texture morphology engineering for tailored material performance.",
-      "doi": "10.1016/j.apsusc.2026.168538",
+      "abstract": "Abstract In this report, we demonstrate dense polycrystalline calcium hydroxide ceramics fabricated by hydrothermally assisted sintering—often referred to as cold sintering—to produce high-purity calcium hydroxide targets for calcium oxide thin film deposition. Calcium hydroxide ceramics exhibit up to 98% relative density without thermal dehydration when sintered at temperatures between 100 and 300 °C with 400 MPa applied uniaxial pressure for 1 hour. The brucite phase is preserved in calcium hydroxide targets sintered at all temperatures. Small equivalent fractions of calcium carbonate are present in both the calcium hydroxide precursor powder and final targets suggesting minimal additional carbonate production during formation and densification. Microstructure evolution during densification is documented by scanning electron microscopy (SEM), indicating both mass transport and plastic deformation densification mechanisms. The hydrothermal-assisted sintering process is scaled up to produce 2-inch-diameter calcium hydroxide targets suitable for sputter deposition. We also report epitaxial calcium oxide film deposition from these targets on r -plane sapphire substrates. (002)-oriented epitaxial films are achieved with a time-stable deposition rate of 1.2 nm per minute. We note that energetic bombardment during growth can be substantial, necessitating an off-axis sputter cathode geometry.",
+      "doi": "10.1007/s10853-026-13788-4",
       "source": "OpenAlex",
       "topics": [
+        "粉末冶金與燒結",
         "塑性加工與晶粒織構",
-        "合金與複合靶"
+        "高純化與雜質控制",
+        "濺鍍行為與靶材利用率"
       ],
       "summary": "",
       "importance": 0
     },
     {
-      "id": "p-a5038594aaf57092",
-      "title": "Optical Properties of Tantalum Doped Zinc Oxide Thin Films Prepared by DC Plasma Sputtering",
-      "link": "https://doi.org/10.2025/g2qwva62",
-      "published": "2026-09-29T00:00:00+00:00",
-      "venue": "Iraqi Journal of Applied Physics",
-      "authors": [
-        "Bushra E. Abdullah",
-        "Hanaa E. Jasim"
-      ],
-      "abstract": "In this study, a thin film of tantalum doped zinc oxide (ZnO:Ta) with a thickness of 50 nm was deposited on a glass substrate using dc plasma sputtering under on argon atmosphere, at a room temperature and with a target-to-substrate distance of 5 cm. Two films were prepared at different sputtering powers: the first at 70W and the second at 80W while keeping the deposition time constant at 5 minutes. The aim of this research was to evaluate the effect of plasma parameters on the optical properties of the deposited films. The results showed that the film deposited at 80W exhibited the highest absorbance, while its transmittance was lower compared to the film deposited at 70W. Furthermore, the reflectance of the prepared films demonstrated a sharp decrease in the 80W sample showing the lowest reflectance among the studied conditions.",
-      "doi": "10.2025/g2qwva62",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-54ae4de23ae51ad4",
-      "title": "Synergistic effects of bulk selenization and interface tailoring on the performance of CuGaSe 2 solar cells",
-      "link": "https://doi.org/10.1088/2515-7655/aeadcd",
-      "published": "2026-09-29T00:00:00+00:00",
-      "venue": "Journal of Physics Energy",
-      "authors": [
-        "Michele Casappa",
-        "Matteo Bronzoni",
-        "Francesco Pattini",
-        "Diego Colombara",
-        "E. Gombia",
-        "Giovanna Sozzi",
-        "Giulia Spaggiari",
-        "Stefano Rampino"
-      ],
-      "abstract": "Abstract With its wide-bandgap, CuGaSe 2 (CGS) is a prime candidate for top-cell junctions in tandem photovoltaics; yet its performance is severely limited by an open-circuit voltage deficit driven by native bulk defects and sub-optimal heterointerfaces. This study highlights that overcoming the intrinsic limitations of CGS-based solar cells requires a synergistic approach coupling bulk defect mitigation with precise interface engineering. Here, a novel in-situ protocol using pulsed electron deposition—a physical vapor deposition technique based on high-energy electron beam ablation of a target—is established, integrating growth and selenization to heal native selenium vacancies, yielding stoichiometric CGS absorbers with improved crystallinity. To address interfacial losses, we investigate a tunable hybrid CdS/Zn 1− x Sn x O (ZTO) buffer layer, revealing a strict physical trade-off governing electrostatic integrity. Whereas a thick CdS baseline guarantees robust passivation and prevents leakage, yielding a power conversion efficiency of 3.75% and a V oc of 705 mV, it also introduces short-wavelength parasitic absorption. Conversely, the complete elimination of the CdS layer causes a severe electrical degradation, collapsing the V OC to 335 mV. Advanced electrical characterizations are consistent with sputter-induced irreversible damage occurring during ZTO deposition as the origin of this failure: the unpassivated interface shrinks the depletion width from 550 nm to 300 nm and introduces a dense continuum of shallow interfacial traps (160–190 MeV) that completely overwhelms the intrinsic bulk defect response (320 MeV). Ultimately, we show that systematically thinning the CdS film effectively mitigates parasitic absorption to maximize the short-circuit current, while revealing that even an ultra-thin CdS layer acts as a critical physical shield against sputter damage, successfully recovering the fill factor. These findings prove that high-efficiency, Cd-reduced CGS solar cells demand a carefully balanced hybrid architecture to ensure conformal coverage and preserve a passivated heterojunction.",
-      "doi": "10.1088/2515-7655/aeadcd",
-      "source": "OpenAlex",
-      "topics": [
-        "其他靶材研究"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-46cccb23c185535f",
-      "title": "Machine learning assisted design of complex and high entropy alloys by hybrid HiPIMS/pulsed-DC PVD process for low carbon energy applications in extreme environments",
-      "link": "https://doi.org/10.1016/j.vacuum.2026.115852",
-      "published": "2026-09-28T00:00:00+00:00",
-      "venue": "Vacuum",
-      "authors": [
-        "Paul Foulquier",
-        "Ryma Haddad",
-        "Ali Mahmoud",
-        "Eric Monsifrot",
-        "Fanny Balbaud-Celerier",
-        "Jean-Philippe Poli",
-        "Frédéric Schuster"
-      ],
-      "abstract": "Complex and high entropy alloys are attracting much attention currently thanks to their mechanical and corrosion resistance properties in harsh environments, in particular needed for carbon-free energy applications. However, their elaboration in bulk and in thin film form in a trial-and-error approach is impractical due to their complexity and the cocktail effect. The recent development of artificial intelligence brings a new possibility for their elaboration and adjustment of their properties. Firstly, we present an overview of Materials and data science research. Then we describe how DIADEM tackles the development of innovative coatings for carbon-free energy applications (nuclear, …) thanks to the development of a nationwide network of synthesis and characterization platforms. We describe in particular DIADEM-2D, an AI-driven Hybrid HiPIMS/Pulsed-DC PVD process using 4 cathodes in confocal combinatorial configuration. We present the chemical-system selection for high entropy alloy coatings using literature and experimental data on corrosion resistance in molten salt media and nuclear accidental conditions. A descriptor-based, element-agnostic machine learning framework linking deposition parameters and coating composition has been implemented, enabling prediction of the process parameters required to reach a target composition. We demonstrate the feasibility and accuracy of this strategy, and we discuss its current scope and limitations.",
-      "doi": "10.1016/j.vacuum.2026.115852",
-      "source": "OpenAlex",
-      "topics": [
-        "合金與複合靶"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-bec1e985242a0889",
-      "title": "Decision letter for \"Enhanced Electrical Performance and Light Illumination Stability in a-IGZO Thin Film Transistors by RF Magnetron Co-Sputtering of InGaO and ZnO Targets\"",
-      "link": "https://doi.org/10.1039/d6tc02830f/v2/decision1",
+      "id": "p-effc18c7b79f9408",
+      "title": "Synthesis of Perovskite-Structured SrTiO3 via the Pechini Method and Deposition of Thin Film by RF Magnetron Sputtering: Structural and Photovoltaic Characterization",
+      "link": "https://doi.org/10.3390/coatings16091112",
       "published": "2026-09-18T00:00:00+00:00",
-      "venue": "",
-      "authors": [],
-      "abstract": "",
-      "doi": "10.1039/d6tc02830f/v2/decision1",
-      "source": "OpenAlex",
-      "topics": [
-        "陶瓷與氧化物靶"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-59a3a3ba0f3b5e59",
-      "title": "Review for \"Enhanced Electrical Performance and Light Illumination Stability in a-IGZO Thin Film Transistors by RF Magnetron Co-Sputtering of InGaO and ZnO Targets\"",
-      "link": "https://doi.org/10.1039/d6tc02830f/v2/review1",
-      "published": "2026-09-16T00:00:00+00:00",
-      "venue": "",
-      "authors": [],
-      "abstract": "",
-      "doi": "10.1039/d6tc02830f/v2/review1",
-      "source": "OpenAlex",
-      "topics": [
-        "陶瓷與氧化物靶"
-      ],
-      "summary": "",
-      "importance": 0
-    },
-    {
-      "id": "p-74ba61504ebffa5d",
-      "title": "Author response for \"Enhanced Electrical Performance and Light Illumination Stability in a-IGZO Thin Film Transistors by RF Magnetron Co-Sputtering of InGaO and ZnO Targets\"",
-      "link": "https://doi.org/10.1039/d6tc02830f/v2/response1",
-      "published": "2026-09-14T00:00:00+00:00",
-      "venue": "",
+      "venue": "Coatings",
       "authors": [
-        "Ibrahim Abduqadir",
-        "Ablat Abliz"
+        "Mariele Noemi da Silva Diaz",
+        "Andressa dos Santos",
+        "Luciano Cardoso Dias",
+        "Maurício Mazur",
+        "Fernanda Barbieri",
+        "Karina Midori Endo",
+        "Lais Conservan Nogueira",
+        "V. F. Freitas",
+        "José Antonio Eiras",
+        "Ivair  Aparecido dos Santos",
+        "Ricardo Yoshimitsu Miyahara"
       ],
-      "abstract": "",
-      "doi": "10.1039/d6tc02830f/v2/response1",
+      "abstract": "Strontium titanate (SrTiO3) is a stable, non-toxic perovskite oxide that has attracted interest for photovoltaic and optoelectronic applications, including third-generation photovoltaic devices. However, the production of ceramic targets with suitable density and microstructure for sputtering deposition remains a technological challenge. This study investigates a processing route for SrTiO3 ceramic targets and their application in thin-film heterostructures. SrTiO3 powders were synthesized by the Pechini method and densified by Spark Plasma Sintering (SPS), followed by deposition by RF Magnetron Sputtering of thin films. Structural and morphological analyses confirmed the formation of predominantly cubic SrTiO3 and the densified microstructure of the ceramic target. The optical band gap of the films, determined using the Tauc method for an indirect transition, was 3.42 eV for the as-deposited film and 3.35 eV after annealing. The resulting FTO/SrTiO3/CdTe/CdCl2/Au heterostructure exhibited a measurable photoelectric response, with localized photovoltage reaching approximately 400 mV, and photovoltaic parameters of Jsc = 4.32 μA/cm2, Voc = 9.75 mV, and FF = 21.4%. These findings demonstrate the feasibility of the proposed processing route for producing SrTiO3 thin films and their integration into photoactive heterostructures.",
+      "doi": "10.3390/coatings16091112",
       "source": "OpenAlex",
       "topics": [
+        "粉末冶金與燒結",
+        "塑性加工與晶粒織構",
         "陶瓷與氧化物靶"
+      ],
+      "summary": "",
+      "importance": 0
+    },
+    {
+      "id": "p-1df3edfe6e94cfc4",
+      "title": "Role of Hot Isostatic Pressing Temperature in Achieving Compositional Uniformity of Ni-Ti Alloyed Molybdenum Targets",
+      "link": "https://doi.org/10.1007/s11665-026-15130-0",
+      "published": "2026-09-17T00:00:00+00:00",
+      "venue": "Journal of Materials Engineering and Performance",
+      "authors": [
+        "Zhanfang Wu",
+        "Peixin Tang",
+        "Guirong Liu",
+        "Xiangyang Li"
+      ],
+      "abstract": "",
+      "doi": "10.1007/s11665-026-15130-0",
+      "source": "OpenAlex",
+      "topics": [
+        "粉末冶金與燒結",
+        "合金與複合靶"
+      ],
+      "summary": "",
+      "importance": 0
+    },
+    {
+      "id": "p-f6929192357036eb",
+      "title": "Microstructure, thermal performance, and hydrogen diffusion of magnetron-sputtered Ta–Ti binary films on cu substrate for AB-BNCT targets",
+      "link": "https://doi.org/10.1016/j.nimb.2026.166317",
+      "published": "2026-09-16T00:00:00+00:00",
+      "venue": "Nuclear Instruments and Methods in Physics Research Section B Beam Interactions with Materials and Atoms",
+      "authors": [
+        "Fanxi Zhang",
+        "Yaru Wang",
+        "Chen Chen",
+        "Shixi Chen",
+        "Yaocheng Hu",
+        "Yupeng Xie",
+        "Sheng Wang"
+      ],
+      "abstract": "",
+      "doi": "10.1016/j.nimb.2026.166317",
+      "source": "OpenAlex",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0
+    },
+    {
+      "id": "p-8629018ea63a7f2b",
+      "title": "High-vacuum fabrication and characterization of thin Ba targets for nuclear reaction and spectroscopic studies",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0042207X26007347?dgcid=rss_sd_all",
+      "published": null,
+      "venue": "Vacuum",
+      "authors": [],
+      "abstract": "Publication date: January 2027 Source: Vacuum, Volume 255 Author(s): D. Kumar, S. Pal, N. Kamble, R. Turbhekar, S. Pal, V. Nanal, R. Palit",
+      "doi": "",
+      "source": "Vacuum",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0
+    },
+    {
+      "id": "p-b4c973c55a5635de",
+      "title": "Laboratory-scale dual-pulse laser-produced plasma extreme ultraviolet source with continuous target replenishment using a tin-coated rotating disk",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0042207X26007499?dgcid=rss_sd_all",
+      "published": null,
+      "venue": "Vacuum",
+      "authors": [],
+      "abstract": "Publication date: January 2027 Source: Vacuum, Volume 255 Author(s): Do-Yeon Hwang, Wooram Kim, Seunghwoi Han, Eun-Seok Choe, Young-Gi Kim, Hyeok Yun, Seong-Pil Jo, Won Chegal, Sang-Woo Kang, Seungil Park, Hyo-Chang Lee, Jung-Hyung Kim",
+      "doi": "",
+      "source": "Vacuum",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0
+    },
+    {
+      "id": "p-bea4357730d42a50",
+      "title": "Fabrication of 120 Sn target with Indium interlayer",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0042207X26007323?dgcid=rss_sd_all",
+      "published": null,
+      "venue": "Vacuum",
+      "authors": [],
+      "abstract": "Publication date: January 2027 Source: Vacuum, Volume 255 Author(s): Ishika Sharma, M. Anser, Amit Kumar, H.P. Sharma, Suresh Kumar, S.K. Saini, K.S. Golda",
+      "doi": "",
+      "source": "Vacuum",
+      "topics": [
+        "其他靶材研究"
       ],
       "summary": "",
       "importance": 0
