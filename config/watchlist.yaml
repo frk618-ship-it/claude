@@ -5,7 +5,7 @@
 #   role            producer(生產商) / distributor(銷售商、代理商) / topic(產業主題,不屬特定公司)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
-#   aliases         用來搜尋與比對新聞的名稱(中英日皆可)
+#   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
 #   require_context true = 公司業務範圍廣(例如 Honeywell、三菱綜合材料),
 #                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
@@ -28,7 +28,7 @@ settings:
     ko:    {hl: ko,    gl: KR, ceid: "KR:ko"}
 
   # 寬業務公司(require_context)搜尋時附加的字詞,保持精簡以免查詢過長
-  query_context_terms: [靶材, 濺鍍, 溅射, sputtering, スパッタリング]
+  query_context_terms: [靶材, 濺鍍, 溅射, sputtering, スパッタリング, 스퍼터링]
 
   # 本地過濾用:判斷「與靶材相關」的字詞(require_context 的公司必須命中其一)
   context_terms:
@@ -70,9 +70,9 @@ entities:
     role: producer
     region: 日本
     ticker: "5016.T"
-    aliases: [JX金屬, JX金属, JX Advanced Metals, JX Nippon Mining]
+    aliases: [JX金屬, JX金属, JX Advanced Metals, JX Nippon Mining, JX금속]
     require_context: false
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: 東曹 (Tosoh)
     role: producer
     region: 日本
@@ -91,9 +91,9 @@ entities:
     role: producer
     region: 日本
     ticker: "5711.T"
-    aliases: [三菱綜合材料, 三菱综合材料, Mitsubishi Materials, 三菱マテリアル]
+    aliases: [三菱綜合材料, 三菱综合材料, Mitsubishi Materials, 三菱マテリアル, 미쓰비시머티리얼]
     require_context: true
-    editions: [en, ja]
+    editions: [en, ja, ko]
   - name: 住友金屬礦山 (Sumitomo Metal Mining)
     role: producer
     region: 日本
@@ -105,9 +105,9 @@ entities:
     role: producer
     region: 日本
     ticker: "6728.T"
-    aliases: [愛發科, 爱发科, ULVAC, アルバック]
+    aliases: [愛發科, 爱发科, ULVAC, アルバック, 울박]
     require_context: true
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: 古屋金屬 (Furuya Metal)
     role: producer
     region: 日本
@@ -118,9 +118,9 @@ entities:
   - name: 田中貴金屬 (Tanaka Precious Metals)
     role: producer
     region: 日本
-    aliases: [田中貴金屬, 田中贵金属, Tanaka Precious Metal, TANAKA Kikinzoku, 田中貴金属]
+    aliases: [田中貴金屬, 田中贵金属, Tanaka Precious Metal, TANAKA Kikinzoku, 田中貴金属, 다나카귀금속]
     require_context: true
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: Proterial (原日立金屬)
     role: producer
     region: 日本
@@ -133,16 +133,16 @@ entities:
     role: producer
     region: 美國
     ticker: HON
-    aliases: [Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合]
+    aliases: [Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合, 하니웰]
     require_context: true
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Materion
     role: producer
     region: 美國
     ticker: MTRN
-    aliases: [Materion, 美題隆, 美题隆]
+    aliases: [Materion, 美題隆, 美题隆, 머티리온]
     require_context: false
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Plansee
     role: producer
     region: 奧地利
@@ -152,15 +152,15 @@ entities:
   - name: Heraeus
     role: producer
     region: 德國
-    aliases: [Heraeus, 賀利氏, 贺利氏]
+    aliases: [Heraeus, 賀利氏, 贺利氏, 헤레우스]
     require_context: true
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Umicore
     role: producer
     region: 比利時
-    aliases: [Umicore, 優美科, 优美科]
+    aliases: [Umicore, 優美科, 优美科, 유미코아]
     require_context: true
-    editions: [en]
+    editions: [en, ko]
 
   # ---------- 生產商:中國大陸 ----------
   - name: 江豐電子 (KFMI)
@@ -274,3 +274,8 @@ entities:
     region: 全球
     aliases: [スパッタリングターゲット]
     editions: [ja]
+  - name: 產業綜合:스퍼터링 타겟
+    role: topic
+    region: 全球
+    aliases: [스퍼터링 타겟, 스퍼터링 타깃]
+    editions: [ko]

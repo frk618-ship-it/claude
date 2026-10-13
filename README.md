@@ -30,7 +30,7 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 生產商-中國大陸 | 江豐電子、有研新材、阿石創、隆華科技、先導稀材、歐萊新材 |
 | 生產商-台灣 | 光洋科、鑫科材料 |
 | 銷售商 | Kurt J. Lesker、Stanford Advanced Materials、American Elements、Angstrom Sciences、Testbourne |
-| 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット |
+| 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟 |
 
 清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。
 
