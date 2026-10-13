@@ -62,10 +62,11 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁是最新一期(本期總結、重點新聞、可依類型與公司篩選的全部新聞、追蹤清單),並保留歷次報告與原始 MD / JSON 下載。
 
-- 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄是物料比價網站)。GitHub Pages 一個 repo 只有一個網站,所以兩個 workflow 都會建置**完整網站**再發布,不會互相覆蓋。
+- 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
+- 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。
 - 每則新聞會自動標上類型(新聞、公司公告、行情數據、論壇與自媒體、市場報告、資料頁),方便略過雜訊。
 - 本機預覽:`python -m target_news_agent site -o site/news`,再開 `site/news/index.html`。
-- 啟用方式同比價網站:*Settings → Pages → Source* 選 **GitHub Actions**。網站是公開的。
+- 啟用方式:*Settings → Pages → Source* 選 **GitHub Actions**。網站是公開的。
 
 ### 同步到 Notion(選用)
 
@@ -209,14 +210,9 @@ python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦�
 
 也可以在 GitHub Actions 頁面手動執行「物料比價」workflow,輸入品名規格,結果會顯示在執行摘要並 commit 到 `reports/prices/`(需在 repo Secrets 設定 `ANTHROPIC_API_KEY`)。
 
-### 比價紀錄網站(GitHub Pages)
+### 比價紀錄網站(已下線)
 
-「物料比價」workflow 每次執行後,會把 `reports/prices/` 的所有報告產生成靜態網站並發布到 GitHub Pages:首頁列出歷次比價(可篩選),點進去看比價摘要、報價明細並下載 CSV / MD / JSON;首頁的「新增比價」按鈕會連到 Actions 頁面。
-
-- **啟用一次**:repo 的 *Settings → Pages → Build and deployment → Source* 選 **GitHub Actions**。之後網址為 `https://<帳號>.github.io/<repo>/`。
-- **只重新發布網站**:執行 workflow 時品名規格留空。
-- **本機預覽**:`python -m price_compare site -i reports/prices -o site`,再開 `site/index.html`。
-- ⚠ GitHub Pages 網站是**公開**的(私人 repo 需付費方案才能開 Pages,網站本身仍公開),報告內的供應商與報價都會被看見。報價資料敏感時請改用本機或內網的 `serve`。
+比價網站已不再發布到 GitHub Pages(GitHub Pages 網站是公開的,報價與供應商資料不宜公開)。比價報告仍會 commit 到 `reports/prices/`;要用網頁瀏覽請在本機或內網執行 `serve`,或本機產生靜態頁:`python -m price_compare site -i reports/prices -o site`,再開 `site/index.html`。
 
 ## 規格寫法
 

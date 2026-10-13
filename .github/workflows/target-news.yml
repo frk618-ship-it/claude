@@ -51,13 +51,8 @@ jobs:
           git diff --cached --quiet || git commit -m "news: 靶材產業新聞 $(TZ=Asia/Taipei date +%F)"
           git push
 
-      # GitHub Pages 只有一個網站:物料比價在根目錄、靶材新聞在 /news/,兩個 workflow 都建置完整網站再發布
       - name: Build site
-        env:
-          NEW_QUERY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/price-compare.yml
-        run: |
-          python -m price_compare site -i reports/prices -o site --new-query-url "$NEW_QUERY_URL"
-          python -m target_news_agent site -i reports -o site/news
+        run: python -m target_news_agent site -i reports -o site/news --root-redirect site
 
       - uses: actions/configure-pages@v5
 

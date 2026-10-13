@@ -16,7 +16,7 @@ from .config import load_config
 from .models import NewsItem
 from .processing import process
 from .report import write_reports
-from .site import build_site
+from .site import build_site, write_redirect
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
 from .summarizer import Digest, Summarizer, llm_available
@@ -46,6 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("-c", "--config", default="config/watchlist.yaml")
     st.add_argument("-i", "--reports-dir", default="reports")
     st.add_argument("-o", "--out", default="site/news")
+    st.add_argument("--root-redirect", metavar="DIR", help="在 DIR/index.html 放一個轉址到新聞網站的首頁(GitHub Pages 根目錄用)")
 
     ns = sub.add_parser("notion-sync", help="把報告 JSON 的新聞寫入 Notion 資料庫(需 NOTION_TOKEN、NOTION_DATABASE_ID)")
     ns.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
@@ -75,6 +76,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "site":
         written = build_site(args.reports_dir, args.out, config)
+        if args.root_redirect:
+            written.append(write_redirect(args.root_redirect, args.out))
         print(f"{len(written)} pages -> {args.out}")
         return 0
 

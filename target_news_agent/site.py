@@ -250,3 +250,19 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         (out / "index.html").write_text(render_page(empty, config, [], "尚無報告"), encoding="utf-8")
         written.append(out / "index.html")
     return written
+
+
+def write_redirect(root_dir: str | Path, target_dir: str | Path) -> Path:
+    """index.html in root_dir that forwards to the news site in target_dir (a subfolder of root_dir)."""
+    root, target = Path(root_dir), Path(target_dir)
+    rel = target.resolve().relative_to(root.resolve()).as_posix().rstrip("/") + "/"
+    root.mkdir(parents=True, exist_ok=True)
+    path = root / "index.html"
+    path.write_text(
+        "<!doctype html><html lang='zh-Hant'><head><meta charset='utf-8'>"
+        f"<meta http-equiv='refresh' content='0; url={esc(rel)}'><link rel='canonical' href='{esc(rel)}'>"
+        f"<title>靶材產業新聞摘要</title></head><body><p><a href='{esc(rel)}'>前往靶材產業新聞摘要</a></p></body></html>",
+        encoding="utf-8",
+    )
+    return path
+

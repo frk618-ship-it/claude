@@ -290,3 +290,10 @@ def test_site_drops_non_http_links(tmp_path, config):
     (reports / "2026-10-13.json").write_text(json.dumps({"items": [item]}), encoding="utf-8")
     build_site(reports, tmp_path / "out", config)
     assert "javascript:" not in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+
+
+def test_site_root_redirect(tmp_path, monkeypatch):
+    out = tmp_path / "site"
+    assert main(["site", "-c", str(CONFIG), "-i", str(tmp_path), "-o", str(out / "news"), "--root-redirect", str(out)]) == 0
+    root = (out / "index.html").read_text(encoding="utf-8")
+    assert "url=news/" in root and (out / "news" / "index.html").exists()
