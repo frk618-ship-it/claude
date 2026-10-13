@@ -1,0 +1,7 @@
+# 離線示範:python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦靶 4N5 Φ300x6.35mm
+base_currency: TWD
+live_fx: false
+fx_rates: {USD: 31.5, CNY: 4.4, JPY: 0.21, EUR: 34.5}
+sources:
+  quote_book: examples/demo_quotes.csv
+  claude_web_search: {enabled: false}
