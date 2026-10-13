@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import re
 
-from .models import MaterialSpec
+from .models import FORM_LABELS, MaterialSpec
 
 # Chinese (traditional + simplified) and English names -> canonical symbol.
 ELEMENTS: dict[str, list[str]] = {
@@ -271,7 +271,7 @@ def match_score(query: MaterialSpec, offer: MaterialSpec, dim_tolerance: float =
             score -= 5
         elif offer.form != query.form:
             score -= 30
-            notes.append(f"型態不同({offer.form})")
+            notes.append(f"型態不同({FORM_LABELS.get(offer.form, offer.form)})")
 
     if query.dims_mm:
         if not offer.dims_mm:
