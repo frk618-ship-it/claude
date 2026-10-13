@@ -16,6 +16,7 @@ from .config import load_config
 from .models import NewsItem
 from .processing import process
 from .report import write_reports
+from .research import collect_papers
 from .site import build_site, write_redirect
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
@@ -38,6 +39,8 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--no-llm", action="store_true", help="不使用 Claude 摘要")
     run.add_argument("--model", help="Claude 模型 ID(預設 claude-opus-5-5 或 TARGET_NEWS_MODEL)")
     run.add_argument("--tz", default="Asia/Taipei", help="報告時區")
+    run.add_argument("--no-papers", action="store_true", help="不蒐集技術文獻(期刊/預印本)")
+    run.add_argument("--papers-days", type=int, help="覆寫技術文獻的天數(預設 30)")
 
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
@@ -103,11 +106,26 @@ def main(argv: list[str] | None = None) -> int:
         else:
             log.warning("ANTHROPIC_API_KEY not set; generating report without LLM summaries")
 
+    papers = None
+    rs = config.research
+    if rs and rs.enabled and not args.no_papers:
+        if args.papers_days:
+            rs.days = args.papers_days
+        papers = collect_papers(rs)
+        log.warning("collected %d relevant papers", len(papers))
+        if not args.include_seen:
+            papers = store.filter_new(papers)
+        if papers and not args.no_llm and llm_available():
+            Summarizer(list(config.settings.categories), model=args.model).digest_papers(papers, list(rs.topics))
+
     generated = datetime.now(ZoneInfo(args.tz))
-    md_path, json_path = write_reports(items, config, digest, args.out, generated)
+    md_path, json_path = write_reports(items, config, digest, args.out, generated, papers)
     store.mark(items)
+    if papers:
+        store.mark(papers)
     store.close()
-    print(f"{len(items)} items -> {md_path} , {json_path}")
+    paper_note = f", {len(papers)} papers" if papers is not None else ""
+    print(f"{len(items)} items{paper_note} -> {md_path} , {json_path}")
     return 0
 
 

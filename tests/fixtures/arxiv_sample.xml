@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <title>arXiv Query</title>
+  <entry>
+    <id>http://arxiv.org/abs/2610.01234v1</id>
+    <published>2026-10-08T12:00:00Z</published>
+    <title>Erosion profile and target utilization of rotatable
+      sputtering targets</title>
+    <summary>We model racetrack erosion and target utilization of rotary targets.</summary>
+    <author><name>F. Garcia</name></author>
+    <link href="http://arxiv.org/abs/2610.01234v1" rel="alternate" type="text/html"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.09999v1</id>
+    <published>2026-10-07T12:00:00Z</published>
+    <title>Densification and grain growth of ITO sputtering targets by spark plasma sintering</title>
+    <summary>Preprint version with a longer abstract: ITO targets reached 99.6% relative density after SPS at 1000 C.</summary>
+    <author><name>A. Chen</name></author>
+    <link href="http://arxiv.org/abs/2610.09999v1" rel="alternate" type="text/html"/>
+  </entry>
+</feed>

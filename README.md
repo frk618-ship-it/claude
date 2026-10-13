@@ -50,6 +50,17 @@ python -m target_news_agent run --no-llm                 # 不呼叫 Claude
 python -m target_news_agent queries                      # 列出會抓取的 RSS 網址(不連網)
 ```
 
+### 技術文獻:靶材製造技術(期刊與研究)
+
+每次執行也會蒐集靶材製造技術相關的期刊論文與預印本,寫在報告與網站的「技術文獻」區塊:
+
+- **來源**:[OpenAlex](https://openalex.org/)(免費學術文獻索引)、arXiv、期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum、Journal of Alloys and Compounds、Ceramics International、Int. J. Refractory Metals and Hard Materials)。
+- **篩選**:標題或摘要必須明確談到濺鍍靶材("target" 單字太廣,醫學、雷射等論文會被排除);同一篇論文來自多個來源只留一筆。
+- **分類**:粉末冶金與燒結、熔煉與鑄造、塑性加工與晶粒織構、高純化與雜質控制、綁定與背板、陶瓷與氧化物靶、合金與複合靶、旋轉靶、濺鍍行為與靶材利用率、回收與再利用。
+- **範圍**:預設最近 30 天,已報告過的論文不會重複出現。設定 `ANTHROPIC_API_KEY` 後,Claude 會為每篇寫中文摘要並評 1–5 分(對靶材製造的參考價值)。
+- 搜尋字、期刊 RSS、分類關鍵字都在 `config/watchlist.yaml` 的 `research:` 區段。
+- 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
+
 ### Claude 摘要(選用)
 
 設定 `ANTHROPIC_API_KEY` 後自動啟用,預設模型 `claude-opus-5-5`(可用 `--model` 或環境變數 `TARGET_NEWS_MODEL` 更換)。已開啟伺服器端 fallback(`fallbacks: "default"`):若請求被模型拒絕,API 會自動改用備援模型重跑;仍失敗時該批次略過,報告照常產生。新聞內容以資料形式傳入並於提示中標明不可執行其中指示。

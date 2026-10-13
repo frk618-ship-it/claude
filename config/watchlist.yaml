@@ -281,3 +281,57 @@ entities:
     region: 全球
     aliases: [스퍼터링 타겟, 스퍼터링 타깃]
     editions: [ko]
+
+# ---------- 技術文獻:靶材製造技術相關期刊與研究 ----------
+# 來源:OpenAlex(學術文獻索引,免費)、arXiv 預印本、期刊 RSS。
+# 論文必須在標題/摘要明確提到濺鍍靶材才收錄("target" 單字太廣,不夠)。
+research:
+  enabled: true
+  days: 30                    # 論文發表較慢,預設看最近 30 天;已報告過的不會重複出現
+  per_query: 50
+  request_delay: 1.0
+  mailto: ""                  # 選填:填 email 可使用 OpenAlex 較穩定的服務(也可設環境變數 OPENALEX_MAILTO)
+  sources:
+    openalex: true
+    arxiv: true
+    feeds:                    # 期刊最新文章 RSS(ScienceDirect);只保留與靶材相關的文章
+      - {name: Thin Solid Films, url: "https://rss.sciencedirect.com/publication/science/00406090"}
+      - {name: Surface and Coatings Technology, url: "https://rss.sciencedirect.com/publication/science/02578972"}
+      - {name: Vacuum, url: "https://rss.sciencedirect.com/publication/science/0042207X"}
+      - {name: Journal of Alloys and Compounds, url: "https://rss.sciencedirect.com/publication/science/09258388"}
+      - {name: Ceramics International, url: "https://rss.sciencedirect.com/publication/science/02728842"}
+      - {name: Int. J. Refractory Metals and Hard Materials, url: "https://rss.sciencedirect.com/publication/science/02634368"}
+
+  # OpenAlex 搜尋字(英文為主,也涵蓋部分中日文期刊)
+  queries:
+    - sputtering target fabrication
+    - sputtering target microstructure
+    - sputtering target sintering
+    - sputtering target grain size texture
+    - high purity sputtering target
+    - ITO target
+    - IGZO target
+    - rotary sputtering target
+    - sputtering target bonding backing plate
+    - tantalum sputtering target
+    - copper sputtering target
+    - tungsten sputtering target
+    - molybdenum sputtering target
+    - sputtering target recycling
+    - 濺射靶材
+  arxiv_queries:
+    - sputtering target
+    - target microstructure sputtering
+
+  # 依製程/技術分類(關鍵字比對標題與摘要,可多選)
+  topics:
+    粉末冶金與燒結: [powder, sinter, sintering, sintered, hot press, hot pressing, hot isostatic, HIP, spark plasma, SPS, densification, relative density, 燒結, 烧结, 粉末, 熱壓, 热压]
+    熔煉與鑄造: [melting, casting, cast, ingot, vacuum arc, electron beam melting, induction melting, 熔煉, 熔炼, 鑄造, 铸造]
+    塑性加工與晶粒織構: [rolling, forging, ECAP, grain size, grain refinement, texture, recrystallization, annealing, deformation, 晶粒, 織構, 织构, 軋製, 轧制, 鍛造, 锻造]
+    高純化與雜質控制: [high purity, high-purity, purification, impurity, impurities, refining, zone refining, 5N, 6N, 純化, 提纯, 雜質, 杂质]
+    綁定與背板: [bonding, backing plate, solder, diffusion bonding, indium bonding, 綁定, 绑定, 背板]
+    陶瓷與氧化物靶: [ITO, IGZO, AZO, oxide target, ceramic target, indium tin oxide, nitride, 氧化物, 陶瓷]
+    合金與複合靶: [alloy target, alloy, composite target, high-entropy, 合金]
+    旋轉靶: [rotary, rotatable, cylindrical target, tubular target, 旋轉靶, 旋转靶]
+    濺鍍行為與靶材利用率: [erosion, utilization, target utilization, arcing, nodule, nodules, sputtering yield, deposition rate, poisoning, 利用率, 刻蝕]
+    回收與再利用: [recycling, recycle, recycled, spent target, reclaim, recovery, 回收]

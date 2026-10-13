@@ -41,6 +41,9 @@ jobs:
         env:
           # 選填:設定後會用 Claude 產生中文摘要、重要度與本期總覽
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 選填:技術文獻搜尋(OpenAlex)用的聯絡 email / API key
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: python -m target_news_agent -v run --days "${{ github.event.inputs.days || '3' }}"
 
       - name: Commit report

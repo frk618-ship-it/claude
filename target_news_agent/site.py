@@ -87,6 +87,7 @@ button.f .mono{font-size:.74rem;color:var(--muted)}button.f[aria-pressed=true]{b
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
 .archive{display:flex;flex-wrap:wrap;gap:8px}.archive a{font-family:var(--font-data);font-size:.85rem;border:1px solid var(--line);background:var(--surface);padding:3px 10px;border-radius:4px;text-decoration:none}
 .archive a[aria-current=page]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+h3.topic{margin:10px 0 0;font-size:1rem;font-weight:700;display:flex;gap:8px;align-items:baseline}h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
 .note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px;font-size:.9rem;color:var(--muted)}.note strong{color:var(--fg)}
 footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
 @media (max-width:520px){.item{grid-template-columns:1fr}}
@@ -123,6 +124,48 @@ def _item_html(item: dict, extra_class: str = "") -> str:
         f'<div class="co"><span class="kind k-{kind}">{KINDS[kind]}</span>'
         + "".join(f"<span>{esc(e)}</span>" for e in ents)
         + f'<span>{esc(item.get("source", ""))}</span></div></div></article>'
+    )
+
+
+def _paper_html(p: dict) -> str:
+    date = (p.get("published") or "")[:10].replace("-", "/") or "日期不明"
+    authors = p.get("authors") or []
+    author_text = ", ".join(authors[:3]) + (" 等" if len(authors) > 3 else "")
+    stars = f" {'★' * p['importance']}" if p.get("importance") else ""
+    if p.get("summary"):
+        body = f'<p class="sum">{esc(p["summary"])}</p>'
+    elif p.get("abstract"):
+        abstract = p["abstract"]
+        body = f'<p class="sum">{esc(abstract[:260])}{"…" if len(abstract) > 260 else ""}</p>'
+    else:
+        body = ""
+    meta = "".join(f"<span>{esc(x)}</span>" for x in (p.get("venue"), author_text) if x)
+    return (
+        f'<article class="item"><time datetime="{esc((p.get("published") or "")[:10])}">{esc(date[5:] if len(date) == 10 else date)}</time>'
+        f'<div class="body"><h3>{_title_link(p)}{stars}</h3>{body}<div class="co">{meta}</div></div></article>'
+    )
+
+
+def _papers_section(report: dict) -> str:
+    if "papers" not in report:
+        return ""
+    papers = report["papers"]
+    days = report.get("research_days") or 30
+    if not papers:
+        inner = "<p>本期沒有新的靶材製造技術文獻。</p>"
+    else:
+        groups: "OrderedDict[str, list]" = OrderedDict()
+        ranked = sorted(papers, key=lambda p: (p.get("importance", 0), p.get("published") or ""), reverse=True)
+        for p in ranked:
+            groups.setdefault((p.get("topics") or ["其他靶材研究"])[0], []).append(p)
+        inner = "".join(
+            f'<h3 class="topic">{esc(t)} <span class="mono">{len(ps)}</span></h3><div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
+            for t, ps in groups.items()
+        )
+    return (
+        f'<section aria-labelledby="papers"><h2 id="papers">技術文獻:靶材製造技術 <span class="count">{len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類</span></h2>'
+        f'<p class="sum" style="color:var(--muted)">來源:OpenAlex、arXiv 與期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum 等);只收錄標題或摘要明確談到濺鍍靶材的研究。</p>'
+        f"{inner}</section>"
     )
 
 
@@ -195,6 +238,9 @@ def render_page(report: dict, config: Config, archive: list[tuple[str, int]], cu
         f'<button type="button" class="f" data-filter="ent" data-value="{esc(e)}" aria-pressed="false">{esc(e)}<span class="mono">{n}</span></button>'
         for e, n in ent_counts.most_common()
     )
+    paper_stat = (
+        f'<div class="stat"><b>{len(report["papers"])}</b><span>技術文獻(篇)</span></div>' if "papers" in report else ""
+    )
     archive_html = "".join(
         f'<a href="{home}{"index.html" if i == 0 else d + ".html"}"{" aria-current=page" if d == current else ""}>{d} · {n}</a>'
         for i, (d, n) in enumerate(archive)
@@ -211,9 +257,10 @@ def render_page(report: dict, config: Config, archive: list[tuple[str, int]], cu
 <div class="meta"><span>{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span><span>原始資料:{data_links}</span></div>
 <div class="stats"><div class="stat"><b>{len(items)}</b><span>蒐集到的新聞(則)</span></div>
 <div class="stat"><b>{len(signal)}</b><span>其中新聞與公司公告</span></div>
-<div class="stat"><b>{len(covered)} / {len(companies)}</b><span>有報導的公司</span></div></div></header>
+<div class="stat"><b>{len(covered)} / {len(companies)}</b><span>有報導的公司</span></div>{paper_stat}</div></header>
 <section aria-labelledby="sum"><h2 id="sum">本期總結</h2>{summary}</section>
 <section aria-labelledby="top" class="top"><h2 id="top">重點新聞 <span class="count">新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則</span></h2><div class="news">{top_html}</div></section>
+{_papers_section(report)}
 <section aria-labelledby="all"><h2 id="all">全部新聞 <span class="count">{len(items)} 則</span></h2>
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">類型</span>{kind_chips}</div>
 <div class="frow"><span class="lbl">公司</span>{ent_chips}</div>
@@ -222,6 +269,7 @@ def render_page(report: dict, config: Config, archive: list[tuple[str, int]], cu
 <section aria-labelledby="ledger"><h2 id="ledger">追蹤清單 <span class="count">{len(companies)} 家 · 本期報導則數</span></h2><div class="ledger">{_ledger(config, ent_counts)}</div></section>
 <section aria-labelledby="arc"><h2 id="arc">歷次報告</h2><div class="archive">{archive_html}</div></section>
 <div class="note"><p><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</p>
+<p><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</p>
 <p><strong>類型標籤</strong>依標題與來源自動判斷;灰色標籤(行情數據、論壇、市場報告、資料頁)參考價值較低。</p></div>
 <footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</footer>
 </div><script>{SCRIPT}</script></body></html>"""

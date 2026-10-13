@@ -45,9 +45,27 @@ class Settings:
 
 
 @dataclass
+class ResearchSettings:
+    """Journal / preprint search on target manufacturing technology (section `research:`)."""
+
+    enabled: bool = True
+    days: int = 30
+    per_query: int = 50
+    request_delay: float = 1.0
+    openalex: bool = True
+    arxiv: bool = True
+    mailto: str = ""
+    queries: list[str] = field(default_factory=list)
+    arxiv_queries: list[str] = field(default_factory=list)
+    feeds: list[dict[str, str]] = field(default_factory=list)
+    topics: dict[str, list[str]] = field(default_factory=dict)
+
+
+@dataclass
 class Config:
     settings: Settings
     entities: list[Entity]
+    research: ResearchSettings | None = None
 
 
 def load_config(path: str | Path) -> Config:
@@ -88,4 +106,21 @@ def load_config(path: str | Path) -> Config:
                 editions=editions,
             )
         )
-    return Config(settings=settings, entities=entities)
+    research = None
+    r = raw.get("research")
+    if r:
+        sources = r.get("sources", {}) or {}
+        research = ResearchSettings(
+            enabled=bool(r.get("enabled", True)),
+            days=int(r.get("days", 30)),
+            per_query=int(r.get("per_query", 50)),
+            request_delay=float(r.get("request_delay", 1.0)),
+            openalex=bool(sources.get("openalex", True)),
+            arxiv=bool(sources.get("arxiv", True)),
+            mailto=str(r.get("mailto", "") or ""),
+            queries=[str(q) for q in r.get("queries", [])],
+            arxiv_queries=[str(q) for q in r.get("arxiv_queries", []) or []],
+            feeds=list(sources.get("feeds", []) or []),
+            topics={k: [str(t) for t in v] for k, v in (r.get("topics", {}) or {}).items()},
+        )
+    return Config(settings=settings, entities=entities, research=research)

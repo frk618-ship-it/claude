@@ -1,0 +1,23 @@
+{"results": [
+  {"id": "https://openalex.org/W1", "doi": "https://doi.org/10.1016/j.ceramint.2026.10.001",
+   "display_name": "Densification and grain growth of ITO sputtering targets by spark plasma sintering",
+   "publication_date": "2026-10-05",
+   "primary_location": {"source": {"display_name": "Ceramics International"}, "landing_page_url": "https://www.sciencedirect.com/x"},
+   "authorships": [{"author": {"display_name": "A. Chen"}}, {"author": {"display_name": "B. Lin"}}, {"author": {"display_name": "C. Wang"}}, {"author": {"display_name": "D. Liu"}}],
+   "abstract_inverted_index": {"ITO": [0], "targets": [1], "reached": [2], "99.6%": [3], "relative": [4], "density": [5]}},
+  {"id": "https://openalex.org/W2", "doi": "https://doi.org/10.1000/onc.2026.2",
+   "display_name": "Novel drug target for lung cancer therapy",
+   "publication_date": "2026-10-06",
+   "primary_location": {"source": {"display_name": "Oncology Letters"}},
+   "authorships": [], "abstract_inverted_index": {"A": [0], "new": [1], "target": [2]}},
+  {"id": "https://openalex.org/W3", "doi": "https://doi.org/10.1016/j.vacuum.2026.08.009",
+   "display_name": "Texture control in high purity tantalum sputtering targets by cross rolling",
+   "publication_date": "2026-08-01",
+   "primary_location": {"source": {"display_name": "Vacuum"}},
+   "authorships": [], "abstract_inverted_index": null},
+  {"id": "https://openalex.org/W4", "doi": null,
+   "display_name": "Diffusion bonding of copper targets to CuCr backing plates for magnetron sputtering",
+   "publication_date": "2026-09-30",
+   "primary_location": {"source": {"display_name": "Journal of Materials Processing Technology"}, "landing_page_url": "https://example.org/w4"},
+   "authorships": [{"author": {"display_name": "E. Kim"}}], "abstract_inverted_index": {"Bonding": [0], "strength": [1]}}
+]}

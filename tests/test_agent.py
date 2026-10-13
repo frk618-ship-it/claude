@@ -153,6 +153,7 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr("target_news_agent.sources.time.sleep", lambda s: None)
     monkeypatch.setattr("target_news_agent.cli.collect", lambda cfg: collect(cfg, lambda url: SAMPLE, sleep=lambda s: None))
     monkeypatch.setattr("target_news_agent.cli.process", lambda raw, cfg: process(raw, cfg, now=NOW))
+    monkeypatch.setattr("target_news_agent.cli.collect_papers", lambda rs: sample_papers(rs))
 
     args = ["run", "-c", str(CONFIG), "-o", str(tmp_path / "out"), "--db", str(tmp_path / "seen.db"), "--only", "Solstice", "光洋科"]
     assert main(args) == 0
@@ -297,3 +298,128 @@ def test_site_root_redirect(tmp_path, monkeypatch):
     assert main(["site", "-c", str(CONFIG), "-i", str(tmp_path), "-o", str(out / "news"), "--root-redirect", str(out)]) == 0
     root = (out / "index.html").read_text(encoding="utf-8")
     assert "url=news/" in root and (out / "news" / "index.html").exists()
+
+
+
+OPENALEX = (FIXTURES / "openalex_sample.json").read_bytes()
+ARXIV = (FIXTURES / "arxiv_sample.xml").read_bytes()
+JOURNAL = (FIXTURES / "journal_rss_sample.xml").read_bytes()
+
+
+def fake_paper_fetch(url):
+    if "api.openalex.org" in url:
+        return OPENALEX
+    if "arxiv.org" in url:
+        return ARXIV
+    return JOURNAL
+
+
+def sample_papers(rs):
+    from target_news_agent.research import collect_papers
+
+    rs.queries, rs.arxiv_queries = rs.queries[:1], rs.arxiv_queries[:1]
+    rs.feeds = rs.feeds[:1]
+    return collect_papers(rs, fake_paper_fetch, now=NOW, sleep=lambda s: None)
+
+
+def test_parse_openalex():
+    from target_news_agent.research import parse_openalex
+
+    papers = parse_openalex(OPENALEX)
+    p = papers[0]
+    assert p.doi == "10.1016/j.ceramint.2026.10.001"
+    assert p.link == "https://doi.org/10.1016/j.ceramint.2026.10.001"
+    assert p.venue == "Ceramics International" and p.authors[:2] == ["A. Chen", "B. Lin"]
+    assert p.abstract == "ITO targets reached 99.6% relative density"
+    assert papers[3].link == "https://example.org/w4"
+
+
+def test_collect_papers_filters_dedupes_and_classifies(config):
+    papers = sample_papers(config.research)
+    by_title = {p.title: p for p in papers}
+
+    assert not any("cancer" in t for t in by_title)                 # generic "target" dropped
+    assert not any("cross rolling" in t for t in by_title)          # older than 30 days
+    assert not any("AZO films" in t for t in by_title)              # journal paper not about targets
+
+    ito = [p for p in papers if p.title.startswith("Densification")]
+    assert len(ito) == 1                                             # OpenAlex + arXiv copy merged
+    assert ito[0].doi and "99.6%" in ito[0].abstract and "SPS" in ito[0].abstract
+    assert ito[0].topics[0] == "粉末冶金與燒結" and "陶瓷與氧化物靶" in ito[0].topics
+
+    assert by_title["Diffusion bonding of copper targets to CuCr backing plates for magnetron sputtering"].topics[0] == "綁定與背板"
+    assert "旋轉靶" in by_title["Erosion profile and target utilization of rotatable sputtering targets"].topics
+    recycling = by_title["Recycling of spent molybdenum sputtering targets by hydrogen reduction"]
+    assert recycling.topics == ["回收與再利用"] and recycling.source == "Thin Solid Films"
+    assert all(p.id.startswith("p-") for p in papers)
+    assert [p.published for p in papers] == sorted([p.published for p in papers], reverse=True)
+
+
+def test_paper_source_failure_does_not_stop_run(config):
+    from target_news_agent.research import collect_papers
+
+    rs = config.research
+    rs.queries, rs.arxiv_queries, rs.feeds = rs.queries[:1], rs.arxiv_queries[:1], rs.feeds[:1]
+
+    def flaky(url):
+        if "openalex" in url:
+            raise OSError("down")
+        return fake_paper_fetch(url)
+
+    papers = collect_papers(rs, flaky, now=NOW, sleep=lambda s: None)
+    assert any(p.source == "arXiv" for p in papers)
+
+
+def test_papers_in_report_and_site(tmp_path, config):
+    from target_news_agent.report import render_markdown, write_reports
+    from target_news_agent.site import build_site
+
+    papers = sample_papers(config.research)
+    papers[0].summary, papers[0].importance = "研究摘要", 4
+    md = render_markdown([], config, Digest(), NOW, papers)
+    assert "## 技術文獻:靶材製造技術" in md and "### 粉末冶金與燒結" in md and "本期沒有新的相關新聞" in md
+    assert "研究摘要" in md and "A. Chen, B. Lin, C. Wang 等" in md
+
+    reports = tmp_path / "reports"
+    write_reports([], config, Digest(), reports, NOW, papers)
+    data = json.loads((reports / "2026-10-13.json").read_text(encoding="utf-8"))
+    assert len(data["papers"]) == len(papers) and data["research_days"] == 30
+
+    build_site(reports, tmp_path / "site", config)
+    page = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    assert "技術文獻:靶材製造技術" in page and "回收與再利用" in page and "研究摘要" in page
+
+
+def test_digest_papers_with_fake_client(config):
+    papers = sample_papers(config.research)
+    messages = FakeMessages()
+    client = SimpleNamespace(beta=SimpleNamespace(messages=messages))
+    Summarizer(list(config.settings.categories), client=client).digest_papers(papers, ["併購與合作"])
+    assert all(p.summary == "摘要" and p.importance == 5 for p in papers)
+    assert "<papers>" in messages.calls[0]["messages"][0]["content"]
+
+
+def test_cli_run_marks_papers_seen(tmp_path, monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.setattr("target_news_agent.cli.collect", lambda cfg: [])
+    monkeypatch.setattr("target_news_agent.cli.collect_papers", lambda rs: sample_papers(rs))
+    args = ["run", "-c", str(CONFIG), "-o", str(tmp_path / "out"), "--db", str(tmp_path / "seen.db")]
+    assert main(args) == 0
+    first = json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))
+    assert first["papers"]
+    assert main(args) == 0
+    second = json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))
+    assert second["papers"] == []
+    assert main(args + ["--no-papers"]) == 0
+    assert "papers" not in json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))
+
+
+def test_research_matching_handles_word_endings():
+    from target_news_agent.research import Paper, classify_topics, is_relevant
+
+    p = Paper("Sintered W-Ti alloys for sputtering targets from nano powders", "https://x", None)
+    assert is_relevant(p)
+    assert classify_topics(p, {"粉末": ["powder"], "合金": ["alloy"]}) == ["粉末", "合金"]
+    assert not is_relevant(Paper("Targeted delivery of ITOX inhibitors", "https://x", None))
+    assert classify_topics(Paper("Toyota sputtering target", "https://x", None), {"ITO": ["ITO"]}) == ["其他靶材研究"]
