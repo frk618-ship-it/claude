@@ -6,7 +6,8 @@ from conftest import CONFIG, FIXTURES
 
 from target_news_agent.cli import main
 from target_news_agent.config import load_config
-from target_news_agent.processing import has_any, process
+from target_news_agent.models import NewsItem
+from target_news_agent.processing import classify, has_any, process
 from target_news_agent.report import render_markdown
 from target_news_agent.sources import build_query, collect, google_news_url, parse_feed
 from target_news_agent.store import SeenStore
@@ -157,3 +158,8 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
     # Second run: everything already seen.
     assert main(args) == 0
     assert "本期沒有新的相關新聞" in reports[0].read_text(encoding="utf-8")
+
+
+def test_korean_category_keywords(config):
+    item = NewsItem(title="JX금속, 스퍼터링 타겟 증설…3분기 매출 사상 최대", link="", source="", published=NOW)
+    assert {"擴產與投資", "營收與財報"} <= set(classify(item, config.settings.categories))

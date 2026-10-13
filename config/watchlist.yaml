@@ -53,13 +53,13 @@ settings:
 
   # 新聞分類(依關鍵字比對,可多選);LLM 摘要啟用時會再校正分類
   categories:
-    擴產與投資: [擴產, 扩产, 新廠, 新厂, 產能, 产能, 投資, 投资, 建廠, 建厂, 增資, 定增, expansion, expand, new plant, new facility, capacity, invest, 増産, 新工場, 設備投資]
-    營收與財報: [營收, 营收, 財報, 财报, 獲利, 盈利, 淨利, 净利, 毛利, EPS, 業績, 业绩, revenue, earnings, profit, quarter, guidance, 決算, 売上, 営業利益]
-    併購與合作: [併購, 并购, 收購, 收购, 合併, 合资, 合資, 策略聯盟, 戰略合作, 战略合作, 簽約, 签约, acquisition, acquire, merger, joint venture, partnership, agreement, 買収, 提携, 合弁]
-    原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ]
-    技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産]
-    客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer]
-    政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税]
+    擴產與投資: [擴產, 扩产, 新廠, 新厂, 產能, 产能, 投資, 投资, 建廠, 建厂, 增資, 定增, expansion, expand, new plant, new facility, capacity, invest, 増産, 新工場, 設備投資, 증설, 신공장, 생산능력, 설비투자, 투자]
+    營收與財報: [營收, 营收, 財報, 财报, 獲利, 盈利, 淨利, 净利, 毛利, EPS, 業績, 业绩, revenue, earnings, profit, quarter, guidance, 決算, 売上, 営業利益, 매출, 실적, 영업이익, 순이익, 분기]
+    併購與合作: [併購, 并购, 收購, 收购, 合併, 合资, 合資, 策略聯盟, 戰略合作, 战略合作, 簽約, 签约, acquisition, acquire, merger, joint venture, partnership, agreement, 買収, 提携, 合弁, 인수, 합병, 합작, 제휴, 업무협약, MOU]
+    原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ, 가격, 원자재, 탄탈, 인듐, 코발트, 텅스텐, 몰리브덴, 루테늄]
+    技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産, 신제품, 개발, 특허, 기술, 양산, 국산화]
+    客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer, 삼성전자, SK하이닉스, LG디스플레이, 공급망, 고객사, 협력사, 인증]
+    政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税, 관세, 수출 규제, 수출통제, 제재, 보조금]
 
   # 熱門關鍵字統計的候選詞(材料、應用)
   hot_terms: [鉭, 钽, 銅, 铜, 鋁, 铝, 鈦, 钛, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 鉑, ITO, IGZO, 氧化物, tantalum, copper, aluminum, titanium, cobalt, tungsten, molybdenum, ruthenium, 半導體, 半导体, 面板, 光伏, 太陽能, HJT, 先進封裝, 先进封装, semiconductor, display, solar, AI, HBM]
