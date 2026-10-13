@@ -530,3 +530,56 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
     assert "本期無新收錄" in home and "Densification" in home and 'href="papers.html"' in home
     old = (out / "2026-10-12.html").read_text(encoding="utf-8")
     assert "本期新收錄 4 篇" in old
+
+
+@pytest.mark.parametrize(
+    "title,abstract,expected",
+    [
+        # about making / characterising targets -> keep
+        ("Effect of sintering temperature on the microstructure of W-Ti targets", "", True),
+        ("High-density IZO ceramic targets prepared by pressureless sintering", "", True),
+        ("Grain refinement of high purity copper by equal channel angular pressing",
+         "The grain size of the Cu targets was reduced to 15 um after ECAP and annealing.", True),
+        ("Electron beam melting of tantalum", "Ta targets were fabricated by electron beam melting and cross rolling.", True),
+        ("Diffusion bonding of copper targets to CuCr backing plates", "", True),
+        ("Recycling of spent molybdenum sputtering targets", "", True),
+        ("ITO 靶材燒結緻密化研究", "", True),
+        # only *using* a target to grow films -> drop
+        ("Optical properties of Ta-doped ZnO thin films prepared by DC sputtering",
+         "Films were prepared by sputtering a ZnO:Ta target at 100 W on glass substrates.", False),
+        ("Thermoelectric BiCuSeO thin films", "The Bi2O3 target was sputtered at 80 W and the films were annealed.", False),
+        ("Novel drug target for lung cancer therapy", "", False),
+        ('Decision letter for "Sintering of ITO sputtering targets"', "", False),
+    ],
+)
+def test_paper_relevance_requires_target_manufacturing(title, abstract, expected):
+    from target_news_agent.research import Paper, is_relevant
+
+    assert is_relevant(Paper(title, "https://x", None, abstract=abstract)) is expected
+
+
+def test_openalex_skips_peer_review_records():
+    from target_news_agent.research import parse_openalex
+
+    data = json.dumps({"results": [
+        {"display_name": "Review for ITO targets", "type": "peer-review", "publication_date": "2026-10-01"},
+        {"display_name": "Sintering of ITO sputtering targets", "type": "article", "publication_date": "2026-10-01"},
+    ]}).encode()
+    assert [p.title for p in parse_openalex(data)] == ["Sintering of ITO sputtering targets"]
+
+
+def test_arxiv_retries_once(config):
+    from target_news_agent.research import collect_papers
+
+    rs = config.research
+    rs.openalex, rs.feeds, rs.arxiv_queries = False, [], ["sputtering target"]
+    calls, sleeps = [], []
+
+    def fetch(url):
+        calls.append(url)
+        if len(calls) == 1:
+            raise OSError("HTTP Error 429: Too Many Requests")
+        return ARXIV
+
+    papers = collect_papers(rs, fetch, now=NOW, sleep=sleeps.append)
+    assert len(calls) == 2 and 15 in sleeps and papers

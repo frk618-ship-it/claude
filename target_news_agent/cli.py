@@ -16,7 +16,7 @@ from .config import load_config
 from .models import NewsItem
 from .processing import process
 from .report import write_reports
-from .research import Paper, collect_papers
+from .research import Paper, collect_papers, is_relevant
 from .site import build_site, write_redirect
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
@@ -111,7 +111,8 @@ def main(argv: list[str] | None = None) -> int:
             data = json.loads(today.read_text(encoding="utf-8"))
             items = [NewsItem.from_dict(d) for d in data.get("items", [])]
             digest = Digest(**(data.get("digest") or {}))
-            existing_papers = [Paper.from_dict(d) for d in data.get("papers") or []]
+            # Re-check with the current filter, so a rerun also cleans out papers that no longer qualify.
+            existing_papers = [p for p in (Paper.from_dict(d) for d in data.get("papers") or []) if is_relevant(p)]
     else:
         raw = collect(config)
         items = process(raw, config)

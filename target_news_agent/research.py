@@ -31,12 +31,38 @@ log = logging.getLogger(__name__)
 GENERAL_TOPIC = "其他靶材研究"
 
 # A paper must hit one of these, or mention "target" together with a sputtering word.
+# Title phrases that name the target itself as the subject.
 STRONG_TERMS = [
-    "sputtering target", "sputter target", "sputtering targets", "sputter targets",
-    "target material", "targets for sputtering", "magnetron target", "rotary target", "rotatable target",
-    "ITO target", "IGZO target", "AZO target", "靶材", "濺鍍靶", "溅射靶", "スパッタリングターゲット", "스퍼터링 타겟",
+    "sputtering target", "sputter target", "target material", "targets for sputtering",
+    "magnetron target", "rotary target", "rotatable target", "planar target", "cylindrical target",
+    "靶材", "濺鍍靶", "溅射靶", "スパッタリングターゲット", "스퍼터링 타겟",
 ]
-SPUTTER_WORDS = ["sputter", "magnetron", "PVD", "physical vapor deposition", "濺鍍", "溅射", "スパッタ"]
+# Words that, next to "target" in a title, mean the paper is about making the target.
+MANUFACTURING_WORDS = [
+    "fabricat", "prepar", "manufactur", "produc", "synthes", "sinter", "densif", "hot press", "hot-press",
+    "hot isostatic", "spark plasma", "powder", "cast", "melt", "ingot", "roll", "forg", "anneal",
+    "microstructur", "grain", "texture", "recrystalliz", "purity", "purif", "impurit", "bond", "backing plate",
+    "recycl", "reclaim", "relative density", "crack", "erosion", "utilization", "nodule",
+    "燒結", "烧结", "製備", "制备", "晶粒", "純度", "纯度", "綁定", "绑定", "回收",
+]
+# Abstract sentences where the target itself is processed or characterised (not just used to sputter films).
+_T = r"(?:sputtering |sputter )?targets?"
+_M = (
+    r"(?:fabricat\w*|prepar\w*|manufactur\w*|produc\w*|sinter\w*|densif\w*|hot[- ]press\w*|cast\w*|melt\w*|"
+    r"roll\w*|forg\w*|anneal\w*|bond\w*|recycl\w*|purif\w*)"
+)
+TARGET_PROCESS_PATTERNS = [
+    re.compile(rf"\b{_T}\s+(?:were|was|are|is|have been|has been)\s+(?:\w+\s+)?{_M}"),
+    re.compile(rf"\b(?:fabrication|preparation|manufacturing|production|sintering|densification|casting|rolling|"
+               rf"forging|annealing|bonding|recycling|purification)\s+(?:of|for)\s+(?:the\s+|a\s+|an\s+)?(?:[\w-]+\s+){{0,3}}{_T}\b"),
+    re.compile(rf"\b{_T}\s+(?:microstructure|density|grain|purity|texture|bonding|utili[sz]ation|erosion|cracking|"
+               rf"impurit\w*|homogeneity|composition uniformity)"),
+    re.compile(rf"\b(?:relative density|grain size|purity|microstructure|texture|impurity content)\s+of\s+(?:the\s+)?"
+               rf"(?:[\w-]+\s+){{0,3}}{_T}\b"),
+]
+TARGET_IN_TITLE = re.compile(r"(?<![a-z])targets?(?![a-z])|靶|ターゲット|타겟")
+NOT_A_PAPER = re.compile(r"^(?:decision letter|review for|author response|reply to|response to|erratum|corrigendum|retraction)\b", re.I)
+NON_PAPER_TYPES = {"peer-review", "paratext", "erratum", "retraction", "editorial"}
 
 
 @dataclass
@@ -107,10 +133,20 @@ def _match(low: str, term: str) -> bool:
 
 
 def is_relevant(p: Paper) -> bool:
-    low = p.text.lower()
-    if any(_match(low, t) for t in STRONG_TERMS):
+    """True when the paper is about making / characterising sputtering targets.
+
+    Merely depositing films "from a ZnO target" does not count: the title must name the
+    target as its subject, or the abstract must describe processing the target itself.
+    """
+    if NOT_A_PAPER.match(p.title.strip()):
+        return False
+    title = p.title.lower()
+    if any(_match(title, t) for t in STRONG_TERMS):
         return True
-    return _match(low, "target") and any(_match(low, w) for w in SPUTTER_WORDS)
+    if TARGET_IN_TITLE.search(title) and any(_match(title, w) for w in MANUFACTURING_WORDS):
+        return True
+    abstract = p.abstract.lower()
+    return any(rx.search(abstract) for rx in TARGET_PROCESS_PATTERNS)
 
 
 def classify_topics(p: Paper, topics: dict[str, list[str]]) -> list[str]:
@@ -129,9 +165,10 @@ def _abstract_from_index(index: dict | None) -> str:
 
 
 def openalex_url(query: str, since: date, per_page: int, mailto: str = "", api_key: str = "") -> str:
+    # title_and_abstract.search skips full-text-only matches, which are mostly papers that merely use a target.
+    q = query.replace(",", " ")
     params = {
-        "search": query,
-        "filter": f"from_publication_date:{since.isoformat()}",
+        "filter": f"title_and_abstract.search:{q},from_publication_date:{since.isoformat()}",
         "sort": "publication_date:desc",
         "per-page": str(per_page),
     }
@@ -146,7 +183,7 @@ def parse_openalex(data: bytes) -> list[Paper]:
     out = []
     for w in json.loads(data).get("results", []):
         title = strip_html(w.get("display_name") or w.get("title") or "")
-        if not title:
+        if not title or w.get("type") in NON_PAPER_TYPES:
             continue
         doi = (w.get("doi") or "").replace("https://doi.org/", "")
         loc = w.get("primary_location") or {}
@@ -209,9 +246,16 @@ def parse_feed_papers(data: bytes, source: str) -> list[Paper]:
 
 # ---------- collect ----------
 
+ARXIV_DELAY = 5.0  # arXiv asks clients to wait a few seconds between API calls
+
+
+def _slow_fetch(url: str) -> bytes:
+    return http_fetch(url, timeout=60)
+
+
 def collect_papers(
     rs: ResearchSettings,
-    fetch: Fetcher = http_fetch,
+    fetch: Fetcher = _slow_fetch,
     *,
     now: datetime | None = None,
     sleep: Callable[[float], None] = time.sleep,
@@ -229,13 +273,24 @@ def collect_papers(
 
     raw: list[Paper] = []
     for i, (url, source) in enumerate(jobs):
-        if i and rs.request_delay:
-            sleep(rs.request_delay)
-        try:
-            data = fetch(url)
-            got = parse_openalex(data) if source == "OpenAlex" else parse_feed_papers(data, source)
-        except Exception as exc:  # one failing source must not stop the run
-            log.warning("paper source failed (%s %s): %s", source, url[:80], exc)
+        if i:
+            delay = max(rs.request_delay, ARXIV_DELAY) if source == "arXiv" else rs.request_delay
+            if delay:
+                sleep(delay)
+        attempts = 2 if source == "arXiv" else 1  # arXiv often answers 429 / times out once
+        got = None
+        for attempt in range(attempts):
+            try:
+                data = fetch(url)
+                got = parse_openalex(data) if source == "OpenAlex" else parse_feed_papers(data, source)
+                break
+            except Exception as exc:  # one failing source must not stop the run
+                if attempt + 1 < attempts:
+                    log.info("paper source retry (%s): %s", source, exc)
+                    sleep(15)
+                else:
+                    log.warning("paper source failed (%s %s): %s", source, url[:80], exc)
+        if got is None:
             continue
         log.info("%-10s %3d papers  %s", source, len(got), url[:90])
         raw.extend(got)
