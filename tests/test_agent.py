@@ -589,3 +589,18 @@ def test_arxiv_retries_once(config):
 
     papers = collect_papers(rs, fetch, now=NOW, sleep=sleeps.append)
     assert len(calls) == 2 and 15 in sleeps and papers
+
+
+
+def test_arxiv_queries_are_combined_into_one_request(config):
+    from urllib.parse import unquote
+
+    from target_news_agent.research import collect_papers
+
+    rs = config.research
+    rs.openalex, rs.feeds = False, []
+    rs.arxiv_queries = ["sputtering target", "target microstructure"]
+    calls = []
+    collect_papers(rs, lambda url: calls.append(url) or ARXIV, now=NOW, sleep=lambda s: None)
+    assert len(calls) == 1
+    assert 'abs:"sputtering target" OR abs:"target microstructure"' in unquote(calls[0])

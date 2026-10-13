@@ -319,7 +319,7 @@ research:
     - molybdenum sputtering target
     - sputtering target recycling
     - 濺射靶材
-  arxiv_queries:
+  arxiv_queries:              # 合併成一次 arXiv 查詢(OR),避免連續請求被限流
     - sputtering target
     - target microstructure sputtering
 

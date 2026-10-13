@@ -223,8 +223,10 @@ def parse_openalex(data: bytes) -> list[Paper]:
 
 # ---------- arXiv ----------
 
-def arxiv_url(query: str, max_results: int) -> str:
-    q = f'abs:"{query}"' if " " in query else f"abs:{query}"
+def arxiv_url(queries: str | list[str], max_results: int) -> str:
+    """One arXiv API call for all terms (OR-ed): arXiv rate-limits back-to-back requests."""
+    terms = [queries] if isinstance(queries, str) else queries
+    q = " OR ".join(f'abs:"{t}"' if " " in t else f"abs:{t}" for t in terms)
     return (
         "https://export.arxiv.org/api/query?search_query=" + quote(q)
         + f"&sortBy=submittedDate&sortOrder=descending&max_results={max_results}"
@@ -281,7 +283,7 @@ def collect_papers(
         api_key = os.environ.get("OPENALEX_API_KEY", "")
         jobs += [(openalex_url(q, since, rs.per_query, mailto, api_key), "OpenAlex") for q in rs.queries]
     if rs.arxiv:
-        jobs += [(arxiv_url(q, rs.per_query), "arXiv") for q in rs.arxiv_queries or rs.queries[:3]]
+        jobs.append((arxiv_url(rs.arxiv_queries or rs.queries[:3], rs.per_query), "arXiv"))
     jobs += [(f["url"], f.get("name", "journal")) for f in rs.feeds]
 
     raw: list[Paper] = []
