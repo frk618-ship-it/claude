@@ -16,7 +16,7 @@ from .config import load_config
 from .models import NewsItem
 from .processing import process
 from .report import write_reports
-from .research import collect_papers
+from .research import Paper, collect_papers
 from .site import build_site, write_redirect
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
@@ -51,13 +51,18 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("-o", "--out", default="site/news")
     st.add_argument("--root-redirect", metavar="DIR", help="在 DIR/index.html 放一個轉址到新聞網站的首頁(GitHub Pages 根目錄用)")
 
-    ns = sub.add_parser("notion-sync", help="把報告 JSON 的新聞寫入 Notion 資料庫(需 NOTION_TOKEN、NOTION_DATABASE_ID)")
+    ns = sub.add_parser(
+        "notion-sync",
+        help="把報告 JSON 的新聞 / 技術文獻寫入 Notion(需 NOTION_TOKEN,及 NOTION_DATABASE_ID 和/或 NOTION_PAPERS_DATABASE_ID)",
+    )
     ns.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
     ns.add_argument("--reports-dir", default="reports")
 
-    nsetup = sub.add_parser("notion-setup", help="在指定 Notion 頁面下建立新聞資料庫(需 NOTION_TOKEN)")
+    nsetup = sub.add_parser("notion-setup", help="在指定 Notion 頁面下建立新聞與技術文獻資料庫(需 NOTION_TOKEN)")
     nsetup.add_argument("--parent", required=True, help="Notion 父頁面 ID(頁面網址最後 32 碼)")
-    nsetup.add_argument("--title", default="靶材產業新聞")
+    nsetup.add_argument("--only", choices=["all", "news", "papers"], default="all", help="只建立其中一個資料庫")
+    nsetup.add_argument("--title", default="靶材產業新聞", help="新聞資料庫名稱")
+    nsetup.add_argument("--papers-title", default="靶材技術文獻", help="技術文獻資料庫名稱")
 
     p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args(argv)
@@ -136,13 +141,18 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
     call = notion.http_transport(token)
 
     if args.command == "notion-setup":
-        db_id = notion.create_database(call, args.parent, args.title)
-        print(f"Created Notion database {db_id}\nSet NOTION_DATABASE_ID={db_id}")
+        if args.only in ("all", "news"):
+            db_id = notion.create_database(call, args.parent, args.title)
+            print(f"Created news database {db_id}\nSet NOTION_DATABASE_ID={db_id}")
+        if args.only in ("all", "papers"):
+            db_id = notion.create_database(call, args.parent, args.papers_title, notion.PAPER_PROPERTIES)
+            print(f"Created papers database {db_id}\nSet NOTION_PAPERS_DATABASE_ID={db_id}")
         return 0
 
-    database_id = os.environ.get("NOTION_DATABASE_ID")
-    if not database_id:
-        p.error("NOTION_DATABASE_ID is not set (run `notion-setup` first)")
+    news_db = os.environ.get("NOTION_DATABASE_ID")
+    papers_db = os.environ.get("NOTION_PAPERS_DATABASE_ID")
+    if not news_db and not papers_db:
+        p.error("set NOTION_DATABASE_ID and/or NOTION_PAPERS_DATABASE_ID (run `notion-setup` first)")
     if args.report:
         path = Path(args.report)
     else:
@@ -151,9 +161,14 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
             p.error(f"no report JSON found in {args.reports_dir}")
         path = reports[-1]
     data = json.loads(path.read_text(encoding="utf-8"))
-    items = [NewsItem.from_dict(d) for d in data.get("items", [])]
-    created = notion.sync(items, call, database_id)
-    print(f"{path}: {len(items)} items, {created} new rows in Notion")
+    if news_db:
+        items = [NewsItem.from_dict(d) for d in data.get("items", [])]
+        created = notion.sync(items, call, news_db)
+        print(f"{path}: {len(items)} news items, {created} new rows in Notion")
+    if papers_db:
+        papers = [Paper.from_dict(d) for d in data.get("papers", [])]
+        created = notion.sync(papers, call, papers_db, properties=notion.paper_properties)
+        print(f"{path}: {len(papers)} papers, {created} new rows in Notion")
     return 0
 
 

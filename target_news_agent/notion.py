@@ -1,4 +1,4 @@
-"""Sync news items into a Notion database.
+"""Sync news items and research papers into Notion databases.
 
 Uses the Notion REST API directly (standard library only). Needs an internal
 integration token (NOTION_TOKEN) that has been shared with the target page or
@@ -18,6 +18,7 @@ from datetime import timedelta
 from typing import Callable
 
 from .models import NewsItem
+from .research import Paper
 
 log = logging.getLogger(__name__)
 
@@ -36,6 +37,22 @@ PROPERTIES = {
     "重要度": {"number": {}},
     "分數": {"number": {}},
     "摘要": {"rich_text": {}},
+    "連結": {"url": {}},
+    "ID": {"rich_text": {}},
+}
+
+# Research papers live in their own database: different fields from news.
+PAPER_PROPERTIES = {
+    "標題": {"title": {}},
+    "日期": {"date": {}},
+    "主題": {"multi_select": {}},
+    "期刊": {"select": {}},
+    "作者": {"rich_text": {}},
+    "來源": {"select": {}},
+    "重要度": {"number": {}},
+    "摘要": {"rich_text": {}},
+    "原文摘要": {"rich_text": {}},
+    "DOI": {"rich_text": {}},
     "連結": {"url": {}},
     "ID": {"rich_text": {}},
 }
@@ -112,23 +129,50 @@ def item_properties(item: NewsItem) -> dict:
     return props
 
 
-def create_database(call: Transport, parent_page_id: str, title: str = "靶材產業新聞") -> str:
+def paper_properties(paper: Paper) -> dict:
+    authors = ", ".join(paper.authors[:10]) + (" et al." if len(paper.authors) > 10 else "")
+    props: dict = {
+        "標題": {"title": _text(paper.title)},
+        "主題": {"multi_select": [{"name": _option(t)} for t in paper.topics]},
+        "作者": {"rich_text": _text(authors)},
+        "摘要": {"rich_text": _text(paper.summary)},
+        "原文摘要": {"rich_text": _text(paper.abstract)},
+        "DOI": {"rich_text": _text(paper.doi)},
+        "連結": {"url": paper.link or None},
+        "ID": {"rich_text": _text(paper.id)},
+    }
+    if paper.published:
+        props["日期"] = {"date": {"start": paper.published.date().isoformat()}}
+    if paper.venue:
+        props["期刊"] = {"select": {"name": _option(paper.venue)}}
+    if paper.source:
+        props["來源"] = {"select": {"name": _option(paper.source)}}
+    if paper.importance:
+        props["重要度"] = {"number": paper.importance}
+    return props
+
+
+def create_database(
+    call: Transport, parent_page_id: str, title: str = "靶材產業新聞", properties: dict | None = None
+) -> str:
     resp = call(
         "POST",
         "/databases",
         {
             "parent": {"type": "page_id", "page_id": parent_page_id},
             "title": _text(title),
-            "properties": PROPERTIES,
+            "properties": properties or PROPERTIES,
         },
     )
     return resp["id"]
 
 
-def existing_ids(call: Transport, database_id: str, since: str) -> set[str]:
-    """IDs of rows dated on/after `since` (YYYY-MM-DD), so re-runs don't duplicate."""
+def existing_ids(call: Transport, database_id: str, since: str | None) -> set[str]:
+    """IDs of rows dated on/after `since` (YYYY-MM-DD; None = every row), so re-runs don't duplicate."""
     ids: set[str] = set()
-    body: dict = {"filter": {"property": "日期", "date": {"on_or_after": since}}, "page_size": 100}
+    body: dict = {"page_size": 100}
+    if since:
+        body["filter"] = {"property": "日期", "date": {"on_or_after": since}}
     while True:
         resp = call("POST", f"/databases/{database_id}/query", body)
         for page in resp.get("results", []):
@@ -141,18 +185,25 @@ def existing_ids(call: Transport, database_id: str, since: str) -> set[str]:
 
 
 def sync(
-    items: list[NewsItem],
+    items: list,
     call: Transport,
     database_id: str,
     *,
+    properties: Callable[[object], dict] = item_properties,
     delay: float = 0.35,
     sleep: Callable[[float], None] = time.sleep,
 ) -> int:
-    """Add each item as a row; returns the number of rows created."""
-    dated = [i.published for i in items if i.published]
+    """Add each record (NewsItem, or Paper with properties=paper_properties) as a row.
+
+    Returns the number of rows created; rows already present (by ID) are skipped.
+    """
     if not items:
         return 0
-    since = (min(dated) - timedelta(days=1)).date().isoformat() if dated else "1970-01-01"
+    # Undated records could match rows of any date, so then check the whole database.
+    if all(i.published for i in items):
+        since = (min(i.published for i in items) - timedelta(days=1)).date().isoformat()
+    else:
+        since = None
     seen = existing_ids(call, database_id, since)
     created = 0
     for item in items:
@@ -160,7 +211,7 @@ def sync(
             continue
         if created and delay:
             sleep(delay)  # Notion allows ~3 requests/second per integration
-        call("POST", "/pages", {"parent": {"database_id": database_id}, "properties": item_properties(item)})
+        call("POST", "/pages", {"parent": {"database_id": database_id}, "properties": properties(item)})
         seen.add(item.id)
         created += 1
     return created

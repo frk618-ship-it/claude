@@ -423,3 +423,59 @@ def test_research_matching_handles_word_endings():
     assert classify_topics(p, {"粉末": ["powder"], "合金": ["alloy"]}) == ["粉末", "合金"]
     assert not is_relevant(Paper("Targeted delivery of ITOX inhibitors", "https://x", None))
     assert classify_topics(Paper("Toyota sputtering target", "https://x", None), {"ITO": ["ITO"]}) == ["其他靶材研究"]
+
+
+def test_notion_sync_papers(config):
+    from target_news_agent import notion
+
+    papers = sample_papers(config.research)
+    papers[0].summary, papers[0].importance = "研究摘要", 4
+    fake = FakeNotion(existing_ids=[papers[1].id])
+    created = notion.sync(papers, fake, "db-p", properties=notion.paper_properties, sleep=lambda s: None)
+    assert created == len(papers) - 1
+
+    rows = [b["properties"] for m, p, b in fake.calls if p == "/pages"]
+    first = rows[0]
+    assert first["標題"]["title"][0]["text"]["content"] == papers[0].title
+    assert first["摘要"]["rich_text"][0]["text"]["content"] == "研究摘要"
+    assert first["重要度"]["number"] == 4
+    assert {o["name"] for o in first["主題"]["multi_select"]} == set(papers[0].topics)
+    assert set(first) <= set(notion.PAPER_PROPERTIES)
+    ito = next(r for r in rows if r["標題"]["title"][0]["text"]["content"].startswith("Densification"))
+    assert ito["DOI"]["rich_text"][0]["text"]["content"] == "10.1016/j.ceramint.2026.10.001"
+    assert ito["期刊"]["select"]["name"] == "Ceramics International"
+    assert "A. Chen" in ito["作者"]["rich_text"][0]["text"]["content"]
+
+    # Undated records: the duplicate check must scan the whole database (no date filter).
+    from target_news_agent.research import Paper
+    undated = Paper("Bonding of ITO sputtering targets", "https://x", None, id="p-undated")
+    scan = FakeNotion()
+    notion.sync([undated], scan, "db-p", properties=notion.paper_properties, sleep=lambda s: None)
+    query = next(b for m, p, b in scan.calls if p.endswith("/query"))
+    assert "filter" not in query
+
+
+def test_notion_setup_both_and_sync_papers_cli(tmp_path, monkeypatch, config):
+    from target_news_agent import notion
+    from target_news_agent.report import write_reports
+
+    fake = FakeNotion()
+    monkeypatch.setattr(notion, "http_transport", lambda token: fake)
+    monkeypatch.setenv("NOTION_TOKEN", "secret")
+    assert main(["notion-setup", "--parent", "page-1"]) == 0
+    created = [b for m, p, b in fake.calls if p == "/databases"]
+    assert [set(b["properties"]) for b in created] == [set(notion.PROPERTIES), set(notion.PAPER_PROPERTIES)]
+    assert created[1]["title"][0]["text"]["content"] == "靶材技術文獻"
+
+    papers = sample_papers(config.research)
+    write_reports([], config, Digest(), tmp_path, NOW, papers)
+    fake.calls.clear()
+    monkeypatch.delenv("NOTION_DATABASE_ID", raising=False)
+    monkeypatch.setenv("NOTION_PAPERS_DATABASE_ID", "db-p")
+    assert main(["notion-sync", "--reports-dir", str(tmp_path)]) == 0
+    pages = [b for m, p, b in fake.calls if p == "/pages"]
+    assert len(pages) == len(papers) and all(b["parent"] == {"database_id": "db-p"} for b in pages)
+
+    monkeypatch.delenv("NOTION_PAPERS_DATABASE_ID")
+    with pytest.raises(SystemExit):
+        main(["notion-sync", "--reports-dir", str(tmp_path)])

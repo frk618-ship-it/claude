@@ -74,6 +74,23 @@ class Paper:
             "importance": self.importance,
         }
 
+    @classmethod
+    def from_dict(cls, d: dict) -> "Paper":
+        return cls(
+            title=d["title"],
+            link=d.get("link", ""),
+            published=datetime.fromisoformat(d["published"]) if d.get("published") else None,
+            venue=d.get("venue", ""),
+            authors=list(d.get("authors", [])),
+            abstract=d.get("abstract", ""),
+            doi=d.get("doi", ""),
+            source=d.get("source", ""),
+            topics=list(d.get("topics", [])),
+            id=d.get("id", ""),
+            summary=d.get("summary", ""),
+            importance=int(d.get("importance", 0)),
+        )
+
 
 def paper_id(p: Paper) -> str:
     key = p.doi.lower() if p.doi else normalize_title(p.title)

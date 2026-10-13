@@ -81,29 +81,35 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 ### 同步到 Notion(選用)
 
-每則新聞會成為 Notion 資料庫的一列,欄位有:標題、日期、公司、類別、來源、語系、重要度、分數、摘要、連結、ID。可以在 Notion 依公司、類別、日期篩選、排序或做看板。已在資料庫中的新聞(依 ID 判斷)不會重複新增。
+新聞與技術文獻各寫入一個 Notion 資料庫,每則/每篇一列;已在資料庫中的(依 ID 判斷)不會重複新增。可以在 Notion 依公司、類別、主題、日期篩選、排序或做看板。
+
+| 資料庫 | 欄位 |
+|---|---|
+| 靶材產業新聞 | 標題、日期、公司、類別、來源、語系、重要度、分數、摘要、連結、ID |
+| 靶材技術文獻 | 標題、日期、主題、期刊、作者、來源、重要度、摘要(Claude 中文摘要)、原文摘要、DOI、連結、ID |
 
 1. 到 <https://www.notion.so/my-integrations> 建立 Internal integration,複製 token(`ntn_…` 或 `secret_…`)。
 2. 在 Notion 開一個頁面放資料庫,右上角 `…` → *Connections* → 加入剛建立的 integration。頁面網址最後 32 碼就是頁面 ID。
-3. 建立資料庫(只需一次):
+3. 建立資料庫(只需一次;預設兩個都建立,`--only news` / `--only papers` 只建其中一個):
 
    ```bash
    export NOTION_TOKEN=ntn_xxx
    python -m target_news_agent notion-setup --parent <頁面ID>
-   # → 印出 NOTION_DATABASE_ID
+   # → 印出 NOTION_DATABASE_ID(新聞)與 NOTION_PAPERS_DATABASE_ID(技術文獻)
    ```
 
-4. 同步報告:
+4. 同步報告(有設定哪個資料庫 ID 就同步哪一種):
 
    ```bash
-   export NOTION_DATABASE_ID=<上一步的 ID>
+   export NOTION_DATABASE_ID=<新聞資料庫 ID>
+   export NOTION_PAPERS_DATABASE_ID=<技術文獻資料庫 ID>
    python -m target_news_agent notion-sync                      # reports/ 中最新一份
    python -m target_news_agent notion-sync reports/2026-10-13.json
    ```
 
-5. 每日自動同步:在 GitHub repo secrets 新增 `NOTION_TOKEN` 與 `NOTION_DATABASE_ID`。workflow 會在報告 commit 後執行同步;同步失敗不影響報告產生,可之後手動重跑 `notion-sync`。
+5. 每日自動同步:在 GitHub repo secrets 新增 `NOTION_TOKEN`、`NOTION_DATABASE_ID`、`NOTION_PAPERS_DATABASE_ID`。workflow 會在報告 commit 後執行同步;同步失敗不影響報告產生與網站發布,可之後手動重跑 `notion-sync`。
 
-也可以用自己建立的資料庫,只要欄位名稱與型別和上面相同(標題=Title、日期=Date、公司/類別=Multi-select、來源/語系=Select、重要度/分數=Number、摘要/ID=Text、連結=URL)。
+也可以用自己建立的資料庫,只要欄位名稱與型別相同:標題=Title、日期=Date、公司/類別/主題=Multi-select、來源/語系/期刊=Select、重要度/分數=Number、連結=URL,其餘(摘要、原文摘要、作者、DOI、ID)=Text。
 
 ## 開發
 
