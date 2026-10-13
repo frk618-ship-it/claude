@@ -40,3 +40,21 @@ class NewsItem:
             "summary": self.summary,
             "importance": self.importance,
         }
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "NewsItem":
+        published = datetime.fromisoformat(d["published"]) if d.get("published") else None
+        return cls(
+            title=d["title"],
+            link=d.get("link", ""),
+            source=d.get("source", ""),
+            published=published,
+            snippet=d.get("snippet", ""),
+            edition=d.get("edition", ""),
+            entities=list(d.get("entities", [])),
+            categories=list(d.get("categories", [])),
+            score=float(d.get("score", 0.0)),
+            id=d.get("id", ""),
+            summary=d.get("summary", ""),
+            importance=int(d.get("importance", 0)),
+        )

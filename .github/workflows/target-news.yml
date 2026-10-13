@@ -21,6 +21,10 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    env:
+      # 選填:設定這兩個 secrets 後,每次執行會把新聞同步到 Notion 資料庫
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,3 +48,7 @@ jobs:
           git add reports data
           git diff --cached --quiet || git commit -m "news: 靶材產業新聞 $(TZ=Asia/Taipei date +%F)"
           git push
+
+      - name: Sync to Notion
+        if: env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != ''
+        run: python -m target_news_agent -v notion-sync

@@ -58,6 +58,32 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 `.github/workflows/target-news.yml` 每天台北時間 08:23 執行,並把報告與已讀紀錄 commit 回 repo。也可在 Actions 頁面手動觸發並指定天數。若要啟用 Claude 摘要,請在 repo 的 *Settings → Secrets and variables → Actions* 新增 `ANTHROPIC_API_KEY`。(排程只會在預設分支上執行。)
 
+### 同步到 Notion(選用)
+
+每則新聞會成為 Notion 資料庫的一列,欄位有:標題、日期、公司、類別、來源、語系、重要度、分數、摘要、連結、ID。可以在 Notion 依公司、類別、日期篩選、排序或做看板。已在資料庫中的新聞(依 ID 判斷)不會重複新增。
+
+1. 到 <https://www.notion.so/my-integrations> 建立 Internal integration,複製 token(`ntn_…` 或 `secret_…`)。
+2. 在 Notion 開一個頁面放資料庫,右上角 `…` → *Connections* → 加入剛建立的 integration。頁面網址最後 32 碼就是頁面 ID。
+3. 建立資料庫(只需一次):
+
+   ```bash
+   export NOTION_TOKEN=ntn_xxx
+   python -m target_news_agent notion-setup --parent <頁面ID>
+   # → 印出 NOTION_DATABASE_ID
+   ```
+
+4. 同步報告:
+
+   ```bash
+   export NOTION_DATABASE_ID=<上一步的 ID>
+   python -m target_news_agent notion-sync                      # reports/ 中最新一份
+   python -m target_news_agent notion-sync reports/2026-10-13.json
+   ```
+
+5. 每日自動同步:在 GitHub repo secrets 新增 `NOTION_TOKEN` 與 `NOTION_DATABASE_ID`。workflow 會在報告 commit 後執行同步;同步失敗不影響報告產生,可之後手動重跑 `notion-sync`。
+
+也可以用自己建立的資料庫,只要欄位名稱與型別和上面相同(標題=Title、日期=Date、公司/類別=Multi-select、來源/語系=Select、重要度/分數=Number、摘要/ID=Text、連結=URL)。
+
 ## 開發
 
 ```bash

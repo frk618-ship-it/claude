@@ -1,3 +1,4 @@
+import json
 from datetime import datetime, timezone
 from types import SimpleNamespace
 
@@ -167,3 +168,69 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
 def test_korean_category_keywords(config):
     item = NewsItem(title="JX금속, 스퍼터링 타겟 증설…3분기 매출 사상 최대", link="", source="", published=NOW)
     assert {"擴產與投資", "營收與財報"} <= set(classify(item, config.settings.categories))
+
+
+class FakeNotion:
+    """Records Notion API calls; the query endpoint returns rows already in the database."""
+
+    def __init__(self, existing_ids=()):
+        self.calls = []
+        self.existing = list(existing_ids)
+
+    def __call__(self, method, path, body):
+        self.calls.append((method, path, body))
+        if path.endswith("/query"):
+            # Two pages of results to exercise pagination.
+            if "start_cursor" not in body:
+                rows = self.existing[:1]
+                return {"results": [self._row(i) for i in rows], "has_more": len(self.existing) > 1, "next_cursor": "c2"}
+            return {"results": [self._row(i) for i in self.existing[1:]], "has_more": False}
+        if path == "/databases":
+            return {"id": "db-123"}
+        return {"id": "page"}
+
+    @staticmethod
+    def _row(item_id):
+        return {"properties": {"ID": {"rich_text": [{"plain_text": item_id}]}}}
+
+
+def test_notion_sync_creates_rows_and_skips_existing(config):
+    from target_news_agent import notion
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    fake = FakeNotion(existing_ids=[items[0].id, items[1].id])
+    created = notion.sync(items, fake, "db-1", sleep=lambda s: None)
+
+    assert created == len(items) - 2
+    pages = [b for m, p, b in fake.calls if p == "/pages"]
+    assert len(pages) == created
+    props = pages[0]["properties"]
+    assert props["標題"]["title"][0]["text"]["content"] == items[2].title
+    assert props["日期"]["date"]["start"] == items[2].published.date().isoformat()
+    assert {o["name"] for o in props["公司"]["multi_select"]} == set(items[2].entities)
+    assert props["連結"]["url"] == items[2].link
+    assert pages[0]["parent"] == {"database_id": "db-1"}
+
+    # Running again with everything present creates nothing.
+    again = FakeNotion(existing_ids=[i.id for i in items])
+    assert notion.sync(items, again, "db-1", sleep=lambda s: None) == 0
+
+
+def test_notion_setup_and_sync_cli(tmp_path, monkeypatch, config):
+    from target_news_agent import notion
+
+    fake = FakeNotion()
+    monkeypatch.setattr(notion, "http_transport", lambda token: fake)
+    monkeypatch.setenv("NOTION_TOKEN", "secret")
+
+    assert main(["notion-setup", "--parent", "page-1"]) == 0
+    method, path, body = fake.calls[0]
+    assert path == "/databases" and body["parent"]["page_id"] == "page-1"
+    assert set(body["properties"]) == set(notion.PROPERTIES)
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    report = tmp_path / "2026-10-13.json"
+    report.write_text(json.dumps({"items": [i.to_dict() for i in items]}, ensure_ascii=False), encoding="utf-8")
+    monkeypatch.setenv("NOTION_DATABASE_ID", "db-123")
+    assert main(["notion-sync", "--reports-dir", str(tmp_path)]) == 0
+    assert sum(1 for m, p, b in fake.calls if p == "/pages") == len(items)
