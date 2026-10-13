@@ -1,0 +1,45 @@
+# 物料比價系統設定(python -m price_compare)
+
+base_currency: TWD
+
+# 匯率:1 外幣 = ? 新台幣。live_fx: true 時優先抓臺灣銀行當日牌告(即期買賣中價),失敗才用下列數字。
+# 下列為粗略備援值,請定期更新。
+live_fx: true
+fx_rates:
+  USD: 31.5
+  EUR: 34.5
+  JPY: 0.21
+  CNY: 4.4
+  KRW: 0.023
+  GBP: 40.5
+  HKD: 4.05
+  SGD: 24.0
+
+# 規格相符度低於此分數的報價直接排除(0-100,材質不同 = 0)
+min_match_score: 40
+# 尺寸比對容許誤差(相對值,0.03 = ±3%)
+dim_tolerance: 0.03
+# 換算單價超過同基準中位數幾倍(或低於幾分之一)標為異常、不列入統計
+outlier_ratio: 3.0
+# 報價日期超過幾天標為過舊、不列入統計
+max_quote_age_days: 365
+
+sources:
+  # 自有報價紀錄:供應商報價單、歷史採購價。可用 `python -m price_compare add ...` 新增,或直接用 Excel 編輯。
+  quote_book: data/quotes/quotes.csv
+
+  # Claude 網路搜尋(需 ANTHROPIC_API_KEY):搜尋供應商產品頁、目錄價、B2B 平台、行情報導
+  claude_web_search:
+    enabled: true
+    max_searches: 12          # 每次比價最多幾次搜尋 / 幾次開啟網頁
+    user_location:            # 讓搜尋結果偏向台灣
+      country: TW
+      timezone: Asia/Taipei
+    blocked_domains: []       # 不想採用的網站,例如內容農場
+    search_hints:             # 額外提示,會附在每次搜尋請求中
+      - 優先找有明確標價的供應商產品頁與目錄價(例如 Kurt J. Lesker、Stanford Advanced Materials、American Elements、Alfa Aesar、Sigma-Aldrich、阿里巴巴、1688)
+      - 台灣代理商與國內供應商的公開報價也要找
+
+  # PChome 24h 購物搜尋:只適合一般消費性/五金商品,工業材料通常查不到
+  pchome:
+    enabled: false
