@@ -104,11 +104,14 @@ def main(argv: list[str] | None = None) -> int:
     if args.papers_only:
         if args.no_papers:
             p.error("--papers-only and --no-papers cannot be combined")
-        # Keep today's news report as is; only add papers to it.
-        today = Path(args.out) / f"{generated.strftime('%Y-%m-%d')}.json"
+        # Add papers to the latest existing report (not strictly today's: a run that crosses
+        # midnight would otherwise create an empty report); its news stays as is.
+        reports = sorted(Path(args.out).glob("????-??-??.json"))
         items = []
-        if today.exists():
-            data = json.loads(today.read_text(encoding="utf-8"))
+        if reports:
+            data = json.loads(reports[-1].read_text(encoding="utf-8"))
+            if data.get("generated"):
+                generated = datetime.fromisoformat(data["generated"])  # keep that report's date / file name
             items = [NewsItem.from_dict(d) for d in data.get("items", [])]
             digest = Digest(**(data.get("digest") or {}))
             # Re-check with the current filter, so a rerun also cleans out papers that no longer qualify.

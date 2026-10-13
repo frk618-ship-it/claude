@@ -605,3 +605,22 @@ def test_arxiv_queries_are_combined_into_one_request(config):
     collect_papers(rs, lambda url: calls.append(url) or ARXIV, now=NOW, sleep=lambda s: None)
     assert len(calls) == 1
     assert 'abs:"sputtering target" OR abs:"target microstructure"' in unquote(calls[0])
+
+
+
+def test_papers_only_targets_latest_report_across_midnight(tmp_path, monkeypatch, config):
+    """A papers-only run just after midnight must update yesterday's report, not create an empty one."""
+    from target_news_agent.report import write_reports
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.setattr("target_news_agent.cli.collect_papers", lambda rs: sample_papers(rs))
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    yesterday = NOW.replace(year=2020)  # any date that is not "today"
+    write_reports(items, config, Digest(), tmp_path, yesterday)
+
+    assert main(["run", "-c", str(CONFIG), "-o", str(tmp_path), "--db", str(tmp_path / "seen.db"), "--papers-only"]) == 0
+    files = sorted(p.name for p in tmp_path.glob("*.json"))
+    assert files == [f"{yesterday:%Y-%m-%d}.json"]
+    data = json.loads((tmp_path / files[0]).read_text(encoding="utf-8"))
+    assert len(data["items"]) == len(items) and data["papers"]
