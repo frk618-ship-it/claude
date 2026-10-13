@@ -174,6 +174,15 @@ python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦�
 
 也可以在 GitHub Actions 頁面手動執行「物料比價」workflow,輸入品名規格,結果會顯示在執行摘要並 commit 到 `reports/prices/`(需在 repo Secrets 設定 `ANTHROPIC_API_KEY`)。
 
+### 比價紀錄網站(GitHub Pages)
+
+「物料比價」workflow 每次執行後,會把 `reports/prices/` 的所有報告產生成靜態網站並發布到 GitHub Pages:首頁列出歷次比價(可篩選),點進去看比價摘要、報價明細並下載 CSV / MD / JSON;首頁的「新增比價」按鈕會連到 Actions 頁面。
+
+- **啟用一次**:repo 的 *Settings → Pages → Build and deployment → Source* 選 **GitHub Actions**。之後網址為 `https://<帳號>.github.io/<repo>/`。
+- **只重新發布網站**:執行 workflow 時品名規格留空。
+- **本機預覽**:`python -m price_compare site -i reports/prices -o site`,再開 `site/index.html`。
+- ⚠ GitHub Pages 網站是**公開**的(私人 repo 需付費方案才能開 Pages,網站本身仍公開),報告內的供應商與報價都會被看見。報價資料敏感時請改用本機或內網的 `serve`。
+
 ## 規格寫法
 
 | 項目 | 可辨識的寫法 |
