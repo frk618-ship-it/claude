@@ -550,6 +550,12 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
         ("Thermoelectric BiCuSeO thin films", "The Bi2O3 target was sputtered at 80 W and the films were annealed.", False),
         ("Novel drug target for lung cancer therapy", "", False),
         ('Decision letter for "Sintering of ITO sputtering targets"', "", False),
+        # "target" in nuclear physics / laser plasma (seen in the first live run) -> drop
+        ("High-vacuum fabrication and characterization of thin Ba targets for nuclear reaction and spectroscopy", "", False),
+        ("Fabrication of 120 Sn target with Indium interlayer", "", False),
+        ("Laboratory-scale dual-pulse laser-produced plasma extreme ultraviolet source with continuous target", "", False),
+        # same title words, but in a sputtering context -> keep
+        ("Fabrication of Sn targets with indium interlayer", "Targets for magnetron sputtering were bonded with In.", True),
     ],
 )
 def test_paper_relevance_requires_target_manufacturing(title, abstract, expected):

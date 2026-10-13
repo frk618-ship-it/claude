@@ -60,6 +60,15 @@ TARGET_PROCESS_PATTERNS = [
     re.compile(rf"\b(?:relative density|grain size|purity|microstructure|texture|impurity content)\s+of\s+(?:the\s+)?"
                rf"(?:[\w-]+\s+){{0,3}}{_T}\b"),
 ]
+SPUTTER_WORDS = ["sputter", "magnetron", "PVD", "physical vapor deposition", "HiPIMS", "濺鍍", "溅射", "スパッタ"]
+# "Target" in other fields: nuclear / accelerator targets, laser-plasma targets, drug targets.
+OTHER_TARGET_CONTEXT = [
+    "nuclear", "accelerator", "cyclotron", "isotope", "neutron", "proton beam", "ion beam", "radioisotope",
+    "laser-produced plasma", "laser produced plasma", "euv source", "extreme ultraviolet", "fusion", "spallation",
+    "x-ray source", "tumor", "cancer", "drug", "protein", "receptor",
+]
+# Isotope-labelled targets ("120 Sn target", "48Ca targets") are nuclear-physics targets.
+ISOTOPE_TARGET = re.compile(r"\b\d{2,3}\s?[A-Z][a-z]?\s+targets?\b")
 TARGET_IN_TITLE = re.compile(r"(?<![a-z])targets?(?![a-z])|靶|ターゲット|타겟")
 NOT_A_PAPER = re.compile(r"^(?:decision letter|review for|author response|reply to|response to|erratum|corrigendum|retraction)\b", re.I)
 NON_PAPER_TYPES = {"peer-review", "paratext", "erratum", "retraction", "editorial"}
@@ -143,6 +152,10 @@ def is_relevant(p: Paper) -> bool:
     title = p.title.lower()
     if any(_match(title, t) for t in STRONG_TERMS):
         return True
+    text = p.text.lower()
+    # Below here "target" alone is ambiguous: rule out nuclear / laser-plasma / biomedical targets.
+    if any(_match(text, w) for w in OTHER_TARGET_CONTEXT) or ISOTOPE_TARGET.search(p.title):
+        return False
     if TARGET_IN_TITLE.search(title) and any(_match(title, w) for w in MANUFACTURING_WORDS):
         return True
     abstract = p.abstract.lower()
