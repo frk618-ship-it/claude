@@ -26,13 +26,13 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 類型 | 公司 |
 |---|---|
 | 生產商-日本 | JX金屬、東曹、三井金屬、三菱綜合材料、住友金屬礦山、愛發科、古屋金屬、田中貴金屬、Proterial |
-| 生產商-歐美 | Honeywell 電子材料、Materion、Plansee、Heraeus、Umicore |
+| 生產商-歐美 | Solstice(原 Honeywell 電子材料)、Materion、Plansee、Heraeus、Umicore |
 | 生產商-中國大陸 | 江豐電子、有研新材、阿石創、隆華科技、先導稀材、歐萊新材 |
 | 生產商-台灣 | 光洋科、鑫科材料 |
 | 銷售商 | Kurt J. Lesker、Stanford Advanced Materials、American Elements、Angstrom Sciences、Testbourne |
 | 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟 |
 
-清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。
+清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。
 
 ## 使用方式
 
@@ -44,7 +44,7 @@ python -m target_news_agent -v run
 
 # 常用選項
 python -m target_news_agent run --days 7                 # 改成最近 7 天
-python -m target_news_agent run --only 江豐 Honeywell    # 只跑部分公司
+python -m target_news_agent run --only 江豐 Solstice     # 只跑部分公司
 python -m target_news_agent run --include-seen           # 包含已報告過的新聞
 python -m target_news_agent run --no-llm                 # 不呼叫 Claude
 python -m target_news_agent queries                      # 列出會抓取的 RSS 網址(不連網)

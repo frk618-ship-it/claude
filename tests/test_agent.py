@@ -29,9 +29,9 @@ def test_config_loads_watchlist(config):
 
 
 def test_build_query_adds_context_for_broad_companies(config):
-    honeywell = next(e for e in config.entities if e.name.startswith("Honeywell"))
-    q = build_query(honeywell, config.settings.query_context_terms)
-    assert q.startswith('("Honeywell" OR') and "(靶材 OR 濺鍍" in q
+    solstice = next(e for e in config.entities if e.name.startswith("Solstice"))
+    q = build_query(solstice, config.settings.query_context_terms)
+    assert q.startswith('("Solstice Advanced Materials" OR') and '"Honeywell"' in q and "(靶材 OR 濺鍍" in q
     jx = next(e for e in config.entities if e.name.startswith("JX"))
     assert "靶材" not in build_query(jx, config.settings.query_context_terms)
     url = google_news_url(q, config.settings.editions["zh-TW"], 3)
@@ -59,7 +59,11 @@ def test_process_filters_matches_dedupes_and_classifies(config):
     # Honeywell aerospace news lacks target context -> dropped; target news kept.
     assert not any("aerospace" in t for t in titles)
     hon = next(i for i in items if "Spokane" in i.title)
-    assert hon.entities == ["Honeywell 電子材料"]
+    assert hon.entities == ["Solstice (原 Honeywell 電子材料)"]
+    sols = next(i for i in items if "Solstice Advanced Materials" in i.title)
+    assert sols.entities == ["Solstice (原 Honeywell 電子材料)"]
+    # The bare word "Solstice" (an unrelated battery product) must not match.
+    assert not any("Factorial" in t for t in titles)
     assert "擴產與投資" in hon.categories and "客戶與供應鏈" in hon.categories
 
     # Traditional / simplified duplicates collapse into one item.
@@ -104,7 +108,7 @@ def test_render_markdown(config):
     md = render_markdown(items, config, Digest(overview="總覽", key_trends=["趨勢A"]), NOW)
     assert "## 本期總覽" in md and "趨勢A" in md
     assert "### 擴產與投資" in md
-    assert "| Honeywell 電子材料 | 生產商 |" in md
+    assert "| Solstice (原 Honeywell 電子材料) | 生產商 |" in md
     assert "## 熱門關鍵字" in md
     assert "本期沒有新的相關新聞" in render_markdown([], config, Digest(), NOW)
 
@@ -149,7 +153,7 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr("target_news_agent.cli.collect", lambda cfg: collect(cfg, lambda url: SAMPLE, sleep=lambda s: None))
     monkeypatch.setattr("target_news_agent.cli.process", lambda raw, cfg: process(raw, cfg, now=NOW))
 
-    args = ["run", "-c", str(CONFIG), "-o", str(tmp_path / "out"), "--db", str(tmp_path / "seen.db"), "--only", "Honeywell", "光洋科"]
+    args = ["run", "-c", str(CONFIG), "-o", str(tmp_path / "out"), "--db", str(tmp_path / "seen.db"), "--only", "Solstice", "光洋科"]
     assert main(args) == 0
     reports = list((tmp_path / "out").glob("*.md"))
     assert len(reports) == 1

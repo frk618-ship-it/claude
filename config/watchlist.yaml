@@ -6,7 +6,7 @@
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
-#   require_context true = 公司業務範圍廣(例如 Honeywell、三菱綜合材料),
+#   require_context true = 公司業務範圍廣(例如 Solstice/Honeywell、三菱綜合材料),
 #                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
 
@@ -129,11 +129,13 @@ entities:
     editions: [en, ja]
 
   # ---------- 生產商:歐美 ----------
-  - name: Honeywell 電子材料
+  # Honeywell 先進材料部門(含靶材)於 2025 年分拆為 Solstice Advanced Materials;
+  # 保留 Honeywell 別名以涵蓋仍沿用舊名的報導。不用單字 "Solstice",以免誤配同名產品。
+  - name: Solstice (原 Honeywell 電子材料)
     role: producer
     region: 美國
-    ticker: HON
-    aliases: [Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合, 하니웰]
+    ticker: SOLS
+    aliases: [Solstice Advanced Materials, Solstice 先進材料, Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合, 하니웰]
     require_context: true
     editions: [zh-TW, en, ko]
   - name: Materion
