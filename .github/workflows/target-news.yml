@@ -1,4 +1,5 @@
 name: 靶材產業新聞
+# 手動執行:Actions 頁面選「靶材產業新聞」→ Run workflow,可指定天數
 
 on:
   schedule:
