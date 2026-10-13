@@ -112,7 +112,8 @@ def render_json(comp: Comparison, generated: datetime) -> str:
             "fx_live": comp.fx_live,
             "summary": [
                 {"basis": s.basis, "count": s.count, "low": s.low, "median": s.median, "high": s.high,
-                 "best_vendor": s.best.vendor, "best_url": s.best.url}
+                 "best_vendor": s.best.vendor, "best_url": s.best.url,
+                 "best_unit_price": s.best.unit_price_twd, "best_level": s.best.match_level}
                 for s in comp.stats
             ],
             "market_summary": comp.market_summary,

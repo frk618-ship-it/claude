@@ -1,19 +1,24 @@
 name: 物料比價
-# 手動執行:Actions 頁面選「物料比價」→ Run workflow,輸入品名規格
+# 手動執行:Actions 頁面選「物料比價」→ Run workflow,輸入品名規格。
+# 比價報告會 commit 到 reports/prices/,並發布到 GitHub Pages(比價紀錄網站)。
+# 品名規格留空 = 只重新發布網站。
 
 on:
   workflow_dispatch:
     inputs:
       query:
-        description: "物料品名規格,例如:鈦靶 4N5 Φ300x6.35mm"
-        required: true
+        description: "物料品名規格,例如:鈦靶 4N5 Φ300x6.35mm(留空 = 只重新發布網站)"
+        required: false
+        default: ""
       quantity:
-        description: "需求數量(選填),例如:10 片"
+        description: "需求數量(選填),例如:10 片、100 g"
         required: false
         default: ""
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: price-compare
@@ -33,6 +38,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Search and compare
+        if: ${{ github.event.inputs.query != '' }}
         env:
           # 必填才會做網路搜尋;未設定時只比對 data/quotes/quotes.csv
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -42,9 +48,31 @@ jobs:
           python -m price_compare -v search -q "$QUANTITY" "$QUERY" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit report
+        if: ${{ github.event.inputs.query != '' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reports/prices
           git diff --cached --quiet || git commit -m "price: 物料比價 $(TZ=Asia/Taipei date +%F)"
           git push
+
+      - name: Build site
+        env:
+          NEW_QUERY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/price-compare.yml
+        run: python -m price_compare site -i reports/prices -o site --new-query-url "$NEW_QUERY_URL"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: compare
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

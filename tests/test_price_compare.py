@@ -251,3 +251,24 @@ def test_web_ui(settings, tmp_path, monkeypatch):
     finally:
         server.shutdown()
         server.server_close()
+
+
+def test_build_site(settings, tmp_path):
+    from datetime import datetime
+
+    from price_compare.report import write_reports
+    from price_compare.site import build_site
+
+    src, out = tmp_path / "reports", tmp_path / "site"
+    spec = parse_spec("鈦靶 4N5 Φ300x6.35mm <script>")
+    comp = analyse(spec, search_quote_book(spec, settings.quote_book), settings, fx(settings), today=TODAY)
+    md, js, cs = write_reports(comp, src, datetime(2026, 10, 13, 9, 0))
+    (src / "broken.json").write_text("{not json", encoding="utf-8")
+
+    assert build_site(src, out, "https://github.com/o/r/actions/workflows/price-compare.yml") == 1
+    index = (out / "index.html").read_text(encoding="utf-8")
+    assert "新增比價" in index and "<script>" not in index.split("<main>")[1].split("<script>document")[0]
+    report = (out / f"{js.stem}.html").read_text(encoding="utf-8")
+    assert "比價摘要" in report and "示範供應商B" in report and "TWD 51,975" in report
+    assert (out / cs.name).exists() and (out / md.name).exists() and (out / ".nojekyll").exists()
+    assert main(["site", "-i", str(src), "-o", str(tmp_path / "site2")]) == 0

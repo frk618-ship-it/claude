@@ -54,6 +54,11 @@ def main(argv: list[str] | None = None) -> int:
     w.add_argument("--port", type=int, default=8765)
     w.add_argument("-o", "--out", default="reports/prices")
 
+    b = sub.add_parser("site", help="把 reports/prices 的比價報告產生成靜態網站(GitHub Pages)")
+    b.add_argument("-i", "--input", default="reports/prices", help="比價報告資料夾")
+    b.add_argument("-o", "--out", default="site", help="網站輸出資料夾")
+    b.add_argument("--new-query-url", default="", help="首頁「新增比價」按鈕連結(例如 Actions workflow 頁面)")
+
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
     settings = load_config(args.config)
@@ -65,6 +70,13 @@ def main(argv: list[str] | None = None) -> int:
                   price_type="quote")
         append_quote_book(settings.quote_book, [q])
         print(f"已新增到 {settings.quote_book}")
+        return 0
+
+    if args.command == "site":
+        from .site import build_site
+
+        n = build_site(args.input, args.out, args.new_query_url)
+        print(f"{n} 份比價報告 -> {args.out}/index.html")
         return 0
 
     if args.command == "serve":
