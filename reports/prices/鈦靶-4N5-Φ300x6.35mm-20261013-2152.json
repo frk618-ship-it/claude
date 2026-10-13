@@ -1,0 +1,27 @@
+{
+ "query": "鈦靶 4N5 Φ300x6.35mm",
+ "parsed_spec": {
+  "raw": "鈦靶 4N5 Φ300x6.35mm",
+  "materials": [
+   "Ti"
+  ],
+  "purity": 99.995,
+  "form": "target",
+  "dims_mm": [
+   300.0,
+   6.35
+  ],
+  "shape": "round",
+  "keywords": [
+   "鈦靶"
+  ],
+  "summary": "Ti 4N5 靶材 Φ300x6.35mm"
+ },
+ "generated": "2026-10-13T21:52:57+08:00",
+ "base_currency": "TWD",
+ "fx_live": false,
+ "summary": [],
+ "market_summary": "",
+ "excluded": 0,
+ "quotes": []
+}
