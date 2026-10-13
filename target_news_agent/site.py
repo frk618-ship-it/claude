@@ -16,6 +16,7 @@ from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
+from .research import GENERAL_TOPIC
 
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 
@@ -90,7 +91,8 @@ button.f .mono{font-size:.74rem;color:var(--muted)}button.f[aria-pressed=true]{b
 h3.topic{margin:10px 0 0;font-size:1rem;font-weight:700;display:flex;gap:8px;align-items:baseline}h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
 .note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px;font-size:.9rem;color:var(--muted)}.note strong{color:var(--fg)}
 footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
-@media (max-width:520px){.item{grid-template-columns:1fr}}
+.lib .item{grid-template-columns:96px 1fr}
+@media (max-width:520px){.item,.lib .item{grid-template-columns:1fr}}
 """
 
 SCRIPT = """
@@ -127,7 +129,7 @@ def _item_html(item: dict, extra_class: str = "") -> str:
     )
 
 
-def _paper_html(p: dict) -> str:
+def _paper_html(p: dict, filterable: bool = False) -> str:
     date = (p.get("published") or "")[:10].replace("-", "/") or "日期不明"
     authors = p.get("authors") or []
     author_text = ", ".join(authors[:3]) + (" 等" if len(authors) > 3 else "")
@@ -140,33 +142,103 @@ def _paper_html(p: dict) -> str:
     else:
         body = ""
     meta = "".join(f"<span>{esc(x)}</span>" for x in (p.get("venue"), author_text) if x)
+    attrs = ""
+    if filterable:
+        attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'
+    shown_date = date if filterable else (date[5:] if len(date) == 10 else date)
     return (
-        f'<article class="item"><time datetime="{esc((p.get("published") or "")[:10])}">{esc(date[5:] if len(date) == 10 else date)}</time>'
+        f'<article class="item"{attrs}><time datetime="{esc((p.get("published") or "")[:10])}">{esc(shown_date)}</time>'
         f'<div class="body"><h3>{_title_link(p)}{stars}</h3>{body}<div class="co">{meta}</div></div></article>'
     )
 
 
-def _papers_section(report: dict) -> str:
-    if "papers" not in report:
-        return ""
-    papers = report["papers"]
-    days = report.get("research_days") or 30
-    if not papers:
+PAPER_SOURCES_NOTE = (
+    "來源:OpenAlex、arXiv 與期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum 等);"
+    "只收錄標題或摘要明確談到濺鍍靶材的研究。"
+)
+
+
+def _grouped_papers(papers: list[dict]) -> str:
+    groups: "OrderedDict[str, list]" = OrderedDict()
+    ranked = sorted(papers, key=lambda p: (p.get("importance", 0), p.get("published") or ""), reverse=True)
+    for p in ranked:
+        groups.setdefault((p.get("topics") or [GENERAL_TOPIC])[0], []).append(p)
+    return "".join(
+        f'<h3 class="topic">{esc(t)} <span class="mono">{len(ps)}</span></h3><div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
+        for t, ps in groups.items()
+    )
+
+
+def _papers_section(report: dict, library: list[dict], is_latest: bool, home: str = "") -> str:
+    papers = report.get("papers")
+    link = (
+        f'<p><a href="{home}papers.html">查看技術文獻庫:累積收錄的全部 {len(library)} 篇,可依製程主題篩選 →</a></p>'
+        if library else ""
+    )
+    if papers:
+        days = report.get("research_days") or 30
+        title = f'技術文獻:靶材製造技術 <span class="count">本期新收錄 {len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類</span>'
+        inner = _grouped_papers(papers)
+    elif is_latest and library:
+        # Homepage: no new papers today, so show the most recently collected ones.
+        recent = library[:10]
+        title = f'技術文獻:靶材製造技術 <span class="count">本期無新收錄 · 以下為最近收錄的 {len(recent)} 篇</span>'
+        inner = '<div class="news">' + "".join(_paper_html(p) for p in recent) + "</div>"
+    elif "papers" in report or is_latest:
+        title = '技術文獻:靶材製造技術 <span class="count">本期沒有新收錄的文獻</span>'
         inner = "<p>本期沒有新的靶材製造技術文獻。</p>"
     else:
-        groups: "OrderedDict[str, list]" = OrderedDict()
-        ranked = sorted(papers, key=lambda p: (p.get("importance", 0), p.get("published") or ""), reverse=True)
-        for p in ranked:
-            groups.setdefault((p.get("topics") or ["其他靶材研究"])[0], []).append(p)
-        inner = "".join(
-            f'<h3 class="topic">{esc(t)} <span class="mono">{len(ps)}</span></h3><div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
-            for t, ps in groups.items()
-        )
+        return ""  # older reports from before papers were collected
     return (
-        f'<section aria-labelledby="papers"><h2 id="papers">技術文獻:靶材製造技術 <span class="count">{len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類</span></h2>'
-        f'<p class="sum" style="color:var(--muted)">來源:OpenAlex、arXiv 與期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum 等);只收錄標題或摘要明確談到濺鍍靶材的研究。</p>'
-        f"{inner}</section>"
+        f'<section aria-labelledby="papers"><h2 id="papers">{title}</h2>'
+        f'<p class="sum" style="color:var(--muted)">{PAPER_SOURCES_NOTE}</p>{inner}{link}</section>'
     )
+
+
+def paper_library(reports: list[tuple[str, dict]]) -> list[dict]:
+    """Every paper across all reports, one entry per paper ID, newest publication first."""
+    seen: dict[str, dict] = {}
+    for date, report in sorted(reports):  # oldest report first, so "collected" is the first sighting
+        for p in report.get("papers") or []:
+            if p.get("id") and p["id"] not in seen:
+                seen[p["id"]] = {**p, "collected": date}
+    return sorted(seen.values(), key=lambda p: (p.get("published") or "", p["collected"]), reverse=True)
+
+
+def render_library(library: list[dict], config: Config, generated: str) -> str:
+    topics = Counter(t for p in library for t in (p.get("topics") or [GENERAL_TOPIC]))
+    sources = Counter(p.get("source", "") for p in library)
+    order = list(config.research.topics) + [GENERAL_TOPIC] if config.research else list(topics)
+    topic_chips = "".join(
+        f'<button type="button" class="f" data-filter="ent" data-value="{esc(t)}" aria-pressed="false">{esc(t)}<span class="mono">{topics[t]}</span></button>'
+        for t in order if topics.get(t)
+    )
+    source_chips = "".join(
+        f'<button type="button" class="f" data-filter="kind" data-value="{esc(s)}" aria-pressed="false">{esc(s)}<span class="mono">{n}</span></button>'
+        for s, n in sources.most_common() if s
+    )
+    body = (
+        "".join(_paper_html(p, filterable=True) for p in library)
+        if library else "<p>尚未收錄任何文獻;每日執行後會累積在這裡。</p>"
+    )
+    return f"""<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>靶材技術文獻庫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>{STYLE}</style></head><body><div class="wrap">
+<header><div class="eyebrow">Sputtering Target · Research Library</div><h1>靶材技術文獻庫</h1>
+<nav class="meta" aria-label="網站導覽"><a href="index.html">← 新聞摘要</a><span>更新於 <span class="mono">{esc(generated)}</span></span></nav>
+<div class="stats"><div class="stat"><b>{len(library)}</b><span>累積收錄文獻(篇)</span></div>
+<div class="stat"><b>{len([t for t in topics if t != GENERAL_TOPIC])}</b><span>涵蓋製程主題</span></div></div></header>
+<section aria-labelledby="lib"><h2 id="lib">全部文獻 <span class="count">依發表日期,新到舊</span></h2>
+<p class="sum" style="color:var(--muted)">{PAPER_SOURCES_NOTE}</p>
+<div class="filters" role="group" aria-label="篩選文獻"><div class="frow"><span class="lbl">主題</span>{topic_chips}</div>
+<div class="frow"><span class="lbl">來源</span>{source_chips}</div>
+<div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(library)} / {len(library)} 篇</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
+<div class="news lib" id="list">{body}</div></section>
+<footer>文獻摘要為改寫整理;引用請以原文為準。</footer>
+</div><script>{SCRIPT.replace("則", "篇")}</script></body></html>"""
 
 
 def _ledger(config: Config, counts: Counter) -> str:
@@ -192,7 +264,16 @@ def _ledger(config: Config, counts: Counter) -> str:
     return "\n".join(out)
 
 
-def render_page(report: dict, config: Config, archive: list[tuple[str, int]], current: str, home: str = "") -> str:
+def render_page(
+    report: dict,
+    config: Config,
+    archive: list[tuple[str, int]],
+    current: str,
+    home: str = "",
+    library: list[dict] | None = None,
+    is_latest: bool = False,
+) -> str:
+    library = library or []
     items = report.get("items", [])
     for it in items:
         it["kind"] = item_kind(it)
@@ -254,13 +335,13 @@ def render_page(report: dict, config: Config, archive: list[tuple[str, int]], cu
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>{STYLE}</style></head><body><div class="wrap">
 <header><div class="eyebrow">Sputtering Target · Industry Bulletin</div><h1>靶材產業新聞摘要</h1>
-<div class="meta"><span>{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span><span>原始資料:{data_links}</span></div>
+<div class="meta"><span>{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span><span>原始資料:{data_links}</span><a href="{home}papers.html">技術文獻庫 →</a></div>
 <div class="stats"><div class="stat"><b>{len(items)}</b><span>蒐集到的新聞(則)</span></div>
 <div class="stat"><b>{len(signal)}</b><span>其中新聞與公司公告</span></div>
 <div class="stat"><b>{len(covered)} / {len(companies)}</b><span>有報導的公司</span></div>{paper_stat}</div></header>
 <section aria-labelledby="sum"><h2 id="sum">本期總結</h2>{summary}</section>
 <section aria-labelledby="top" class="top"><h2 id="top">重點新聞 <span class="count">新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則</span></h2><div class="news">{top_html}</div></section>
-{_papers_section(report)}
+{_papers_section(report, library, is_latest, home)}
 <section aria-labelledby="all"><h2 id="all">全部新聞 <span class="count">{len(items)} 則</span></h2>
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">類型</span>{kind_chips}</div>
 <div class="frow"><span class="lbl">公司</span>{ent_chips}</div>
@@ -282,9 +363,13 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     (out / "data").mkdir(exist_ok=True)
     reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     archive = [(d, len(r.get("items", []))) for d, r in reports]
+    library = paper_library(reports)
     written = []
+    generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
+    (out / "papers.html").write_text(render_library(library, config, generated), encoding="utf-8")
+    written.append(out / "papers.html")
     for i, (date, report) in enumerate(reports):
-        page = render_page(report, config, archive, date)
+        page = render_page(report, config, archive, date, library=library, is_latest=(i == 0))
         targets = [out / f"{date}.html"] + ([out / "index.html"] if i == 0 else [])
         for t in targets:
             t.write_text(page, encoding="utf-8")
@@ -295,7 +380,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
                 shutil.copyfile(src, out / "data" / src.name)
     if not reports:
         empty = {"items": [], "days": config.settings.days}
-        (out / "index.html").write_text(render_page(empty, config, [], "尚無報告"), encoding="utf-8")
+        (out / "index.html").write_text(render_page(empty, config, [], "尚無報告", is_latest=True), encoding="utf-8")
         written.append(out / "index.html")
     return written
 

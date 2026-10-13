@@ -59,7 +59,8 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **分類**:粉末冶金與燒結、熔煉與鑄造、塑性加工與晶粒織構、高純化與雜質控制、綁定與背板、陶瓷與氧化物靶、合金與複合靶、旋轉靶、濺鍍行為與靶材利用率、回收與再利用。
 - **範圍**:預設最近 30 天,已報告過的論文不會重複出現。設定 `ANTHROPIC_API_KEY` 後,Claude 會為每篇寫中文摘要並評 1–5 分(對靶材製造的參考價值)。
 - 搜尋字、期刊 RSS、分類關鍵字都在 `config/watchlist.yaml` 的 `research:` 區段。
-- 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
+- **網站**:新聞首頁有「技術文獻」區塊(本期新收錄;沒有新文獻時顯示最近收錄的 10 篇),另有累積全部文獻的「技術文獻庫」頁(`/news/papers.html`),可依製程主題與來源篩選。
+- 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數、`--papers-only` 只蒐集文獻並併入今天既有的報告(不重抓新聞;Actions 手動執行時勾選 papers_only)。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
 
 ### Claude 摘要(選用)
 

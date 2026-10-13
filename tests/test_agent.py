@@ -479,3 +479,54 @@ def test_notion_setup_both_and_sync_papers_cli(tmp_path, monkeypatch, config):
     monkeypatch.delenv("NOTION_PAPERS_DATABASE_ID")
     with pytest.raises(SystemExit):
         main(["notion-sync", "--reports-dir", str(tmp_path)])
+
+
+def test_papers_only_merges_into_todays_report(tmp_path, monkeypatch, config):
+    from datetime import datetime as real_datetime
+    from zoneinfo import ZoneInfo
+
+    from target_news_agent.report import write_reports
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.setattr("target_news_agent.cli.collect", lambda cfg: pytest.fail("news must not be fetched"))
+    monkeypatch.setattr("target_news_agent.cli.collect_papers", lambda rs: sample_papers(rs))
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    today = real_datetime.now(ZoneInfo("Asia/Taipei"))
+    write_reports(items, config, Digest(overview="原本的總覽"), tmp_path, today)
+
+    args = ["run", "-c", str(CONFIG), "-o", str(tmp_path), "--db", str(tmp_path / "seen.db"), "--papers-only"]
+    assert main(args) == 0
+    data = json.loads((tmp_path / f"{today:%Y-%m-%d}.json").read_text(encoding="utf-8"))
+    assert len(data["items"]) == len(items) and data["digest"]["overview"] == "原本的總覽"
+    first = {p["id"] for p in data["papers"]}
+    assert first
+
+    # Running again finds no new papers but keeps the ones already in today's report.
+    assert main(args) == 0
+    data = json.loads((tmp_path / f"{today:%Y-%m-%d}.json").read_text(encoding="utf-8"))
+    assert {p["id"] for p in data["papers"]} == first and len(data["items"]) == len(items)
+
+
+def test_site_library_and_homepage_fallback(tmp_path, config):
+    from target_news_agent.report import write_reports
+    from target_news_agent.site import build_site
+
+    papers = sample_papers(config.research)
+    reports = tmp_path / "reports"
+    yesterday = NOW.replace(day=12)
+    write_reports([], config, Digest(), reports, yesterday, papers)       # papers collected yesterday
+    write_reports([], config, Digest(), reports, NOW, [])                 # nothing new today
+    out = tmp_path / "site"
+    build_site(reports, out, config)
+
+    library = (out / "papers.html").read_text(encoding="utf-8")
+    assert library.count('class="item"') == len(papers)
+    assert "靶材技術文獻庫" in library and 'data-filter="ent" data-value="粉末冶金與燒結"' in library
+    assert 'data-filter="kind" data-value="arXiv"' in library
+
+    home = (out / "index.html").read_text(encoding="utf-8")
+    assert "本期無新收錄" in home and "Densification" in home and 'href="papers.html"' in home
+    old = (out / "2026-10-12.html").read_text(encoding="utf-8")
+    assert "本期新收錄 4 篇" in old

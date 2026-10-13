@@ -41,6 +41,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--tz", default="Asia/Taipei", help="報告時區")
     run.add_argument("--no-papers", action="store_true", help="不蒐集技術文獻(期刊/預印本)")
     run.add_argument("--papers-days", type=int, help="覆寫技術文獻的天數(預設 30)")
+    run.add_argument("--papers-only", action="store_true", help="只蒐集技術文獻,併入今天既有的報告(不重抓新聞)")
 
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
@@ -96,22 +97,35 @@ def main(argv: list[str] | None = None) -> int:
         if not config.entities:
             p.error("--only matched no entities")
 
-    raw = collect(config)
-    items = process(raw, config)
-    log.warning("collected %d raw items -> %d relevant", len(raw), len(items))
-
     store = SeenStore(args.db)
-    if not args.include_seen:
-        items = store.filter_new(items)
-
+    generated = datetime.now(ZoneInfo(args.tz))
     digest = Digest()
-    if items and not args.no_llm:
+    existing_papers: list[Paper] = []
+    if args.papers_only:
+        if args.no_papers:
+            p.error("--papers-only and --no-papers cannot be combined")
+        # Keep today's news report as is; only add papers to it.
+        today = Path(args.out) / f"{generated.strftime('%Y-%m-%d')}.json"
+        items = []
+        if today.exists():
+            data = json.loads(today.read_text(encoding="utf-8"))
+            items = [NewsItem.from_dict(d) for d in data.get("items", [])]
+            digest = Digest(**(data.get("digest") or {}))
+            existing_papers = [Paper.from_dict(d) for d in data.get("papers") or []]
+    else:
+        raw = collect(config)
+        items = process(raw, config)
+        log.warning("collected %d raw items -> %d relevant", len(raw), len(items))
+        if not args.include_seen:
+            items = store.filter_new(items)
+
+    if items and not args.no_llm and not args.papers_only:
         if llm_available():
             digest = Summarizer(list(config.settings.categories), model=args.model).digest(items)
         else:
             log.warning("ANTHROPIC_API_KEY not set; generating report without LLM summaries")
 
-    papers = None
+    papers = existing_papers or None
     rs = config.research
     if rs and rs.enabled and not args.no_papers:
         if args.papers_days:
@@ -122,10 +136,12 @@ def main(argv: list[str] | None = None) -> int:
             papers = store.filter_new(papers)
         if papers and not args.no_llm and llm_available():
             Summarizer(list(config.settings.categories), model=args.model).digest_papers(papers, list(rs.topics))
+        known = {p.id for p in papers}
+        papers = papers + [p for p in existing_papers if p.id not in known]
 
-    generated = datetime.now(ZoneInfo(args.tz))
     md_path, json_path = write_reports(items, config, digest, args.out, generated, papers)
-    store.mark(items)
+    if not args.papers_only:
+        store.mark(items)
     if papers:
         store.mark(papers)
     store.close()
