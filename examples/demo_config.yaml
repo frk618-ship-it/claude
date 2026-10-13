@@ -1,0 +1,17 @@
+# 離線示範設定:使用 examples/demo_financials 中的「虛構」公司資料,
+# 不需網路即可體驗完整報告。真實分析請用 config/fin_targets.yaml。
+#   python -m fin_analyzer analyze -c examples/demo_config.yaml --no-llm -o reports/demo
+
+target: {ticker: DEMO-A, name: 示範靶材(虛構), segment: 濺鍍靶材、貴金屬材料}
+peers:
+  - {ticker: DEMO-B, name: 示範特氣(虛構), segment: 半導體特殊氣體}
+  - {ticker: DEMO-C, name: 示範再生晶圓(虛構), segment: 再生晶圓}
+
+settings:
+  data_dir: examples/demo_financials
+  report_dir: reports/demo
+
+industry:
+  name: 半導體材料(示範)
+  notes:
+    - 示範資料為虛構數字,僅用於展示報告格式與計算邏輯。
