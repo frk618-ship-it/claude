@@ -1,0 +1,67 @@
+# 標的公司財報分析 — 標的、同業比較組與分析參數
+#
+# 範例:以台灣上櫃的濺鍍靶材 / 貴金屬材料廠「光洋科(1785)」為標的,
+# 並與台灣半導體材料供應鏈同業比較。可直接改 target / peers 分析其他公司。
+#
+# 使用:
+#   python -m fin_analyzer fetch                 # 從 FinMind 下載 target + peers 財報到 data/financials/
+#   python -m fin_analyzer analyze               # 產生 reports/financials/<代號>-<日期>.md / .json / .csv
+
+target:
+  ticker: "1785"
+  name: 光洋科
+  segment: 濺鍍靶材、貴金屬材料與精煉回收
+
+peers:
+  - {ticker: "3663", name: 鑫科, segment: 濺鍍靶材、特殊合金}
+  - {ticker: "1560", name: 中砂, segment: CMP 鑽石碟、再生晶圓}
+  - {ticker: "4772", name: 台特化, segment: 半導體特殊氣體}
+  - {ticker: "8028", name: 昇陽半導體, segment: 再生晶圓}
+  - {ticker: "6488", name: 環球晶, segment: 矽晶圓}
+
+settings:
+  data_dir: data/financials
+  report_dir: reports/financials
+  start_date: "2019-01-01"      # FinMind 下載起始日(需至少多 5 季才能算年增與近四季比率)
+  par_value: 10                 # 台股每股面額,用來由股本推算股數
+  amount_unit: 100000000        # 報告金額單位(元 -> 億元)
+  amount_unit_label: 億元
+  quarters_in_table: 8          # 報告列出最近幾季
+  months_in_table: 12           # 報告列出最近幾個月營收
+
+  # 警示規則門檻(未列出的使用程式預設值,見 fin_analyzer/config.py)
+  thresholds:
+    gross_margin_drop_pp: 0.03
+    gross_margin_decline_quarters: 3
+    revenue_yoy_strong: 0.20
+    monthly_momentum_up: 1.10
+    monthly_momentum_down: 0.90
+    dio_increase: 0.20
+    dso_increase: 0.20
+    ocf_to_ni_min: 0.80
+    debt_ratio_max: 0.60
+    current_ratio_min: 1.20
+    interest_coverage_min: 3.0
+    non_operating_share_max: 0.30
+    roe_good: 0.15
+    fscore_good: 7
+    fscore_bad: 3
+
+  finmind:
+    # 台灣現金流量表為年初至今累計數,程式會自動轉為單季;若資料源已是單季可改 false
+    ytd: {income: false, balance: false, cashflow: true}
+    # 若某公司財報科目名稱不同,可在此補充對應(會覆蓋程式預設 FIELD_MAP 的同名欄位)
+    # field_map:
+    #   receivables: {statement: balance, candidates: [AccountsReceivableNet, NotesAndAccountsReceivableNet, 應收帳款淨額]}
+    #   capex: {statement: cashflow, candidates: [PropertyAndPlantAndEquipment, 取得不動產、廠房及設備], sign: -1}
+
+# 產業分析重點:會列在報告中,啟用 Claude 評論時也會作為背景提供給模型
+industry:
+  name: 半導體材料(濺鍍靶材 / 貴金屬)
+  notes:
+    - 貴金屬(金、銀、鉑族)買賣與精煉回收占營收比重高的公司,營收會隨金屬價格大幅波動,應搭配毛利額與毛利率判讀,不宜只看營收成長。
+    - 存貨多為高價金屬,金屬價格下跌時可能提列存貨跌價損失、上漲時則有回升利益;留意存貨天數與毛利率的同步變化。
+    - 半導體靶材需通過晶圓廠長時間認證,先進製程(銅、鉭、鈷、鈦、鋁靶)出貨比重提升通常帶動產品組合與毛利改善。
+    - 面板、光碟/記錄媒體等傳統應用景氣循環明顯,需拆解營收來源判斷成長品質。
+    - 擴產期資本支出/折舊比偏高、自由現金流可能轉負,需評估新產能稼動與客戶認證進度。
+    - 業外收支(匯兌、金融資產評價、處分利益)占稅前比重過高時,本業獲利能力需另行評估。

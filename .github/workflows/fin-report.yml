@@ -1,0 +1,62 @@
+name: 標的公司財報分析
+
+on:
+  schedule:
+    - cron: "17 1 12 * *"   # 每月 12 日 09:17(台北時間),月營收於每月 10 日前公布
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "標的股票代號(留空 = 使用 config/fin_targets.yaml 的 target)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fin-report
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Fetch financials from FinMind
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}   # 選填,提高 API 額度
+          TARGET: ${{ github.event.inputs.target }}
+        run: |
+          if [ -n "$TARGET" ]; then
+            python -m fin_analyzer -v fetch --tickers "$TARGET"
+          else
+            python -m fin_analyzer -v fetch
+          fi
+
+      - name: Analyze and build report
+        env:
+          # 選填:設定後會用 Claude 撰寫分析評論
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET: ${{ github.event.inputs.target }}
+        run: |
+          if [ -n "$TARGET" ]; then
+            python -m fin_analyzer -v analyze --target "$TARGET"
+          else
+            python -m fin_analyzer -v analyze
+          fi
+
+      - name: Commit data and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/financials reports/financials
+          git diff --cached --quiet || git commit -m "fin: 財報分析報告 $(TZ=Asia/Taipei date +%F)"
+          git push

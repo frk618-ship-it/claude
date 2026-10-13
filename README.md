@@ -72,3 +72,53 @@ python -m pytest -q
 - Google News RSS 連結為 Google 轉址連結,點擊後會導向原始新聞網站。
 - 預設約 50 個 RSS 查詢,每次間隔 0.6 秒;查詢過多或過於頻繁可能被來源暫時限流。
 - 預設公司清單僅為起點,請依實際關注的競爭者、客戶與代理商調整。
+
+---
+
+# 標的公司財報分析工具(`fin_analyzer`)
+
+針對台股上市櫃公司做財報量化分析,預設以**半導體材料製造商「光洋科(1785,濺鍍靶材/貴金屬材料)」**為標的,並與鑫科、中砂、台特化、昇陽半導體、環球晶等半導體材料同業比較。標的與同業都可在 `config/fin_targets.yaml` 更換。
+
+## 分析內容
+
+| 面向 | 指標 |
+|---|---|
+| 成長 | 單季營收年增 / 季增、EPS 年增、近四季營收年增 |
+| 獲利能力 | 毛利率、營益率、淨利率、費用率、業外占稅前比重、有效稅率 |
+| 報酬率 | 近四季 ROE / ROA、杜邦分析(淨利率 × 資產週轉率 × 權益乘數) |
+| 營運效率 | 應收帳款天數、存貨天數、應付帳款天數、現金轉換循環 |
+| 財務結構 | 流動 / 速動比率、負債比率、淨負債/權益、利息保障倍數 |
+| 現金流量 | 近四季營業現金流、自由現金流、營業現金流/淨利、資本支出/營收、資本支出/折舊 |
+| 月營收 | 月增、年增、累計年增、近 3 月/近 12 月均值比、創新高 |
+| 綜合評分 | Piotroski F-score(9 項)、Altman Z''-score(新興市場版) |
+| 評價 | 本益比、股價淨值比、股價營收比、EV/EBITDA、自由現金流殖利率 |
+| 同業比較 | 關鍵指標並列與排名 |
+| 規則訊號 | 🟢優勢 / 🟡注意 / 🔴風險(毛利率連續下滑、存貨天數攀升、盈餘含金量低、負債比過高…,門檻可調) |
+| Claude 評論(選用) | 依計算結果撰寫摘要、優勢、風險、同業位置與追蹤重點 |
+
+`config/fin_targets.yaml` 的 `industry.notes` 列出半導體材料(靶材 / 貴金屬)的判讀重點,例如貴金屬營收隨金屬價格波動、存貨跌價風險、晶圓廠認證週期等,會附在報告中並提供給 Claude 作為背景。
+
+## 使用方式
+
+```bash
+pip install -r requirements.txt
+
+# 1) 從 FinMind 下載財報、月營收、股價(target + peers)到 data/financials/<代號>/
+python -m fin_analyzer fetch
+python -m fin_analyzer fetch --tickers 1785 --start 2020-01-01
+
+# 2) 分析並產生報告 reports/financials/<代號>-<日期>.md / .json / -quarterly.csv
+python -m fin_analyzer analyze
+python -m fin_analyzer analyze --target 3663 --peers 1785 1560   # 換標的 / 同業
+python -m fin_analyzer analyze --no-llm                          # 不呼叫 Claude
+
+# 離線示範(虛構資料,不需網路)
+python -m fin_analyzer analyze -c examples/demo_config.yaml --no-llm
+```
+
+- **資料來源**:[FinMind](https://finmindtrade.com) 開放資料(轉載公開資訊觀測站財報)。免 token 可用;設定環境變數 `FINMIND_TOKEN` 可提高額度。台灣現金流量表為年初累計數,程式會自動轉為單季。若某公司的會計科目名稱不同,在設定檔 `settings.finmind.field_map` 補上對應即可。
+- **手動資料**:也可以不用 FinMind,直接依 `data/financials/<代號>/quarterly.csv`(欄位見 `fin_analyzer/models.py`,損益與現金流為單季金額、資產負債為季末餘額,單位元)、`monthly_revenue.csv`、`prices.csv` 的格式自行填入,例如從公開資訊觀測站複製。
+- **Claude 評論**:設定 `ANTHROPIC_API_KEY` 後自動啟用,模型預設 `claude-opus-5-5`(`--model` 或 `FIN_ANALYZER_MODEL` 可更換);只傳入計算後的數字,並要求不得捏造數據。
+- **自動執行**:`.github/workflows/fin-report.yml` 於每月 12 日(月營收公布後)下載資料、產生報告並 commit;也可手動觸發並指定標的代號。可在 repo Secrets 設定 `FINMIND_TOKEN`、`ANTHROPIC_API_KEY`(皆選填)。
+- `examples/demo_financials/` 為**虛構**公司資料,只用於離線示範與測試,不代表任何真實公司。
+- 報告為財務資料的量化整理,不構成投資建議。
