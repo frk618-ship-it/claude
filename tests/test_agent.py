@@ -522,7 +522,7 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
     build_site(reports, out, config)
 
     library = (out / "papers.html").read_text(encoding="utf-8")
-    assert library.count('class="item"') == len(papers)
+    assert library.count("<article class=\"item") == len(papers)
     assert "靶材技術文獻庫" in library and 'data-filter="ent" data-value="粉末冶金與燒結"' in library
     assert 'data-filter="kind" data-value="arXiv"' in library
 
@@ -554,6 +554,7 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
         ("High-vacuum fabrication and characterization of thin Ba targets for nuclear reaction and spectroscopy", "", False),
         ("Fabrication of 120 Sn target with Indium interlayer", "", False),
         ("Laboratory-scale dual-pulse laser-produced plasma extreme ultraviolet source with continuous target", "", False),
+        ("Microstructure, thermal performance, and hydrogen diffusion of magnetron-sputtered Ta-Ti binary films on Cu substrate for AB-BNCT targets", "", False),
         # same title words, but in a sputtering context -> keep
         ("Fabrication of Sn targets with indium interlayer", "Targets for magnetron sputtering were bonded with In.", True),
     ],

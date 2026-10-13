@@ -16,6 +16,7 @@ from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
+from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
@@ -59,40 +60,75 @@ def esc(v) -> str:
 
 
 STYLE = """
-:root{--bg:#f3f4f5;--surface:#fff;--fg:#1c2126;--muted:#5b6570;--line:#d6dadf;--accent:#8a4f24;--accent-soft:#f3e6dc;--ok:#2f6b4f;--ok-soft:#e1efe7;--none:#6b7480;--none-soft:#eceef1;
+:root{--bg:#f3f4f5;--surface:#fff;--fg:#1c2126;--muted:#5b6570;--line:#dde1e6;--accent:#8a4f24;--accent-soft:#f5e9df;
+--ok:#2f6b4f;--ok-soft:#e1efe7;--none:#6b7480;--none-soft:#eceef1;
+--k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;
+--shadow:0 1px 2px rgba(20,24,28,.06),0 2px 8px rgba(20,24,28,.05);
 --font-display:"Noto Serif TC","Songti TC",serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-@media (prefers-color-scheme:dark){:root{--bg:#14181c;--surface:#1b2026;--fg:#e6e9ec;--muted:#9aa4ae;--line:#2c333b;--accent:#e0a070;--accent-soft:#3a2a1e;--ok:#7fc8a2;--ok-soft:#1d3329;--none:#8d96a0;--none-soft:#232930;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root{--bg:#14181c;--surface:#1b2026;--fg:#e6e9ec;--muted:#9aa4ae;--line:#2c333b;--accent:#e0a070;--accent-soft:#3a2a1e;
+--ok:#7fc8a2;--ok-soft:#1d3329;--none:#8d96a0;--none-soft:#232930;
+--k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;
+--shadow:none;color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
-.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:40px 64px;display:grid;gap:44px}
-a{color:var(--accent);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:800;line-height:1.25}
-h2{font-size:1.35rem;font-weight:600;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}h2 .count{font-family:var(--font-data);font-size:.85rem;color:var(--muted);font-weight:400}
-.eyebrow{font-family:var(--font-data);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:65ch}section{display:grid;gap:16px;min-width:0}
-header{display:grid;gap:14px;border-bottom:2px solid var(--fg);padding-bottom:24px}.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.9rem}
-.stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:6px}.stat{display:grid}.stat b{font-family:var(--font-data);font-size:1.6rem;font-weight:500;line-height:1.2}.stat span{font-size:.82rem;color:var(--muted)}
-.lead{font-size:1.05rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:4px}
-.filters{display:grid;gap:10px}.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:4px;min-width:3em}
-button.f{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:3px 10px;border-radius:4px;cursor:pointer;display:inline-flex;gap:6px;align-items:baseline}
-button.f .mono{font-size:.74rem;color:var(--muted)}button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}button.f[aria-pressed=true] .mono{color:var(--bg)}
-.shown{font-size:.85rem;color:var(--muted)}button.reset{font:inherit;font-size:.85rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
-.news{display:grid;border-top:1px solid var(--line)}.item{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
-.item time{font-family:var(--font-data);font-size:.82rem;color:var(--muted);padding-top:2px}.item .body{display:grid;gap:4px;min-width:0}
-.item h3{margin:0;font-size:.97rem;font-weight:500;line-height:1.55;overflow-wrap:anywhere}.item h3 a{color:var(--fg);text-decoration-color:var(--line)}.item h3 a:hover{text-decoration-color:var(--accent)}
-.item .sum{font-size:.9rem;color:var(--muted)}.item .co{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;color:var(--muted);align-items:baseline}
-.kind{font-size:.72rem;padding:0 7px;border-radius:3px;font-weight:500}.k-news,.k-filing{background:var(--accent-soft);color:var(--accent)}.k-market,.k-forum,.k-research,.k-profile{background:var(--none-soft);color:var(--none)}
-.item.low h3 a{color:var(--muted)}.top .item h3{font-weight:700}
-.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px}.region h3{margin:0 0 6px;font-size:.82rem;letter-spacing:.06em;color:var(--muted);font-weight:500}
-.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
-.tk{font-family:var(--font-data);font-size:.74rem;color:var(--muted);margin-left:6px}.pill{font-size:.72rem;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.18em}
+h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;line-height:1.2}
+h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+h2 .hic{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-data);font-size:.82rem;color:var(--muted);font-weight:400}
+.eyebrow{font-family:var(--font-data);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:16px;min-width:0}
+header{display:grid;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:16px;align-items:center}.brand .logo{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--accent);color:var(--surface);flex:none}
+.brand .logo .ic{width:34px;height:34px;stroke-width:1.6}.brand>div{display:grid;gap:2px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.88rem;align-items:center}.meta>*{display:inline-flex;gap:6px;align-items:center}
+.btn{display:inline-flex;gap:6px;align-items:center;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);text-decoration:none;font-size:.85rem}
+.btn:hover{border-color:var(--accent);color:var(--accent)}.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}.btn.primary:hover{color:var(--surface);opacity:.9}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.stat .sic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;background:var(--accent-soft);color:var(--accent)}
+.stat .sic .ic{width:22px;height:22px}.stat b{display:block;font-family:var(--font-data);font-size:1.45rem;font-weight:500;line-height:1.15}.stat span{font-size:.8rem;color:var(--muted)}
+.lead{font-size:1.04rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.filters{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:4px;min-width:3.2em;display:inline-flex;gap:4px;align-items:center}
+button.f{font:inherit;font-size:.84rem;border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:4px 11px;border-radius:999px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+button.f .mono{font-size:.72rem;color:var(--muted)}button.f:hover{border-color:var(--accent)}
+button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}button.f[aria-pressed=true] .mono{color:var(--bg)}
+.shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
+.news{display:grid;gap:8px}
+.item{--k:var(--accent);display:grid;grid-template-columns:40px 1fr;gap:4px 14px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.kb{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
+.kb .ic{width:20px;height:20px}.item .body{display:grid;gap:4px;min-width:0}
+.item h3{margin:0;font-size:.96rem;font-weight:500;line-height:1.55;overflow-wrap:anywhere}.item h3 a{color:var(--fg);text-decoration:none}.item h3 a:hover{color:var(--accent);text-decoration:underline}
+.item .sum{font-size:.9rem;color:var(--muted)}
+.co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
+.kind{font-size:.72rem;padding:1px 8px;border-radius:999px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
+.k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}
+.item.low{background:transparent}.item.low h3 a{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
+.card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
+.card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{font-size:.9rem;color:var(--muted)}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.region{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
+.rb{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:7px;background:var(--accent-soft);color:var(--accent);font-family:var(--font-data);font-size:.72rem;font-weight:500;letter-spacing:.04em}
+.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+.region li:last-child{border-bottom:0}
+.tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:6px}.pill{font-size:.72rem;padding:1px 9px;border-radius:99px;white-space:nowrap}
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
-.archive{display:flex;flex-wrap:wrap;gap:8px}.archive a{font-family:var(--font-data);font-size:.85rem;border:1px solid var(--line);background:var(--surface);padding:3px 10px;border-radius:4px;text-decoration:none}
-.archive a[aria-current=page]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-h3.topic{margin:10px 0 0;font-size:1rem;font-weight:700;display:flex;gap:8px;align-items:baseline}h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
-.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px;font-size:.9rem;color:var(--muted)}.note strong{color:var(--fg)}
-footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
-.lib .item{grid-template-columns:96px 1fr}
-@media (max-width:520px){.item,.lib .item{grid-template-columns:1fr}}
+.archive{display:flex;flex-wrap:wrap;gap:8px}.archive a{display:inline-flex;gap:6px;align-items:center;font-family:var(--font-data);font-size:.84rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:4px 12px;border-radius:999px;text-decoration:none}
+.archive a:hover{border-color:var(--accent)}.archive a[aria-current=page]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+h3.topic{margin:8px 0 0;font-size:.98rem;font-weight:700;display:flex;gap:10px;align-items:center}
+h3.topic .tic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}h3.topic .tic .ic{width:17px;height:17px}
+h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:10px;font-size:.88rem;color:var(--muted)}
+.note p{display:flex;gap:10px;align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+.sub{font-size:.88rem;color:var(--muted)}
+@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.item{grid-template-columns:34px 1fr;padding:10px 12px}.kb{width:34px;height:34px}.brand .logo{width:46px;height:46px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
 SCRIPT = """
@@ -112,25 +148,56 @@ def _title_link(item: dict) -> str:
     return esc(item["title"])  # never turn javascript:/data: links from feeds into clickable links
 
 
+KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile"}
+
+
+def _date(published: str | None, full: bool = False) -> str:
+    if not published:
+        return "日期不明"
+    d = published[:10].replace("-", "/")
+    return d if full else d[5:]
+
+
 def _item_html(item: dict, extra_class: str = "") -> str:
     kind = item["kind"]
-    date = item["published"][5:10].replace("-", "/") if item.get("published") else "--/--"
     ents = [short_name(e) for e in item.get("entities", [])]
     stars = f" {'★' * item['importance']}" if item.get("importance") else ""
     summary = f'<p class="sum">{esc(item["summary"])}</p>' if item.get("summary") else ""
     low = "" if kind in SIGNAL_KINDS else " low"
+    meta = (
+        f'<span class="kind k-{kind}">{KINDS[kind]}</span>'
+        f'<span>{icon("calendar")}<time datetime="{esc((item.get("published") or "")[:10])}">{_date(item.get("published"))}</time></span>'
+        + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
+        + (f'<span>{icon("news")}{esc(item.get("source"))}</span>' if item.get("source") else "")
+    )
     return (
-        f'<article class="item{low}{extra_class}" data-kind="{kind}" data-ent="{esc("|".join(ents))}">'
-        f'<time datetime="{esc((item.get("published") or "")[:10])}">{date}</time>'
-        f'<div class="body"><h3>{_title_link(item)}{stars}</h3>{summary}'
-        f'<div class="co"><span class="kind k-{kind}">{KINDS[kind]}</span>'
-        + "".join(f"<span>{esc(e)}</span>" for e in ents)
-        + f'<span>{esc(item.get("source", ""))}</span></div></div></article>'
+        f'<article class="item k-{kind}{low}{extra_class}" data-kind="{kind}" data-ent="{esc("|".join(ents))}">'
+        f'<div class="kb" title="{KINDS[kind]}">{icon(KIND_ICONS[kind])}</div>'
+        f'<div class="body"><h3>{_title_link(item)}{stars}</h3>{summary}<div class="co">{meta}</div></div></article>'
     )
 
 
+def _card_html(item: dict) -> str:
+    """Top-news card."""
+    kind = item["kind"]
+    ents = [short_name(e) for e in item.get("entities", [])]
+    stars = f" {'★' * item['importance']}" if item.get("importance") else ""
+    summary = f'<p class="sum">{esc(item["summary"])}</p>' if item.get("summary") else ""
+    meta = (
+        f'<span>{icon("calendar")}{_date(item.get("published"))}</span>'
+        + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
+        + (f'<span>{icon("news")}{esc(item.get("source"))}</span>' if item.get("source") else "")
+    )
+    return (
+        f'<article class="card k-{kind}"><div class="head"><span class="kind k-{kind}">{icon(KIND_ICONS[kind])} {KINDS[kind]}</span></div>'
+        f'<h3>{_title_link(item)}{stars}</h3>{summary}<div class="co">{meta}</div></article>'
+    )
+
+
+SOURCE_ICONS = {"OpenAlex": "database", "arXiv": "filing"}
+
+
 def _paper_html(p: dict, filterable: bool = False) -> str:
-    date = (p.get("published") or "")[:10].replace("-", "/") or "日期不明"
     authors = p.get("authors") or []
     author_text = ", ".join(authors[:3]) + (" 等" if len(authors) > 3 else "")
     stars = f" {'★' * p['importance']}" if p.get("importance") else ""
@@ -141,15 +208,26 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
         body = f'<p class="sum">{esc(abstract[:260])}{"…" if len(abstract) > 260 else ""}</p>'
     else:
         body = ""
-    meta = "".join(f"<span>{esc(x)}</span>" for x in (p.get("venue"), author_text) if x)
+    topic = (p.get("topics") or [GENERAL_TOPIC])[0]
+    meta = f'<span>{icon("calendar")}<time datetime="{esc((p.get("published") or "")[:10])}">{_date(p.get("published"), full=filterable)}</time></span>'
+    if p.get("venue"):
+        meta += f'<span>{icon(SOURCE_ICONS.get(p.get("source", ""), "book"))}{esc(p["venue"])}</span>'
+    if author_text:
+        meta += f'<span>{icon("user")}{esc(author_text)}</span>'
+    if filterable:
+        meta += f'<span class="kind k-research">{esc(topic)}</span>'
     attrs = ""
     if filterable:
         attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'
-    shown_date = date if filterable else (date[5:] if len(date) == 10 else date)
     return (
-        f'<article class="item"{attrs}><time datetime="{esc((p.get("published") or "")[:10])}">{esc(shown_date)}</time>'
+        f'<article class="item k-research"{attrs}><div class="kb" title="{esc(topic)}">{icon(topic_icon(topic))}</div>'
         f'<div class="body"><h3>{_title_link(p)}{stars}</h3>{body}<div class="co">{meta}</div></div></article>'
     )
+
+
+def _h2(id_: str, icon_name: str, title: str, count: str = "") -> str:
+    count_html = f' <span class="count">{count}</span>' if count else ""
+    return f'<h2 id="{id_}"><span class="hic">{icon(icon_name)}</span>{title}{count_html}</h2>'
 
 
 PAPER_SOURCES_NOTE = (
@@ -164,7 +242,8 @@ def _grouped_papers(papers: list[dict]) -> str:
     for p in ranked:
         groups.setdefault((p.get("topics") or [GENERAL_TOPIC])[0], []).append(p)
     return "".join(
-        f'<h3 class="topic">{esc(t)} <span class="mono">{len(ps)}</span></h3><div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
+        f'<h3 class="topic"><span class="tic">{icon(topic_icon(t))}</span>{esc(t)} <span class="mono">{len(ps)}</span></h3>'
+        f'<div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
         for t, ps in groups.items()
     )
 
@@ -172,26 +251,26 @@ def _grouped_papers(papers: list[dict]) -> str:
 def _papers_section(report: dict, library: list[dict], is_latest: bool, home: str = "") -> str:
     papers = report.get("papers")
     link = (
-        f'<p><a href="{home}papers.html">查看技術文獻庫:累積收錄的全部 {len(library)} 篇,可依製程主題篩選 →</a></p>'
+        f'<p><a class="btn" href="{home}papers.html">{icon("book")}查看技術文獻庫:累積收錄的全部 {len(library)} 篇,可依製程主題篩選 {icon("arrow-right")}</a></p>'
         if library else ""
     )
     if papers:
         days = report.get("research_days") or 30
-        title = f'技術文獻:靶材製造技術 <span class="count">本期新收錄 {len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類</span>'
+        count = f"本期新收錄 {len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類"
         inner = _grouped_papers(papers)
     elif is_latest and library:
         # Homepage: no new papers today, so show the most recently collected ones.
         recent = library[:10]
-        title = f'技術文獻:靶材製造技術 <span class="count">本期無新收錄 · 以下為最近收錄的 {len(recent)} 篇</span>'
+        count = f"本期無新收錄 · 以下為最近收錄的 {len(recent)} 篇"
         inner = '<div class="news">' + "".join(_paper_html(p) for p in recent) + "</div>"
     elif "papers" in report or is_latest:
-        title = '技術文獻:靶材製造技術 <span class="count">本期沒有新收錄的文獻</span>'
+        count = "本期沒有新收錄的文獻"
         inner = "<p>本期沒有新的靶材製造技術文獻。</p>"
     else:
         return ""  # older reports from before papers were collected
     return (
-        f'<section aria-labelledby="papers"><h2 id="papers">{title}</h2>'
-        f'<p class="sum" style="color:var(--muted)">{PAPER_SOURCES_NOTE}</p>{inner}{link}</section>'
+        f'<section aria-labelledby="papers">{_h2("papers", "book", "技術文獻:靶材製造技術", count)}'
+        f'<p class="sub">{PAPER_SOURCES_NOTE}</p>{inner}{link}</section>'
     )
 
 
@@ -205,40 +284,61 @@ def paper_library(reports: list[tuple[str, dict]]) -> list[dict]:
     return sorted(seen.values(), key=lambda p: (p.get("published") or "", p["collected"]), reverse=True)
 
 
+def _head(title: str) -> str:
+    return (
+        '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+        f'<title>{esc(title)}</title><link rel="icon" href="{favicon_href()}">'
+        '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
+        f"<style>{STYLE}</style></head><body>{SPRITE}"
+    )
+
+
+def _brand(eyebrow: str, title: str) -> str:
+    return (
+        f'<div class="brand"><div class="logo">{icon("target")}</div>'
+        f'<div><div class="eyebrow">{esc(eyebrow)}</div><h1>{esc(title)}</h1></div></div>'
+    )
+
+
+def _stat(icon_name: str, value: str, label: str) -> str:
+    return f'<div class="stat"><div class="sic">{icon(icon_name)}</div><div><b>{value}</b><span>{label}</span></div></div>'
+
+
 def render_library(library: list[dict], config: Config, generated: str) -> str:
     topics = Counter(t for p in library for t in (p.get("topics") or [GENERAL_TOPIC]))
     sources = Counter(p.get("source", "") for p in library)
     order = list(config.research.topics) + [GENERAL_TOPIC] if config.research else list(topics)
     topic_chips = "".join(
-        f'<button type="button" class="f" data-filter="ent" data-value="{esc(t)}" aria-pressed="false">{esc(t)}<span class="mono">{topics[t]}</span></button>'
+        f'<button type="button" class="f" data-filter="ent" data-value="{esc(t)}" aria-pressed="false">{icon(topic_icon(t))}{esc(t)}<span class="mono">{topics[t]}</span></button>'
         for t in order if topics.get(t)
     )
     source_chips = "".join(
-        f'<button type="button" class="f" data-filter="kind" data-value="{esc(s)}" aria-pressed="false">{esc(s)}<span class="mono">{n}</span></button>'
+        f'<button type="button" class="f" data-filter="kind" data-value="{esc(s)}" aria-pressed="false">{icon(SOURCE_ICONS.get(s, "book"))}{esc(s)}<span class="mono">{n}</span></button>'
         for s, n in sources.most_common() if s
     )
     body = (
         "".join(_paper_html(p, filterable=True) for p in library)
         if library else "<p>尚未收錄任何文獻;每日執行後會累積在這裡。</p>"
     )
-    return f"""<!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>靶材技術文獻庫</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>{STYLE}</style></head><body><div class="wrap">
-<header><div class="eyebrow">Sputtering Target · Research Library</div><h1>靶材技術文獻庫</h1>
-<nav class="meta" aria-label="網站導覽"><a href="index.html">← 新聞摘要</a><span>更新於 <span class="mono">{esc(generated)}</span></span></nav>
-<div class="stats"><div class="stat"><b>{len(library)}</b><span>累積收錄文獻(篇)</span></div>
-<div class="stat"><b>{len([t for t in topics if t != GENERAL_TOPIC])}</b><span>涵蓋製程主題</span></div></div></header>
-<section aria-labelledby="lib"><h2 id="lib">全部文獻 <span class="count">依發表日期,新到舊</span></h2>
-<p class="sum" style="color:var(--muted)">{PAPER_SOURCES_NOTE}</p>
-<div class="filters" role="group" aria-label="篩選文獻"><div class="frow"><span class="lbl">主題</span>{topic_chips}</div>
-<div class="frow"><span class="lbl">來源</span>{source_chips}</div>
+    return (
+        _head("靶材技術文獻庫")
+        + f"""<div class="wrap">
+<header>{_brand("Sputtering Target · Research Library", "靶材技術文獻庫")}
+<nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></nav>
+<div class="stats">{_stat("book", str(len(library)), "累積收錄文獻(篇)")}{_stat("layers", str(len([t for t in topics if t != GENERAL_TOPIC])), "涵蓋製程主題")}{_stat("database", str(len([s for s in sources if s])), "資料來源")}</div></header>
+<section aria-labelledby="lib">{_h2("lib", "list", "全部文獻", "依發表日期,新到舊")}
+<p class="sub">{PAPER_SOURCES_NOTE}</p>
+<div class="filters" role="group" aria-label="篩選文獻"><div class="frow"><span class="lbl">{icon("filter")}主題</span>{topic_chips}</div>
+<div class="frow"><span class="lbl">{icon("database")}來源</span>{source_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(library)} / {len(library)} 篇</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
-<div class="news lib" id="list">{body}</div></section>
+<div class="news" id="list">{body}</div></section>
 <footer>文獻摘要為改寫整理;引用請以原文為準。</footer>
 </div><script>{SCRIPT.replace("則", "篇")}</script></body></html>"""
+    )
+
+
+REGION_CODES = {"日本": "JP", "中國大陸": "CN", "台灣": "TW", "韓國": "KR", "歐美": "EU·US", "其他": "··"}
 
 
 def _ledger(config: Config, counts: Counter) -> str:
@@ -260,7 +360,8 @@ def _ledger(config: Config, counts: Counter) -> str:
             pill = f'<span class="pill yes">{n} 則</span>' if n else '<span class="pill no">無報導</span>'
             lis.append(f"<li><span>{esc(short_name(e.name))}{tk}</span>{pill}</li>")
         label = key if key == "銷售商" else f"生產商 · {key}"
-        out.append(f'<div class="region"><h3>{label}</h3><ul>{"".join(lis)}</ul></div>')
+        badge = icon("store") if key == "銷售商" else REGION_CODES.get(key, "··")
+        out.append(f'<div class="region"><h3><span class="rb">{badge}</span>{label}</h3><ul>{"".join(lis)}</ul></div>')
     return "\n".join(out)
 
 
@@ -296,7 +397,7 @@ def render_page(
         summary = (
             f'<p class="lead">本期蒐集 {len(items)} 則,其中新聞與公司公告 {len(signal)} 則;'
             f"{len(covered)} / {len(companies)} 家追蹤公司有報導,報導最多的是 {esc(top_names)}。</p>"
-            '<p class="sum" style="color:var(--muted)">本期未產生 AI 摘要(設定 ANTHROPIC_API_KEY 後,這裡會顯示 Claude 撰寫的本期總覽與趨勢)。</p>'
+            '<p class="sub">本期未產生 AI 摘要(設定 ANTHROPIC_API_KEY 後,這裡會顯示 Claude 撰寫的本期總覽與趨勢)。</p>'
         )
     else:
         summary = '<p class="lead">本期沒有新的相關新聞。</p>'
@@ -310,50 +411,48 @@ def render_page(
             per_company[key] += 1
         if len(top) == 8:
             break
-    top_html = "\n".join(_item_html(it) for it in top) or "<p>本期沒有新聞或公司公告。</p>"
+    top_html = "".join(_card_html(it) for it in top) or "<p>本期沒有新聞或公司公告。</p>"
     kind_chips = "".join(
-        f'<button type="button" class="f" data-filter="kind" data-value="{k}" aria-pressed="false">{v}<span class="mono">{kinds[k]}</span></button>'
+        f'<button type="button" class="f" data-filter="kind" data-value="{k}" aria-pressed="false">{icon(KIND_ICONS[k])}{v}<span class="mono">{kinds[k]}</span></button>'
         for k, v in KINDS.items() if kinds[k]
     )
     ent_chips = "".join(
         f'<button type="button" class="f" data-filter="ent" data-value="{esc(e)}" aria-pressed="false">{esc(e)}<span class="mono">{n}</span></button>'
         for e, n in ent_counts.most_common()
     )
-    paper_stat = (
-        f'<div class="stat"><b>{len(report["papers"])}</b><span>技術文獻(篇)</span></div>' if "papers" in report else ""
-    )
+    paper_stat = _stat("book", str(len(report["papers"])), "技術文獻(篇)") if "papers" in report else ""
     archive_html = "".join(
-        f'<a href="{home}{"index.html" if i == 0 else d + ".html"}"{" aria-current=page" if d == current else ""}>{d} · {n}</a>'
+        f'<a href="{home}{"index.html" if i == 0 else d + ".html"}"{" aria-current=page" if d == current else ""}>{icon("calendar")}{d} · {n}</a>'
         for i, (d, n) in enumerate(archive)
     )
-    data_links = f'<a href="{home}data/{current}.md">Markdown</a> · <a href="{home}data/{current}.json">JSON</a>'
+    data_links = (
+        f'<a class="btn" href="{home}data/{current}.md">{icon("download")}Markdown</a>'
+        f'<a class="btn" href="{home}data/{current}.json">{icon("download")}JSON</a>'
+    )
 
-    return f"""<!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>靶材產業新聞摘要 {esc(current)}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>{STYLE}</style></head><body><div class="wrap">
-<header><div class="eyebrow">Sputtering Target · Industry Bulletin</div><h1>靶材產業新聞摘要</h1>
-<div class="meta"><span>{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span><span>原始資料:{data_links}</span><a href="{home}papers.html">技術文獻庫 →</a></div>
-<div class="stats"><div class="stat"><b>{len(items)}</b><span>蒐集到的新聞(則)</span></div>
-<div class="stat"><b>{len(signal)}</b><span>其中新聞與公司公告</span></div>
-<div class="stat"><b>{len(covered)} / {len(companies)}</b><span>有報導的公司</span></div>{paper_stat}</div></header>
-<section aria-labelledby="sum"><h2 id="sum">本期總結</h2>{summary}</section>
-<section aria-labelledby="top" class="top"><h2 id="top">重點新聞 <span class="count">新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則</span></h2><div class="news">{top_html}</div></section>
+    return (
+        _head(f"靶材產業新聞摘要 {current}")
+        + f"""<div class="wrap">
+<header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
+<div class="meta"><span>{icon("calendar")}{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span></div>
+<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{data_links}</nav>
+<div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
+<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
+<section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_papers_section(report, library, is_latest, home)}
-<section aria-labelledby="all"><h2 id="all">全部新聞 <span class="count">{len(items)} 則</span></h2>
-<div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">類型</span>{kind_chips}</div>
-<div class="frow"><span class="lbl">公司</span>{ent_chips}</div>
+<section aria-labelledby="all">{_h2("all", "list", "全部新聞", f"{len(items)} 則")}
+<div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">{icon("filter")}類型</span>{kind_chips}</div>
+<div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(items)} / {len(items)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
 <div class="news" id="list">{"".join(_item_html(it) for it in items)}</div></section>
-<section aria-labelledby="ledger"><h2 id="ledger">追蹤清單 <span class="count">{len(companies)} 家 · 本期報導則數</span></h2><div class="ledger">{_ledger(config, ent_counts)}</div></section>
-<section aria-labelledby="arc"><h2 id="arc">歷次報告</h2><div class="archive">{archive_html}</div></section>
-<div class="note"><p><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</p>
-<p><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</p>
-<p><strong>類型標籤</strong>依標題與來源自動判斷;灰色標籤(行情數據、論壇、市場報告、資料頁)參考價值較低。</p></div>
+<section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家 · 本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
+<section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section>
+<div class="note"><p>{icon("news")}<span><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</span></p>
+<p>{icon("book")}<span><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
+<p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p></div>
 <footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</footer>
 </div><script>{SCRIPT}</script></body></html>"""
+    )
 
 
 def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> list[Path]:

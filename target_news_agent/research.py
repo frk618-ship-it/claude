@@ -65,7 +65,7 @@ SPUTTER_WORDS = ["sputter", "magnetron", "PVD", "physical vapor deposition", "Hi
 OTHER_TARGET_CONTEXT = [
     "nuclear", "accelerator", "cyclotron", "isotope", "neutron", "proton beam", "ion beam", "radioisotope",
     "laser-produced plasma", "laser produced plasma", "euv source", "extreme ultraviolet", "fusion", "spallation",
-    "x-ray source", "tumor", "cancer", "drug", "protein", "receptor",
+    "x-ray source", "tumor", "cancer", "drug", "protein", "receptor", "bnct", "neutron capture",
 ]
 # Isotope-labelled targets ("120 Sn target", "48Ca targets") are nuclear-physics targets.
 ISOTOPE_TARGET = re.compile(r"\b\d{2,3}\s?[A-Z][a-z]?\s+targets?\b")
@@ -152,7 +152,7 @@ def is_relevant(p: Paper) -> bool:
     title = p.title.lower()
     if any(_match(title, t) for t in STRONG_TERMS):
         return True
-    text = p.text.lower()
+    text = f"{p.text}\n{p.venue}".lower()  # the journal name tells nuclear targets apart too
     # Below here "target" alone is ambiguous: rule out nuclear / laser-plasma / biomedical targets.
     if any(_match(text, w) for w in OTHER_TARGET_CONTEXT) or ISOTOPE_TARGET.search(p.title):
         return False
