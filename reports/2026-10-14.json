@@ -1,25 +1,609 @@
 {
-  "generated": "2026-10-14T13:32:19.888598+08:00",
-  "days": 3,
+  "generated": "2026-10-14T14:44:07.092790+08:00",
+  "days": 7,
   "digest": {
-    "overview": "本期新聞高度集中在有研新材(GRINM)2026年三季報。該公司前三季扣非淨利年增33.2%,半導體靶材收入成長逾四成,但單季營收與淨利雙降,加上資產減值大增、應收帳款偏高,財報公布後股價重挫逾7%,盤中一度跌近10%。有研新材已剝離稀土主業與固態電池材料業務,轉型聚焦靶材的方向更加明確,在中國半導體靶材市場的競爭力道可能隨之升高。其他動態相對零星:古屋金屬(Furuya Metal)因EPS成長受到市場關注,並訂正第58期有價證券報告書;光洋科在櫃買市場遭券商賣超,週KD仍向上;另有市場報告聚焦4N5與5N低氧超高純度鈦。",
+    "overview": "本期靶材相關新聞以財報與股價波動為主。中國大廠有研新材公布2026年三季報,前三季扣非淨利年增33.2%、半導體靶材收入成長逾四成,但Q3單季淨利下滑約三成、資產減值大增,加上剝離稀土與固態電池材料業務,股價連日重挫並一度跌停。台灣光洋科9月營收50.78億元,年增49.91%、月增12.43%,動能強勁,股價隨之攻上漲停。日系方面,JX金屬宣布與Tronox合作評估稀土精煉,並增產AI資料中心用漏水檢知系統;中國阿石創獲得2000萬元國家專項資金。整體來看,半導體靶材需求延續成長,但各公司獲利品質與股價波動分歧。",
     "key_trends": [
-      "有研新材加速轉型為靶材專業廠:剝離稀土主業與固態電池材料業務後,半導體靶材收入成長逾四成,成為主要成長引擎。對台、日、韓靶材供應商而言,中國本土半導體靶材的替代與價格競爭壓力可能升高(重要性 5/營收與財報、併購與合作)。",
-      "中國靶材廠的財報品質受到檢視:有研新材Q3淨利年減三成,但扣非淨利大增逾八成。前三季資產減值年增超過3倍,應收帳款規模偏大,顯示業務重組期間的獲利波動與營運資金壓力仍在(重要性 4/營收與財報)。",
-      "資本市場對靶材股看法分歧:有研新材三季報後股價跌7.72%,盤中一度跌近10%,但Q3仍獲機構大幅加倉,顯示市場看好靶材長期題材,只是對短期獲利不夠滿意。同時有研新材召開董事會臨時會議,後續資產處置或投資動向值得留意(重要性 3-4/營收與財報、擴產與投資)。",
-      "日系貴金屬靶材廠獲利穩健:古屋金屬以EPS成長吸引投資人關注,並發布第58期(2025/07-2026/06)有價證券報告書的訂正版本。以銥、釕等貴金屬為主的靶材與材料需求仍有支撐(重要性 2-3/營收與財報)。",
-      "高純度原料規格持續升級:低氧超高純度鈦(4N5、5N)全球市場報告發布,反映先進製程對鈦靶與阻障層材料的純度要求提高,上游高純金屬供應能力將成為競爭關鍵(重要性 3/原物料與價格)。",
-      "台灣靶材股籌碼面偏弱:光洋科連續出現在櫃買市場券商賣超榜(-1298、-319),但技術面週KD仍向上。這類消息屬短線籌碼訊號,與靶材基本面關聯較弱(重要性 1-2/營收與財報)。"
+      "半導體靶材需求延續成長:有研新材半導體靶材收入成長逾四成,光洋科9月營收年增近五成,顯示先進製程與AI相關需求對靶材的拉動仍強。",
+      "中國靶材廠聚焦主業:有研新材已剝離稀土主業與固態電池材料業務,轉型為以靶材為核心的公司,並在第三季獲機構大幅加碼,未來在高純金屬靶材的競爭力道可能增強。",
+      "獲利品質與一次性項目受關注:有研新材扣非淨利大增,但單季淨利下滑、資產減值年增超過3倍、應收帳款規模偏大,市場反應負面。財報結構與帳款風險成為評估供應商的重要指標。",
+      "中國政策資金持續扶植本土靶材:阿石創獲2000萬元國家項目專項資金,顯示國產替代政策仍在推進,對國際廠商形成價格與份額壓力。",
+      "日系大廠布局上游原料與多角化:JX金屬切入日本國內稀土精煉,並擴增AI資料中心相關產品產能,強化上游資源掌控與AI供應鏈曝險。",
+      "高純原料市場受關注:低氧超高純度鈦(4N5、5N)與鉬濺鍍靶材的市場研究報告陸續發布,反映高純金屬原料供需持續受到重視。"
     ],
     "watch_points": [
-      "有研新材的靶材擴產與客戶動向:追蹤剝離稀土與固態電池業務後的資金是否投入半導體靶材產能,以及是否打進更多中國晶圓廠或面板廠供應鏈,評估對銅、鋁、鈦、鉭等靶材報價的影響。",
-      "有研新材董事會臨時會議決議的內容,以及後續資產處置、減值與應收帳款回收情況,判斷其財務體質是否會影響供貨穩定性與價格策略。",
-      "高純鈦(4N5/5N)等上游原料的供需與價格走勢,特別是先進製程擴產對低氧高純鈦的需求,以及中國與日本原料廠的產能分配。",
-      "古屋金屬訂正報告的具體內容與貴金屬靶材出貨展望,可作為銥、釕等貴金屬靶材需求與價格的觀察指標。",
-      "光洋科的法人籌碼變化與後續月營收,確認賣超是否反映基本面轉弱,或只是短期資金調節。"
+      "有研新材三季報後續:追蹤公司對股價重挫的回應、資產減值與應收帳款狀況,以及剝離業務後靶材擴產與報價策略是否轉趨積極。",
+      "光洋科10月以後營收動能:觀察年增近五成的成長能否延續,並釐清成長來源是靶材出貨或貴金屬價格。同時留意券商賣超等籌碼變化。",
+      "JX金屬與Tronox稀土精煉可行性調查進度,以及先進材料事業(含靶材)的策略方向;另需留意其股價大幅回落的傳聞,此類消息來源可信度偏低,宜審慎判讀。",
+      "江豐電子實控人姚力軍累計質押比例達24.79%,需留意質押比例是否續升,以及對公司經營與供貨穩定性的潛在影響。",
+      "Materion遭Zacks調降評等、股價走弱,以及古屋金屬(Furuya Metal)提交訂正有價證券報告書,建議追蹤這兩家公司後續財報與業務展望。"
     ]
   },
   "items": [
+    {
+      "id": "542077901359c709",
+      "title": "JX金属系、AI需要でデータセンターの漏水検知システム増産",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5haGJzblBEek5iRmtYb0xiaE1QZTUwcWtzdlhFSExZVWxBaElYblI1V0FFeWdQeGRFV0tWMU9VQmw4eUhpd0pLQjFqbDY3MDRnMEVOTjJleTlwa1puNUt3eWZUcUVUWEdXQW1fRg?oc=5",
+      "source": "日本経済新聞",
+      "published": "2026-10-09T06:49:57+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.79,
+      "summary": "JX金屬集團因AI需求帶動,增產資料中心用漏水偵測系統。此為非靶材業務,但顯示集團持續布局AI資料中心相關商機,對靶材供需影響有限。",
+      "importance": 2,
+      "title_zh": "JX金屬集團因應AI需求，增產資料中心漏水偵測系統",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8d38a66920f57544",
+      "title": "JX金属(5016)の投資戦略、キオクシアHD(285A)の注目点はやっぱりコレ Regina Hall (svkBfvVOBG)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9tQlM3UlZIZ1pFdkJyUzUydFZKSVNLNWZ5NUp4Q3lYb2RiMk5KczlTaElISUtNa1p0TzBQYnNnN2RobkYtSG0xZkMzSHctRjVDNTV4SFZGcXZTeU9yMi1CSVU2NHpZQQ?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-08T20:22:03+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資"
+      ],
+      "score": 3.72,
+      "summary": "投資評論文章,討論JX金屬的投資策略與Kioxia(鎧俠)的關注重點。屬股市觀點,與靶材供需的直接關聯薄弱。",
+      "importance": 1,
+      "title_zh": "JX金屬(5016)的投資策略，Kioxia HD(285A)的關注重點果然是這個 Regina Hall (svkBfvVOBG)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "253580ad71ceea54",
+      "title": "【緊急】JX金属（5016）株価5800円から4100円に急落。適正価格はいくらなのか計算してみました。 Sienna Miller (IiJFveNy2T)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9zT2hHczVXMkV0QmJ4aHdjdnA4VDlRUEV3YVp6Skw3V2pKZlE0MWVGUjEza1RQa3pnMjRhTDI3SWgwb28yYTBObGc4T0ktbTZBM2dXQlJaMnV2RGtlTXZqUW1wSWNKZw?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-09T16:39:15+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "原物料與價格"
+      ],
+      "score": 3.14,
+      "summary": "評論文章指出JX金屬股價自5,800日圓急跌至4,100日圓,並試算合理股價。反映市場對這家靶材龍頭的評價波動,但未涉及實際營運變化。",
+      "importance": 2,
+      "title_zh": "【緊急】JX金屬（5016）股價從5800日圓急跌至4100日圓。試算合理價格是多少。 Sienna Miller (IiJFveNy2T)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b44d50dcb0bb70e6",
+      "title": "《業績-其他電》光洋科9月營收為50.78億元，年增49.91%",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbHBIOTlxVkxQN0M5OHBGR2JXdVVjQmdPYVVQYzIwVGhjOEllMG9KMlZFYzVLR2s1UnFWRmVZNldOSGdLR1R0TnJoeVV0a29mM25FT2o3bk9Ya25pWERUajJyempJWTZVbVpycDZISGdmamIwd1JQUFpUNmVkbU02YVJyaTVOVVFv?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-08T07:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.14,
+      "summary": "光洋科9月營收50.78億元,年增49.91%,成長強勁。顯示其靶材與貴金屬相關業務需求暢旺,值得留意其接單與產能利用狀況。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c1137ef6a602fb3b",
+      "title": "營收：光洋科(1785)9月營收50億7755萬元，月增率12.43%，年增率49.91%",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNakw2bjA3LXpxcWZjWThvQzNDUHM3R2U5eWpabkRaa19fcUxUaEotbGZNY3lBZUdYQzE3aWZOTHk4T1pvbUdYUzdJQWhfLS1vdzJtM1JOdHU2aEVlcWZvN21OSGtjV1RsRENxQ1NEdmlNckE5c21zU3JzUGVZbno4cE8tRzhuTVpN?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-08T06:58:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.14,
+      "summary": "光洋科9月營收50億7,755萬元,月增12.43%、年增49.91%。營收連續走揚,反映下游需求與出貨動能偏強,可能影響同業競爭與報價。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "58cad4283df0be4a",
+      "title": "异动快报：有研新材（600206）10月14日14点34分触及跌停板",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPb29fSFFzS2VXc2tWNm5QS3pnRThtSGtDQnNNaFo2ek1nbGdWa2E3cDhZVkVLSDI4bmRxWEFXRzl2RlRxRTZCSDlBaG83dnRTOFhaT1J2cno0Zm1ZYVFYLXUwdEs0YWR5NTlHdEhvaFdvakgwOVFGcGNhTXktdzFVcVRhdFNaMzJl?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-14T06:35:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "有研新材10月14日盤中觸及跌停。屬股價異動,反映市場對其三季報與業務調整的疑慮,與靶材實際供需無直接關聯。",
+      "importance": 2,
+      "title_zh": "異動快報：有研新材（600206）10月14日14點34分觸及跌停板",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9de7e80ddd9ac555",
+      "title": "有研新材2026年三季报：靶材主业高速增长_行业新闻",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE10U05fVzMwTnVDaFFhQ0NGRTFRbDNhb0hSZkhsMXV0eXRrQUQ5UXJMckI5VlJlMWY2UFlZb25WdlMxTFhmRklqSUlwajV2dGYwYlJ6eUJkd2xaWXVmYWVwZUdQaXU?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-13T03:05:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.84,
+      "summary": "有研新材2026年三季報顯示靶材主業高速成長。中國靶材廠持續擴大市占,對國際靶材供應商的在地競爭壓力可能升高。",
+      "importance": 4,
+      "title_zh": "有研新材2026年三季報：靶材主業高速增長_行業新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "481befd46831ac99",
+      "title": "Materion Corporation (MTRN) Stock Forecasts",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTS1VXzItR18temYtZEo1ZGZQcnh5bjRxellfZUVZRkhUdV8tU0NHbEtjZDNxb0ZIMHMtejN1U1pja3JVeWFtLWZoaElMMFJPZHI5RFYwV1BWTE15MzBQQ01VbUYwUENNY3RxM1E0czZNcjVLVlZjeGdKRWlMUy1rbXV0Q0hUVDZDWThzdDZZNEM5dFk?oc=5",
+      "source": "Yahoo! Finance Canada",
+      "published": "2026-10-12T15:16:06+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.76,
+      "summary": "Materion股價預測整理頁面。屬投資資訊,與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Materion Corporation (MTRN) 股價預測",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6b77309647d4de8d",
+      "title": "글로벌 몰리브덴 스퍼터링 타깃 시장: 규모, 동향 및 2035까지의 예측",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNc0FYaTluRm9uSFRMcTBteE5rOEVXZU5lWmc5V1VSUlEzSnJEWFE5VGZsV3VOUVFBQnVjN1NnZDRWX24xaGxHb2ZDekdlcXFHVXVDWFRuemszbVhhTDVYTXJXa0k2RVlJaTZ0eXdvSU1pWWszTDJfTU1rdllrVmQ0emVJTUVBdlU0ZDJEWDdnV09XZjRDMENlZUhPR3lydHRoQmRNYzNVeDg4ZFlmSTBuMlhxOVFJcEMxalE?oc=5",
+      "source": "IndexBox",
+      "published": "2026-10-08T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "產業綜合:스퍼터링 타겟"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 2.44,
+      "summary": "IndexBox發布全球鉬靶材市場報告,涵蓋規模、趨勢及至2035年的預測。可作為顯示器與半導體用鉬靶需求評估的參考資料。",
+      "importance": 2,
+      "title_zh": "全球鉬濺鍍靶材市場：規模、趨勢及至2035年的預測",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a4901594e4adc635",
+      "title": "JX金属、国内でレアアース精錬事業に参入 トロノックスと共同で事業化調査",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1LRjFra3BaZnNFYllRM3RKZ2lRNDYxS3dNTUNWSWpOaElkS3M3TmktVWszY3Q4YklraEcyQ2pBdXpJR2JFR1VyYUxkOXVSUlZOM2c?oc=5",
+      "source": "日刊自動車新聞",
+      "published": "2026-10-09T22:31:56+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "併購與合作",
+        "產業動態"
+      ],
+      "score": 2.38,
+      "summary": "JX金屬宣布進軍日本國內稀土精煉事業,將與Tronox共同進行事業化可行性調查。此舉有助強化其上游原料布局,長期可能提升材料供應的自主性。",
+      "importance": 3,
+      "title_zh": "JX金屬進軍日本國內稀土精煉事業，與Tronox共同進行事業化可行性調查",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0bfe40dacdce9949",
+      "title": "熱門股》當沖熱絡 光洋科強攻漲停",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBBVlRTRVZhWUt2a2VLN3hIc1Fkdm01SFBpcmRKN04xalZDRnRjVVdXeXVzQ1NiSXR2MWZwdlJDeHRsNVBOR2lKa055ME9acWtaMlI1SzJncHc?oc=5",
+      "source": "自由時報",
+      "published": "2026-10-09T19:22:17+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.36,
+      "summary": "光洋科當沖交易熱絡,股價強攻漲停。主要反映市場對其營收成長的追捧,屬股市動態。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2bb4830cbe7e57ae",
+      "title": "江丰电子实控人姚力军质押145万股 累计质押占比24.79%",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBpWXBrUXpYNm1ZZDByYUlUbTVhSUUwaWcwNHM5c09DQnpEaS1ZUWp5S0NsMVlpR2dPSUQ4QXhhcnh2WWhRc0xkSkhISkZ5cnRsWG0wZjFjbDRveld3YnBCZ3pR?oc=5",
+      "source": "观点网",
+      "published": "2026-10-09T13:48:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.33,
+      "summary": "江豐電子實控人姚力軍質押145萬股,累計質押比例24.79%。屬股權財務動作,對靶材營運影響有限,可留意大股東資金狀況。",
+      "importance": 2,
+      "title_zh": "江豐電子實控人姚力軍質押145萬股 累計質押佔比24.79%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0e29b301dee4a93a",
+      "title": "阿石创(300706.SZ)：获得政府补助2000万元",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBONW5ncWcwdHFEdlNnd0tEX0IzZ3I2MGRZRGJfR1pDdHR1MTNWQ04zNGJvc2dSVU9yRFBnVjFBSTVyck1nVTZwLVM0QXRiLWxLTDdMUl9aZ0VVQXlZ?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-09T12:42:38+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "產業動態"
+      ],
+      "score": 2.32,
+      "summary": "阿石創公告獲得政府補助2,000萬元人民幣。反映中國持續以政策資金支持本土靶材與鍍膜材料廠。",
+      "importance": 2,
+      "title_zh": "阿石創(300706.SZ)：獲得政府補助2000萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "da94479b95d5e2e1",
+      "title": "阿石创(300706):获得政府补助",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4xZklMMWVVdDkxTzJ5d2loRWdPR1BsWWRhdnFJY05JVnVJWFd2OXMtT3AyMkY5MGhPZnJ2OVBSeDZ1QlZ3ZlFqSEtyZF9VSWJGTkJ5YWR3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-09T11:52:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "產業動態"
+      ],
+      "score": 2.32,
+      "summary": "阿石創公告獲得政府補助。顯示中國官方對本土靶材業者的扶持仍在持續,有助其研發與擴產。",
+      "importance": 2,
+      "title_zh": "阿石創(300706):獲得政府補助",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5b9de2df339c0bc5",
+      "title": "阿石创：获得2000万元国家项目专项资金",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9rZXNJRnltWWFrR3U0UW1PRUFCOFdOcWpuQ0NwRTZNX0NxajdYVzVJYTA4NHk4bWNZZVNmTGVTM1FDQmxZUGE2dl9KRGhOVUViVGF6Qjl3?oc=5",
+      "source": "QQ News",
+      "published": "2026-10-09T10:53:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "產業動態"
+      ],
+      "score": 2.31,
+      "summary": "阿石創獲得2,000萬元人民幣國家項目專項資金。國家級項目支持可能加速其高階靶材開發,強化中國國產替代趨勢。",
+      "importance": 3,
+      "title_zh": "阿石創：獲得2000萬元國家項目專項資金",
+      "snippet_zh": ""
+    },
+    {
+      "id": "371bda26ba1ddf42",
+      "title": "JX金属グループ、京都でAIデータセンター向け漏水検知システムの生産能力を増強 | TECH+（テックプラス）",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE00b1FnVFVUMXRzb3BOaGpSeHJ0UFNZcllnTlJTOTlXcERLN2VJbklmUlFvUU85M1ZHUFJSRloxa0l1U0FRUXI0T0pNMU5lYThjZWxFOVYwTVFxOTRjQnk4LXZRN3Qzak9O?oc=5",
+      "source": "マイナビニュース",
+      "published": "2026-10-09T07:24:13+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.29,
+      "summary": "JX金屬集團在京都擴增AI資料中心用漏水偵測系統產能。屬非靶材業務擴產,對靶材供需影響有限。",
+      "importance": 2,
+      "title_zh": "JX金屬集團於京都擴增AI資料中心用漏水偵測系統產能 | TECH+（テックプラス）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b70349062f33cde9",
+      "title": "フルヤ金属 (7826) : 今後の予想・売買予想・AI株価診断 [FURUYA METAL]",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QVVg3VE9rMkpZQjJJSHFHeF9PelRtSjZvdlUxZ3Vkak92MUtOR2ZaaTk1dVd3Z2szTjIxZkloeXdEZnNfZVNYemp4dWpOMG8?oc=5",
+      "source": "みんかぶ",
+      "published": "2026-10-09T06:30:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.28,
+      "summary": "古屋金屬(Furuya Metal)的股價預測與AI個股診斷頁面。屬投資資訊,與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Furuya Metal (7826)：未來預測・買賣預測・AI股價診斷 [FURUYA METAL]",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d5ed21e6b444e343",
+      "title": "JX金属（株） 常務執行役員 先端材料事業本部長 諏訪邉武史氏 | 電子デバイス産業新聞（旧半導体産業新聞）",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VdGhtSTlpUk9xR1E0a29XYWpkbUpsaWtQSXhCd2Z3SEYxaVNmTVVWZVJ4d3A5OU84WEhGSnAxc0FtZ01uRVFYcm45Yko5VmJPS0lOOHlwa3VQNFRXRWc?oc=5",
+      "source": "産業タイムズ社",
+      "published": "2026-10-09T05:30:13+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "產業動態"
+      ],
+      "score": 2.28,
+      "summary": "電子裝置產業新聞刊出JX金屬常務執行役員、先端材料事業本部長諏訪邉武史的相關報導。該事業本部涵蓋靶材業務,可留意其對技術與事業策略的發言。",
+      "importance": 3,
+      "title_zh": "JX金屬（股） 常務執行董事 先進材料事業本部長 諏訪邉武史先生 | 電子裝置產業新聞（原半導體產業新聞）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0854115e468419db",
+      "title": "阿石创：获得政府补助2000万元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9mLXFENzFTZURfeDJCVmFyNW5XYWRmQlZIdUFoMzloM1BXR2I5cmtzNGV2Sl9WQTE5NWNOSzlsODBZeHpPcV9TeXFLME12V1pPcHRhZ3UxUFdHMFBTaDBaRzVfeFBHQQ?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-09T01:24:42+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "產業動態"
+      ],
+      "score": 2.25,
+      "summary": "阿石創獲得政府補助2,000萬元人民幣。與其他報導內容相同,反映中國對本土靶材業者的政策支持。",
+      "importance": 2,
+      "title_zh": "阿石創：獲得政府補助2000萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d2615bdd851949f3",
+      "title": "フルヤ金属[7826]：コーポレート・ガバナンスに関する報告書 2026/10/09 2026年10月9日(適時開示) ：日経会社情報DIGITAL",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBNSGpMZHEwR3I1eVhWRWRaSGNGT2FEbkYyMTJnUWhHTDlYU3FYcjdTcVRkdzVSaXRaSmlHLXRnbEhvRTYzZHZSV25NdEtzcUZxdFZWNkptaThGNFFxUGJhdFJUUzFRWmktV0E?oc=5",
+      "source": "日本経済新聞",
+      "published": "2026-10-09T00:56:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.25,
+      "summary": "古屋金屬依規定公告公司治理報告書。屬例行揭露,與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Furuya Metal[7826]：公司治理報告書 2026/10/09 2026年10月9日（即時揭露）：日經公司資訊DIGITAL",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8694f4f14bb4b3a4",
+      "title": "JX金属の日足が悪い理由とは？ここ３週間陰線ばっかり。出来高減少。今後上昇するのことができるのか？ Susan Sarandon (yrD1Ms0MMK)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBOTFBQZ0diejluaDZlaVBXenNVdjByamI0ekthNlU4RnhfcG90S21jdnpMTlNMNVRybHFpRHFYcmNCZ0hPSFhxU3pyWG1yTFN5UnMtbDRCSWpic3pmY3VKQXpZMkpZZw?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-08T16:37:44+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.2,
+      "summary": "評論文章指出JX金屬日線近三週多為黑K、成交量萎縮,並探討後續走勢。屬技術面股市觀點,與靶材營運無直接關聯。",
+      "importance": 1,
+      "title_zh": "JX金屬日K線走弱的原因？近3週幾乎都是黑K，成交量減少。未來能否回升？ Susan Sarandon (yrD1Ms0MMK)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ed4cb3e7129e3828",
+      "title": "Zacks cuts Materion rating as Materion stock falls 2.93 percent",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxORkI4cUQ1UEx2T2FSZzRvSnBYOFNBNlQ2WWcxazg0akxraTh5Rm9BbnlhX0RTdlg5NVY2YW1vN1JqZVh0YjZOM195Mkh6VWgzYVZhMGNzUmU2Q1lVbW9Ta2dUZWN1dkZjUHNSdlFrOG91dDN4QmFBTXFBWlhUek5DZ3UxMHdjRmI3MHZCdGZxWlBDRXdnNDVPSWYzalE2dUlTcUNvc1RpN3NYOUUzM3RiUXdkczFJZDhzT1dEQjJCYw?oc=5",
+      "source": "ad-hoc-news.de",
+      "published": "2026-10-08T15:37:36+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.2,
+      "summary": "Zacks下調Materion評等,其股價下跌2.93%。反映市場對這家美系靶材供應商短期前景轉趨保守。",
+      "importance": 2,
+      "title_zh": "Zacks下調Materion評等，Materion股價下跌2.93%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b338848c5458f9f3",
+      "title": "後場の日経平均は512円安でスタート、パナHDやJX金属などが下落",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1KSzZEM2RIQk1BdHRaUW83anQxeXp2ZXBMN2pJTnpOYTdJeDVGV3c4RlFDZ2h4TFBRRzJ4WnNQMkZwUEJtTkg5T2pFcG1rVl9OQjh4UGZtUXkwa0RXV09Ld1FjelU?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-08T04:03:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.13,
+      "summary": "日經平均指數午盤開盤下跌512日圓,Panasonic HD與JX金屬等個股走低。屬大盤動態,與靶材供需無直接關聯。",
+      "importance": 1,
+      "title_zh": "日經平均指數午盤開盤下跌512日圓，Panasonic HD、JX金屬等走低",
+      "snippet_zh": ""
+    },
+    {
+      "id": "39b4bb06732f7530",
+      "title": "Materion Corp (MTRN) Shares Fall 6.9% -- GF Value Says Still Ove",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxONE80TWFOckZISFlBZkpJMURKRjh2eFZuWTVfNmctOWZLaTVjdVFLcXZ1Nl9FdGNQZkVpR0p4dWtOSmNxbjdvNTY2encwNG5fTjk0OWxKbzMzcDN0QjBuU1M1MndvdTJ5YjBfZ0hHSFp2bFAtY203Y3k5TmpLenRmSmpfdlV5RUpOOUQxV1BzMjE1TVdWWS1qTjdGZ2xWRnVpSENHcXZn?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-10-07T23:22:50+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.1,
+      "summary": "Materion股價下跌6.9%,GF Value評估認為仍屬高估。顯示市場對其評價有修正壓力。",
+      "importance": 2,
+      "title_zh": "Materion Corp (MTRN) 股價下跌6.9%——GF Value指仍高估",
+      "snippet_zh": ""
+    },
+    {
+      "id": "68d8938dce23a7a9",
+      "title": "被市场忽视的半导体双黑马！太极实业+有研新材，即将迎来反转机会？兆易创新列入观察名单！",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE90UGNqdDF4dFdYeW04NG9zZWdncGc0SEYxQnlGYkFfUEVkY3kxTVh1aDJKUnJjU2k1ZTczQnp1RUhUODY5YjM0MklJQUs4cUZIMzN6d1FUT1NzUHVTd3FNN1NGcVl4TzBZcUJR?oc=5",
+      "source": "财富号",
+      "published": "2026-10-07T21:36:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.09,
+      "summary": "自媒體文章將太極實業與有研新材列為可能迎來反轉的半導體黑馬。屬投資觀點,參考價值有限。",
+      "importance": 1,
+      "title_zh": "被市場忽視的半導體雙黑馬！太極實業+有研新材，即將迎來反轉機會？兆易創新列入觀察名單！",
+      "snippet_zh": ""
+    },
+    {
+      "id": "486fc9276255fc4e",
+      "title": "周四早评：节后回归，说下有研新材今天怎么应对",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE10Um1KSkk3enZSM3NzNzBRYlo2X2hLUV80SUg5VUFiQ0NZQUMwR0JxMXpiNjRLYkV0cFFTaWpKX1N1emxPeUF0Tl8xSTRlZnFFa1dpTWpXX2JYazA4cGFIaFdlZ2UwazIyTTAw?oc=5",
+      "source": "财富号",
+      "published": "2026-10-07T21:12:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.09,
+      "summary": "自媒體節後盤前評論,討論有研新材的操作策略。屬股市短線觀點,與靶材供需無關。",
+      "importance": 1,
+      "title_zh": "週四早評：節後迴歸，說下有研新材今天怎麼應對",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3f2a920fd165f5a6",
+      "title": "《転勤族、茨城を行く》JX金属茨城事業所 総務部長 中村真人(なかむらまひと)さん(49)",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE02d043aElUbDZBRGpVWklydW9NazFfemQxS1F2eXhXQjltWDZPV1o2NHRKM2lGbVlTOXVLcFVWajh0SWlsT2ptVlRIcHhyUHpfTm93ZDZ4WnZRZUFONng3N2NZeVVEQl9jR05qelR3OVNNWVE?oc=5",
+      "source": "茨城新聞クロスアイ",
+      "published": "2026-10-07T13:57:24+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.04,
+      "summary": "地方報紙專訪JX金屬茨城事業所總務部長中村真人。屬人物報導,與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "《調職族，走訪茨城》JX金屬茨城事業所 總務部長 中村真人(なかむらまひと)先生(49歲)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3f830e5386f75d9c",
+      "title": "光洋科(1785)董事與內部人持股｜監察人及關係人持股變化 - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB4RG0xN3ZkQzZGbVZHRWYzcVczV01WTnMtcTlybzlQMGVVQUV3UF90TTJQTzVIS0FKWUt4TTJxZm9qdzJuek9jWDNEZHZuVGZvTDJTXy1xMHlOeVJ3SWYtcHEtcmJxaE0?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-07T07:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.0,
+      "summary": "光洋科董監事、內部人及關係人持股變化資訊整理。屬股權資訊,對營運影響有限。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "b9e7dfd198508192",
       "title": "If EPS Growth Is Important To You, Furuya Metal (TSE:7826) Presents An Opportunity",
@@ -35,7 +619,7 @@
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "Simply Wall St指出古屋金屬(Furuya Metal)每股盈餘(EPS)成長亮眼，認為具投資機會。屬投資觀點文章，顯示其貴金屬靶材相關獲利動能受市場關注，但對靶材供需無直接影響。",
+      "summary": "Simply Wall St指出古屋金屬EPS成長表現亮眼,具投資機會。反映這家貴金屬靶材相關業者獲利動能受到肯定。",
       "importance": 2,
       "title_zh": "若您重視 EPS 成長，Furuya Metal（TSE:7826）提供了一個投資機會",
       "snippet_zh": ""
@@ -56,7 +640,7 @@
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "有研新材策略轉向押注靶材業務，第三季獲機構大幅加碼持股。顯示資本市場看好中國本土半導體靶材國產替代，可能強化其擴產與市占競爭力。",
+      "summary": "有研新材聚焦靶材業務,第三季獲機構大幅加碼持股。顯示資本市場看好其轉型為靶材主業,後續擴產與搶單力道值得關注。",
       "importance": 3,
       "title_zh": "有研新材押注靶材，第三季度獲機構大幅加倉",
       "snippet_zh": ""
@@ -77,7 +661,7 @@
         "產業動態"
       ],
       "score": 2.81,
-      "summary": "財富號個人持股操作策略文章，提及有研新材等個股。屬投資操作建議，與靶材產業基本面關聯薄弱。",
+      "summary": "自媒體持倉操作策略文章,提及有研新材等個股。屬投資觀點,與靶材供需無關。",
       "importance": 1,
       "title_zh": "10.13持倉操作策略：有研新材，昭衍新藥，徵和工業",
       "snippet_zh": ""
@@ -98,8 +682,8 @@
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "日本發布低氧超高純度鈦(4N5、5N)2026-2032年全球市場分析報告。高純鈦為半導體鈦靶材關鍵原料，可作為原料供需與市場規模的參考資料。",
-      "importance": 2,
+      "summary": "市調機構發布低氧超高純度鈦(4N5、5N)2026至2032年全球市場報告。高純鈦為重要靶材原料,可作為原料供需與採購規劃的參考。",
+      "importance": 3,
       "title_zh": "發表低氧超高純度鈦全球市場（2026年～2032年）市場規模（4N5、5N）與分析報告",
       "snippet_zh": ""
     },
@@ -118,8 +702,8 @@
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "有研新材2026年第三季報簡析顯示營收與淨利年增，但應收帳款規模偏大。需留意其營運資金壓力與客戶付款條件，對其靶材業務擴張節奏可能有影響。",
-      "importance": 3,
+      "summary": "有研新材2026年三季報營收與淨利同比雙增,但應收帳款規模偏大。業績成長之餘,需留意其收款風險與客戶信用條件。",
+      "importance": 4,
       "title_zh": "有研新材（600206）2026年三季報簡析：營收淨利潤同比雙雙增長，公司應收賬款體量較大_財報季",
       "snippet_zh": ""
     },
@@ -138,7 +722,7 @@
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "有研新材前三季扣非淨利年增33.2%，半導體靶材收入成長逾四成。反映中國晶圓廠對本土靶材需求強勁，國產替代持續擠壓日美靶材廠在中國市場的份額。",
+      "summary": "有研新材前三季扣非淨利增33.2%,半導體靶材收入成長逾四成。中國靶材廠在半導體客戶端的滲透持續加速,對國際供應商的競爭壓力升高。",
       "importance": 4,
       "title_zh": "【有研新材前三季度扣非淨利增33.2%，半導體靶材收入增逾四成】PjTime.COM 財經新聞",
       "snippet_zh": ""
@@ -158,8 +742,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "有研新材Q3淨利年減約三成，但扣非淨利大增超過八成，固態電池材料業務已剝離，前三季資產減值年增超過3倍。顯示公司聚焦核心本業(含靶材)，惟一次性減值拖累帳面獲利。",
-      "importance": 3,
+      "summary": "有研新材第三季淨利下滑三成,但扣非淨利大增超過八成;固態電池材料業務已剝離,前三季資產減值同比增加逾3倍。顯示其正收斂業務、聚焦本業,短期帳面獲利受減值拖累。",
+      "importance": 4,
       "title_zh": "有研新材Q3淨利降三成、扣非大增超八成：固態電池材料業務已剝離，前三季資產減值同比增長超3倍",
       "snippet_zh": ""
     },
@@ -178,7 +762,7 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "有研新材單季營收與淨利雙雙下滑，但扣非淨利成長逾八成。本業獲利改善，帳面數字受非經常性因素影響，靶材等核心業務體質相對穩健。",
+      "summary": "有研新材單季營收與淨利雙雙下滑,但扣非淨利成長逾八成。核心業務獲利改善,顯示業務調整後的本業體質有所提升。",
       "importance": 3,
       "title_zh": "海量財經 | 有研新材單季營收淨利雙降 扣非淨利潤增逾八成",
       "snippet_zh": ""
@@ -199,8 +783,8 @@
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "評論文章探討有研新材剝離稀土主業後的業務組成，靶材成為重要核心。業務轉型使其更專注半導體靶材，可能加劇中國靶材市場競爭。",
-      "importance": 3,
+      "summary": "分析文章探討有研新材剝離稀土主業後的業務組成,靶材已成核心。業務重心轉向靶材,可能加大其在靶材市場的投入與競爭力道。",
+      "importance": 4,
       "title_zh": "剝離稀土主業後，有研新材還剩下什麼？",
       "snippet_zh": ""
     },
@@ -220,7 +804,7 @@
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "櫃買市場券商賣超排行中，光洋科遭賣超319張。屬短線籌碼資訊，與靶材供需基本面關聯薄弱。",
+      "summary": "光洋科名列櫃買市場券商賣超前30名,賣超319張。屬籌碼面資訊,與營運無直接關聯。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -241,8 +825,8 @@
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "有研新材三季報公布後股價下跌逾7%，公司對外做出最新回應。顯示市場對其財報解讀分歧，短期股價波動對靶材營運影響有限。",
-      "importance": 2,
+      "summary": "有研新材三季報公布後股價重挫逾7%,公司隨後發布最新回應。反映市場對其獲利品質的疑慮,可留意公司對靶材業務前景的說明。",
+      "importance": 3,
       "title_zh": "【求證】三季報披露後，有研新材股價跌超7%，公司最新回應",
       "snippet_zh": ""
     },
@@ -262,8 +846,8 @@
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "古屋金屬提交第58期(2025/07-2026/06)有價證券報告書訂正版。屬例行揭露更正，對靶材業務影響有限。",
-      "importance": 1,
+      "summary": "古屋金屬提交第58期(2025/07/01至2026/06/30)有價證券報告書訂正版。屬例行揭露修正,影響有限。",
+      "importance": 2,
       "title_zh": "Furuya Metal(古屋金屬)[7826]:更正有價證券報告書 — 第 58 期(2025/07/01~2026/06/30)— 日經公司資訊 DIGITAL",
       "snippet_zh": ""
     },
@@ -283,7 +867,7 @@
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "市場評論指有研新材股價重挫7.72%，認為其三季報表現不如預期。反映投資人對其獲利品質疑慮，對靶材供需無直接影響。",
+      "summary": "評論指出有研新材股價下跌7.72%,三季報表現不如市場預期。屬市場反應,與靶材實際供需無直接關聯。",
       "importance": 2,
       "title_zh": "幫主解盤：有研新材跌7.72%——三季報第一張卷子，答砸了",
       "snippet_zh": ""
@@ -304,8 +888,8 @@
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "算力硬體股多數低開，有研新材盤中跌近10%。屬盤面短線波動，與靶材產業基本面關聯有限。",
-      "importance": 1,
+      "summary": "算力硬體類股多數低開,有研新材股價跌近10%。反映市場對其財報的負面反應,屬股價動態。",
+      "importance": 2,
       "title_zh": "算力硬件股多數低開，有研新材跌近10%_7x24快訊_新浪財經",
       "snippet_zh": ""
     },
@@ -325,7 +909,7 @@
         "產業動態"
       ],
       "score": 2.77,
-      "summary": "有研新材發布第九屆董事會第三十次臨時會議決議公告。標題未揭露具體內容，可留意是否涉及投資、資產處分等影響靶材業務的事項。",
+      "summary": "有研新材公告第九屆董事會第三十次臨時會議決議,具體內容未見於標題。考量其近期進行業務剝離,可留意是否涉及資產重組或靶材相關投資。",
       "importance": 2,
       "title_zh": "有研新材：第九屆董事會第三十次臨時會議決議公告",
       "snippet_zh": ""
@@ -346,7 +930,7 @@
         "產業動態"
       ],
       "score": 2.69,
-      "summary": "櫃買市場券商賣超排行中，光洋科遭賣超1298張。屬籌碼面資訊，與靶材營運關聯薄弱。",
+      "summary": "光洋科名列櫃買市場券商賣超前30名,賣超1,298張。屬籌碼面資訊,與營運無直接關聯。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -367,7 +951,7 @@
         "產業動態"
       ],
       "score": 2.61,
-      "summary": "技術分析指光洋科周KD指標維持向上。屬股價技術面訊息，與靶材供需無直接關聯。",
+      "summary": "光洋科週KD指標維持向上。屬技術面分析,與靶材供需無關。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
