@@ -510,7 +510,7 @@ entities:
     aliases: [日月光, ASE Technology, ASE Holding]
     require_context: true
     query_context: false
-    context_terms: &pkg_ctx [濺鍍, 溅射, 靶材, PVD, sputtering, 先進封裝, 先进封装, advanced packaging, 凸塊, 凸块, bumping, UBM, 重佈線, 重布线, RDL, 扇出, fan-out, 面板級封裝, 面板级封装, FOPLP, CoWoS, SoIC, 矽中介層, 硅中介层, interposer, 晶圓級封裝, 晶圆级封装, WLCSP, TSV, 玻璃基板, 資本支出, 资本支出, capex, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 增資, 定增]
+    context_terms: &pkg_ctx [濺鍍, 溅射, 靶材, PVD, sputtering, 先進封裝, 先进封装, advanced packaging, 凸塊, 凸块, bumping, UBM, 重佈線, 重布线, RDL, 扇出, fan-out, 面板級封裝, 面板级封装, FOPLP, CoWoS, SoIC, 矽中介層, 硅中介层, interposer, 晶圓級封裝, 晶圆级封装, WLCSP, TSV, 玻璃基板, 資本支出, 资本支出, capex, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂]
     editions: [zh-TW, en]
   - name: 矽品 (SPIL)
     role: packaging
