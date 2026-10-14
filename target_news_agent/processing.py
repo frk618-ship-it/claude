@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 import unicodedata
 from collections import Counter
@@ -13,6 +14,8 @@ from opencc import OpenCC
 
 from .config import Config, Entity
 from .models import NewsItem
+
+log = logging.getLogger(__name__)
 
 GENERAL_CATEGORY = "產業動態"
 TITLE_SIMILARITY = 0.88
@@ -120,13 +123,20 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
     index = {e.name: e for e in config.entities}
 
     relevant = []
+    kept: Counter[str] = Counter()
+    dropped: dict[str, list[str]] = {}
     for item in items:
         if item.published and item.published < cutoff:
             continue
         item.entities = match_entities(item, config.entities, s.context_terms)
         if not item.entities:
+            dropped.setdefault(item.query_entity, []).append(item.title)
             continue
+        kept[item.query_entity] += 1
         relevant.append(item)
+    # Per-search tuning aid: how much each search keeps, and what the context check throws away.
+    for name, titles in dropped.items():
+        log.info("filter %-30s kept %3d, dropped %3d  e.g. %s", name, kept[name], len(titles), " | ".join(titles[:3]))
 
     unique = dedupe(relevant)
     for item in unique:
