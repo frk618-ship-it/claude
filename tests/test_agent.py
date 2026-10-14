@@ -256,7 +256,7 @@ def test_build_site_from_reports(tmp_path, config):
     assert index == (out / "2026-10-13.html").read_text(encoding="utf-8")
     assert (out / "2026-10-12.html").exists()
     assert not (out / "data").exists()  # raw MD/JSON are no longer published
-    assert index.count('class="item') >= len(items)
+    assert index.count('<article class="card') >= len(items)
     assert "Spokane" in index and 'href="2026-10-12.html"' in index
     assert "Solstice" in index and "生產商 · 台灣" in index
     assert ".md\"" not in index and ".json\"" not in index and "Markdown" not in index
@@ -523,7 +523,7 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
     build_site(reports, out, config)
 
     library = (out / "papers.html").read_text(encoding="utf-8")
-    assert library.count("<article class=\"item") == len(papers)
+    assert library.count("<article class=\"card") == len(papers)
     assert "靶材技術文獻庫" in library and 'data-filter="ent" data-value="粉末冶金與燒結"' in library
     assert 'data-filter="kind" data-value="arXiv"' in library
 
@@ -714,3 +714,23 @@ def test_site_shows_translated_titles(tmp_path, config):
     assert "Materion 上調財測" in page and 'title="原文:Materion raises guidance"' in page
     assert "有研新材營收增長" in page and "東方財富" in page      # Simplified converted at display time too
     assert "ITO 靶材燒結" in page and "中文摘要" in page and "Long English abstract" not in page
+
+
+def test_cards_show_title_and_summary():
+    from target_news_agent.site import _item_html, _paper_html
+
+    news = {"title": "Materion expands target plant", "title_zh": "Materion 擴建靶材廠", "link": "https://x.test/a",
+            "summary": "Materion 宣布擴產。", "entities": ["Materion"], "kind": "news", "published": "2026-10-13T00:00:00+00:00"}
+    card = _item_html(news)
+    assert card.startswith('<article class="card k-news"') and 'data-kind="news"' in card
+    assert "Materion 擴建靶材廠" in card and '<p class="sum">Materion 宣布擴產。</p>' in card
+    assert 'title="原文:Materion expands target plant"' in card
+
+    # No summary: fall back to the feed snippet, but never repeat the title as the summary.
+    assert '<p class="sum">' not in _item_html({**news, "summary": "", "snippet": "Materion expands"})
+    assert '<p class="sum">新廠明年投產</p>' in _item_html({**news, "summary": "", "snippet_zh": "新廠明年投產"})
+
+    paper = {"title": "Sintering of ITO targets", "title_zh": "ITO 靶材的燒結", "abstract": "Long English abstract.",
+             "abstract_zh": "研究 ITO 靶材燒結。" * 40, "topics": ["粉末冶金與燒結"], "link": "https://x.test/p"}
+    pc = _paper_html(paper)
+    assert "ITO 靶材的燒結" in pc and "研究 ITO 靶材燒結。" in pc and "…</p>" in pc and "粉末冶金與燒結" in pc

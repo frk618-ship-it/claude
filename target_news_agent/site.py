@@ -51,8 +51,15 @@ def item_kind(item: dict) -> str:
     return "news"
 
 
+# Industry-wide searches are named after their search phrase; show which language edition they cover instead.
+TOPIC_LABELS = {
+    "產業綜合:濺鍍靶材": "產業綜合(繁中)", "產業綜合:溅射靶材": "產業綜合(簡中)", "產業綜合:Sputtering Target": "產業綜合(英文)",
+    "產業綜合:スパッタリングターゲット": "產業綜合(日文)", "產業綜合:스퍼터링 타겟": "產業綜合(韓文)",
+}
+
+
 def short_name(entity: str) -> str:
-    return re.sub(r"\s*\(.*\)$", "", entity)
+    return TOPIC_LABELS.get(entity) or re.sub(r"\s*\(.*\)$", "", entity)
 
 
 def esc(v) -> str:
@@ -96,20 +103,16 @@ button.f{font:inherit;font-size:.84rem;border:1px solid var(--line);background:v
 button.f .mono{font-size:.72rem;color:var(--muted)}button.f:hover{border-color:var(--accent)}
 button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}button.f[aria-pressed=true] .mono{color:var(--bg)}
 .shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
-.news{display:grid;gap:8px}
-.item{--k:var(--accent);display:grid;grid-template-columns:40px 1fr;gap:4px 14px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
-.kb{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
-.kb .ic{width:20px;height:20px}.item .body{display:grid;gap:4px;min-width:0}
-.item h3{margin:0;font-size:.96rem;font-weight:500;line-height:1.55;overflow-wrap:anywhere}.item h3 a{color:var(--fg);text-decoration:none}.item h3 a:hover{color:var(--accent);text-decoration:underline}
-.item .sum{font-size:.9rem;color:var(--muted)}
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.72rem;padding:1px 8px;border-radius:999px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}
-.item.low{background:transparent}.item.low h3 a{color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
-.card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
-.card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{font-size:.9rem;color:var(--muted)}
+.card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
+.card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
+.card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
+.kind{display:inline-flex;gap:4px;align-items:center}.kind .ic{width:13px;height:13px}
+.card.low{background:transparent;box-shadow:none}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
 .ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .region{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
@@ -127,12 +130,12 @@ h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
 .note p{display:flex;gap:10px;align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
 footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
 .sub{font-size:.88rem;color:var(--muted)}
-@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.item{grid-template-columns:34px 1fr;padding:10px 12px}.kb{width:34px;height:34px}.brand .logo{width:46px;height:46px}}
+@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:12px 14px}.brand .logo{width:46px;height:46px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
 SCRIPT = """
-(function(){var items=[].slice.call(document.querySelectorAll('#list .item')),shown=document.getElementById('shown'),reset=document.getElementById('reset'),
+(function(){var items=[].slice.call(document.querySelectorAll('#list > article')),shown=document.getElementById('shown'),reset=document.getElementById('reset'),
 buttons=[].slice.call(document.querySelectorAll('button.f')),active={kind:null,ent:null};
 function apply(){var n=0;items.forEach(function(el){var ok=(!active.kind||el.dataset.kind===active.kind)&&(!active.ent||el.dataset.ent.split('|').indexOf(active.ent)!==-1);el.hidden=!ok;if(ok)n++;});
 buttons.forEach(function(b){b.setAttribute('aria-pressed',String(active[b.dataset.filter]===b.dataset.value));});shown.textContent='顯示 '+n+' / '+items.length+' 則';reset.hidden=!active.kind&&!active.ent;}
@@ -161,40 +164,62 @@ def _date(published: str | None, full: bool = False) -> str:
     return d if full else d[5:]
 
 
+def _news_summary(item: dict) -> str:
+    """Card summary: Claude's summary, else the feed's snippet when it adds something beyond the title."""
+    if item.get("summary"):
+        return item["summary"]
+    snippet = item.get("snippet_zh") or to_traditional(item.get("snippet") or "")
+    titles = (item.get("title_zh") or "", to_traditional(item.get("title") or ""))
+    return snippet if snippet and not any(snippet in t for t in titles) else ""
+
+
+def _card(kind_class: str, label: str, label_icon: str, published: str | None, title: str, summary: str,
+          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False) -> str:
+    """One card: label + date, title, summary, then source details."""
+    date = esc((published or "")[:10])
+    sum_html = f'<p class="sum">{esc(summary)}</p>' if summary else ""
+    return (
+        f'<article class="card {kind_class}{extra_class}"{attrs}>'
+        f'<div class="head"><span class="kind {kind_class}">{icon(label_icon)}{esc(label)}</span>'
+        f'<time datetime="{date}">{_date(published, full=full_date)}</time></div>'
+        f"<h3>{title}</h3>{sum_html}<div class=\"co\">{meta}</div></article>"
+    )
+
+
+# Japanese / Korean outlet names shown in Traditional Chinese (Latin brand names stay as they are).
+SOURCE_ZH = {
+    "Yahoo!ファイナンス": "Yahoo!財經(日本)", "日本経済新聞": "日本經濟新聞", "日経会社情報DIGITAL": "日經公司資訊",
+    "ドリームニュース": "Dream News", "アットプレス": "@Press", "株探": "股探 Kabutan", "みんかぶ": "Minkabu",
+    "日刊工業新聞": "日刊工業新聞", "化学工業日報": "化學工業日報", "電子デバイス産業新聞": "電子元件產業新聞",
+    "연합뉴스": "韓聯社", "전자신문": "電子新聞(韓國)", "조선비즈": "朝鮮Biz", "한국경제": "韓國經濟新聞", "매일경제": "每日經濟新聞",
+}
+
+
+def source_name(source: str | None) -> str:
+    return SOURCE_ZH.get(source or "", to_traditional(source or ""))
+
+
+def _news_meta(item: dict) -> str:
+    ents = [short_name(e) for e in item.get("entities", [])]
+    return "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents) + (
+        f'<span>{icon("news")}{esc(source_name(item.get("source")))}</span>' if item.get("source") else ""
+    )
+
+
 def _item_html(item: dict, extra_class: str = "") -> str:
+    """News card for the filterable list."""
     kind = item["kind"]
     ents = [short_name(e) for e in item.get("entities", [])]
     stars = f" {'★' * item['importance']}" if item.get("importance") else ""
-    summary = f'<p class="sum">{esc(item["summary"])}</p>' if item.get("summary") else ""
     low = "" if kind in SIGNAL_KINDS else " low"
-    meta = (
-        f'<span class="kind k-{kind}">{KINDS[kind]}</span>'
-        f'<span>{icon("calendar")}<time datetime="{esc((item.get("published") or "")[:10])}">{_date(item.get("published"))}</time></span>'
-        + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
-        + (f'<span>{icon("news")}{esc(to_traditional(item.get("source")))}</span>' if item.get("source") else "")
-    )
-    return (
-        f'<article class="item k-{kind}{low}{extra_class}" data-kind="{kind}" data-ent="{esc("|".join(ents))}">'
-        f'<div class="kb" title="{KINDS[kind]}">{icon(KIND_ICONS[kind])}</div>'
-        f'<div class="body"><h3>{_title_link(item)}{stars}</h3>{summary}<div class="co">{meta}</div></div></article>'
-    )
+    attrs = f' data-kind="{kind}" data-ent="{esc("|".join(ents))}"'
+    return _card(f"k-{kind}", KINDS[kind], KIND_ICONS[kind], item.get("published"), _title_link(item) + stars,
+                 _news_summary(item), _news_meta(item), attrs, low + extra_class)
 
 
 def _card_html(item: dict) -> str:
     """Top-news card."""
-    kind = item["kind"]
-    ents = [short_name(e) for e in item.get("entities", [])]
-    stars = f" {'★' * item['importance']}" if item.get("importance") else ""
-    summary = f'<p class="sum">{esc(item["summary"])}</p>' if item.get("summary") else ""
-    meta = (
-        f'<span>{icon("calendar")}{_date(item.get("published"))}</span>'
-        + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
-        + (f'<span>{icon("news")}{esc(to_traditional(item.get("source")))}</span>' if item.get("source") else "")
-    )
-    return (
-        f'<article class="card k-{kind}"><div class="head"><span class="kind k-{kind}">{icon(KIND_ICONS[kind])} {KINDS[kind]}</span></div>'
-        f'<h3>{_title_link(item)}{stars}</h3>{summary}<div class="co">{meta}</div></article>'
-    )
+    return _item_html(item, " top")
 
 
 SOURCE_ICONS = {"OpenAlex": "database", "arXiv": "filing"}
@@ -205,27 +230,23 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
     author_text = ", ".join(authors[:3]) + (" 等" if len(authors) > 3 else "")
     stars = f" {'★' * p['importance']}" if p.get("importance") else ""
     if p.get("summary"):
-        body = f'<p class="sum">{esc(p["summary"])}</p>'
+        summary = p["summary"]
     elif p.get("abstract"):
         abstract = p.get("abstract_zh") or to_traditional(p["abstract"])
-        body = f'<p class="sum">{esc(abstract[:260])}{"…" if len(abstract) > 260 else ""}</p>'
+        summary = abstract[:200] + ("…" if len(abstract) > 200 else "")
     else:
-        body = ""
+        summary = ""
     topic = (p.get("topics") or [GENERAL_TOPIC])[0]
-    meta = f'<span>{icon("calendar")}<time datetime="{esc((p.get("published") or "")[:10])}">{_date(p.get("published"), full=filterable)}</time></span>'
+    meta = ""
     if p.get("venue"):
         meta += f'<span>{icon(SOURCE_ICONS.get(p.get("source", ""), "book"))}{esc(p["venue"])}</span>'
     if author_text:
         meta += f'<span>{icon("user")}{esc(author_text)}</span>'
-    if filterable:
-        meta += f'<span class="kind k-research">{esc(topic)}</span>'
     attrs = ""
     if filterable:
         attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'
-    return (
-        f'<article class="item k-research"{attrs}><div class="kb" title="{esc(topic)}">{icon(topic_icon(topic))}</div>'
-        f'<div class="body"><h3>{_title_link(p)}{stars}</h3>{body}<div class="co">{meta}</div></div></article>'
-    )
+    return _card("k-research", topic, topic_icon(topic), p.get("published"), _title_link(p) + stars,
+                 summary, meta, attrs, full_date=filterable)
 
 
 def _h2(id_: str, icon_name: str, title: str, count: str = "") -> str:
@@ -246,7 +267,7 @@ def _grouped_papers(papers: list[dict]) -> str:
         groups.setdefault((p.get("topics") or [GENERAL_TOPIC])[0], []).append(p)
     return "".join(
         f'<h3 class="topic"><span class="tic">{icon(topic_icon(t))}</span>{esc(t)} <span class="mono">{len(ps)}</span></h3>'
-        f'<div class="news">{"".join(_paper_html(p) for p in ps)}</div>'
+        f'<div class="cards">{"".join(_paper_html(p) for p in ps)}</div>'
         for t, ps in groups.items()
     )
 
@@ -265,7 +286,7 @@ def _papers_section(report: dict, library: list[dict], is_latest: bool, home: st
         # Homepage: no new papers today, so show the most recently collected ones.
         recent = library[:10]
         count = f"本期無新收錄 · 以下為最近收錄的 {len(recent)} 篇"
-        inner = '<div class="news">' + "".join(_paper_html(p) for p in recent) + "</div>"
+        inner = '<div class="cards">' + "".join(_paper_html(p) for p in recent) + "</div>"
     elif "papers" in report or is_latest:
         count = "本期沒有新收錄的文獻"
         inner = "<p>本期沒有新的靶材製造技術文獻。</p>"
@@ -335,7 +356,7 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
 <div class="filters" role="group" aria-label="篩選文獻"><div class="frow"><span class="lbl">{icon("filter")}主題</span>{topic_chips}</div>
 <div class="frow"><span class="lbl">{icon("database")}來源</span>{source_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(library)} / {len(library)} 篇</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
-<div class="news" id="list">{body}</div></section>
+<div class="cards" id="list">{body}</div></section>
 <footer>文獻摘要為改寫整理;引用請以原文為準。</footer>
 </div><script>{SCRIPT.replace("則", "篇")}</script></body></html>"""
     )
@@ -443,7 +464,7 @@ def render_page(
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">{icon("filter")}類型</span>{kind_chips}</div>
 <div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(items)} / {len(items)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
-<div class="news" id="list">{"".join(_item_html(it) for it in items)}</div></section>
+<div class="cards" id="list">{"".join(_item_html(it) for it in items)}</div></section>
 <section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家 · 本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
 <section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section>
 <div class="note"><p>{icon("news")}<span><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</span></p>
