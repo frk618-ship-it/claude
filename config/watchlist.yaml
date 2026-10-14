@@ -9,6 +9,8 @@
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
 #   require_context true = 公司業務範圍廣(例如 Solstice/Honeywell、三菱綜合材料),
 #                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
+#   query_context   (選填,預設 true)false = 搜尋時只用公司名稱,相關字詞只在本地過濾;
+#                   新聞量大的公司(半導體廠)用這個,避免過長的查詢讓 Google 忽略日期限制
 #   context_terms   (選填)這個項目專用的相關字詞,取代下方全域 context_terms;
 #                   設備商用濺鍍 / PVD 字詞,避免收到蝕刻、CVD 等不相關新聞
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
@@ -353,6 +355,7 @@ entities:
     ticker: "2330.TW"
     aliases: [台積電, 台积电, TSMC]
     require_context: true
+    query_context: false
     context_terms: &fab_ctx [濺鍍, 溅射, 靶材, PVD, 物理氣相沉積, 物理气相沉积, physical vapor deposition, sputtering target, sputter deposition, sputtering system, sputtering equipment, スパッタ, 스퍼터, 資本支出, 资本支出, capex, capital expenditure, 設備投資, 设备投资, 設備採購, 设备采购, 설비투자, 擴產, 扩产, 新廠, 新厂, 建廠, 建厂, 產能, 产能, 晶圓廠, 晶圆厂, 新工場, 増産, 증설, 신공장, new fab, fab expansion, capacity expansion, new plant]
     editions: [zh-TW, en]
   - name: 聯電 (UMC)
@@ -361,6 +364,7 @@ entities:
     ticker: "2303.TW"
     aliases: [聯電, 联电, United Microelectronics]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en]
   - name: 力積電 (PSMC)
@@ -369,6 +373,7 @@ entities:
     ticker: "6770.TW"
     aliases: [力積電, 力积电, Powerchip]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW]
   - name: 世界先進 (VIS)
@@ -377,6 +382,7 @@ entities:
     ticker: "5347.TW"
     aliases: [世界先進, Vanguard International Semiconductor]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW]
   - name: 華邦電 (Winbond)
@@ -385,6 +391,7 @@ entities:
     ticker: "2344.TW"
     aliases: [華邦電, 华邦电, Winbond]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW]
   - name: 南亞科 (Nanya Technology)
@@ -393,6 +400,7 @@ entities:
     ticker: "2408.TW"
     aliases: [南亞科, 南亚科, Nanya Technology]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW]
   - name: 三星電子 (Samsung Electronics)
@@ -401,6 +409,7 @@ entities:
     ticker: "005930.KS"
     aliases: [三星電子, 三星电子, Samsung Electronics, 삼성전자]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en, ko]
   - name: SK海力士 (SK hynix)
@@ -409,6 +418,7 @@ entities:
     ticker: "000660.KS"
     aliases: [SK海力士, SK hynix, SK하이닉스]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en, ko]
   - name: 美光 (Micron)
@@ -417,6 +427,7 @@ entities:
     ticker: "MU"
     aliases: [美光, Micron Technology]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en]
   - name: 英特爾 (Intel)
@@ -425,6 +436,7 @@ entities:
     ticker: "INTC"
     aliases: [英特爾, 英特尔, Intel]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en]
   - name: 格羅方德 (GlobalFoundries)
@@ -433,6 +445,7 @@ entities:
     ticker: "GFS"
     aliases: [格羅方德, 格芯, GlobalFoundries]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, en]
   - name: 中芯國際 (SMIC)
@@ -441,6 +454,7 @@ entities:
     ticker: "0981.HK"
     aliases: [中芯國際, 中芯国际, SMIC]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-TW, zh-CN, en]
   - name: 華虹半導體 (Hua Hong)
@@ -449,6 +463,7 @@ entities:
     ticker: "1347.HK"
     aliases: [華虹半導體, 华虹半导体, 华虹公司, Hua Hong Semiconductor]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-CN]
   - name: 長江存儲 (YMTC)
@@ -456,6 +471,7 @@ entities:
     region: 中國大陸
     aliases: [長江存儲, 长江存储, YMTC]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-CN, en]
   - name: 長鑫存儲 (CXMT)
@@ -463,6 +479,7 @@ entities:
     region: 中國大陸
     aliases: [長鑫存儲, 长鑫存储, 长鑫科技, CXMT]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [zh-CN, en]
   - name: 鎧俠 (Kioxia)
@@ -471,6 +488,7 @@ entities:
     ticker: "285A.T"
     aliases: [鎧俠, 铠侠, Kioxia, キオクシア]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [ja, en, zh-TW]
   - name: Rapidus
@@ -478,6 +496,7 @@ entities:
     region: 日本
     aliases: [Rapidus, ラピダス]
     require_context: true
+    query_context: false
     context_terms: *fab_ctx
     editions: [ja, en]
 

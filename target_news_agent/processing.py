@@ -125,8 +125,10 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
     relevant = []
     kept: Counter[str] = Counter()
     dropped: dict[str, list[str]] = {}
+    too_old: Counter[str] = Counter()
     for item in items:
         if item.published and item.published < cutoff:
+            too_old[item.query_entity] += 1
             continue
         item.entities = match_entities(item, config.entities, s.context_terms)
         if not item.entities:
@@ -137,6 +139,8 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
     # Per-search tuning aid: how much each search keeps, and what the context check throws away.
     for name, titles in dropped.items():
         log.info("filter %-30s kept %3d, dropped %3d  e.g. %s", name, kept[name], len(titles), " | ".join(titles[:3]))
+    for name, n in too_old.items():
+        log.info("filter %-30s %3d items older than %d days skipped", name, n, s.days)
 
     unique = dedupe(relevant)
     for item in unique:

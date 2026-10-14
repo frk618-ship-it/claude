@@ -27,6 +27,9 @@ class Entity:
     editions: list[str] = field(default_factory=list)
     # Own context words (e.g. sputtering / PVD for equipment makers); empty = the global ones.
     context_terms: list[str] = field(default_factory=list)
+    # False = search by name only and leave the context check to the local filter
+    # (a long OR clause can make Google ignore the date limit and return old articles).
+    query_context: bool = True
 
     @property
     def role_label(self) -> str:
@@ -113,6 +116,7 @@ def load_config(path: str | Path) -> Config:
                 require_context=bool(e.get("require_context", False)),
                 editions=editions,
                 context_terms=[str(t) for t in e.get("context_terms") or []],
+                query_context=bool(e.get("query_context", True)),
             )
         )
     research = None

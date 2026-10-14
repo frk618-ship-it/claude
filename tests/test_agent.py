@@ -850,3 +850,11 @@ def test_chipmakers_only_match_pvd_or_capex_news(config):
     assert ents("台積電資本支出上看 500 億美元") == ["台積電 (TSMC)"]
     assert ents("TSMC qualifies a new sputtering target supplier") == ["台積電 (TSMC)"]
     assert "英特爾 (Intel)" not in ents("Intelligence agencies boost capex on PVD systems")
+
+
+def test_chipmaker_search_uses_names_only(config):
+    from target_news_agent.sources import build_query
+
+    tsmc = next(e for e in config.entities if e.name == "台積電 (TSMC)")
+    assert build_query(tsmc, config.settings.query_context_terms) == '("台積電" OR "台积电" OR "TSMC")'
+    assert tsmc.require_context  # the context check still runs locally
