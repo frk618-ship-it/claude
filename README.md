@@ -1,6 +1,6 @@
 # 靶材產業新聞蒐集 Agent
 
-自動蒐集**濺鍍靶材(sputtering target)生產商與銷售商**,以及**濺鍍設備商與使用 PVD 製程的半導體廠**的新聞與產業動態,過濾、去重、分類後產出每日 Markdown / JSON 報告;若設定了 Anthropic API 金鑰,會再用 Claude 撰寫中文摘要、重要度評分與本期總覽。
+自動蒐集**濺鍍靶材(sputtering target)生產商與銷售商**,以及**濺鍍設備商、使用 PVD 製程的半導體廠與封裝廠**的新聞與產業動態,過濾、去重、分類後產出每日 Markdown / JSON 報告;若設定了 Anthropic API 金鑰,會再用 Claude 撰寫中文摘要、重要度評分與本期總覽。
 
 ## 運作流程
 
@@ -32,6 +32,7 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 銷售商 | Kurt J. Lesker、Stanford Advanced Materials、American Elements、Angstrom Sciences、Testbourne |
 | 濺鍍設備商 | 應用材料(AMAT)、北方華創、佳能安內華、芝浦機電、Evatec、Bühler Leybold Optics、VON ARDENNE、Singulus、Veeco、Intevac、天虹科技、아바코(AVACO) |
 | 製程相關(PVD 半導體廠) | 台積電、聯電、力積電、世界先進、華邦電、南亞科、三星電子、SK海力士、美光、英特爾、格羅方德、中芯國際、華虹、長江存儲、長鑫存儲、鎧俠、Rapidus;只收錄提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 擴建 / 新廠的新聞 |
+| 封裝廠(PVD) | 日月光投控、矽品、Amkor、長電科技、通富微電、華天科技、力成、頎邦、南茂、精材;只收錄提到 PVD / 濺鍍 / 靶材、先進封裝製程(凸塊、RDL、扇出、面板級、CoWoS 等),或資本支出 / 擴產 / 新廠的新聞 |
 | 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟;濺鍍設備 / 溅射设备 / sputtering equipment / スパッタ装置 / 스퍼터 장비 |
 
 清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。設備商可另設 `context_terms`(例如濺鍍、PVD、sputtering),只收錄濺鍍相關新聞,避開蝕刻、CVD 等其他設備的消息。
@@ -95,35 +96,30 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 ### 同步到 Notion(選用)
 
-新聞與技術文獻各寫入一個 Notion 資料庫,每則/每篇一列;已在資料庫中的(依 ID 判斷)不會重複新增。可以在 Notion 依公司、類別、主題、日期篩選、排序或做看板。
+在一個 Notion 頁面下維護三個資料庫;新聞與文獻已存在的(依 ID 判斷)不會重複新增,追蹤公司每次更新本期則數。可以在 Notion 依公司、公司類型、類別、主題、日期篩選、排序或做看板。
 
 | 資料庫 | 欄位 |
 |---|---|
-| 靶材產業新聞 | 標題、日期、公司、類別、來源、語系、重要度、分數、摘要、連結、ID |
+| 靶材產業新聞 | 標題、日期、公司、**公司類型**(靶材生產商 / 銷售商 / 濺鍍設備商 / PVD 半導體廠 / 封裝廠 / 產業主題)、類別、來源、語系、重要度、分數、摘要、連結、ID |
 | 靶材技術文獻 | 標題、日期、主題、期刊、作者、來源、重要度、摘要(Claude 中文摘要)、原文摘要、DOI、連結、ID |
+| 靶材追蹤公司 | 名稱、類型、地區、股票代號、搜尋別名、本期則數、最近報導 |
+
+**設定(只要兩個 secrets,資料庫會自動建立):**
 
 1. 到 <https://www.notion.so/my-integrations> 建立 Internal integration,複製 token(`ntn_…` 或 `secret_…`)。
-2. 在 Notion 開一個頁面放資料庫,右上角 `…` → *Connections* → 加入剛建立的 integration。頁面網址最後 32 碼就是頁面 ID。
-3. 建立資料庫(只需一次;預設兩個都建立,`--only news` / `--only papers` 只建其中一個):
+2. 在 Notion 開一個頁面(例如「靶材情報」),右上角 `…` → *Connections* → 加入剛建立的 integration。頁面網址最後 32 碼就是頁面 ID。
+3. 在 GitHub repo 的 *Settings → Secrets and variables → Actions* 新增 `NOTION_TOKEN` 與 `NOTION_PARENT_PAGE_ID`(頁面 ID)。
+4. 下次 workflow 執行(或手動執行「靶材產業新聞」)時,會在該頁面下找到或建立「靶材產業新聞」「靶材技術文獻」「靶材追蹤公司」三個資料庫並寫入資料。舊版建立的新聞資料庫會自動補上「公司類型」欄位。同步失敗不影響報告與網站,可之後手動重跑。
 
-   ```bash
-   export NOTION_TOKEN=ntn_xxx
-   python -m target_news_agent notion-setup --parent <頁面ID>
-   # → 印出 NOTION_DATABASE_ID(新聞)與 NOTION_PAPERS_DATABASE_ID(技術文獻)
-   ```
+本機執行:
 
-4. 同步報告(有設定哪個資料庫 ID 就同步哪一種):
+```bash
+export NOTION_TOKEN=ntn_xxx NOTION_PARENT_PAGE_ID=<頁面ID>
+python -m target_news_agent notion-sync                      # reports/ 中最新一份
+python -m target_news_agent notion-sync reports/2026-10-13.json
+```
 
-   ```bash
-   export NOTION_DATABASE_ID=<新聞資料庫 ID>
-   export NOTION_PAPERS_DATABASE_ID=<技術文獻資料庫 ID>
-   python -m target_news_agent notion-sync                      # reports/ 中最新一份
-   python -m target_news_agent notion-sync reports/2026-10-13.json
-   ```
-
-5. 每日自動同步:在 GitHub repo secrets 新增 `NOTION_TOKEN`、`NOTION_DATABASE_ID`、`NOTION_PAPERS_DATABASE_ID`。workflow 會在報告 commit 後執行同步;同步失敗不影響報告產生與網站發布,可之後手動重跑 `notion-sync`。
-
-也可以用自己建立的資料庫,只要欄位名稱與型別相同:標題=Title、日期=Date、公司/類別/主題=Multi-select、來源/語系/期刊=Select、重要度/分數=Number、連結=URL,其餘(摘要、原文摘要、作者、DOI、ID)=Text。
+也可以指定既有資料庫:設定 `NOTION_DATABASE_ID`、`NOTION_PAPERS_DATABASE_ID`、`NOTION_COMPANIES_DATABASE_ID`(有設定的優先於自動尋找),或用 `notion-setup --parent <頁面ID>` 一次建立三個並印出 ID。自建資料庫的欄位名稱與型別需相同:標題 / 名稱=Title、日期 / 最近報導=Date、公司 / 公司類型 / 類別 / 主題=Multi-select、來源 / 語系 / 期刊 / 類型 / 地區=Select、重要度 / 分數 / 本期則數=Number、連結=URL,其餘=Text。
 
 ## 開發
 

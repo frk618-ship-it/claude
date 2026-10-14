@@ -31,6 +31,7 @@ PROPERTIES = {
     "標題": {"title": {}},
     "日期": {"date": {}},
     "公司": {"multi_select": {}},
+    "公司類型": {"multi_select": {}},
     "類別": {"multi_select": {}},
     "來源": {"select": {}},
     "語系": {"select": {}},
@@ -56,6 +57,19 @@ PAPER_PROPERTIES = {
     "連結": {"url": {}},
     "ID": {"rich_text": {}},
 }
+
+# Tracked companies (from the watchlist): one row per company, updated with each report's counts.
+COMPANY_PROPERTIES = {
+    "名稱": {"title": {}},
+    "類型": {"select": {}},
+    "地區": {"select": {}},
+    "股票代號": {"rich_text": {}},
+    "搜尋別名": {"rich_text": {}},
+    "本期則數": {"number": {}},
+    "最近報導": {"date": {}},
+}
+
+NEWS_TITLE, PAPERS_TITLE, COMPANIES_TITLE = "靶材產業新聞", "靶材技術文獻", "靶材追蹤公司"
 
 Transport = Callable[[str, str, dict | None], dict]
 
@@ -108,10 +122,13 @@ def _option(name: str) -> str:
     return name.replace(",", " ")[:100]
 
 
-def item_properties(item: NewsItem) -> dict:
+def item_properties(item: NewsItem, roles: dict[str, str] | None = None) -> dict:
+    """roles: entity name -> role label (生產商, 濺鍍設備商, 封裝廠 ...) for the 公司類型 column."""
+    types = list(dict.fromkeys(roles[e] for e in item.entities if roles and e in roles))
     props: dict = {
         "標題": {"title": _text(item.title_zh or item.title)},
         "公司": {"multi_select": [{"name": _option(e)} for e in item.entities]},
+        "公司類型": {"multi_select": [{"name": _option(t)} for t in types]},
         "類別": {"multi_select": [{"name": _option(c)} for c in item.categories]},
         "分數": {"number": round(item.score, 2)},
         "摘要": {"rich_text": _text(item.summary or item.snippet_zh or item.snippet)},
@@ -167,6 +184,98 @@ def create_database(
     return resp["id"]
 
 
+def _plain(rich: list[dict]) -> str:
+    return "".join(r.get("plain_text") or r.get("text", {}).get("content", "") for r in rich)
+
+
+def _norm_id(page_id: str) -> str:
+    return page_id.replace("-", "").lower()
+
+
+def find_or_create_database(call: Transport, parent_page_id: str, title: str, properties: dict) -> str:
+    """The database titled `title` directly under the parent page; created if it isn't there yet."""
+    resp = call("POST", "/search", {"query": title, "filter": {"property": "object", "value": "database"}, "page_size": 100})
+    for db in resp.get("results", []):
+        parent = db.get("parent", {})
+        if _plain(db.get("title", [])) == title and _norm_id(parent.get("page_id", "")) == _norm_id(parent_page_id):
+            return db["id"]
+    return create_database(call, parent_page_id, title, properties)
+
+
+def ensure_properties(call: Transport, database_id: str, properties: dict) -> list[str]:
+    """Add columns that a database created by an older version is missing; returns the names added."""
+    have = call("GET", f"/databases/{database_id}", None).get("properties", {})
+    missing = {name: schema for name, schema in properties.items() if name not in have and "title" not in schema}
+    if missing:
+        call("PATCH", f"/databases/{database_id}", {"properties": missing})
+    return list(missing)
+
+
+def company_properties(entity, count: int, last_date: str | None) -> dict:
+    from .config import ROLE_LABELS
+
+    props: dict = {
+        "名稱": {"title": _text(entity.name)},
+        "類型": {"select": {"name": _option(ROLE_LABELS.get(entity.role, entity.role))}},
+        "股票代號": {"rich_text": _text(entity.ticker)},
+        "搜尋別名": {"rich_text": _text(", ".join(entity.aliases))},
+        "本期則數": {"number": count},
+    }
+    if entity.region:
+        props["地區"] = {"select": {"name": _option(entity.region)}}
+    if last_date:
+        props["最近報導"] = {"date": {"start": last_date}}
+    return props
+
+
+def sync_companies(
+    call: Transport,
+    database_id: str,
+    entities: list,
+    counts: dict[str, int],
+    last_dates: dict[str, str],
+    *,
+    delay: float = 0.35,
+    sleep: Callable[[float], None] | None = None,
+) -> tuple[int, int]:
+    """One row per tracked company (topics excluded); returns (created, updated)."""
+    sleep = sleep or time.sleep
+    rows: dict[str, dict] = {}
+    body: dict = {"page_size": 100}
+    while True:
+        resp = call("POST", f"/databases/{database_id}/query", body)
+        for page in resp.get("results", []):
+            name = _plain(page.get("properties", {}).get("名稱", {}).get("title", []))
+            if name:
+                rows[name] = page
+        if not resp.get("has_more"):
+            break
+        body["start_cursor"] = resp["next_cursor"]
+
+    created = updated = 0
+    for e in entities:
+        if e.is_topic:
+            continue
+        count = counts.get(e.name, 0)
+        last = last_dates.get(e.name)
+        page = rows.get(e.name)
+        if page is not None:
+            props = page.get("properties", {})
+            old_count = props.get("本期則數", {}).get("number")
+            old_last = (props.get("最近報導", {}).get("date") or {}).get("start")
+            if old_count == count and (last is None or old_last == last):
+                continue
+        if created + updated and delay:
+            sleep(delay)
+        if page is None:
+            call("POST", "/pages", {"parent": {"database_id": database_id}, "properties": company_properties(e, count, last)})
+            created += 1
+        else:
+            call("PATCH", f"/pages/{page['id']}", {"properties": company_properties(e, count, last)})
+            updated += 1
+    return created, updated
+
+
 def existing_ids(call: Transport, database_id: str, since: str | None) -> set[str]:
     """IDs of rows dated on/after `since` (YYYY-MM-DD; None = every row), so re-runs don't duplicate."""
     ids: set[str] = set()
@@ -191,7 +300,7 @@ def sync(
     *,
     properties: Callable[[object], dict] = item_properties,
     delay: float = 0.35,
-    sleep: Callable[[float], None] = time.sleep,
+    sleep: Callable[[float], None] | None = None,
 ) -> int:
     """Add each record (NewsItem, or Paper with properties=paper_properties) as a row.
 
@@ -199,6 +308,7 @@ def sync(
     """
     if not items:
         return 0
+    sleep = sleep or time.sleep
     # Undated records could match rows of any date, so then check the whole database.
     if all(i.published for i in items):
         since = (min(i.published for i in items) - timedelta(days=1)).date().isoformat()

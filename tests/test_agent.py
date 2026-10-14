@@ -468,7 +468,7 @@ def test_notion_setup_both_and_sync_papers_cli(tmp_path, monkeypatch, config):
     monkeypatch.setenv("NOTION_TOKEN", "secret")
     assert main(["notion-setup", "--parent", "page-1"]) == 0
     created = [b for m, p, b in fake.calls if p == "/databases"]
-    assert [set(b["properties"]) for b in created] == [set(notion.PROPERTIES), set(notion.PAPER_PROPERTIES)]
+    assert [set(b["properties"]) for b in created] == [set(notion.PROPERTIES), set(notion.PAPER_PROPERTIES), set(notion.COMPANY_PROPERTIES)]
     assert created[1]["title"][0]["text"]["content"] == "靶材技術文獻"
 
     papers = sample_papers(config.research)
@@ -858,3 +858,110 @@ def test_chipmaker_search_uses_names_only(config):
     tsmc = next(e for e in config.entities if e.name == "台積電 (TSMC)")
     assert build_query(tsmc, config.settings.query_context_terms) == '("台積電" OR "台积电" OR "TSMC")'
     assert tsmc.require_context  # the context check still runs locally
+
+
+class FakeNotionWorkspace:
+    """A tiny in-memory Notion: databases under pages, rows, search, schema reads and updates."""
+
+    def __init__(self):
+        self.dbs = {}   # id -> {"title", "parent", "properties", "rows": {page_id: properties}}
+        self.calls = []
+
+    def __call__(self, method, path, body):
+        self.calls.append((method, path, body))
+        if path == "/search":
+            return {"results": [
+                {"id": i, "title": [{"plain_text": d["title"]}], "parent": {"page_id": d["parent"]}}
+                for i, d in self.dbs.items() if d["title"] == body["query"]
+            ]}
+        if path == "/databases":
+            i = f"db{len(self.dbs) + 1}"
+            self.dbs[i] = {"title": body["title"][0]["text"]["content"], "parent": body["parent"]["page_id"],
+                           "properties": dict(body["properties"]), "rows": {}}
+            return {"id": i}
+        if path.startswith("/databases/") and path.endswith("/query"):
+            d = self.dbs[path.split("/")[2]]
+            return {"results": [{"id": pid, "properties": self._read(props)} for pid, props in d["rows"].items()], "has_more": False}
+        if path.startswith("/databases/"):
+            d = self.dbs[path.split("/")[2]]
+            if method == "PATCH":
+                d["properties"].update(body["properties"])
+            return {"properties": d["properties"]}
+        if path == "/pages":
+            d = self.dbs[body["parent"]["database_id"]]
+            unknown = set(body["properties"]) - set(d["properties"])
+            assert not unknown, f"unknown columns {unknown}"
+            pid = f"p{sum(len(x['rows']) for x in self.dbs.values()) + 1}"
+            d["rows"][pid] = body["properties"]
+            return {"id": pid}
+        if path.startswith("/pages/"):
+            pid = path.split("/")[2]
+            for d in self.dbs.values():
+                if pid in d["rows"]:
+                    d["rows"][pid] = body["properties"]
+            return {"id": pid}
+        raise AssertionError(path)
+
+    @staticmethod
+    def _read(props):
+        out = {}
+        for k, v in props.items():
+            if "title" in v or "rich_text" in v:
+                key = "title" if "title" in v else "rich_text"
+                out[k] = {key: [{"plain_text": t["text"]["content"]} for t in v[key]]}
+            else:
+                out[k] = v
+        return out
+
+    def rows(self, title):
+        return next(d["rows"] for d in self.dbs.values() if d["title"] == title)
+
+
+def test_notion_sync_with_parent_page_only(tmp_path, monkeypatch, config):
+    from target_news_agent import notion
+    from target_news_agent.report import write_reports
+
+    ws = FakeNotionWorkspace()
+    monkeypatch.setattr(notion.time, "sleep", lambda s: None)
+    # A news database made by an older version, without the 公司類型 column.
+    old_props = {k: v for k, v in notion.PROPERTIES.items() if k != "公司類型"}
+    ws.dbs["old"] = {"title": "靶材產業新聞", "parent": "aaaa-bbbb", "properties": old_props, "rows": {}}
+    monkeypatch.setattr(notion, "http_transport", lambda token: ws)
+    monkeypatch.setenv("NOTION_TOKEN", "secret")
+    for k in ("NOTION_DATABASE_ID", "NOTION_PAPERS_DATABASE_ID", "NOTION_COMPANIES_DATABASE_ID"):
+        monkeypatch.delenv(k, raising=False)
+    monkeypatch.setenv("NOTION_PARENT_PAGE_ID", "aaaabbbb")  # same page, written without dashes
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    write_reports(items, config, Digest(), tmp_path, NOW, sample_papers(config.research))
+    args = ["notion-sync", "--reports-dir", str(tmp_path), "-c", str(CONFIG)]
+    assert main(args) == 0
+
+    assert len(ws.dbs) == 3 and "公司類型" in ws.dbs["old"]["properties"]   # reused + migrated, two created
+    news = ws.rows("靶材產業新聞")
+    assert len(news) == len(items)
+    sols = next(r for r in news.values() if "Spokane" in r["標題"]["title"][0]["text"]["content"])
+    assert {o["name"] for o in sols["公司類型"]["multi_select"]} == {"生產商", "製程相關(PVD 半導體廠)"}
+    assert len(ws.rows("靶材技術文獻")) == len(sample_papers(config.research))
+
+    companies = ws.rows("靶材追蹤公司")
+    assert len(companies) == sum(1 for e in config.entities if not e.is_topic)
+    tsmc = next(r for r in companies.values() if r["名稱"]["title"][0]["text"]["content"] == "台積電 (TSMC)")
+    assert tsmc["類型"]["select"]["name"] == "製程相關(PVD 半導體廠)" and tsmc["本期則數"]["number"] == 1
+
+    # Second run: nothing new to add, unchanged companies are not rewritten.
+    ws.calls.clear()
+    assert main(args) == 0
+    assert not [c for c in ws.calls if c[1] == "/pages" or c[1].startswith("/pages/")]
+
+
+def test_packaging_houses_need_packaging_or_pvd_context(config):
+    from target_news_agent.processing import match_entities
+
+    def ents(title):
+        return match_entities(NewsItem(title=title, link="", source="", published=NOW), config.entities, config.settings.context_terms)
+
+    assert ents("日月光擴充CoWoS先進封裝產能") == ["日月光投控 (ASE)"]
+    assert ents("日月光股價創高") == []
+    assert ents("動力成長 擴產可期") == []           # 「力成」 inside other words must not match
+    assert ents("頎邦凸塊產能滿載") == ["頎邦 (Chipbond)"]

@@ -3,7 +3,8 @@
 # entities:
 #   name            顯示名稱
 #   role            producer(生產商) / distributor(銷售商、代理商) / equipment(濺鍍設備商)
-#                   / process(製程相關:生產中使用 PVD 設備的半導體廠) / topic(產業主題)
+#                   / process(製程相關:生產中使用 PVD 設備的半導體廠)
+#                   / packaging(封裝廠:凸塊、RDL、扇出型等製程使用 PVD 設備) / topic(產業主題)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
@@ -499,6 +500,98 @@ entities:
     query_context: false
     context_terms: *fab_ctx
     editions: [ja, en]
+
+  # ---------- 封裝廠:凸塊 / UBM、重佈線(RDL)、扇出型與先進封裝製程使用 PVD(濺鍍)設備 ----------
+  # 只收錄提到 PVD / 濺鍍 / 靶材、先進封裝製程(凸塊、RDL、扇出、面板級、CoWoS 等),或資本支出 / 擴產 / 新廠的新聞。
+  - name: 日月光投控 (ASE)
+    role: packaging
+    region: 台灣
+    ticker: "3711.TW"
+    aliases: [日月光, ASE Technology, ASE Holding]
+    require_context: true
+    query_context: false
+    context_terms: &pkg_ctx [濺鍍, 溅射, 靶材, PVD, sputtering, 先進封裝, 先进封装, advanced packaging, 凸塊, 凸块, bumping, UBM, 重佈線, 重布线, RDL, 扇出, fan-out, 面板級封裝, 面板级封装, FOPLP, CoWoS, SoIC, 矽中介層, 硅中介层, interposer, 晶圓級封裝, 晶圆级封装, WLCSP, TSV, 玻璃基板, 資本支出, 资本支出, capex, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 增資, 定增]
+    editions: [zh-TW, en]
+  - name: 矽品 (SPIL)
+    role: packaging
+    region: 台灣
+    aliases: [矽品, Siliconware]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: Amkor 艾克爾
+    role: packaging
+    region: 美國
+    ticker: "AMKR"
+    aliases: [Amkor, 艾克爾, 앰코]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [en, zh-TW, ko]
+  - name: 長電科技 (JCET)
+    role: packaging
+    region: 中國大陸
+    ticker: "600584.SS"
+    aliases: [長電科技, 长电科技, JCET]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN, en]
+  - name: 通富微電 (TFME)
+    role: packaging
+    region: 中國大陸
+    ticker: "002156.SZ"
+    aliases: [通富微電, 通富微电, Tongfu Microelectronics]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN]
+  - name: 華天科技 (Huatian)
+    role: packaging
+    region: 中國大陸
+    ticker: "002185.SZ"
+    aliases: [華天科技, 华天科技]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN]
+  - name: 力成 (Powertech)
+    role: packaging
+    region: 台灣
+    ticker: "6239.TW"
+    aliases: [力成科技, 力成(6239), 力成（6239）, Powertech Technology]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 頎邦 (Chipbond)
+    role: packaging
+    region: 台灣
+    ticker: "6147.TWO"
+    aliases: [頎邦, Chipbond]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 南茂 (ChipMOS)
+    role: packaging
+    region: 台灣
+    ticker: "8150.TW"
+    aliases: [南茂, ChipMOS]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 精材 (XinTec)
+    role: packaging
+    region: 台灣
+    ticker: "3374.TWO"
+    aliases: [精材, XinTec]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
 
   # ---------- 產業主題(不限公司) ----------
   - name: 產業綜合:濺鍍靶材

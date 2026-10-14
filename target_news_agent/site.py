@@ -370,13 +370,13 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
 REGION_CODES = {"日本": "JP", "中國大陸": "CN", "台灣": "TW", "韓國": "KR", "歐美": "EU·US", "其他": "··"}
 
 
-NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商", "process": "製程相關 · PVD 半導體廠"}
-GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關 · PVD 半導體廠": "building"}
+NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商", "process": "製程相關 · PVD 半導體廠", "packaging": "封裝廠 · PVD"}
+GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關 · PVD 半導體廠": "building", "封裝廠 · PVD": "layers"}
 
 
 def _ledger(config: Config, counts: Counter) -> str:
     groups: "OrderedDict[str, list]" = OrderedDict(
-        (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關 · PVD 半導體廠", "其他")
+        (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關 · PVD 半導體廠", "封裝廠 · PVD", "其他")
     )
     western = {"美國", "奧地利", "德國", "比利時", "英國", "法國", "瑞士", "荷蘭"}
     for e in config.entities:

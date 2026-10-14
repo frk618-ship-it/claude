@@ -35,9 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # 選填:設定 NOTION_TOKEN 與資料庫 ID 後,每次執行會把新聞 / 技術文獻同步到 Notion
+      # 最簡單:只設 NOTION_TOKEN 與 NOTION_PARENT_PAGE_ID,第一次同步會在該頁面下自動建立三個資料庫
       NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
       NOTION_PAPERS_DATABASE_ID: ${{ secrets.NOTION_PAPERS_DATABASE_ID }}
+      NOTION_COMPANIES_DATABASE_ID: ${{ secrets.NOTION_COMPANIES_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -83,7 +86,7 @@ jobs:
           path: site
 
       - name: Sync to Notion
-        if: env.NOTION_TOKEN != '' && (env.NOTION_DATABASE_ID != '' || env.NOTION_PAPERS_DATABASE_ID != '')
+        if: env.NOTION_TOKEN != '' && (env.NOTION_PARENT_PAGE_ID != '' || env.NOTION_DATABASE_ID != '' || env.NOTION_PAPERS_DATABASE_ID != '' || env.NOTION_COMPANIES_DATABASE_ID != '')
         continue-on-error: true   # Notion 失敗只顯示警告,不擋網站發布;可之後手動重跑 notion-sync
         run: python -m target_news_agent -v notion-sync
 

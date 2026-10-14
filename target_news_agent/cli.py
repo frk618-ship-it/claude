@@ -63,16 +63,18 @@ def main(argv: list[str] | None = None) -> int:
 
     ns = sub.add_parser(
         "notion-sync",
-        help="把報告 JSON 的新聞 / 技術文獻寫入 Notion(需 NOTION_TOKEN,及 NOTION_DATABASE_ID 和/或 NOTION_PAPERS_DATABASE_ID)",
+        help="把報告 JSON 的新聞 / 技術文獻 / 追蹤公司寫入 Notion(需 NOTION_TOKEN,及 NOTION_PARENT_PAGE_ID 或各資料庫 ID)",
     )
     ns.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
     ns.add_argument("--reports-dir", default="reports")
+    ns.add_argument("-c", "--config", default="config/watchlist.yaml")
 
     nsetup = sub.add_parser("notion-setup", help="在指定 Notion 頁面下建立新聞與技術文獻資料庫(需 NOTION_TOKEN)")
     nsetup.add_argument("--parent", required=True, help="Notion 父頁面 ID(頁面網址最後 32 碼)")
-    nsetup.add_argument("--only", choices=["all", "news", "papers"], default="all", help="只建立其中一個資料庫")
+    nsetup.add_argument("--only", choices=["all", "news", "papers", "companies"], default="all", help="只建立其中一個資料庫")
     nsetup.add_argument("--title", default="靶材產業新聞", help="新聞資料庫名稱")
     nsetup.add_argument("--papers-title", default="靶材技術文獻", help="技術文獻資料庫名稱")
+    nsetup.add_argument("--companies-title", default="靶材追蹤公司", help="追蹤公司資料庫名稱")
 
     p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args(argv)
@@ -230,12 +232,24 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
         if args.only in ("all", "papers"):
             db_id = notion.create_database(call, args.parent, args.papers_title, notion.PAPER_PROPERTIES)
             print(f"Created papers database {db_id}\nSet NOTION_PAPERS_DATABASE_ID={db_id}")
+        if args.only in ("all", "companies"):
+            db_id = notion.create_database(call, args.parent, args.companies_title, notion.COMPANY_PROPERTIES)
+            print(f"Created companies database {db_id}\nSet NOTION_COMPANIES_DATABASE_ID={db_id}")
         return 0
 
     news_db = os.environ.get("NOTION_DATABASE_ID")
     papers_db = os.environ.get("NOTION_PAPERS_DATABASE_ID")
-    if not news_db and not papers_db:
-        p.error("set NOTION_DATABASE_ID and/or NOTION_PAPERS_DATABASE_ID (run `notion-setup` first)")
+    companies_db = os.environ.get("NOTION_COMPANIES_DATABASE_ID")
+    parent = os.environ.get("NOTION_PARENT_PAGE_ID")
+    if parent:
+        # Only a parent page is needed: find the three databases under it, creating any that are missing.
+        news_db = news_db or notion.find_or_create_database(call, parent, notion.NEWS_TITLE, notion.PROPERTIES)
+        papers_db = papers_db or notion.find_or_create_database(call, parent, notion.PAPERS_TITLE, notion.PAPER_PROPERTIES)
+        companies_db = companies_db or notion.find_or_create_database(
+            call, parent, notion.COMPANIES_TITLE, notion.COMPANY_PROPERTIES
+        )
+    if not news_db and not papers_db and not companies_db:
+        p.error("set NOTION_PARENT_PAGE_ID, or NOTION_DATABASE_ID / NOTION_PAPERS_DATABASE_ID (run `notion-setup` first)")
     if args.report:
         path = Path(args.report)
     else:
@@ -244,16 +258,30 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
             p.error(f"no report JSON found in {args.reports_dir}")
         path = reports[-1]
     data = json.loads(path.read_text(encoding="utf-8"))
+    config = load_config(args.config)
+    items = [NewsItem.from_dict(d) for d in data.get("items", [])]
     if news_db:
-        items = [NewsItem.from_dict(d) for d in data.get("items", [])]
-        created = notion.sync(items, call, news_db)
+        added = notion.ensure_properties(call, news_db, notion.PROPERTIES)
+        if added:
+            print(f"Added columns to the news database: {', '.join(added)}")
+        roles = {e.name: e.role_label for e in config.entities}
+        created = notion.sync(items, call, news_db, properties=lambda i: notion.item_properties(i, roles))
         print(f"{path}: {len(items)} news items, {created} new rows in Notion")
     if papers_db:
         papers = [Paper.from_dict(d) for d in data.get("papers", [])]
         created = notion.sync(papers, call, papers_db, properties=notion.paper_properties)
         print(f"{path}: {len(papers)} papers, {created} new rows in Notion")
+    if companies_db:
+        counts: dict[str, int] = {}
+        last: dict[str, str] = {}
+        for i in items:
+            for e in i.entities:
+                counts[e] = counts.get(e, 0) + 1
+                if i.published:
+                    last[e] = max(last.get(e, ""), i.published.date().isoformat())
+        created, updated = notion.sync_companies(call, companies_db, config.entities, counts, last)
+        print(f"{path}: companies database: {created} added, {updated} updated")
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
