@@ -2,12 +2,15 @@
 #
 # entities:
 #   name            顯示名稱
-#   role            producer(生產商) / distributor(銷售商、代理商) / topic(產業主題,不屬特定公司)
+#   role            producer(生產商) / distributor(銷售商、代理商) / equipment(濺鍍設備商)
+#                   / process(濺鍍製程相關:陰極與磁控管、電源、PVD 鍍膜服務、腔體零件) / topic(產業主題)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
 #   require_context true = 公司業務範圍廣(例如 Solstice/Honeywell、三菱綜合材料),
 #                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
+#   context_terms   (選填)這個項目專用的相關字詞,取代下方全域 context_terms;
+#                   設備商用濺鍍 / PVD 字詞,避免收到蝕刻、CVD 等不相關新聞
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
 
 settings:
@@ -255,6 +258,131 @@ entities:
     require_context: false
     editions: [en]
 
+  # ---------- 濺鍍設備商 ----------
+  # 業務範圍廣的設備商(require_context: true)只收錄同時提到濺鍍 / PVD 的新聞。
+  - name: 應用材料 (Applied Materials)
+    role: equipment
+    region: 美國
+    ticker: AMAT
+    aliases: [應用材料, 应用材料, Applied Materials, アプライド マテリアルズ, 어플라이드 머티어리얼즈]
+    require_context: true
+    context_terms: &sputter_ctx [濺鍍, 溅射, 磁控, PVD, sputtering, sputter, physical vapor deposition, スパッタ, 스퍼터, 물리기상증착]
+    editions: [zh-TW, en, ja, ko]
+  - name: 北方華創 (NAURA)
+    role: equipment
+    region: 中國大陸
+    ticker: "002371.SZ"
+    aliases: [北方華創, 北方华创, NAURA]
+    require_context: true
+    context_terms: *sputter_ctx
+    editions: [zh-TW, zh-CN, en]
+  - name: 佳能安內華 (Canon ANELVA)
+    role: equipment
+    region: 日本
+    aliases: [Canon ANELVA, Canon Anelva, キヤノンアネルバ, 佳能安內華]
+    require_context: false
+    editions: [ja, en]
+  - name: 芝浦機電 (Shibaura Mechatronics)
+    role: equipment
+    region: 日本
+    ticker: "6590.T"
+    aliases: [Shibaura Mechatronics, 芝浦メカトロニクス, 芝浦機電]
+    require_context: true
+    context_terms: *sputter_ctx
+    editions: [ja, en]
+  - name: Evatec
+    role: equipment
+    region: 瑞士
+    aliases: [Evatec]
+    require_context: false
+    editions: [en]
+  - name: Bühler Leybold Optics
+    role: equipment
+    region: 德國
+    aliases: [Leybold Optics, Bühler Leybold]
+    require_context: false
+    editions: [en]
+  - name: VON ARDENNE
+    role: equipment
+    region: 德國
+    aliases: [VON ARDENNE, Von Ardenne]
+    require_context: false
+    editions: [en]
+  - name: Singulus Technologies
+    role: equipment
+    region: 德國
+    ticker: SNG.DE
+    aliases: [Singulus]
+    require_context: false
+    editions: [en]
+  - name: Veeco
+    role: equipment
+    region: 美國
+    ticker: VECO
+    aliases: [Veeco]
+    require_context: true
+    context_terms: [sputtering, sputter, PVD, ion beam deposition, 濺鍍, 离子束]
+    editions: [en]
+  - name: Intevac
+    role: equipment
+    region: 美國
+    ticker: IVAC
+    aliases: [Intevac]
+    require_context: false
+    editions: [en]
+  - name: 天虹科技 (Skytech)
+    role: equipment
+    region: 台灣
+    aliases: [天虹科技]
+    require_context: false
+    editions: [zh-TW]
+  - name: 아바코 (AVACO)
+    role: equipment
+    region: 韓國
+    aliases: [아바코, AVACO]
+    require_context: false
+    editions: [ko]
+
+  # ---------- 濺鍍製程相關:陰極 / 磁控管、電源、PVD 鍍膜服務、腔體零件 ----------
+  - name: Gencoa
+    role: process
+    region: 英國
+    aliases: [Gencoa]
+    require_context: false
+    editions: [en]
+  - name: Soleras Advanced Coatings
+    role: process
+    region: 比利時
+    aliases: [Soleras]
+    require_context: false
+    editions: [en]
+  - name: Advanced Energy
+    role: process
+    region: 美國
+    ticker: AEIS
+    aliases: [Advanced Energy]
+    require_context: true
+    context_terms: *sputter_ctx
+    editions: [en]
+  - name: Oerlikon Balzers
+    role: process
+    region: 瑞士
+    aliases: [Oerlikon Balzers, 歐瑞康巴爾查斯]
+    require_context: false
+    editions: [en, zh-TW]
+  - name: IHI Hauzer
+    role: process
+    region: 荷蘭
+    aliases: [Hauzer]
+    require_context: false
+    editions: [en]
+  - name: 코미코 (KoMiCo)
+    role: process
+    region: 韓國
+    aliases: [코미코, KoMiCo]
+    require_context: false
+    editions: [ko, en]
+
   # ---------- 產業主題(不限公司) ----------
   - name: 產業綜合:濺鍍靶材
     role: topic
@@ -280,6 +408,36 @@ entities:
     role: topic
     region: 全球
     aliases: [스퍼터링 타겟, 스퍼터링 타깃]
+    editions: [ko]
+  - name: 設備綜合:濺鍍設備
+    role: topic
+    region: 全球
+    aliases: [濺鍍設備, PVD設備, 磁控濺鍍]
+    context_terms: *sputter_ctx
+    editions: [zh-TW]
+  - name: 設備綜合:溅射设备
+    role: topic
+    region: 全球
+    aliases: [溅射设备, PVD设备, 磁控溅射]
+    context_terms: *sputter_ctx
+    editions: [zh-CN]
+  - name: 設備綜合:Sputtering Equipment
+    role: topic
+    region: 全球
+    aliases: [sputtering equipment, PVD equipment, sputtering system, magnetron sputtering]
+    context_terms: *sputter_ctx
+    editions: [en]
+  - name: 設備綜合:スパッタ装置
+    role: topic
+    region: 全球
+    aliases: [スパッタ装置, スパッタリング装置]
+    context_terms: *sputter_ctx
+    editions: [ja]
+  - name: 設備綜合:스퍼터 장비
+    role: topic
+    region: 全球
+    aliases: [스퍼터 장비, 스퍼터링 장비]
+    context_terms: *sputter_ctx
     editions: [ko]
 
 # ---------- 技術文獻:靶材製造技術相關期刊與研究 ----------

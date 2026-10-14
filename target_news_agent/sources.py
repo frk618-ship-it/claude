@@ -47,6 +47,7 @@ def build_query(entity: Entity, context_terms: list[str]) -> str:
         return " OR ".join(f"({a})" if " " in a else a for a in entity.aliases)
     names = " OR ".join(f'"{a}"' for a in entity.aliases)
     query = f"({names})"
+    context_terms = entity.context_terms or context_terms
     if entity.require_context and context_terms:
         ctx = " OR ".join(f'"{t}"' if " " in t else t for t in context_terms)
         query += f" ({ctx})"

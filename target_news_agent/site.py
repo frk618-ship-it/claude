@@ -42,7 +42,7 @@ def item_kind(item: dict) -> str:
         return "profile"
     if "股市爆料同學會" in title or source in ("财富号", "財富號", "PTT", "Mobile01"):
         return "forum"
-    if any(e.startswith("產業綜合") for e in item.get("entities", [])) and _RESEARCH_RE.search(title):
+    if any(e.startswith(TOPIC_PREFIXES) for e in item.get("entities", [])) and _RESEARCH_RE.search(title):
         return "research"
     if source == "中财网" or _FILING_RE.search(title):
         return "filing"
@@ -52,7 +52,11 @@ def item_kind(item: dict) -> str:
 
 
 # Industry-wide searches are named after their search phrase; show which language edition they cover instead.
+TOPIC_PREFIXES = ("產業綜合", "設備綜合")
 TOPIC_LABELS = {
+    "設備綜合:濺鍍設備": "濺鍍設備綜合(繁中)", "設備綜合:溅射设备": "濺鍍設備綜合(簡中)",
+    "設備綜合:Sputtering Equipment": "濺鍍設備綜合(英文)", "設備綜合:スパッタ装置": "濺鍍設備綜合(日文)",
+    "設備綜合:스퍼터 장비": "濺鍍設備綜合(韓文)",
     "產業綜合:濺鍍靶材": "產業綜合(繁中)", "產業綜合:溅射靶材": "產業綜合(簡中)", "產業綜合:Sputtering Target": "產業綜合(英文)",
     "產業綜合:スパッタリングターゲット": "產業綜合(日文)", "產業綜合:스퍼터링 타겟": "產業綜合(韓文)",
 }
@@ -366,13 +370,19 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
 REGION_CODES = {"日本": "JP", "中國大陸": "CN", "台灣": "TW", "韓國": "KR", "歐美": "EU·US", "其他": "··"}
 
 
+NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商", "process": "製程相關"}
+GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關": "gauge"}
+
+
 def _ledger(config: Config, counts: Counter) -> str:
-    groups: "OrderedDict[str, list]" = OrderedDict((k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "其他"))
-    western = {"美國", "奧地利", "德國", "比利時", "英國", "法國", "瑞士"}
+    groups: "OrderedDict[str, list]" = OrderedDict(
+        (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關", "其他")
+    )
+    western = {"美國", "奧地利", "德國", "比利時", "英國", "法國", "瑞士", "荷蘭"}
     for e in config.entities:
         if e.is_topic:
             continue
-        key = "銷售商" if e.role == "distributor" else ("歐美" if e.region in western else e.region)
+        key = NON_PRODUCER_GROUPS.get(e.role) or ("歐美" if e.region in western else e.region)
         groups.setdefault(key if key in groups else "其他", []).append(e)
     out = []
     for key, ents in groups.items():
@@ -384,8 +394,9 @@ def _ledger(config: Config, counts: Counter) -> str:
             tk = f'<span class="tk">{esc(e.ticker)}</span>' if e.ticker else ""
             pill = f'<span class="pill yes">{n} 則</span>' if n else '<span class="pill no">無報導</span>'
             lis.append(f"<li><span>{esc(short_name(e.name))}{tk}</span>{pill}</li>")
-        label = key if key == "銷售商" else f"生產商 · {key}"
-        badge = icon("store") if key == "銷售商" else REGION_CODES.get(key, "··")
+        group_icon = GROUP_ICONS.get(key)
+        label = key if group_icon else f"靶材生產商 · {key}"
+        badge = icon(group_icon) if group_icon else REGION_CODES.get(key, "··")
         out.append(f'<div class="region"><h3><span class="rb">{badge}</span>{label}</h3><ul>{"".join(lis)}</ul></div>')
     return "\n".join(out)
 
@@ -407,6 +418,7 @@ def render_page(
     kinds = Counter(it["kind"] for it in items)
     ent_counts = Counter(short_name(e) for it in items for e in it.get("entities", []))
     companies = [e for e in config.entities if not e.is_topic]
+    topic_names = {short_name(e.name) for e in config.entities if e.is_topic}
     covered = [e for e in companies if ent_counts.get(short_name(e.name))]
     signal = [it for it in items if it["kind"] in SIGNAL_KINDS]
     generated = (report.get("generated") or "")[:16].replace("T", " ")

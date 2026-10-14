@@ -799,3 +799,31 @@ def test_filtered_cards_are_really_hidden():
 
     # Cards use display:grid, which would override the hidden attribute without this rule.
     assert "[hidden]{display:none!important}" in STYLE
+
+
+def test_equipment_makers_need_sputtering_context(config):
+    from target_news_agent.processing import match_entities
+
+    def ents(title):
+        return match_entities(NewsItem(title=title, link="", source="", published=NOW), config.entities, config.settings.context_terms)
+
+    amat = "應用材料 (Applied Materials)"
+    assert amat in ents("Applied Materials launches new PVD system for advanced logic")
+    assert amat not in ents("Applied Materials beats estimates on etch demand")
+    # The global context words (thin film, ITO ...) are not enough for an equipment maker.
+    assert amat not in ents("Applied Materials thin film CVD revenue grows")
+    assert "Evatec" in ents("Evatec opens new application lab")  # sputtering-only company: no context needed
+
+    from target_news_agent.sources import build_query
+    e = next(x for x in config.entities if x.name == amat)
+    assert "sputtering" in build_query(e, config.settings.query_context_terms) and "靶材" not in build_query(e, config.settings.query_context_terms)
+
+
+def test_ledger_groups_equipment_and_process(config):
+    from collections import Counter
+
+    from target_news_agent.site import _ledger
+
+    html_ = _ledger(config, Counter({"Evatec": 2}))
+    assert "濺鍍設備商" in html_ and "製程相關" in html_ and "靶材生產商 · 日本" in html_
+    assert "Evatec" in html_ and "2 則" in html_ and "Gencoa" in html_

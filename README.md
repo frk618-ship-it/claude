@@ -1,6 +1,6 @@
 # 靶材產業新聞蒐集 Agent
 
-自動蒐集**濺鍍靶材(sputtering target)生產商與銷售商**的新聞與產業動態,過濾、去重、分類後產出每日 Markdown / JSON 報告;若設定了 Anthropic API 金鑰,會再用 Claude 撰寫中文摘要、重要度評分與本期總覽。
+自動蒐集**濺鍍靶材(sputtering target)生產商與銷售商**,以及**濺鍍設備商與濺鍍製程相關廠商**的新聞與產業動態,過濾、去重、分類後產出每日 Markdown / JSON 報告;若設定了 Anthropic API 金鑰,會再用 Claude 撰寫中文摘要、重要度評分與本期總覽。
 
 ## 運作流程
 
@@ -30,9 +30,11 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 生產商-中國大陸 | 江豐電子、有研新材、阿石創、隆華科技、先導稀材、歐萊新材 |
 | 生產商-台灣 | 光洋科、鑫科材料 |
 | 銷售商 | Kurt J. Lesker、Stanford Advanced Materials、American Elements、Angstrom Sciences、Testbourne |
-| 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟 |
+| 濺鍍設備商 | 應用材料(AMAT)、北方華創、佳能安內華、芝浦機電、Evatec、Bühler Leybold Optics、VON ARDENNE、Singulus、Veeco、Intevac、天虹科技、아바코(AVACO) |
+| 製程相關 | Gencoa(磁控管)、Soleras(旋轉靶與陰極)、Advanced Energy(濺鍍電源)、Oerlikon Balzers、IHI Hauzer(PVD 鍍膜)、코미코(KoMiCo,腔體零件) |
+| 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟;濺鍍設備 / 溅射设备 / sputtering equipment / スパッタ装置 / 스퍼터 장비 |
 
-清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。
+清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。設備商可另設 `context_terms`(例如濺鍍、PVD、sputtering),只收錄濺鍍相關新聞,避開蝕刻、CVD 等其他設備的消息。
 
 ## 使用方式
 

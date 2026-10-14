@@ -44,16 +44,19 @@ def item_id(item: NewsItem) -> str:
 
 def match_entities(item: NewsItem, entities: list[Entity], context_terms: list[str]) -> list[str]:
     low = item.text.lower()
-    has_ctx = any(_contains(low, t) for t in context_terms)
+
+    def has_ctx(e: Entity) -> bool:
+        return any(_contains(low, t) for t in (e.context_terms or context_terms))
+
     matched = []
     for e in entities:
         if e.is_topic:
             continue
-        if any(_contains(low, a) for a in e.aliases) and (has_ctx or not e.require_context):
+        if any(_contains(low, a) for a in e.aliases) and (not e.require_context or has_ctx(e)):
             matched.append(e.name)
-    if not matched and has_ctx:
+    if not matched:
         topic = next((e for e in entities if e.name == item.query_entity and e.is_topic), None)
-        if topic is not None:
+        if topic is not None and has_ctx(topic):
             matched.append(topic.name)
     return matched
 

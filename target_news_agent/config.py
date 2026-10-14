@@ -7,7 +7,13 @@ from pathlib import Path
 
 import yaml
 
-ROLE_LABELS = {"producer": "生產商", "distributor": "銷售商", "topic": "產業主題"}
+ROLE_LABELS = {
+    "producer": "生產商",
+    "distributor": "銷售商",
+    "equipment": "濺鍍設備商",
+    "process": "製程相關",
+    "topic": "產業主題",
+}
 
 
 @dataclass
@@ -19,6 +25,8 @@ class Entity:
     ticker: str = ""
     require_context: bool = False
     editions: list[str] = field(default_factory=list)
+    # Own context words (e.g. sputtering / PVD for equipment makers); empty = the global ones.
+    context_terms: list[str] = field(default_factory=list)
 
     @property
     def role_label(self) -> str:
@@ -104,6 +112,7 @@ def load_config(path: str | Path) -> Config:
                 ticker=str(e.get("ticker", "") or ""),
                 require_context=bool(e.get("require_context", False)),
                 editions=editions,
+                context_terms=[str(t) for t in e.get("context_terms") or []],
             )
         )
     research = None
