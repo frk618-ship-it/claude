@@ -347,7 +347,7 @@ entities:
     editions: [ko]
 
   # ---------- 製程相關:在生產中使用 PVD(濺鍍)設備的半導體廠 = 靶材與濺鍍設備的終端客戶 ----------
-  # 這些公司新聞量很大,只收錄標題 / 摘要提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 新廠 / 產能的新聞
+  # 這些公司新聞量很大,只收錄標題 / 摘要提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 擴建 / 新廠的新聞
   # (都會帶動 PVD 機台與靶材需求);股價、人事、產品發表等新聞不收。
   - name: 台積電 (TSMC)
     role: process
@@ -356,7 +356,7 @@ entities:
     aliases: [台積電, 台积电, TSMC]
     require_context: true
     query_context: false
-    context_terms: &fab_ctx [濺鍍, 溅射, 靶材, PVD, 物理氣相沉積, 物理气相沉积, physical vapor deposition, sputtering target, sputter deposition, sputtering system, sputtering equipment, スパッタ, 스퍼터, 資本支出, 资本支出, capex, capital expenditure, 設備投資, 设备投资, 設備採購, 设备采购, 설비투자, 擴產, 扩产, 新廠, 新厂, 建廠, 建厂, 產能, 产能, 晶圓廠, 晶圆厂, 新工場, 増産, 증설, 신공장, new fab, fab expansion, capacity expansion, new plant]
+    context_terms: &fab_ctx [濺鍍, 溅射, 靶材, PVD, 物理氣相沉積, 物理气相沉积, physical vapor deposition, sputtering target, sputter deposition, sputtering system, sputtering equipment, スパッタ, 스퍼터, 資本支出, 资本支出, capex, capital expenditure, 設備投資, 设备投资, 設備採購, 设备采购, 설비투자, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 晶圓廠, 晶圆厂, 新工場, 増産, 증설, 신공장, new fab, fab expansion, capacity expansion, new plant]
     editions: [zh-TW, en]
   - name: 聯電 (UMC)
     role: process
