@@ -45,6 +45,13 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--papers-only", action="store_true", help="只蒐集技術文獻,併入今天既有的報告(不重抓新聞)")
     run.add_argument("--no-translate", action="store_true", help="不把非繁體中文的標題/摘要翻成繁體中文")
 
+    rs_ = sub.add_parser("resummarize", help="為既有報告補上 Claude 摘要與翻譯(需 ANTHROPIC_API_KEY)")
+    rs_.add_argument("reports", nargs="*", help="報告 JSON 路徑(預設:reports/ 中尚有新聞缺摘要的報告)")
+    rs_.add_argument("-c", "--config", default="config/watchlist.yaml")
+    rs_.add_argument("--reports-dir", default="reports")
+    rs_.add_argument("--model", help="Claude 模型 ID")
+    rs_.add_argument("--force", action="store_true", help="已有摘要的報告也重新產生")
+
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
 
@@ -79,6 +86,9 @@ def main(argv: list[str] | None = None) -> int:
             return 1
 
     config = load_config(args.config)
+
+    if args.command == "resummarize":
+        return _resummarize(args, config, p)
 
     if args.command == "queries":
         for url in iter_feed_urls(config):
@@ -124,10 +134,18 @@ def main(argv: list[str] | None = None) -> int:
         log.warning("collected %d raw items -> %d relevant", len(raw), len(items))
         if not args.include_seen:
             items = store.filter_new(items)
+        # A second run on the same day adds to that day's report instead of replacing it.
+        same_day = Path(args.out) / f"{generated:%Y-%m-%d}.json"
+        if same_day.exists():
+            data = json.loads(same_day.read_text(encoding="utf-8"))
+            new_ids = {i.id for i in items}
+            items = items + [i for i in (NewsItem.from_dict(d) for d in data.get("items", [])) if i.id not in new_ids]
+            digest = Digest(**(data.get("digest") or {}))
+            existing_papers = [p for p in (Paper.from_dict(d) for d in data.get("papers") or []) if is_relevant(p)]
 
     if items and not args.no_llm and not args.papers_only:
         if llm_available():
-            digest = Summarizer(list(config.settings.categories), model=args.model).digest(items)
+            digest = _keep(Summarizer(list(config.settings.categories), model=args.model).digest(items), digest)
         else:
             log.warning("ANTHROPIC_API_KEY not set; generating report without LLM summaries")
 
@@ -160,6 +178,42 @@ def main(argv: list[str] | None = None) -> int:
     store.close()
     paper_note = f", {len(papers)} papers" if papers is not None else ""
     print(f"{len(items)} items{paper_note} -> {md_path} , {json_path}")
+    return 0
+
+
+def _keep(new: Digest, old: Digest) -> Digest:
+    """Use the new overview unless the LLM call produced none."""
+    return new if new.overview else old
+
+
+def _resummarize(args, config, p: argparse.ArgumentParser) -> int:
+    """Add Claude summaries, importance and translations to reports written without them."""
+    if not llm_available():
+        p.error("resummarize 需要 ANTHROPIC_API_KEY")
+    paths = [Path(r) for r in args.reports] or sorted(Path(args.reports_dir).glob("????-??-??.json"))
+    summarizer = Summarizer(list(config.settings.categories), model=args.model)
+    topics = list(config.research.topics) if config.research else []
+    done = 0
+    for path in paths:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        items = [NewsItem.from_dict(d) for d in data.get("items", [])]
+        papers = [Paper.from_dict(d) for d in data["papers"]] if "papers" in data else None
+        if not args.force and all(i.summary for i in items) and all(x.summary for x in papers or []):
+            continue
+        digest = Digest(**(data.get("digest") or {}))
+        if items and (args.force or not all(i.summary for i in items)):
+            digest = _keep(summarizer.digest(items), digest)
+        missing = [x for x in papers or [] if args.force or not x.summary]
+        if missing:
+            summarizer.digest_papers(missing, topics)
+        translate_records(items, papers, llm_translator(summarizer))
+        if data.get("days"):
+            config.settings.days = data["days"]
+        write_reports(items, config, digest, path.parent, datetime.fromisoformat(data["generated"]), papers)
+        done += 1
+        print(f"{path}: {sum(bool(i.summary) for i in items)}/{len(items)} items, "
+              f"{sum(bool(x.summary) for x in papers or [])}/{len(papers or [])} papers summarized")
+    print(f"{done} reports updated")
     return 0
 
 

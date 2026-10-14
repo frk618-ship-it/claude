@@ -161,9 +161,9 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
     assert len(reports) == 1
     assert "Spokane" in reports[0].read_text(encoding="utf-8")
 
-    # Second run: everything already seen.
+    # Second run the same day: nothing new, and the morning's items stay in the report.
     assert main(args) == 0
-    assert "本期沒有新的相關新聞" in reports[0].read_text(encoding="utf-8")
+    assert "Spokane" in reports[0].read_text(encoding="utf-8")
 
 
 def test_korean_category_keywords(config):
@@ -411,9 +411,12 @@ def test_cli_run_marks_papers_seen(tmp_path, monkeypatch):
     assert first["papers"]
     assert main(args) == 0
     second = json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))
-    assert second["papers"] == []
+    assert [p["id"] for p in second["papers"]] == [p["id"] for p in first["papers"]]  # kept, not duplicated
     assert main(args + ["--no-papers"]) == 0
-    assert "papers" not in json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))
+    assert len(json.loads(next((tmp_path / "out").glob("*.json")).read_text(encoding="utf-8"))["papers"]) == len(first["papers"])
+    out2 = tmp_path / "out2"
+    assert main(["run", "-c", str(CONFIG), "-o", str(out2), "--db", str(tmp_path / "seen.db"), "--no-papers"]) == 0
+    assert "papers" not in json.loads(next(out2.glob("*.json")).read_text(encoding="utf-8"))
 
 
 def test_research_matching_handles_word_endings():
@@ -734,3 +737,58 @@ def test_cards_show_title_and_summary():
              "abstract_zh": "研究 ITO 靶材燒結。" * 40, "topics": ["粉末冶金與燒結"], "link": "https://x.test/p"}
     pc = _paper_html(paper)
     assert "ITO 靶材的燒結" in pc and "研究 ITO 靶材燒結。" in pc and "…</p>" in pc and "粉末冶金與燒結" in pc
+
+
+def test_second_run_same_day_keeps_earlier_items(tmp_path, monkeypatch, config):
+    from datetime import datetime as real_datetime
+    from zoneinfo import ZoneInfo
+
+    from target_news_agent.report import write_reports
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.setattr("target_news_agent.cli.collect", lambda cfg: [])
+    monkeypatch.setattr("target_news_agent.cli.collect_papers", lambda rs: [])
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    today = real_datetime.now(ZoneInfo("Asia/Taipei"))
+    write_reports(items, config, Digest(overview="早上的總覽"), tmp_path, today, sample_papers(config.research))
+
+    assert main(["run", "-c", str(CONFIG), "-o", str(tmp_path), "--db", str(tmp_path / "seen.db")]) == 0
+    data = json.loads((tmp_path / f"{today:%Y-%m-%d}.json").read_text(encoding="utf-8"))
+    assert len(data["items"]) == len(items) and data["digest"]["overview"] == "早上的總覽"
+    assert len(data["papers"]) == len(sample_papers(config.research))
+
+
+def test_resummarize_fills_missing_summaries(tmp_path, monkeypatch, config):
+    from target_news_agent.report import write_reports
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)
+    papers = sample_papers(config.research)
+    write_reports(items, config, Digest(), tmp_path, NOW, papers)
+
+    class FakeSummarizer:
+        def __init__(self, categories, model=None):
+            pass
+
+        def digest(self, its):
+            for i in its:
+                i.summary, i.importance = f"摘要:{i.id}", 3
+            return Digest(overview="新的總覽")
+
+        def digest_papers(self, ps, topics):
+            for x in ps:
+                x.summary = "文獻摘要"
+
+        def translate(self, system, block):
+            return {}
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "x")
+    monkeypatch.setattr("target_news_agent.cli.Summarizer", FakeSummarizer)
+    assert main(["resummarize", "-c", str(CONFIG), "--reports-dir", str(tmp_path)]) == 0
+    data = json.loads((tmp_path / f"{NOW:%Y-%m-%d}.json").read_text(encoding="utf-8"))
+    assert all(i["summary"] for i in data["items"]) and all(p["summary"] == "文獻摘要" for p in data["papers"])
+    assert data["digest"]["overview"] == "新的總覽" and data["generated"] == NOW.isoformat()
+
+    # Already summarized: nothing to do.
+    monkeypatch.setattr("target_news_agent.cli.Summarizer", lambda *a, **k: FakeSummarizer(None))
+    assert main(["resummarize", "-c", str(CONFIG), "--reports-dir", str(tmp_path)]) == 0

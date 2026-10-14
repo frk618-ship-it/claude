@@ -15,6 +15,11 @@ on:
         type: boolean
         required: false
         default: false
+      resummarize:
+        description: "為之前沒有 AI 摘要的報告補上摘要與翻譯(需 ANTHROPIC_API_KEY)"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -55,6 +60,9 @@ jobs:
             python -m target_news_agent -v run --papers-only
           else
             python -m target_news_agent -v run --days "${{ github.event.inputs.days || '3' }}"
+          fi
+          if [ "${{ github.event.inputs.resummarize }}" = "true" ]; then
+            python -m target_news_agent -v resummarize
           fi
 
       - name: Commit report
