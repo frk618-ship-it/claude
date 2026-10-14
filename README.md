@@ -31,7 +31,7 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 生產商-台灣 | 光洋科、鑫科材料 |
 | 銷售商 | Kurt J. Lesker、Stanford Advanced Materials、American Elements、Angstrom Sciences、Testbourne |
 | 濺鍍設備商 | 應用材料(AMAT)、北方華創、佳能安內華、芝浦機電、Evatec、Bühler Leybold Optics、VON ARDENNE、Singulus、Veeco、Intevac、天虹科技、아바코(AVACO) |
-| 製程相關(PVD 半導體廠) | 台積電、聯電、力積電、世界先進、華邦電、南亞科、三星電子、SK海力士、美光、英特爾、格羅方德、中芯國際、華虹、長江存儲、長鑫存儲、鎧俠、Rapidus;只收錄提到 PVD / 濺鍍 / 靶材,或資本支出、設備投資的新聞 |
+| 製程相關(PVD 半導體廠) | 台積電、聯電、力積電、世界先進、華邦電、南亞科、三星電子、SK海力士、美光、英特爾、格羅方德、中芯國際、華虹、長江存儲、長鑫存儲、鎧俠、Rapidus;只收錄提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 新廠 / 產能的新聞 |
 | 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟;濺鍍設備 / 溅射设备 / sputtering equipment / スパッタ装置 / 스퍼터 장비 |
 
 清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。設備商可另設 `context_terms`(例如濺鍍、PVD、sputtering),只收錄濺鍍相關新聞,避開蝕刻、CVD 等其他設備的消息。

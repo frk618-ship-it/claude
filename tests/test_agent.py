@@ -846,6 +846,7 @@ def test_chipmakers_only_match_pvd_or_capex_news(config):
         return match_entities(NewsItem(title=title, link="", source="", published=NOW), config.entities, config.settings.context_terms)
 
     assert ents("台積電股價創新高") == []
+    assert ents("台積電亞利桑那二廠擴產 2奈米提前量產") == ["台積電 (TSMC)"]
     assert ents("台積電資本支出上看 500 億美元") == ["台積電 (TSMC)"]
     assert ents("TSMC qualifies a new sputtering target supplier") == ["台積電 (TSMC)"]
     assert "英特爾 (Intel)" not in ents("Intelligence agencies boost capex on PVD systems")
