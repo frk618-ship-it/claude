@@ -9,7 +9,7 @@ on:
       days:
         description: "蒐集最近幾天的新聞"
         required: false
-        default: "3"
+        default: "7"
       papers_only:
         description: "只蒐集技術文獻,併入今天的報告(不重抓新聞)"
         type: boolean
@@ -59,7 +59,7 @@ jobs:
           if [ "${{ github.event.inputs.papers_only }}" = "true" ]; then
             python -m target_news_agent -v run --papers-only
           else
-            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '3' }}"
+            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '7' }}"
           fi
           if [ "${{ github.event.inputs.resummarize }}" = "true" ]; then
             python -m target_news_agent -v resummarize

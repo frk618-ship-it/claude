@@ -106,6 +106,7 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.72rem;padding:1px 8px;border-radius:999px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}
+[hidden]{display:none!important}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
 .card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}

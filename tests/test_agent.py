@@ -792,3 +792,10 @@ def test_resummarize_fills_missing_summaries(tmp_path, monkeypatch, config):
     # Already summarized: nothing to do.
     monkeypatch.setattr("target_news_agent.cli.Summarizer", lambda *a, **k: FakeSummarizer(None))
     assert main(["resummarize", "-c", str(CONFIG), "--reports-dir", str(tmp_path)]) == 0
+
+
+def test_filtered_cards_are_really_hidden():
+    from target_news_agent.site import STYLE
+
+    # Cards use display:grid, which would override the hidden attribute without this rule.
+    assert "[hidden]{display:none!important}" in STYLE

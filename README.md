@@ -39,7 +39,7 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 ```bash
 pip install -r requirements.txt
 
-# 蒐集最近 3 天的新聞,報告輸出到 reports/
+# 蒐集最近 7 天的新聞,報告輸出到 reports/
 python -m target_news_agent -v run
 
 # 常用選項
