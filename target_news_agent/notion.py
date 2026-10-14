@@ -110,11 +110,11 @@ def _option(name: str) -> str:
 
 def item_properties(item: NewsItem) -> dict:
     props: dict = {
-        "標題": {"title": _text(item.title)},
+        "標題": {"title": _text(item.title_zh or item.title)},
         "公司": {"multi_select": [{"name": _option(e)} for e in item.entities]},
         "類別": {"multi_select": [{"name": _option(c)} for c in item.categories]},
         "分數": {"number": round(item.score, 2)},
-        "摘要": {"rich_text": _text(item.summary or item.snippet)},
+        "摘要": {"rich_text": _text(item.summary or item.snippet_zh or item.snippet)},
         "連結": {"url": item.link or None},
         "ID": {"rich_text": _text(item.id)},
     }
@@ -132,10 +132,10 @@ def item_properties(item: NewsItem) -> dict:
 def paper_properties(paper: Paper) -> dict:
     authors = ", ".join(paper.authors[:10]) + (" et al." if len(paper.authors) > 10 else "")
     props: dict = {
-        "標題": {"title": _text(paper.title)},
+        "標題": {"title": _text(paper.title_zh or paper.title)},
         "主題": {"multi_select": [{"name": _option(t)} for t in paper.topics]},
         "作者": {"rich_text": _text(authors)},
-        "摘要": {"rich_text": _text(paper.summary)},
+        "摘要": {"rich_text": _text(paper.summary or paper.abstract_zh)},
         "原文摘要": {"rich_text": _text(paper.abstract)},
         "DOI": {"rich_text": _text(paper.doi)},
         "連結": {"url": paper.link or None},

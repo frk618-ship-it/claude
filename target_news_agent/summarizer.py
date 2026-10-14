@@ -52,6 +52,15 @@ class ItemDigestBatch(BaseModel):
     items: list[ItemDigest]
 
 
+class Translation(BaseModel):
+    id: str
+    zh: str
+
+
+class TranslationBatch(BaseModel):
+    items: list[Translation]
+
+
 class Overview(BaseModel):
     overview: str
     key_trends: list[str]
@@ -93,13 +102,13 @@ class Summarizer:
         self.model = model or os.environ.get("TARGET_NEWS_MODEL", DEFAULT_MODEL)
         self.categories = categories
 
-    def _parse(self, system: str, user: str, schema):
+    def _parse(self, system: str, user: str, schema, effort: str = "medium"):
         response = self.client.beta.messages.parse(
             model=self.model,
             max_tokens=16000,
             system=system,
             messages=[{"role": "user", "content": user}],
-            output_config={"effort": "medium"},
+            output_config={"effort": effort},
             output_format=schema,
             # Server-side fallback: if a request is declined, the API retries it on a fallback model.
             betas=["server-side-fallback-2026-07-01"],
@@ -170,4 +179,13 @@ class Summarizer:
                 p.importance = min(max(d.importance, 1), 5)
                 if d.category in topics:
                     p.topics = [d.category] + [t for t in p.topics if t != d.category]
+
+    def translate(self, system: str, block: str) -> dict[str, str]:
+        """One translation call: returns {id: Traditional Chinese text}."""
+        try:
+            batch = self._parse(system, block + "\n\n請翻譯每一段。", TranslationBatch, effort="low")
+        except self.anthropic.APIError as exc:
+            log.warning("LLM translation failed: %s", exc)
+            return {}
+        return {t.id: t.zh for t in batch.items} if batch else {}
 

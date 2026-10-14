@@ -21,6 +21,7 @@ from .site import build_site, write_redirect
 from .sources import collect, iter_feed_urls
 from .store import SeenStore
 from .summarizer import Digest, Summarizer, llm_available
+from .translate import llm_translator, translate_records
 
 log = logging.getLogger("target_news_agent")
 
@@ -42,6 +43,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--no-papers", action="store_true", help="不蒐集技術文獻(期刊/預印本)")
     run.add_argument("--papers-days", type=int, help="覆寫技術文獻的天數(預設 30)")
     run.add_argument("--papers-only", action="store_true", help="只蒐集技術文獻,併入今天既有的報告(不重抓新聞)")
+    run.add_argument("--no-translate", action="store_true", help="不把非繁體中文的標題/摘要翻成繁體中文")
 
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
@@ -142,6 +144,13 @@ def main(argv: list[str] | None = None) -> int:
             Summarizer(list(config.settings.categories), model=args.model).digest_papers(papers, list(rs.topics))
         known = {p.id for p in papers}
         papers = papers + [p for p in existing_papers if p.id not in known]
+
+    if not args.no_translate:
+        # Simplified Chinese -> Traditional offline; English / Japanese / Korean via Claude when available.
+        llm = None
+        if not args.no_llm and llm_available():
+            llm = llm_translator(Summarizer(list(config.settings.categories), model=args.model))
+        translate_records(items, papers, llm)
 
     md_path, json_path = write_reports(items, config, digest, args.out, generated, papers)
     if not args.papers_only:

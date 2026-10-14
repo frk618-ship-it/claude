@@ -21,7 +21,7 @@ def _md_escape(text: str) -> str:
 def _item_line(item: NewsItem) -> str:
     date = item.published.strftime("%m/%d") if item.published else "--/--"
     stars = f" {'★' * item.importance}" if item.importance else ""
-    line = f"- **[{_md_escape(item.title)}]({item.link})**{stars}  \n  {date} · {item.source or '未知來源'} · {', '.join(item.entities)}"
+    line = f"- **[{_md_escape(item.title_zh or item.title)}]({item.link})**{stars}  \n  {date} · {item.source or '未知來源'} · {', '.join(item.entities)}"
     if item.summary:
         line += f"  \n  > {item.summary}"
     return line
@@ -54,7 +54,7 @@ def _paper_line(p: Paper) -> str:
     authors = ", ".join(p.authors[:3]) + (" 等" if len(p.authors) > 3 else "")
     stars = f" {'★' * p.importance}" if p.importance else ""
     meta = " · ".join(x for x in (date, p.venue, authors) if x)
-    line = f"- **[{_md_escape(p.title)}]({p.link})**{stars}  \n  {meta}"
+    line = f"- **[{_md_escape(p.title_zh or p.title)}]({p.link})**{stars}  \n  {meta}"
     if p.summary:
         line += f"  \n  > {p.summary}"
     return line

@@ -255,10 +255,11 @@ def test_build_site_from_reports(tmp_path, config):
     index = (out / "index.html").read_text(encoding="utf-8")
     assert index == (out / "2026-10-13.html").read_text(encoding="utf-8")
     assert (out / "2026-10-12.html").exists()
-    assert (out / "data" / "2026-10-13.json").exists() and (out / "data" / "2026-10-13.md").exists()
+    assert not (out / "data").exists()  # raw MD/JSON are no longer published
     assert index.count('class="item') >= len(items)
     assert "Spokane" in index and 'href="2026-10-12.html"' in index
     assert "Solstice" in index and "生產商 · 台灣" in index
+    assert ".md\"" not in index and ".json\"" not in index and "Markdown" not in index
     assert "<script>alert" not in index
 
     assert item_kind({"title": "1785 光洋科 - 心得 - 股市爆料同學會", "source": "CMoney"}) == "forum"
@@ -624,3 +625,92 @@ def test_papers_only_targets_latest_report_across_midnight(tmp_path, monkeypatch
     assert files == [f"{yesterday:%Y-%m-%d}.json"]
     data = json.loads((tmp_path / files[0]).read_text(encoding="utf-8"))
     assert len(data["items"]) == len(items) and data["papers"]
+
+
+def test_needs_translation_detects_languages():
+    from target_news_agent.translate import needs_translation, to_traditional
+
+    assert needs_translation("Materion raises 2026 guidance")
+    assert needs_translation("銅建値6万円上げ、最高値を更新 JX金属")        # Japanese (kana)
+    assert needs_translation("머티리온 스퍼터링 타겟")                      # Korean
+    assert not needs_translation("有研新材前三季度营收84.62亿元")            # Chinese: OpenCC only
+    assert not needs_translation("IGZO 靶材出貨")
+    assert not needs_translation("ITO")                                     # a lone acronym
+    assert to_traditional("半导体靶材业务亮眼") == "半導體靶材業務亮眼"
+    assert to_traditional("回复定增审核问询函并更新申请文件") == "回覆定增審核問詢函並更新申請文件"  # wording kept
+
+
+def test_translate_records_routes_text(config):
+    from target_news_agent.models import NewsItem
+    from target_news_agent.research import Paper
+    from target_news_agent.translate import translate_records
+
+    zh_cn = NewsItem("有研新材前三季度营收84.62亿元", "https://a", "东方财富", None)
+    zh_tw = NewsItem("光洋科9月營收年增25%", "https://b", "經濟日報", None)
+    en = NewsItem("Materion raises 2026 guidance", "https://c", "Reuters", None)
+    ja = NewsItem("銅建値6万円上げ、最高値を更新 JX金属", "https://d", "日経", None)
+    done = NewsItem("Already done", "https://e", "x", None, title_zh="已翻譯")
+    paper = Paper("Sintering of ITO sputtering targets", "https://f", None, abstract="ITO targets reached 99.6% density.")
+
+    seen = []
+
+    def fake_llm(entries):
+        seen.extend(t for _, t in entries)
+        return {k: f"譯:{t[:10]}" for k, t in entries}
+
+    n = translate_records([zh_cn, zh_tw, en, ja, done], [paper], fake_llm)
+    assert zh_cn.title_zh == "有研新材前三季度營收84.62億元"   # OpenCC, no LLM
+    assert zh_tw.title_zh == ""                                # already Traditional
+    assert en.title_zh.startswith("譯:") and ja.title_zh.startswith("譯:")
+    assert done.title_zh == "已翻譯"                           # not re-translated
+    assert paper.title_zh.startswith("譯:") and paper.abstract_zh.startswith("譯:")
+    assert n == 4 and set(seen) == {en.title, ja.title, paper.title, paper.abstract}
+
+    # Without Claude, English stays as is but Chinese is still converted.
+    en2 = NewsItem("Plansee expands capacity", "https://g", "x", None)
+    cn2 = NewsItem("江丰电子扩产", "https://h", "x", None)
+    assert translate_records([en2, cn2], None, None) == 0
+    assert en2.title_zh == "" and cn2.title_zh == "江豐電子擴產"
+
+    # A failing translator never breaks the run.
+    en3 = NewsItem("Tosoh news", "https://i", "x", None)
+    assert translate_records([en3], None, lambda e: (_ for _ in ()).throw(RuntimeError("boom"))) == 0
+
+
+def test_summarizer_translate_with_fake_client(config):
+    from target_news_agent.summarizer import Translation, TranslationBatch
+    from target_news_agent.translate import llm_translator
+
+    calls = []
+
+    class Msgs:
+        def parse(self, **kw):
+            calls.append(kw)
+            ids = [line.split('"')[3] for line in kw["messages"][0]["content"].splitlines() if '"id"' in line]
+            return SimpleNamespace(stop_reason="end_turn", parsed_output=TranslationBatch(items=[Translation(id=i, zh="中文") for i in ids]))
+
+    s = Summarizer([], client=SimpleNamespace(beta=SimpleNamespace(messages=Msgs())))
+    out = llm_translator(s)([("t1", "Hello sputtering target"), ("t2", "Another one")])
+    assert out == {"t1": "中文", "t2": "中文"}
+    assert calls[0]["output_config"] == {"effort": "low"} and "<texts>" in calls[0]["messages"][0]["content"]
+
+
+def test_site_shows_translated_titles(tmp_path, config):
+    from target_news_agent.site import build_site
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    items = [
+        {"title": "Materion raises guidance", "title_zh": "Materion 上調財測", "link": "https://x", "source": "Reuters",
+         "published": "2026-10-13T00:00:00+00:00", "entities": ["Materion"], "id": "a"},
+        {"title": "有研新材营收增长", "link": "https://y", "source": "东方财富",
+         "published": "2026-10-13T00:00:00+00:00", "entities": ["有研新材 (GRINM)"], "id": "b"},
+    ]
+    papers = [{"title": "Sintering of ITO targets", "title_zh": "ITO 靶材燒結", "abstract": "Long English abstract",
+               "abstract_zh": "中文摘要", "link": "https://z", "published": "2026-10-01", "topics": ["粉末冶金與燒結"], "id": "p-1"}]
+    (reports / "2026-10-13.json").write_text(json.dumps({"items": items, "papers": papers}, ensure_ascii=False), encoding="utf-8")
+    build_site(reports, tmp_path / "out", config)
+    page = (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+    assert "Materion 上調財測" in page and 'title="原文:Materion raises guidance"' in page
+    assert "有研新材營收增長" in page and "東方財富" in page      # Simplified converted at display time too
+    assert "ITO 靶材燒結" in page and "中文摘要" in page and "Long English abstract" not in page

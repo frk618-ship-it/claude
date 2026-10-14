@@ -20,6 +20,9 @@ class NewsItem:
     # filled by the optional LLM digest
     summary: str = ""
     importance: int = 0
+    # Traditional Chinese display text (see translate.py); empty = original is already fine
+    title_zh: str = ""
+    snippet_zh: str = ""
 
     @property
     def text(self) -> str:
@@ -39,6 +42,8 @@ class NewsItem:
             "score": round(self.score, 2),
             "summary": self.summary,
             "importance": self.importance,
+            "title_zh": self.title_zh,
+            "snippet_zh": self.snippet_zh,
         }
 
     @classmethod
@@ -57,4 +62,6 @@ class NewsItem:
             id=d.get("id", ""),
             summary=d.get("summary", ""),
             importance=int(d.get("importance", 0)),
+            title_zh=d.get("title_zh", ""),
+            snippet_zh=d.get("snippet_zh", ""),
         )

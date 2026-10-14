@@ -1,7 +1,7 @@
 """Static news site for GitHub Pages, built from the JSON reports in reports/.
 
-index.html shows the latest report; YYYY-MM-DD.html keeps every earlier one, and
-data/ holds the raw MD/JSON for download. Each item gets a "kind" label (news,
+index.html shows the latest report and YYYY-MM-DD.html keeps every earlier one.
+Titles and abstracts are shown in Traditional Chinese (see translate.py). Each item gets a "kind" label (news,
 filing, market data, forum, research, profile page) so readers can tell real
 news from the market-data and forum noise that news search also returns.
 """
@@ -11,13 +11,13 @@ from __future__ import annotations
 import html
 import json
 import re
-import shutil
 from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
+from .translate import to_traditional
 
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 
@@ -142,10 +142,13 @@ reset.addEventListener('click',function(){active={kind:null,ent:null};apply();})
 
 
 def _title_link(item: dict) -> str:
+    original = item["title"]
+    shown = item.get("title_zh") or to_traditional(original)
+    tip = f' title="原文:{esc(original)}"' if shown != original else ""
     link = item.get("link", "")
     if link.startswith(("https://", "http://")):
-        return f'<a href="{esc(link)}" target="_blank" rel="noopener">{esc(item["title"])}</a>'
-    return esc(item["title"])  # never turn javascript:/data: links from feeds into clickable links
+        return f'<a href="{esc(link)}" target="_blank" rel="noopener"{tip}>{esc(shown)}</a>'
+    return f"<span{tip}>{esc(shown)}</span>"  # never turn javascript:/data: links from feeds into clickable links
 
 
 KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile"}
@@ -168,7 +171,7 @@ def _item_html(item: dict, extra_class: str = "") -> str:
         f'<span class="kind k-{kind}">{KINDS[kind]}</span>'
         f'<span>{icon("calendar")}<time datetime="{esc((item.get("published") or "")[:10])}">{_date(item.get("published"))}</time></span>'
         + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
-        + (f'<span>{icon("news")}{esc(item.get("source"))}</span>' if item.get("source") else "")
+        + (f'<span>{icon("news")}{esc(to_traditional(item.get("source")))}</span>' if item.get("source") else "")
     )
     return (
         f'<article class="item k-{kind}{low}{extra_class}" data-kind="{kind}" data-ent="{esc("|".join(ents))}">'
@@ -186,7 +189,7 @@ def _card_html(item: dict) -> str:
     meta = (
         f'<span>{icon("calendar")}{_date(item.get("published"))}</span>'
         + "".join(f'<span>{icon("building")}{esc(e)}</span>' for e in ents)
-        + (f'<span>{icon("news")}{esc(item.get("source"))}</span>' if item.get("source") else "")
+        + (f'<span>{icon("news")}{esc(to_traditional(item.get("source")))}</span>' if item.get("source") else "")
     )
     return (
         f'<article class="card k-{kind}"><div class="head"><span class="kind k-{kind}">{icon(KIND_ICONS[kind])} {KINDS[kind]}</span></div>'
@@ -204,7 +207,7 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
     if p.get("summary"):
         body = f'<p class="sum">{esc(p["summary"])}</p>'
     elif p.get("abstract"):
-        abstract = p["abstract"]
+        abstract = p.get("abstract_zh") or to_traditional(p["abstract"])
         body = f'<p class="sum">{esc(abstract[:260])}{"…" if len(abstract) > 260 else ""}</p>'
     else:
         body = ""
@@ -425,17 +428,13 @@ def render_page(
         f'<a href="{home}{"index.html" if i == 0 else d + ".html"}"{" aria-current=page" if d == current else ""}>{icon("calendar")}{d} · {n}</a>'
         for i, (d, n) in enumerate(archive)
     )
-    data_links = (
-        f'<a class="btn" href="{home}data/{current}.md">{icon("download")}Markdown</a>'
-        f'<a class="btn" href="{home}data/{current}.json">{icon("download")}JSON</a>'
-    )
 
     return (
         _head(f"靶材產業新聞摘要 {current}")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span></div>
-<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{data_links}</nav>
+<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
@@ -459,7 +458,6 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     reports_dir, out = Path(reports_dir), Path(out_dir)
     paths = sorted((p for p in reports_dir.iterdir() if REPORT_RE.match(p.name)), reverse=True)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "data").mkdir(exist_ok=True)
     reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     archive = [(d, len(r.get("items", []))) for d, r in reports]
     library = paper_library(reports)
@@ -473,10 +471,6 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         for t in targets:
             t.write_text(page, encoding="utf-8")
             written.append(t)
-        for ext in (".json", ".md"):
-            src = reports_dir / f"{date}{ext}"
-            if src.exists():
-                shutil.copyfile(src, out / "data" / src.name)
     if not reports:
         empty = {"items": [], "days": config.settings.days}
         (out / "index.html").write_text(render_page(empty, config, [], "尚無報告", is_latest=True), encoding="utf-8")

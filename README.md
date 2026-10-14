@@ -70,9 +70,18 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 `.github/workflows/target-news.yml` 每天台北時間 08:23 執行,並把報告與已讀紀錄 commit 回 repo。也可在 Actions 頁面手動觸發並指定天數。若要啟用 Claude 摘要,請在 repo 的 *Settings → Secrets and variables → Actions* 新增 `ANTHROPIC_API_KEY`。(排程只會在預設分支上執行。)
 
+### 繁體中文顯示(自動翻譯)
+
+蒐集後、寫入報告前,所有非繁體中文的標題與摘要都會轉成繁體中文,網站、報告與 Notion 都顯示譯文(滑鼠移到標題上可看原文):
+
+- **簡體中文**:用 OpenCC 轉成繁體字(離線、免費、不需金鑰)。只轉字形、不改用詞,避免「申請文件」被改成「申請檔案」這類誤譯。
+- **英文 / 日文 / 韓文**:用 Claude 翻譯(需設定 `ANTHROPIC_API_KEY`);公司名、期刊名、化學式、數字單位保留原文,技術用語用台灣慣用譯法(如 sputtering target → 濺鍍靶材)。未設定金鑰時這些文字維持原文,其他功能照常。
+- 原文保留在報告 JSON(`title`、`abstract` 等欄位),譯文另存於 `title_zh`、`snippet_zh`、`abstract_zh`;公司比對、分類與去重仍用原文。已翻譯過的不會重複翻譯。
+- 選項:`--no-translate` 關閉翻譯。
+
 ### 新聞網站(GitHub Pages)
 
-每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁是最新一期(本期總結、重點新聞、可依類型與公司篩選的全部新聞、追蹤清單),並保留歷次報告與原始 MD / JSON 下載。
+每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁是最新一期(本期總結、重點新聞、可依類型與公司篩選的全部新聞、追蹤清單),並保留歷次報告。網站不提供原始 MD / JSON 下載(報告檔仍保存在 repo 的 `reports/`)。
 
 - 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
 - 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。

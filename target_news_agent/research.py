@@ -88,6 +88,8 @@ class Paper:
     id: str = ""
     summary: str = ""         # filled by the optional LLM digest
     importance: int = 0
+    title_zh: str = ""        # Traditional Chinese display text (see translate.py)
+    abstract_zh: str = ""
 
     @property
     def text(self) -> str:
@@ -107,6 +109,8 @@ class Paper:
             "topics": self.topics,
             "summary": self.summary,
             "importance": self.importance,
+            "title_zh": self.title_zh,
+            "abstract_zh": self.abstract_zh,
         }
 
     @classmethod
@@ -124,6 +128,8 @@ class Paper:
             id=d.get("id", ""),
             summary=d.get("summary", ""),
             importance=int(d.get("importance", 0)),
+            title_zh=d.get("title_zh", ""),
+            abstract_zh=d.get("abstract_zh", ""),
         )
 
 
