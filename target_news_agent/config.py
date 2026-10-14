@@ -11,7 +11,7 @@ ROLE_LABELS = {
     "producer": "生產商",
     "distributor": "銷售商",
     "equipment": "濺鍍設備商",
-    "process": "製程相關",
+    "process": "製程相關(PVD 半導體廠)",
     "topic": "產業主題",
 }
 

@@ -3,7 +3,7 @@
 # entities:
 #   name            顯示名稱
 #   role            producer(生產商) / distributor(銷售商、代理商) / equipment(濺鍍設備商)
-#                   / process(濺鍍製程相關:陰極與磁控管、電源、PVD 鍍膜服務、腔體零件) / topic(產業主題)
+#                   / process(製程相關:生產中使用 PVD 設備的半導體廠) / topic(產業主題)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
@@ -344,45 +344,141 @@ entities:
     require_context: false
     editions: [ko]
 
-  # ---------- 濺鍍製程相關:陰極 / 磁控管、電源、PVD 鍍膜服務、腔體零件 ----------
-  - name: Gencoa
+  # ---------- 製程相關:在生產中使用 PVD(濺鍍)設備的半導體廠 = 靶材與濺鍍設備的終端客戶 ----------
+  # 這些公司新聞量很大,只收錄同時提到 PVD / 濺鍍 / 靶材,或資本支出、設備投資的新聞(會帶動 PVD 機台與靶材需求)。
+  - name: 台積電 (TSMC)
     role: process
-    region: 英國
-    aliases: [Gencoa]
-    require_context: false
-    editions: [en]
-  - name: Soleras Advanced Coatings
-    role: process
-    region: 比利時
-    aliases: [Soleras]
-    require_context: false
-    editions: [en]
-  - name: Advanced Energy
-    role: process
-    region: 美國
-    ticker: AEIS
-    aliases: [Advanced Energy]
+    region: 台灣
+    ticker: "2330.TW"
+    aliases: [台積電, 台积电, TSMC]
     require_context: true
-    context_terms: *sputter_ctx
-    editions: [en]
-  - name: Oerlikon Balzers
+    context_terms: &fab_ctx [濺鍍, 溅射, 靶材, PVD, 物理氣相沉積, 物理气相沉积, physical vapor deposition, sputtering target, sputter deposition, sputtering system, sputtering equipment, スパッタ, 스퍼터, 資本支出, 资本支出, capex, capital expenditure, 設備投資, 设备投资, 設備採購, 设备采购, 설비투자]
+    editions: [zh-TW, en]
+  - name: 聯電 (UMC)
     role: process
-    region: 瑞士
-    aliases: [Oerlikon Balzers, 歐瑞康巴爾查斯]
-    require_context: false
-    editions: [en, zh-TW]
-  - name: IHI Hauzer
+    region: 台灣
+    ticker: "2303.TW"
+    aliases: [聯電, 联电, United Microelectronics]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 力積電 (PSMC)
     role: process
-    region: 荷蘭
-    aliases: [Hauzer]
-    require_context: false
-    editions: [en]
-  - name: 코미코 (KoMiCo)
+    region: 台灣
+    ticker: "6770.TW"
+    aliases: [力積電, 力积电, Powerchip]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 世界先進 (VIS)
+    role: process
+    region: 台灣
+    ticker: "5347.TW"
+    aliases: [世界先進, Vanguard International Semiconductor]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 華邦電 (Winbond)
+    role: process
+    region: 台灣
+    ticker: "2344.TW"
+    aliases: [華邦電, 华邦电, Winbond]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 南亞科 (Nanya Technology)
+    role: process
+    region: 台灣
+    ticker: "2408.TW"
+    aliases: [南亞科, 南亚科, Nanya Technology]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 三星電子 (Samsung Electronics)
     role: process
     region: 韓國
-    aliases: [코미코, KoMiCo]
-    require_context: false
-    editions: [ko, en]
+    ticker: "005930.KS"
+    aliases: [三星電子, 三星电子, Samsung Electronics, 삼성전자]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en, ko]
+  - name: SK海力士 (SK hynix)
+    role: process
+    region: 韓國
+    ticker: "000660.KS"
+    aliases: [SK海力士, SK hynix, SK하이닉스]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en, ko]
+  - name: 美光 (Micron)
+    role: process
+    region: 美國
+    ticker: "MU"
+    aliases: [美光, Micron Technology]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 英特爾 (Intel)
+    role: process
+    region: 美國
+    ticker: "INTC"
+    aliases: [英特爾, 英特尔, Intel]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 格羅方德 (GlobalFoundries)
+    role: process
+    region: 美國
+    ticker: "GFS"
+    aliases: [格羅方德, 格芯, GlobalFoundries]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 中芯國際 (SMIC)
+    role: process
+    region: 中國大陸
+    ticker: "0981.HK"
+    aliases: [中芯國際, 中芯国际, SMIC]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-TW, zh-CN, en]
+  - name: 華虹半導體 (Hua Hong)
+    role: process
+    region: 中國大陸
+    ticker: "1347.HK"
+    aliases: [華虹半導體, 华虹半导体, 华虹公司, Hua Hong Semiconductor]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-CN]
+  - name: 長江存儲 (YMTC)
+    role: process
+    region: 中國大陸
+    aliases: [長江存儲, 长江存储, YMTC]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-CN, en]
+  - name: 長鑫存儲 (CXMT)
+    role: process
+    region: 中國大陸
+    aliases: [長鑫存儲, 长鑫存储, 长鑫科技, CXMT]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [zh-CN, en]
+  - name: 鎧俠 (Kioxia)
+    role: process
+    region: 日本
+    ticker: "285A.T"
+    aliases: [鎧俠, 铠侠, Kioxia, キオクシア]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [ja, en, zh-TW]
+  - name: Rapidus
+    role: process
+    region: 日本
+    aliases: [Rapidus, ラピダス]
+    require_context: true
+    context_terms: *fab_ctx
+    editions: [ja, en]
 
   # ---------- 產業主題(不限公司) ----------
   - name: 產業綜合:濺鍍靶材

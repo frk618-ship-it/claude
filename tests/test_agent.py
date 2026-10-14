@@ -60,7 +60,7 @@ def test_process_filters_matches_dedupes_and_classifies(config):
     # Honeywell aerospace news lacks target context -> dropped; target news kept.
     assert not any("aerospace" in t for t in titles)
     hon = next(i for i in items if "Spokane" in i.title)
-    assert hon.entities == ["Solstice (原 Honeywell 電子材料)"]
+    assert hon.entities == ["Solstice (原 Honeywell 電子材料)", "台積電 (TSMC)"]  # supplier and customer
     sols = next(i for i in items if "Solstice Advanced Materials" in i.title)
     assert sols.entities == ["Solstice (原 Honeywell 電子材料)"]
     # The bare word "Solstice" (an unrelated battery product) must not match.
@@ -825,8 +825,8 @@ def test_ledger_groups_equipment_and_process(config):
     from target_news_agent.site import _ledger
 
     html_ = _ledger(config, Counter({"Evatec": 2}))
-    assert "濺鍍設備商" in html_ and "製程相關" in html_ and "靶材生產商 · 日本" in html_
-    assert "Evatec" in html_ and "2 則" in html_ and "Gencoa" in html_
+    assert "濺鍍設備商" in html_ and "製程相關 · PVD 半導體廠" in html_ and "靶材生產商 · 日本" in html_
+    assert "Evatec" in html_ and "2 則" in html_ and "台積電" in html_
 
 
 def test_sputtering_as_slang_does_not_match_equipment_topic(config):
@@ -837,3 +837,15 @@ def test_sputtering_as_slang_does_not_match_equipment_topic(config):
     assert match_entities(item, config.entities, config.settings.context_terms) == []
     item.title = "New magnetron sputtering system ships to display maker"
     assert match_entities(item, config.entities, config.settings.context_terms) == ["設備綜合:Sputtering Equipment"]
+
+
+def test_chipmakers_only_match_pvd_or_capex_news(config):
+    from target_news_agent.processing import match_entities
+
+    def ents(title):
+        return match_entities(NewsItem(title=title, link="", source="", published=NOW), config.entities, config.settings.context_terms)
+
+    assert ents("台積電股價創新高") == []
+    assert ents("台積電資本支出上看 500 億美元") == ["台積電 (TSMC)"]
+    assert ents("TSMC qualifies a new sputtering target supplier") == ["台積電 (TSMC)"]
+    assert "英特爾 (Intel)" not in ents("Intelligence agencies boost capex on PVD systems")
