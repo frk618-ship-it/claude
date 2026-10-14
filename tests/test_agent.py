@@ -827,3 +827,13 @@ def test_ledger_groups_equipment_and_process(config):
     html_ = _ledger(config, Counter({"Evatec": 2}))
     assert "濺鍍設備商" in html_ and "製程相關" in html_ and "靶材生產商 · 日本" in html_
     assert "Evatec" in html_ and "2 則" in html_ and "Gencoa" in html_
+
+
+def test_sputtering_as_slang_does_not_match_equipment_topic(config):
+    from target_news_agent.processing import match_entities
+
+    item = NewsItem(title="Sean Payton takes back play-calling to fix sputtering offense", link="", source="",
+                    published=NOW, query_entity="設備綜合:Sputtering Equipment")
+    assert match_entities(item, config.entities, config.settings.context_terms) == []
+    item.title = "New magnetron sputtering system ships to display maker"
+    assert match_entities(item, config.entities, config.settings.context_terms) == ["設備綜合:Sputtering Equipment"]

@@ -266,7 +266,8 @@ entities:
     ticker: AMAT
     aliases: [應用材料, 应用材料, Applied Materials, アプライド マテリアルズ, 어플라이드 머티어리얼즈]
     require_context: true
-    context_terms: &sputter_ctx [濺鍍, 溅射, 磁控, PVD, sputtering, sputter, physical vapor deposition, スパッタ, 스퍼터, 물리기상증착]
+    # 英文只用技術片語:單獨的 "sputtering" 也有「表現疲軟」的意思(例如體育、經濟新聞)
+    context_terms: &sputter_ctx [濺鍍, 溅射, 磁控, PVD, magnetron, physical vapor deposition, sputter deposition, sputtering system, sputtering equipment, sputtering tool, sputtering target, sputtering cathode, スパッタ, 스퍼터, 물리기상증착]
     editions: [zh-TW, en, ja, ko]
   - name: 北方華創 (NAURA)
     role: equipment
@@ -321,7 +322,7 @@ entities:
     ticker: VECO
     aliases: [Veeco]
     require_context: true
-    context_terms: [sputtering, sputter, PVD, ion beam deposition, 濺鍍, 离子束]
+    context_terms: [PVD, ion beam deposition, sputter deposition, sputtering system, magnetron, 濺鍍, 离子束]
     editions: [en]
   - name: Intevac
     role: equipment
