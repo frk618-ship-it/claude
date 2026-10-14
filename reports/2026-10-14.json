@@ -1,25 +1,400 @@
 {
-  "generated": "2026-10-14T16:09:30.378386+08:00",
+  "generated": "2026-10-14T16:55:23.983864+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期焦點集中在AI帶動的記憶體與先進封裝擴產，下游PVD機台與靶材需求能見度進一步提高。南亞科Q3 EPS達25.4元、毛利率85.7%，並規劃屏東新廠、導入3D IC封測，未來月產能上看5萬片。台積電與格羅方德簽訂約20億美元協議，在美國建立CoWoS矽中介層產能；台積電另砸639億元擴充CoWoS，並將矽中介層訂單交給世界先進，先進封裝金屬化製程的靶材需求可望外溢至更多晶圓廠。靶材廠方面，光洋科9月營收50.78億元、年增49.91%；有研新材半導體靶材收入增逾四成，但單季獲利受非本業因素干擾。另一方面，SK海力士傳出HBM4設備訂單遞延至2027，三星與SK股價也因產能過剩疑慮急跌，記憶體擴產節奏出現分歧訊號。",
+    "overview": "本期新聞(2026/10/7–10/14)的主軸是 AI 帶動先進封裝與記憶體同步擴產,對 PVD 機台與靶材需求偏多。台積電持續加碼 CoWoS,相關報導提到投入 639 億擴產、產能目標 22 萬片;同時與格芯簽約 20 億美元,在美國量產矽中介層,並將中介層訂單委由世界先進承接。日月光、矽品、長電等封測廠同步擴大資本支出,凸塊、RDL、扇出與面板級封裝的濺鍍需求可望升溫。記憶體端,南亞科獲利創高並啟動屏東 100 億美元新廠,但 SK 海力士傳出 HBM4 後段設備訂單延至 2027 年,成為本期主要雜音。靶材供應商方面,光洋科 9 月營收年增 49.91%,有研新材半導體靶材收入成長逾四成,印證需求熱度。",
     "key_trends": [
-      "記憶體廠在價格與獲利雙強下加速擴產：南亞科擴大資本支出、建屏東新廠並洽談策略夥伴入股；美光、三星與SK海力士同步擴產；三星明年約八成產能已遭長約鎖定。DRAM前段與3D封裝所需的金屬靶材(如Cu、Ti、Ta、W等)需求可望持續放大。",
-      "CoWoS矽中介層產能走向多元化與在地化：格羅方德成為美國首座量產矽中介層的晶圓廠，世界先進也承接台積電中介層訂單，輝達則傳出擬導入英特爾分擔先進封裝。矽中介層的TSV與RDL製程通常需要阻障層與晶種層PVD，靶材供應商需跟進新的客戶據點與認證。",
-      "晶圓廠持續擴充成熟與特殊製程：格羅方德斥資11億歐元擴建德勒斯登廠，2028年底12吋年產能將逾百萬片，並推出FDX Fusion；聯電擬發行18億美元可轉債，資本支出升至20億美元並轉向矽光子與12奈米；世界先進星國12吋廠預計22個月啟用。歐洲與新加坡的靶材需求將逐步增加。",
-      "美國政策推動供應鏈在地化：美國商務部點名三星、SK海力士擴大在美產能，台積電美國產能也將於2028年後加速開出，再加上崇越評估增設愛達荷州據點服務美光，靶材與材料商赴美設點及就近供貨的壓力上升。",
-      "靶材廠營收受惠下游熱絡：光洋科9月營收年增近五成、月增12.43%；有研新材前三季扣非淨利增33.2%，半導體靶材收入增逾四成。中國靶材廠成長快速，但有研新材也出現應收帳款偏高、資產減值大增等財務警訊。",
-      "記憶體擴產節奏出現分歧：SK海力士HBM4後段設備訂單傳出遞延至2027、2027年投資計畫未明；市場對估值與產能過剩的疑慮升溫，與記憶體價格Q4續漲並存，顯示需求高峰可能出現波動。"
+      "先進封裝產能從台積電向外擴散:台積電擴充 CoWoS,將矽中介層委由格芯(美國)與世界先進生產;日月光 9 月營收 881 億元,連續 3 個月創新高,前 3 季營收突破 6,088 億元;矽品在台中后里設新廠。凸塊、RDL、TSV 等製程所需的 Ti、Cu、Ta、Al 等濺鍍靶材需求可望擴大,封測廠正成為靶材的新興大客戶。",
+      "先進封裝與晶圓製造產能向美國、歐洲分散:格芯在美國承接 CoWoS 關鍵元件,並斥資 11 億歐元擴建德國廠,目標 2028 年底 12 吋年產能逾百萬片;崇越也評估在美光愛達荷州擴產地增設服務據點。靶材業者需評估在當地供貨、設立倉儲與提供技術服務的能力。",
+      "記憶體進入漲價與擴產循環:第 4 季記憶體價格續漲,三星、SK 海力士加速擴產;南亞科第 3 季 EPS 25.4 元、毛利率 85.7%,擴大資本支出,未來月產能 5 萬片,屏東新廠並導入 3D IC 封測;美光同步加速布局。DRAM 前段金屬化與 3D 封裝的靶材用量可望增加。",
+      "HBM 擴產節奏出現分歧:多家媒體報導 SK 海力士 HBM4 後段設備訂單遞延至 2027 年,2027 年投資計畫也尚未明朗,與台積電、三星擴產及艾司摩爾訂單排到 2030 年的樂觀訊號形成對比。HBM 相關的 PVD 機台與靶材拉貨時程可能延後。",
+      "中國封測與靶材廠擴張迅速:長電科技上半年資本支出 47 億元,年增近 80%,其中高端先進封裝占比過半,2026 年固定資產投資預算約 100 億元,並在臨港追加車規級晶圓級封裝產能;有研新材前三季扣非淨利年增 33.2%,半導體靶材收入成長逾四成。中國在地供應鏈的替代與競爭壓力持續升高。",
+      "成熟與特殊製程轉向高附加價值:聯電擬發行 18 億美元可轉債,資本支出提高至 20 億美元,投資重心轉向矽光子與 12 奈米;日月光 CPO 預計年底量產,2027 年導入面板級封裝(PLP)自動化。新型封裝結構將帶動大尺寸、方形靶材等規格需求。"
     ],
     "watch_points": [
-      "SK海力士HBM4設備遞延是否擴及前段PVD機台與材料採購，以及三星、美光是否跟進調整2027年資本支出。這將直接影響記憶體客戶的靶材拉貨節奏。",
-      "台積電即將召開的法說會中資本支出指引(分析師已提示需留意CAPEX)，以及CoWoS擴產、美國先進封裝時程，可作為先進製程與封裝靶材需求的核心判斷依據。",
-      "南亞科屏東新廠與3D IC封測產線的設備發包與材料認證時程，以及策略夥伴入股後的產能分配，是台灣靶材供應商切入的機會點。",
-      "格羅方德美國矽中介層、德勒斯登擴建，以及世界先進星國廠的材料供應商評選，須留意在地供應要求與認證門檻。",
-      "光洋科10月營收能否延續高成長(需區分貴金屬價格與出貨量的貢獻)；有研新材應收帳款與價格策略是否加劇中國靶材的價格競爭。"
+      "台積電法說會釋出的 2027 年營收成長展望、資本支出規模、CoWoS 產能目標與晶圓漲價幅度,以及法人對成長與資本支出的分歧看法(Seeking Alpha 已提出評等調降),這些將決定 2027 年先進封裝相關 PVD 與靶材的備貨量。",
+      "SK 海力士 HBM4 設備訂單遞延是否擴大為整體 HBM 投資放緩,以及對輝達供應鏈與相關濺鍍設備、靶材出貨的實際影響。",
+      "格芯美國矽中介層、世界先進新加坡 12 吋廠、南亞科屏東新廠、矽品后里新廠與長電臨港廠的建廠與裝機時程,建議提早卡位材料認證與供應商名單。",
+      "光洋科月營收能否延續年增動能,以及有研新材應收帳款偏高等財務品質議題,藉此掌握競爭對手的價格策略與市占變化。",
+      "日月光 PLP 自動化與 CPO 量產進度,關注面板級封裝對大面積濺鍍設備與新規格靶材的需求成形時點。"
     ]
   },
   "items": [
+    {
+      "id": "d7c16778e0aea29d",
+      "title": "台積電法說會4大焦點！明年營收再成長40%？德州設廠、晶圓漲價與CoWoS擴產進度一次看",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5PTGU4RElDWE5aQkg1dWZPLVR6djZrQ0dkcV92Q1VaYWRWakVfMnQwRUJCZU9iSjFzQ1hVeUJUNnZlU0JOQlVDQl9tSnYyTXg2NUVNSDFlZ1dlZ2hjQWU3d0VMb2hOdGxvTlNoN002U1U4MTE1NHEw?oc=5",
+      "source": "數位時代",
+      "published": "2026-10-14T07:42:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報",
+        "原物料與價格",
+        "客戶與供應鏈"
+      ],
+      "score": 7.29,
+      "summary": "台積電法說會焦點包括明年營收成長展望、德州設廠、晶圓漲價及CoWoS擴產進度。台積電擴廠與先進封裝擴產將持續推升PVD機台與靶材需求，是靶材業者最關鍵的客戶指標。",
+      "importance": 5,
+      "title_zh": "臺積電法說會4大焦點！明年營收再成長40%？德州設廠、晶圓漲價與CoWoS擴產進度一次看",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6a885cfa80f46b61",
+      "title": "HBM4擴產出現警訊？傳SK海力士設備訂單延後至明年- 國際",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iX3lfZUVvWEJRQ2NVQ3hOZFB2UDFfOVhOOU1QT01wakQ5em82UGlUZTdSTXkwX2NZRURBYkI3U0ZybC1aQTFuVEZjZFRja0k0Z3hBbnM4RHY5NVhzTkRr?oc=5",
+      "source": "工商時報",
+      "published": "2026-10-14T08:12:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.5,
+      "summary": "傳SK海力士HBM4相關設備訂單延後至明年，擴產節奏出現警訊。若屬實，短期記憶體端PVD設備與靶材拉貨可能放緩。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "72bfc1652d002d31",
+      "title": "台積電、三星擴產！艾司摩爾揭「設備搶購潮」訂單排到2030年",
+      "link": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxOT1lxM0twQjFYS0NvRjdwS2NDa2xrSHROUWktOXBseDFWZWM2ejR2UU1OQWZmWkxMY0FoNFNORHMyTGNvSjVSdWtHemdpV0tteVhadFB6eHNjZHZpcEtzbmZyRXd2OVgyelBVcF9nTktfUmpWQXZWbmRfSGJ6MFZvTXY2LTVJdnBzTF9HUG9tZXlnTlQzQzVuWFNIQWlaS0VCWFRHNWZYWkl1YVRLMjdUN3J6cFlIa0VyeXlqalJDVmFtbFB0V3kzTHpZbURDRlJQRzBxUmZVWGRYN2oySEdNT1FzeVpWal9yZWFkS0pUR3VZdE1zNHpJekEzSXVmOHpPLXg1bThvSnB0QVVYdVNSRk1QNFloekVzU240V0VaQUYyd0xkU09BMGpZbXlpUTVqZVZIU0hsTXowTzh2N3lvMWQxOXpRSEV1THZCeW5VTmJkeEwwc2QtWXp6dVluenVRTWVSNktB?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-14T07:47:37+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "艾司摩爾指出台積電、三星擴產帶動設備搶購潮，訂單能見度排到2030年。晶圓廠長期擴產確定性高，濺鍍設備與靶材需求可望同步維持成長。",
+      "importance": 4,
+      "title_zh": "臺積電、三星擴產！艾司摩爾揭「設備搶購潮」訂單排到2030年",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5274f5e0a172f993",
+      "title": "先進封裝與CoWoS外溢發酵，最新營收衝881億，日月光等供應鏈爆發！-財經焦點情報站",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRndJZVpfd2F1REVDWjRNVUtWZlBmM3JuRXNCTDRuTEpZVy16a3JXb2RPenpLWDg3WHdnOHQzVGw4TVN6VVpXTWNISlBSU0NXZnJ3UTE5NnB1djlELTdnRjI3M2pEc3ViN0l1akVDNW5rQUFzVVFoWlRVb3VQZFQxd29R?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-12T14:50:49+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.75,
+      "summary": "日月光投控受惠先進封裝與CoWoS外溢訂單，最新月營收達881億元，供應鏈同步受惠。封裝廠凸塊、RDL等PVD製程用量增加，有利封裝用靶材需求。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7a69bfe2b00e395a",
+      "title": "日月光前3季營收衝破6088億月季齊登頂先進封裝大咬台積電外溢單- 產業",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9hbzZ6TXhJUzU5Q01ydjl4dVFMVHdKUm8zXzRCYllhS1JNUWJUMW5QM3QybHF2cDhjX1VWQ1NyN0dJLXFMR0hDbUR1MVRabnBPZE0yaGZmMkd6LWI4M0tr?oc=5",
+      "source": "工商時報",
+      "published": "2026-10-12T11:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.73,
+      "summary": "日月光前三季營收突破6088億元，月、季營收同創新高，主要承接台積電先進封裝外溢訂單。OSAT先進封裝產能放大，帶動封裝端PVD與靶材需求。",
+      "importance": 3,
+      "title_zh": "日月光前3季營收衝破6088億月季齊登頂先進封裝大咬臺積電外溢單- 產業",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dfdb857bb6828222",
+      "title": "先進封裝需求旺到不行！日月光投控9月營收881億元連3月登峰CPO年底量產、2027年導入PLP自動化",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1vWENROWI4VzdIU0ljeXpYZVFNQjg3eV9fcUE2U3VOalo3SkpCRC1hVkhNVkdFbkJlTXFyMnJEcUE3bFNfOU9zS2xiaw?oc=5",
+      "source": "FTNN 新聞網",
+      "published": "2026-10-13T11:15:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "營收與財報"
+      ],
+      "score": 4.67,
+      "summary": "日月光投控9月營收881億元連三月創高，CPO預計年底量產、2027年導入PLP自動化。面板級封裝與CPO新製程將擴大大尺寸PVD設備與靶材的潛在需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8e9b16eafdaebbe1",
+      "title": "【11:14 即時新聞】精材(3374)股價走強，市場聚焦晶圓級封裝與測試擴產題材",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTEkta2xucXZaT3k3YVRIaTJaWEgzbVVlemtidzRieFZWX1hWZmx3X2dFUEkwQ1NOTG5tWHFmM3ZQUG1BN1BORFh4U1FWMFdURmZyMEpTdERrbmNkUFZuMEVVbEttV0ViYXFmMFl0UGNvR2dldTNWU2k3NDdxcy1PSF9aaFE2OU4tS3JKT0xn?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-14T03:14:42+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "精材 (XinTec)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.47,
+      "summary": "精材股價走強，市場聚焦其晶圓級封裝與測試擴產題材。晶圓級封裝擴產可望增加PVD製程與靶材用量。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5369a1b79db2e243",
+      "title": "《股市行事曆1-1》精材(3467)增資股上市、聯光通(4903)除息",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPaFozN1hVM2tLOTMxLVpSbkJGWW0wWjQ5OVU0SVpSR0dtanJmNHRQdm1hMDdpVXJmdk9iMm54TW9fX0s4NlBFbTJNY1hqQmpqeDgtVHRvSW1RYWdnRnhGNzVOSEJ0ekJFMmx1MTFZMlMxZ0hxME1ZQjhKaWFrbE5YTnZQa0hSaENw?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-13T23:38:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "精材 (XinTec)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.44,
+      "summary": "股市行事曆顯示精材增資股上市。增資資金可能用於擴產，但新聞本身與靶材的直接關聯有限。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9c731371b75af063",
+      "title": "长电科技：公司已在临港工厂追加布局车规级晶圆级封装产能，预计将于明年实现投产",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQOG83RUpiT25rREJUVTkwYk5yRXAwRXdaN0d4QnAzeFNhdTNMYnU4TDN2a1FpX0wxZWd5c2F1ei11SXNmdFI2QTNQMklZMjI3d29CMmp1XzFVYTVEa3JJZVFGTnJuZGQxTXFCWkhpcE5WWmpDZUtFRTEyRXdOMDBvZG5VWkNVS1FLbnVXVA?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-13T06:03:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.34,
+      "summary": "長電科技於臨港工廠追加車規級晶圓級封裝產能，預計明年投產。中國封測擴產將帶動當地PVD設備與封裝靶材需求，對陸系靶材供應商較為有利。",
+      "importance": 4,
+      "title_zh": "長電科技：公司已在臨港工廠追加布局車規級晶圓級封裝產能，預計將於明年實現投產",
+      "snippet_zh": ""
+    },
+    {
+      "id": "72dfd304694f909a",
+      "title": "长电科技：AI驱动封测扩产，2026年固定资产投资预算约100亿元",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNT2NrZUpaNVpIcUpLd0w0aDVUc3V6eENhRFZPY0ZXRmFkSnRsbUpPTkZuaFBza2s2TXRhdmQxVlRXWkpicnJCWkRfRXQ5cFdGU19NN0ZSejhqeFVYNlBmQjNaZ0NSal9nckFYREViVEF2NmpZdzdYc05URU1MMV8taUk3NA?oc=5",
+      "source": "新浪网",
+      "published": "2026-10-12T08:41:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.21,
+      "summary": "長電科技表示AI驅動封測擴產，2026年固定資產投資預算約100億元人民幣。大規模資本支出有助拉動封裝用PVD機台與靶材採購。",
+      "importance": 4,
+      "title_zh": "長電科技：AI驅動封測擴產，2026年固定資產投資預算約100億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "126b4214c25dc2f4",
+      "title": "矽品后里設新廠、大立光擴產 台中工廠投資衝4649億元",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE91S2kzdllIa3V1SlVhOFM1QTNVRDlCZ2JfQWlfYWo4Tk1DU3JobFdGLS1IbXVUdlp4d1JidjBja3k4ckdxVWNDYVdsbU8tbWlMYkNZeWd3Zm4?oc=5",
+      "source": "自由時報",
+      "published": "2026-10-12T02:09:25+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.17,
+      "summary": "矽品於台中后里設立新廠，與大立光擴產合計推升台中工廠投資額至4649億元。矽品新廠可望帶動先進封裝PVD設備與靶材需求。",
+      "importance": 4,
+      "title_zh": "矽品后里設新廠、大立光擴產 臺中工廠投資衝4649億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a34f5253f5af774f",
+      "title": "台積電CoWoS拚22萬片！日月光等OSAT同步擴軍法人再上修EPS目標價：明年再撒800億美元- 上市櫃",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zUzBfTkJOUmxyenlESEt2YU1QY1NzWGRNYzRnbUxfUFp1aDV6emdCbmVvRUlQcy0yMWdEZkZ5WkoyeXpDMnpTdjVMcEVQT0k0LWlxZkFKWDBwVVllR2JadDhia0V5UkdsUGc?oc=5",
+      "source": "旺得富理財網",
+      "published": "2026-10-07T23:08:44+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.08,
+      "summary": "台積電CoWoS產能目標拚22萬片，日月光等OSAT同步擴產，法人預估明年資本支出再增。先進封裝全面擴軍，是封裝端PVD與靶材需求的主要成長動能。",
+      "importance": 5,
+      "title_zh": "臺積電CoWoS拚22萬片！日月光等OSAT同步擴軍法人再上修EPS目標價：明年再撒800億美元- 上市櫃",
+      "snippet_zh": ""
+    },
+    {
+      "id": "124c92bec41731e8",
+      "title": "頎邦(6147)8月營收連兩月創歷史新高，毛利率從15%谷底回升至30%、矽光子金凸塊接棒",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBjeUp1WnFmejhtdVkySjFNRFI3QjRpTXJUZ3l2WTd0bk9qTVVWSXlwSmIyRk1xQVZmZ0dnSnd5RmhxUVA4TDNmUXdpd21XQTQ?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-10-08T02:00:07+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "頎邦 (Chipbond)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.1,
+      "summary": "頎邦8月營收連兩月創新高，毛利率由15%回升至30%，矽光子金凸塊接棒成長。金凸塊需求增加可能帶動金及UBM相關靶材用量。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f5f2ef85ae801afe",
+      "title": "有研新材：截至2026年9月30日，公司股东户数为333598_公司新闻",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5RLVZsWnpxRUUyRHBiQzdjVDRzMHRRbDc2blFlYzQwMmYtTlRybUpuLXVOYkdGOEZHeDZsSFVzeTNKR1NJYm0xQ2U2WE9yenhTcC1kVlZGWFhoY0w4OUVxOA?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T08:01:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "靶材廠有研新材公告截至2026年9月30日股東戶數為333598戶。屬例行資訊，對靶材供需影響有限。",
+      "importance": 1,
+      "title_zh": "有研新材：截至2026年9月30日，公司股東戶數為333598_公司新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6ceeef680826e10d",
+      "title": "长电科技：当前国内市场对AI的投入已显著超出原有预期，先进封装需求随之超预期增长",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPS2JqX05oNk10TnhNM2UybGQ4Wlp2Nk96WWdCUlNFWDVpOVN1S2ZzV0dZei1sRVdZX0JXOF9hV1dnSHd1Zlk5VExVcWVINzNiNVZpSDVpUmpWSmZqTnJ1NG1GLUt0WkJzQUtvcjNJR1VySDlHeHZMRDFlSEhIbVFrclZMdjU4TzZSTlhndA?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-13T06:13:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.84,
+      "summary": "長電科技表示中國國內AI投入顯著超出預期，先進封裝需求隨之超預期成長。中國先進封裝需求升溫，有利當地PVD與靶材供應鏈。",
+      "importance": 3,
+      "title_zh": "長電科技：當前國內市場對AI的投入已顯著超出原有預期，先進封裝需求隨之超預期增長",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3afae14e3d39d0d0",
+      "title": "长电科技：上半年资本开支47亿元，同比增长接近80%，高端先进封装占比超过一半",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE52RXJGeDBTY1ByZ201anZIOEVlXzZDQTB2UThvdTZQTUh4alZHc2ZJcjRZNHFqZnJPWmQyeFYwSmttRHdJaXpQX2dHVW9JNnNINVR2SlV3?oc=5",
+      "source": "搜狐网",
+      "published": "2026-10-13T06:03:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.84,
+      "summary": "長電科技上半年資本支出47億元，年增近80%，其中高端先進封裝占比超過一半。資本支出大增顯示封裝端PVD設備與靶材需求同步攀升。",
+      "importance": 4,
+      "title_zh": "長電科技：上半年資本開支47億元，同比增長接近80%，高端先進封裝佔比超過一半",
+      "snippet_zh": ""
+    },
+    {
+      "id": "40b7a1d08a5528c0",
+      "title": "HBM的先进封装方案中，公司目前自主完成的核心封装工序主要有哪些？通富微电回应",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE81bFlyUEVhZWhUVnRPbkVXR3ZLTEJaRXRNcU1uNXJmekVBY1Zwa1J5NDVSRW5BbjJwWmFOQ3pKS19wY2JwVnprdV9jTmcwcGo2LUhwMFJR?oc=5",
+      "source": "搜狐网",
+      "published": "2026-10-08T01:21:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "通富微電 (TFME)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "產業動態"
+      ],
+      "score": 2.1,
+      "summary": "通富微電回應投資人提問，說明其在HBM先進封裝方案中自主完成的核心工序。顯示中國封測廠切入HBM封裝，未來可能增加相關PVD需求。",
+      "importance": 2,
+      "title_zh": "HBM的先進封裝方案中，公司目前自主完成的核心封裝工序主要有哪些？通富微電回應",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5db949629bccbe58",
+      "title": "精材 2025 年資本支出將從 15 億跳到 35 億，這個... - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBSYnBDUE9tMmpxTmROVk5YXzNJTGl0QmJWeFh4bkc4SWlqRmc4Zi1hNzNrUURETXBVd1VLOF9uMHJJTmI2a2dOd3VhTmh5T3h5aFlfa1EzQ0JqQ1FTd1dPSHBPTzV0bkFEaXFhd2EwNUM5b0pfTld0V0dodw?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-07T14:15:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "精材 (XinTec)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.03,
+      "summary": "股市社群討論精材2025年資本支出將由15億元提升至35億元。擴大投資有利晶圓級封裝PVD與靶材採購，但屬論壇資訊，可信度需再確認。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "8d8088fc0fe5889b",
       "title": "記憶體價格第4季續漲…韓國三星、SK海力士擴產加速",
@@ -37,7 +412,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.98,
-      "summary": "記憶體價格第4季續漲,三星與SK海力士加速擴產。記憶體擴產直接帶動PVD機台與鎢、鈦、銅等靶材需求。",
+      "summary": "記憶體價格第四季續漲，三星、SK海力士加速擴產。記憶體擴產將帶動PVD機台與鎢、鈦、銅等靶材需求。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -59,8 +434,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.82,
-      "summary": "AI需求帶動記憶體擴產,美光、南亞科加速布局。DRAM擴產將增加PVD機台與靶材需求,供應商可積極爭取新廠訂單。",
-      "importance": 4,
+      "summary": "AI需求帶動記憶體擴產，美光、南亞科加速布局。記憶體廠擴產有利濺鍍設備與靶材出貨。",
+      "importance": 3,
       "title_zh": "AI需求帶動記憶體擴產 美光、南亞科佈局加速",
       "snippet_zh": ""
     },
@@ -82,7 +457,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.81,
-      "summary": "台積電與格芯簽訂20億美元長約,合作在美國擴充CoWoS先進封裝相關產能。美國封裝產能擴大將帶動在地靶材供應鏈需求。",
+      "summary": "台積電與格芯簽訂20億美元長約，合作在美國擴充CoWoS相關產能。美國先進封裝產能建置將帶動當地PVD設備與靶材需求，在地供應能力值得關注。",
       "importance": 4,
       "title_zh": "臺積電20億美元長約結盟格芯！CoWoS先進封裝加速美國擴產？昔日宿敵變盟友！｜#財經新聞｜20261009(五)",
       "snippet_zh": ""
@@ -100,12 +475,13 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "併購與合作",
         "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 5.73,
-      "summary": "股市社群討論格羅方德與台積電簽20億美元協議在美擴產關鍵元件,並連結合晶等矽晶圓族群。屬市場討論性質,對靶材影響與主新聞相同。",
-      "importance": 2,
+      "summary": "股市社群轉述格芯與台積電簽20億美元協議，在美擴產CoWoS關鍵元件。與其他報導為同一事件，顯示美國先進封裝供應鏈逐步成形。",
+      "importance": 3,
       "title_zh": "6182 合晶- 臺積電找來新幫手！格羅方德簽20億美元協議在美擴產關鍵元件- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -122,12 +498,13 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "併購與合作",
         "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 5.67,
-      "summary": "股市社群轉述台積電CoWoS找格芯為幫手、簽20億美元協議在美擴產中介層。內容與主新聞重複,屬市場討論。",
-      "importance": 2,
+      "summary": "格芯簽下20億美元協議，協助台積電在美擴產CoWoS關鍵元件(矽中介層)。中介層產能擴充將增加相關PVD製程與靶材需求。",
+      "importance": 3,
       "title_zh": "2330 臺積電 - 臺積電CoWoS找來新幫手！格芯簽20億美元協議在美擴產關鍵元件- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -144,11 +521,12 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "併購與合作",
         "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 5.67,
-      "summary": "鉅亨網報導格芯與台積電簽20億美元協議,在美擴產CoWoS關鍵元件矽中介層。美國先進封裝產能擴大,有望增加當地PVD製程與靶材需求。",
+      "summary": "鉅亨網報導格芯與台積電簽20億美元協議，在美擴產CoWoS矽中介層等關鍵元件。美國先進封裝供應鏈擴大，靶材廠可評估美國在地供貨機會。",
       "importance": 4,
       "title_zh": "臺積電CoWoS找來新幫手！格芯簽20億美元協議 在美擴產關鍵元件",
       "snippet_zh": ""
@@ -170,8 +548,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.54,
-      "summary": "世界先進新加坡12吋廠預計22個月內啟用,並借重台積電經驗推動轉型。新12吋廠將帶動PVD機台與靶材採購,為東南亞靶材供應機會。",
-      "importance": 4,
+      "summary": "世界先進新加坡12吋廠預計22個月內啟用，借助台積電經驗轉型。新廠投產將帶來新增PVD設備與靶材需求。",
+      "importance": 3,
       "title_zh": "討論牆 | 世界先進大擴產／世界先進星國12吋廠22個月啟用 臺積電DNA助脫胎換骨",
       "snippet_zh": ""
     },
@@ -192,7 +570,7 @@
         "擴產與投資"
       ],
       "score": 5.51,
-      "summary": "報導台積電將矽中介層訂單交給世界先進,藉此擴充先進封裝供應並布局策略。世界先進承接中介層將增加其銅、鈦等濺鍍靶材需求。",
+      "summary": "台積電將矽中介層訂單交給世界先進，藉此擴大CoWoS供應鏈。中介層產能分散至更多晶圓廠，靶材業者可拓展新客戶。",
       "importance": 4,
       "title_zh": "世界先進大擴產1／餵世界先進矽中介層大單 揭臺積電一石二鳥佈局盤算 | 鏡週刊",
       "snippet_zh": ""
@@ -213,7 +591,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.5,
-      "summary": "SK海力士HBM4擴產節奏低於預期,後道設備訂單傳延至2027年。擴產遞延恐使相關設備與材料拉貨時程延後,靶材業者需注意需求波動。",
+      "summary": "SK海力士HBM4後段設備訂單傳延至2027年，擴產節奏低於預期，輝達供應鏈出現變數。HBM相關PVD與封裝靶材短期需求可能遞延。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -234,7 +612,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.47,
-      "summary": "傳SK海力士HBM4的2026年設備訂單遞延,2027年投資計畫亦未明朗。若資本支出放緩,PVD機台與靶材需求成長可能低於預期。",
+      "summary": "DIGITIMES報導SK海力士2026年HBM4設備訂單遞延，2027年投資計畫尚未明朗。記憶體端靶材需求能見度下降，需留意拉貨節奏調整。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -255,7 +633,7 @@
         "擴產與投資"
       ],
       "score": 5.47,
-      "summary": "崇越瞄準美光擴產商機,評估在美國愛達荷州增設服務據點。顯示台灣材料通路商隨客戶赴美布局,靶材在地供應與服務競爭將升溫。",
+      "summary": "崇越瞄準美光擴產商機，評估在愛達荷州增設服務據點。顯示台灣材料通路商跟隨客戶赴美布局，靶材業者在美供應競爭將升溫。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -277,8 +655,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.46,
-      "summary": "台積電與格羅方德合作,使格羅方德成為美國首座具備矽中介層量產能力的晶圓廠。美國中介層製程建立,將帶動當地濺鍍製程與靶材驗證需求。",
-      "importance": 4,
+      "summary": "格芯與台積電合作後，將成為全美首座具備矽中介層量產能力的晶圓廠。美國中介層產能成形，帶動當地PVD與靶材新需求。",
+      "importance": 3,
       "title_zh": "臺積電攜手昔日競爭對手 格羅方德因此成為全美第一座具備量產土矽中介層能力晶圓廠",
       "snippet_zh": ""
     },
@@ -294,11 +672,11 @@
         "南亞科 (Nanya Technology)"
       ],
       "categories": [
-        "營收與財報",
-        "擴產與投資"
+        "擴產與投資",
+        "營收與財報"
       ],
       "score": 5.35,
-      "summary": "南亞科法說會指出上季獲利逾兩個股本、毛利率85.7%且尚未見頂,並將在屏東興建3D封測新廠。獲利強勁支撐擴產,有利PVD機台與靶材需求。",
+      "summary": "南亞科第三季獲利超過2個股本，毛利率85.7%，並將於屏東興建3D封測新廠。記憶體廠跨足3D封裝，將新增PVD設備與靶材需求。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -319,7 +697,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.3,
-      "summary": "DRAM缺貨下,客戶催促南亞科建置屏東新廠並發展3D封裝。新廠將帶動前段與封裝段的濺鍍材料需求。",
+      "summary": "DRAM搶貨下客戶催促南亞科興建屏東新廠，加速投入3D封裝。顯示記憶體需求強勁，帶動前後段PVD與靶材採購。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -340,7 +718,7 @@
         "營收與財報"
       ],
       "score": 5.25,
-      "summary": "南亞科第3季EPS 25.4元、毛利率85.7%,屏東新廠將投入100億美元擴產AI記憶體。大規模資本支出將明顯拉動PVD設備與靶材採購。",
+      "summary": "南亞科第三季EPS 25.4元、毛利率85.7%，屏東新廠以100億美元擴產AI記憶體。大型新廠投資將帶來可觀的PVD機台與靶材需求。",
       "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
@@ -361,7 +739,7 @@
         "擴產與投資"
       ],
       "score": 5.09,
-      "summary": "南亞科屏東新廠將導入3D IC封測技術。3D封裝需要TSV與混合鍵合等金屬化製程,將增加銅、鈦等靶材的應用機會。",
+      "summary": "南亞科屏東新廠將導入3D IC封測技術。新製程涉及TSV、凸塊等PVD步驟，有利相關靶材需求。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -382,7 +760,7 @@
         "併購與合作"
       ],
       "score": 5.01,
-      "summary": "投資文章討論華邦電擴產與資源整合,以及股價走勢。華邦電擴產可能帶來記憶體相關靶材需求,但本文以投資觀點為主。",
+      "summary": "股市社群討論華邦電擴產與資源整合對股價的影響。記憶體擴產對靶材需求有正面意義，但內容偏投資觀點。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -403,7 +781,7 @@
         "客戶與供應鏈"
       ],
       "score": 4.88,
-      "summary": "Seeking Alpha預覽台積電財報,看好高成長但提醒資本支出偏高,並調降評等。台積電資本支出規模為PVD機台與靶材需求的重要指標。",
+      "summary": "Seeking Alpha預期台積電財報高成長，但提醒資本支出過高的風險並調降評等。台積電資本支出規模直接關係靶材需求，市場對其持續性存在疑慮。",
       "importance": 3,
       "title_zh": "TSMC 財報前瞻:可望高成長,但須留意資本支出(調降評等)(NYSE:TSM)",
       "snippet_zh": ""
@@ -424,8 +802,8 @@
         "原物料與價格"
       ],
       "score": 4.8,
-      "summary": "文章分析東芝擴產能否壓低硬碟價格,以及對威騰、希捷與鎧俠的影響。硬碟碟片製造大量使用濺鍍製程,擴產可能增加磁記錄相關靶材需求。",
-      "importance": 3,
+      "summary": "分析東芝擴產能否壓低硬碟價格，以及對威騰、希捷與鎧俠的影響。硬碟磁記錄層採濺鍍製程，擴產可能帶動磁性靶材需求。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -445,8 +823,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.77,
-      "summary": "報導台積電投入639億擴充CoWoS產能,美國晶圓代工廠承接5年大單,2028年產量將再提升。先進封裝擴產可望帶動封裝段PVD與靶材需求。",
-      "importance": 4,
+      "summary": "台積電投入639億元擴充CoWoS產能，美國晶圓代工廠承接5年大單，2028年產量再提升。先進封裝長期擴產明確，有利PVD與靶材需求。",
+      "importance": 5,
       "title_zh": "臺積電砸639億擴充CoWoS產能！「美晶圓代工廠」接5年大單 2028年產量再提升",
       "snippet_zh": ""
     },
@@ -466,7 +844,7 @@
         "擴產與投資"
       ],
       "score": 4.51,
-      "summary": "AMD執行長蘇姿丰訪韓,喊話三星與SK海力士擴產以確保供貨。大客戶施壓有助推動記憶體擴產,間接帶動靶材需求。",
+      "summary": "AMD執行長蘇姿丰訪韓確保供應，並喊話三星、SK海力士擴產。客戶端施壓有助記憶體擴產，間接帶動靶材需求。",
       "importance": 3,
       "title_zh": "蘇姿豐訪韓拚固樁喊話三星.SK海力士擴產| 科技",
       "snippet_zh": ""
@@ -486,7 +864,7 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "格羅方德擴建德國廠布局實體AI,2028年底12吋晶圓年產能將逾百萬片。歐洲產能擴張將帶動當地PVD機台與靶材需求。",
+      "summary": "格芯擴建德國廠布局實體AI，2028年底12吋晶圓年產能將超過百萬片。歐洲晶圓產能增加，帶動當地PVD設備與靶材需求。",
       "importance": 4,
       "title_zh": "格羅方德德國廠擴建佈局實體AI 2028年底12吋晶圓年產能逾百萬片",
       "snippet_zh": ""
@@ -506,7 +884,7 @@
         "擴產與投資"
       ],
       "score": 4.21,
-      "summary": "南亞科總經理李培瑛說明新廠改設屏東而非雲林的原因。選址確定有助靶材供應商規劃在地服務與供貨。",
+      "summary": "南亞科總經理說明新廠選址由雲林改為屏東的原因。屬選址細節，對靶材需求的增量已反映在其他擴產報導中。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -526,7 +904,7 @@
         "擴產與投資"
       ],
       "score": 4.21,
-      "summary": "南亞科擴大資本支出,未來月產能規劃達5萬片。產能大增將直接提升PVD機台與靶材採購量。",
+      "summary": "南亞科擴大資本支出，未來月產能將達5萬片。DRAM產能擴增將推升PVD機台與靶材用量。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -546,7 +924,7 @@
         "擴產與投資"
       ],
       "score": 4.18,
-      "summary": "格芯斥資11億歐元擴建德國晶圓廠,年產能將超過100萬片。歐洲晶圓產能擴張有利PVD設備與靶材在當地的銷售。",
+      "summary": "格芯斥資11億歐元擴建德國德勒斯登晶圓廠，年產能將超過100萬片。歐洲擴產對濺鍍設備與靶材需求有正面帶動。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -567,7 +945,7 @@
         "技術與新產品"
       ],
       "score": 3.92,
-      "summary": "陸行之評論馬斯克排除由台積電主導興建晶圓廠,認為雙方技術移轉談判破局。新建晶圓廠計畫尚不明朗,對靶材需求影響有限。",
+      "summary": "陸行之指出馬斯克排除由台積電主導建廠，雙方技術移轉談判破局。若馬斯克自建晶圓廠，長期可能出現新的PVD與靶材客戶，但目前不確定性高。",
       "importance": 2,
       "title_zh": "馬斯克排除臺積電主導蓋晶圓廠 陸行之：老馬期待神山技術移轉 但談崩了！",
       "snippet_zh": ""
@@ -588,8 +966,8 @@
         "擴產與投資"
       ],
       "score": 3.86,
-      "summary": "格羅方德德勒斯登晶圓廠擴建工程封頂,並發表FDX Fusion技術平台。新產能與FD-SOI新製程將帶來PVD製程與靶材的認證機會。",
-      "importance": 4,
+      "summary": "格芯德勒斯登廠擴建完成上樑，並發表FDX Fusion技術平台。新製程平台與擴產將帶動薄膜沉積需求。",
+      "importance": 3,
       "title_zh": "GlobalFoundries 德勒斯登晶圓廠擴建工程上樑,並發表 FDX Fusion",
       "snippet_zh": ""
     },
@@ -609,7 +987,7 @@
         "技術與新產品"
       ],
       "score": 3.85,
-      "summary": "美光股價回檔,主因市場質疑AI資本支出能否持續。若AI投資放緩,記憶體擴產與靶材需求可能受影響。",
+      "summary": "美光股價回檔，主因市場爭論AI資本支出能否持續。若AI投資降溫，可能影響記憶體擴產與靶材需求展望。",
       "importance": 2,
       "title_zh": "Micron Technology(MU):AI 資本支出可持續性之爭引發股價回檔",
       "snippet_zh": ""
@@ -629,8 +1007,8 @@
         "擴產與投資"
       ],
       "score": 3.71,
-      "summary": "世界先進董事長揭示暫緩矽光子、改拚邊緣AI的擴產策略。產品方向調整將影響其製程與靶材的需求組合。",
-      "importance": 3,
+      "summary": "世界先進董事長說明暫緩矽光子、轉攻邊緣AI的策略。製程方向調整可能影響其未來PVD與靶材需求的結構。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -649,7 +1027,7 @@
         "擴產與投資"
       ],
       "score": 3.64,
-      "summary": "聯電擬發行18億美元可轉債,資本支出升至20億美元,投資重心轉向矽光子與12奈米。資本支出提高可望增加PVD機台與靶材採購。",
+      "summary": "聯電擬發行18億美元可轉債，資本支出提高至20億美元，投資重心轉向矽光子與12奈米。資本支出上修有利PVD設備與靶材採購。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -666,10 +1044,11 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.2,
-      "summary": "Benzinga分析指出,台積電640億美元的資本支出可能仍不足以滿足需求。顯示晶圓代工擴產動能強,有利PVD設備與靶材長期需求。",
+      "summary": "Benzinga認為台積電640億美元的資本支出仍可能不足以滿足需求。顯示晶圓廠擴產需求強勁，靶材需求長期看好。",
       "importance": 3,
       "title_zh": "為何 TSMC 640 億美元的資本支出可能仍不夠 - 臺積電(NYSE:TSM)",
       "snippet_zh": ""
@@ -689,7 +1068,7 @@
         "客戶與供應鏈"
       ],
       "score": 3.02,
-      "summary": "美光台灣桃園工會因分潤制度爭議取得罷工權,不排除突擊式罷工,市調認為晶圓廠良率恐下降。若罷工成真,可能短期影響美光台灣廠運作與材料拉貨。",
+      "summary": "美光台灣桃園工會因分潤爭議取得罷工權，不排除突擊式罷工，市調認為可能影響良率。若發生罷工，短期可能干擾美光台灣廠生產與材料拉貨。",
       "importance": 3,
       "title_zh": "美光分潤制度不透明？臺灣桃園工會宣佈：拿到罷工權！不排除突擊式罷工！市調：晶圓廠良率恐下降！美光聲明：持續溝通｜#財經新聞│20261007(三)",
       "snippet_zh": ""
@@ -710,8 +1089,8 @@
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "華夏科創板半導體材料設備ETF調整申贖清單,增持中國靶材廠歐萊新材。顯示資本市場關注中國本土靶材業者,在地化競爭力持續受到重視。",
-      "importance": 2,
+      "summary": "華夏科創板半導體材料設備ETF調整申贖清單,增持歐萊新材(靶材廠)居前、減持恆坤新材居前,反映資金對國產靶材題材的關注。",
+      "importance": 1,
       "title_zh": "華夏上證科創板半導體材料設備主題ETF（588170）2026年10月14日申贖清單調整：歐萊新材增持居前，恆坤新材減持居前",
       "snippet_zh": ""
     },
@@ -731,7 +1110,7 @@
         "產業動態"
       ],
       "score": 2.61,
-      "summary": "格羅方德砸11億歐元擴建德國晶圓廠,布局物理AI,預計2028年啟動生產。歐洲最大晶圓廠擴產將增加當地濺鍍材料需求。",
+      "summary": "格羅方德(GlobalFoundries)將投入11億歐元擴建德國晶圓廠,預計2028年啟動生產;新增產能可望帶動歐洲PVD機台與靶材需求。",
       "importance": 4,
       "title_zh": "歐洲最大晶圓廠佈局物理AI！格羅方德砸11億歐元擴建德國晶圓廠、2028年啟動生產",
       "snippet_zh": ""
@@ -752,7 +1131,7 @@
         "產業動態"
       ],
       "score": 2.06,
-      "summary": "特斯拉與台積電合作建晶圓廠的計畫傳出變數,市場認為聯電可能受惠,ADR早盤上漲。若晶圓代工訂單或建廠計畫轉向,將影響後續PVD機台與靶材需求的分布。",
+      "summary": "特斯拉與台積電合作建晶圓廠的計畫傳出變數,聯電被視為潛在受惠者,ADR早盤上漲;後續晶圓代工產能布局可能影響靶材客戶結構。",
       "importance": 3,
       "title_zh": "特斯拉攜臺積蓋晶圓廠生變 聯電意外沾光！ADR早盤上漲",
       "snippet_zh": ""
@@ -772,7 +1151,7 @@
         "營收與財報"
       ],
       "score": 3.94,
-      "summary": "日本投資評論文章剖析JX金屬的核心營業利益與股價風險,屬股價分析性質,未提供新的營運資訊。",
+      "summary": "日文投資分析文章檢視JX金屬股價大漲後的實質營業利益,屬個股評論,對靶材供需無直接影響。",
       "importance": 1,
       "title_zh": "股價10倍的盲點?徹底剖析JX金屬的核心營業利益 Jack Shepherd (8iRo38PJm7)",
       "snippet_zh": ""
@@ -793,7 +1172,7 @@
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "GuruFocus刊出濺鍍設備商Singulus Technologies的週期調整本益比等估值數據,屬財務指標整理,與設備訂單無直接關聯。",
+      "summary": "濺鍍設備商Singulus Technologies的估值指標(週期調整本益比)資訊頁,未見實質營運消息。",
       "importance": 1,
       "title_zh": "Singulus Technologies AG (CEUX:SNGD) 週期調整本益比",
       "snippet_zh": ""
@@ -814,7 +1193,7 @@
         "產業動態"
       ],
       "score": 2.29,
-      "summary": "JX金屬集團在京都擴充AI資料中心用漏水檢測系統產能,屬靶材以外的業務擴張,但反映集團搶攻AI相關需求。",
+      "summary": "JX金屬集團在京都擴增AI資料中心用漏水偵測系統產能,屬非靶材事業,但顯示其積極搭上AI需求。",
       "importance": 2,
       "title_zh": "JX金屬集團於京都擴充AI資料中心用漏水偵測系統產能",
       "snippet_zh": ""
@@ -835,7 +1214,7 @@
         "產業動態"
       ],
       "score": 2.07,
-      "summary": "IndexBox發布全球濺鍍設備陰極市場至2035年的規模與趨勢預測報告,可作為濺鍍設備零組件市場的參考資料。",
+      "summary": "IndexBox發布全球濺鍍設備陰極市場至2035年的規模與趨勢預測報告,可作為濺鍍設備零組件市場的參考。",
       "importance": 2,
       "title_zh": "全球濺射設備陰極市場：規模、趨勢及至2035年的預測",
       "snippet_zh": ""
@@ -856,7 +1235,7 @@
         "產業動態"
       ],
       "score": 2.01,
-      "summary": "股民論壇討論外資是否全面撤出光洋科,屬籌碼面議論,與靶材營運基本面關聯有限。",
+      "summary": "CMoney社群討論光洋科是否遭外資全面出脫持股,屬籌碼面議題,與靶材營運關聯有限。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -876,7 +1255,7 @@
         "擴產與投資"
       ],
       "score": 3.79,
-      "summary": "日經報導JX金屬集團因AI需求,增產資料中心漏水檢測系統,屬非靶材業務擴產。",
+      "summary": "日經報導JX金屬旗下因應AI需求增產資料中心漏水偵測系統,與靶材本業關聯薄弱。",
       "importance": 2,
       "title_zh": "JX金屬集團因應AI需求，增產資料中心漏水偵測系統",
       "snippet_zh": ""
@@ -897,7 +1276,7 @@
         "擴產與投資"
       ],
       "score": 3.72,
-      "summary": "投資評論文章探討JX金屬的投資策略,並比較鎧俠的關注重點,屬個股評論,無新的營運資訊。",
+      "summary": "日文投資文章討論JX金屬的投資策略及鎧俠(Kioxia)的看點,鎧俠為記憶體廠、屬靶材終端客戶,但內容偏股市評論。",
       "importance": 1,
       "title_zh": "JX金屬(5016)的投資策略，Kioxia HD(285A)的關注重點果然是這個 Regina Hall (svkBfvVOBG)",
       "snippet_zh": ""
@@ -918,8 +1297,8 @@
         "原物料與價格"
       ],
       "score": 3.14,
-      "summary": "評論文章指出JX金屬股價由5800日圓急跌至4100日圓,並試算合理股價。股價波動反映市場對其半導體材料前景的評價,但未涉及實際營運變化。",
-      "importance": 2,
+      "summary": "文章指JX金屬股價自5800日圓急跌至4100日圓,並試算合理價格,屬股價評論,未涉及靶材營運變化。",
+      "importance": 1,
       "title_zh": "【緊急】JX金屬（5016）股價從5800日圓急跌至4100日圓。試算合理價格是多少。 Sienna Miller (IiJFveNy2T)",
       "snippet_zh": ""
     },
@@ -938,7 +1317,7 @@
         "營收與財報"
       ],
       "score": 3.14,
-      "summary": "光洋科9月營收50.78億元,年增49.91%,成長強勁。可能反映貴金屬價格上揚與靶材出貨增加。",
+      "summary": "光洋科9月營收50.78億元,年增49.91%,顯示靶材與貴金屬相關業務動能強勁。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -958,7 +1337,7 @@
         "營收與財報"
       ],
       "score": 3.14,
-      "summary": "光洋科9月營收50億7755萬元,月增12.43%、年增49.91%,營運動能延續,顯示靶材與貴金屬相關業務需求暢旺。",
+      "summary": "光洋科9月營收50億7755萬元,月增12.43%、年增49.91%,營收持續成長,反映靶材需求與金屬價格支撐。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -979,7 +1358,7 @@
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "有研新材10月14日盤中觸及跌停,反映市場對其三季報的負面反應,屬股價異動。",
+      "summary": "有研新材10月14日盤中觸及跌停,延續三季報公布後的股價弱勢。",
       "importance": 2,
       "title_zh": "異動快報：有研新材（600206）10月14日14點34分觸及跌停板",
       "snippet_zh": ""
@@ -1000,7 +1379,7 @@
         "產業動態"
       ],
       "score": 2.84,
-      "summary": "有研新材2026年三季報顯示靶材主業高速成長,凸顯中國本土半導體靶材供應商持續擴大市占,對國際靶材廠形成競爭壓力。",
+      "summary": "有研新材2026年三季報顯示靶材主業高速成長,凸顯中國本土半導體靶材替代進口的趨勢持續。",
       "importance": 4,
       "title_zh": "有研新材2026年三季報：靶材主業高速增長_行業新聞",
       "snippet_zh": ""
@@ -1021,7 +1400,7 @@
         "產業動態"
       ],
       "score": 2.76,
-      "summary": "Yahoo Finance整理Materion的股價預測資訊,屬分析師預估彙整,無新的營運消息。",
+      "summary": "Yahoo財經彙整Materion股價預測,屬一般性投資資訊頁面。",
       "importance": 1,
       "title_zh": "Materion Corporation (MTRN) 股價預測",
       "snippet_zh": ""
@@ -1041,7 +1420,7 @@
         "原物料與價格"
       ],
       "score": 2.44,
-      "summary": "IndexBox發布全球鉬濺鍍靶材市場至2035年的規模與趨勢預測報告,可作為顯示器與半導體用鉬靶市場的參考。",
+      "summary": "IndexBox發布全球鉬濺鍍靶材市場至2035年的規模與趨勢預測,可作為顯示器與半導體鉬靶需求的參考。",
       "importance": 2,
       "title_zh": "全球鉬濺鍍靶材市場：規模、趨勢及至2035年的預測",
       "snippet_zh": ""
@@ -1062,7 +1441,7 @@
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "JX金屬宣布進軍日本國內稀土精煉事業,將與Tronox共同進行事業化調查,有助強化關鍵金屬原料布局與供應鏈韌性。",
+      "summary": "JX金屬將跨足日本國內稀土精煉事業,與Tronox共同進行事業化可行性調查,有助強化其關鍵原料供應布局。",
       "importance": 3,
       "title_zh": "JX金屬進軍日本國內稀土精煉事業，與Tronox共同進行事業化可行性調查",
       "snippet_zh": ""
@@ -1083,7 +1462,7 @@
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "光洋科當沖交易熱絡,股價強攻漲停,可能與9月營收大幅成長有關。",
+      "summary": "光洋科當沖交易熱絡、股價攻上漲停,市場對其營收成長反應正面。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -1104,7 +1483,7 @@
         "產業動態"
       ],
       "score": 2.33,
-      "summary": "江豐電子實控人姚力軍質押145萬股,累計質押比例達24.79%,屬股權面消息,對靶材營運影響有限。",
+      "summary": "江豐電子實控人姚力軍再質押145萬股,累計質押比例達24.79%,屬股權面消息,對靶材營運影響有限。",
       "importance": 2,
       "title_zh": "江豐電子實控人姚力軍質押145萬股 累計質押佔比24.79%",
       "snippet_zh": ""
@@ -1125,8 +1504,8 @@
         "產業動態"
       ],
       "score": 2.32,
-      "summary": "阿石創公告獲得政府補助2000萬元人民幣,反映中國持續以政策資金扶植本土靶材廠。",
-      "importance": 3,
+      "summary": "阿石創獲得政府補助2000萬元,有助挹注靶材研發與營運資金。",
+      "importance": 2,
       "title_zh": "阿石創(300706.SZ)：獲得政府補助2000萬元",
       "snippet_zh": ""
     },
@@ -1146,8 +1525,8 @@
         "產業動態"
       ],
       "score": 2.32,
-      "summary": "阿石創公告獲得政府補助,顯示中國本土靶材業者持續獲得政策支持。",
-      "importance": 3,
+      "summary": "阿石創公告獲得政府補助,反映中國政府持續扶植本土靶材廠。",
+      "importance": 2,
       "title_zh": "阿石創(300706):獲得政府補助",
       "snippet_zh": ""
     },
@@ -1167,8 +1546,8 @@
         "產業動態"
       ],
       "score": 2.31,
-      "summary": "阿石創取得2000萬元人民幣國家項目專項資金,有助其靶材研發與產能布局,強化中國本土供應鏈競爭力。",
-      "importance": 3,
+      "summary": "阿石創獲得2000萬元國家專案專項資金,顯示其靶材相關項目受國家政策支持,可能加速國產替代。",
+      "importance": 2,
       "title_zh": "阿石創：獲得2000萬元國家項目專項資金",
       "snippet_zh": ""
     },
@@ -1188,7 +1567,7 @@
         "產業動態"
       ],
       "score": 2.29,
-      "summary": "TECH+報導JX金屬集團在京都擴充AI資料中心用漏水檢測系統產能,屬靶材以外的業務擴張。",
+      "summary": "TECH+報導JX金屬集團在京都擴充AI資料中心漏水偵測系統產能,屬非靶材業務擴張。",
       "importance": 2,
       "title_zh": "JX金屬集團於京都擴增AI資料中心用漏水偵測系統產能 | TECH+（テックプラス）",
       "snippet_zh": ""
@@ -1209,7 +1588,7 @@
         "產業動態"
       ],
       "score": 2.28,
-      "summary": "みんかぶ刊出古屋金屬的股價預測與AI診斷,屬投資資訊,無新的營運消息。",
+      "summary": "みんかぶ提供古屋金屬(Furuya Metal)股價預測與AI診斷,屬一般投資資訊。",
       "importance": 1,
       "title_zh": "Furuya Metal (7826)：未來預測・買賣預測・AI股價診斷 [FURUYA METAL]",
       "snippet_zh": ""
@@ -1230,7 +1609,7 @@
         "產業動態"
       ],
       "score": 2.28,
-      "summary": "電子デバイス産業新聞專訪JX金屬常務執行役員兼先端材料事業本部長諏訪邉武史,可能涉及靶材等先端材料策略,值得留意其事業方向。",
+      "summary": "電子裝置產業新聞專訪JX金屬常務執行役員暨先端材料事業本部長諏訪邉武史,可能涉及靶材等先端材料策略。",
       "importance": 3,
       "title_zh": "JX金屬（股） 常務執行董事 先進材料事業本部長 諏訪邉武史先生 | 電子裝置產業新聞（原半導體產業新聞）",
       "snippet_zh": ""
@@ -1251,8 +1630,8 @@
         "產業動態"
       ],
       "score": 2.25,
-      "summary": "阿石創獲政府補助2000萬元人民幣,中國本土靶材廠持續取得政策資金支持。",
-      "importance": 3,
+      "summary": "東方財富報導阿石創獲得政府補助2000萬元,屬政策支持訊息。",
+      "importance": 2,
       "title_zh": "阿石創：獲得政府補助2000萬元",
       "snippet_zh": ""
     },
@@ -1272,7 +1651,7 @@
         "產業動態"
       ],
       "score": 2.25,
-      "summary": "古屋金屬提交公司治理報告書,屬例行揭露,與靶材營運關聯低。",
+      "summary": "古屋金屬提出公司治理報告書,屬例行揭露。",
       "importance": 1,
       "title_zh": "Furuya Metal[7826]：公司治理報告書 2026/10/09 2026年10月9日（即時揭露）：日經公司資訊DIGITAL",
       "snippet_zh": ""
@@ -1293,7 +1672,7 @@
         "產業動態"
       ],
       "score": 2.2,
-      "summary": "評論文章分析JX金屬近三週股價走弱、成交量萎縮的原因,屬技術面評論。",
+      "summary": "日文技術分析文章討論JX金屬近三週股價連續收黑、量縮的原因,屬股價評論。",
       "importance": 1,
       "title_zh": "JX金屬日K線走弱的原因？近3週幾乎都是黑K，成交量減少。未來能否回升？ Susan Sarandon (yrD1Ms0MMK)",
       "snippet_zh": ""
@@ -1314,7 +1693,7 @@
         "產業動態"
       ],
       "score": 2.2,
-      "summary": "Zacks調降Materion評等,其股價下跌2.93%,反映市場對這家美系靶材與先進材料廠的預期轉趨保守。",
+      "summary": "Zacks調降Materion評等,其股價下跌2.93%,反映市場對其前景看法轉趨保守。",
       "importance": 2,
       "title_zh": "Zacks下調Materion評等，Materion股價下跌2.93%",
       "snippet_zh": ""
@@ -1335,7 +1714,7 @@
         "產業動態"
       ],
       "score": 2.13,
-      "summary": "日經平均指數後場開盤下跌512點,Panasonic HD、JX金屬等個股走跌,屬大盤行情消息。",
+      "summary": "日經平均後場開盤下跌512日圓,Panasonic HD與JX金屬等個股走跌,屬大盤行情。",
       "importance": 1,
       "title_zh": "日經平均指數午盤開盤下跌512日圓，Panasonic HD、JX金屬等走低",
       "snippet_zh": ""
@@ -1356,7 +1735,7 @@
         "產業動態"
       ],
       "score": 2.1,
-      "summary": "Materion股價下跌6.9%,GuruFocus認為其估值仍偏高,屬股價評論。",
+      "summary": "Materion股價下跌6.9%,GuruFocus估值指標仍認為其股價偏高。",
       "importance": 2,
       "title_zh": "Materion Corp (MTRN) 股價下跌6.9%——GF Value指仍高估",
       "snippet_zh": ""
@@ -1377,7 +1756,7 @@
         "產業動態"
       ],
       "score": 2.09,
-      "summary": "自媒體看好太極實業與有研新材可能迎來反轉,屬投資觀點,參考價值有限。",
+      "summary": "自媒體文章看好太極實業與有研新材可能迎來反轉,屬投資觀點,無實質營運資訊。",
       "importance": 1,
       "title_zh": "被市場忽視的半導體雙黑馬！太極實業+有研新材，即將迎來反轉機會？兆易創新列入觀察名單！",
       "snippet_zh": ""
@@ -1398,7 +1777,7 @@
         "產業動態"
       ],
       "score": 2.09,
-      "summary": "自媒體討論有研新材節後的操作策略,屬短線交易評論。",
+      "summary": "節後早評討論有研新材的操作策略,屬短線股市評論。",
       "importance": 1,
       "title_zh": "週四早評：節後迴歸，說下有研新材今天怎麼應對",
       "snippet_zh": ""
@@ -1419,7 +1798,7 @@
         "產業動態"
       ],
       "score": 2.04,
-      "summary": "茨城新聞刊出JX金屬茨城事業所總務部長的人物報導,與靶材業務關聯薄弱。",
+      "summary": "茨城新聞人物專訪JX金屬茨城事業所總務部長,屬地方人物報導,與靶材供需無關。",
       "importance": 1,
       "title_zh": "《調職族，走訪茨城》JX金屬茨城事業所 總務部長 中村真人(なかむらまひと)先生(49歲)",
       "snippet_zh": ""
@@ -1440,7 +1819,7 @@
         "產業動態"
       ],
       "score": 2.0,
-      "summary": "CMoney整理光洋科董監事與內部人持股變化,屬籌碼資訊。",
+      "summary": "光洋科董監事與內部人持股變化資訊,屬籌碼面資料。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -1460,7 +1839,7 @@
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "Simply Wall St指出古屋金屬EPS成長亮眼,具投資吸引力,顯示這家貴金屬靶材廠的獲利表現穩健。",
+      "summary": "Simply Wall St指古屋金屬EPS成長亮眼,具投資吸引力;其貴金屬靶材業務表現或為支撐因素。",
       "importance": 2,
       "title_zh": "若您重視 EPS 成長，Furuya Metal（TSE:7826）提供了一個投資機會",
       "snippet_zh": ""
@@ -1481,7 +1860,7 @@
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "有研新材聚焦靶材業務,第三季獲機構大幅加碼,顯示市場看好中國半導體靶材國產替代題材。",
+      "summary": "有研新材聚焦靶材業務,第三季獲機構大幅加碼持股,顯示市場看好其轉型為靶材主業。",
       "importance": 3,
       "title_zh": "有研新材押注靶材，第三季度獲機構大幅加倉",
       "snippet_zh": ""
@@ -1502,7 +1881,7 @@
         "產業動態"
       ],
       "score": 2.81,
-      "summary": "自媒體發布有研新材等個股的持倉操作策略,屬短線投資評論。",
+      "summary": "自媒體持倉操作策略文章提及有研新材等個股,屬短線投資評論。",
       "importance": 1,
       "title_zh": "10.13持倉操作策略：有研新材，昭衍新藥，徵和工業",
       "snippet_zh": ""
@@ -1523,8 +1902,8 @@
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "市調報告發布低氧超高純鈦(4N5、5N)2026-2032年全球市場分析,這類高純鈦是半導體鈦靶的關鍵原料,可作為供需參考。",
-      "importance": 2,
+      "summary": "市調報告發布2026-2032年低氧超高純度鈦(4N5、5N)全球市場分析,鈦為半導體靶材關鍵原料,可作為原料供需參考。",
+      "importance": 3,
       "title_zh": "發表低氧超高純度鈦全球市場（2026年～2032年）市場規模（4N5、5N）與分析報告",
       "snippet_zh": ""
     },
@@ -1543,7 +1922,7 @@
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "有研新材三季報顯示營收與淨利年增,但應收帳款規模偏大,需留意其營運資金與收款風險。",
+      "summary": "有研新材2026年三季報營收與淨利同比雙增,但應收帳款規模偏大,需留意資金回收風險。",
       "importance": 3,
       "title_zh": "有研新材（600206）2026年三季報簡析：營收淨利潤同比雙雙增長，公司應收賬款體量較大_財報季",
       "snippet_zh": ""
@@ -1563,7 +1942,7 @@
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "有研新材前三季扣非淨利年增33.2%,半導體靶材收入成長逾四成,顯示中國本土靶材在晶圓廠的滲透率持續提升。",
+      "summary": "有研新材前三季扣非淨利增33.2%,半導體靶材收入成長逾四成,反映中國晶圓廠擴產帶動本土靶材需求。",
       "importance": 4,
       "title_zh": "【有研新材前三季度扣非淨利增33.2%，半導體靶材收入增逾四成】PjTime.COM 財經新聞",
       "snippet_zh": ""
@@ -1583,7 +1962,7 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "有研新材第三季淨利下降三成,但扣非淨利大增逾八成;固態電池材料業務已剝離,前三季資產減值年增超過3倍,公司正聚焦本業。",
+      "summary": "有研新材Q3淨利降三成但扣非淨利大增逾八成,固態電池材料業務已剝離,前三季資產減值年增超過3倍,業務聚焦靶材等核心。",
       "importance": 3,
       "title_zh": "有研新材Q3淨利降三成、扣非大增超八成：固態電池材料業務已剝離，前三季資產減值同比增長超3倍",
       "snippet_zh": ""
@@ -1603,7 +1982,7 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "有研新材第三季營收與淨利雙雙下滑,但扣非淨利成長逾八成,顯示核心本業獲利改善。",
+      "summary": "有研新材第三季單季營收與淨利雙降,但扣非淨利成長逾八成,顯示本業(含靶材)獲利能力改善。",
       "importance": 3,
       "title_zh": "海量財經 | 有研新材單季營收淨利雙降 扣非淨利潤增逾八成",
       "snippet_zh": ""
@@ -1624,7 +2003,7 @@
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "報導探討有研新材剝離稀土主業後的業務組成,靶材可望成為核心,可能加劇中國靶材市場的競爭。",
+      "summary": "文章分析有研新材剝離稀土主業後的業務組成,靶材成為核心,其轉型將影響中國靶材市場競爭格局。",
       "importance": 3,
       "title_zh": "剝離稀土主業後，有研新材還剩下什麼？",
       "snippet_zh": ""
@@ -1645,7 +2024,7 @@
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "光洋科名列櫃買市場券商賣超前30名(賣超319張),屬籌碼面消息。",
+      "summary": "光洋科名列櫃買市場券商賣超前段(賣超319張),屬籌碼面消息。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -1666,7 +2045,7 @@
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "有研新材三季報公布後股價下跌逾7%,公司對市場疑慮做出最新回應,屬投資人關係消息。",
+      "summary": "有研新材三季報公布後股價跌逾7%,公司對市場疑問作出回應。",
       "importance": 2,
       "title_zh": "【求證】三季報披露後，有研新材股價跌超7%，公司最新回應",
       "snippet_zh": ""
@@ -1687,7 +2066,7 @@
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "古屋金屬提交第58期(2025/7-2026/6)有價證券報告書訂正版,屬例行揭露。",
+      "summary": "古屋金屬提出第58期(2025/07-2026/06)訂正有價證券報告書,屬例行揭露更正。",
       "importance": 1,
       "title_zh": "Furuya Metal(古屋金屬)[7826]:更正有價證券報告書 — 第 58 期(2025/07/01~2026/06/30)— 日經公司資訊 DIGITAL",
       "snippet_zh": ""
@@ -1708,7 +2087,7 @@
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "評論指出有研新材三季報表現不如預期,股價下跌7.72%。",
+      "summary": "評論指有研新材三季報不如預期,股價下跌7.72%,反映市場對其單季表現失望。",
       "importance": 2,
       "title_zh": "幫主解盤：有研新材跌7.72%——三季報第一張卷子，答砸了",
       "snippet_zh": ""
@@ -1729,7 +2108,7 @@
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "算力硬體股多數低開,有研新材跌近10%,反映市場對其財報的反應。",
+      "summary": "算力硬體股多數低開,有研新材盤中跌近10%,屬三季報後的市場反應。",
       "importance": 2,
       "title_zh": "算力硬件股多數低開，有研新材跌近10%_7x24快訊_新浪財經",
       "snippet_zh": ""
@@ -1750,7 +2129,7 @@
         "產業動態"
       ],
       "score": 2.77,
-      "summary": "有研新材公告第九屆董事會第三十次臨時會議決議,內容未詳,可能與資產處置或業務調整相關。",
+      "summary": "有研新材公告第九屆董事會第三十次臨時會議決議,但片段未揭露決議內容。該公司為中國主要靶材廠之一,後續若涉及投資、擴產或關聯交易,可能影響陸系靶材供應格局,值得追蹤公告細節。",
       "importance": 2,
       "title_zh": "有研新材：第九屆董事會第三十次臨時會議決議公告",
       "snippet_zh": ""
@@ -1771,7 +2150,7 @@
         "產業動態"
       ],
       "score": 2.69,
-      "summary": "光洋科名列櫃買市場券商賣超前30名(賣超1298張),屬籌碼面消息。",
+      "summary": "光洋科名列櫃買市場券商賣超前30名,賣超1,298張,屬短線籌碼面變化,與靶材供需或營運基本面關聯有限。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
@@ -1792,7 +2171,7 @@
         "產業動態"
       ],
       "score": 2.61,
-      "summary": "富聯網技術分析指出光洋科股價周KD指標維持向上,屬短線盤勢觀察。內容未涉及靶材產能、訂單或營運實質變化,對靶材供需與競爭格局影響有限。",
+      "summary": "光洋科股價週KD指標維持向上,屬技術面分析訊息,未涉及靶材產能、價格或客戶等營運實質變化。",
       "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
