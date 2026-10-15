@@ -1733,11 +1733,10 @@
 
             const [stockTwitsResult, cotDataMap] = await Promise.all([stockTwitsPromise, cotPromise]);
 
-            // 核心品種已由 makeMockSeries 補齊，此處只做警告
-            const missingReal = [];
-            if (silverFuturesData?.isMock) missingReal.push('SI=F');
-            if (slvEtfData?.isMock)        missingReal.push('SLV');
-            if (goldData?.isMock)           missingReal.push('GC=F');
+            // 抓不到的品種已由 makeMockSeries 補成隨機漫步。這裡記下是哪些，
+            // 訓練前由 checkDataQuality 擋下 —— 用隨機資料訓練出的模型只是在學雜訊。
+            const missingReal = yahooSymbols.filter((s, i) =>
+                [silverFuturesData, slvEtfData, goldData, oilData, dxyData, vixData, tnxData, copperData][i]?.isMock);
             if (missingReal.length) console.warn('[Market] Using mock for:', missingReal.join(', '));
 
             const dates = [];
@@ -1960,8 +1959,57 @@
                 // 🎯 新增動量特徵
                 priceROC, ma5Silver, ma20Silver, maCross, macdLine,
                 gtrend,
-                latestValues
+                latestValues,
+                // 放在物件裡（非陣列），filterDataByYears 才不會把它當時間序列切掉
+                dataQuality: {
+                    allMock: false,
+                    mockSymbols: missingReal,
+                    mockFactors: mockFactorsFor(missingReal, fearGreedSource === 'mock'),
+                },
             };
+        };
+
+        // ══════════════════════════════════════════════════════════════
+        // 資料品質檢查：哪些因子其實是隨機模擬值
+        // ══════════════════════════════════════════════════════════════
+        const SYMBOL_FACTORS = {
+            'SI=F':     ['price', 'goldSilverRatio', 'silverInventory'],
+            'SLV':      ['slvPrices', 'slvVolume', 'slvVolumeRoc', 'silverInventory'],
+            'GC=F':     ['goldPrices', 'goldSilverRatio'],
+            'CL=F':     ['oilPrices'],
+            'DX-Y.NYB': ['dxyPrices'],
+            '^VIX':     ['vixPrices', 'vixRoc'],
+            '^TNX':     ['tnxPrices'],
+            'HG=F':     ['copperPrices'],
+        };
+        const mockFactorsFor = (mockSymbols, fearGreedMock) => {
+            const set = new Set();
+            (mockSymbols || []).forEach(s => (SYMBOL_FACTORS[s] || []).forEach(k => set.add(k)));
+            if (fearGreedMock) set.add('fearGreed');
+            return [...set];
+        };
+
+        // 回傳 { blocked, reason, mockSelected }。
+        //   - 白銀價格本身是模擬值 → 一律擋（目標值就是假的）
+        //   - 整份資料都是模擬 → 只有使用者明確選「模擬資料」示範時才放行
+        //   - 被勾選的因子是模擬值 → 擋，並列出要取消勾選的因子
+        const checkDataQuality = (data, selectedFactors) => {
+            const q = data?.dataQuality;
+            if (!q) return { blocked: false, reason: null, mockSelected: [] };   // 舊版快照沒有這個欄位
+            if (q.allMock) {
+                return q.explicitDemo
+                    ? { blocked: false, reason: '⚠️ 目前使用「模擬資料」示範模式，訓練結果沒有任何參考價值。', mockSelected: [] }
+                    : { blocked: true, reason: '市場資料載入失敗，畫面上是隨機模擬資料，已停止訓練。請重新載入真實資料。', mockSelected: [] };
+            }
+            const mf = q.mockFactors || [];
+            if (mf.includes('price')) {
+                return { blocked: true, reason: `白銀期貨 (SI=F) 抓取失敗，目前價格是隨機模擬值，已停止訓練。`, mockSelected: ['price'] };
+            }
+            const mockSelected = mf.filter(k => selectedFactors && selectedFactors[k]);
+            if (mockSelected.length) {
+                return { blocked: true, reason: `以下已勾選的因子抓取失敗、目前是模擬值：${mockSelected.join(', ')}。請取消勾選或重新載入資料後再訓練。`, mockSelected };
+            }
+            return { blocked: false, reason: null, mockSelected: [] };
         };
 
         const filterDataByYears = (data, years) => { 
@@ -2201,9 +2249,26 @@
             const { prices, slvPrices, slvVolume, slvVolumeRoc, goldPrices, oilPrices, dxyPrices, vixPrices, tnxPrices, copperPrices, silverInventory, goldSilverRatio, socialSentiment, rsiPrices, rsiPrices12, vixRoc, tipsYield, cotNetPosition,
                     priceROC, ma5Silver, ma20Silver, maCross, macdLine, fearGreed, gtrend } = data;
             
+            // ── 先決定時序切分，再做正規化 ──
+            // min/max（與報酬率的 mean/std）只能用「訓練段」計算，再套用到保留集。
+            // 若用全期間計算，保留集的價格區間會洩漏進訓練資料。
+            // 保留集之後的值可能超出 [0,1]，這是正常的，代表價格突破訓練期間的範圍。
+            // maxSamples: 只建最後 N 個視窗（搜尋用），省去建全量再 slice 的白工
+            const startIdx = maxSamples ? Math.max(lookback, prices.length - maxSamples) : lookback;
+            const split = splitHoldout(Math.max(0, prices.length - startIdx));
+            // 訓練樣本的目標價格索引為 startIdx .. startIdx+trainEnd-1，輸入也都落在其之前
+            const fitEnd = Math.max(1, Math.min(prices.length, startIdx + split.trainEnd));
+
             const scale = (arr) => {
-                const min = Math.min(...arr);
-                const max = Math.max(...arr);
+                let min = Infinity, max = -Infinity;
+                const n = Math.min(fitEnd, arr.length);
+                for (let i = 0; i < n; i++) {
+                    const v = arr[i];
+                    if (!Number.isFinite(v)) continue;
+                    if (v < min) min = v;
+                    if (v > max) max = v;
+                }
+                if (!Number.isFinite(min)) { min = 0; max = 0; }
                 const range = max - min;
                 return { scaled: arr.map(v => range === 0 ? 0 : (v - min) / range), min, max };
             };
@@ -2285,11 +2350,10 @@
                 console.error("數據點不足以建立 Lookback 序列。");
                 return { X: [], y: [], yDir: [], yLogRet: [], prevPrices: [],
                          minMax: { price: pObj, logRet: { mean: 0, std: 1 } },
-                         allMinMax: {}, activeFeatures, numFeatures: 0 };
+                         allMinMax: {}, activeFeatures, numFeatures: 0,
+                         split: { trainEnd: 0, holdStart: 0, holdLen: 0 }, startIdx };
             }
 
-            // maxSamples: 只建最後 N 個視窗（搜尋用），省去建全量再 slice 的白工
-            const startIdx = maxSamples ? Math.max(lookback, prices.length - maxSamples) : lookback;
             for(let i = startIdx; i < prices.length; i++) {
                 const sequence = [];
                 for(let j = 0; j < lookback; j++) {
@@ -2307,17 +2371,20 @@
 
             // 對數報酬率用 z-score 標準化：報酬率以 0 為中心且量級小（~±0.02），
             // 用 min-max 會被極端值主導，標準化才能讓 Huber 在合理尺度上運作。
-            const lrMean = yLogRet.length ? yLogRet.reduce((s, v) => s + v, 0) / yLogRet.length : 0;
-            const lrVar  = yLogRet.length ? yLogRet.reduce((s, v) => s + (v - lrMean) ** 2, 0) / yLogRet.length : 0;
+            // 同樣只用訓練段計算統計量
+            const lrFit  = yLogRet.slice(0, split.trainEnd || yLogRet.length);
+            const lrMean = lrFit.length ? lrFit.reduce((s, v) => s + v, 0) / lrFit.length : 0;
+            const lrVar  = lrFit.length ? lrFit.reduce((s, v) => s + (v - lrMean) ** 2, 0) / lrFit.length : 0;
             const lrStd  = Math.sqrt(lrVar) || 1;   // 全為常數時避免除以 0
             const yLogRetScaled = yLogRet.map(v => (v - lrMean) / lrStd);
 
             const allMinMax = {};
             activeFeatures.forEach(f => { allMinMax[f.key] = f.minMax; });
 
+            // split：與正規化使用同一個切分點，呼叫端的保留集/驗證集必須用它
             return { X, y, yDir, yLogRet: yLogRetScaled, prevPrices,
                      minMax: { price: pObj, logRet: { mean: lrMean, std: lrStd } },
-                     allMinMax, activeFeatures, numFeatures };
+                     allMinMax, activeFeatures, numFeatures, split, startIdx };
         };
 
         // ... (calculateFactorInfluence, calculateDirectionalAccuracy, calculateKFoldDirectionalAccuracy, runMultiStepPrediction, exportModel remains the same) ...
@@ -2477,7 +2544,8 @@
             const predLogRets = [];   // 供方向準確率直接由報酬率正負號判定
             // 反正規化價格 → [0,1] 尺度，迭代預測時要把重建價格寫回特徵 0
             const pMin = minMax.price.min, pMax = minMax.price.max;
-            const normPrice = (v) => (pMax - pMin) === 0 ? 0 : Math.max(0, Math.min(1, (v - pMin) / (pMax - pMin)));
+            // 不夾到 [0,1]：正規化只用訓練段 min/max，近期價格超出範圍是正常的，夾住會讓預測卡在天花板
+            const normPrice = (v) => (pMax - pMin) === 0 ? 0 : (v - pMin) / (pMax - pMin);
 
             // ── 1. 分批次歷史擬合（避免一次性大 tensor 造成 OOM）──
             const BATCH = 128; // 每批推理筆數，可視記憶體壓力調小
@@ -2579,7 +2647,8 @@
                         const prob = out[0];
                         futureDirProbs.push(prob);
                         const stepPct = (prob - 0.5) * 0.02; // ±1% 視機率強度
-                        lastScaled = Math.max(0, Math.min(1, lastScaled * (1 + stepPct)));
+                        // 在價格空間推進，再轉回正規化值（正規化值乘比例不等於價格乘比例）
+                        lastScaled = normPrice(denormalizeLocal(lastScaled) * (1 + stepPct));
                         futurePrices.push(denormalizeLocal(lastScaled));
                     } else if (predTarget === 'dual') {
                         lastScaled = out[0];                    // 單元0=價格
@@ -3239,9 +3308,13 @@
                     }
 
                     logsUpdater("回測：建立資料集...");
-                    const ds = createMultivariateDataset(rawData, params.lookback, selectedFactors);
-                    const { X, minMax } = ds;
-                    const prices = rawData.prices;
+                    // 必須與訓練用同一份資料（marketData = 依「歷史年數」篩選後），
+                    // 正規化參數與保留集切分點才會一致
+                    // （marketData 在此 callback 之後才宣告，不能放進 deps，所以這裡用相同方式重算）
+                    const btData = filterDataByYears(rawData, params.historyYears);
+                    const ds = createMultivariateDataset(btData, params.lookback, selectedFactors);
+                    const { X, minMax, prevPrices: btPrev, split: btSplit, startIdx: btStart } = ds;
+                    const prices = btData.prices;
 
                     if (!X || X.length < 30) {
                         setBacktestResult(null);
@@ -3249,12 +3322,42 @@
                         return;
                     }
 
+                    // 回測只能用模型「沒看過」的區段 = 保留集。
+                    // 設定的測試比例若涵蓋到訓練區段，就截到保留集起點，否則績效是樣本內、會被高估。
                     const testRatio = Math.min(Math.max(parseFloat(backtestConfig.testRatio) || 0.3, 0.05), 0.8);
-                    const splitIdx = Math.floor(X.length * (1 - testRatio));
+                    const requestedSplit = Math.floor(X.length * (1 - testRatio));
+                    const holdStart = (btSplit && btSplit.holdLen > 0) ? btSplit.holdStart : X.length;
+                    const splitIdx = Math.max(requestedSplit, holdStart);
+                    if (splitIdx >= X.length) {
+                        setBacktestResult(null);
+                        logsUpdater("回測失敗：沒有保留集（資料太少），無法做樣本外回測。");
+                        return;
+                    }
+                    if (splitIdx > requestedSplit) {
+                        logsUpdater(`回測：測試比例 ${(testRatio*100).toFixed(0)}% 會涵蓋訓練過的資料，已改為只用保留集（最後 ${X.length - splitIdx} 筆）。`);
+                    }
                     const testX = X.slice(splitIdx);
-                    const lookback = params.lookback;
 
-                    logsUpdater(`回測：預測測試集（共 ${testX.length} 筆）...`);
+                    // 依預測目標把模型輸出換回價格；與 runMultiStepPrediction 的解讀一致
+                    const predTarget = params.predTarget || 'price';
+                    const outDim = modelRef.current.outputs?.[0]?.shape?.slice(-1)[0] ?? 1;
+                    const expectedDim = predTarget === 'dual' ? 2 : 1;
+                    if (outDim !== expectedDim) {
+                        setBacktestResult(null);
+                        logsUpdater(`回測失敗：目前模型輸出 ${outDim} 維，與預測目標「${predTarget}」不符，請先以此目標重新訓練。`);
+                        return;
+                    }
+                    const lrS = minMax.logRet || { mean: 0, std: 1 };
+                    const toPredPrice = (raw, t) => {
+                        const prev = btPrev[splitIdx + t];
+                        if (predTarget === 'logreturn') return prev * Math.exp(raw[t] * lrS.std + lrS.mean);
+                        // 純方向：沒有價格，以機率偏離 0.5 的程度換成預期報酬（±1%），只用於決定多空
+                        if (predTarget === 'direction') return prev * (1 + (raw[t] - 0.5) * 0.02);
+                        if (predTarget === 'dual') return denormalizePrice(raw[t * 2], minMax);
+                        return denormalizePrice(raw[t], minMax);
+                    };
+
+                    logsUpdater(`回測：預測測試集（共 ${testX.length} 筆，目標=${predTarget}）...`);
 
                     // Batch predict for speed
                     const xTensor = tf.tensor3d(testX);
@@ -3280,10 +3383,10 @@
                     let wins = 0;
                     let tradeCount = 0;
 
-                    // Map sample index -> original price index (i = lookback + sampleIndex)
+                    // Map sample index -> original price index (i = startIdx + sampleIndex)
                     for (let t = 0; t < testX.length; t++) {
                         const sampleIndex = splitIdx + t;
-                        const i = lookback + sampleIndex; // predicts price at prices[i] using data up to i-1
+                        const i = btStart + sampleIndex; // predicts price at prices[i] using data up to i-1
                         if (i <= 0 || i >= prices.length) continue;
 
                         const entry = prices[i-1];
@@ -3291,7 +3394,8 @@
 
                         if (!(Number.isFinite(entry) && Number.isFinite(exit) && entry > 0)) continue;
 
-                        const predPrice = denormalizePrice(predScaled[t], minMax);
+                        const predPrice = toPredPrice(predScaled, t);
+                        if (!Number.isFinite(predPrice)) continue;
                         const predRet = (predPrice - entry) / entry;
 
                         let dir = 0;
@@ -3310,14 +3414,14 @@
                         equity = equity + pnl;
 
                         const r = prevEquity > 0 ? (equity / prevEquity - 1) : 0;
-                        equityCurve.push({ idx: i, equity, date: rawData.dates?.[i] ?? i });
+                        equityCurve.push({ idx: i, equity, date: btData.dates?.[i] ?? i });
                         dailyRets.push(r);
 
                         if (dir !== 0) {
                             tradeCount += 1;
                             const win = pnl > 0;
                             if (win) wins += 1;
-                            trades.push({ idx: i, date: rawData.dates?.[i] ?? i, dir, entry, exit, predPrice, predRet, pnl, equity });
+                            trades.push({ idx: i, date: btData.dates?.[i] ?? i, dir, entry, exit, predPrice, predRet, pnl, equity });
                         }
                     }
 
@@ -3351,7 +3455,7 @@
                     setBacktestResult(null);
                     logsUpdater(`回測失敗：${e.message || e}`);
                 }
-            }, [rawData, params.lookback, selectedFactors, backtestConfig, logsUpdater]);
+            }, [rawData, params.lookback, params.historyYears, params.predTarget, selectedFactors, backtestConfig, logsUpdater]);
 
             // 當 backtestResult 變動時畫 Equity 曲線
             useEffect(() => {
@@ -3537,9 +3641,10 @@
                     // 🎯 動量特徵
                     priceROC, ma5Silver, ma20Silver, maCross, macdLine,
                     gtrend,
-                    latestValues 
-                }; 
-            }, []); 
+                    latestValues,
+                    dataQuality: { allMock: true, explicitDemo: false, mockSymbols: [], mockFactors: [] },
+                };
+            }, []);
 
             // 市場資料到位後，把過去的預測與實際收盤價對帳。
             // 這是代理唯一能知道「自己實際準不準」的途徑 ——
@@ -3625,6 +3730,8 @@
                     : '開始載入市場數據 (Yahoo / StockTwits / CFTC / CNN F&G)...');
                 try {
                     const data = useMock ? mockMarketData() : await fetchMarketData(setCotStatus);
+                    // 使用者自己按「模擬資料」才算示範模式；載入失敗自動退回的模擬資料不算
+                    if (useMock && data.dataQuality) data.dataQuality.explicitDemo = true;
 
                     // 訓練進行中不要抽換資料 —— 先暫存，等訓練結束再套用。
                     // 否則畫面上的指標會對應到已經不存在的那份資料。
@@ -3646,6 +3753,10 @@
                     const stLabel = lv.stSource === 'real' ? '✅ Real' : '⚠️ Mock';
                     const fgLabel = lv.fearGreedSource === 'real' ? '✅ Real' : '⚠️ Mock';
                     logsUpdater(`數據載入完成 (${data.prices.length} 筆) | StockTwits: ${stLabel} | F&G: ${fgLabel} (${lv.fearGreedCurrent?.toFixed(1)} ${lv.fearGreedRating})`);
+                    const dq = data.dataQuality;
+                    if (dq && !dq.allMock && dq.mockSymbols?.length) {
+                        logsUpdater(`⚠️ 以下品種抓取失敗，已用隨機模擬值補上：${dq.mockSymbols.join(', ')}。相關因子（${dq.mockFactors.join(', ')}）勾選時將無法訓練。`);
+                    }
                 } catch (e) {
                     if (background) {
                         // 背景更新失敗 → 保留畫面上的快照，不要換成模擬資料。
@@ -3834,33 +3945,57 @@
                 
                 try { // ── 外層防護：任何非預期錯誤都能復位 isTraining ──
 
+                // ── 資料品質：被勾選的因子若是隨機模擬值，訓練只會學到雜訊 ──
+                const _dq = checkDataQuality(marketData, selectedFactors);
+                if (_dq.reason) logsUpdater(`${_dq.blocked ? '🛑 ' : ''}${_dq.reason}`);
+                if (_dq.blocked && runMode.includes('TRAIN')) {
+                    setModelState(prev => ({ ...prev, isTraining: false }));
+                    return;
+                }
+
                 logsUpdater('開始準備數據集...');
-                const { X, y, yDir, yLogRet, prevPrices, minMax, allMinMax, activeFeatures, numFeatures: finalNumFeatures } = createMultivariateDataset(marketData, params.lookback, selectedFactors);
+                const { X, y, yDir, yLogRet, prevPrices, minMax, allMinMax, activeFeatures, numFeatures: finalNumFeatures, split } = createMultivariateDataset(marketData, params.lookback, selectedFactors);
 
                 // ── 時序保留集：最後一段完全不參與訓練，之後用它公平比較挑戰者與現任冠軍。
                 //    絕不隨機切分 —— 那會讓未來資料洩漏進訓練集。
+                //    必須與 createMultivariateDataset 的正規化切分點一致（直接用它回傳的 split）。
                 //    必須宣告在這一層：訓練分支與後面的保留集評分/代理裁決都要用到，
                 //    放進 if (TRAIN) 內會變成區塊作用域，外面存取就會 ReferenceError。
-                const _hs = splitHoldout(X.length);
+                const _hs = split || splitHoldout(X.length);
 
                 if (X.length === 0) {
                     logsUpdater('錯誤: 數據集生成失敗或數據點不足。');
                     setModelState(prev => ({ ...prev, isTraining: false }));
                     return;
                 }
-                
+
                 // 訓練 Loss 歷史記錄
                 let historyLoss = [];
-                
-                // === K-Fold 數據分割邏輯 ===
-                let allActuals = activeFeatures.find(f => f.key === 'price').minMax.scaled.slice(params.lookback).map(val => denormalizePrice(val, minMax));
-                let foldIndices = Array.from({ length: X.length }, (_, i) => i);
-                let foldSize = Math.floor(X.length / params.kFolds);
-                let foldResults = []; 
+
+                const buildFullConfig = () => ({
+                    params: params, selectedFactors: selectedFactors,
+                    priceMinMax: { min: minMax.price.min, max: minMax.price.max },
+                    activeFeaturesConfig: activeFeatures.map(f => ({ key: f.key, name: f.name, isExternal: f.isExternal, minMax: { min: f.minMax.min, max: f.minMax.max } })),
+                    finalNumFeatures: finalNumFeatures,
+                });
+
+                // === K-Fold（walk-forward）數據分割邏輯 ===
+                // 只在保留集之前的區段做交叉驗證；每一折只用「測試折之前」的資料訓練。
+                // 一般 K-Fold 會拿測試折之後（未來）的資料訓練，在時間序列上是資料洩漏。
+                const kfEnd = _hs.holdLen > 0 ? _hs.trainEnd : X.length;
+                const kfBlock = Math.floor(kfEnd / ((params.kFolds || 1) + 1));
+                let foldSize = kfBlock;
+                let foldResults = [];
                 let trainModelInstance = null;
                 let finalModel = null;
-                let currentBestLossForSaving = currentBestLoss;
+                // 各次訓練的 loss 不能互相比較（不同演算法、目標、資料區間），
+                // 所以「最佳」只在本次訓練內比較；跨次比較交給保留集上的冠軍/挑戰者機制。
+                let runBestLoss = Infinity;
+                let savedThisRun = false;
 
+                // 預測目標必須在 kfSpec 之前宣告，否則 TDZ（ReferenceError）或被轉譯成 undefined
+                const _kfTarget = params.predTarget || 'price';
+                const _kfOk = _kfTarget === 'price' || _kfTarget === 'logreturn';
                 const kfSpec = resolveTargetSpec(_kfTarget, params);
                 const trainAndEvaluate = async (trainX, trainY, trainYLR, testX, testY, testYLR, testPrev, foldIdx) => {
                     if (trainModelInstance) tf.dispose(trainModelInstance); // 清理上一次 Fold 的模型
@@ -3875,56 +4010,64 @@
 
                     logsUpdater(`Fold ${foldIdx + 1}/${params.kFolds}: 訓練開始 (訓練集大小: ${trainX.length}, 驗證集大小: ${testX.length})`);
                     
+                    const toTargetTensor = (Y, YLR) => _kfTarget === 'logreturn'
+                        ? tf.tensor(Float32Array.from(YLR), [YLR.length, 1])
+                        : tf.tensor2d(Y, [Y.length, 1]);
                     const foldTensorX = tf.tensor3d(trainX);
-                    const foldTensorY = _kfTarget === 'logreturn'
-                        ? tf.tensor(Float32Array.from(trainYLR), [trainYLR.length, 1])
-                        : tf.tensor2d(trainY, [trainY.length, 1]);
-                    
+                    const foldTensorY = toTargetTensor(trainY, trainYLR);
+                    // 驗證集 = 本折的測試區段（在訓練區段之後），用來決定存哪個 epoch
+                    const foldValX = tf.tensor3d(testX);
+                    const foldValY = toTargetTensor(testY, testYLR);
+                    const isLastFold = foldIdx === params.kFolds - 1;
+
                     let foldHistoryLoss = [];
 
                     const foldCheckpointCallback = {
                         onEpochEnd: async (epoch, logs) => {
                             const currentLoss = logs.loss;
+                            const valLoss = Number.isFinite(logs.val_loss) ? logs.val_loss : currentLoss;
                             foldHistoryLoss.push(currentLoss);
-                            
-                            if (foldIdx === 0) { 
-                                historyLoss.push(currentLoss); 
+
+                            if (foldIdx === 0) {
+                                // 圖表顯示第一折的訓練 loss，讓使用者馬上看到進度
+                                historyLoss.push(currentLoss);
                                 setTrainingResults(prev => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
-
                                 setBestLossValue(prev => (prev === null || currentLoss < prev) ? currentLoss : prev);
-                                const savedBestLoss = currentBestLossForSaving; 
-
-                                if (currentLoss < savedBestLoss) {
-                                    const lossToSave = currentLoss.toFixed(8);
-                                    localStorage.setItem(BEST_MAPE_KEY, lossToSave); 
-                                    setCurrentBestLoss(currentLoss); 
-                                    currentBestLossForSaving = currentLoss; 
-
-                                    await trainModelInstance.save(MODEL_URL);
-                                    
-                                    const fullConfig = { params: params, selectedFactors: selectedFactors, priceMinMax: { min: minMax.price.min, max: minMax.price.max }, activeFeaturesConfig: activeFeatures.map(f => ({ key: f.key, name: f.name, isExternal: f.isExternal, minMax: { min: f.minMax.min, max: f.minMax.max } })), finalNumFeatures: finalNumFeatures };
-                                    localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(fullConfig));
-
-                                    setModelState(prev => ({ 
-                                        ...prev, 
-                                        loss: lossToSave, 
-                                        logs: [`Fold ${foldIdx + 1} Epoch ${epoch+1}: Loss ${lossToSave} - **新的歷史最佳! 正在儲存模型...**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)], 
-                                    }));
-                                }
                             }
-                            
-                            setModelState(prev => ({ ...prev, progress: (((foldIdx + 1) / params.kFolds) * 100) + (((epoch + 1) / params.epochs) * (100 / params.kFolds)), currentEpoch: epoch + 1, totalEpochs: params.epochs }));
+
+                            // 最後一折用到最多歷史資料，作為最終模型；依驗證 loss 存最佳 epoch
+                            if (isLastFold && valLoss < runBestLoss) {
+                                runBestLoss = valLoss;
+                                savedThisRun = true;
+                                const lossToSave = valLoss.toFixed(8);
+                                localStorage.setItem(BEST_MAPE_KEY, lossToSave);
+                                setCurrentBestLoss(valLoss);
+
+                                await trainModelInstance.save(MODEL_URL);
+                                localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
+
+                                setModelState(prev => ({
+                                    ...prev,
+                                    loss: lossToSave,
+                                    logs: [`Fold ${foldIdx + 1} Epoch ${epoch+1}: val_loss ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)],
+                                }));
+                            }
+
+                            setModelState(prev => ({ ...prev, progress: ((foldIdx / params.kFolds) * 100) + (((epoch + 1) / params.epochs) * (100 / params.kFolds)), currentEpoch: epoch + 1, totalEpochs: params.epochs }));
                             await safeYield();
                         }
                     };
-                    
-                    await trainModelInstance.fit(foldTensorX, foldTensorY, { 
-                        epochs: params.epochs, 
-                        batchSize: params.batchSize, 
-                        callbacks: [foldCheckpointCallback] 
+
+                    await trainModelInstance.fit(foldTensorX, foldTensorY, {
+                        epochs: params.epochs,
+                        batchSize: params.batchSize,
+                        // 不打亂：DirectionalHuberLoss 依賴 batch 內相鄰樣本是相鄰交易日
+                        shuffle: false,
+                        validationData: [foldValX, foldValY],
+                        callbacks: [foldCheckpointCallback]
                     });
 
-                    tf.dispose([foldTensorX, foldTensorY]);
+                    tf.dispose([foldTensorX, foldTensorY, foldValX, foldValY]);
                     logsUpdater(`Fold ${foldIdx + 1}/${params.kFolds}: 訓練完成，正在評估...`);
                     
                     // 評估
@@ -3964,28 +4107,24 @@
                 // ===================================
                 // 1. K-Fold 驗證模式
                 // ===================================
-                const _kfTarget = params.predTarget || 'price';
-                const _kfOk = _kfTarget === 'price' || _kfTarget === 'logreturn';
                 if (runMode.includes('TRAIN') && params.validationMode === VALIDATION_MODE.K_FOLD && !_kfOk) {
                     logsUpdater(`⚠️ K-Fold 交叉驗證目前僅支援「價格迴歸」與「對數報酬率」目標，已改用標準訓練流程。`);
                 }
                 if (runMode.includes('TRAIN') && params.validationMode === VALIDATION_MODE.K_FOLD && params.kFolds > 1 && foldSize >= 10 && _kfOk) {
-                    logsUpdater(`開始執行 ${params.kFolds}-Fold 交叉驗證...`);
-                    
+                    logsUpdater(`開始執行 ${params.kFolds}-Fold walk-forward 交叉驗證（僅用保留集之前的 ${kfEnd} 筆，保留集 ${_hs.holdLen} 筆不參與）...`);
+
+                    // 區段切成 k+1 塊：第 i 折以塊 0..i 訓練、塊 i+1 測試（擴張視窗）
                     for (let i = 0; i < params.kFolds; i++) {
-                        const start = i * foldSize;
-                        const end = start + foldSize;
-                        
-                        let testIndices = foldIndices.slice(start, end);
-                        let trainIndices = foldIndices.filter(idx => !testIndices.includes(idx));
-                        
-                        const trainX  = trainIndices.map(idx => X[idx]);
-                        const trainY  = trainIndices.map(idx => y[idx]);
-                        const trainYLR= trainIndices.map(idx => yLogRet[idx]);
-                        const testX   = testIndices.map(idx => X[idx]);
-                        const testY   = testIndices.map(idx => y[idx]);
-                        const testYLR = testIndices.map(idx => yLogRet[idx]);
-                        const testPrev= testIndices.map(idx => prevPrices[idx]);
+                        const trainEndIdx = (i + 1) * kfBlock;
+                        const testEndIdx  = i === params.kFolds - 1 ? kfEnd : trainEndIdx + kfBlock;
+
+                        const trainX  = X.slice(0, trainEndIdx);
+                        const trainY  = y.slice(0, trainEndIdx);
+                        const trainYLR= yLogRet.slice(0, trainEndIdx);
+                        const testX   = X.slice(trainEndIdx, testEndIdx);
+                        const testY   = y.slice(trainEndIdx, testEndIdx);
+                        const testYLR = yLogRet.slice(trainEndIdx, testEndIdx);
+                        const testPrev= prevPrices.slice(trainEndIdx, testEndIdx);
 
                         if (trainX.length === 0 || testX.length === 0) {
                             logsUpdater(`Fold ${i + 1} 數據集劃分不足，跳過此 Fold。`);
@@ -4003,15 +4142,21 @@
 
                     setModelState(prev => ({ ...prev, kFoldMape: avgMape.toFixed(2), kFoldDa: avgDa.toFixed(2) }));
                     
-                    try {
-                        finalModel = await tf.loadLayersModel(MODEL_URL);
-                    } catch(e) {
-                        logsUpdater('警告: K-Fold 模式下無法重新載入最佳模型，將重新建立一個模型進行最終預測。');
-                        finalModel = createModel(params.algorithm, params.lookback, finalNumFeatures, params);
+                    // 只載入「本次」存下的模型；本次沒存成功就用最後一折訓練完的模型，
+                    // 不能載入 localStorage 裡可能是別次、別種設定留下的舊模型
+                    let reloaded = null;
+                    if (savedThisRun) {
+                        try { reloaded = await tf.loadLayersModel(MODEL_URL); } catch(e) { reloaded = null; }
                     }
-                    
-                    tf.dispose(trainModelInstance); 
-                    modelRef.current = finalModel; 
+                    if (reloaded) {
+                        finalModel = reloaded;
+                        tf.dispose(trainModelInstance);
+                    } else {
+                        logsUpdater('警告: K-Fold 模式下無法重新載入本次最佳模型，改用最後一折訓練完成的模型。');
+                        finalModel = trainModelInstance;
+                    }
+                    trainModelInstance = null;
+                    modelRef.current = finalModel;
                 } 
                 
                 // ===================================
@@ -4019,6 +4164,7 @@
                 // ===================================
                 else {
                     let modelToUse = null;
+                    let resumedFromSaved = false;   // 接續訓練且沿用了已存模型的權重
 
                     // 1. 決定模型來源
                     if (runMode === RUN_MODE.TRAIN_CONTINUE) {
@@ -4031,8 +4177,9 @@
                     } else if (runMode === RUN_MODE.TRAIN_RESUME) {
                         try {
                             modelToUse = await tf.loadLayersModel(MODEL_URL);
+                            resumedFromSaved = true;
                             logsUpdater(`成功載入 LocalStorage 歷史最佳模型，將在其基礎上繼續訓練 (儲存 Loss: ${currentBestLoss.toFixed(8)})。`);
-                            setBestLossValue(null); 
+                            setBestLossValue(null);
                             const savedConfigStr = localStorage.getItem(TRAIN_CONFIG_KEY);
                             if (savedConfigStr) {
                                 const config = JSON.parse(savedConfigStr);
@@ -4042,7 +4189,14 @@
                                 if (config.params.algorithm !== params.algorithm || config.params.lookback !== params.lookback || config.params.layers !== params.layers || savedFactorKeys !== currentFactorKeys) {
                                     tf.dispose(modelToUse);
                                     modelToUse = createModel(params.algorithm, params.lookback, finalNumFeatures, params);
+                                    resumedFromSaved = false;
                                     logsUpdater('警告: 訓練參數或因子配置與儲存模型不一致，將重新建立模型並從零開始訓練。');
+                                } else if ((config.params.predTarget || 'price') !== (params.predTarget || 'price')) {
+                                    // 輸出層與 loss 都不同，沿用舊權重只會從錯的起點出發
+                                    tf.dispose(modelToUse);
+                                    modelToUse = createModel(params.algorithm, params.lookback, finalNumFeatures, params);
+                                    resumedFromSaved = false;
+                                    logsUpdater('警告: 預測目標與儲存模型不同，將重新建立模型並從零開始訓練。');
                                 }
                                 trainConfigRef.current = { minMax: { price: minMax.price }, activeFeatures: currentActiveFeatures, finalNumFeatures: finalNumFeatures, lookback: params.lookback, algorithm: params.algorithm };
                             }
@@ -4119,55 +4273,83 @@
                         const tensorX = tf.tensor3d(_trainX);
                         const tensorY = buildTargetTensor(_trainY, _trainYDir, _pt, _trainYLR);
 
+                        // 驗證集 = 保留集。存檔依驗證 loss，而不是訓練 loss（訓練 loss 只會越練越低，挑不出過擬合）
+                        let valX = null, valY = null;
+                        if (_hs.holdLen > 0) {
+                            valX = tf.tensor3d(X.slice(_hs.holdStart));
+                            valY = buildTargetTensor(y.slice(_hs.holdStart), yDir.slice(_hs.holdStart), _pt, yLogRet.slice(_hs.holdStart));
+                        }
+                        const lossLabel = valX ? 'val_loss' : 'loss';
+
+                        // 接續訓練：以「載入模型目前的驗證 loss」為起點，練不贏就不覆蓋原模型
+                        if (resumedFromSaved && valX) {
+                            try {
+                                const ev = modelToUse.evaluate(valX, valY, { batchSize: params.batchSize });
+                                const evT = Array.isArray(ev) ? ev[0] : ev;
+                                const v0 = (await evT.data())[0];
+                                tf.dispose(ev);
+                                if (Number.isFinite(v0)) {
+                                    runBestLoss = v0;
+                                    logsUpdater(`接續訓練起點 val_loss: ${v0.toFixed(6)}（需低於此值才會覆蓋已存模型）`);
+                                }
+                            } catch (e) { console.warn('[Resume] 初始驗證 loss 計算失敗:', e?.message); }
+                        }
+
                         const checkpointCallback = {
                             onEpochEnd: async (epoch, logs) => {
                                 const currentLoss = logs.loss;
+                                const monitored = (valX && Number.isFinite(logs.val_loss)) ? logs.val_loss : currentLoss;
                                 const progress = ((epoch + 1) / params.epochs) * 100;
                                 historyLoss.push(currentLoss);
                                 setTrainingResults(prev => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
 
 
                                 setBestLossValue(prev => (prev === null || currentLoss < prev) ? currentLoss : prev);
-                                const savedBestLossStr = localStorage.getItem(BEST_MAPE_KEY);
-                                const savedBestLoss = savedBestLossStr ? parseFloat(savedBestLossStr) : 100; 
 
-                                if (currentLoss < savedBestLoss) {
-                                    const lossToSave = currentLoss.toFixed(8);
-                                    localStorage.setItem(BEST_MAPE_KEY, lossToSave); 
-                                    setCurrentBestLoss(currentLoss); 
+                                if (monitored < runBestLoss) {
+                                    runBestLoss = monitored;
+                                    savedThisRun = true;
+                                    const lossToSave = monitored.toFixed(8);
+                                    localStorage.setItem(BEST_MAPE_KEY, lossToSave);
+                                    setCurrentBestLoss(monitored);
                                     await modelToUse.save(MODEL_URL);
-                                    const fullConfig = { params: params, selectedFactors: selectedFactors, priceMinMax: { min: minMax.price.min, max: minMax.price.max }, activeFeaturesConfig: activeFeatures.map(f => ({ key: f.key, name: f.name, isExternal: f.isExternal, minMax: { min: f.minMax.min, max: f.minMax.max } })), finalNumFeatures: finalNumFeatures };
-                                    localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(fullConfig));
+                                    localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
 
-                                    setModelState(prev => ({ 
-                                        ...prev, 
-                                        progress, 
-                                        loss: lossToSave, 
-                                        logs: [`Epoch ${epoch+1}: Loss ${lossToSave} - **新的歷史最佳! 正在儲存模型...**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)], 
+                                    setModelState(prev => ({
+                                        ...prev,
+                                        progress,
+                                        loss: lossToSave,
+                                        logs: [`Epoch ${epoch+1}: ${lossLabel} ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)],
                                         directionalAccuracy: 'N/A',
-                                        mape: 'N/A' 
+                                        mape: 'N/A'
                                     }));
                                 } else {
-                                    setModelState(prev => ({ 
-                                        ...prev, 
-                                        progress, 
+                                    setModelState(prev => ({
+                                        ...prev,
+                                        progress,
                                         loss: currentLoss.toFixed(4),
-                                        logs: [`Epoch ${epoch+1}: Loss ${currentLoss.toFixed(4)}`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('正在儲存最佳模型')).slice(0, 4)] 
+                                        logs: [`Epoch ${epoch+1}: loss ${currentLoss.toFixed(4)}${valX ? ` / val_loss ${monitored.toFixed(4)}` : ''}`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('正在儲存最佳模型')).slice(0, 4)]
                                     }));
                                 }
                                 await safeYield();
                             }
                         };
 
-                        await modelToUse.fit(tensorX, tensorY, { 
-                            epochs: params.epochs, 
-                            batchSize: params.batchSize, 
-                            callbacks: [checkpointCallback] 
+                        await modelToUse.fit(tensorX, tensorY, {
+                            epochs: params.epochs,
+                            batchSize: params.batchSize,
+                            // 不打亂：DirectionalHuberLoss 依賴 batch 內相鄰樣本是相鄰交易日
+                            shuffle: false,
+                            ...(valX ? { validationData: [valX, valY] } : {}),
+                            callbacks: [checkpointCallback]
                         });
+                        if (valX) tf.dispose([valX, valY]);
 
                         logsUpdater(`訓練完成，重新載入 LocalStorage 中的最佳模型進行最終預測...`);
 
                         try {
+                            // 本次沒有存檔、也不是接續訓練 → localStorage 裡的是別次的模型，不能拿來用
+                            if (!savedThisRun && !resumedFromSaved) throw new Error('本次未儲存模型');
                             const reloadedModel = await tf.loadLayersModel(MODEL_URL);
                             // ⚠️ 驗證形狀：reloaded model 的 lookback/features 必須與 X 一致
                             const rShape = reloadedModel.layers[0]?.batchInputShape;
@@ -4188,9 +4370,8 @@
                         }
                         
                         tf.dispose([tensorX, tensorY]);
-                        
-                        const fullConfig = { params: params, selectedFactors: selectedFactors, priceMinMax: { min: minMax.price.min, max: minMax.price.max }, activeFeaturesConfig: activeFeatures.map(f => ({ key: f.key, name: f.name, isExternal: f.isExternal, minMax: { min: f.minMax.min, max: f.minMax.max } })), finalNumFeatures: finalNumFeatures };
-                        localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(fullConfig));
+
+                        localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
                         // ⚠️ 同步更新 trainConfigRef，確保後續預測使用正確的 minMax / lookback / numFeatures
                         trainConfigRef.current = {
                             minMax: { price: minMax.price },
@@ -4477,6 +4658,10 @@
             // ══════════════════════════════════════════════════════════════
             const runAgentSearch = useCallback(async () => {
                 if (!marketData || agentRunningRef.current) return;
+                // 只檢查核心資料（不帶 selectedFactors）；個別模擬因子在 runTrial 裡排除
+                const _dqS = checkDataQuality(marketData, null);
+                if (_dqS.blocked) { logsUpdater(`🛑 ${_dqS.reason}`); return; }
+                const _mockFactors = marketData.dataQuality?.mockFactors || [];
 
                 agentRunningRef.current = true;
                 agentStopRef.current    = false;
@@ -4564,6 +4749,8 @@
                 let bestTrialLossSoFar = Infinity;
 
                 const runTrial = async (trialParams, trialFactors) => {
+                    // 模擬值因子不參與搜尋（直接改 trialFactors，最佳組合套用時才不會帶到它們）
+                    _mockFactors.forEach(k => { if (k in trialFactors) trialFactors[k] = false; });
                     const memPre = tf.memory();
                     if (memPre.numTensors > 1500) {
                         await safeYield();
@@ -4573,13 +4760,32 @@
                     // maxSamples 直接在資料層截斷 → 不再建全量視窗後 slice（省 60% JS 建構時間）
                     const ds = createMultivariateDataset(marketData, trialParams.lookback, trialFactors, SEARCH_MAX_SAMPLES);
                     if (!ds.X || ds.X.length < 30 || ds.numFeatures === 0) return null;
+                    // 時序切分：前段訓練、最後一段驗證。排名只看驗證段，
+                    // 否則等於挑「最會背訓練資料」的組合。
+                    const sp = ds.split;
+                    if (!sp || sp.holdLen < 10) return null;
                     const rawX   = ds.X;
                     const rawY   = ds.y;
                     const minMax = ds.minMax;
-                    const n      = rawX.length;
+                    const n      = sp.trainEnd;              // 訓練樣本數
                     const actualLB   = rawX[0]?.length       ?? trialParams.lookback;
                     const actualFeat = rawX[0]?.[0]?.length  ?? ds.numFeatures;
-                    let model = null, tX = null, tY = null, predsT = null;
+                    const flatten = (from, to) => {
+                        const m = to - from;
+                        const fx = new Float32Array(m * actualLB * actualFeat);
+                        const fy = new Float32Array(m);
+                        for (let i = 0; i < m; i++) {
+                            fy[i] = rawY[from + i];
+                            const row = rawX[from + i];
+                            for (let j = 0; j < actualLB; j++) {
+                                const cell = row[j];
+                                const base = i*actualLB*actualFeat + j*actualFeat;
+                                for (let k = 0; k < actualFeat; k++) fx[base + k] = cell[k];
+                            }
+                        }
+                        return [tf.tensor(fx, [m, actualLB, actualFeat]), tf.tensor(fy, [m, 1])];
+                    };
+                    let model = null, tX = null, tY = null, vX = null, vY = null, predsT = null;
                     let finalLoss = 9999;
                     try {
                         model = createModel(trialParams.algorithm, actualLB, actualFeat, trialParams);
@@ -4587,21 +4793,10 @@
                             optimizer: tf.train.adam(trialParams.lr),
                             loss: getDirectionalHuberLoss(trialParams.directionalLambda, trialParams.huberDelta ?? 1.0),
                         });
-                        const flatX = new Float32Array(n * actualLB * actualFeat);
-                        const flatY = new Float32Array(n);
-                        for (let i = 0; i < n; i++) {
-                            flatY[i] = rawY[i];
-                            const row = rawX[i];
-                            for (let j = 0; j < actualLB; j++) {
-                                const cell = row[j];
-                                const base = i*actualLB*actualFeat + j*actualFeat;
-                                for (let k = 0; k < actualFeat; k++) flatX[base + k] = cell[k];
-                            }
-                        }
-                        tX = tf.tensor(flatX, [n, actualLB, actualFeat]);
-                        tY = tf.tensor(flatY, [n, 1]);
+                        [tX, tY] = flatten(0, n);
+                        [vX, vY] = flatten(sp.holdStart, rawX.length);
 
-                        // 早停 + 剪枝狀態
+                        // 早停 + 剪枝狀態（都看驗證 loss）
                         let bestEpochLoss = Infinity, sinceImprove = 0;
                         const PATIENCE = 8;
 
@@ -4609,8 +4804,11 @@
                             epochs: SEARCH_EPOCHS,
                             batchSize: 128,   // 搜尋固定 128：GPU dispatch 次數減半
                             verbose: 0,
+                            // 不打亂：DirectionalHuberLoss 依賴 batch 內相鄰樣本是相鄰交易日
+                            shuffle: false,
+                            validationData: [vX, vY],
                             callbacks: { onEpochEnd: async (ep, logs) => {
-                                finalLoss = logs?.loss ?? finalLoss;
+                                finalLoss = logs?.val_loss ?? logs?.loss ?? finalLoss;
                                 // ── 早停：PATIENCE epochs 無改善 → 提前結束 ──
                                 if (finalLoss < bestEpochLoss - 1e-6) { bestEpochLoss = finalLoss; sinceImprove = 0; }
                                 else sinceImprove++;
@@ -4625,25 +4823,24 @@
                         });
                         // 更新跨 trial 剪枝參考
                         if (finalLoss < bestTrialLossSoFar) bestTrialLossSoFar = finalLoss;
-                        tf.dispose(tY); tY = null;
-                        predsT = model.predict(tX);
+                        tf.dispose([tX, tY]); tX = null; tY = null;
+                        predsT = model.predict(vX);
                         const predArr = await predsT.data();
                         tf.dispose(predsT); predsT = null;
-                        tf.dispose(tX); tX = null;
-                        const pRange = minMax.price.max - minMax.price.min;
-                        const pMin   = minMax.price.min;
-                        const fullPrices = marketData.prices;
-                        const offset = fullPrices.length - n;
-                        let correct = 0;
+                        tf.dispose([vX, vY]); vX = null; vY = null;
+                        // 驗證段 DA：直接用資料集的 prevPrices 對齊
+                        // （原本用 offset+lookback 推算索引，會錯開 lookback 天）
+                        let correct = 0, valid = 0;
                         for (let i = 0; i < predArr.length; i++) {
-                            const pi = offset + actualLB + i;
-                            if (pi <= 0 || pi >= fullPrices.length) continue;
-                            const predP = predArr[i] * pRange + pMin;
-                            const prevP = fullPrices[pi-1] ?? fullPrices[pi];
-                            const actP  = fullPrices[pi];
+                            const gi = sp.holdStart + i;
+                            const prevP = ds.prevPrices[gi];
+                            const actP  = denormalizePrice(rawY[gi], minMax);
+                            const predP = denormalizePrice(predArr[i], minMax);
+                            if (!Number.isFinite(prevP) || !Number.isFinite(actP) || !Number.isFinite(predP)) continue;
                             if ((actP >= prevP) === (predP >= prevP)) correct++;
+                            valid++;
                         }
-                        const daFinal = predArr.length > 0 ? (correct / predArr.length) * 100 : 0;
+                        const daFinal = valid > 0 ? (correct / valid) * 100 : 0;
                         return { loss: finalLoss, da: daFinal };
                     } catch (e) {
                         console.warn('[Trial] error:', e?.message?.slice(0, 120));
@@ -4656,6 +4853,8 @@
                         if (predsT) try { tf.dispose(predsT); } catch(_){}
                         if (tY)     try { tf.dispose(tY);     } catch(_){}
                         if (tX)     try { tf.dispose(tX);     } catch(_){}
+                        if (vY)     try { tf.dispose(vY);     } catch(_){}
+                        if (vX)     try { tf.dispose(vX);     } catch(_){}
                         if (model)  try { tf.dispose(model);  } catch(_){}
                         await safeYield();
                     }
@@ -4771,6 +4970,9 @@
             // ═══════════════════════════════════════════════════════
             const runAutoFullPipeline = useCallback(async () => {
                 if (!marketData || modelState.isTraining || agentRunningRef.current) return;
+                const _dqA = checkDataQuality(marketData, null);
+                if (_dqA.blocked) { logsUpdater(`🛑 ${_dqA.reason}`); return; }
+                const _mockFactorsA = marketData.dataQuality?.mockFactors || [];
                 autoFlowStopRef.current  = false;
                 agentRunningRef.current  = true;
 
@@ -4808,7 +5010,7 @@
                         huberDelta: 1.0, validationMode: VALIDATION_MODE.NONE, kFolds: 1,
                     };
                     const trialFactors = {};
-                    ALL_KEYS.forEach(k => { trialFactors[k] = Math.random() < 0.70; });
+                    ALL_KEYS.forEach(k => { trialFactors[k] = !_mockFactorsA.includes(k) && Math.random() < 0.70; });
 
                     // Pre-trial memory check
                     const memAF = tf.memory();
@@ -4817,37 +5019,55 @@
                     const MAX_S = 520;
                     const dsAF = createMultivariateDataset(marketData, trialParams.lookback, trialFactors, MAX_S);
                     if (!dsAF.X || dsAF.X.length < 20 || dsAF.numFeatures === 0) continue;
+                    // 時序切分：前段訓練、最後一段驗證，排名只看驗證段 DA
+                    const spAF = dsAF.split;
+                    if (!spAF || spAF.holdLen < 10) continue;
                     const afX  = dsAF.X;
                     const afY  = dsAF.y;
-                    const afN  = afX.length;
                     const afLB = afX[0]?.length ?? trialParams.lookback;
                     const afFt = afX[0]?.[0]?.length ?? dsAF.numFeatures;
-                    let tM = null, xT = null, yT = null, pT = null;
-                    try {
-                        const flatAF = new Float32Array(afN * afLB * afFt);
-                        for (let i = 0; i < afN; i++)
+                    const flatAFRange = (from, to) => {
+                        const m = to - from;
+                        const fx = new Float32Array(m * afLB * afFt);
+                        for (let i = 0; i < m; i++)
                             for (let j = 0; j < afLB; j++)
                                 for (let k = 0; k < afFt; k++)
-                                    flatAF[i*afLB*afFt + j*afFt + k] = afX[i][j][k];
-                        xT = tf.tensor(flatAF, [afN, afLB, afFt]);
-                        yT = tf.tensor(new Float32Array(afY), [afN, 1]);
+                                    fx[i*afLB*afFt + j*afFt + k] = afX[from + i][j][k];
+                        return [tf.tensor(fx, [m, afLB, afFt]), tf.tensor(Float32Array.from(afY.slice(from, to)), [m, 1])];
+                    };
+                    let tM = null, xT = null, yT = null, xV = null, yV = null, pT = null;
+                    try {
+                        [xT, yT] = flatAFRange(0, spAF.trainEnd);
+                        [xV, yV] = flatAFRange(spAF.holdStart, afX.length);
                         tM = createModel(trialParams.algorithm, afLB, afFt, trialParams);
                         tM.compile({ optimizer: tf.train.adam(trialParams.lr), loss: getDirectionalHuberLoss(trialParams.directionalLambda, trialParams.huberDelta) });
                         let bestL = Infinity, noImp = 0;
                         await tM.fit(xT, yT, { epochs: QUICK_EP, batchSize: 128, verbose: 0,
+                            // 不打亂：DirectionalHuberLoss 依賴 batch 內相鄰樣本是相鄰交易日
+                            shuffle: false,
+                            validationData: [xV, yV],
                             callbacks: { onEpochEnd: async (ep, logs) => {
-                                const L = logs?.loss ?? Infinity;
+                                const L = logs?.val_loss ?? logs?.loss ?? Infinity;
                                 if (L < bestL - 1e-6) { bestL = L; noImp = 0; } else noImp++;
-                                if (noImp >= 6) tM.stopTraining = true;      // 早停
+                                if (noImp >= 6) tM.stopTraining = true;      // 早停（看驗證 loss）
                                 if (ep % 5 === 4) await safeYield();          // 每5輪 yield
                             } } });
-                        tf.dispose(yT); yT = null;
-                        pT = tM.predict(xT);
+                        tf.dispose([xT, yT]); xT = null; yT = null;
+                        pT = tM.predict(xV);
                         const pd = await pT.data();
-                        tf.dispose(pT); pT = null; tf.dispose(xT); xT = null;
-                        const pr = dsAF.minMax.price.max - dsAF.minMax.price.min, pm = dsAF.minMax.price.min;
-                        const actuals = afY.map(v => v*pr+pm), preds = Array.from(pd).map(v => v*pr+pm);
-                        const da = calculateKFoldDirectionalAccuracy(actuals, preds);
+                        tf.dispose(pT); pT = null; tf.dispose([xV, yV]); xV = null; yV = null;
+                        // 驗證段 DA，以每個樣本的前一日實際價格為基準
+                        let ok = 0, valid = 0;
+                        for (let i = 0; i < pd.length; i++) {
+                            const gi = spAF.holdStart + i;
+                            const prevP = dsAF.prevPrices[gi];
+                            const actP  = denormalizePrice(afY[gi], dsAF.minMax);
+                            const predP = denormalizePrice(pd[i], dsAF.minMax);
+                            if (!Number.isFinite(prevP)) continue;
+                            if ((actP >= prevP) === (predP >= prevP)) ok++;
+                            valid++;
+                        }
+                        const da = valid ? (ok / valid) * 100 : 0;
                         if (da > bestMetric) { bestMetric = da; bestTrial = { params: trialParams, factors: trialFactors, da, loss: 9999, trialIdx: t }; }
                         logsUpdater(`  ✓ #${t+1}/${TRIALS} ${trialParams.algorithm} LB=${trialParams.lookback}: DA=${da.toFixed(1)}%`);
                     } catch(e) {
@@ -4861,6 +5081,8 @@
                         if (pT) try { tf.dispose(pT); } catch(_){}
                         if (yT) try { tf.dispose(yT); } catch(_){}
                         if (xT) try { tf.dispose(xT); } catch(_){}
+                        if (yV) try { tf.dispose(yV); } catch(_){}
+                        if (xV) try { tf.dispose(xV); } catch(_){}
                         if (tM) try { tf.dispose(tM); } catch(_){}
                     }
                     setModelState(prev => ({ ...prev, progress: ((t+1)/TRIALS)*40 }));
