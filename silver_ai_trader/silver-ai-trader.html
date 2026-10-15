@@ -1129,6 +1129,23 @@ const computeSLVHoldings = (slvPrices, silverFuturesPrices) => {
     return slv / si * 1e3;
   });
 };
+const alignWeeklyTrends = (timeline, dates, fallback = 50) => {
+  const trendMap = /* @__PURE__ */ new Map();
+  for (const pt of timeline) {
+    if (pt.isPartial) continue;
+    const ms = parseInt(pt.time, 10) * 1e3;
+    if (!isFinite(ms)) continue;
+    const val = pt.value?.[0] ?? fallback;
+    for (let day = 7; day < 14; day++) {
+      trendMap.set(new Date(ms + day * 864e5).toISOString().slice(0, 10), val);
+    }
+  }
+  let last = fallback;
+  return dates.map((d) => {
+    if (trendMap.has(d)) last = trendMap.get(d);
+    return last;
+  });
+};
 const fetchGoogleTrends = async (dates) => {
   const KEYWORD = "silver";
   const GEO = "US";
@@ -1186,23 +1203,7 @@ const fetchGoogleTrends = async (dates) => {
     const json2 = JSON.parse(stripPrefix(raw2));
     const timeline = json2?.default?.timelineData || [];
     if (timeline.length === 0) throw new Error("empty timeline data");
-    const trendMap = /* @__PURE__ */ new Map();
-    for (const pt of timeline) {
-      const ms = parseInt(pt.time, 10) * 1e3;
-      if (!isFinite(ms)) continue;
-      const d = new Date(ms);
-      const ymd = d.toISOString().slice(0, 10);
-      const val = pt.value?.[0] ?? 50;
-      for (let day = 0; day < 7; day++) {
-        const dd = new Date(ms + day * 864e5);
-        trendMap.set(dd.toISOString().slice(0, 10), val);
-      }
-    }
-    let last = 50;
-    const result = dates.map((d) => {
-      if (trendMap.has(d)) last = trendMap.get(d);
-      return last;
-    });
+    const result = alignWeeklyTrends(timeline, dates);
     console.log(`[GTrend] OK: ${timeline.length} weekly pts, latest=${result[result.length - 1]}`);
     return result;
   } catch (e) {

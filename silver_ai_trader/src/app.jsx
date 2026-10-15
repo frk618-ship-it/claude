@@ -918,6 +918,30 @@
          * CORS: Google Trends 不允許直接 browser fetch → 必須透過 proxy
          *       若所有 proxy 均失敗 → 以 50 填充（中性值）
          */
+        // Google Trends 週資料 → 每日序列
+        // 每個點的時間是「該週的第一天」，數值卻是整週的搜尋熱度 ——
+        // 要等這週結束才知道。因此只能從「下一週」開始使用（第 7~13 天），
+        // 否則週一的特徵就含有週二到週六的資訊（前視偏差）。
+        // 尚未結束的當週（isPartial）數值還會變動，直接略過。
+        const alignWeeklyTrends = (timeline, dates, fallback = 50) => {
+            const trendMap = new Map();
+            for (const pt of timeline) {
+                if (pt.isPartial) continue;
+                const ms = parseInt(pt.time, 10) * 1000;
+                if (!isFinite(ms)) continue;
+                const val = pt.value?.[0] ?? fallback;
+                for (let day = 7; day < 14; day++) {
+                    trendMap.set(new Date(ms + day * 86_400_000).toISOString().slice(0, 10), val);
+                }
+            }
+            // 對齊交易日（向前填補）
+            let last = fallback;
+            return dates.map(d => {
+                if (trendMap.has(d)) last = trendMap.get(d);
+                return last;
+            });
+        };
+
         const fetchGoogleTrends = async (dates) => {
             const KEYWORD   = 'silver';
             const GEO       = 'US';
@@ -986,27 +1010,7 @@
                 const timeline = json2?.default?.timelineData || [];
                 if (timeline.length === 0) throw new Error('empty timeline data');
 
-                // Build Map<YYYY-MM-DD (week start), value>
-                const trendMap = new Map();
-                for (const pt of timeline) {
-                    const ms = parseInt(pt.time, 10) * 1000;
-                    if (!isFinite(ms)) continue;
-                    const d   = new Date(ms);
-                    const ymd = d.toISOString().slice(0, 10);
-                    const val = pt.value?.[0] ?? 50;
-                    // Fill all 7 days of this week
-                    for (let day = 0; day < 7; day++) {
-                        const dd = new Date(ms + day * 86_400_000);
-                        trendMap.set(dd.toISOString().slice(0, 10), val);
-                    }
-                }
-
-                // Align to dates (forward fill)
-                let last = 50;
-                const result = dates.map(d => {
-                    if (trendMap.has(d)) last = trendMap.get(d);
-                    return last;
-                });
+                const result = alignWeeklyTrends(timeline, dates);
                 console.log(`[GTrend] OK: ${timeline.length} weekly pts, latest=${result[result.length-1]}`);
                 return result;
             } catch(e) {
