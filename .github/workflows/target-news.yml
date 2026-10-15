@@ -3,7 +3,8 @@ name: 靶材產業新聞
 
 on:
   schedule:
-    - cron: "23 0 * * *"   # 每天 08:23(台北時間)
+    # 每天 07:41(台北時間)。避開整點與半點:GitHub 在整點前後負載高,排程常被延遲或略過。
+    - cron: "41 23 * * *"
   workflow_dispatch:
     inputs:
       days:

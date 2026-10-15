@@ -73,7 +73,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 ### 每日自動執行(GitHub Actions)
 
-`.github/workflows/target-news.yml` 每天台北時間 08:23 執行,並把報告與已讀紀錄 commit 回 repo。也可在 Actions 頁面手動觸發並指定天數。若要啟用 Claude 摘要,請在 repo 的 *Settings → Secrets and variables → Actions* 新增 `ANTHROPIC_API_KEY`。(排程只會在預設分支上執行。)
+`.github/workflows/target-news.yml` 每天台北時間 07:41 執行,並把報告與已讀紀錄 commit 回 repo。也可在 Actions 頁面手動觸發並指定天數。若要啟用 Claude 摘要,請在 repo 的 *Settings → Secrets and variables → Actions* 新增 `ANTHROPIC_API_KEY`。(排程只會在預設分支上執行。)
 
 ### 繁體中文顯示(自動翻譯)
 
