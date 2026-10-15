@@ -657,35 +657,35 @@ entities:
     region: 全球
     aliases: [金價, 銀價, 鉑金價格, 鈀金價格, 貴金屬 行情]
     context_terms: &metal_ctx [金價, 金价, 銀價, 银价, 鉑, 铂, 鈀, 钯, 釕, 钌, 銥, 铱, 銠, 铑, 貴金屬, 贵金属, 黃金, 黄金, 白銀, 白银, gold, silver, platinum, palladium, ruthenium, iridium, rhodium, precious metal, 金価格, 銀価格, プラチナ, パラジウム, ルテニウム, 貴金属, 금값, 은값, 백금, 팔라듐, 귀금속]
-    max_items: 8
+    max_items: 5
     editions: [zh-TW]
   - name: 行情綜合:贵金属
     role: metals
     region: 全球
     aliases: [金价, 银价, 铂金价格, 钯金价格, 钌价格, 铱价格]
     context_terms: *metal_ctx
-    max_items: 6
+    max_items: 4
     editions: [zh-CN]
   - name: 行情綜合:Precious Metals
     role: metals
     region: 全球
     aliases: [gold price, silver price, platinum price, palladium price, ruthenium price, rhodium price]
     context_terms: *metal_ctx
-    max_items: 8
+    max_items: 5
     editions: [en]
   - name: 行情綜合:貴金属相場
     role: metals
     region: 全球
     aliases: [金価格, 銀価格, プラチナ価格, パラジウム価格, ルテニウム価格]
     context_terms: *metal_ctx
-    max_items: 5
+    max_items: 3
     editions: [ja]
   - name: 行情綜合:귀금속 시세
     role: metals
     region: 全球
     aliases: [금값, 은값, 백금 가격]
     context_terms: *metal_ctx
-    max_items: 3
+    max_items: 2
     editions: [ko]
 
 # ---------- 貴金屬報價:每日收盤價與漲跌(Stooq,失敗時改用 Yahoo Finance;免金鑰) ----------

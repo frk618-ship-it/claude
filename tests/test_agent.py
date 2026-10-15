@@ -1002,7 +1002,7 @@ def test_busy_metal_topic_is_capped_and_labelled(config):
     items = [NewsItem(title=f"金價 第{n}天 創新高", link=f"https://x/{n}", source="", published=NOW - timedelta(hours=n),
                       query_entity="行情綜合:貴金屬") for n in range(12)]
     kept = process(items, config, now=NOW)
-    assert len(kept) == 8 and all(i.entities == ["行情綜合:貴金屬"] for i in kept)
+    assert len(kept) == 5 and all(i.entities == ["行情綜合:貴金屬"] for i in kept)
     assert max(i.published for i in kept) == NOW  # the newest ones are kept
     assert item_kind({"title": "金價創新高", "entities": ["行情綜合:貴金屬"]}) == "metals"
     assert short_name("行情綜合:Precious Metals") == "貴金屬行情(英文)"
@@ -1022,3 +1022,14 @@ def test_metal_quotes_on_site_and_report(tmp_path, config):
     build_site(tmp_path / "reports", tmp_path / "site", config)
     page = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
     assert "貴金屬行情" in page and "4,185.25" in page and 'class="chg up">▲ +1.57%' in page and 'class="chg down">▼ -1.00%' in page
+
+
+def test_metal_cap_counts_headlines_found_by_two_searches(config):
+    from datetime import timedelta
+
+    tw = [NewsItem(title=f"金價 第{n}天 創新高", link=f"https://x/{n}", source="", published=NOW - timedelta(hours=n),
+                   query_entity="行情綜合:貴金屬") for n in range(10)]
+    cn = [NewsItem(title=f"金价 第{n}天 创新高", link=f"https://y/{n}", source="", published=NOW - timedelta(hours=n),
+                   query_entity="行情綜合:贵金属") for n in range(10)]
+    kept = process(tw + cn, config, now=NOW)
+    assert len(kept) <= 5

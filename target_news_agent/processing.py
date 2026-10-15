@@ -155,7 +155,8 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
         taken: Counter[str] = Counter()
         drop = set()
         for item in newest:
-            if len(item.entities) == 1 and item.entities[0] in caps:
+            # Items merged from two capped searches (same headline in zh-TW and zh-CN) count against the first.
+            if item.entities and all(e in caps for e in item.entities):
                 name = item.entities[0]
                 taken[name] += 1
                 if taken[name] > caps[name]:
