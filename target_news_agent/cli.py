@@ -18,7 +18,8 @@ from .processing import process
 from .report import write_reports
 from .research import Paper, collect_papers, is_relevant
 from .site import build_site, write_redirect
-from .sources import collect, iter_feed_urls
+from .metals import fetch_quotes
+from .sources import collect, http_fetch, iter_feed_urls
 from .store import SeenStore
 from .summarizer import Digest, Summarizer, llm_available
 from .translate import llm_translator, translate_records
@@ -115,6 +116,7 @@ def main(argv: list[str] | None = None) -> int:
     generated = datetime.now(ZoneInfo(args.tz))
     digest = Digest()
     existing_papers: list[Paper] = []
+    metals: list[dict] = []
     if args.papers_only:
         if args.no_papers:
             p.error("--papers-only and --no-papers cannot be combined")
@@ -128,6 +130,7 @@ def main(argv: list[str] | None = None) -> int:
                 generated = datetime.fromisoformat(data["generated"])  # keep that report's date / file name
             items = [NewsItem.from_dict(d) for d in data.get("items", [])]
             digest = Digest(**(data.get("digest") or {}))
+            metals = data.get("metals") or []
             # Re-check with the current filter, so a rerun also cleans out papers that no longer qualify.
             existing_papers = [p for p in (Paper.from_dict(d) for d in data.get("papers") or []) if is_relevant(p)]
     else:
@@ -144,6 +147,10 @@ def main(argv: list[str] | None = None) -> int:
             items = items + [i for i in (NewsItem.from_dict(d) for d in data.get("items", [])) if i.id not in new_ids]
             digest = Digest(**(data.get("digest") or {}))
             existing_papers = [p for p in (Paper.from_dict(d) for d in data.get("papers") or []) if is_relevant(p)]
+            metals = data.get("metals") or []
+        if config.metals:
+            # Keep the earlier quotes when a source is down.
+            metals = [q.to_dict() for q in fetch_quotes(config.metals, http_fetch)] or metals
 
     if items and not args.no_llm and not args.papers_only:
         if llm_available():
@@ -172,7 +179,7 @@ def main(argv: list[str] | None = None) -> int:
             llm = llm_translator(Summarizer(list(config.settings.categories), model=args.model))
         translate_records(items, papers, llm)
 
-    md_path, json_path = write_reports(items, config, digest, args.out, generated, papers)
+    md_path, json_path = write_reports(items, config, digest, args.out, generated, papers, metals)
     if not args.papers_only:
         store.mark(items)
     if papers:
@@ -211,7 +218,7 @@ def _resummarize(args, config, p: argparse.ArgumentParser) -> int:
         translate_records(items, papers, llm_translator(summarizer))
         if data.get("days"):
             config.settings.days = data["days"]
-        write_reports(items, config, digest, path.parent, datetime.fromisoformat(data["generated"]), papers)
+        write_reports(items, config, digest, path.parent, datetime.fromisoformat(data["generated"]), papers, data.get("metals"))
         done += 1
         print(f"{path}: {sum(bool(i.summary) for i in items)}/{len(items)} items, "
               f"{sum(bool(x.summary) for x in papers or [])}/{len(papers or [])} papers summarized")

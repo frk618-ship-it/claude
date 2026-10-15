@@ -34,6 +34,7 @@ config/watchlist.yaml ──► 產生查詢 ──► Google News RSS(中/英/�
 | 製程相關(PVD 半導體廠) | 台積電、聯電、力積電、世界先進、華邦電、南亞科、三星電子、SK海力士、美光、英特爾、格羅方德、中芯國際、華虹、長江存儲、長鑫存儲、鎧俠、Rapidus;只收錄提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 擴建 / 新廠的新聞 |
 | 封裝廠(PVD) | 日月光投控、矽品、Amkor、長電科技、通富微電、華天科技、力成、頎邦、南茂、精材;只收錄提到 PVD / 濺鍍 / 靶材、先進封裝製程(凸塊、RDL、扇出、面板級、CoWoS 等),或資本支出 / 擴產 / 新廠的新聞 |
 | 產業主題 | 濺鍍靶材 / 溅射靶材 / sputtering target / スパッタリングターゲット / 스퍼터링 타겟;濺鍍設備 / 溅射设备 / sputtering equipment / スパッタ装置 / 스퍼터 장비 |
+| 貴金屬行情 | 金、銀、鉑、鈀、釕、銥、銠價格新聞(繁中 / 簡中 / 英 / 日 / 韓);新聞量大,每個語系每次只保留最新幾則(`max_items`) |
 
 清單全在 `config/watchlist.yaml`,可自行增刪公司(例如你們的客戶、台灣代理商)、別名、搜尋語系與分類關鍵字。業務範圍很廣的公司(如 Solstice/Honeywell、三菱綜合材料)請設 `require_context: true`,只收錄同時提到靶材/濺鍍的新聞。設備商可另設 `context_terms`(例如濺鍍、PVD、sputtering),只收錄濺鍍相關新聞,避開蝕刻、CVD 等其他設備的消息。
 
@@ -83,6 +84,10 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **英文 / 日文 / 韓文**:用 Claude 翻譯(需設定 `ANTHROPIC_API_KEY`);公司名、期刊名、化學式、數字單位保留原文,技術用語用台灣慣用譯法(如 sputtering target → 濺鍍靶材)。未設定金鑰時這些文字維持原文,其他功能照常。
 - 原文保留在報告 JSON(`title`、`abstract` 等欄位),譯文另存於 `title_zh`、`snippet_zh`、`abstract_zh`;公司比對、分類與去重仍用原文。已翻譯過的不會重複翻譯。
 - 選項:`--no-translate` 關閉翻譯。
+
+### 貴金屬報價
+
+每次執行會抓黃金、白銀、鉑金、鈀金的日收盤價與日漲跌(Stooq 每日歷史 CSV,失敗時改用 Yahoo Finance;免金鑰),寫入報告 JSON 的 `metals`、Markdown 報告與網站首頁的「貴金屬行情」區塊(漲紅跌綠)。品項在 `config/watchlist.yaml` 的 `metals.symbols` 增刪;來源暫時失敗時沿用當天稍早的報價,不影響新聞蒐集。
 
 ### 新聞網站(GitHub Pages)
 

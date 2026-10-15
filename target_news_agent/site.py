@@ -28,6 +28,7 @@ KINDS = OrderedDict([
     ("forum", "論壇與自媒體"),
     ("research", "市場報告"),
     ("profile", "資料頁"),
+    ("metals", "貴金屬行情"),
 ])
 SIGNAL_KINDS = ("news", "filing")
 
@@ -38,6 +39,8 @@ _FILING_RE = re.compile(r"\(\d{6}\)[::]|公告")
 
 def item_kind(item: dict) -> str:
     title, source = item.get("title", ""), item.get("source", "")
+    if item.get("entities") and all(e.startswith(METAL_PREFIX) for e in item["entities"]):
+        return "metals"
     if "企業情報" in title or "個股概覽" in title:
         return "profile"
     if "股市爆料同學會" in title or source in ("财富号", "財富號", "PTT", "Mobile01"):
@@ -53,7 +56,10 @@ def item_kind(item: dict) -> str:
 
 # Industry-wide searches are named after their search phrase; show which language edition they cover instead.
 TOPIC_PREFIXES = ("產業綜合", "設備綜合")
+METAL_PREFIX = "行情綜合"
 TOPIC_LABELS = {
+    "行情綜合:貴金屬": "貴金屬行情(繁中)", "行情綜合:贵金属": "貴金屬行情(簡中)", "行情綜合:Precious Metals": "貴金屬行情(英文)",
+    "行情綜合:貴金属相場": "貴金屬行情(日文)", "行情綜合:귀금속 시세": "貴金屬行情(韓文)",
     "設備綜合:濺鍍設備": "濺鍍設備綜合(繁中)", "設備綜合:溅射设备": "濺鍍設備綜合(簡中)",
     "設備綜合:Sputtering Equipment": "濺鍍設備綜合(英文)", "設備綜合:スパッタ装置": "濺鍍設備綜合(日文)",
     "設備綜合:스퍼터 장비": "濺鍍設備綜合(韓文)",
@@ -73,12 +79,12 @@ def esc(v) -> str:
 STYLE = """
 :root{--bg:#f3f4f5;--surface:#fff;--fg:#1c2126;--muted:#5b6570;--line:#dde1e6;--accent:#8a4f24;--accent-soft:#f5e9df;
 --ok:#2f6b4f;--ok-soft:#e1efe7;--none:#6b7480;--none-soft:#eceef1;
---k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;
+--k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;--k-metals:#a07d12;--up:#c0392b;--down:#1e8449;
 --shadow:0 1px 2px rgba(20,24,28,.06),0 2px 8px rgba(20,24,28,.05);
 --font-display:"Noto Serif TC","Songti TC",serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 @media (prefers-color-scheme:dark){:root{--bg:#14181c;--surface:#1b2026;--fg:#e6e9ec;--muted:#9aa4ae;--line:#2c333b;--accent:#e0a070;--accent-soft:#3a2a1e;
 --ok:#7fc8a2;--ok-soft:#1d3329;--none:#8d96a0;--none-soft:#232930;
---k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;
+--k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;--k-metals:#e6c55a;--up:#f08070;--down:#6fcf97;
 --shadow:none;color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
 .wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
@@ -109,7 +115,12 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.72rem;padding:1px 8px;border-radius:999px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
-.k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}
+.k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.quote{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k-metals);border-radius:12px;padding:12px 16px;display:grid;gap:2px;box-shadow:var(--shadow)}
+.quote .qn{font-size:.85rem;color:var(--muted);display:flex;gap:6px;align-items:center}.quote .qn .mono{font-family:var(--font-data)}
+.quote b{font-family:var(--font-data);font-size:1.3rem;font-weight:500}.quote .chg{font-family:var(--font-data);font-size:.85rem}.quote .chg.up{color:var(--up)}.quote .chg.down{color:var(--down)}
+.quote .qd{font-size:.75rem;color:var(--muted)}
 [hidden]{display:none!important}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
@@ -159,7 +170,7 @@ def _title_link(item: dict) -> str:
     return f"<span{tip}>{esc(shown)}</span>"  # never turn javascript:/data: links from feeds into clickable links
 
 
-KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile"}
+KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile", "metals": "gem"}
 
 
 def _date(published: str | None, full: bool = False) -> str:
@@ -252,6 +263,30 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
         attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'
     return _card("k-research", topic, topic_icon(topic), p.get("published"), _title_link(p) + stars,
                  summary, meta, attrs, full_date=filterable)
+
+
+def _metals_section(metals: list[dict], kinds: Counter) -> str:
+    if not metals:
+        return ""
+    cards = []
+    for m in metals:
+        chg = m.get("change_pct")
+        if chg is None:
+            chg_html = '<span class="chg">—</span>'
+        else:
+            cls = "up" if chg > 0 else "down" if chg < 0 else ""
+            arrow = "▲" if chg > 0 else "▼" if chg < 0 else ""
+            chg_html = f'<span class="chg {cls}">{arrow} {chg:+.2f}%</span>'
+        cards.append(
+            f'<div class="quote"><span class="qn">{icon("gem")}{esc(m["name"])} <span class="mono">{esc(m["code"])}</span></span>'
+            f'<b>{m["price"]:,.2f}</b>{chg_html}<span class="qd">{esc(m["unit"])} · {esc(m["date"])} 收盤</span></div>'
+        )
+    sources = "、".join(dict.fromkeys(m.get("source", "") for m in metals if m.get("source")))
+    news = f";相關行情新聞 {kinds['metals']} 則,可在下方「全部新聞」選擇「貴金屬行情」查看" if kinds.get("metals") else ""
+    return (
+        f'<section aria-labelledby="metals">{_h2("metals", "gem", "貴金屬行情", "日收盤價與漲跌(漲紅跌綠)")}'
+        f'<div class="quotes">{"".join(cards)}</div><p class="sub">報價來源:{esc(sources)}{news}。</p></section>'
+    )
 
 
 def _h2(id_: str, icon_name: str, title: str, count: str = "") -> str:
@@ -471,6 +506,7 @@ def render_page(
 <nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
+{_metals_section(report.get("metals") or [], kinds)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_papers_section(report, library, is_latest, home)}
 <section aria-labelledby="all">{_h2("all", "list", "全部新聞", f"{len(items)} 則")}

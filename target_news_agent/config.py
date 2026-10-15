@@ -14,6 +14,7 @@ ROLE_LABELS = {
     "process": "製程相關(PVD 半導體廠)",
     "packaging": "封裝廠(PVD)",
     "topic": "產業主題",
+    "metals": "貴金屬行情",
 }
 
 
@@ -31,6 +32,8 @@ class Entity:
     # False = search by name only and leave the context check to the local filter
     # (a long OR clause can make Google ignore the date limit and return old articles).
     query_context: bool = True
+    # Keep at most this many items from this search per run (0 = no limit); for very busy topics.
+    max_items: int = 0
 
     @property
     def role_label(self) -> str:
@@ -38,7 +41,7 @@ class Entity:
 
     @property
     def is_topic(self) -> bool:
-        return self.role == "topic"
+        return self.role in ("topic", "metals")
 
 
 @dataclass
@@ -78,6 +81,7 @@ class Config:
     settings: Settings
     entities: list[Entity]
     research: ResearchSettings | None = None
+    metals: list = field(default_factory=list)  # list[metals.MetalSpec]
 
 
 def load_config(path: str | Path) -> Config:
@@ -118,6 +122,7 @@ def load_config(path: str | Path) -> Config:
                 editions=editions,
                 context_terms=[str(t) for t in e.get("context_terms") or []],
                 query_context=bool(e.get("query_context", True)),
+                max_items=int(e.get("max_items", 0) or 0),
             )
         )
     research = None
@@ -137,4 +142,12 @@ def load_config(path: str | Path) -> Config:
             feeds=list(sources.get("feeds", []) or []),
             topics={k: [str(t) for t in v] for k, v in (r.get("topics", {}) or {}).items()},
         )
-    return Config(settings=settings, entities=entities, research=research)
+    from .metals import MetalSpec
+
+    m = raw.get("metals") or {}
+    metals = [
+        MetalSpec(name=str(x["name"]), code=str(x["code"]), stooq=str(x.get("stooq", "") or ""),
+                  yahoo=str(x.get("yahoo", "") or ""), unit=str(x.get("unit", "USD/oz")))
+        for x in (m.get("symbols") or [])
+    ] if m.get("enabled", True) else []
+    return Config(settings=settings, entities=entities, research=research, metals=metals)

@@ -28,7 +28,12 @@ def _item_line(item: NewsItem) -> str:
 
 
 def render_markdown(
-    items: list[NewsItem], config: Config, digest: Digest, generated: datetime, papers: list[Paper] | None = None
+    items: list[NewsItem],
+    config: Config,
+    digest: Digest,
+    generated: datetime,
+    papers: list[Paper] | None = None,
+    metals: list[dict] | None = None,
 ) -> str:
     s = config.settings
     scope = f"範圍:最近 {s.days} 天 · 新聞 {len(items)} 則"
@@ -40,6 +45,8 @@ def render_markdown(
         f"{scope} · 產生時間 {generated.strftime('%Y-%m-%d %H:%M %Z')}",
         "",
     ]
+    if metals:
+        lines += _metal_lines(metals)
     if not items:
         lines += ["本期沒有新的相關新聞。", ""]
     else:
@@ -47,6 +54,14 @@ def render_markdown(
     if papers is not None:
         lines += _paper_sections(papers, config)
     return "\n".join(lines)
+
+
+def _metal_lines(metals: list[dict]) -> list[str]:
+    lines = ["## 貴金屬行情", "", "| 品項 | 收盤價 | 日漲跌 | 日期 |", "|---|---|---|---|"]
+    for m in metals:
+        chg = "—" if m.get("change_pct") is None else f"{m['change_pct']:+.2f}%"
+        lines.append(f"| {m['name']} ({m['code']}) | {m['price']:,.2f} {m['unit']} | {chg} | {m['date']} |")
+    return lines + [""]
 
 
 def _paper_line(p: Paper) -> str:
@@ -119,13 +134,14 @@ def write_reports(
     out_dir: str | Path,
     generated: datetime,
     papers: list[Paper] | None = None,
+    metals: list[dict] | None = None,
 ) -> tuple[Path, Path]:
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     stem = generated.strftime("%Y-%m-%d")
     md_path = out / f"{stem}.md"
     json_path = out / f"{stem}.json"
-    md_path.write_text(render_markdown(items, config, digest, generated, papers), encoding="utf-8")
+    md_path.write_text(render_markdown(items, config, digest, generated, papers, metals), encoding="utf-8")
     json_path.write_text(
         json.dumps(
             {
@@ -133,6 +149,7 @@ def write_reports(
                 "days": config.settings.days,
                 "digest": digest.model_dump(),
                 "items": [i.to_dict() for i in items],
+                **({"metals": metals} if metals else {}),
                 **(
                     {"papers": [p.to_dict() for p in papers], "research_days": config.research.days if config.research else None}
                     if papers is not None

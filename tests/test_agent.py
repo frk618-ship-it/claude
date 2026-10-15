@@ -18,6 +18,12 @@ NOW = datetime(2026, 10, 13, 0, 0, tzinfo=timezone.utc)
 SAMPLE = (FIXTURES / "google_news_sample.xml").read_bytes()
 
 
+@pytest.fixture(autouse=True)
+def no_metal_quotes(monkeypatch):
+    """CLI runs must not reach the quote sources; tests that need quotes patch fetch_quotes again."""
+    monkeypatch.setattr("target_news_agent.cli.fetch_quotes", lambda specs, fetch: [])
+
+
 @pytest.fixture
 def config():
     return load_config(CONFIG)
@@ -965,3 +971,54 @@ def test_packaging_houses_need_packaging_or_pvd_context(config):
     assert ents("日月光股價創高") == []
     assert ents("動力成長 擴產可期") == []           # 「力成」 inside other words must not match
     assert ents("頎邦凸塊產能滿載") == ["頎邦 (Chipbond)"]
+
+
+def test_metal_quotes_stooq_then_yahoo_fallback():
+    from target_news_agent.metals import MetalSpec, fetch_quotes
+
+    stooq = b"Date,Open,High,Low,Close,Volume\n2026-10-13,4100,4150,4090,4120.5,0\n2026-10-14,4120,4200,4110,4185.25,0\n"
+    yahoo = json.dumps({"chart": {"result": [{"timestamp": [1792022400, 1792108800],
+                        "indicators": {"quote": [{"close": [1650.0, 1633.5]}]}}]}}).encode()
+
+    def fetch(url):
+        if "stooq" in url and "xauusd" in url:
+            return stooq
+        if "stooq" in url:
+            raise OSError("blocked")
+        return yahoo
+
+    au, pt = fetch_quotes([MetalSpec("黃金", "Au", "xauusd", "GC=F"), MetalSpec("鉑金", "Pt", "xptusd", "PL=F")], fetch)
+    assert (au.price, au.prev, au.date, au.source) == (4185.25, 4120.5, "2026-10-14", "Stooq")
+    assert round(au.change_pct, 2) == 1.57
+    assert (pt.price, pt.source) == (1633.5, "Yahoo Finance") and pt.to_dict()["change_pct"] == -1.0
+    assert fetch_quotes([MetalSpec("鈀金", "Pd", "xpdusd")], lambda url: (_ for _ in ()).throw(OSError())) == []
+
+
+def test_busy_metal_topic_is_capped_and_labelled(config):
+    from datetime import timedelta
+
+    from target_news_agent.site import item_kind, short_name
+
+    items = [NewsItem(title=f"金價 第{n}天 創新高", link=f"https://x/{n}", source="", published=NOW - timedelta(hours=n),
+                      query_entity="行情綜合:貴金屬") for n in range(12)]
+    kept = process(items, config, now=NOW)
+    assert len(kept) == 8 and all(i.entities == ["行情綜合:貴金屬"] for i in kept)
+    assert max(i.published for i in kept) == NOW  # the newest ones are kept
+    assert item_kind({"title": "金價創新高", "entities": ["行情綜合:貴金屬"]}) == "metals"
+    assert short_name("行情綜合:Precious Metals") == "貴金屬行情(英文)"
+
+
+def test_metal_quotes_on_site_and_report(tmp_path, config):
+    from target_news_agent.report import write_reports
+    from target_news_agent.site import build_site
+
+    metals = [{"name": "黃金", "code": "Au", "price": 4185.25, "prev": 4120.5, "date": "2026-10-14", "unit": "USD/oz",
+               "source": "Stooq", "change_pct": 1.57},
+              {"name": "鉑金", "code": "Pt", "price": 1633.5, "prev": 1650.0, "date": "2026-10-14", "unit": "USD/oz",
+               "source": "Yahoo Finance", "change_pct": -1.0}]
+    md, js = write_reports([], config, Digest(), tmp_path / "reports", NOW, None, metals)
+    assert "| 黃金 (Au) | 4,185.25 USD/oz | +1.57% | 2026-10-14 |" in md.read_text(encoding="utf-8")
+    assert json.loads(js.read_text(encoding="utf-8"))["metals"][1]["code"] == "Pt"
+    build_site(tmp_path / "reports", tmp_path / "site", config)
+    page = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    assert "貴金屬行情" in page and "4,185.25" in page and 'class="chg up">▲ +1.57%' in page and 'class="chg down">▼ -1.00%' in page

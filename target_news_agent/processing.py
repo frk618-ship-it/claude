@@ -148,6 +148,19 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
         item.categories = classify(item, s.categories)
         item.score = score(item, index, now)
     unique.sort(key=lambda i: (i.score, i.published or now), reverse=True)
+    # Busy topics (e.g. gold price news) keep only their newest max_items items.
+    caps = {e.name: e.max_items for e in config.entities if e.max_items}
+    if caps:
+        newest = sorted(unique, key=lambda i: i.published or now, reverse=True)
+        taken: Counter[str] = Counter()
+        drop = set()
+        for item in newest:
+            if len(item.entities) == 1 and item.entities[0] in caps:
+                name = item.entities[0]
+                taken[name] += 1
+                if taken[name] > caps[name]:
+                    drop.add(id(item))
+        unique = [i for i in unique if id(i) not in drop]
     return unique
 
 
