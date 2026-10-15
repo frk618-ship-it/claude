@@ -1180,6 +1180,29 @@
             emitStatus({ state: 'error', source: null, records: 0, latestDate: null, latestNet: null, message: 'All COT sources failed, using mock data', phase: 'failed_all' });
             return new Map();
         };
+        // ══════════════════════════════════════════════════════════════
+        // COT 週報 → 每日序列（依「公布時間」對齊，避免前視偏差）
+        //
+        // 報告的日期是部位統計的截至日（週二），CFTC 要到同週五美東 15:30 才公布，
+        // 當天的收盤價已經產生。遇到聯邦假日，公布會延到下週一。
+        // 因此一份報告最早只能從「截至日 + COT_RELEASE_LAG_DAYS 天」起使用：
+        // 7 天 = 下週二，假日延後公布的週也不會用到當時尚未公開的資訊。
+        // 第一份可用報告之前沒有資料，填 0（中性），不能拿之後的報告往回填。
+        // ══════════════════════════════════════════════════════════════
+        const COT_RELEASE_LAG_DAYS = 7;
+        const addDaysISO = (ymd, n) => new Date(Date.parse(ymd + 'T00:00:00Z') + n * 86_400_000).toISOString().slice(0, 10);
+        const alignCotToDates = (cotDataMap, dates) => {
+            const reports = [...cotDataMap.entries()]
+                .filter(([, v]) => v && Number.isFinite(v.net))
+                .map(([asOf, v]) => ({ usableFrom: addDaysISO(asOf, COT_RELEASE_LAG_DAYS), net: v.net }))
+                .sort((a, b) => a.usableFrom.localeCompare(b.usableFrom));
+            let k = 0, last = 0;
+            return dates.map(d => {
+                while (k < reports.length && reports[k].usableFrom <= d) last = reports[k++].net;
+                return last;
+            });
+        };
+
         const fetchMarketData = async (cotStatusCb) => { 
             const DATA_RANGE = "5y";
             try { if (typeof cotStatusCb === "function") cotStatusCb({ state: "loading", source: null, records: 0, latestDate: null, latestNet: null, message: null, phase: "marketdata_start", updatedAt: new Date().toISOString() }); } catch (_) {}
@@ -1394,13 +1417,6 @@
             let lastGold = 2000; let lastOil = 75; let lastDXY = 100; let lastVIX = 15; let lastTNX = 4.0; let lastCopper = 3.5; let lastPrice = 25; 
             let lastSlvPrice = 22; let lastSlvVolume = 5000000; 
             
-            // COT data interpolation setup
-            const cotDates = Array.from(cotDataMap.keys()).sort();
-            let lastCotNet = 0; 
-            if (cotDates.length > 0) {
-                 lastCotNet = cotDataMap.get(cotDates[0])?.net ?? 0;
-            }
-            let nextCotIndex = 0;
 
             silverFuturesData.timestamps.forEach((t, i) => {
                 if (silverFuturesData.close[i] === null) return;
@@ -1424,16 +1440,6 @@
                     }
                 }
 
-                // COT Data Interpolation
-                while (nextCotIndex < cotDates.length && cotDates[nextCotIndex] <= dateStr) {
-                    const cotValue = cotDataMap.get(cotDates[nextCotIndex]);
-                    if (cotValue && Number.isFinite(cotValue.net)) {
-                        lastCotNet = cotValue.net;
-                    }
-                    nextCotIndex++;
-                }
-                cotNetPositions.push(lastCotNet); // 使用最新的 COT 報告值
-
                 dates.push(dateStr);
                 prices.push(silverPrice);
                 slvPrices.push(lastSlvPrice);
@@ -1445,6 +1451,9 @@
                 tnxPrices.push(lastTNX); 
                 copperPrices.push(lastCopper); 
             });
+
+            // COT：依公布時間對齊（見 alignCotToDates）
+            alignCotToDates(cotDataMap, dates).forEach(v => cotNetPositions.push(v));
 
             const goldSilverRatio = goldPrices.map((g, i) => g / prices[i]);
             const rsiPrices = calculateRSI(prices, 5); 

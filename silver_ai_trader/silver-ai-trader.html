@@ -1347,6 +1347,16 @@ const fetchCOTData = async (onStatus) => {
   emitStatus({ state: "error", source: null, records: 0, latestDate: null, latestNet: null, message: "All COT sources failed, using mock data", phase: "failed_all" });
   return /* @__PURE__ */ new Map();
 };
+const COT_RELEASE_LAG_DAYS = 7;
+const addDaysISO = (ymd, n) => new Date(Date.parse(ymd + "T00:00:00Z") + n * 864e5).toISOString().slice(0, 10);
+const alignCotToDates = (cotDataMap, dates) => {
+  const reports = [...cotDataMap.entries()].filter(([, v]) => v && Number.isFinite(v.net)).map(([asOf, v]) => ({ usableFrom: addDaysISO(asOf, COT_RELEASE_LAG_DAYS), net: v.net })).sort((a, b) => a.usableFrom.localeCompare(b.usableFrom));
+  let k = 0, last = 0;
+  return dates.map((d) => {
+    while (k < reports.length && reports[k].usableFrom <= d) last = reports[k++].net;
+    return last;
+  });
+};
 const fetchMarketData = async (cotStatusCb) => {
   const DATA_RANGE = "5y";
   try {
@@ -1520,12 +1530,6 @@ const fetchMarketData = async (cotStatusCb) => {
   let lastPrice = 25;
   let lastSlvPrice = 22;
   let lastSlvVolume = 5e6;
-  const cotDates = Array.from(cotDataMap.keys()).sort();
-  let lastCotNet = 0;
-  if (cotDates.length > 0) {
-    lastCotNet = cotDataMap.get(cotDates[0])?.net ?? 0;
-  }
-  let nextCotIndex = 0;
   silverFuturesData.timestamps.forEach((t, i) => {
     if (silverFuturesData.close[i] === null) return;
     const dateStr = new Date(t * 1e3).toISOString().split("T")[0];
@@ -1550,14 +1554,6 @@ const fetchMarketData = async (cotStatusCb) => {
         lastSlvVolume = slvDataPoint.volume;
       }
     }
-    while (nextCotIndex < cotDates.length && cotDates[nextCotIndex] <= dateStr) {
-      const cotValue = cotDataMap.get(cotDates[nextCotIndex]);
-      if (cotValue && Number.isFinite(cotValue.net)) {
-        lastCotNet = cotValue.net;
-      }
-      nextCotIndex++;
-    }
-    cotNetPositions.push(lastCotNet);
     dates.push(dateStr);
     prices.push(silverPrice);
     slvPrices.push(lastSlvPrice);
@@ -1569,6 +1565,7 @@ const fetchMarketData = async (cotStatusCb) => {
     tnxPrices.push(lastTNX);
     copperPrices.push(lastCopper);
   });
+  alignCotToDates(cotDataMap, dates).forEach((v) => cotNetPositions.push(v));
   const goldSilverRatio = goldPrices.map((g, i) => g / prices[i]);
   const rsiPrices = calculateRSI(prices, 5);
   const rsiPrices12 = calculateRSI(prices, 12);
