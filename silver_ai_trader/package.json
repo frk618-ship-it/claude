@@ -1,0 +1,21 @@
+{
+  "name": "silver-ai-trader",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "4.22.0",
+    "plotly.js-dist-min": "2.24.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0",
+    "lucide": "0.460.0",
+    "postcss": "8.5.30",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwindcss": "3.4.17"
+  }
+}

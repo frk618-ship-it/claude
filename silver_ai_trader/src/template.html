@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <!--
+      ⚠️ silver-ai-trader.html 由 src/template.html + src/app.jsx 建置產生。請編輯 src/ 底下的檔案，再執行 `npm run build`。
+      React、Tailwind CSS、Lucide 圖示都在建置時內嵌；只有 TF.js / Plotly 這兩個大型函式庫走 CDN，
+      版本鎖定並附 SRI 雜湊（integrity），CDN 內容被竄改或版本漂移時瀏覽器會拒絕載入。
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Silver Prediction System V19.5: DA-Optimized (Directional Loss + Momentum Features)</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@{{version:@tensorflow/tfjs}}/dist/tf.min.js"
+            integrity="{{sri:@tensorflow/tfjs/dist/tf.min.js}}" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@{{version:plotly.js-dist-min}}/plotly.min.js"
+            integrity="{{sri:plotly.js-dist-min/plotly.min.js}}" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- @TAILWIND_CSS -->
+    <style>
+        /* ══════════════════════════════════════════════════════════════
+           設計語彙：介面全以冷調金屬呈現，唯一的飽和色是「漲跌方向」。
+           色彩在此不是裝飾，而是資料本身 —— 看到顏色，就是看到方向。
+           ══════════════════════════════════════════════════════════════ */
+        :root {
+            /* 底層 */
+            --ground:      #0B1014;   /* 深冷板岩，帶藍綠調而非純黑 */
+            --surface:     #131C22;   /* 面板 */
+            --surface-2:   #1A252C;   /* 抬升面 */
+            --surface-3:   #223038;   /* 輸入框 / 未選取控制項 */
+            --edge:        #26343D;   /* 髮絲線 */
+            --edge-bright: #3A4C58;   /* 強調邊界 */
+
+            /* 銀 —— 文字階層 */
+            --metal-bright:#EDF4F8;   /* 主要數值、標題 */
+            --metal:       #C4D2DA;   /* 內文 */
+            --metal-dim:   #8497A3;   /* 次要 */
+            --metal-faint: #5B6C77;   /* 標籤、說明 */
+
+            /* 語意色 —— 全站唯一的飽和色 */
+            --up:          #3FB950;
+            --up-soft:     rgba(63,185,80,0.12);
+            --down:        #F0603A;
+            --down-soft:   rgba(240,96,58,0.12);
+            --warn:        #D9A441;   /* 訓練中 / 需注意 */
+
+            /* 相容舊有 class */
+            --bg-dark:  var(--ground);
+            --panel-bg: var(--surface);
+            --accent:   #9FB3C0;      /* 互動強調 = 銀本身 */
+        }
+
+        body {
+            background-color: var(--ground);
+            color: var(--metal);
+            font-family: 'IBM Plex Sans TC', system-ui, sans-serif;
+            font-feature-settings: 'tnum' 1;   /* 全站等寬數字，數值可縱向對齊 */
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-mono, .font-inter { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+        /* 面板：以髮絲線與頂緣微光構成金屬感，取代通用的柔灰陰影 */
+        .glass-panel {
+            background: var(--surface);
+            border: 1px solid var(--edge);
+            border-radius: 10px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
+        }
+
+        /* 滾動條 */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--edge-bright); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4C616F; }
+
+        /* 鍵盤可及性：所有互動元素都有清楚的焦點環 */
+        :focus-visible {
+            outline: 2px solid var(--metal-bright);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* 動態 —— 僅保留必要的狀態提示 */
+        @keyframes pulse-subtle { 0%,100% { opacity: 1; } 50% { opacity: 0.62; } }
+        .animate-pulse-slow { animation: pulse-subtle 2.6s ease-in-out infinite; }
+
+        /* 預測結果落定的單一編排時刻 */
+        @keyframes assay-settle {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: none; }
+        }
+        .assay-settle { animation: assay-settle 420ms cubic-bezier(.2,.7,.3,1) both; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* 數值排版：等寬 + 表格數字，讓價格上下對齊 */
+        .tabular { font-variant-numeric: tabular-nums; font-family: 'IBM Plex Mono', monospace; }
+
+        /* 方向語意 */
+        .dir-up   { color: var(--up); }
+        .dir-down { color: var(--down); }
+
+        /* 標記戳：呼應貴金屬純度鋼印 */
+        .assay-mark {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            color: var(--metal-faint);
+            border: 1px solid var(--edge);
+            border-radius: 3px;
+            padding: 1px 6px;
+        }
+        
+        /* Custom Range Slider */
+        input[type=range].custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: linear-gradient(160deg, #F2F8FB, #9FB3C0);
+            border: 1px solid #6E8492;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        input[type=range].custom-range::-webkit-slider-runnable-track {
+            height: 3px;
+            background: var(--surface-3);
+            border-radius: 2px;
+        }
+        .text-accent { color: var(--metal-bright); }
+        .bg-accent-600 { background-color: var(--surface-3); border: 1px solid var(--edge-bright); }
+        .hover\:bg-accent-500:hover { background-color: #2C3D47; }
+        .shadow-accent-900\/20 { box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+        
+        /* Factor Selector Toggle Switch Styling */
+        .toggle-switch input { display: none; }
+        .toggle-switch .slider {
+            display: block;
+            width: 40px;
+            height: 20px;
+            background-color: var(--surface-3);
+            border: 1px solid var(--edge);
+            border-radius: 10px;
+            position: relative;
+            transition: 0.22s ease;
+        }
+        .toggle-switch .slider:before {
+            content: "";
+            position: absolute;
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+        .toggle-switch input:checked + .slider {
+            background-color: #7E97A6;
+            border-color: #9FB3C0;
+        }
+        .toggle-switch input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        /* Radio button styling */
+        .form-radio:checked { background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%238b5cf6' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle r='3' cx='8' cy='8'/%3e%3c/svg%3e"); }
+
+        /* File input styling */
+        input[type="file"]::file-selector-button {
+            background-color: #7c3aed; /* accent-600 */
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px; /* full */
+            border: 0;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: background-color 0.2s;
+        }
+        input[type="file"]:hover::file-selector-button {
+            background-color: #8b5cf6; /* accent-500 */
+        }
+        
+        /* New mode selection styling */
+        .mode-selected {
+            border-color: var(--accent);
+            background-color: rgba(139, 92, 246, 0.1); 
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+    // 啟動錯誤可視化：任何未捕捉錯誤都顯示在頁面上（而不是白屏）
+    window.addEventListener('error', (ev) => {
+        const root = document.getElementById('root');
+        if (root && !root.hasChildNodes()) {
+            const div = document.createElement('div');
+            div.style.cssText = 'padding:20px;margin:20px;background:#7f1d1d;color:#fff;border-radius:12px;font-family:monospace;font-size:13px;white-space:pre-wrap;';
+            div.textContent = '⚠️ 啟動錯誤:\n' + (ev.message || 'unknown') + '\n' + (ev.filename || '') + ':' + (ev.lineno || '');
+            document.body.insertBefore(div, root);
+        }
+    });
+    window.addEventListener('unhandledrejection', (ev) => {
+        console.warn('[Unhandled Promise]', ev.reason);
+    });
+    </script>
+
+    <!-- Background execution + notification support -->
+    <script>
+    // ── Notification helpers ──────────────────────────────────────
+    window.SilverNotify = {
+        _allowed: false,
+        init: async () => {
+            if (!('Notification' in window)) return false;
+            if (Notification.permission === 'granted') { window.SilverNotify._allowed = true; return true; }
+            if (Notification.permission !== 'denied') {
+                const perm = await Notification.requestPermission();
+                window.SilverNotify._allowed = (perm === 'granted');
+            }
+            return window.SilverNotify._allowed;
+        },
+        send: (title, body, tag = 'slv-notify') => {
+            if (!window.SilverNotify._allowed) return;
+            try {
+                const n = new Notification(title, {
+                    body, tag, icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="%238b5cf6"/><text x="16" y="21" text-anchor="middle" fill="white" font-size="16">Ag</text></svg>',
+                    requireInteraction: false, renotify: true
+                });
+                n.onclick = () => { window.focus(); n.close(); };
+            } catch(_) {}
+        }
+    };
+
+    // ── Wake Lock API — prevent screen/CPU sleep during training ──
+    window.SilverWakeLock = {
+        _lock: null,
+        acquire: async () => {
+            if (!('wakeLock' in navigator)) return;
+            try {
+                window.SilverWakeLock._lock = await navigator.wakeLock.request('screen');
+                console.log('[WakeLock] acquired');
+            } catch(e) { console.warn('[WakeLock] not available:', e?.message); }
+        },
+        release: async () => {
+            try {
+                if (window.SilverWakeLock._lock) {
+                    await window.SilverWakeLock._lock.release();
+                    window.SilverWakeLock._lock = null;
+                    console.log('[WakeLock] released');
+                }
+            } catch(_) {}
+        }
+    };
+    // ── 🔊 SilverKeepAlive：靜音音訊迴圈（手機背景執行關鍵）──
+    // 手機瀏覽器切到背景/鎖屏時會凍結 JS。播放靜音音訊能讓多數行動瀏覽器
+    // (iOS Safari / Android Chrome) 維持分頁活躍，大幅延緩 JS 暫停。
+    // 必須在使用者手勢（點擊）中啟動，否則 AudioContext 會被擋。
+    window.SilverKeepAlive = {
+        _ctx: null, _osc: null, _gain: null, _running: false,
+        start: function () {
+            if (this._running) return;
+            try {
+                const AC = window.AudioContext || window.webkitAudioContext;
+                if (!AC) return;
+                this._ctx = new AC();
+                if (this._ctx.state === 'suspended') this._ctx.resume();
+                this._osc = this._ctx.createOscillator();
+                this._gain = this._ctx.createGain();
+                // 近乎無聲（0.0001）但足以維持音訊管線運作
+                this._gain.gain.value = 0.0001;
+                this._osc.frequency.value = 30; // 30Hz，人耳幾乎聽不到
+                this._osc.connect(this._gain);
+                this._gain.connect(this._ctx.destination);
+                this._osc.start();
+                this._running = true;
+                console.log('[KeepAlive] 靜音音訊已啟動（維持背景執行）');
+            } catch (e) { console.warn('[KeepAlive] 啟動失敗:', e?.message); }
+        },
+        stop: function () {
+            try {
+                if (this._osc) { this._osc.stop(); this._osc.disconnect(); this._osc = null; }
+                if (this._gain) { this._gain.disconnect(); this._gain = null; }
+                if (this._ctx) { this._ctx.close(); this._ctx = null; }
+            } catch(_) {}
+            this._running = false;
+            console.log('[KeepAlive] 靜音音訊已停止');
+        },
+        // 背景時若 AudioContext 被暫停，嘗試恢復
+        resume: function () {
+            try { if (this._ctx && this._ctx.state === 'suspended') this._ctx.resume(); } catch(_) {}
+        }
+    };
+    // ── SilverBackground：訓練期間的背景執行，集中在這裡管理 ──
+    // 訓練開始/結束由 App 呼叫 setTraining(true/false)；只有訓練中才：
+    //   · 持有 Wake Lock、播放靜音音訊保活
+    //   · 跑心跳計時器（定期喚醒被暫停的 AudioContext，降低行動瀏覽器節流）
+    //   · 分頁隱藏時切到 CPU backend（多數瀏覽器在背景會暫停 WebGL），回到前景再切回 WebGL
+    window._trainingActive = false;
+    window._bgMode = false;
+    window.SilverBackground = (() => {
+        const HEARTBEAT_MS = 800;
+        let heartbeat = null;
+
+        const switchBackend = async (name) => {
+            if (typeof tf === 'undefined' || tf.getBackend() === name) return;
+            try {
+                await tf.setBackend(name);
+                await tf.ready();
+                window._bgMode = (name === 'cpu');
+                console.log(`[BG] backend → ${name}`);
+            } catch (e) { console.warn(`[BG] 切換到 ${name} 失敗:`, e?.message); }
+        };
+
+        const onVisibility = async () => {
+            if (!window._trainingActive) return;
+            if (document.visibilityState === 'hidden') {
+                await switchBackend('cpu');
+            } else {
+                // Wake Lock 在分頁隱藏時會被瀏覽器自動釋放，依規格需重新取得
+                await window.SilverWakeLock.acquire();
+                window.SilverKeepAlive.resume();
+                if (window._bgMode) await switchBackend('webgl');
+            }
+        };
+        document.addEventListener('visibilitychange', onVisibility);
+
+        const setTraining = (active) => {
+            active = !!active;
+            if (active === window._trainingActive) return;
+            window._trainingActive = active;
+            if (active) {
+                window.SilverWakeLock.acquire();
+                window.SilverKeepAlive.start();
+                heartbeat = setInterval(() => window.SilverKeepAlive.resume(), HEARTBEAT_MS);
+            } else {
+                clearInterval(heartbeat); heartbeat = null;
+                window.SilverWakeLock.release();
+                window.SilverKeepAlive.stop();
+                // 訓練若在背景結束，回到 WebGL；否則之後的預測會一直卡在較慢的 CPU
+                if (window._bgMode) switchBackend('webgl');
+            }
+        };
+
+        return { setTraining };
+    })();
+    </script>
+
+    <!-- @APP_JS -->
+</body>
+</html>
