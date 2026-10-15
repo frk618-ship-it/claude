@@ -29,6 +29,7 @@ npm run check    # 檢查 silver-ai-trader.html 是否與 src/ 同步
 - React、Tailwind CSS、用到的 Lucide 圖示全部內嵌到 HTML。
 - TF.js 與 Plotly 檔案大，仍從 jsDelivr 載入；版本鎖定在 `package.json`，並附上 SRI 雜湊，CDN 內容不符時瀏覽器會拒絕執行。
 - 要升級 TF.js 或 Plotly，改 `package.json` 的版本、`npm install`，再 `npm run build`，SRI 會自動重算。
+- 版本號只在 `package.json` 的 `version` 維護，建置時寫入頁面標題與右上角標記。
 
 ## 自架資料代理
 

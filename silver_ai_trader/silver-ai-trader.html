@@ -7,8 +7,9 @@
       React、Tailwind CSS、Lucide 圖示都在建置時內嵌；只有 TF.js / Plotly 這兩個大型函式庫走 CDN，
       版本鎖定並附 SRI 雜湊（integrity），CDN 內容被竄改或版本漂移時瀏覽器會拒絕載入。
     -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Silver Prediction System V19.5: DA-Optimized (Directional Loss + Momentum Features)</title>
+    <!-- 不鎖定縮放：手機使用者需要能放大看圖表與小字 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白銀期貨預測 Silver AI Trader v20.3</title>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"
             integrity="sha384-vE8hbVJ4lezako5rlvE7bY0BVzWlFhZncPlckrqNwcUQpVtgbENTgZ8TBbnPjZre" crossorigin="anonymous"></script>
@@ -474,17 +475,6 @@ const VALIDATION_MODE = {
   K_FOLD: "K_FOLD"
 };
 const denormalizePrice = (val, minMax) => val * (minMax.price.max - minMax.price.min) + minMax.price.min;
-const getCustomLoss = (lambda) => {
-  return (yTrue, yPred) => {
-    return tf.tidy(() => {
-      const mape = tf.metrics.meanAbsolutePercentageError(yTrue, yPred);
-      const mse = tf.metrics.meanSquaredError(yTrue, yPred);
-      const weightedMape = tf.mul(mape, 1 - lambda);
-      const weightedMse = tf.mul(mse, lambda);
-      return tf.add(weightedMape, weightedMse);
-    });
-  };
-};
 const getDirectionalHuberLoss = (alpha = 0.3, delta = 1) => {
   return (yTrue, yPred) => {
     return tf.tidy(() => {
@@ -889,11 +879,6 @@ function shouldRetrain(perf, opts = {}) {
 }
 const MarketDataCache = /* @__PURE__ */ (() => {
   const PREFIX = "slv_cache_v2_";
-  const lastCloseUTC = (nowMs = Date.now()) => {
-    const d = new Date(nowMs);
-    const todayClose = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 21, 0, 0, 0);
-    return nowMs >= todayClose ? todayClose : todayClose - 864e5;
-  };
   const get = (key) => {
     try {
       const raw = localStorage.getItem(PREFIX + key);
@@ -911,7 +896,6 @@ const MarketDataCache = /* @__PURE__ */ (() => {
       console.warn("[Cache] localStorage write failed:", e?.message);
     }
   };
-  const isFresh = (_key, _ttlMs) => false;
   const getData = (key) => {
     const e = get(key);
     return e ? e.data : null;
@@ -925,7 +909,7 @@ const MarketDataCache = /* @__PURE__ */ (() => {
     if (!e) return null;
     return new Date(e.ts).toLocaleString();
   };
-  return { set, isFresh, getData, clear, getCacheDate, lastCloseUTC };
+  return { set, getData, clear, getCacheDate };
 })();
 const resetWebGLBackend = async () => {
   console.warn("[WebGL] Resetting backend due to context loss / shader failure");
@@ -1001,7 +985,6 @@ const raceText = (urls, { timeoutMs = 7e3, stagger = 250 } = {}) => {
 const fetchFearGreedIndex = async (dates) => {
   const CNN_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata";
   const CACHE_KEY = "feargreed";
-  const CACHE_TTL = Infinity;
   const alignToDates = (map, fallback = 50) => {
     const out = [];
     let last = fallback;
@@ -1021,14 +1004,6 @@ const fetchFearGreedIndex = async (dates) => {
     return { values: out, source: "mock", currentScore, currentRating: "Neutral" };
   };
   if (!Array.isArray(dates) || dates.length === 0) return mockFallback();
-  if (MarketDataCache.isFresh(CACHE_KEY, CACHE_TTL)) {
-    const cached = MarketDataCache.getData(CACHE_KEY);
-    if (cached) {
-      console.log("[F&G] Cache hit");
-      const fgMap = new Map(Object.entries(cached.map));
-      return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
-    }
-  }
   try {
     const resp = await ProxyRotator.fetchAny(CNN_URL, { timeoutMs: 1e4, headers: { Accept: "application/json" } });
     const json = await resp.json();
@@ -1054,20 +1029,17 @@ const fetchFearGreedIndex = async (dates) => {
     return { values: alignToDates(fgMap, currentScore), source: "real", currentScore, currentRating };
   } catch (e) {
     console.warn("[F&G] All proxies failed:", e.message);
+    const cached = MarketDataCache.getData(CACHE_KEY);
+    if (cached?.map) {
+      console.warn(`[F&G] 使用 ${MarketDataCache.getCacheDate(CACHE_KEY)} 的快取資料`);
+      const fgMap = new Map(Object.entries(cached.map));
+      return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
+    }
     return mockFallback();
   }
 };
 const fetchStockTwitsSentimentReal = async () => {
   const symbols = ["SLV", "SI_F"];
-  const CACHE_KEY = "stocktwits";
-  const CACHE_TTL = 4 * 36e5;
-  if (MarketDataCache.isFresh(CACHE_KEY, CACHE_TTL)) {
-    const cached = MarketDataCache.getData(CACHE_KEY);
-    if (cached) {
-      console.log("[ST] Cache hit");
-      return { ...cached, source: "real" };
-    }
-  }
   const querySymbol = async (sym) => {
     const url = `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
     try {
@@ -1104,7 +1076,6 @@ const fetchStockTwitsSentimentReal = async () => {
   const score = bullishPct;
   console.log(`[StockTwits] Real score: ${score.toFixed(1)}% bullish (${totalTagged} tagged msgs from ${valid.length}/${symbols.length} symbols)`);
   const result = { score, source: "real", bullishPct, bearishPct, totalTagged, symbolsQueried: symbols };
-  MarketDataCache.set(CACHE_KEY, { score, bullishPct, bearishPct, totalTagged, symbolsQueried: symbols });
   return result;
 };
 const fetchTIPSYield = async (dates) => {
@@ -1377,7 +1348,6 @@ const fetchCOTData = async (onStatus) => {
 };
 const fetchMarketData = async (cotStatusCb) => {
   const DATA_RANGE = "5y";
-  const YAHOO_CACHE_TTL = Infinity;
   try {
     if (typeof cotStatusCb === "function") cotStatusCb({ state: "loading", source: null, records: 0, latestDate: null, latestNet: null, message: null, phase: "marketdata_start", updatedAt: (/* @__PURE__ */ new Date()).toISOString() });
   } catch (_) {
@@ -1479,13 +1449,6 @@ const fetchMarketData = async (cotStatusCb) => {
   };
   const fetchSymbolFast = async (symbol) => {
     const cacheKey = `sym_${symbol}`;
-    if (MarketDataCache.isFresh(cacheKey, YAHOO_CACHE_TTL)) {
-      const cached = MarketDataCache.getData(cacheKey);
-      if (cached) {
-        console.log(`[Cache] ${symbol} hit`);
-        return cached;
-      }
-    }
     const result = await fetchStooq(symbol);
     if (result) MarketDataCache.set(cacheKey, result);
     return result;
@@ -1961,6 +1924,21 @@ const createModel = (algorithm, lookback, finalNumFeatures, params) => {
   const model = tf.model({ inputs: inputTensor, outputs: outputTensor });
   return model;
 };
+const windowsToTensor = (X, from = 0, to = X.length) => {
+  const n = Math.max(0, to - from);
+  const lb = X[from]?.length ?? 0;
+  const nf = X[from]?.[0]?.length ?? 0;
+  const flat = new Float32Array(n * lb * nf);
+  let o = 0;
+  for (let i = from; i < to; i++) {
+    const win = X[i];
+    for (let j = 0; j < lb; j++) {
+      const row = win[j];
+      for (let k = 0; k < nf; k++) flat[o++] = row[k];
+    }
+  }
+  return tf.tensor3d(flat, [n, lb, nf]);
+};
 const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples = null) => {
   const {
     prices,
@@ -2267,7 +2245,7 @@ const runMultiStepPrediction = async (model, X, y, minMax, activeFeatures, final
     const chunk = X.slice(start, start + BATCH);
     let chunkTensor, predTensor;
     try {
-      chunkTensor = tf.tensor3d(chunk, [chunk.length, lookback, finalNumFeatures]);
+      chunkTensor = windowsToTensor(X, start, Math.min(start + BATCH, X.length));
       predTensor = model.predict(chunkTensor);
       const data = await predTensor.data();
       for (let r = 0; r < chunk.length; r++) {
@@ -2593,6 +2571,241 @@ const FactorStatusPanel = React.memo(({ latestData, activeFactors }) => {
     }
   )), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-zinc-500 w-7" }, "100"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-base font-bold text-white w-8 text-right" }, Math.round(gtrendVal))), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-zinc-600" }, "數值 = 該期間最高點的相對比例（100 = 歷史最高搜尋量）")), /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto max-h-[400px] pr-2 space-y-3" }, factorList.map((factor) => /* @__PURE__ */ React.createElement("div", { key: factor.key, className: "flex justify-between items-center pb-2 border-b border-zinc-800" }, /* @__PURE__ */ React.createElement("span", { className: `text-sm font-medium ${factor.color}` }, factor.name), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-lg text-white font-semibold" }, factor.format(latestData[factor.key] ?? 0))))));
 });
+const CotStatusPanel = React.memo(({ cotStatus }) => {
+  const [showCotDebug, setShowCotDebug] = useState(false);
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "activity", className: "w-5 h-5 mr-2" }), "COT 淨部位資料狀態"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${cotStatus.state === "ok" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : cotStatus.state === "loading" ? "border-amber-500/40 text-amber-300 bg-amber-500/10" : cotStatus.state === "error" ? "border-red-500/40 text-red-300 bg-red-500/10" : "border-zinc-600 text-zinc-300 bg-zinc-800/30"}` }, cotStatus.state === "ok" ? "已連線" : cotStatus.state === "loading" ? "載入中" : cotStatus.state === "error" ? "失敗" : "未啟動")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 gap-3 text-sm" }, /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "來源"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, cotStatus.source || "-")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "筆數"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, Number.isFinite(cotStatus.records) ? cotStatus.records : 0)), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "最新報告日"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, cotStatus.latestDate || "-")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "最新淨部位"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, Number.isFinite(cotStatus.latestNet) ? cotStatus.latestNet.toLocaleString() : "-"))), /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "mr-2" }, "phase:"), /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, cotStatus.phase || "-")), /* @__PURE__ */ React.createElement("div", { className: "text-zinc-500" }, cotStatus.updatedAt ? new Date(cotStatus.updatedAt).toLocaleString() : "")), cotStatus.state === "error" && /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-200 text-sm" }, cotStatus.message || "COT 來源連線失敗。", /* @__PURE__ */ React.createElement("div", { className: "mt-2" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => setShowCotDebug((v) => !v),
+      className: "text-xs underline text-red-200/90 hover:text-red-100"
+    },
+    showCotDebug ? "隱藏" : "顯示",
+    " 偵錯提示"
+  )), showCotDebug && /* @__PURE__ */ React.createElement("div", { className: "mt-2 text-xs text-red-100/90 space-y-1" }, /* @__PURE__ */ React.createElement("div", null, "1) 請打開瀏覽器 DevTools Console 查看 [COT] 訊息。"), /* @__PURE__ */ React.createElement("div", null, "2) 若公司網路擋 Socrata，程式會自動改走 proxy；仍失敗請更換網路。"), /* @__PURE__ */ React.createElement("div", null, "3) 若你改過查詢條件，請確認日期欄位是 as_of_date_form_yyyy_mm_dd。")))));
+});
+const ProxySettingsPanel = React.memo(({ logsUpdater }) => {
+  const [customProxyInput, setCustomProxyInput] = useState(getCustomProxy);
+  const [customProxySaved, setCustomProxySaved] = useState(getCustomProxy);
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-sky-300 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "globe", className: "w-5 h-5 mr-2" }), "資料代理（CORS Proxy）"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 leading-relaxed" }, "瀏覽器無法直接讀取部分資料源（Yahoo、CFTC、Treasury 等），需經過代理。 公共代理常限流或停止服務；建議自架（見 ", /* @__PURE__ */ React.createElement("span", { className: "font-mono" }, "cors-proxy-worker.js"), "）， 在此填入網址前綴後會優先使用，公共代理作為備援。"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "url",
+      value: customProxyInput,
+      onChange: (e) => setCustomProxyInput(e.target.value),
+      placeholder: "https://silver-proxy.你的帳號.workers.dev/?url=",
+      className: "w-full px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-sm font-mono text-zinc-200"
+    }
+  ), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => {
+        const v = customProxyInput.trim();
+        if (v && !/^https:\/\//i.test(v)) {
+          logsUpdater("⚠️ 代理網址必須以 https:// 開頭。");
+          return;
+        }
+        try {
+          if (v) localStorage.setItem(CUSTOM_PROXY_KEY, v);
+          else localStorage.removeItem(CUSTOM_PROXY_KEY);
+        } catch (_) {
+        }
+        setCustomProxySaved(v);
+        logsUpdater(v ? `已設定自架代理：${v}（下次載入資料生效）` : "已清除自架代理，只使用公共代理。");
+      },
+      disabled: customProxyInput.trim() === customProxySaved,
+      className: "px-3 py-1 rounded bg-sky-700/60 hover:bg-sky-600/60 text-white text-xs transition disabled:opacity-40"
+    },
+    "儲存"
+  ), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-zinc-500" }, customProxySaved ? "目前：自架代理優先" : "目前：僅公共代理"))));
+});
+const StockTwitsPanel = React.memo(({ stockTwitsStatus, loadData, isLoadingData }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-red-400 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "users", className: "w-5 h-5 mr-2" }), "StockTwits 白銀情緒"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${stockTwitsStatus.source === "real" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : stockTwitsStatus.source === "idle" ? "border-zinc-600 text-zinc-300 bg-zinc-800/30" : "border-yellow-500/40 text-yellow-300 bg-yellow-500/10"}` }, stockTwitsStatus.source === "real" ? "✅ Real" : stockTwitsStatus.source === "idle" ? "未啟動" : "⚠️ Mock")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-3 gap-2 text-sm" }, /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "多方 %"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-emerald-400" }, stockTwitsStatus.bullishPct !== null ? stockTwitsStatus.bullishPct.toFixed(1) : "—", "%")), /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-rose-500/10 border border-rose-500/20 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "空方 %"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-rose-400" }, stockTwitsStatus.bearishPct !== null ? stockTwitsStatus.bearishPct.toFixed(1) : "—", "%")), /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-zinc-900/40 border border-zinc-800 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "標記則數"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, stockTwitsStatus.totalTagged ?? "—"))), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-500 leading-relaxed" }, stockTwitsStatus.source === "real" ? "🟢 即時抓取 StockTwits SLV + SI_F 訊息流，統計已標記情緒訊息之多空比例。" : stockTwitsStatus.source === "idle" ? "⬜ 尚未載入。" : "🟡 StockTwits API 不可用，使用價格動量代理情緒。"), stockTwitsStatus.source === "mock" && /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => loadData(false),
+      disabled: isLoadingData,
+      className: "px-3 py-1 rounded bg-red-700/60 hover:bg-red-600/60 text-white text-xs transition w-fit"
+    },
+    isLoadingData ? "載入中..." : "重試"
+  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-600" }, stockTwitsStatus.updatedAt ? new Date(stockTwitsStatus.updatedAt).toLocaleString() : "")));
+});
+const FearGreedPanel = React.memo(({ fearGreedStatus, loadData, isLoadingData }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-orange-400 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "gauge", className: "w-5 h-5 mr-2" }), "CNN Fear & Greed Index"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${fearGreedStatus.source === "real" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : fearGreedStatus.source === "idle" ? "border-zinc-600 text-zinc-300 bg-zinc-800/30" : "border-yellow-500/40 text-yellow-300 bg-yellow-500/10"}` }, fearGreedStatus.source === "real" ? "✅ Real" : fearGreedStatus.source === "idle" ? "未啟動" : "⚠️ Mock")), fearGreedStatus.currentScore !== null && /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "極度恐慌"), /* @__PURE__ */ React.createElement("span", null, "恐懼"), /* @__PURE__ */ React.createElement("span", null, "中立"), /* @__PURE__ */ React.createElement("span", null, "貪婪"), /* @__PURE__ */ React.createElement("span", null, "極度貪婪")), /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      className: "relative h-3 rounded-full overflow-hidden",
+      style: { background: "linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #16a34a)" }
+    },
+    /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        className: "absolute top-0 w-2 h-full bg-white rounded-full shadow-lg transition-all duration-500",
+        style: { left: `calc(${Math.min(100, Math.max(0, fearGreedStatus.currentScore))}% - 4px)` }
+      }
+    )
+  ), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("span", { className: "text-2xl font-bold font-mono text-white" }, fearGreedStatus.currentScore?.toFixed(1)), /* @__PURE__ */ React.createElement("span", { className: `text-sm font-semibold px-2 py-1 rounded ${fearGreedStatus.currentScore >= 75 ? "bg-green-700 text-white" : fearGreedStatus.currentScore >= 55 ? "bg-green-800/60 text-green-300" : fearGreedStatus.currentScore >= 45 ? "bg-zinc-700 text-zinc-300" : fearGreedStatus.currentScore >= 25 ? "bg-red-800/60 text-red-300" : "bg-red-700 text-white"}` }, fearGreedStatus.currentRating))), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-500 leading-relaxed" }, fearGreedStatus.source === "real" ? "🟢 即時抓取 CNN Business DataViz API 含多年歷史數據，0=極度恐慌，100=極度貪婪。" : fearGreedStatus.source === "idle" ? "⬜ 尚未載入。" : "🟡 CNN API 不可用，使用低變異模擬值代替。"), fearGreedStatus.source === "mock" && /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => loadData(false),
+      disabled: isLoadingData,
+      className: "px-3 py-1 rounded bg-orange-700/60 hover:bg-orange-600/60 text-white text-xs transition w-fit"
+    },
+    isLoadingData ? "載入中..." : "重試"
+  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-600" }, fearGreedStatus.updatedAt ? new Date(fearGreedStatus.updatedAt).toLocaleString() : "")));
+});
+const BacktestPanel = React.memo(({ backtestConfig, setBacktestConfig, backtestResult, runBacktest }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "trending-up", className: "w-5 h-5 mr-2" }), "回測模擬 (Backtest)"), /* @__PURE__ */ React.createElement("span", { className: "text-xs px-2 py-1 rounded-full border border-zinc-600 text-zinc-300 bg-zinc-800/30" }, "使用模型逐筆預測 1-step")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-3" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "測試區間比例 (最後 N%)"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "0.05",
+      min: "0.05",
+      max: "0.8",
+      value: backtestConfig.testRatio,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, testRatio: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "初始資金"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "1000",
+      value: backtestConfig.initialCapital,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, initialCapital: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "槓桿"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "0.5",
+      min: "0",
+      value: backtestConfig.leverage,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, leverage: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "每次使用資金比例"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "0.1",
+      min: "0",
+      max: "1",
+      value: backtestConfig.positionPct,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, positionPct: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "單邊手續費 (bps)"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "1",
+      min: "0",
+      value: backtestConfig.feeBps,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, feeBps: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "單邊滑價 (bps)"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "1",
+      min: "0",
+      value: backtestConfig.slippageBps,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, slippageBps: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "進場門檻 (預測報酬率)"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "number",
+      step: "0.001",
+      min: "0",
+      value: backtestConfig.threshold,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, threshold: e.target.value })),
+      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+    }
+  )), /* @__PURE__ */ React.createElement("div", { className: "flex items-end" }, /* @__PURE__ */ React.createElement("label", { className: "inline-flex items-center gap-2 text-sm text-zinc-200 select-none" }, /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "checkbox",
+      checked: !!backtestConfig.allowShort,
+      onChange: (e) => setBacktestConfig((p) => ({ ...p, allowShort: e.target.checked }))
+    }
+  ), "允許放空"))), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: runBacktest,
+      className: "px-4 py-2 rounded-lg bg-accent/20 border border-accent/40 text-accent hover:bg-accent/30 transition"
+    },
+    "執行回測"
+  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 flex items-center" }, "※ 需先完成「訓練/載入模型」，回測採用測試區間逐筆 1-step 預測與交易模擬")), backtestResult && /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-5 gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "總報酬"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, (backtestResult.totalReturn * 100).toFixed(2), "%")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "期末資產"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.finalEquity.toFixed(2))), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "最大回撤"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, (backtestResult.maxDD * 100).toFixed(2), "%")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "Sharpe"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.sharpe.toFixed(2))), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "交易/勝率"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.tradeCount, " / ", (backtestResult.winRate * 100).toFixed(1), "%"))), /* @__PURE__ */ React.createElement("div", { className: "rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/30 p-2" }, /* @__PURE__ */ React.createElement("div", { id: "backtestEquityChart", style: { width: "100%", height: "320px" } }))));
+});
+const AgentMemoryPanel = React.memo(({ agentModels, agentRuns, agentPerf, setAgentTick, logsUpdater }) => {
+  const [agentOpen, setAgentOpen] = useState(false);
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel mb-4" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => setAgentOpen((o) => !o),
+      className: "w-full flex items-center gap-2 px-5 py-3 text-left"
+    },
+    /* @__PURE__ */ React.createElement(Icon, { name: "brain-circuit", className: "w-5 h-5", style: { color: "var(--metal-dim)" } }),
+    /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-base", style: { color: "var(--metal-bright)" } }, "代理記憶"),
+    (() => {
+      const champ = agentModels.find((m) => m.status === "champion");
+      return champ ? /* @__PURE__ */ React.createElement(
+        "span",
+        {
+          className: "text-xs px-2 py-0.5 rounded-full",
+          style: { background: "var(--up-soft)", color: "var(--up)", border: "1px solid rgba(63,185,80,0.3)" }
+        },
+        "冠軍 ",
+        champ.algorithm,
+        " · 保留集 DA ",
+        Number.isFinite(champ.holdoutDA) ? champ.holdoutDA.toFixed(1) : "—",
+        "%"
+      ) : /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無冠軍模型");
+    })(),
+    /* @__PURE__ */ React.createElement(Icon, { name: agentOpen ? "chevron-up" : "chevron-down", className: "w-4 h-4 ml-auto", style: { color: "var(--metal-dim)" } })
+  ), agentOpen && /* @__PURE__ */ React.createElement("div", { className: "border-t px-5 py-4 space-y-5", style: { borderColor: "var(--edge)" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline justify-between mb-2" }, /* @__PURE__ */ React.createElement("span", { className: "text-sm font-semibold", style: { color: "var(--metal-bright)" } }, "實測戰績"), /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "過去預測 vs 實際收盤")), agentPerf.n === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無已到期的預測可對帳。每次預測都會記錄下來，等目標日收盤後自動比對。") : /* @__PURE__ */ React.createElement("div", { className: "flex gap-6" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "方向命中率"), /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      className: "tabular text-xl font-semibold",
+      style: { color: agentPerf.da >= 55 ? "var(--up)" : agentPerf.da < 50 ? "var(--down)" : "var(--metal-bright)" }
+    },
+    agentPerf.da.toFixed(1),
+    "%"
+  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "平均誤差"), /* @__PURE__ */ React.createElement("div", { className: "tabular text-xl font-semibold", style: { color: "var(--metal-bright)" } }, Number.isFinite(agentPerf.mape) ? agentPerf.mape.toFixed(2) + "%" : "—")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "樣本"), /* @__PURE__ */ React.createElement("div", { className: "tabular text-xl font-semibold", style: { color: "var(--metal)" } }, agentPerf.n))), (() => {
+    const rec = shouldRetrain(agentPerf);
+    return /* @__PURE__ */ React.createElement("p", { className: "text-xs mt-2", style: { color: rec.retrain ? "var(--warn)" : "var(--metal-faint)" } }, rec.retrain ? "⚠️ " : "", rec.reason);
+  })()), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold mb-2", style: { color: "var(--metal-bright)" } }, "模型註冊表"), agentModels.length === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "還沒有訓練紀錄。") : /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: "w-full text-xs" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { style: { color: "var(--metal-faint)" } }, /* @__PURE__ */ React.createElement("th", { className: "text-left font-normal pb-1.5" }, "時間"), /* @__PURE__ */ React.createElement("th", { className: "text-left font-normal pb-1.5" }, "演算法"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5" }, "保留集 DA"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5" }, "保留集誤差"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5 pl-3" }, "狀態"))), /* @__PURE__ */ React.createElement("tbody", null, agentModels.slice(0, 10).map((m) => /* @__PURE__ */ React.createElement("tr", { key: m.id, className: "border-t", style: { borderColor: "var(--edge)" } }, /* @__PURE__ */ React.createElement("td", { className: "py-1.5 tabular", style: { color: "var(--metal-faint)" } }, new Date(m.ts).toLocaleDateString(), " ", new Date(m.ts).toLocaleTimeString().slice(0, 5)), /* @__PURE__ */ React.createElement("td", { className: "py-1.5", style: { color: "var(--metal)" } }, m.algorithm), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right tabular", style: { color: "var(--metal-bright)" } }, Number.isFinite(m.holdoutDA) ? m.holdoutDA.toFixed(2) + "%" : "—"), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right tabular", style: { color: "var(--metal)" } }, Number.isFinite(m.holdoutMAPE) ? m.holdoutMAPE.toFixed(2) + "%" : "—"), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right pl-3" }, /* @__PURE__ */ React.createElement("span", { className: "px-1.5 py-0.5 rounded", style: m.status === "champion" ? { background: "var(--up-soft)", color: "var(--up)" } : m.status === "retired" ? { color: "var(--metal-faint)" } : { color: "var(--metal-dim)" } }, m.status === "champion" ? "冠軍" : m.status === "retired" ? "退役" : "挑戰者")))))))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold mb-2", style: { color: "var(--metal-bright)" } }, "晉升歷程"), agentRuns.length === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無執行紀錄。") : /* @__PURE__ */ React.createElement("ul", { className: "space-y-1.5" }, agentRuns.slice(0, 6).map((r) => /* @__PURE__ */ React.createElement("li", { key: r.id, className: "text-xs flex gap-2" }, /* @__PURE__ */ React.createElement("span", { className: "tabular shrink-0", style: { color: "var(--metal-faint)" } }, new Date(r.ts).toLocaleDateString()), /* @__PURE__ */ React.createElement("span", { style: { color: r.promoted ? "var(--up)" : "var(--metal-dim)" } }, r.promoted ? "🏆" : "🛡️", " ", r.note))))), /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: async () => {
+        if (!confirm("確定清除所有代理記憶？模型註冊表、預測日誌與戰績都會消失，且無法復原。")) return;
+        try {
+          await AgentStore.clear("models");
+          await AgentStore.clear("runs");
+          await AgentStore.clear("predictions");
+          try {
+            await tf.io.removeModel(CHAMPION_URL);
+          } catch (_) {
+          }
+          setAgentTick((t) => t + 1);
+          logsUpdater("代理記憶已清除。");
+        } catch (e) {
+          logsUpdater("清除失敗: " + e?.message);
+        }
+      },
+      className: "text-xs px-3 py-1.5 rounded-lg transition-colors",
+      style: { background: "var(--surface-2)", border: "1px solid var(--edge)", color: "var(--metal-dim)" }
+    },
+    "清除代理記憶"
+  ))));
+});
+const ModelParamsPanel = React.memo(({ params, handleParamChange }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "sliders", className: "w-5 h-5 mr-2" }), "模型與訓練參數"), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "BiGRU"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "BiGRU" ? "bg-accent-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "Bi-GRU"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "LSTM"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "LSTM" ? "bg-accent-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "LSTM"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "Transformer"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "Transformer" ? "bg-amber-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "Transformer 🎯"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "TimesFM"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "TimesFM" ? "bg-sky-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "TimesFM")), params.algorithm === "TimesFM" && /* @__PURE__ */ React.createElement("p", { className: "text-xs mt-2 px-2 py-1.5 rounded-lg", style: { color: "var(--metal-dim)", background: "var(--surface-2)", border: "1px solid var(--edge)" } }, "採用 TimesFM 的", /* @__PURE__ */ React.createElement("strong", { style: { color: "var(--metal-bright)" } }, "架構"), "（patch 切分 + 因果注意力的 decoder-only transformer）， 以你的資料從頭訓練。這不是 Google 發布的預訓練基礎模型權重 （200M/500M 參數、僅有 PyTorch/JAX 版本，無法在瀏覽器執行），因此沒有 zero-shot 能力。"), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400 block mb-1 flex items-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "target", className: "w-3 h-3" }), "預測目標"), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "price"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${(params.predTarget || "price") === "price" ? "bg-teal-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "價格迴歸"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "direction"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "direction" ? "bg-rose-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "方向分類 🎯"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "dual"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "dual" ? "bg-violet-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "雙頭 (價格+方向)"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "logreturn"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "logreturn" ? "bg-emerald-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "對數報酬率 📈")), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-zinc-500 mt-1" }, (params.predTarget || "price") === "price" && "迴歸預測下一日價格，方向由價格變化推導。", params.predTarget === "direction" && "直接預測「漲/跌」二元分類，最佳化方向準確率 (DA)。輸出為上漲機率，不提供價格數值。", params.predTarget === "dual" && "同時輸出價格與方向機率：價格供圖表/MAPE，方向頭專注提升 DA。", params.predTarget === "logreturn" && "預測 ln(今日/昨日) 而非價格本身。報酬率接近平穩，模型無法靠「明天≈今天」取巧；且絕對誤差近似相對誤差，與 MAPE 指標對齊。用純 Huber，不加方向懲罰。")), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400 block mb-1" }, "驗證模式"), /* @__PURE__ */ React.createElement("div", { className: "flex justify-around space-x-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("validationMode", VALIDATION_MODE.NONE), className: `flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.NONE ? "bg-indigo-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "無 (標準訓練)"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("validationMode", VALIDATION_MODE.K_FOLD), className: `flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.K_FOLD ? "bg-indigo-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "K-Fold 驗證"))), params.validationMode === VALIDATION_MODE.K_FOLD && /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "K-Fold 數量 (K)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-cyan-400 font-bold" }, params.kFolds)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "2", max: "10", value: params.kFolds, step: "1", onChange: (e) => handleParamChange("kFolds", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "🎯 方向懲罰權重 (α) — 0=純Huber，0.3推薦"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-pink-400 font-bold" }, params.directionalLambda.toFixed(1))), /* @__PURE__ */ React.createElement("input", { type: "range", min: "0.0", max: "1.0", value: params.directionalLambda, step: "0.1", onChange: (e) => handleParamChange("directionalLambda", parseFloat(e.target.value)), className: "custom-range w-full" }), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-zinc-600" }, "α 越高模型越重視方向正確性，α 越低越精準預測價格水準")), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "Lookback (天數)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.lookback)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "5", max: "120", value: params.lookback, step: "1", onChange: (e) => handleParamChange("lookback", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "單層單元數 (Units/Filters)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.layers)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "16", max: "128", value: params.layers, step: "16", onChange: (e) => handleParamChange("layers", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "訓練週期 (Epochs)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.epochs)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "10", max: "1000", value: params.epochs, step: "10", onChange: (e) => handleParamChange("epochs", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "Batch Size"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.batchSize)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "8", max: "128", value: params.batchSize, step: "8", onChange: (e) => handleParamChange("batchSize", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "預測天數 (T+N)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.futureDays)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "1", max: "10", value: params.futureDays, step: "1", onChange: (e) => handleParamChange("futureDays", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "歷史數據年限 (Years)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.historyYears.toFixed(1))), /* @__PURE__ */ React.createElement("input", { type: "range", min: "0.5", max: "5.0", value: params.historyYears, step: "0.5", onChange: (e) => handleParamChange("historyYears", parseFloat(e.target.value)), className: "custom-range w-full" }))));
+});
 const App = () => {
   const [rawData, setRawData] = useState(null);
   const [fetchError, setFetchError] = useState(null);
@@ -2602,7 +2815,6 @@ const App = () => {
   const [agentModels, setAgentModels] = useState([]);
   const [agentRuns, setAgentRuns] = useState([]);
   const [agentPerf, setAgentPerf] = useState({ n: 0, da: NaN, mape: NaN });
-  const [agentOpen, setAgentOpen] = useState(false);
   const [snapshotAt, setSnapshotAt] = useState(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [hasSnapshot, setHasSnapshot] = useState(false);
@@ -2617,9 +2829,6 @@ const App = () => {
     phase: null,
     updatedAt: null
   });
-  const [showCotDebug, setShowCotDebug] = useState(false);
-  const [customProxyInput, setCustomProxyInput] = useState(getCustomProxy);
-  const [customProxySaved, setCustomProxySaved] = useState(getCustomProxy);
   const [stockTwitsStatus, setStockTwitsStatus] = useState({ source: "idle", bullishPct: null, bearishPct: null, totalTagged: 0, updatedAt: null });
   const [fearGreedStatus, setFearGreedStatus] = useState({ source: "idle", currentScore: null, currentRating: null, updatedAt: null });
   const modelRef = useRef(null);
@@ -2800,6 +3009,33 @@ const App = () => {
   const logsUpdater = useCallback((msg) => {
     setModelState((prev) => ({ ...prev, logs: [msg, ...prev.logs.slice(0, 4)] }));
   }, []);
+  const EPOCH_UI_INTERVAL_MS = 250;
+  const epochUiRef = useRef({ losses: [], patches: [], timer: null, last: 0 });
+  const flushEpochUi = useCallback(() => {
+    const q = epochUiRef.current;
+    if (q.timer) {
+      clearTimeout(q.timer);
+      q.timer = null;
+    }
+    q.last = performance.now();
+    const { losses, patches } = q;
+    q.losses = [];
+    q.patches = [];
+    if (losses.length) {
+      setTrainingResults((prev) => ({ ...prev, lossHistory: [...prev.lossHistory, ...losses] }));
+      const minL = Math.min(...losses);
+      setBestLossValue((prev) => prev === null || minL < prev ? minL : prev);
+    }
+    if (patches.length) setModelState((prev) => patches.reduce((st, f) => f(st), prev));
+  }, []);
+  const queueEpochUi = useCallback(({ loss, patch } = {}) => {
+    const q = epochUiRef.current;
+    if (loss !== void 0) q.losses.push(loss);
+    if (patch) q.patches.push(patch);
+    const wait = EPOCH_UI_INTERVAL_MS - (performance.now() - q.last);
+    if (wait <= 0) flushEpochUi();
+    else if (!q.timer) q.timer = setTimeout(flushEpochUi, wait);
+  }, [flushEpochUi]);
   const calcMaxDrawdown = (equity) => {
     let peak = equity[0] ?? 0;
     let maxDD = 0;
@@ -2870,7 +3106,7 @@ const App = () => {
         return denormalizePrice(raw[t], minMax);
       };
       logsUpdater(`回測：預測測試集（共 ${testX.length} 筆，目標=${predTarget}）...`);
-      const xTensor = tf.tensor3d(testX);
+      const xTensor = windowsToTensor(testX);
       const predTensor = modelRef.current.predict(xTensor);
       const predScaled = await predTensor.data();
       tf.dispose([xTensor, predTensor]);
@@ -3448,9 +3684,9 @@ const App = () => {
         });
         logsUpdater(`Fold ${foldIdx + 1}/${params.kFolds}: 訓練開始 (訓練集大小: ${trainX.length}, 驗證集大小: ${testX.length})`);
         const toTargetTensor = (Y, YLR) => _kfTarget === "logreturn" ? tf.tensor(Float32Array.from(YLR), [YLR.length, 1]) : tf.tensor2d(Y, [Y.length, 1]);
-        const foldTensorX = tf.tensor3d(trainX);
+        const foldTensorX = windowsToTensor(trainX);
         const foldTensorY = toTargetTensor(trainY, trainYLR);
-        const foldValX = tf.tensor3d(testX);
+        const foldValX = windowsToTensor(testX);
         const foldValY = toTargetTensor(testY, testYLR);
         const isLastFold = foldIdx === params.kFolds - 1;
         let foldHistoryLoss = [];
@@ -3461,8 +3697,7 @@ const App = () => {
             foldHistoryLoss.push(currentLoss);
             if (foldIdx === 0) {
               historyLoss.push(currentLoss);
-              setTrainingResults((prev) => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
-              setBestLossValue((prev) => prev === null || currentLoss < prev ? currentLoss : prev);
+              queueEpochUi({ loss: currentLoss });
             }
             if (isLastFold && valLoss < runBestLoss) {
               runBestLoss = valLoss;
@@ -3472,13 +3707,13 @@ const App = () => {
               setCurrentBestLoss(valLoss);
               await trainModelInstance.save(MODEL_URL);
               localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
-              setModelState((prev) => ({
+              queueEpochUi({ patch: (prev) => ({
                 ...prev,
                 loss: lossToSave,
                 logs: [`Fold ${foldIdx + 1} Epoch ${epoch + 1}: val_loss ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter((log) => !log.startsWith("Epoch") && !log.startsWith("新的歷史最佳")).slice(0, 4)]
-              }));
+              }) });
             }
-            setModelState((prev) => ({ ...prev, progress: foldIdx / params.kFolds * 100 + (epoch + 1) / params.epochs * (100 / params.kFolds), currentEpoch: epoch + 1, totalEpochs: params.epochs }));
+            queueEpochUi({ patch: (prev) => ({ ...prev, progress: foldIdx / params.kFolds * 100 + (epoch + 1) / params.epochs * (100 / params.kFolds), currentEpoch: epoch + 1, totalEpochs: params.epochs }) });
             await safeYield();
           }
         };
@@ -3491,8 +3726,9 @@ const App = () => {
           callbacks: [foldCheckpointCallback]
         });
         tf.dispose([foldTensorX, foldTensorY, foldValX, foldValY]);
+        flushEpochUi();
         logsUpdater(`Fold ${foldIdx + 1}/${params.kFolds}: 訓練完成，正在評估...`);
-        const testTensorX = tf.tensor3d(testX);
+        const testTensorX = windowsToTensor(testX);
         const predTensor = trainModelInstance.predict(testTensorX);
         const predData = await predTensor.data();
         tf.dispose([testTensorX, predTensor]);
@@ -3616,7 +3852,6 @@ const App = () => {
             } catch (e) {
               logsUpdater("錯誤:瀏覽器儲存區中未找到歷史最佳模型，無法進行預測。");
               setModelState((prev) => ({ ...prev, isTraining: false }));
-              tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]);
               return;
             }
           } else {
@@ -3628,7 +3863,6 @@ const App = () => {
           if (!modelToUse) {
             logsUpdater("錯誤: 未上傳模型，無法進行預測。");
             setModelState((prev) => ({ ...prev, isTraining: false }));
-            tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]);
             return;
           }
           if (!trainConfigRef.current) {
@@ -3639,7 +3873,6 @@ const App = () => {
         } else {
           logsUpdater("錯誤: 未選擇有效的運行模式。");
           setModelState((prev) => ({ ...prev, isTraining: false }));
-          tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]);
           return;
         }
         finalModel = modelToUse;
@@ -3662,11 +3895,11 @@ const App = () => {
           } else {
             logsUpdater(`資料量不足以切出保留集，本次訓練不進行冠軍比較。`);
           }
-          const tensorX = tf.tensor3d(_trainX);
+          const tensorX = windowsToTensor(_trainX);
           const tensorY = buildTargetTensor(_trainY, _trainYDir, _pt, _trainYLR);
           let valX = null, valY = null;
           if (_hs.holdLen > 0) {
-            valX = tf.tensor3d(X.slice(_hs.holdStart));
+            valX = windowsToTensor(X, _hs.holdStart);
             valY = buildTargetTensor(y.slice(_hs.holdStart), yDir.slice(_hs.holdStart), _pt, yLogRet.slice(_hs.holdStart));
           }
           const lossLabel = valX ? "val_loss" : "loss";
@@ -3690,8 +3923,7 @@ const App = () => {
               const monitored = valX && Number.isFinite(logs.val_loss) ? logs.val_loss : currentLoss;
               const progress = (epoch + 1) / params.epochs * 100;
               historyLoss.push(currentLoss);
-              setTrainingResults((prev) => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
-              setBestLossValue((prev) => prev === null || currentLoss < prev ? currentLoss : prev);
+              queueEpochUi({ loss: currentLoss });
               if (monitored < runBestLoss) {
                 runBestLoss = monitored;
                 savedThisRun = true;
@@ -3700,21 +3932,21 @@ const App = () => {
                 setCurrentBestLoss(monitored);
                 await modelToUse.save(MODEL_URL);
                 localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
-                setModelState((prev) => ({
+                queueEpochUi({ patch: (prev) => ({
                   ...prev,
                   progress,
                   loss: lossToSave,
                   logs: [`Epoch ${epoch + 1}: ${lossLabel} ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter((log) => !log.startsWith("Epoch") && !log.startsWith("新的歷史最佳")).slice(0, 4)],
                   directionalAccuracy: "N/A",
                   mape: "N/A"
-                }));
+                }) });
               } else {
-                setModelState((prev) => ({
+                queueEpochUi({ patch: (prev) => ({
                   ...prev,
                   progress,
                   loss: currentLoss.toFixed(4),
                   logs: [`Epoch ${epoch + 1}: loss ${currentLoss.toFixed(4)}${valX ? ` / val_loss ${monitored.toFixed(4)}` : ""}`, ...prev.logs.filter((log) => !log.startsWith("Epoch") && !log.startsWith("正在儲存最佳模型")).slice(0, 4)]
-                }));
+                }) });
               }
               await safeYield();
             }
@@ -3728,6 +3960,7 @@ const App = () => {
             callbacks: [checkpointCallback]
           });
           if (valX) tf.dispose([valX, valY]);
+          flushEpochUi();
           logsUpdater(`訓練完成，重新載入瀏覽器儲存區中的最佳模型進行最終預測...`);
           try {
             if (!savedThisRun && !resumedFromSaved) throw new Error("本次未儲存模型");
@@ -3784,7 +4017,7 @@ const App = () => {
         let hx = null, hp = null;
         try {
           const hX = X.slice(_hs.holdStart);
-          hx = tf.tensor3d(hX);
+          hx = windowsToTensor(X, _hs.holdStart);
           hp = mdl.predict(hx);
           const raw = await hp.data();
           const stride = _predTarget === "dual" ? 2 : 1;
@@ -3998,7 +4231,7 @@ const App = () => {
       }
       setModelState((prev) => ({ ...prev, isTraining: false, progress: 0 }));
     }
-  }, [params, selectedFactors, marketData, modelState.isTraining, runMode, logsUpdater, currentBestLoss, latestFactorData]);
+  }, [params, selectedFactors, marketData, modelState.isTraining, runMode, logsUpdater, queueEpochUi, flushEpochUi, currentBestLoss, latestFactorData]);
   const runAgentSearch = useCallback(async () => {
     if (!marketData || agentRunningRef.current) return;
     const _dqS = checkDataQuality(marketData, null);
@@ -4113,21 +4346,7 @@ const App = () => {
       const n = sp.trainEnd;
       const actualLB = rawX[0]?.length ?? trialParams.lookback;
       const actualFeat = rawX[0]?.[0]?.length ?? ds.numFeatures;
-      const flatten = (from, to) => {
-        const m = to - from;
-        const fx = new Float32Array(m * actualLB * actualFeat);
-        const fy = new Float32Array(m);
-        for (let i = 0; i < m; i++) {
-          fy[i] = rawY[from + i];
-          const row = rawX[from + i];
-          for (let j = 0; j < actualLB; j++) {
-            const cell = row[j];
-            const base = i * actualLB * actualFeat + j * actualFeat;
-            for (let k = 0; k < actualFeat; k++) fx[base + k] = cell[k];
-          }
-        }
-        return [tf.tensor(fx, [m, actualLB, actualFeat]), tf.tensor(fy, [m, 1])];
-      };
+      const flatten = (from, to) => [windowsToTensor(rawX, from, to), tf.tensor2d(Float32Array.from(rawY.slice(from, to)), [to - from, 1])];
       let model = null, tX = null, tY = null, vX = null, vY = null, predsT = null;
       let finalLoss = 9999;
       try {
@@ -4389,15 +4608,7 @@ const App = () => {
       const afY = dsAF.y;
       const afLB = afX[0]?.length ?? trialParams.lookback;
       const afFt = afX[0]?.[0]?.length ?? dsAF.numFeatures;
-      const flatAFRange = (from, to) => {
-        const m = to - from;
-        const fx = new Float32Array(m * afLB * afFt);
-        for (let i = 0; i < m; i++)
-          for (let j = 0; j < afLB; j++)
-            for (let k = 0; k < afFt; k++)
-              fx[i * afLB * afFt + j * afFt + k] = afX[from + i][j][k];
-        return [tf.tensor(fx, [m, afLB, afFt]), tf.tensor(Float32Array.from(afY.slice(from, to)), [m, 1])];
-      };
+      const flatAFRange = (from, to) => [windowsToTensor(afX, from, to), tf.tensor2d(Float32Array.from(afY.slice(from, to)), [to - from, 1])];
       let tM = null, xT = null, yT = null, xV = null, yV = null, pT = null;
       try {
         [xT, yT] = flatAFRange(0, spAF.trainEnd);
@@ -4685,7 +4896,7 @@ const App = () => {
     },
     /* @__PURE__ */ React.createElement(Icon, { name: "refresh-cw", className: `w-3.5 h-3.5 ${isLoadingData ? "animate-spin" : ""}` }),
     /* @__PURE__ */ React.createElement("span", { className: "hidden sm:inline" }, isLoadingData ? "讀取中" : "重新讀取")
-  ), /* @__PURE__ */ React.createElement("span", { className: "assay-mark hidden md:inline" }, "V19.14")))), /* @__PURE__ */ React.createElement("div", { className: "container mx-auto p-4" }, (() => {
+  ), /* @__PURE__ */ React.createElement("span", { className: "assay-mark hidden md:inline" }, "v20.3")))), /* @__PURE__ */ React.createElement("div", { className: "container mx-auto p-4" }, (() => {
     const lastPrice = marketData?.prices?.[marketData.prices.length - 1];
     const hasPred = prediction && Array.isArray(prediction.futurePrices) && prediction.futurePrices.length > 0;
     const dayCards = hasPred ? prediction.futurePrices.map((price, idx) => {
@@ -4718,65 +4929,7 @@ const App = () => {
       /* 空狀態是一份邀請，不是一句抱歉 */
       /* @__PURE__ */ React.createElement("div", { className: "px-6 py-10 text-center" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm mb-1", style: { color: "var(--metal)" } }, "尚未有預測結果"), /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "在下方按「一鍵智慧流程」，系統會自動搜尋最佳參數、訓練並產出明日判讀"))
     ));
-  })(), restoredFromSaved && /* @__PURE__ */ React.createElement("div", { className: "bg-emerald-900/30 border border-emerald-500/50 rounded-xl p-4 mb-4 flex flex-wrap items-start gap-3" }, /* @__PURE__ */ React.createElement(Icon, { name: "check-circle", className: "w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" }), /* @__PURE__ */ React.createElement("div", { className: "flex-1 min-w-0" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm font-bold text-emerald-300" }, "✅ 已自動還原歷史最佳權重設定"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 flex flex-wrap gap-2 text-xs text-emerald-200/80" }, /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "演算法：", params.algorithm), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "Lookback：", params.lookback), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "Layers：", params.layers), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "特徵數：", numFeatures), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "DirectionalHuber α：", params.directionalLambda), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded font-bold" }, "模式：僅預測 (歷史最佳)")), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-emerald-400/60 mt-1" }, "所有參數與特徵選擇已同步為訓練時配置，可直接點擊「執行預測 T+N 日」。"))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel mb-4" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => setAgentOpen((o) => !o),
-      className: "w-full flex items-center gap-2 px-5 py-3 text-left"
-    },
-    /* @__PURE__ */ React.createElement(Icon, { name: "brain-circuit", className: "w-5 h-5", style: { color: "var(--metal-dim)" } }),
-    /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-base", style: { color: "var(--metal-bright)" } }, "代理記憶"),
-    (() => {
-      const champ = agentModels.find((m) => m.status === "champion");
-      return champ ? /* @__PURE__ */ React.createElement(
-        "span",
-        {
-          className: "text-xs px-2 py-0.5 rounded-full",
-          style: { background: "var(--up-soft)", color: "var(--up)", border: "1px solid rgba(63,185,80,0.3)" }
-        },
-        "冠軍 ",
-        champ.algorithm,
-        " · 保留集 DA ",
-        Number.isFinite(champ.holdoutDA) ? champ.holdoutDA.toFixed(1) : "—",
-        "%"
-      ) : /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無冠軍模型");
-    })(),
-    /* @__PURE__ */ React.createElement(Icon, { name: agentOpen ? "chevron-up" : "chevron-down", className: "w-4 h-4 ml-auto", style: { color: "var(--metal-dim)" } })
-  ), agentOpen && /* @__PURE__ */ React.createElement("div", { className: "border-t px-5 py-4 space-y-5", style: { borderColor: "var(--edge)" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline justify-between mb-2" }, /* @__PURE__ */ React.createElement("span", { className: "text-sm font-semibold", style: { color: "var(--metal-bright)" } }, "實測戰績"), /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "過去預測 vs 實際收盤")), agentPerf.n === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無已到期的預測可對帳。每次預測都會記錄下來，等目標日收盤後自動比對。") : /* @__PURE__ */ React.createElement("div", { className: "flex gap-6" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "方向命中率"), /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      className: "tabular text-xl font-semibold",
-      style: { color: agentPerf.da >= 55 ? "var(--up)" : agentPerf.da < 50 ? "var(--down)" : "var(--metal-bright)" }
-    },
-    agentPerf.da.toFixed(1),
-    "%"
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "平均誤差"), /* @__PURE__ */ React.createElement("div", { className: "tabular text-xl font-semibold", style: { color: "var(--metal-bright)" } }, Number.isFinite(agentPerf.mape) ? agentPerf.mape.toFixed(2) + "%" : "—")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "樣本"), /* @__PURE__ */ React.createElement("div", { className: "tabular text-xl font-semibold", style: { color: "var(--metal)" } }, agentPerf.n))), (() => {
-    const rec = shouldRetrain(agentPerf);
-    return /* @__PURE__ */ React.createElement("p", { className: "text-xs mt-2", style: { color: rec.retrain ? "var(--warn)" : "var(--metal-faint)" } }, rec.retrain ? "⚠️ " : "", rec.reason);
-  })()), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold mb-2", style: { color: "var(--metal-bright)" } }, "模型註冊表"), agentModels.length === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "還沒有訓練紀錄。") : /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: "w-full text-xs" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { style: { color: "var(--metal-faint)" } }, /* @__PURE__ */ React.createElement("th", { className: "text-left font-normal pb-1.5" }, "時間"), /* @__PURE__ */ React.createElement("th", { className: "text-left font-normal pb-1.5" }, "演算法"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5" }, "保留集 DA"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5" }, "保留集誤差"), /* @__PURE__ */ React.createElement("th", { className: "text-right font-normal pb-1.5 pl-3" }, "狀態"))), /* @__PURE__ */ React.createElement("tbody", null, agentModels.slice(0, 10).map((m) => /* @__PURE__ */ React.createElement("tr", { key: m.id, className: "border-t", style: { borderColor: "var(--edge)" } }, /* @__PURE__ */ React.createElement("td", { className: "py-1.5 tabular", style: { color: "var(--metal-faint)" } }, new Date(m.ts).toLocaleDateString(), " ", new Date(m.ts).toLocaleTimeString().slice(0, 5)), /* @__PURE__ */ React.createElement("td", { className: "py-1.5", style: { color: "var(--metal)" } }, m.algorithm), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right tabular", style: { color: "var(--metal-bright)" } }, Number.isFinite(m.holdoutDA) ? m.holdoutDA.toFixed(2) + "%" : "—"), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right tabular", style: { color: "var(--metal)" } }, Number.isFinite(m.holdoutMAPE) ? m.holdoutMAPE.toFixed(2) + "%" : "—"), /* @__PURE__ */ React.createElement("td", { className: "py-1.5 text-right pl-3" }, /* @__PURE__ */ React.createElement("span", { className: "px-1.5 py-0.5 rounded", style: m.status === "champion" ? { background: "var(--up-soft)", color: "var(--up)" } : m.status === "retired" ? { color: "var(--metal-faint)" } : { color: "var(--metal-dim)" } }, m.status === "champion" ? "冠軍" : m.status === "retired" ? "退役" : "挑戰者")))))))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold mb-2", style: { color: "var(--metal-bright)" } }, "晉升歷程"), agentRuns.length === 0 ? /* @__PURE__ */ React.createElement("p", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "尚無執行紀錄。") : /* @__PURE__ */ React.createElement("ul", { className: "space-y-1.5" }, agentRuns.slice(0, 6).map((r) => /* @__PURE__ */ React.createElement("li", { key: r.id, className: "text-xs flex gap-2" }, /* @__PURE__ */ React.createElement("span", { className: "tabular shrink-0", style: { color: "var(--metal-faint)" } }, new Date(r.ts).toLocaleDateString()), /* @__PURE__ */ React.createElement("span", { style: { color: r.promoted ? "var(--up)" : "var(--metal-dim)" } }, r.promoted ? "🏆" : "🛡️", " ", r.note))))), /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: async () => {
-        if (!confirm("確定清除所有代理記憶？模型註冊表、預測日誌與戰績都會消失，且無法復原。")) return;
-        try {
-          await AgentStore.clear("models");
-          await AgentStore.clear("runs");
-          await AgentStore.clear("predictions");
-          try {
-            await tf.io.removeModel(CHAMPION_URL);
-          } catch (_) {
-          }
-          setAgentTick((t) => t + 1);
-          logsUpdater("代理記憶已清除。");
-        } catch (e) {
-          logsUpdater("清除失敗: " + e?.message);
-        }
-      },
-      className: "text-xs px-3 py-1.5 rounded-lg transition-colors",
-      style: { background: "var(--surface-2)", border: "1px solid var(--edge)", color: "var(--metal-dim)" }
-    },
-    "清除代理記憶"
-  ))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel mb-4" }, /* @__PURE__ */ React.createElement(
+  })(), restoredFromSaved && /* @__PURE__ */ React.createElement("div", { className: "bg-emerald-900/30 border border-emerald-500/50 rounded-xl p-4 mb-4 flex flex-wrap items-start gap-3" }, /* @__PURE__ */ React.createElement(Icon, { name: "check-circle", className: "w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" }), /* @__PURE__ */ React.createElement("div", { className: "flex-1 min-w-0" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm font-bold text-emerald-300" }, "✅ 已自動還原歷史最佳權重設定"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 flex flex-wrap gap-2 text-xs text-emerald-200/80" }, /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "演算法：", params.algorithm), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "Lookback：", params.lookback), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "Layers：", params.layers), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "特徵數：", numFeatures), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded" }, "DirectionalHuber α：", params.directionalLambda), /* @__PURE__ */ React.createElement("span", { className: "px-2 py-0.5 bg-emerald-900/50 rounded font-bold" }, "模式：僅預測 (歷史最佳)")), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-emerald-400/60 mt-1" }, "所有參數與特徵選擇已同步為訓練時配置，可直接點擊「執行預測 T+N 日」。"))), /* @__PURE__ */ React.createElement(AgentMemoryPanel, { agentModels, agentRuns, agentPerf, setAgentTick, logsUpdater }), /* @__PURE__ */ React.createElement("div", { className: "glass-panel mb-4" }, /* @__PURE__ */ React.createElement(
     "div",
     {
       className: "flex items-center justify-between px-5 py-3 cursor-pointer select-none",
@@ -4880,159 +5033,7 @@ const App = () => {
       },
       "套用"
     )));
-  }))))), agentState.log.length > 0 && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold text-zinc-400 mb-1" }, "代理日誌"), /* @__PURE__ */ React.createElement("div", { className: "bg-zinc-950/60 rounded-lg p-3 max-h-36 overflow-y-auto font-mono text-xs space-y-0.5" }, agentState.log.map((line, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: `${line.startsWith("⭐") || line.startsWith("🏆") ? "text-amber-300" : line.startsWith("❌") || line.startsWith("⛔") ? "text-rose-400" : line.startsWith("✅") ? "text-emerald-400" : "text-zinc-400"}` }, line)))), /* @__PURE__ */ React.createElement("details", { className: "text-xs text-zinc-500" }, /* @__PURE__ */ React.createElement("summary", { className: "cursor-pointer hover:text-zinc-300" }, "📋 搜尋空間 & 策略說明"), /* @__PURE__ */ React.createElement("div", { className: "mt-2 space-y-1 pl-2 border-l border-zinc-700" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "演算法："), "BiGRU / LSTM / Transformer / TimesFM"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "Lookback："), "5 / 10 / 15 / 20 / 30 / 40 / 60"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "Units："), "16 / 32 / 48 / 64 / 96 / 128"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "α (方向權重)："), "0.0 ~ 0.7"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "LR："), "0.0005 / 0.001 / 0.002 / 0.003"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "因子："), "23 個因子各以機率採樣（僅 Random/Bayesian）"), /* @__PURE__ */ React.createElement("div", { className: "pt-1 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Random："), "完全隨機採樣，探索性最強"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Grid："), "掃描 9 種固定組合，可重現"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Bayesian："), "前 4 次隨機後，以最佳結果為基礎引導採樣"))))), /* @__PURE__ */ React.createElement("div", { className: "bg-zinc-800 p-4 rounded-xl shadow-2xl mb-6 border border-amber-500/50" }, /* @__PURE__ */ React.createElement("h3", { className: "text-xl font-bold mb-4 text-amber-300 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "trophy", className: "w-6 h-6 mr-2" }), /* @__PURE__ */ React.createElement("span", null, "歷史最佳表現 (Historical Best)")), /* @__PURE__ */ React.createElement("div", { className: "flex justify-around space-x-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-center p-3 bg-zinc-700 rounded-lg flex-1" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm text-zinc-400" }, "當前訓練最低 Loss"), /* @__PURE__ */ React.createElement("p", { className: "text-3xl font-mono font-extrabold text-white mt-1" }, bestLossValue !== null ? bestLossValue.toFixed(4) : "N/A")), /* @__PURE__ */ React.createElement("div", { className: "text-center p-3 bg-zinc-700 rounded-lg flex-1" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm text-zinc-400" }, "歷史最佳模型儲存 Loss"), /* @__PURE__ */ React.createElement("p", { className: "text-3xl font-mono font-extrabold text-white mt-1" }, currentBestLoss < 100 ? currentBestLoss.toFixed(4) : "N/A")))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6" }, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "activity", className: "w-5 h-5 mr-2" }), "COT 淨部位資料狀態"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${cotStatus.state === "ok" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : cotStatus.state === "loading" ? "border-amber-500/40 text-amber-300 bg-amber-500/10" : cotStatus.state === "error" ? "border-red-500/40 text-red-300 bg-red-500/10" : "border-zinc-600 text-zinc-300 bg-zinc-800/30"}` }, cotStatus.state === "ok" ? "已連線" : cotStatus.state === "loading" ? "載入中" : cotStatus.state === "error" ? "失敗" : "未啟動")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 gap-3 text-sm" }, /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "來源"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, cotStatus.source || "-")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "筆數"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, Number.isFinite(cotStatus.records) ? cotStatus.records : 0)), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "最新報告日"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, cotStatus.latestDate || "-")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 mb-1" }, "最新淨部位"), /* @__PURE__ */ React.createElement("div", { className: "font-semibold text-white" }, Number.isFinite(cotStatus.latestNet) ? cotStatus.latestNet.toLocaleString() : "-"))), /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "mr-2" }, "phase:"), /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, cotStatus.phase || "-")), /* @__PURE__ */ React.createElement("div", { className: "text-zinc-500" }, cotStatus.updatedAt ? new Date(cotStatus.updatedAt).toLocaleString() : "")), cotStatus.state === "error" && /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-200 text-sm" }, cotStatus.message || "COT 來源連線失敗。", /* @__PURE__ */ React.createElement("div", { className: "mt-2" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => setShowCotDebug((v) => !v),
-      className: "text-xs underline text-red-200/90 hover:text-red-100"
-    },
-    showCotDebug ? "隱藏" : "顯示",
-    " 偵錯提示"
-  )), showCotDebug && /* @__PURE__ */ React.createElement("div", { className: "mt-2 text-xs text-red-100/90 space-y-1" }, /* @__PURE__ */ React.createElement("div", null, "1) 請打開瀏覽器 DevTools Console 查看 [COT] 訊息。"), /* @__PURE__ */ React.createElement("div", null, "2) 若公司網路擋 Socrata，程式會自動改走 proxy；仍失敗請更換網路。"), /* @__PURE__ */ React.createElement("div", null, "3) 若你改過查詢條件，請確認日期欄位是 as_of_date_form_yyyy_mm_dd。")))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-sky-300 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "globe", className: "w-5 h-5 mr-2" }), "資料代理（CORS Proxy）"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 leading-relaxed" }, "瀏覽器無法直接讀取部分資料源（Yahoo、CFTC、Treasury 等），需經過代理。 公共代理常限流或停止服務；建議自架（見 ", /* @__PURE__ */ React.createElement("span", { className: "font-mono" }, "cors-proxy-worker.js"), "）， 在此填入網址前綴後會優先使用，公共代理作為備援。"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "url",
-      value: customProxyInput,
-      onChange: (e) => setCustomProxyInput(e.target.value),
-      placeholder: "https://silver-proxy.你的帳號.workers.dev/?url=",
-      className: "w-full px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-sm font-mono text-zinc-200"
-    }
-  ), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => {
-        const v = customProxyInput.trim();
-        if (v && !/^https:\/\//i.test(v)) {
-          logsUpdater("⚠️ 代理網址必須以 https:// 開頭。");
-          return;
-        }
-        try {
-          if (v) localStorage.setItem(CUSTOM_PROXY_KEY, v);
-          else localStorage.removeItem(CUSTOM_PROXY_KEY);
-        } catch (_) {
-        }
-        setCustomProxySaved(v);
-        logsUpdater(v ? `已設定自架代理：${v}（下次載入資料生效）` : "已清除自架代理，只使用公共代理。");
-      },
-      disabled: customProxyInput.trim() === customProxySaved,
-      className: "px-3 py-1 rounded bg-sky-700/60 hover:bg-sky-600/60 text-white text-xs transition disabled:opacity-40"
-    },
-    "儲存"
-  ), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-zinc-500" }, customProxySaved ? "目前：自架代理優先" : "目前：僅公共代理"))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-red-400 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "users", className: "w-5 h-5 mr-2" }), "StockTwits 白銀情緒"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${stockTwitsStatus.source === "real" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : stockTwitsStatus.source === "idle" ? "border-zinc-600 text-zinc-300 bg-zinc-800/30" : "border-yellow-500/40 text-yellow-300 bg-yellow-500/10"}` }, stockTwitsStatus.source === "real" ? "✅ Real" : stockTwitsStatus.source === "idle" ? "未啟動" : "⚠️ Mock")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-3 gap-2 text-sm" }, /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "多方 %"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-emerald-400" }, stockTwitsStatus.bullishPct !== null ? stockTwitsStatus.bullishPct.toFixed(1) : "—", "%")), /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-rose-500/10 border border-rose-500/20 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "空方 %"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-rose-400" }, stockTwitsStatus.bearishPct !== null ? stockTwitsStatus.bearishPct.toFixed(1) : "—", "%")), /* @__PURE__ */ React.createElement("div", { className: "p-2 rounded-lg bg-zinc-900/40 border border-zinc-800 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "標記則數"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, stockTwitsStatus.totalTagged ?? "—"))), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-500 leading-relaxed" }, stockTwitsStatus.source === "real" ? "🟢 即時抓取 StockTwits SLV + SI_F 訊息流，統計已標記情緒訊息之多空比例。" : stockTwitsStatus.source === "idle" ? "⬜ 尚未載入。" : "🟡 StockTwits API 不可用，使用價格動量代理情緒。"), stockTwitsStatus.source === "mock" && /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => loadData(false),
-      disabled: isLoadingData,
-      className: "px-3 py-1 rounded bg-red-700/60 hover:bg-red-600/60 text-white text-xs transition w-fit"
-    },
-    isLoadingData ? "載入中..." : "重試"
-  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-600" }, stockTwitsStatus.updatedAt ? new Date(stockTwitsStatus.updatedAt).toLocaleString() : "")), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-orange-400 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "gauge", className: "w-5 h-5 mr-2" }), "CNN Fear & Greed Index"), /* @__PURE__ */ React.createElement("span", { className: `text-xs px-2 py-1 rounded-full border ${fearGreedStatus.source === "real" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" : fearGreedStatus.source === "idle" ? "border-zinc-600 text-zinc-300 bg-zinc-800/30" : "border-yellow-500/40 text-yellow-300 bg-yellow-500/10"}` }, fearGreedStatus.source === "real" ? "✅ Real" : fearGreedStatus.source === "idle" ? "未啟動" : "⚠️ Mock")), fearGreedStatus.currentScore !== null && /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "極度恐慌"), /* @__PURE__ */ React.createElement("span", null, "恐懼"), /* @__PURE__ */ React.createElement("span", null, "中立"), /* @__PURE__ */ React.createElement("span", null, "貪婪"), /* @__PURE__ */ React.createElement("span", null, "極度貪婪")), /* @__PURE__ */ React.createElement(
-    "div",
-    {
-      className: "relative h-3 rounded-full overflow-hidden",
-      style: { background: "linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #16a34a)" }
-    },
-    /* @__PURE__ */ React.createElement(
-      "div",
-      {
-        className: "absolute top-0 w-2 h-full bg-white rounded-full shadow-lg transition-all duration-500",
-        style: { left: `calc(${Math.min(100, Math.max(0, fearGreedStatus.currentScore))}% - 4px)` }
-      }
-    )
-  ), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("span", { className: "text-2xl font-bold font-mono text-white" }, fearGreedStatus.currentScore?.toFixed(1)), /* @__PURE__ */ React.createElement("span", { className: `text-sm font-semibold px-2 py-1 rounded ${fearGreedStatus.currentScore >= 75 ? "bg-green-700 text-white" : fearGreedStatus.currentScore >= 55 ? "bg-green-800/60 text-green-300" : fearGreedStatus.currentScore >= 45 ? "bg-zinc-700 text-zinc-300" : fearGreedStatus.currentScore >= 25 ? "bg-red-800/60 text-red-300" : "bg-red-700 text-white"}` }, fearGreedStatus.currentRating))), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-500 leading-relaxed" }, fearGreedStatus.source === "real" ? "🟢 即時抓取 CNN Business DataViz API 含多年歷史數據，0=極度恐慌，100=極度貪婪。" : fearGreedStatus.source === "idle" ? "⬜ 尚未載入。" : "🟡 CNN API 不可用，使用低變異模擬值代替。"), fearGreedStatus.source === "mock" && /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => loadData(false),
-      disabled: isLoadingData,
-      className: "px-3 py-1 rounded bg-orange-700/60 hover:bg-orange-600/60 text-white text-xs transition w-fit"
-    },
-    isLoadingData ? "載入中..." : "重試"
-  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-600" }, fearGreedStatus.updatedAt ? new Date(fearGreedStatus.updatedAt).toLocaleString() : "")), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "trending-up", className: "w-5 h-5 mr-2" }), "回測模擬 (Backtest)"), /* @__PURE__ */ React.createElement("span", { className: "text-xs px-2 py-1 rounded-full border border-zinc-600 text-zinc-300 bg-zinc-800/30" }, "使用模型逐筆預測 1-step")), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-3" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "測試區間比例 (最後 N%)"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "0.05",
-      min: "0.05",
-      max: "0.8",
-      value: backtestConfig.testRatio,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, testRatio: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "初始資金"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "1000",
-      value: backtestConfig.initialCapital,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, initialCapital: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "槓桿"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "0.5",
-      min: "0",
-      value: backtestConfig.leverage,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, leverage: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "每次使用資金比例"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "0.1",
-      min: "0",
-      max: "1",
-      value: backtestConfig.positionPct,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, positionPct: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "單邊手續費 (bps)"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "1",
-      min: "0",
-      value: backtestConfig.feeBps,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, feeBps: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "單邊滑價 (bps)"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "1",
-      min: "0",
-      value: backtestConfig.slippageBps,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, slippageBps: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400" }, "進場門檻 (預測報酬率)"), /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "number",
-      step: "0.001",
-      min: "0",
-      value: backtestConfig.threshold,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, threshold: e.target.value })),
-      className: "w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-    }
-  )), /* @__PURE__ */ React.createElement("div", { className: "flex items-end" }, /* @__PURE__ */ React.createElement("label", { className: "inline-flex items-center gap-2 text-sm text-zinc-200 select-none" }, /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      type: "checkbox",
-      checked: !!backtestConfig.allowShort,
-      onChange: (e) => setBacktestConfig((p) => ({ ...p, allowShort: e.target.checked }))
-    }
-  ), "允許放空"))), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: runBacktest,
-      className: "px-4 py-2 rounded-lg bg-accent/20 border border-accent/40 text-accent hover:bg-accent/30 transition"
-    },
-    "執行回測"
-  ), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400 flex items-center" }, "※ 需先完成「訓練/載入模型」，回測採用測試區間逐筆 1-step 預測與交易模擬")), backtestResult && /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-5 gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "總報酬"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, (backtestResult.totalReturn * 100).toFixed(2), "%")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "期末資產"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.finalEquity.toFixed(2))), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "最大回撤"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, (backtestResult.maxDD * 100).toFixed(2), "%")), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "Sharpe"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.sharpe.toFixed(2))), /* @__PURE__ */ React.createElement("div", { className: "p-3 rounded-lg bg-zinc-900/40 border border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-zinc-400" }, "交易/勝率"), /* @__PURE__ */ React.createElement("div", { className: "text-lg font-bold text-white" }, backtestResult.tradeCount, " / ", (backtestResult.winRate * 100).toFixed(1), "%"))), /* @__PURE__ */ React.createElement("div", { className: "rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/30 p-2" }, /* @__PURE__ */ React.createElement("div", { id: "backtestEquityChart", style: { width: "100%", height: "320px" } }))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel rounded-xl shadow-accent-900/20 flex flex-col overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "p-4 border-b", style: { borderColor: "var(--edge)", background: "var(--surface-2)" } }, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline gap-2 mb-3 flex-wrap" }, /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-base", style: { color: "var(--metal-bright)" } }, "一鍵智慧流程"), /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "搜尋最佳參數、訓練模型，然後產出預測")), (() => {
+  }))))), agentState.log.length > 0 && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold text-zinc-400 mb-1" }, "代理日誌"), /* @__PURE__ */ React.createElement("div", { className: "bg-zinc-950/60 rounded-lg p-3 max-h-36 overflow-y-auto font-mono text-xs space-y-0.5" }, agentState.log.map((line, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: `${line.startsWith("⭐") || line.startsWith("🏆") ? "text-amber-300" : line.startsWith("❌") || line.startsWith("⛔") ? "text-rose-400" : line.startsWith("✅") ? "text-emerald-400" : "text-zinc-400"}` }, line)))), /* @__PURE__ */ React.createElement("details", { className: "text-xs text-zinc-500" }, /* @__PURE__ */ React.createElement("summary", { className: "cursor-pointer hover:text-zinc-300" }, "📋 搜尋空間 & 策略說明"), /* @__PURE__ */ React.createElement("div", { className: "mt-2 space-y-1 pl-2 border-l border-zinc-700" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "演算法："), "BiGRU / LSTM / Transformer / TimesFM"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "Lookback："), "5 / 10 / 15 / 20 / 30 / 40 / 60"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "Units："), "16 / 32 / 48 / 64 / 96 / 128"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "α (方向權重)："), "0.0 ~ 0.7"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "LR："), "0.0005 / 0.001 / 0.002 / 0.003"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-zinc-300" }, "因子："), "23 個因子各以機率採樣（僅 Random/Bayesian）"), /* @__PURE__ */ React.createElement("div", { className: "pt-1 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Random："), "完全隨機採樣，探索性最強"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Grid："), "掃描 9 種固定組合，可重現"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { className: "text-violet-300" }, "Bayesian："), "前 4 次隨機後，以最佳結果為基礎引導採樣"))))), /* @__PURE__ */ React.createElement("div", { className: "bg-zinc-800 p-4 rounded-xl shadow-2xl mb-6 border border-amber-500/50" }, /* @__PURE__ */ React.createElement("h3", { className: "text-xl font-bold mb-4 text-amber-300 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "trophy", className: "w-6 h-6 mr-2" }), /* @__PURE__ */ React.createElement("span", null, "歷史最佳表現 (Historical Best)")), /* @__PURE__ */ React.createElement("div", { className: "flex justify-around space-x-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-center p-3 bg-zinc-700 rounded-lg flex-1" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm text-zinc-400" }, "當前訓練最低 Loss"), /* @__PURE__ */ React.createElement("p", { className: "text-3xl font-mono font-extrabold text-white mt-1" }, bestLossValue !== null ? bestLossValue.toFixed(4) : "N/A")), /* @__PURE__ */ React.createElement("div", { className: "text-center p-3 bg-zinc-700 rounded-lg flex-1" }, /* @__PURE__ */ React.createElement("p", { className: "text-sm text-zinc-400" }, "歷史最佳模型儲存 Loss"), /* @__PURE__ */ React.createElement("p", { className: "text-3xl font-mono font-extrabold text-white mt-1" }, currentBestLoss < 100 ? currentBestLoss.toFixed(4) : "N/A")))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6" }, /* @__PURE__ */ React.createElement(CotStatusPanel, { cotStatus }), /* @__PURE__ */ React.createElement(ProxySettingsPanel, { logsUpdater }), /* @__PURE__ */ React.createElement(StockTwitsPanel, { stockTwitsStatus, loadData, isLoadingData }), /* @__PURE__ */ React.createElement(FearGreedPanel, { fearGreedStatus, loadData, isLoadingData }), /* @__PURE__ */ React.createElement(BacktestPanel, { backtestConfig, setBacktestConfig, backtestResult, runBacktest }), /* @__PURE__ */ React.createElement("div", { className: "glass-panel rounded-xl shadow-accent-900/20 flex flex-col overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "p-4 border-b", style: { borderColor: "var(--edge)", background: "var(--surface-2)" } }, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline gap-2 mb-3 flex-wrap" }, /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-base", style: { color: "var(--metal-bright)" } }, "一鍵智慧流程"), /* @__PURE__ */ React.createElement("span", { className: "text-xs", style: { color: "var(--metal-faint)" } }, "搜尋最佳參數、訓練模型，然後產出預測")), (() => {
     const phases = [
       { id: "searching", icon: "search", label: "搜尋參數" },
       { id: "applying", icon: "check-circle", label: "套用最佳" },
@@ -5155,7 +5156,7 @@ const App = () => {
                                             ${modelState.isTraining ? "bg-zinc-800 text-zinc-500 cursor-wait" : runMode === RUN_MODE.TRAIN_CONTINUE || runMode === RUN_MODE.TRAIN_RESUME ? "bg-violet-700 hover:bg-violet-600 text-white" : "bg-emerald-700 hover:bg-emerald-600 text-white"}`
     },
     modelState.isTraining ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Icon, { name: "loader-2", className: "animate-spin w-4 h-4" }), " ", getButtonText()) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Icon, { name: runMode.includes("TRAIN") ? "play" : "zap", className: "w-4 h-4" }), " ", getButtonText())
-  ), /* @__PURE__ */ React.createElement("div", { className: "h-20 overflow-y-auto font-mono text-xs text-zinc-500 bg-zinc-900 p-2 rounded-lg border border-zinc-700" }, modelState.logs.map((log, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "whitespace-pre-wrap" }, log))), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => exportModel(logsUpdater), className: "flex-1 px-3 py-1.5 rounded-lg bg-zinc-700 hover:bg-zinc-600 text-xs font-medium text-white transition-colors flex items-center justify-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "download", className: "w-3 h-3" }), " 下載模型"), /* @__PURE__ */ React.createElement("button", { onClick: handleClearBest, className: "flex-1 px-3 py-1.5 rounded-lg bg-rose-800 hover:bg-rose-700 text-xs font-medium text-white transition-colors flex items-center justify-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "trash-2", className: "w-3 h-3" }), " 清除最佳")))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "sliders", className: "w-5 h-5 mr-2" }), "模型與訓練參數"), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "BiGRU"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "BiGRU" ? "bg-accent-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "Bi-GRU"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "LSTM"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "LSTM" ? "bg-accent-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "LSTM"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "Transformer"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "Transformer" ? "bg-amber-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "Transformer 🎯"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("algorithm", "TimesFM"), className: `flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === "TimesFM" ? "bg-sky-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "TimesFM")), params.algorithm === "TimesFM" && /* @__PURE__ */ React.createElement("p", { className: "text-xs mt-2 px-2 py-1.5 rounded-lg", style: { color: "var(--metal-dim)", background: "var(--surface-2)", border: "1px solid var(--edge)" } }, "採用 TimesFM 的", /* @__PURE__ */ React.createElement("strong", { style: { color: "var(--metal-bright)" } }, "架構"), "（patch 切分 + 因果注意力的 decoder-only transformer）， 以你的資料從頭訓練。這不是 Google 發布的預訓練基礎模型權重 （200M/500M 參數、僅有 PyTorch/JAX 版本，無法在瀏覽器執行），因此沒有 zero-shot 能力。"), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400 block mb-1 flex items-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "target", className: "w-3 h-3" }), "預測目標"), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "price"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${(params.predTarget || "price") === "price" ? "bg-teal-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "價格迴歸"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "direction"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "direction" ? "bg-rose-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "方向分類 🎯"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "dual"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "dual" ? "bg-violet-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "雙頭 (價格+方向)"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("predTarget", "logreturn"), className: `flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === "logreturn" ? "bg-emerald-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "對數報酬率 📈")), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-zinc-500 mt-1" }, (params.predTarget || "price") === "price" && "迴歸預測下一日價格，方向由價格變化推導。", params.predTarget === "direction" && "直接預測「漲/跌」二元分類，最佳化方向準確率 (DA)。輸出為上漲機率，不提供價格數值。", params.predTarget === "dual" && "同時輸出價格與方向機率：價格供圖表/MAPE，方向頭專注提升 DA。", params.predTarget === "logreturn" && "預測 ln(今日/昨日) 而非價格本身。報酬率接近平穩，模型無法靠「明天≈今天」取巧；且絕對誤差近似相對誤差，與 MAPE 指標對齊。用純 Huber，不加方向懲罰。")), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("label", { className: "text-xs text-zinc-400 block mb-1" }, "驗證模式"), /* @__PURE__ */ React.createElement("div", { className: "flex justify-around space-x-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("validationMode", VALIDATION_MODE.NONE), className: `flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.NONE ? "bg-indigo-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "無 (標準訓練)"), /* @__PURE__ */ React.createElement("button", { onClick: () => handleParamChange("validationMode", VALIDATION_MODE.K_FOLD), className: `flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.K_FOLD ? "bg-indigo-600 text-white" : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"}` }, "K-Fold 驗證"))), params.validationMode === VALIDATION_MODE.K_FOLD && /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "K-Fold 數量 (K)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-cyan-400 font-bold" }, params.kFolds)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "2", max: "10", value: params.kFolds, step: "1", onChange: (e) => handleParamChange("kFolds", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1 pt-2 border-t border-zinc-800" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "🎯 方向懲罰權重 (α) — 0=純Huber，0.3推薦"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-pink-400 font-bold" }, params.directionalLambda.toFixed(1))), /* @__PURE__ */ React.createElement("input", { type: "range", min: "0.0", max: "1.0", value: params.directionalLambda, step: "0.1", onChange: (e) => handleParamChange("directionalLambda", parseFloat(e.target.value)), className: "custom-range w-full" }), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-zinc-600" }, "α 越高模型越重視方向正確性，α 越低越精準預測價格水準")), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "Lookback (天數)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.lookback)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "5", max: "120", value: params.lookback, step: "1", onChange: (e) => handleParamChange("lookback", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "單層單元數 (Units/Filters)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.layers)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "16", max: "128", value: params.layers, step: "16", onChange: (e) => handleParamChange("layers", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "訓練週期 (Epochs)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.epochs)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "10", max: "1000", value: params.epochs, step: "10", onChange: (e) => handleParamChange("epochs", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "Batch Size"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.batchSize)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "8", max: "128", value: params.batchSize, step: "8", onChange: (e) => handleParamChange("batchSize", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "預測天數 (T+N)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.futureDays)), /* @__PURE__ */ React.createElement("input", { type: "range", min: "1", max: "10", value: params.futureDays, step: "1", onChange: (e) => handleParamChange("futureDays", parseInt(e.target.value)), className: "custom-range w-full" })), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-xs text-zinc-400" }, /* @__PURE__ */ React.createElement("span", null, "歷史數據年限 (Years)"), /* @__PURE__ */ React.createElement("span", { className: "font-mono text-accent font-bold" }, params.historyYears.toFixed(1))), /* @__PURE__ */ React.createElement("input", { type: "range", min: "0.5", max: "5.0", value: params.historyYears, step: "0.5", onChange: (e) => handleParamChange("historyYears", parseFloat(e.target.value)), className: "custom-range w-full" }))), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "grip", className: "w-5 h-5 mr-2" }), "特徵因子選擇 (", numFeatures, " / 24)"), /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto max-h-[500px] pr-2" }, /* @__PURE__ */ React.createElement(FactorSelector, { selectedFactors, onChange: handleFactorChange })))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6" }, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl lg:col-span-2" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-white mb-2" }, "價格走勢圖"), marketData && /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("div", { className: "h-20 overflow-y-auto font-mono text-xs text-zinc-500 bg-zinc-900 p-2 rounded-lg border border-zinc-700" }, modelState.logs.map((log, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "whitespace-pre-wrap" }, log))), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => exportModel(logsUpdater), className: "flex-1 px-3 py-1.5 rounded-lg bg-zinc-700 hover:bg-zinc-600 text-xs font-medium text-white transition-colors flex items-center justify-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "download", className: "w-3 h-3" }), " 下載模型"), /* @__PURE__ */ React.createElement("button", { onClick: handleClearBest, className: "flex-1 px-3 py-1.5 rounded-lg bg-rose-800 hover:bg-rose-700 text-xs font-medium text-white transition-colors flex items-center justify-center gap-1" }, /* @__PURE__ */ React.createElement(Icon, { name: "trash-2", className: "w-3 h-3" }), " 清除最佳")))), /* @__PURE__ */ React.createElement(ModelParamsPanel, { params, handleParamChange }), /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl flex flex-col space-y-4" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center" }, /* @__PURE__ */ React.createElement(Icon, { name: "grip", className: "w-5 h-5 mr-2" }), "特徵因子選擇 (", numFeatures, " / 24)"), /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto max-h-[500px] pr-2" }, /* @__PURE__ */ React.createElement(FactorSelector, { selectedFactors, onChange: handleFactorChange })))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6" }, /* @__PURE__ */ React.createElement("div", { className: "glass-panel p-4 rounded-xl lg:col-span-2" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-bold text-white mb-2" }, "價格走勢圖"), marketData && /* @__PURE__ */ React.createElement(
     ChartComponent,
     {
       data: marketData,

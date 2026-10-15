@@ -28,11 +28,15 @@ const read = (p) => readFileSync(path.join(ROOT, p), 'utf8');
 const checkOnly = process.argv.includes('--check');
 
 const appSrc = read('src/app.jsx');
+// 版本號只在 package.json 維護一處，建置時注入頁面標題與 App（APP_VERSION）
+const { version } = JSON.parse(read('package.json'));
+const appVersion = 'v' + version.split('.').slice(0, 2).join('.');
 const template = read('src/template.html');
 
 // ── 1. App：只轉 JSX，不打包（程式碼依賴 window 上的 React / tf / Plotly 全域變數）──
 const app = (await esbuild.transform(appSrc, {
     loader: 'jsx', target: 'es2020', charset: 'utf8',
+    define: { APP_VERSION: JSON.stringify(appVersion) },
 })).code;
 
 // ── 2. React 打包 ──
@@ -87,6 +91,7 @@ const sri = (file) => 'sha384-' + createHash('sha384').update(readFileSync(path.
 const inlineJs = (code) => `<script>\n${code.replace(/<\/script/gi, '<\\/script')}\n</script>`;
 
 let html = template
+    .replace(/\{\{appVersion\}\}/g, () => appVersion)
     .replace(/\{\{version:([^}]+)\}\}/g, (_, name) => pkgVersion(name))
     .replace(/\{\{sri:([^}]+)\}\}/g, (_, file) => sri(file));
 // 用函式當替換值：程式碼裡的 "$&"、"$1" 等字樣不能被當成替換樣式

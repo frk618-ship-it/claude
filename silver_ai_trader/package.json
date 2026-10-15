@@ -1,6 +1,7 @@
 {
   "name": "silver-ai-trader",
   "private": true,
+  "version": "20.3.0",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",

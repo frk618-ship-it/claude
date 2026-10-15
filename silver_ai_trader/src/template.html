@@ -7,8 +7,9 @@
       React、Tailwind CSS、Lucide 圖示都在建置時內嵌；只有 TF.js / Plotly 這兩個大型函式庫走 CDN，
       版本鎖定並附 SRI 雜湊（integrity），CDN 內容被竄改或版本漂移時瀏覽器會拒絕載入。
     -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Silver Prediction System V19.5: DA-Optimized (Directional Loss + Momentum Features)</title>
+    <!-- 不鎖定縮放：手機使用者需要能放大看圖表與小字 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白銀期貨預測 Silver AI Trader {{appVersion}}</title>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@{{version:@tensorflow/tfjs}}/dist/tf.min.js"
             integrity="{{sri:@tensorflow/tfjs/dist/tf.min.js}}" crossorigin="anonymous"></script>

@@ -71,22 +71,6 @@
         const denormalizePrice = (val, minMax) => val * (minMax.price.max - minMax.price.min) + minMax.price.min;
 
         // ==========================================
-        // 自定義 Loss Function (MAPE + MSE) — 已改用 DirectionalHuberLoss
-        // 保留以備向後兼容
-        // ==========================================
-        const getCustomLoss = (lambda) => {
-            return (yTrue, yPred) => {
-                return tf.tidy(() => {
-                    const mape = tf.metrics.meanAbsolutePercentageError(yTrue, yPred);
-                    const mse = tf.metrics.meanSquaredError(yTrue, yPred);
-                    const weightedMape = tf.mul(mape, 1 - lambda);
-                    const weightedMse = tf.mul(mse, lambda);
-                    return tf.add(weightedMape, weightedMse);
-                });
-            };
-        };
-
-        // ==========================================
         // 🎯 Directional Huber Loss — 核心 DA 提升 Loss
         // 結合 Huber（穩健回歸）+ 方向懲罰（Direction Penalty）
         // alpha: 方向懲罰權重 (0=純 Huber, 1=純方向懲罰)
@@ -609,18 +593,9 @@
         }
 
         const MarketDataCache = (() => {
+            // 每次都抓最新資料；這份快取只在所有來源都失敗時當備援（稍舊的真實資料勝過隨機模擬值）。
+            // 啟動時的「立即顯示」由 IndexedDB 快照負責，不靠這裡。
             const PREFIX = 'slv_cache_v2_';
-
-            // 計算「最近一次市場收盤時間」(UTC ms)
-            // 規則：紐約收盤 = 16:00 ET = UTC 20:00（夏令，3~11月）/ UTC 21:00（冬令）
-            // 保守取 UTC 21:00 作為每日收盤時間點（多算 1h 也不影響正確性）
-            const lastCloseUTC = (nowMs = Date.now()) => {
-                const d = new Date(nowMs);
-                // 今日 UTC 21:00
-                const todayClose = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 21, 0, 0, 0);
-                // 若現在 < 今日收盤 → 最近收盤是昨天 UTC 21:00
-                return nowMs >= todayClose ? todayClose : todayClose - 86_400_000;
-            };
 
             const get = (key) => {
                 try {
@@ -636,10 +611,6 @@
                     localStorage.setItem(PREFIX + key, JSON.stringify({ ts: Date.now(), data }));
                 } catch(e) { console.warn('[Cache] localStorage write failed:', e?.message); }
             };
-
-            // isFresh: 每次啟動都重新抓取，永遠回傳 false
-            // getData 仍保留，作為所有 API 均失敗時的最終備援
-            const isFresh = (_key, _ttlMs) => false;
 
             const getData = (key) => { const e = get(key); return e ? e.data : null; };
 
@@ -660,7 +631,7 @@
                 return new Date(e.ts).toLocaleString();
             };
 
-            return { set, isFresh, getData, clear, getCacheDate, lastCloseUTC };
+            return { set, getData, clear, getCacheDate };
         })();
 
         // ══════════════════════════════════════════════════════════════
@@ -754,7 +725,6 @@
         const fetchFearGreedIndex = async (dates) => {
             const CNN_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata";
             const CACHE_KEY = 'feargreed';
-            const CACHE_TTL = Infinity;  // EOD — 以收盤時間點判斷，不用固定 TTL
 
             const alignToDates = (map, fallback = 50) => {
                 const out = []; let last = fallback;
@@ -767,16 +737,6 @@
                 return { values: out, source: "mock", currentScore, currentRating: "Neutral" };
             };
             if (!Array.isArray(dates) || dates.length === 0) return mockFallback();
-
-            // ── 快取命中 ──
-            if (MarketDataCache.isFresh(CACHE_KEY, CACHE_TTL)) {
-                const cached = MarketDataCache.getData(CACHE_KEY);
-                if (cached) {
-                    console.log('[F&G] Cache hit');
-                    const fgMap = new Map(Object.entries(cached.map));
-                    return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
-                }
-            }
 
             try {
                 const resp = await ProxyRotator.fetchAny(CNN_URL, { timeoutMs: 10000, headers: { Accept: 'application/json' } });
@@ -799,6 +759,13 @@
                 return { values: alignToDates(fgMap, currentScore), source: "real", currentScore, currentRating };
             } catch (e) {
                 console.warn("[F&G] All proxies failed:", e.message);
+                // 備援：上次成功抓到的歷史序列（只缺最近幾天，向前填補）
+                const cached = MarketDataCache.getData(CACHE_KEY);
+                if (cached?.map) {
+                    console.warn(`[F&G] 使用 ${MarketDataCache.getCacheDate(CACHE_KEY)} 的快取資料`);
+                    const fgMap = new Map(Object.entries(cached.map));
+                    return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
+                }
                 return mockFallback();
             }
         };
@@ -812,14 +779,7 @@
         // ==========================================
         const fetchStockTwitsSentimentReal = async () => {
             const symbols = ["SLV", "SI_F"];
-            const CACHE_KEY = 'stocktwits';
-            const CACHE_TTL = 4 * 3_600_000;  // 4 小時（StockTwits）
-
-            // 快取命中
-            if (MarketDataCache.isFresh(CACHE_KEY, CACHE_TTL)) {
-                const cached = MarketDataCache.getData(CACHE_KEY);
-                if (cached) { console.log('[ST] Cache hit'); return { ...cached, source: 'real' }; }
-            }
+            // 不快取：StockTwits 只提供「最新約 30 則」的當下情緒，舊快照沒有參考價值
 
             const querySymbol = async (sym) => {
                 const url = `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
@@ -858,7 +818,6 @@
 
             console.log(`[StockTwits] Real score: ${score.toFixed(1)}% bullish (${totalTagged} tagged msgs from ${valid.length}/${symbols.length} symbols)`);
             const result = { score, source: "real", bullishPct, bearishPct, totalTagged, symbolsQueried: symbols };
-            MarketDataCache.set(CACHE_KEY, { score, bullishPct, bearishPct, totalTagged, symbolsQueried: symbols });
             return result;
         };
         
@@ -1219,7 +1178,6 @@
         };
         const fetchMarketData = async (cotStatusCb) => { 
             const DATA_RANGE = "5y";
-            const YAHOO_CACHE_TTL = Infinity;  // EOD — 以收盤時間點判斷，不用固定 TTL
             try { if (typeof cotStatusCb === "function") cotStatusCb({ state: "loading", source: null, records: 0, latestDate: null, latestNet: null, message: null, phase: "marketdata_start", updatedAt: new Date().toISOString() }); } catch (_) {}
 
             // ══════════════════════════════════════════════════════════
@@ -1229,7 +1187,7 @@
             //           回傳: Date,Open,High,Low,Close,Volume (CSV)
             //  Layer 2: Yahoo Finance v8 JSON (query1/query2)
             //           透過 ProxyRotator 輪替，proxy 失敗自動切換
-            //  Layer 3: localStorage 快取（EOD 日期界限：收盤後首次開啟才更新，同日多次開啟使用快取）
+            //  Layer 3: localStorage 快取 —— 只在前兩層都失敗時使用（上次成功抓到的真實資料）
             // ══════════════════════════════════════════════════════════
 
             // Stooq symbol 對照表
@@ -1343,15 +1301,11 @@
                 return { timestamps, close, volume, isMock: true };
             };
 
-            // 快取命中或 Stooq 直連。Stooq 有 CORS 且無流量限制，
+            // Stooq 直連。Stooq 有 CORS 且無流量限制，
             // 因此這一段可以安全平行 —— 先前的逐一 + 150ms 是為了保護會限流的 proxy，
-            // 套用在 Stooq 上只是白白多等。
+            // 套用在 Stooq 上只是白白多等。成功的結果寫入快取，供之後失敗時備援。
             const fetchSymbolFast = async (symbol) => {
                 const cacheKey = `sym_${symbol}`;
-                if (MarketDataCache.isFresh(cacheKey, YAHOO_CACHE_TTL)) {
-                    const cached = MarketDataCache.getData(cacheKey);
-                    if (cached) { console.log(`[Cache] ${symbol} hit`); return cached; }
-                }
                 const result = await fetchStooq(symbol);
                 if (result) MarketDataCache.set(cacheKey, result);
                 return result;
@@ -1906,6 +1860,25 @@
             return model;
         };
 
+        // 把 X（樣本 × lookback × 特徵 的巢狀陣列）的 [from, to) 區段轉成 3D tensor。
+        // 先攤平成 Float32Array 再建 tensor：比 tf.tensor3d(巢狀陣列) 少掉形狀推斷與中間陣列，
+        // 全程式建 X tensor 都走這裡。
+        const windowsToTensor = (X, from = 0, to = X.length) => {
+            const n = Math.max(0, to - from);
+            const lb = X[from]?.length ?? 0;
+            const nf = X[from]?.[0]?.length ?? 0;
+            const flat = new Float32Array(n * lb * nf);
+            let o = 0;
+            for (let i = from; i < to; i++) {
+                const win = X[i];
+                for (let j = 0; j < lb; j++) {
+                    const row = win[j];
+                    for (let k = 0; k < nf; k++) flat[o++] = row[k];
+                }
+            }
+            return tf.tensor3d(flat, [n, lb, nf]);
+        };
+
         const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples = null) => {
             const { prices, slvPrices, slvVolume, slvVolumeRoc, goldPrices, oilPrices, dxyPrices, vixPrices, tnxPrices, copperPrices, silverInventory, goldSilverRatio, socialSentiment, rsiPrices, rsiPrices12, vixRoc, tipsYield, cotNetPosition,
                     priceROC, ma5Silver, ma20Silver, maCross, macdLine, fearGreed, gtrend } = data;
@@ -2228,7 +2201,7 @@
                 const chunk = X.slice(start, start + BATCH);
                 let chunkTensor, predTensor;
                 try {
-                    chunkTensor = tf.tensor3d(chunk, [chunk.length, lookback, finalNumFeatures]);
+                    chunkTensor = windowsToTensor(X, start, Math.min(start + BATCH, X.length));
                     predTensor  = model.predict(chunkTensor);
                     const data  = await predTensor.data();
                     for (let r = 0; r < chunk.length; r++) {
@@ -2717,6 +2690,694 @@
             );
         });
 
+        // COT 資料來源狀態
+        const CotStatusPanel = React.memo(({ cotStatus }) => {
+            const [showCotDebug, setShowCotDebug] = useState(false);
+            return (
+                <>
+                {/* COT 資料狀態 */}
+                <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-lg font-bold text-accent flex items-center">
+                            <Icon name="activity" className="w-5 h-5 mr-2" />
+                            COT 淨部位資料狀態
+                        </h2>
+                        <span className={`text-xs px-2 py-1 rounded-full border ${
+                            cotStatus.state === "ok" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" :
+                            cotStatus.state === "loading" ? "border-amber-500/40 text-amber-300 bg-amber-500/10" :
+                            cotStatus.state === "error" ? "border-red-500/40 text-red-300 bg-red-500/10" :
+                            "border-zinc-600 text-zinc-300 bg-zinc-800/30"
+                        }`}>
+                            {cotStatus.state === "ok" ? "已連線" : cotStatus.state === "loading" ? "載入中" : cotStatus.state === "error" ? "失敗" : "未啟動"}
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                            <div className="text-xs text-zinc-400 mb-1">來源</div>
+                            <div className="font-semibold text-white">{cotStatus.source || "-"}</div>
+                        </div>
+                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                            <div className="text-xs text-zinc-400 mb-1">筆數</div>
+                            <div className="font-semibold text-white">{Number.isFinite(cotStatus.records) ? cotStatus.records : 0}</div>
+                        </div>
+                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                            <div className="text-xs text-zinc-400 mb-1">最新報告日</div>
+                            <div className="font-semibold text-white">{cotStatus.latestDate || "-"}</div>
+                        </div>
+                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                            <div className="text-xs text-zinc-400 mb-1">最新淨部位</div>
+                            <div className="font-semibold text-white">
+                                {Number.isFinite(cotStatus.latestNet) ? cotStatus.latestNet.toLocaleString() : "-"}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs text-zinc-400">
+                        <div>
+                            <span className="mr-2">phase:</span>
+                            <span className="text-zinc-300">{cotStatus.phase || "-"}</span>
+                        </div>
+                        <div className="text-zinc-500">
+                            {cotStatus.updatedAt ? new Date(cotStatus.updatedAt).toLocaleString() : ""}
+                        </div>
+                    </div>
+
+                    {cotStatus.state === "error" && (
+                        <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-200 text-sm">
+                            {cotStatus.message || "COT 來源連線失敗。"}
+                            <div className="mt-2">
+                                <button
+                                    onClick={() => setShowCotDebug(v => !v)}
+                                    className="text-xs underline text-red-200/90 hover:text-red-100"
+                                >
+                                    {showCotDebug ? "隱藏" : "顯示"} 偵錯提示
+                                </button>
+                            </div>
+                            {showCotDebug && (
+                                <div className="mt-2 text-xs text-red-100/90 space-y-1">
+                                    <div>1) 請打開瀏覽器 DevTools Console 查看 [COT] 訊息。</div>
+                                    <div>2) 若公司網路擋 Socrata，程式會自動改走 proxy；仍失敗請更換網路。</div>
+                                    <div>3) 若你改過查詢條件，請確認日期欄位是 as_of_date_form_yyyy_mm_dd。</div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+                </>
+            );
+        });
+
+        // 自架 CORS 代理設定（狀態只在此面板內使用）
+        const ProxySettingsPanel = React.memo(({ logsUpdater }) => {
+            const [customProxyInput, setCustomProxyInput] = useState(getCustomProxy);
+            const [customProxySaved, setCustomProxySaved] = useState(getCustomProxy);
+            return (
+                <>
+                {/* 🌐 資料代理設定 */}
+                <div className="glass-panel p-4 rounded-xl flex flex-col space-y-3">
+                    <h2 className="text-lg font-bold text-sky-300 flex items-center">
+                        <Icon name="globe" className="w-5 h-5 mr-2" />
+                        資料代理（CORS Proxy）
+                    </h2>
+                    <div className="text-xs text-zinc-400 leading-relaxed">
+                        瀏覽器無法直接讀取部分資料源（Yahoo、CFTC、Treasury 等），需經過代理。
+                        公共代理常限流或停止服務；建議自架（見 <span className="font-mono">cors-proxy-worker.js</span>），
+                        在此填入網址前綴後會優先使用，公共代理作為備援。
+                    </div>
+                    <input
+                        type="url"
+                        value={customProxyInput}
+                        onChange={e => setCustomProxyInput(e.target.value)}
+                        placeholder="https://silver-proxy.你的帳號.workers.dev/?url="
+                        className="w-full px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-sm font-mono text-zinc-200"
+                    />
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={() => {
+                                const v = customProxyInput.trim();
+                                if (v && !/^https:\/\//i.test(v)) {
+                                    logsUpdater('⚠️ 代理網址必須以 https:// 開頭。');
+                                    return;
+                                }
+                                try {
+                                    if (v) localStorage.setItem(CUSTOM_PROXY_KEY, v);
+                                    else localStorage.removeItem(CUSTOM_PROXY_KEY);
+                                } catch (_) {}
+                                setCustomProxySaved(v);
+                                logsUpdater(v ? `已設定自架代理：${v}（下次載入資料生效）` : '已清除自架代理，只使用公共代理。');
+                            }}
+                            disabled={customProxyInput.trim() === customProxySaved}
+                            className="px-3 py-1 rounded bg-sky-700/60 hover:bg-sky-600/60 text-white text-xs transition disabled:opacity-40"
+                        >
+                            儲存
+                        </button>
+                        <span className="text-xs text-zinc-500">
+                            {customProxySaved ? '目前：自架代理優先' : '目前：僅公共代理'}
+                        </span>
+                    </div>
+                </div>
+                </>
+            );
+        });
+
+        // StockTwits 情緒來源狀態
+        const StockTwitsPanel = React.memo(({ stockTwitsStatus, loadData, isLoadingData }) => {
+            return (
+                <>
+                {/* 📊 StockTwits 情緒狀態 */}
+                <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-lg font-bold text-red-400 flex items-center">
+                            <Icon name="users" className="w-5 h-5 mr-2" />
+                            StockTwits 白銀情緒
+                        </h2>
+                        <span className={`text-xs px-2 py-1 rounded-full border ${
+                            stockTwitsStatus.source === 'real' ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10' :
+                            stockTwitsStatus.source === 'idle' ? 'border-zinc-600 text-zinc-300 bg-zinc-800/30' :
+                                                                  'border-yellow-500/40 text-yellow-300 bg-yellow-500/10'
+                        }`}>
+                            {stockTwitsStatus.source === 'real' ? '✅ Real' : stockTwitsStatus.source === 'idle' ? '未啟動' : '⚠️ Mock'}
+                        </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-sm">
+                        <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center">
+                            <div className="text-xs text-zinc-400">多方 %</div>
+                            <div className="text-lg font-bold text-emerald-400">{stockTwitsStatus.bullishPct !== null ? stockTwitsStatus.bullishPct.toFixed(1) : '—'}%</div>
+                        </div>
+                        <div className="p-2 rounded-lg bg-rose-500/10 border border-rose-500/20 text-center">
+                            <div className="text-xs text-zinc-400">空方 %</div>
+                            <div className="text-lg font-bold text-rose-400">{stockTwitsStatus.bearishPct !== null ? stockTwitsStatus.bearishPct.toFixed(1) : '—'}%</div>
+                        </div>
+                        <div className="p-2 rounded-lg bg-zinc-900/40 border border-zinc-800 text-center">
+                            <div className="text-xs text-zinc-400">標記則數</div>
+                            <div className="text-lg font-bold text-white">{stockTwitsStatus.totalTagged ?? '—'}</div>
+                        </div>
+                    </div>
+                    <div className="text-xs text-zinc-500 leading-relaxed">
+                        {stockTwitsStatus.source === 'real'
+                            ? '🟢 即時抓取 StockTwits SLV + SI_F 訊息流，統計已標記情緒訊息之多空比例。'
+                            : stockTwitsStatus.source === 'idle' ? '⬜ 尚未載入。'
+                            : '🟡 StockTwits API 不可用，使用價格動量代理情緒。'}
+                    </div>
+                    {stockTwitsStatus.source === 'mock' && (
+                        <button onClick={() => loadData(false)} disabled={isLoadingData}
+                            className="px-3 py-1 rounded bg-red-700/60 hover:bg-red-600/60 text-white text-xs transition w-fit">
+                            {isLoadingData ? '載入中...' : '重試'}
+                        </button>
+                    )}
+                    <div className="text-xs text-zinc-600">{stockTwitsStatus.updatedAt ? new Date(stockTwitsStatus.updatedAt).toLocaleString() : ''}</div>
+                </div>
+                </>
+            );
+        });
+
+        // CNN Fear & Greed 來源狀態
+        const FearGreedPanel = React.memo(({ fearGreedStatus, loadData, isLoadingData }) => {
+            return (
+                <>
+                {/* 😨 CNN Fear & Greed 狀態 */}
+                <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-lg font-bold text-orange-400 flex items-center">
+                            <Icon name="gauge" className="w-5 h-5 mr-2" />
+                            CNN Fear & Greed Index
+                        </h2>
+                        <span className={`text-xs px-2 py-1 rounded-full border ${
+                            fearGreedStatus.source === 'real' ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10' :
+                            fearGreedStatus.source === 'idle' ? 'border-zinc-600 text-zinc-300 bg-zinc-800/30' :
+                                                                 'border-yellow-500/40 text-yellow-300 bg-yellow-500/10'
+                        }`}>
+                            {fearGreedStatus.source === 'real' ? '✅ Real' : fearGreedStatus.source === 'idle' ? '未啟動' : '⚠️ Mock'}
+                        </span>
+                    </div>
+                    {/* 儀表指針視覺化 */}
+                    {fearGreedStatus.currentScore !== null && (
+                        <div className="space-y-2">
+                            <div className="flex justify-between text-xs text-zinc-400">
+                                <span>極度恐慌</span><span>恐懼</span><span>中立</span><span>貪婪</span><span>極度貪婪</span>
+                            </div>
+                            <div className="relative h-3 rounded-full overflow-hidden"
+                                 style={{background: 'linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #16a34a)'}}>
+                                <div className="absolute top-0 w-2 h-full bg-white rounded-full shadow-lg transition-all duration-500"
+                                     style={{left: `calc(${Math.min(100, Math.max(0, fearGreedStatus.currentScore))}% - 4px)`}}></div>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-2xl font-bold font-mono text-white">{fearGreedStatus.currentScore?.toFixed(1)}</span>
+                                <span className={`text-sm font-semibold px-2 py-1 rounded ${
+                                    fearGreedStatus.currentScore >= 75 ? 'bg-green-700 text-white' :
+                                    fearGreedStatus.currentScore >= 55 ? 'bg-green-800/60 text-green-300' :
+                                    fearGreedStatus.currentScore >= 45 ? 'bg-zinc-700 text-zinc-300' :
+                                    fearGreedStatus.currentScore >= 25 ? 'bg-red-800/60 text-red-300' :
+                                    'bg-red-700 text-white'
+                                }`}>{fearGreedStatus.currentRating}</span>
+                            </div>
+                        </div>
+                    )}
+                    <div className="text-xs text-zinc-500 leading-relaxed">
+                        {fearGreedStatus.source === 'real'
+                            ? '🟢 即時抓取 CNN Business DataViz API 含多年歷史數據，0=極度恐慌，100=極度貪婪。'
+                            : fearGreedStatus.source === 'idle' ? '⬜ 尚未載入。'
+                            : '🟡 CNN API 不可用，使用低變異模擬值代替。'}
+                    </div>
+                    {fearGreedStatus.source === 'mock' && (
+                        <button onClick={() => loadData(false)} disabled={isLoadingData}
+                            className="px-3 py-1 rounded bg-orange-700/60 hover:bg-orange-600/60 text-white text-xs transition w-fit">
+                            {isLoadingData ? '載入中...' : '重試'}
+                        </button>
+                    )}
+                    <div className="text-xs text-zinc-600">{fearGreedStatus.updatedAt ? new Date(fearGreedStatus.updatedAt).toLocaleString() : ''}</div>
+                </div>
+                </>
+            );
+        });
+
+        // 回測設定與結果（權益曲線由 App 的 effect 以 Plotly 繪到 #backtestEquityChart）
+        const BacktestPanel = React.memo(({ backtestConfig, setBacktestConfig, backtestResult, runBacktest }) => {
+            return (
+                <>
+                {/* 回測模擬 (Backtest) */}
+                <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-4">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-lg font-bold text-accent flex items-center">
+                            <Icon name="trending-up" className="w-5 h-5 mr-2" />
+                            回測模擬 (Backtest)
+                        </h2>
+                        <span className="text-xs px-2 py-1 rounded-full border border-zinc-600 text-zinc-300 bg-zinc-800/30">
+                            使用模型逐筆預測 1-step
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div>
+                            <label className="text-xs text-zinc-400">測試區間比例 (最後 N%)</label>
+                            <input
+                                type="number"
+                                step="0.05"
+                                min="0.05"
+                                max="0.8"
+                                value={backtestConfig.testRatio}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, testRatio: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">初始資金</label>
+                            <input
+                                type="number"
+                                step="1000"
+                                value={backtestConfig.initialCapital}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, initialCapital: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">槓桿</label>
+                            <input
+                                type="number"
+                                step="0.5"
+                                min="0"
+                                value={backtestConfig.leverage}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, leverage: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">每次使用資金比例</label>
+                            <input
+                                type="number"
+                                step="0.1"
+                                min="0"
+                                max="1"
+                                value={backtestConfig.positionPct}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, positionPct: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="text-xs text-zinc-400">單邊手續費 (bps)</label>
+                            <input
+                                type="number"
+                                step="1"
+                                min="0"
+                                value={backtestConfig.feeBps}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, feeBps: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">單邊滑價 (bps)</label>
+                            <input
+                                type="number"
+                                step="1"
+                                min="0"
+                                value={backtestConfig.slippageBps}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, slippageBps: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">進場門檻 (預測報酬率)</label>
+                            <input
+                                type="number"
+                                step="0.001"
+                                min="0"
+                                value={backtestConfig.threshold}
+                                onChange={(e)=>setBacktestConfig(p=>({...p, threshold: e.target.value}))}
+                                className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
+                            />
+                        </div>
+                        <div className="flex items-end">
+                            <label className="inline-flex items-center gap-2 text-sm text-zinc-200 select-none">
+                                <input
+                                    type="checkbox"
+                                    checked={!!backtestConfig.allowShort}
+                                    onChange={(e)=>setBacktestConfig(p=>({...p, allowShort: e.target.checked}))}
+                                />
+                                允許放空
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                        <button
+                            onClick={runBacktest}
+                            className="px-4 py-2 rounded-lg bg-accent/20 border border-accent/40 text-accent hover:bg-accent/30 transition"
+                        >
+                            執行回測
+                        </button>
+                        <div className="text-xs text-zinc-400 flex items-center">
+                            ※ 需先完成「訓練/載入模型」，回測採用測試區間逐筆 1-step 預測與交易模擬
+                        </div>
+                    </div>
+
+                    {backtestResult && (
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                            <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                                <div className="text-xs text-zinc-400">總報酬</div>
+                                <div className="text-lg font-bold text-white">{(backtestResult.totalReturn*100).toFixed(2)}%</div>
+                            </div>
+                            <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                                <div className="text-xs text-zinc-400">期末資產</div>
+                                <div className="text-lg font-bold text-white">{backtestResult.finalEquity.toFixed(2)}</div>
+                            </div>
+                            <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                                <div className="text-xs text-zinc-400">最大回撤</div>
+                                <div className="text-lg font-bold text-white">{(backtestResult.maxDD*100).toFixed(2)}%</div>
+                            </div>
+                            <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                                <div className="text-xs text-zinc-400">Sharpe</div>
+                                <div className="text-lg font-bold text-white">{backtestResult.sharpe.toFixed(2)}</div>
+                            </div>
+                            <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
+                                <div className="text-xs text-zinc-400">交易/勝率</div>
+                                <div className="text-lg font-bold text-white">{backtestResult.tradeCount} / {(backtestResult.winRate*100).toFixed(1)}%</div>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/30 p-2">
+                        <div id="backtestEquityChart" style={{width:"100%", height:"320px"}}></div>
+                    </div>
+                </div>
+                </>
+            );
+        });
+
+        // 代理記憶：冠軍模型、實測戰績、晉升歷程
+        const AgentMemoryPanel = React.memo(({ agentModels, agentRuns, agentPerf, setAgentTick, logsUpdater }) => {
+            const [agentOpen, setAgentOpen]   = useState(false);
+            return (
+                <>
+                {/* ══ 代理記憶：冠軍模型、實測戰績、晉升歷程 ══ */}
+                <div className="glass-panel mb-4">
+                    <button onClick={() => setAgentOpen(o => !o)}
+                        className="w-full flex items-center gap-2 px-5 py-3 text-left">
+                        <Icon name="brain-circuit" className="w-5 h-5" style={{color:'var(--metal-dim)'}} />
+                        <span className="font-semibold text-base" style={{color:'var(--metal-bright)'}}>代理記憶</span>
+                        {(() => {
+                            const champ = agentModels.find(m => m.status === 'champion');
+                            return champ ? (
+                                <span className="text-xs px-2 py-0.5 rounded-full"
+                                      style={{background:'var(--up-soft)', color:'var(--up)', border:'1px solid rgba(63,185,80,0.3)'}}>
+                                    冠軍 {champ.algorithm} · 保留集 DA {Number.isFinite(champ.holdoutDA) ? champ.holdoutDA.toFixed(1) : '—'}%
+                                </span>
+                            ) : (
+                                <span className="text-xs" style={{color:'var(--metal-faint)'}}>尚無冠軍模型</span>
+                            );
+                        })()}
+                        <Icon name={agentOpen ? 'chevron-up' : 'chevron-down'} className="w-4 h-4 ml-auto" style={{color:'var(--metal-dim)'}} />
+                    </button>
+
+                    {agentOpen && (
+                        <div className="border-t px-5 py-4 space-y-5" style={{borderColor:'var(--edge)'}}>
+
+                            {/* 實測戰績 —— 訓練指標是回看的，這裡才是真實紀錄 */}
+                            <div>
+                                <div className="flex items-baseline justify-between mb-2">
+                                    <span className="text-sm font-semibold" style={{color:'var(--metal-bright)'}}>實測戰績</span>
+                                    <span className="text-xs" style={{color:'var(--metal-faint)'}}>過去預測 vs 實際收盤</span>
+                                </div>
+                                {agentPerf.n === 0 ? (
+                                    <p className="text-xs" style={{color:'var(--metal-faint)'}}>
+                                        尚無已到期的預測可對帳。每次預測都會記錄下來，等目標日收盤後自動比對。
+                                    </p>
+                                ) : (
+                                    <div className="flex gap-6">
+                                        <div>
+                                            <div className="text-xs" style={{color:'var(--metal-faint)'}}>方向命中率</div>
+                                            <div className="tabular text-xl font-semibold"
+                                                 style={{color: agentPerf.da >= 55 ? 'var(--up)' : agentPerf.da < 50 ? 'var(--down)' : 'var(--metal-bright)'}}>
+                                                {agentPerf.da.toFixed(1)}%
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="text-xs" style={{color:'var(--metal-faint)'}}>平均誤差</div>
+                                            <div className="tabular text-xl font-semibold" style={{color:'var(--metal-bright)'}}>
+                                                {Number.isFinite(agentPerf.mape) ? agentPerf.mape.toFixed(2) + '%' : '—'}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="text-xs" style={{color:'var(--metal-faint)'}}>樣本</div>
+                                            <div className="tabular text-xl font-semibold" style={{color:'var(--metal)'}}>{agentPerf.n}</div>
+                                        </div>
+                                    </div>
+                                )}
+                                {(() => {
+                                    const rec = shouldRetrain(agentPerf);
+                                    return (
+                                        <p className="text-xs mt-2" style={{color: rec.retrain ? 'var(--warn)' : 'var(--metal-faint)'}}>
+                                            {rec.retrain ? '⚠️ ' : ''}{rec.reason}
+                                        </p>
+                                    );
+                                })()}
+                            </div>
+
+                            {/* 模型註冊表 */}
+                            <div>
+                                <div className="text-sm font-semibold mb-2" style={{color:'var(--metal-bright)'}}>模型註冊表</div>
+                                {agentModels.length === 0 ? (
+                                    <p className="text-xs" style={{color:'var(--metal-faint)'}}>還沒有訓練紀錄。</p>
+                                ) : (
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full text-xs">
+                                            <thead>
+                                                <tr style={{color:'var(--metal-faint)'}}>
+                                                    <th className="text-left font-normal pb-1.5">時間</th>
+                                                    <th className="text-left font-normal pb-1.5">演算法</th>
+                                                    <th className="text-right font-normal pb-1.5">保留集 DA</th>
+                                                    <th className="text-right font-normal pb-1.5">保留集誤差</th>
+                                                    <th className="text-right font-normal pb-1.5 pl-3">狀態</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {agentModels.slice(0, 10).map((m) => (
+                                                <tr key={m.id} className="border-t" style={{borderColor:'var(--edge)'}}>
+                                                    <td className="py-1.5 tabular" style={{color:'var(--metal-faint)'}}>
+                                                        {new Date(m.ts).toLocaleDateString()} {new Date(m.ts).toLocaleTimeString().slice(0,5)}
+                                                    </td>
+                                                    <td className="py-1.5" style={{color:'var(--metal)'}}>{m.algorithm}</td>
+                                                    <td className="py-1.5 text-right tabular" style={{color:'var(--metal-bright)'}}>
+                                                        {Number.isFinite(m.holdoutDA) ? m.holdoutDA.toFixed(2) + '%' : '—'}
+                                                    </td>
+                                                    <td className="py-1.5 text-right tabular" style={{color:'var(--metal)'}}>
+                                                        {Number.isFinite(m.holdoutMAPE) ? m.holdoutMAPE.toFixed(2) + '%' : '—'}
+                                                    </td>
+                                                    <td className="py-1.5 text-right pl-3">
+                                                        <span className="px-1.5 py-0.5 rounded" style={
+                                                            m.status === 'champion' ? {background:'var(--up-soft)', color:'var(--up)'}
+                                                            : m.status === 'retired' ? {color:'var(--metal-faint)'}
+                                                            : {color:'var(--metal-dim)'}
+                                                        }>
+                                                            {m.status === 'champion' ? '冠軍' : m.status === 'retired' ? '退役' : '挑戰者'}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* 執行日誌 */}
+                            <div>
+                                <div className="text-sm font-semibold mb-2" style={{color:'var(--metal-bright)'}}>晉升歷程</div>
+                                {agentRuns.length === 0 ? (
+                                    <p className="text-xs" style={{color:'var(--metal-faint)'}}>尚無執行紀錄。</p>
+                                ) : (
+                                    <ul className="space-y-1.5">
+                                        {agentRuns.slice(0, 6).map(r => (
+                                            <li key={r.id} className="text-xs flex gap-2">
+                                                <span className="tabular shrink-0" style={{color:'var(--metal-faint)'}}>
+                                                    {new Date(r.ts).toLocaleDateString()}
+                                                </span>
+                                                <span style={{color: r.promoted ? 'var(--up)' : 'var(--metal-dim)'}}>
+                                                    {r.promoted ? '🏆' : '🛡️'} {r.note}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+
+                            <button onClick={async () => {
+                                if (!confirm('確定清除所有代理記憶？模型註冊表、預測日誌與戰績都會消失，且無法復原。')) return;
+                                try {
+                                    await AgentStore.clear('models');
+                                    await AgentStore.clear('runs');
+                                    await AgentStore.clear('predictions');
+                                    try { await tf.io.removeModel(CHAMPION_URL); } catch(_) {}
+                                    setAgentTick(t => t + 1);
+                                    logsUpdater('代理記憶已清除。');
+                                } catch (e) { logsUpdater('清除失敗: ' + e?.message); }
+                            }}
+                                className="text-xs px-3 py-1.5 rounded-lg transition-colors"
+                                style={{background:'var(--surface-2)', border:'1px solid var(--edge)', color:'var(--metal-dim)'}}>
+                                清除代理記憶
+                            </button>
+                        </div>
+                    )}
+                </div>
+                </>
+            );
+        });
+
+        // 模型與訓練參數設定
+        const ModelParamsPanel = React.memo(({ params, handleParamChange }) => {
+            return (
+                <>
+                {/* 模型參數設定 */}
+                <div className="glass-panel p-4 rounded-xl flex flex-col space-y-4">
+                    <h2 className="text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center">
+                        <Icon name="sliders" className="w-5 h-5 mr-2" />
+                        模型與訓練參數
+                    </h2>
+
+                    {/* Algorithm Selector */}
+                    <div className="flex flex-wrap gap-2">
+                        <button onClick={() => handleParamChange('algorithm', 'BiGRU')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'BiGRU' ? 'bg-accent-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>Bi-GRU</button>
+                        <button onClick={() => handleParamChange('algorithm', 'LSTM')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'LSTM' ? 'bg-accent-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>LSTM</button>
+                        <button onClick={() => handleParamChange('algorithm', 'Transformer')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'Transformer' ? 'bg-amber-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>Transformer 🎯</button>
+                        <button onClick={() => handleParamChange('algorithm', 'TimesFM')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'TimesFM' ? 'bg-sky-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>TimesFM</button>
+                    </div>
+
+                    {params.algorithm === 'TimesFM' && (
+                        <p className="text-xs mt-2 px-2 py-1.5 rounded-lg" style={{color:'var(--metal-dim)', background:'var(--surface-2)', border:'1px solid var(--edge)'}}>
+                            採用 TimesFM 的<strong style={{color:'var(--metal-bright)'}}>架構</strong>（patch 切分 + 因果注意力的 decoder-only transformer），
+                            以你的資料從頭訓練。這不是 Google 發布的預訓練基礎模型權重
+                            （200M/500M 參數、僅有 PyTorch/JAX 版本，無法在瀏覽器執行），因此沒有 zero-shot 能力。
+                        </p>
+                    )}
+
+                    {/* Prediction Target Selector */}
+                    <div className="space-y-1 pt-2 border-t border-zinc-800">
+                        <label className="text-xs text-zinc-400 block mb-1 flex items-center gap-1">
+                            <Icon name="target" className="w-3 h-3" />預測目標
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                            <button onClick={() => handleParamChange('predTarget', 'price')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${(params.predTarget||'price') === 'price' ? 'bg-teal-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>價格迴歸</button>
+                            <button onClick={() => handleParamChange('predTarget', 'direction')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'direction' ? 'bg-rose-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>方向分類 🎯</button>
+                            <button onClick={() => handleParamChange('predTarget', 'dual')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'dual' ? 'bg-violet-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>雙頭 (價格+方向)</button>
+                            <button onClick={() => handleParamChange('predTarget', 'logreturn')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'logreturn' ? 'bg-emerald-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>對數報酬率 📈</button>
+                        </div>
+                        <p className="text-xs text-zinc-500 mt-1">
+                            {(params.predTarget||'price') === 'price' && '迴歸預測下一日價格，方向由價格變化推導。'}
+                            {params.predTarget === 'direction' && '直接預測「漲/跌」二元分類，最佳化方向準確率 (DA)。輸出為上漲機率，不提供價格數值。'}
+                            {params.predTarget === 'dual' && '同時輸出價格與方向機率：價格供圖表/MAPE，方向頭專注提升 DA。'}
+                            {params.predTarget === 'logreturn' && '預測 ln(今日/昨日) 而非價格本身。報酬率接近平穩，模型無法靠「明天≈今天」取巧；且絕對誤差近似相對誤差，與 MAPE 指標對齊。用純 Huber，不加方向懲罰。'}
+                        </p>
+                    </div>
+
+                    {/* Cross-Validation Mode */}
+                    <div className="space-y-1 pt-2 border-t border-zinc-800">
+                        <label className="text-xs text-zinc-400 block mb-1">驗證模式</label>
+                        <div className="flex justify-around space-x-2">
+                            <button onClick={() => handleParamChange('validationMode', VALIDATION_MODE.NONE)} className={`flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.NONE ? 'bg-indigo-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>無 (標準訓練)</button>
+                            <button onClick={() => handleParamChange('validationMode', VALIDATION_MODE.K_FOLD)} className={`flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.K_FOLD ? 'bg-indigo-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>K-Fold 驗證</button>
+                        </div>
+                    </div>
+
+                    {params.validationMode === VALIDATION_MODE.K_FOLD && (
+                        <div className="space-y-1">
+                            <div className="flex justify-between text-xs text-zinc-400">
+                                <span>K-Fold 數量 (K)</span>
+                                <span className="font-mono text-cyan-400 font-bold">{params.kFolds}</span>
+                            </div>
+                            <input type="range" min="2" max="10" value={params.kFolds} step="1" onChange={e => handleParamChange('kFolds', parseInt(e.target.value))} className="custom-range w-full" />
+                        </div>
+                    )}
+
+                    {/* Loss Lambda / Directional Weight */}
+                    <div className="space-y-1 pt-2 border-t border-zinc-800">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>🎯 方向懲罰權重 (α) — 0=純Huber，0.3推薦</span>
+                            <span className="font-mono text-pink-400 font-bold">{params.directionalLambda.toFixed(1)}</span>
+                        </div>
+                        <input type="range" min="0.0" max="1.0" value={params.directionalLambda} step="0.1" onChange={e => handleParamChange('directionalLambda', parseFloat(e.target.value))} className="custom-range w-full" />
+                        <p className="text-xs text-zinc-600">α 越高模型越重視方向正確性，α 越低越精準預測價格水準</p>
+                    </div>
+
+                    {/* Lookback */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>Lookback (天數)</span>
+                            <span className="font-mono text-accent font-bold">{params.lookback}</span>
+                        </div>
+                        <input type="range" min="5" max="120" value={params.lookback} step="1" onChange={e => handleParamChange('lookback', parseInt(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                    {/* Layers */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>單層單元數 (Units/Filters)</span>
+                            <span className="font-mono text-accent font-bold">{params.layers}</span>
+                        </div>
+                        <input type="range" min="16" max="128" value={params.layers} step="16" onChange={e => handleParamChange('layers', parseInt(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                    {/* Epochs */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>訓練週期 (Epochs)</span>
+                            <span className="font-mono text-accent font-bold">{params.epochs}</span>
+                        </div>
+                        <input type="range" min="10" max="1000" value={params.epochs} step="10" onChange={e => handleParamChange('epochs', parseInt(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                    {/* Batch Size */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>Batch Size</span>
+                            <span className="font-mono text-accent font-bold">{params.batchSize}</span>
+                        </div>
+                        <input type="range" min="8" max="128" value={params.batchSize} step="8" onChange={e => handleParamChange('batchSize', parseInt(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                    {/* Future Days */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>預測天數 (T+N)</span>
+                            <span className="font-mono text-accent font-bold">{params.futureDays}</span>
+                        </div>
+                        <input type="range" min="1" max="10" value={params.futureDays} step="1" onChange={e => handleParamChange('futureDays', parseInt(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                    {/* History Years */}
+                    <div className="space-y-1">
+                        <div className="flex justify-between text-xs text-zinc-400">
+                            <span>歷史數據年限 (Years)</span>
+                            <span className="font-mono text-accent font-bold">{params.historyYears.toFixed(1)}</span>
+                        </div>
+                        <input type="range" min="0.5" max="5.0" value={params.historyYears} step="0.5" onChange={e => handleParamChange('historyYears', parseFloat(e.target.value))} className="custom-range w-full" />
+                    </div>
+
+                </div>
+                </>
+            );
+        });
+
         const App = () => {
             const [rawData, setRawData] = useState(null);
             const [fetchError, setFetchError] = useState(null);
@@ -2728,8 +3389,7 @@
             const [agentModels, setAgentModels] = useState([]);
             const [agentRuns, setAgentRuns]   = useState([]);
             const [agentPerf, setAgentPerf]   = useState({ n: 0, da: NaN, mape: NaN });
-            const [agentOpen, setAgentOpen]   = useState(false);
-            // ── 先顯示快取、背景更新 ──
+                        // ── 先顯示快取、背景更新 ──
             const [snapshotAt, setSnapshotAt]   = useState(null);   // 目前畫面資料的快照時間（null = 即時資料）
             const [isRefreshing, setIsRefreshing] = useState(false);// 背景更新進行中
             const [hasSnapshot, setHasSnapshot] = useState(false);  // 是否存在可用快照（決定進站畫面的按鈕）
@@ -2744,10 +3404,7 @@
                 phase: null,
                 updatedAt: null
             });
-            const [showCotDebug, setShowCotDebug] = useState(false);
-            const [customProxyInput, setCustomProxyInput] = useState(getCustomProxy);
-            const [customProxySaved, setCustomProxySaved] = useState(getCustomProxy);
-            const [stockTwitsStatus, setStockTwitsStatus] = useState({ source: 'idle', bullishPct: null, bearishPct: null, totalTagged: 0, updatedAt: null });
+                                                const [stockTwitsStatus, setStockTwitsStatus] = useState({ source: 'idle', bullishPct: null, bearishPct: null, totalTagged: 0, updatedAt: null });
             const [fearGreedStatus, setFearGreedStatus] = useState({ source: 'idle', currentScore: null, currentRating: null, updatedAt: null });
 
             const modelRef = useRef(null);
@@ -2928,6 +3585,34 @@
                 setModelState(prev => ({ ...prev, logs: [msg, ...prev.logs.slice(0, 4)] }));
             }, [])
 
+            // ── 每個 epoch 的畫面更新批次化 ──
+            // 每個 epoch 都 setState 會讓整頁（含 Plotly loss 圖）重繪，GPU 上一秒可能有幾十個 epoch。
+            // 改為先排進佇列，最多每 EPOCH_UI_INTERVAL_MS 套用一次（React 會把這幾個 setState 合併成一次重繪）。
+            const EPOCH_UI_INTERVAL_MS = 250;
+            const epochUiRef = useRef({ losses: [], patches: [], timer: null, last: 0 });
+            const flushEpochUi = useCallback(() => {
+                const q = epochUiRef.current;
+                if (q.timer) { clearTimeout(q.timer); q.timer = null; }
+                q.last = performance.now();
+                const { losses, patches } = q;
+                q.losses = []; q.patches = [];
+                if (losses.length) {
+                    setTrainingResults(prev => ({ ...prev, lossHistory: [...prev.lossHistory, ...losses] }));
+                    const minL = Math.min(...losses);
+                    setBestLossValue(prev => (prev === null || minL < prev) ? minL : prev);
+                }
+                if (patches.length) setModelState(prev => patches.reduce((st, f) => f(st), prev));
+            }, []);
+            // loss：加入 loss 曲線；patch：modelState 的函式型更新
+            const queueEpochUi = useCallback(({ loss, patch } = {}) => {
+                const q = epochUiRef.current;
+                if (loss !== undefined) q.losses.push(loss);
+                if (patch) q.patches.push(patch);
+                const wait = EPOCH_UI_INTERVAL_MS - (performance.now() - q.last);
+                if (wait <= 0) flushEpochUi();
+                else if (!q.timer) q.timer = setTimeout(flushEpochUi, wait);
+            }, [flushEpochUi]);
+
             // ===== Backtest Engine =====
             const calcMaxDrawdown = (equity) => {
                 let peak = equity[0] ?? 0;
@@ -3015,7 +3700,7 @@
                     logsUpdater(`回測：預測測試集（共 ${testX.length} 筆，目標=${predTarget}）...`);
 
                     // Batch predict for speed
-                    const xTensor = tf.tensor3d(testX);
+                    const xTensor = windowsToTensor(testX);
                     const predTensor = modelRef.current.predict(xTensor);
                     const predScaled = await predTensor.data();
                     tf.dispose([xTensor, predTensor]);
@@ -3668,10 +4353,10 @@
                     const toTargetTensor = (Y, YLR) => _kfTarget === 'logreturn'
                         ? tf.tensor(Float32Array.from(YLR), [YLR.length, 1])
                         : tf.tensor2d(Y, [Y.length, 1]);
-                    const foldTensorX = tf.tensor3d(trainX);
+                    const foldTensorX = windowsToTensor(trainX);
                     const foldTensorY = toTargetTensor(trainY, trainYLR);
                     // 驗證集 = 本折的測試區段（在訓練區段之後），用來決定存哪個 epoch
-                    const foldValX = tf.tensor3d(testX);
+                    const foldValX = windowsToTensor(testX);
                     const foldValY = toTargetTensor(testY, testYLR);
                     const isLastFold = foldIdx === params.kFolds - 1;
 
@@ -3686,8 +4371,7 @@
                             if (foldIdx === 0) {
                                 // 圖表顯示第一折的訓練 loss，讓使用者馬上看到進度
                                 historyLoss.push(currentLoss);
-                                setTrainingResults(prev => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
-                                setBestLossValue(prev => (prev === null || currentLoss < prev) ? currentLoss : prev);
+                                queueEpochUi({ loss: currentLoss });
                             }
 
                             // 最後一折用到最多歷史資料，作為最終模型；依驗證 loss 存最佳 epoch
@@ -3701,14 +4385,14 @@
                                 await trainModelInstance.save(MODEL_URL);
                                 localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
 
-                                setModelState(prev => ({
+                                queueEpochUi({ patch: prev => ({
                                     ...prev,
                                     loss: lossToSave,
                                     logs: [`Fold ${foldIdx + 1} Epoch ${epoch+1}: val_loss ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)],
-                                }));
+                                }) });
                             }
 
-                            setModelState(prev => ({ ...prev, progress: ((foldIdx / params.kFolds) * 100) + (((epoch + 1) / params.epochs) * (100 / params.kFolds)), currentEpoch: epoch + 1, totalEpochs: params.epochs }));
+                            queueEpochUi({ patch: prev => ({ ...prev, progress: ((foldIdx / params.kFolds) * 100) + (((epoch + 1) / params.epochs) * (100 / params.kFolds)), currentEpoch: epoch + 1, totalEpochs: params.epochs }) });
                             await safeYield();
                         }
                     };
@@ -3723,10 +4407,11 @@
                     });
 
                     tf.dispose([foldTensorX, foldTensorY, foldValX, foldValY]);
+                    flushEpochUi();
                     logsUpdater(`Fold ${foldIdx + 1}/${params.kFolds}: 訓練完成，正在評估...`);
                     
                     // 評估
-                    const testTensorX = tf.tensor3d(testX);
+                    const testTensorX = windowsToTensor(testX);
                     const predTensor = trainModelInstance.predict(testTensorX);
                     const predData = await predTensor.data();
                     tf.dispose([testTensorX, predTensor]);
@@ -3877,7 +4562,6 @@
                             } catch (e) {
                                 logsUpdater('錯誤:瀏覽器儲存區中未找到歷史最佳模型，無法進行預測。');
                                 setModelState(prev => ({ ...prev, isTraining: false }));
-                                tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]);
                                 return;
                             }
                         } else {
@@ -3886,7 +4570,7 @@
                         modelRef.current = modelToUse; 
                     } else if (runMode === RUN_MODE.PREDICT_UPLOADED) {
                         modelToUse = modelRef.current;
-                        if (!modelToUse) { logsUpdater('錯誤: 未上傳模型，無法進行預測。'); setModelState(prev => ({ ...prev, isTraining: false })); tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]); return; }
+                        if (!modelToUse) { logsUpdater('錯誤: 未上傳模型，無法進行預測。'); setModelState(prev => ({ ...prev, isTraining: false })); return; }
                         if (!trainConfigRef.current) {
                             const { minMax, activeFeatures, numFeatures: finalFeatures } = createMultivariateDataset(marketData, params.lookback, selectedFactors);
                             trainConfigRef.current = { minMax, activeFeatures, finalNumFeatures: finalFeatures, lookback: params.lookback, algorithm: params.algorithm };
@@ -3895,7 +4579,6 @@
                     } else {
                         logsUpdater('錯誤: 未選擇有效的運行模式。');
                         setModelState(prev => ({ ...prev, isTraining: false }));
-                        tf.dispose([tf.tensor3d(X), tf.tensor2d(y, [y.length, 1])]);
                         return;
                     }
                     
@@ -3925,13 +4608,13 @@
                         } else {
                             logsUpdater(`資料量不足以切出保留集，本次訓練不進行冠軍比較。`);
                         }
-                        const tensorX = tf.tensor3d(_trainX);
+                        const tensorX = windowsToTensor(_trainX);
                         const tensorY = buildTargetTensor(_trainY, _trainYDir, _pt, _trainYLR);
 
                         // 驗證集 = 保留集。存檔依驗證 loss，而不是訓練 loss（訓練 loss 只會越練越低，挑不出過擬合）
                         let valX = null, valY = null;
                         if (_hs.holdLen > 0) {
-                            valX = tf.tensor3d(X.slice(_hs.holdStart));
+                            valX = windowsToTensor(X, _hs.holdStart);
                             valY = buildTargetTensor(y.slice(_hs.holdStart), yDir.slice(_hs.holdStart), _pt, yLogRet.slice(_hs.holdStart));
                         }
                         const lossLabel = valX ? 'val_loss' : 'loss';
@@ -3956,10 +4639,7 @@
                                 const monitored = (valX && Number.isFinite(logs.val_loss)) ? logs.val_loss : currentLoss;
                                 const progress = ((epoch + 1) / params.epochs) * 100;
                                 historyLoss.push(currentLoss);
-                                setTrainingResults(prev => ({ ...prev, lossHistory: [...prev.lossHistory, currentLoss] }));
-
-
-                                setBestLossValue(prev => (prev === null || currentLoss < prev) ? currentLoss : prev);
+                                queueEpochUi({ loss: currentLoss });
 
                                 if (monitored < runBestLoss) {
                                     runBestLoss = monitored;
@@ -3970,21 +4650,21 @@
                                     await modelToUse.save(MODEL_URL);
                                     localStorage.setItem(TRAIN_CONFIG_KEY, JSON.stringify(buildFullConfig()));
 
-                                    setModelState(prev => ({
+                                    queueEpochUi({ patch: prev => ({
                                         ...prev,
                                         progress,
                                         loss: lossToSave,
                                         logs: [`Epoch ${epoch+1}: ${lossLabel} ${lossToSave} - **本次最佳，已儲存模型**`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('新的歷史最佳')).slice(0, 4)],
                                         directionalAccuracy: 'N/A',
                                         mape: 'N/A'
-                                    }));
+                                    }) });
                                 } else {
-                                    setModelState(prev => ({
+                                    queueEpochUi({ patch: prev => ({
                                         ...prev,
                                         progress,
                                         loss: currentLoss.toFixed(4),
                                         logs: [`Epoch ${epoch+1}: loss ${currentLoss.toFixed(4)}${valX ? ` / val_loss ${monitored.toFixed(4)}` : ''}`, ...prev.logs.filter(log => !log.startsWith('Epoch') && !log.startsWith('正在儲存最佳模型')).slice(0, 4)]
-                                    }));
+                                    }) });
                                 }
                                 await safeYield();
                             }
@@ -3999,6 +4679,7 @@
                             callbacks: [checkpointCallback]
                         });
                         if (valX) tf.dispose([valX, valY]);
+                        flushEpochUi();
 
                         logsUpdater(`訓練完成，重新載入瀏覽器儲存區中的最佳模型進行最終預測...`);
 
@@ -4068,7 +4749,7 @@
                     let hx = null, hp = null;
                     try {
                         const hX = X.slice(_hs.holdStart);
-                        hx = tf.tensor3d(hX);
+                        hx = windowsToTensor(X, _hs.holdStart);
                         hp = mdl.predict(hx);
                         const raw = await hp.data();
                         const stride = _predTarget === 'dual' ? 2 : 1;
@@ -4306,7 +4987,7 @@
                     setModelState(prev => ({ ...prev, isTraining: false, progress: 0 }));
                 } // ── end outer try-catch ──
 
-            }, [params, selectedFactors, marketData, modelState.isTraining, runMode, logsUpdater, currentBestLoss, latestFactorData]); 
+            }, [params, selectedFactors, marketData, modelState.isTraining, runMode, logsUpdater, queueEpochUi, flushEpochUi, currentBestLoss, latestFactorData]); 
 
             // ══════════════════════════════════════════════════════════════
             // AI 代理：自動搜尋最佳超參數組合
@@ -4425,21 +5106,8 @@
                     const n      = sp.trainEnd;              // 訓練樣本數
                     const actualLB   = rawX[0]?.length       ?? trialParams.lookback;
                     const actualFeat = rawX[0]?.[0]?.length  ?? ds.numFeatures;
-                    const flatten = (from, to) => {
-                        const m = to - from;
-                        const fx = new Float32Array(m * actualLB * actualFeat);
-                        const fy = new Float32Array(m);
-                        for (let i = 0; i < m; i++) {
-                            fy[i] = rawY[from + i];
-                            const row = rawX[from + i];
-                            for (let j = 0; j < actualLB; j++) {
-                                const cell = row[j];
-                                const base = i*actualLB*actualFeat + j*actualFeat;
-                                for (let k = 0; k < actualFeat; k++) fx[base + k] = cell[k];
-                            }
-                        }
-                        return [tf.tensor(fx, [m, actualLB, actualFeat]), tf.tensor(fy, [m, 1])];
-                    };
+                    const flatten = (from, to) =>
+                        [windowsToTensor(rawX, from, to), tf.tensor2d(Float32Array.from(rawY.slice(from, to)), [to - from, 1])];
                     let model = null, tX = null, tY = null, vX = null, vY = null, predsT = null;
                     let finalLoss = 9999;
                     try {
@@ -4681,15 +5349,8 @@
                     const afY  = dsAF.y;
                     const afLB = afX[0]?.length ?? trialParams.lookback;
                     const afFt = afX[0]?.[0]?.length ?? dsAF.numFeatures;
-                    const flatAFRange = (from, to) => {
-                        const m = to - from;
-                        const fx = new Float32Array(m * afLB * afFt);
-                        for (let i = 0; i < m; i++)
-                            for (let j = 0; j < afLB; j++)
-                                for (let k = 0; k < afFt; k++)
-                                    fx[i*afLB*afFt + j*afFt + k] = afX[from + i][j][k];
-                        return [tf.tensor(fx, [m, afLB, afFt]), tf.tensor(Float32Array.from(afY.slice(from, to)), [m, 1])];
-                    };
+                    const flatAFRange = (from, to) =>
+                        [windowsToTensor(afX, from, to), tf.tensor2d(Float32Array.from(afY.slice(from, to)), [to - from, 1])];
                     let tM = null, xT = null, yT = null, xV = null, yV = null, pT = null;
                     try {
                         [xT, yT] = flatAFRange(0, spAF.trainEnd);
@@ -4990,7 +5651,7 @@
                                     <Icon name="refresh-cw" className={`w-3.5 h-3.5 ${isLoadingData ? 'animate-spin' : ''}`} />
                                     <span className="hidden sm:inline">{isLoadingData ? '讀取中' : '重新讀取'}</span>
                                 </button>
-                                <span className="assay-mark hidden md:inline">V19.14</span>
+                                <span className="assay-mark hidden md:inline">{APP_VERSION}</span>
                             </div>
                         </div>
                     </header>
@@ -5171,158 +5832,9 @@
                             </div>
                         )}
 
+                        <AgentMemoryPanel agentModels={agentModels} agentRuns={agentRuns} agentPerf={agentPerf} setAgentTick={setAgentTick} logsUpdater={logsUpdater} />
+
                         {/* 🤖 AI 自動搜尋代理面板 */}
-                        {/* ══ 代理記憶：冠軍模型、實測戰績、晉升歷程 ══ */}
-                        <div className="glass-panel mb-4">
-                            <button onClick={() => setAgentOpen(o => !o)}
-                                className="w-full flex items-center gap-2 px-5 py-3 text-left">
-                                <Icon name="brain-circuit" className="w-5 h-5" style={{color:'var(--metal-dim)'}} />
-                                <span className="font-semibold text-base" style={{color:'var(--metal-bright)'}}>代理記憶</span>
-                                {(() => {
-                                    const champ = agentModels.find(m => m.status === 'champion');
-                                    return champ ? (
-                                        <span className="text-xs px-2 py-0.5 rounded-full"
-                                              style={{background:'var(--up-soft)', color:'var(--up)', border:'1px solid rgba(63,185,80,0.3)'}}>
-                                            冠軍 {champ.algorithm} · 保留集 DA {Number.isFinite(champ.holdoutDA) ? champ.holdoutDA.toFixed(1) : '—'}%
-                                        </span>
-                                    ) : (
-                                        <span className="text-xs" style={{color:'var(--metal-faint)'}}>尚無冠軍模型</span>
-                                    );
-                                })()}
-                                <Icon name={agentOpen ? 'chevron-up' : 'chevron-down'} className="w-4 h-4 ml-auto" style={{color:'var(--metal-dim)'}} />
-                            </button>
-
-                            {agentOpen && (
-                                <div className="border-t px-5 py-4 space-y-5" style={{borderColor:'var(--edge)'}}>
-
-                                    {/* 實測戰績 —— 訓練指標是回看的，這裡才是真實紀錄 */}
-                                    <div>
-                                        <div className="flex items-baseline justify-between mb-2">
-                                            <span className="text-sm font-semibold" style={{color:'var(--metal-bright)'}}>實測戰績</span>
-                                            <span className="text-xs" style={{color:'var(--metal-faint)'}}>過去預測 vs 實際收盤</span>
-                                        </div>
-                                        {agentPerf.n === 0 ? (
-                                            <p className="text-xs" style={{color:'var(--metal-faint)'}}>
-                                                尚無已到期的預測可對帳。每次預測都會記錄下來，等目標日收盤後自動比對。
-                                            </p>
-                                        ) : (
-                                            <div className="flex gap-6">
-                                                <div>
-                                                    <div className="text-xs" style={{color:'var(--metal-faint)'}}>方向命中率</div>
-                                                    <div className="tabular text-xl font-semibold"
-                                                         style={{color: agentPerf.da >= 55 ? 'var(--up)' : agentPerf.da < 50 ? 'var(--down)' : 'var(--metal-bright)'}}>
-                                                        {agentPerf.da.toFixed(1)}%
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="text-xs" style={{color:'var(--metal-faint)'}}>平均誤差</div>
-                                                    <div className="tabular text-xl font-semibold" style={{color:'var(--metal-bright)'}}>
-                                                        {Number.isFinite(agentPerf.mape) ? agentPerf.mape.toFixed(2) + '%' : '—'}
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="text-xs" style={{color:'var(--metal-faint)'}}>樣本</div>
-                                                    <div className="tabular text-xl font-semibold" style={{color:'var(--metal)'}}>{agentPerf.n}</div>
-                                                </div>
-                                            </div>
-                                        )}
-                                        {(() => {
-                                            const rec = shouldRetrain(agentPerf);
-                                            return (
-                                                <p className="text-xs mt-2" style={{color: rec.retrain ? 'var(--warn)' : 'var(--metal-faint)'}}>
-                                                    {rec.retrain ? '⚠️ ' : ''}{rec.reason}
-                                                </p>
-                                            );
-                                        })()}
-                                    </div>
-
-                                    {/* 模型註冊表 */}
-                                    <div>
-                                        <div className="text-sm font-semibold mb-2" style={{color:'var(--metal-bright)'}}>模型註冊表</div>
-                                        {agentModels.length === 0 ? (
-                                            <p className="text-xs" style={{color:'var(--metal-faint)'}}>還沒有訓練紀錄。</p>
-                                        ) : (
-                                            <div className="overflow-x-auto">
-                                                <table className="w-full text-xs">
-                                                    <thead>
-                                                        <tr style={{color:'var(--metal-faint)'}}>
-                                                            <th className="text-left font-normal pb-1.5">時間</th>
-                                                            <th className="text-left font-normal pb-1.5">演算法</th>
-                                                            <th className="text-right font-normal pb-1.5">保留集 DA</th>
-                                                            <th className="text-right font-normal pb-1.5">保留集誤差</th>
-                                                            <th className="text-right font-normal pb-1.5 pl-3">狀態</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    {agentModels.slice(0, 10).map((m) => (
-                                                        <tr key={m.id} className="border-t" style={{borderColor:'var(--edge)'}}>
-                                                            <td className="py-1.5 tabular" style={{color:'var(--metal-faint)'}}>
-                                                                {new Date(m.ts).toLocaleDateString()} {new Date(m.ts).toLocaleTimeString().slice(0,5)}
-                                                            </td>
-                                                            <td className="py-1.5" style={{color:'var(--metal)'}}>{m.algorithm}</td>
-                                                            <td className="py-1.5 text-right tabular" style={{color:'var(--metal-bright)'}}>
-                                                                {Number.isFinite(m.holdoutDA) ? m.holdoutDA.toFixed(2) + '%' : '—'}
-                                                            </td>
-                                                            <td className="py-1.5 text-right tabular" style={{color:'var(--metal)'}}>
-                                                                {Number.isFinite(m.holdoutMAPE) ? m.holdoutMAPE.toFixed(2) + '%' : '—'}
-                                                            </td>
-                                                            <td className="py-1.5 text-right pl-3">
-                                                                <span className="px-1.5 py-0.5 rounded" style={
-                                                                    m.status === 'champion' ? {background:'var(--up-soft)', color:'var(--up)'}
-                                                                    : m.status === 'retired' ? {color:'var(--metal-faint)'}
-                                                                    : {color:'var(--metal-dim)'}
-                                                                }>
-                                                                    {m.status === 'champion' ? '冠軍' : m.status === 'retired' ? '退役' : '挑戰者'}
-                                                                </span>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* 執行日誌 */}
-                                    <div>
-                                        <div className="text-sm font-semibold mb-2" style={{color:'var(--metal-bright)'}}>晉升歷程</div>
-                                        {agentRuns.length === 0 ? (
-                                            <p className="text-xs" style={{color:'var(--metal-faint)'}}>尚無執行紀錄。</p>
-                                        ) : (
-                                            <ul className="space-y-1.5">
-                                                {agentRuns.slice(0, 6).map(r => (
-                                                    <li key={r.id} className="text-xs flex gap-2">
-                                                        <span className="tabular shrink-0" style={{color:'var(--metal-faint)'}}>
-                                                            {new Date(r.ts).toLocaleDateString()}
-                                                        </span>
-                                                        <span style={{color: r.promoted ? 'var(--up)' : 'var(--metal-dim)'}}>
-                                                            {r.promoted ? '🏆' : '🛡️'} {r.note}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-
-                                    <button onClick={async () => {
-                                        if (!confirm('確定清除所有代理記憶？模型註冊表、預測日誌與戰績都會消失，且無法復原。')) return;
-                                        try {
-                                            await AgentStore.clear('models');
-                                            await AgentStore.clear('runs');
-                                            await AgentStore.clear('predictions');
-                                            try { await tf.io.removeModel(CHAMPION_URL); } catch(_) {}
-                                            setAgentTick(t => t + 1);
-                                            logsUpdater('代理記憶已清除。');
-                                        } catch (e) { logsUpdater('清除失敗: ' + e?.message); }
-                                    }}
-                                        className="text-xs px-3 py-1.5 rounded-lg transition-colors"
-                                        style={{background:'var(--surface-2)', border:'1px solid var(--edge)', color:'var(--metal-dim)'}}>
-                                        清除代理記憶
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-
                         <div className="glass-panel mb-4">
                             {/* Header bar — 永遠顯示 */}
                             <div
@@ -5580,364 +6092,17 @@
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                             
                             
-                            {/* COT 資料狀態 */}
-                            <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-lg font-bold text-accent flex items-center">
-                                        <Icon name="activity" className="w-5 h-5 mr-2" />
-                                        COT 淨部位資料狀態
-                                    </h2>
-                                    <span className={`text-xs px-2 py-1 rounded-full border ${
-                                        cotStatus.state === "ok" ? "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" :
-                                        cotStatus.state === "loading" ? "border-amber-500/40 text-amber-300 bg-amber-500/10" :
-                                        cotStatus.state === "error" ? "border-red-500/40 text-red-300 bg-red-500/10" :
-                                        "border-zinc-600 text-zinc-300 bg-zinc-800/30"
-                                    }`}>
-                                        {cotStatus.state === "ok" ? "已連線" : cotStatus.state === "loading" ? "載入中" : cotStatus.state === "error" ? "失敗" : "未啟動"}
-                                    </span>
-                                </div>
+                            <CotStatusPanel cotStatus={cotStatus} />
 
-                                <div className="grid grid-cols-2 gap-3 text-sm">
-                                    <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                        <div className="text-xs text-zinc-400 mb-1">來源</div>
-                                        <div className="font-semibold text-white">{cotStatus.source || "-"}</div>
-                                    </div>
-                                    <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                        <div className="text-xs text-zinc-400 mb-1">筆數</div>
-                                        <div className="font-semibold text-white">{Number.isFinite(cotStatus.records) ? cotStatus.records : 0}</div>
-                                    </div>
-                                    <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                        <div className="text-xs text-zinc-400 mb-1">最新報告日</div>
-                                        <div className="font-semibold text-white">{cotStatus.latestDate || "-"}</div>
-                                    </div>
-                                    <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                        <div className="text-xs text-zinc-400 mb-1">最新淨部位</div>
-                                        <div className="font-semibold text-white">
-                                            {Number.isFinite(cotStatus.latestNet) ? cotStatus.latestNet.toLocaleString() : "-"}
-                                        </div>
-                                    </div>
-                                </div>
+                            <ProxySettingsPanel logsUpdater={logsUpdater} />
 
-                                <div className="flex items-center justify-between text-xs text-zinc-400">
-                                    <div>
-                                        <span className="mr-2">phase:</span>
-                                        <span className="text-zinc-300">{cotStatus.phase || "-"}</span>
-                                    </div>
-                                    <div className="text-zinc-500">
-                                        {cotStatus.updatedAt ? new Date(cotStatus.updatedAt).toLocaleString() : ""}
-                                    </div>
-                                </div>
+                            <StockTwitsPanel stockTwitsStatus={stockTwitsStatus} loadData={loadData} isLoadingData={isLoadingData} />
 
-                                {cotStatus.state === "error" && (
-                                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-200 text-sm">
-                                        {cotStatus.message || "COT 來源連線失敗。"}
-                                        <div className="mt-2">
-                                            <button
-                                                onClick={() => setShowCotDebug(v => !v)}
-                                                className="text-xs underline text-red-200/90 hover:text-red-100"
-                                            >
-                                                {showCotDebug ? "隱藏" : "顯示"} 偵錯提示
-                                            </button>
-                                        </div>
-                                        {showCotDebug && (
-                                            <div className="mt-2 text-xs text-red-100/90 space-y-1">
-                                                <div>1) 請打開瀏覽器 DevTools Console 查看 [COT] 訊息。</div>
-                                                <div>2) 若公司網路擋 Socrata，程式會自動改走 proxy；仍失敗請更換網路。</div>
-                                                <div>3) 若你改過查詢條件，請確認日期欄位是 as_of_date_form_yyyy_mm_dd。</div>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* 🌐 資料代理設定 */}
-                            <div className="glass-panel p-4 rounded-xl flex flex-col space-y-3">
-                                <h2 className="text-lg font-bold text-sky-300 flex items-center">
-                                    <Icon name="globe" className="w-5 h-5 mr-2" />
-                                    資料代理（CORS Proxy）
-                                </h2>
-                                <div className="text-xs text-zinc-400 leading-relaxed">
-                                    瀏覽器無法直接讀取部分資料源（Yahoo、CFTC、Treasury 等），需經過代理。
-                                    公共代理常限流或停止服務；建議自架（見 <span className="font-mono">cors-proxy-worker.js</span>），
-                                    在此填入網址前綴後會優先使用，公共代理作為備援。
-                                </div>
-                                <input
-                                    type="url"
-                                    value={customProxyInput}
-                                    onChange={e => setCustomProxyInput(e.target.value)}
-                                    placeholder="https://silver-proxy.你的帳號.workers.dev/?url="
-                                    className="w-full px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-sm font-mono text-zinc-200"
-                                />
-                                <div className="flex items-center gap-2">
-                                    <button
-                                        onClick={() => {
-                                            const v = customProxyInput.trim();
-                                            if (v && !/^https:\/\//i.test(v)) {
-                                                logsUpdater('⚠️ 代理網址必須以 https:// 開頭。');
-                                                return;
-                                            }
-                                            try {
-                                                if (v) localStorage.setItem(CUSTOM_PROXY_KEY, v);
-                                                else localStorage.removeItem(CUSTOM_PROXY_KEY);
-                                            } catch (_) {}
-                                            setCustomProxySaved(v);
-                                            logsUpdater(v ? `已設定自架代理：${v}（下次載入資料生效）` : '已清除自架代理，只使用公共代理。');
-                                        }}
-                                        disabled={customProxyInput.trim() === customProxySaved}
-                                        className="px-3 py-1 rounded bg-sky-700/60 hover:bg-sky-600/60 text-white text-xs transition disabled:opacity-40"
-                                    >
-                                        儲存
-                                    </button>
-                                    <span className="text-xs text-zinc-500">
-                                        {customProxySaved ? '目前：自架代理優先' : '目前：僅公共代理'}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* 📊 StockTwits 情緒狀態 */}
-                            <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-lg font-bold text-red-400 flex items-center">
-                                        <Icon name="users" className="w-5 h-5 mr-2" />
-                                        StockTwits 白銀情緒
-                                    </h2>
-                                    <span className={`text-xs px-2 py-1 rounded-full border ${
-                                        stockTwitsStatus.source === 'real' ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10' :
-                                        stockTwitsStatus.source === 'idle' ? 'border-zinc-600 text-zinc-300 bg-zinc-800/30' :
-                                                                              'border-yellow-500/40 text-yellow-300 bg-yellow-500/10'
-                                    }`}>
-                                        {stockTwitsStatus.source === 'real' ? '✅ Real' : stockTwitsStatus.source === 'idle' ? '未啟動' : '⚠️ Mock'}
-                                    </span>
-                                </div>
-                                <div className="grid grid-cols-3 gap-2 text-sm">
-                                    <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center">
-                                        <div className="text-xs text-zinc-400">多方 %</div>
-                                        <div className="text-lg font-bold text-emerald-400">{stockTwitsStatus.bullishPct !== null ? stockTwitsStatus.bullishPct.toFixed(1) : '—'}%</div>
-                                    </div>
-                                    <div className="p-2 rounded-lg bg-rose-500/10 border border-rose-500/20 text-center">
-                                        <div className="text-xs text-zinc-400">空方 %</div>
-                                        <div className="text-lg font-bold text-rose-400">{stockTwitsStatus.bearishPct !== null ? stockTwitsStatus.bearishPct.toFixed(1) : '—'}%</div>
-                                    </div>
-                                    <div className="p-2 rounded-lg bg-zinc-900/40 border border-zinc-800 text-center">
-                                        <div className="text-xs text-zinc-400">標記則數</div>
-                                        <div className="text-lg font-bold text-white">{stockTwitsStatus.totalTagged ?? '—'}</div>
-                                    </div>
-                                </div>
-                                <div className="text-xs text-zinc-500 leading-relaxed">
-                                    {stockTwitsStatus.source === 'real'
-                                        ? '🟢 即時抓取 StockTwits SLV + SI_F 訊息流，統計已標記情緒訊息之多空比例。'
-                                        : stockTwitsStatus.source === 'idle' ? '⬜ 尚未載入。'
-                                        : '🟡 StockTwits API 不可用，使用價格動量代理情緒。'}
-                                </div>
-                                {stockTwitsStatus.source === 'mock' && (
-                                    <button onClick={() => loadData(false)} disabled={isLoadingData}
-                                        className="px-3 py-1 rounded bg-red-700/60 hover:bg-red-600/60 text-white text-xs transition w-fit">
-                                        {isLoadingData ? '載入中...' : '重試'}
-                                    </button>
-                                )}
-                                <div className="text-xs text-zinc-600">{stockTwitsStatus.updatedAt ? new Date(stockTwitsStatus.updatedAt).toLocaleString() : ''}</div>
-                            </div>
-
-                            {/* 😨 CNN Fear & Greed 狀態 */}
-                            <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-lg font-bold text-orange-400 flex items-center">
-                                        <Icon name="gauge" className="w-5 h-5 mr-2" />
-                                        CNN Fear & Greed Index
-                                    </h2>
-                                    <span className={`text-xs px-2 py-1 rounded-full border ${
-                                        fearGreedStatus.source === 'real' ? 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10' :
-                                        fearGreedStatus.source === 'idle' ? 'border-zinc-600 text-zinc-300 bg-zinc-800/30' :
-                                                                             'border-yellow-500/40 text-yellow-300 bg-yellow-500/10'
-                                    }`}>
-                                        {fearGreedStatus.source === 'real' ? '✅ Real' : fearGreedStatus.source === 'idle' ? '未啟動' : '⚠️ Mock'}
-                                    </span>
-                                </div>
-                                {/* 儀表指針視覺化 */}
-                                {fearGreedStatus.currentScore !== null && (
-                                    <div className="space-y-2">
-                                        <div className="flex justify-between text-xs text-zinc-400">
-                                            <span>極度恐慌</span><span>恐懼</span><span>中立</span><span>貪婪</span><span>極度貪婪</span>
-                                        </div>
-                                        <div className="relative h-3 rounded-full overflow-hidden"
-                                             style={{background: 'linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #16a34a)'}}>
-                                            <div className="absolute top-0 w-2 h-full bg-white rounded-full shadow-lg transition-all duration-500"
-                                                 style={{left: `calc(${Math.min(100, Math.max(0, fearGreedStatus.currentScore))}% - 4px)`}}></div>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-2xl font-bold font-mono text-white">{fearGreedStatus.currentScore?.toFixed(1)}</span>
-                                            <span className={`text-sm font-semibold px-2 py-1 rounded ${
-                                                fearGreedStatus.currentScore >= 75 ? 'bg-green-700 text-white' :
-                                                fearGreedStatus.currentScore >= 55 ? 'bg-green-800/60 text-green-300' :
-                                                fearGreedStatus.currentScore >= 45 ? 'bg-zinc-700 text-zinc-300' :
-                                                fearGreedStatus.currentScore >= 25 ? 'bg-red-800/60 text-red-300' :
-                                                'bg-red-700 text-white'
-                                            }`}>{fearGreedStatus.currentRating}</span>
-                                        </div>
-                                    </div>
-                                )}
-                                <div className="text-xs text-zinc-500 leading-relaxed">
-                                    {fearGreedStatus.source === 'real'
-                                        ? '🟢 即時抓取 CNN Business DataViz API 含多年歷史數據，0=極度恐慌，100=極度貪婪。'
-                                        : fearGreedStatus.source === 'idle' ? '⬜ 尚未載入。'
-                                        : '🟡 CNN API 不可用，使用低變異模擬值代替。'}
-                                </div>
-                                {fearGreedStatus.source === 'mock' && (
-                                    <button onClick={() => loadData(false)} disabled={isLoadingData}
-                                        className="px-3 py-1 rounded bg-orange-700/60 hover:bg-orange-600/60 text-white text-xs transition w-fit">
-                                        {isLoadingData ? '載入中...' : '重試'}
-                                    </button>
-                                )}
-                                <div className="text-xs text-zinc-600">{fearGreedStatus.updatedAt ? new Date(fearGreedStatus.updatedAt).toLocaleString() : ''}</div>
-                            </div>
+                            <FearGreedPanel fearGreedStatus={fearGreedStatus} loadData={loadData} isLoadingData={isLoadingData} />
 
                             {/* 模式切換與執行 */}
                             
-                            {/* 回測模擬 (Backtest) */}
-                            <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-4">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-lg font-bold text-accent flex items-center">
-                                        <Icon name="trending-up" className="w-5 h-5 mr-2" />
-                                        回測模擬 (Backtest)
-                                    </h2>
-                                    <span className="text-xs px-2 py-1 rounded-full border border-zinc-600 text-zinc-300 bg-zinc-800/30">
-                                        使用模型逐筆預測 1-step
-                                    </span>
-                                </div>
-
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                    <div>
-                                        <label className="text-xs text-zinc-400">測試區間比例 (最後 N%)</label>
-                                        <input
-                                            type="number"
-                                            step="0.05"
-                                            min="0.05"
-                                            max="0.8"
-                                            value={backtestConfig.testRatio}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, testRatio: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-xs text-zinc-400">初始資金</label>
-                                        <input
-                                            type="number"
-                                            step="1000"
-                                            value={backtestConfig.initialCapital}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, initialCapital: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-xs text-zinc-400">槓桿</label>
-                                        <input
-                                            type="number"
-                                            step="0.5"
-                                            min="0"
-                                            value={backtestConfig.leverage}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, leverage: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-xs text-zinc-400">每次使用資金比例</label>
-                                        <input
-                                            type="number"
-                                            step="0.1"
-                                            min="0"
-                                            max="1"
-                                            value={backtestConfig.positionPct}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, positionPct: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label className="text-xs text-zinc-400">單邊手續費 (bps)</label>
-                                        <input
-                                            type="number"
-                                            step="1"
-                                            min="0"
-                                            value={backtestConfig.feeBps}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, feeBps: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-xs text-zinc-400">單邊滑價 (bps)</label>
-                                        <input
-                                            type="number"
-                                            step="1"
-                                            min="0"
-                                            value={backtestConfig.slippageBps}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, slippageBps: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-xs text-zinc-400">進場門檻 (預測報酬率)</label>
-                                        <input
-                                            type="number"
-                                            step="0.001"
-                                            min="0"
-                                            value={backtestConfig.threshold}
-                                            onChange={(e)=>setBacktestConfig(p=>({...p, threshold: e.target.value}))}
-                                            className="w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100"
-                                        />
-                                    </div>
-                                    <div className="flex items-end">
-                                        <label className="inline-flex items-center gap-2 text-sm text-zinc-200 select-none">
-                                            <input
-                                                type="checkbox"
-                                                checked={!!backtestConfig.allowShort}
-                                                onChange={(e)=>setBacktestConfig(p=>({...p, allowShort: e.target.checked}))}
-                                            />
-                                            允許放空
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2">
-                                    <button
-                                        onClick={runBacktest}
-                                        className="px-4 py-2 rounded-lg bg-accent/20 border border-accent/40 text-accent hover:bg-accent/30 transition"
-                                    >
-                                        執行回測
-                                    </button>
-                                    <div className="text-xs text-zinc-400 flex items-center">
-                                        ※ 需先完成「訓練/載入模型」，回測採用測試區間逐筆 1-step 預測與交易模擬
-                                    </div>
-                                </div>
-
-                                {backtestResult && (
-                                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                            <div className="text-xs text-zinc-400">總報酬</div>
-                                            <div className="text-lg font-bold text-white">{(backtestResult.totalReturn*100).toFixed(2)}%</div>
-                                        </div>
-                                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                            <div className="text-xs text-zinc-400">期末資產</div>
-                                            <div className="text-lg font-bold text-white">{backtestResult.finalEquity.toFixed(2)}</div>
-                                        </div>
-                                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                            <div className="text-xs text-zinc-400">最大回撤</div>
-                                            <div className="text-lg font-bold text-white">{(backtestResult.maxDD*100).toFixed(2)}%</div>
-                                        </div>
-                                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                            <div className="text-xs text-zinc-400">Sharpe</div>
-                                            <div className="text-lg font-bold text-white">{backtestResult.sharpe.toFixed(2)}</div>
-                                        </div>
-                                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800">
-                                            <div className="text-xs text-zinc-400">交易/勝率</div>
-                                            <div className="text-lg font-bold text-white">{backtestResult.tradeCount} / {(backtestResult.winRate*100).toFixed(1)}%</div>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/30 p-2">
-                                    <div id="backtestEquityChart" style={{width:"100%", height:"320px"}}></div>
-                                </div>
-                            </div>
+                            <BacktestPanel backtestConfig={backtestConfig} setBacktestConfig={setBacktestConfig} backtestResult={backtestResult} runBacktest={runBacktest} />
 
 <div className="glass-panel rounded-xl shadow-accent-900/20 flex flex-col overflow-hidden">
 
@@ -6188,132 +6353,7 @@
                                 </div>
                             </div>
                             
-                            {/* 模型參數設定 */}
-                            <div className="glass-panel p-4 rounded-xl flex flex-col space-y-4">
-                                <h2 className="text-lg font-bold text-accent border-b border-zinc-700 pb-2 flex items-center">
-                                    <Icon name="sliders" className="w-5 h-5 mr-2" />
-                                    模型與訓練參數
-                                </h2>
-
-                                {/* Algorithm Selector */}
-                                <div className="flex flex-wrap gap-2">
-                                    <button onClick={() => handleParamChange('algorithm', 'BiGRU')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'BiGRU' ? 'bg-accent-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>Bi-GRU</button>
-                                    <button onClick={() => handleParamChange('algorithm', 'LSTM')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'LSTM' ? 'bg-accent-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>LSTM</button>
-                                    <button onClick={() => handleParamChange('algorithm', 'Transformer')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'Transformer' ? 'bg-amber-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>Transformer 🎯</button>
-                                    <button onClick={() => handleParamChange('algorithm', 'TimesFM')} className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${params.algorithm === 'TimesFM' ? 'bg-sky-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>TimesFM</button>
-                                </div>
-
-                                {params.algorithm === 'TimesFM' && (
-                                    <p className="text-xs mt-2 px-2 py-1.5 rounded-lg" style={{color:'var(--metal-dim)', background:'var(--surface-2)', border:'1px solid var(--edge)'}}>
-                                        採用 TimesFM 的<strong style={{color:'var(--metal-bright)'}}>架構</strong>（patch 切分 + 因果注意力的 decoder-only transformer），
-                                        以你的資料從頭訓練。這不是 Google 發布的預訓練基礎模型權重
-                                        （200M/500M 參數、僅有 PyTorch/JAX 版本，無法在瀏覽器執行），因此沒有 zero-shot 能力。
-                                    </p>
-                                )}
-
-                                {/* Prediction Target Selector */}
-                                <div className="space-y-1 pt-2 border-t border-zinc-800">
-                                    <label className="text-xs text-zinc-400 block mb-1 flex items-center gap-1">
-                                        <Icon name="target" className="w-3 h-3" />預測目標
-                                    </label>
-                                    <div className="flex flex-wrap gap-2">
-                                        <button onClick={() => handleParamChange('predTarget', 'price')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${(params.predTarget||'price') === 'price' ? 'bg-teal-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>價格迴歸</button>
-                                        <button onClick={() => handleParamChange('predTarget', 'direction')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'direction' ? 'bg-rose-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>方向分類 🎯</button>
-                                        <button onClick={() => handleParamChange('predTarget', 'dual')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'dual' ? 'bg-violet-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>雙頭 (價格+方向)</button>
-                                        <button onClick={() => handleParamChange('predTarget', 'logreturn')} className={`flex-1 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${params.predTarget === 'logreturn' ? 'bg-emerald-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>對數報酬率 📈</button>
-                                    </div>
-                                    <p className="text-xs text-zinc-500 mt-1">
-                                        {(params.predTarget||'price') === 'price' && '迴歸預測下一日價格，方向由價格變化推導。'}
-                                        {params.predTarget === 'direction' && '直接預測「漲/跌」二元分類，最佳化方向準確率 (DA)。輸出為上漲機率，不提供價格數值。'}
-                                        {params.predTarget === 'dual' && '同時輸出價格與方向機率：價格供圖表/MAPE，方向頭專注提升 DA。'}
-                                        {params.predTarget === 'logreturn' && '預測 ln(今日/昨日) 而非價格本身。報酬率接近平穩，模型無法靠「明天≈今天」取巧；且絕對誤差近似相對誤差，與 MAPE 指標對齊。用純 Huber，不加方向懲罰。'}
-                                    </p>
-                                </div>
-                                
-                                {/* Cross-Validation Mode */}
-                                <div className="space-y-1 pt-2 border-t border-zinc-800">
-                                    <label className="text-xs text-zinc-400 block mb-1">驗證模式</label>
-                                    <div className="flex justify-around space-x-2">
-                                        <button onClick={() => handleParamChange('validationMode', VALIDATION_MODE.NONE)} className={`flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.NONE ? 'bg-indigo-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>無 (標準訓練)</button>
-                                        <button onClick={() => handleParamChange('validationMode', VALIDATION_MODE.K_FOLD)} className={`flex-1 px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${params.validationMode === VALIDATION_MODE.K_FOLD ? 'bg-indigo-600 text-white' : 'bg-zinc-700 text-zinc-300 hover:bg-zinc-600'}`}>K-Fold 驗證</button>
-                                    </div>
-                                </div>
-
-                                {params.validationMode === VALIDATION_MODE.K_FOLD && (
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between text-xs text-zinc-400">
-                                            <span>K-Fold 數量 (K)</span>
-                                            <span className="font-mono text-cyan-400 font-bold">{params.kFolds}</span>
-                                        </div>
-                                        <input type="range" min="2" max="10" value={params.kFolds} step="1" onChange={e => handleParamChange('kFolds', parseInt(e.target.value))} className="custom-range w-full" />
-                                    </div>
-                                )}
-                                
-                                {/* Loss Lambda / Directional Weight */}
-                                <div className="space-y-1 pt-2 border-t border-zinc-800">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>🎯 方向懲罰權重 (α) — 0=純Huber，0.3推薦</span>
-                                        <span className="font-mono text-pink-400 font-bold">{params.directionalLambda.toFixed(1)}</span>
-                                    </div>
-                                    <input type="range" min="0.0" max="1.0" value={params.directionalLambda} step="0.1" onChange={e => handleParamChange('directionalLambda', parseFloat(e.target.value))} className="custom-range w-full" />
-                                    <p className="text-xs text-zinc-600">α 越高模型越重視方向正確性，α 越低越精準預測價格水準</p>
-                                </div>
-
-                                {/* Lookback */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>Lookback (天數)</span>
-                                        <span className="font-mono text-accent font-bold">{params.lookback}</span>
-                                    </div>
-                                    <input type="range" min="5" max="120" value={params.lookback} step="1" onChange={e => handleParamChange('lookback', parseInt(e.target.value))} className="custom-range w-full" />
-                                </div>
-
-                                {/* Layers */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>單層單元數 (Units/Filters)</span>
-                                        <span className="font-mono text-accent font-bold">{params.layers}</span>
-                                    </div>
-                                    <input type="range" min="16" max="128" value={params.layers} step="16" onChange={e => handleParamChange('layers', parseInt(e.target.value))} className="custom-range w-full" />
-                                </div>
-
-                                {/* Epochs */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>訓練週期 (Epochs)</span>
-                                        <span className="font-mono text-accent font-bold">{params.epochs}</span>
-                                    </div>
-                                    <input type="range" min="10" max="1000" value={params.epochs} step="10" onChange={e => handleParamChange('epochs', parseInt(e.target.value))} className="custom-range w-full" />
-                                </div>
-
-                                {/* Batch Size */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>Batch Size</span>
-                                        <span className="font-mono text-accent font-bold">{params.batchSize}</span>
-                                    </div>
-                                    <input type="range" min="8" max="128" value={params.batchSize} step="8" onChange={e => handleParamChange('batchSize', parseInt(e.target.value))} className="custom-range w-full" />
-                                </div>
-                                
-                                {/* Future Days */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>預測天數 (T+N)</span>
-                                        <span className="font-mono text-accent font-bold">{params.futureDays}</span>
-                                    </div>
-                                    <input type="range" min="1" max="10" value={params.futureDays} step="1" onChange={e => handleParamChange('futureDays', parseInt(e.target.value))} className="custom-range w-full" />
-                                </div>
-                                
-                                {/* History Years */}
-                                <div className="space-y-1">
-                                    <div className="flex justify-between text-xs text-zinc-400">
-                                        <span>歷史數據年限 (Years)</span>
-                                        <span className="font-mono text-accent font-bold">{params.historyYears.toFixed(1)}</span>
-                                    </div>
-                                    <input type="range" min="0.5" max="5.0" value={params.historyYears} step="0.5" onChange={e => handleParamChange('historyYears', parseFloat(e.target.value))} className="custom-range w-full" />
-                                </div>
-
-                            </div>
+                            <ModelParamsPanel params={params} handleParamChange={handleParamChange} />
 
                             {/* 因子選擇 */}
                             <div className="glass-panel p-4 rounded-xl flex flex-col space-y-4">
