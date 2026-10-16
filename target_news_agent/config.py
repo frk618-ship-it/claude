@@ -35,6 +35,9 @@ class Entity:
     query_context: bool = True
     # Keep at most this many items from this search per run (0 = no limit); for very busy topics.
     max_items: int = 0
+    # Topic searches only: the item must ALSO mention one of these (on top of context_terms),
+    # e.g. recycling news must mention targets / sputtering, not just recycling.
+    also_terms: list[str] = field(default_factory=list)
 
     @property
     def role_label(self) -> str:
@@ -124,6 +127,7 @@ def load_config(path: str | Path) -> Config:
                 context_terms=[str(t) for t in e.get("context_terms") or []],
                 query_context=bool(e.get("query_context", True)),
                 max_items=int(e.get("max_items", 0) or 0),
+                also_terms=[str(t) for t in e.get("also_terms") or []],
             )
         )
     research = None
