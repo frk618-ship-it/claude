@@ -15,6 +15,7 @@ ROLE_LABELS = {
     "packaging": "封裝廠(PVD)",
     "topic": "產業主題",
     "metals": "貴金屬行情",
+    "recycling": "靶材回收循環",
 }
 
 
@@ -41,7 +42,7 @@ class Entity:
 
     @property
     def is_topic(self) -> bool:
-        return self.role in ("topic", "metals")
+        return self.role in ("topic", "metals", "recycling")
 
 
 @dataclass

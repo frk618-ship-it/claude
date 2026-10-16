@@ -5,6 +5,7 @@
 #   role            producer(生產商) / distributor(銷售商、代理商) / equipment(濺鍍設備商)
 #                   / process(製程相關:生產中使用 PVD 設備的半導體廠)
 #                   / packaging(封裝廠:凸塊、RDL、扇出型等製程使用 PVD 設備) / topic(產業主題)
+#                   / recycling(靶材回收循環:廢靶回收、貴金屬/稀有金屬精煉再生)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
 #   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
@@ -65,6 +66,7 @@ settings:
     原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ, 가격, 원자재, 탄탈, 인듐, 코발트, 텅스텐, 몰리브덴, 루테늄]
     技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産, 신제품, 개발, 특허, 기술, 양산, 국산화]
     客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer, 삼성전자, SK하이닉스, LG디스플레이, 공급망, 고객사, 협력사, 인증]
+    回收與循環: [靶材回收, 金屬回收, 金属回收, 貴金屬回收, 贵金属回收, 廢料回收, 废料回收, 回收再生, 回收利用, 再生料, 再生金屬, 再生金属, 廢靶, 废靶, 殘靶, 残靶, 精煉回收, 精炼回收, 循環經濟, 循环经济, 資源循環, 资源循环, recycling, recycled, reclaim, reclaimed, circular economy, closed-loop, urban mining, リサイクル, 再資源化, 循環型, 재활용, 순환경제]
     政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税, 관세, 수출 규제, 수출통제, 제재, 보조금]
 
   # 熱門關鍵字統計的候選詞(材料、應用)
@@ -666,6 +668,33 @@ entities:
     context_terms: *metal_ctx
     max_items: 4
     editions: [en]
+
+  # ---------- 靶材回收循環:廢靶回收、銦/鉭/貴金屬等精煉再生、循環經濟 ----------
+  # 搜尋字以空白分隔 = 同時出現(例如「靶材 回收」);context_terms 再確認新聞確實談到回收再生。
+  - name: 回收綜合:靶材回收
+    role: recycling
+    region: 全球
+    aliases: [靶材 回收, 廢靶 回收, 殘靶 回收, 靶材 循環經濟, 銦 回收 ITO, 靶材 精煉 回收]
+    context_terms: &recycle_ctx [回收, 再生, 再利用, 循環經濟, 循环经济, 資源循環, 资源循环, 精煉, 精炼, 廢靶, 废靶, 殘靶, 残靶, recycling, recycled, recycle, reclaim, reclaimed, reclamation, recovery, refining, circular economy, closed-loop, closed loop, spent target, リサイクル, 回収, 再資源化, 재활용, 회수, 순환]
+    editions: [zh-TW]
+  - name: 回收綜合:靶材回收(简)
+    role: recycling
+    region: 全球
+    aliases: [靶材 回收, 废靶 回收, 残靶 回收, 靶材 再生, 铟 回收 ITO, 稀贵金属 回收 靶材]
+    context_terms: *recycle_ctx
+    editions: [zh-CN]
+  - name: 回收綜合:Target Recycling
+    role: recycling
+    region: 全球
+    aliases: [sputtering target recycling, spent sputtering target, target reclamation, ITO target recycling, indium recycling, tantalum recycling]
+    context_terms: *recycle_ctx
+    editions: [en]
+  - name: 回收綜合:ターゲットリサイクル
+    role: recycling
+    region: 全球
+    aliases: [ターゲット リサイクル, スパッタリングターゲット リサイクル, インジウム リサイクル, 使用済みターゲット]
+    context_terms: *recycle_ctx
+    editions: [ja]
 
 # ---------- 貴金屬報價:每日收盤價與漲跌(Stooq,失敗時改用 Yahoo Finance;免金鑰) ----------
 metals:

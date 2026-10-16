@@ -24,13 +24,15 @@ REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 KINDS = OrderedDict([
     ("news", "新聞"),
     ("filing", "公司公告"),
+    ("recycling", "回收循環"),
     ("market", "行情數據"),
     ("forum", "論壇與自媒體"),
     ("research", "市場報告"),
     ("profile", "資料頁"),
     ("metals", "貴金屬行情"),
 ])
-SIGNAL_KINDS = ("news", "filing")
+SIGNAL_KINDS = ("news", "filing", "recycling")
+RECYCLING_CATEGORY = "回收與循環"
 
 _MARKET_RE = re.compile(r"主力资金|主力資金|股东户数|股東戶數|开盘|開盤|低开|低開|賣超|买超|買超|周KD|週KD|大阳线|跌近|涨停|漲停|Decline|shares? (?:rose|fell)|stock (?:rose|fell)", re.I)
 _RESEARCH_RE = re.compile(r"市場|市场|Market|レポート|予測|CAGR", re.I)
@@ -45,19 +47,24 @@ def item_kind(item: dict) -> str:
         return "profile"
     if "股市爆料同學會" in title or source in ("财富号", "財富號", "PTT", "Mobile01"):
         return "forum"
-    if any(e.startswith(TOPIC_PREFIXES) for e in item.get("entities", [])) and _RESEARCH_RE.search(title):
+    if any(e.startswith(TOPIC_PREFIXES + (RECYCLE_PREFIX,)) for e in item.get("entities", [])) and _RESEARCH_RE.search(title):
         return "research"
     if source == "中财网" or _FILING_RE.search(title):
         return "filing"
     if _MARKET_RE.search(title):
         return "market"
+    if item.get("entities") and all(e.startswith(RECYCLE_PREFIX) for e in item["entities"]):
+        return "recycling"
     return "news"
 
 
 # Industry-wide searches are named after their search phrase; show which language edition they cover instead.
 TOPIC_PREFIXES = ("產業綜合", "設備綜合")
 METAL_PREFIX = "行情綜合"
+RECYCLE_PREFIX = "回收綜合"
 TOPIC_LABELS = {
+    "回收綜合:靶材回收": "靶材回收循環(繁中)", "回收綜合:靶材回收(简)": "靶材回收循環(簡中)",
+    "回收綜合:Target Recycling": "靶材回收循環(英文)", "回收綜合:ターゲットリサイクル": "靶材回收循環(日文)",
     "行情綜合:貴金屬": "貴金屬行情(繁中)", "行情綜合:贵金属": "貴金屬行情(簡中)", "行情綜合:Precious Metals": "貴金屬行情(英文)",
     "行情綜合:貴金属相場": "貴金屬行情(日文)", "行情綜合:귀금속 시세": "貴金屬行情(韓文)",
     "設備綜合:濺鍍設備": "濺鍍設備綜合(繁中)", "設備綜合:溅射设备": "濺鍍設備綜合(簡中)",
@@ -79,12 +86,12 @@ def esc(v) -> str:
 STYLE = """
 :root{--bg:#f3f4f5;--surface:#fff;--fg:#1c2126;--muted:#5b6570;--line:#dde1e6;--accent:#8a4f24;--accent-soft:#f5e9df;
 --ok:#2f6b4f;--ok-soft:#e1efe7;--none:#6b7480;--none-soft:#eceef1;
---k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;--k-metals:#a07d12;--up:#c0392b;--down:#1e8449;
+--k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;--k-metals:#a07d12;--k-recycling:#2f7a4a;--up:#c0392b;--down:#1e8449;
 --shadow:0 1px 2px rgba(20,24,28,.06),0 2px 8px rgba(20,24,28,.05);
 --font-display:"Noto Serif TC","Songti TC",serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 @media (prefers-color-scheme:dark){:root{--bg:#14181c;--surface:#1b2026;--fg:#e6e9ec;--muted:#9aa4ae;--line:#2c333b;--accent:#e0a070;--accent-soft:#3a2a1e;
 --ok:#7fc8a2;--ok-soft:#1d3329;--none:#8d96a0;--none-soft:#232930;
---k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;--k-metals:#e6c55a;--up:#f08070;--down:#6fcf97;
+--k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;--k-metals:#e6c55a;--k-recycling:#7fcf9c;--up:#f08070;--down:#6fcf97;
 --shadow:none;color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
 .wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
@@ -115,7 +122,7 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.72rem;padding:1px 8px;border-radius:999px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
-.k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}
+.k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}.k-recycling{--k:var(--k-recycling)}
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .quote{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--k-metals);border-radius:12px;padding:12px 16px;display:grid;gap:2px;box-shadow:var(--shadow)}
 .quote .qn{font-size:.85rem;color:var(--muted);display:flex;gap:6px;align-items:center}.quote .qn .mono{font-family:var(--font-data)}
@@ -170,7 +177,7 @@ def _title_link(item: dict) -> str:
     return f"<span{tip}>{esc(shown)}</span>"  # never turn javascript:/data: links from feeds into clickable links
 
 
-KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile", "metals": "gem"}
+KIND_ICONS = {"news": "news", "filing": "filing", "market": "market", "forum": "forum", "research": "research", "profile": "profile", "metals": "gem", "recycling": "recycle"}
 
 
 def _date(published: str | None, full: bool = False) -> str:
@@ -286,6 +293,24 @@ def _metals_section(metals: list[dict], kinds: Counter) -> str:
     return (
         f'<section aria-labelledby="metals">{_h2("metals", "gem", "貴金屬行情", "日收盤價與漲跌(漲紅跌綠)")}'
         f'<div class="quotes">{"".join(cards)}</div><p class="sub">報價來源:{esc(sources)}{news}。</p></section>'
+    )
+
+
+def _recycling_section(items: list[dict], config: Config) -> str:
+    """News from the target-recycling searches plus company news classified as 回收與循環."""
+    if not any(e.role == "recycling" for e in config.entities):
+        return ""
+    picked = [it for it in items if it["kind"] in SIGNAL_KINDS
+              and (it["kind"] == "recycling" or RECYCLING_CATEGORY in (it.get("categories") or []))]
+    picked.sort(key=lambda it: (it.get("importance", 0), it.get("score", 0)), reverse=True)
+    shown = picked[:8]
+    body = (f'<div class="cards">{"".join(_card_html(it) for it in shown)}</div>' if shown
+            else "<p>本期沒有靶材回收循環相關新聞。</p>")
+    more = (f'<p class="sub">共 {len(picked)} 則,僅列評分最高的 {len(shown)} 則;其餘可在下方「全部新聞」選擇「回收循環」查看。</p>'
+            if len(picked) > len(shown) else "")
+    return (
+        f'<section aria-labelledby="recycle">{_h2("recycle", "recycle", "靶材回收循環", "廢靶回收、稀有/貴金屬精煉再生、循環經濟")}'
+        f"{body}{more}</section>"
     )
 
 
@@ -508,6 +533,7 @@ def render_page(
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
+{_recycling_section(items, config)}
 {_papers_section(report, library, is_latest, home)}
 <section aria-labelledby="all">{_h2("all", "list", "全部新聞", f"{len(items)} 則")}
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">{icon("filter")}類型</span>{kind_chips}</div>
