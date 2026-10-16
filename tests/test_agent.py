@@ -1034,3 +1034,46 @@ def test_metal_cap_counts_headlines_found_by_two_searches(config):
                    query_entity="行情綜合:贵金属") for n in range(10)]
     kept = process(tw + cn, config, now=NOW)
     assert len(kept) <= 4
+
+
+def test_target_recycling_topic(config, tmp_path):
+    from target_news_agent.processing import match_entities
+    from target_news_agent.site import build_site, item_kind
+
+    recycling = [e for e in config.entities if e.role == "recycling"]
+    assert {ed for e in recycling for ed in e.editions} == {"zh-TW", "zh-CN", "en", "ja"}
+    assert all(e.is_topic and e.role_label == "靶材回收循環" for e in recycling)
+    assert build_query(recycling[0], config.settings.context_terms).startswith("(靶材 回收) OR (廢靶 回收)")
+
+    def ents(title, query_entity="回收綜合:Target Recycling"):
+        item = NewsItem(title=title, link="", source="", published=NOW, query_entity=query_entity)
+        return match_entities(item, config.entities, config.settings.context_terms)
+
+    assert ents("Indium recycling plant reclaims spent ITO sputtering targets") == ["回收綜合:Target Recycling"]
+    assert ents("Sputtering target market to grow 6% a year") == []  # no recycling context
+    assert ents("光洋科擴大廢靶回收與貴金屬精煉產能", "回收綜合:靶材回收") == ["光洋科 (Solar Applied Materials)"]
+
+    cats = config.settings.categories
+    assert "回收與循環" in classify(NewsItem(title="光洋科擴大廢靶回收", link="", source="", published=NOW), cats)
+    assert "回收與循環" not in classify(NewsItem(title="擴產投資回收期約五年", link="", source="", published=NOW), cats)
+
+    rec = {"title": "Indium recycling from spent ITO targets", "source": "x", "entities": ["回收綜合:Target Recycling"]}
+    assert item_kind(rec) == "recycling"
+    assert item_kind({**rec, "title": "Sputtering Target Recycling Market CAGR 2026-2032"}) == "research"
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    items = [
+        {**rec, "id": "a", "link": "https://example.com/a", "published": "2026-10-13T01:00:00+00:00", "categories": ["回收與循環"], "score": 2},
+        {"id": "b", "title": "光洋科擴大廢靶回收", "link": "https://example.com/b", "source": "x", "published": "2026-10-13T02:00:00+00:00",
+         "entities": ["光洋科 (Solar Applied Materials)"], "categories": ["回收與循環"], "score": 3},
+        {"id": "c", "title": "江豐電子擴產", "link": "https://example.com/c", "source": "x", "published": "2026-10-13T03:00:00+00:00",
+         "entities": ["江豐電子 (KFMI)"], "categories": ["擴產與投資"], "score": 1},
+    ]
+    (reports / "2026-10-13.json").write_text(json.dumps({"generated": "2026-10-13T08:30:00+08:00", "days": 7, "items": items}), encoding="utf-8")
+    build_site(reports, tmp_path / "site", config)
+    home = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    section = home[home.index('aria-labelledby="recycle"'):home.index("</section>", home.index('aria-labelledby="recycle"'))]
+    assert "靶材回收循環" in section and "Indium recycling" in section and "光洋科擴大廢靶回收" in section
+    assert "江豐電子擴產" not in section
+    assert 'data-value="recycling"' in home and "k-recycling" in home
