@@ -5,7 +5,7 @@
 //   npm run check      確認 silver-ai-trader.html 與 src/ 同步（不寫檔，不同步就回傳非 0）
 //
 // 做的事：
-//   1. src/app.jsx 在建置時就轉成一般 JS —— 瀏覽器不用再下載 Babel、每次開頁面現場編譯
+//   1. src/app.jsx（含共用的 src/core.js）在建置時就打包成一般 JS —— 瀏覽器不用再下載 Babel、每次開頁面現場編譯
 //   2. React / ReactDOM 打包內嵌，不再依賴 unpkg
 //   3. 掃描原始碼產生 Tailwind CSS 並內嵌，取代執行期的 cdn.tailwindcss.com
 //   4. 只抽出用到的 Lucide 圖示 SVG 資料內嵌
@@ -34,10 +34,14 @@ const appVersion = 'v' + version.split('.').slice(0, 2).join('.');
 const template = read('src/template.html');
 
 // ── 1. App：只轉 JSX，不打包（程式碼依賴 window 上的 React / tf / Plotly 全域變數）──
-const app = (await esbuild.transform(appSrc, {
-    loader: 'jsx', target: 'es2020', charset: 'utf8',
+// app.jsx 以 import 引用 src/core.js（與雲端訓練共用的核心），打包成單一 IIFE。
+// React / tf / Plotly 仍取自 window 全域變數，不打包進來。
+const app = (await esbuild.build({
+    entryPoints: [path.join(ROOT, 'src/app.jsx')],
+    bundle: true, format: 'iife', target: 'es2020', charset: 'utf8', write: false,
+    loader: { '.jsx': 'jsx' },
     define: { APP_VERSION: JSON.stringify(appVersion) },
-})).code;
+})).outputFiles[0].text;
 
 // ── 2. React 打包 ──
 const vendor = (await esbuild.build({
@@ -79,6 +83,7 @@ const iconsJs = `window.LUCIDE_ICONS=${JSON.stringify(icons)};`;
 const twResult = await postcss([tailwindcss({
     content: [
         { raw: appSrc, extension: 'jsx' },
+        { raw: read('src/core.js'), extension: 'js' },
         { raw: template, extension: 'html' },
     ],
 })]).process('@tailwind base;\n@tailwind components;\n@tailwind utilities;', { from: undefined });
