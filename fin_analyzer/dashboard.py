@@ -147,6 +147,7 @@ def build_dashboard_data(analyses: list[Analysis], cfg: FinConfig, generated: da
     focus = cfg.target.ticker
     return {
         "title": cfg.title or "靶材製造商財務指標儀表板",
+        "news_url": cfg.news_url,
         "generated": generated.strftime("%Y-%m-%d %H:%M"),
         "display_currency": cfg.display_currency,
         "unit_label": f"億{_currency_label(cfg.display_currency)}" if cfg.amount_unit == 1e8 else cfg.amount_unit_label,
