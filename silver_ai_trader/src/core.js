@@ -1447,7 +1447,30 @@ const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {}
 };
 
 
+// ══════════════════════════════════════════════════════════════
+// 模型輸出 → 預測價格（四種預測目標共用）
+//   raw：model.predict 的扁平輸出（dual 為每筆 2 個值）
+//   prevPrices[i]：第 i 筆樣本前一日的實際價格
+// 與瀏覽器保留集評分、回測的解讀方式一致
+// ══════════════════════════════════════════════════════════════
+const decodePredictedPrices = (raw, predTarget, minMax, prevPrices) => {
+    const n = predTarget === 'dual' ? raw.length / 2 : raw.length;
+    const lrS = (minMax && minMax.logRet) ? minMax.logRet : { mean: 0, std: 1 };
+    const out = new Array(n);
+    for (let i = 0; i < n; i++) {
+        const prev = prevPrices[i];
+        if (predTarget === 'logreturn') out[i] = prev * Math.exp(raw[i] * lrS.std + lrS.mean);
+        // 純方向：沒有價格，以機率偏離 0.5 的程度換成 ±1% 的預期變動，只用於判定方向
+        else if (predTarget === 'direction') out[i] = prev * (1 + (raw[i] - 0.5) * 0.02);
+        else if (predTarget === 'dual') out[i] = denormalizePrice(raw[i * 2], minMax);
+        else out[i] = denormalizePrice(raw[i], minMax);
+    }
+    return out;
+};
+
+
 export {
+    decodePredictedPrices,
     calcMaxDrawdown,
     calcSharpe,
     simulateBacktest,

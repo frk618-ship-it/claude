@@ -1,0 +1,12 @@
+{
+  "name": "silver-ai-trader-cloud",
+  "private": true,
+  "type": "module",
+  "description": "以原生 TensorFlow 在雲端（或任何有 Node.js 的機器）訓練 Silver AI Trader 模型",
+  "scripts": {
+    "train": "node train.mjs"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "4.22.0"
+  }
+}

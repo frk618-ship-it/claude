@@ -2806,24 +2806,51 @@ import {
                 });
             }, [logsUpdater]);
 
+            // 把目前載入的完整市場資料（含 COT、TIPS、Trends 等輔助因子）存成 JSON，
+            // 交給雲端訓練（cloud/train.mjs --data 檔案）使用，雲端就不必自己連到這些資料源
+            const exportTrainingData = useCallback(() => {
+                if (!rawData) return;
+                const dq = rawData.dataQuality || {};
+                if (dq.allMock) logsUpdater('⚠️ 目前是模擬資料，匯出的檔案無法用於真實訓練。');
+                else if (dq.mockSymbols?.length) logsUpdater(`⚠️ 以下品種是模擬值，雲端訓練會自動排除相關因子：${dq.mockSymbols.join(', ')}`);
+                const payload = { format: 'silver-ai-trader-data', version: 1, appVersion: APP_VERSION, exportedAt: new Date().toISOString(), data: rawData };
+                const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `silver-training-data-${rawData.dates?.[rawData.dates.length - 1] || 'export'}.json`;
+                document.body.appendChild(a); a.click(); a.remove();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+                logsUpdater(`已匯出訓練資料（${rawData.dates?.length ?? 0} 個交易日）。`);
+            }, [rawData, logsUpdater]);
+
             const handleUploadModel = async (event) => {
                 if (modelState.isTraining) return;
 
-                const files = event.target.files;
-                if (!files || files.length !== 2) {
-                    setUploadStatus({ type: 'error', message: '請同時上傳模型檔案 (.json) 和 .bin 檔案' });
+                // 接受 model.json + weights.bin，雲端訓練另可一併選取 silver-config.json（訓練時的參數與因子）
+                const all = Array.from(event.target.files || []);
+                const binFile = all.find(f => f.name.endsWith('.bin'));
+                const jsonFiles = all.filter(f => f.name.endsWith('.json'));
+                if (!binFile || jsonFiles.length < 1 || jsonFiles.length > 2) {
+                    setUploadStatus({ type: 'error', message: '請選取 model.json 和 weights.bin（雲端訓練的模型可再加選 silver-config.json）' });
                     return;
                 }
                 setModelState(prev => ({ ...prev, isTraining: true }));
                 setPrediction(null);
                 logsUpdater('正在載入外部模型...');
                 setUploadStatus({ type: 'loading', message: '正在載入模型...' });
-                
-                const jsonFile = Array.from(files).find(f => f.name.endsWith('.json'));
-                const binFile = Array.from(files).find(f => f.name.endsWith('.bin'));
 
-                if (!jsonFile || !binFile) {
-                    setUploadStatus({ type: 'error', message: '請確保檔案包含 .json 和 .bin 文件。' });
+                // 依內容分辨模型檔與設定檔（檔名可能被改過）
+                let jsonFile = null, uploadedConfig = null;
+                for (const f of jsonFiles) {
+                    try {
+                        const obj = JSON.parse(await f.text());
+                        if (obj.modelTopology) jsonFile = f;
+                        else if (obj.params && obj.selectedFactors && obj.activeFeaturesConfig) uploadedConfig = obj;
+                    } catch (_) {}
+                }
+                if (!jsonFile) {
+                    setUploadStatus({ type: 'error', message: '選取的 .json 檔案中找不到模型結構（model.json）。' });
                     setModelState(prev => ({ ...prev, isTraining: false }));
                     return;
                 }
@@ -2833,12 +2860,22 @@ import {
                     modelRef.current = model;
                     logsUpdater('模型載入成功。正在嘗試載入訓練配置...');
 
-                    // 嘗試從 LocalStorage 載入歷史訓練配置
-                    const savedConfigStr = localStorage.getItem(TRAIN_CONFIG_KEY);
-                    if (savedConfigStr) {
-                        const config = JSON.parse(savedConfigStr);
+                    // 優先使用與模型一起上傳的設定檔；沒有才退回本機最近一次訓練的設定
+                    const savedConfigStr = uploadedConfig ? null : localStorage.getItem(TRAIN_CONFIG_KEY);
+                    if (uploadedConfig || savedConfigStr) {
+                        const config = uploadedConfig || JSON.parse(savedConfigStr);
+                        if (!uploadedConfig) logsUpdater('⚠️ 未提供 silver-config.json，改用本機最近一次訓練的設定；若模型來自別處，參數可能不符。');
+                        // 正規化範圍取決於資料期間；與訓練時差太多，模型的輸入尺度就會偏掉
+                        if (uploadedConfig && marketData && config.priceMinMax) {
+                            const chk = createMultivariateDataset(marketData, config.params.lookback, config.selectedFactors);
+                            const d = Math.max(
+                                Math.abs(chk.minMax.price.min - config.priceMinMax.min) / Math.abs(config.priceMinMax.min || 1),
+                                Math.abs(chk.minMax.price.max - config.priceMinMax.max) / Math.abs(config.priceMinMax.max || 1));
+                            if (d > 0.01) logsUpdater(`⚠️ 目前資料的價格正規化範圍與雲端訓練時不同（差 ${(d * 100).toFixed(1)}%），預測可能偏差；請確認「歷史年數」與資料日期相同。`);
+                        }
+                        if (config.cloud) logsUpdater(`雲端模型：訓練於 ${config.cloud.trainedAt?.slice(0, 16).replace('T', ' ')}，資料截至 ${config.cloud.dataTo}。`);
                         // 自動同步訓練時的參數
-                        setParams(config.params);
+                        setParams(prev => ({ ...prev, ...config.params }));
                         setSelectedFactors(config.selectedFactors);
                         const newNumFeatures = 1 + Object.values(config.selectedFactors).filter(v => v).length;
                         setNumFeatures(newNumFeatures);
@@ -4951,11 +4988,20 @@ import {
                                             <p className="text-xs text-zinc-400">
                                                 {restoredFromSaved ? '✅ 已自動載入歷史最佳模型設定' : '尚無歷史最佳模型，請先訓練'}
                                             </p>
-                                            <label className="text-xs text-zinc-500 block">或上傳外部模型 (.json + .bin)</label>
-                                            <input type="file" multiple onChange={handleUploadModel} className="text-zinc-400 w-full text-xs" accept=".json,.bin"/>
+                                            <label htmlFor="upload-model" className="text-xs text-zinc-500 block">或上傳外部模型：model.json + weights.bin（雲端訓練的模型請一併選取 silver-config.json）</label>
+                                            <input id="upload-model" type="file" multiple onChange={handleUploadModel} className="text-zinc-400 w-full text-xs" accept=".json,.bin"/>
                                             <p className={`text-xs font-mono ${uploadStatus.type === 'error' ? 'text-red-400' : uploadStatus.type === 'success' ? 'text-emerald-400' : 'text-zinc-500'}`}>{uploadStatus.message}</p>
                                         </div>
                                     )}
+
+                                    {/* 匯出資料給雲端訓練 */}
+                                    <button
+                                        onClick={exportTrainingData}
+                                        disabled={!rawData}
+                                        className="w-full py-2 rounded-lg text-xs transition-colors border border-zinc-700 bg-zinc-800/40 text-zinc-300 hover:border-zinc-500 disabled:opacity-40"
+                                    >
+                                        匯出訓練資料（交給雲端訓練）
+                                    </button>
 
                                     {/* 執行按鈕 */}
                                     <button

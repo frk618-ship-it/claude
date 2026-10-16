@@ -1,0 +1,23 @@
+{
+  "params": {
+    "algorithm": "BiGRU",
+    "predTarget": "logreturn",
+    "lookback": 20,
+    "layers": 32,
+    "lr": 0.001,
+    "batchSize": 32,
+    "epochs": 400,
+    "historyYears": 2,
+    "futureDays": 3,
+    "validationMode": "K_FOLD",
+    "kFolds": 4
+  },
+  "patience": 30,
+  "factors": {
+    "cotNetPosition": false
+  },
+  "backtest": { "feeBps": 2, "slippageBps": 1, "allowShort": true },
+  "search": { "trials": 0, "epochs": 80, "patience": 15 },
+  "refit": true,
+  "workers": null
+}

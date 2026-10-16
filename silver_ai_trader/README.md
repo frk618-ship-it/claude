@@ -15,7 +15,9 @@
 | `src/app.jsx` | 主程式（React 元件、資料抓取、模型訓練） |
 | `src/template.html` | 頁面骨架、CSS 變數、背景執行與通知等啟動腳本 |
 | `build.mjs` | 建置腳本 |
+| `src/core.js` | 與雲端訓練共用的核心：特徵、資料集、模型、評估、預測 |
 | `cors-proxy-worker.js` | 可自架的 CORS 代理（Cloudflare Workers） |
+| `cloud/` | 雲端訓練（原生 TensorFlow，見 `cloud/README.md`） |
 
 ```bash
 npm install      # 第一次
@@ -42,3 +44,8 @@ Yahoo、CFTC、美國財政部等資料源不允許瀏覽器跨網域讀取，�
 ## 模型儲存
 
 訓練好的模型存在瀏覽器的 IndexedDB（`indexeddb://silver-model-v19`、`indexeddb://silver-champion-v19`）。舊版存在 localStorage 的模型，第一次開啟新版時會自動搬過去。
+
+## 雲端訓練
+
+瀏覽器訓練太慢時，可以在雲端（例如 Claude 雲端工作階段）用原生 TensorFlow 訓練，產生網頁報告與可在瀏覽器載入的模型。
+做法見 [`cloud/README.md`](cloud/README.md)。
