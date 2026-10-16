@@ -1,49 +1,49 @@
 {
   "params": {
-    "lookback": 20,
+    "lookback": 30,
     "epochs": 400,
-    "layers": 32,
-    "lr": 0.002,
+    "layers": 16,
+    "lr": 0.001,
     "futureDays": 3,
-    "historyYears": 2,
-    "batchSize": 64,
-    "directionalLambda": 0,
-    "huberDelta": 1.5,
+    "historyYears": 10,
+    "batchSize": 32,
+    "directionalLambda": 0.5,
+    "huberDelta": 0.5,
     "algorithm": "Transformer",
     "validationMode": "K_FOLD",
-    "kFolds": 4,
+    "kFolds": 5,
     "predTarget": "logreturn",
     "horizon": 5
   },
   "selectedFactors": {
     "slvPrices": true,
-    "slvVolume": true,
+    "slvVolume": false,
     "slvVolumeRoc": true,
     "tipsYield": false,
-    "rsiPrices": false,
+    "rsiPrices": true,
     "rsiPrices12": true,
-    "vixRoc": false,
-    "socialSentiment": true,
+    "vixRoc": true,
+    "socialSentiment": false,
     "fearGreed": false,
     "goldPrices": true,
-    "oilPrices": false,
+    "oilPrices": true,
     "dxyPrices": true,
-    "vixPrices": true,
-    "tnxPrices": false,
+    "vixPrices": false,
+    "tnxPrices": true,
     "copperPrices": true,
     "silverInventory": true,
     "goldSilverRatio": true,
     "cotNetPosition": true,
-    "priceROC": true,
-    "ma5Silver": true,
-    "ma20Silver": false,
-    "maCross": false,
-    "macdLine": false,
+    "priceROC": false,
+    "ma5Silver": false,
+    "ma20Silver": true,
+    "maCross": true,
+    "macdLine": true,
     "gtrend": false
   },
   "priceMinMax": {
-    "min": 22.09600067138672,
-    "max": 115.08000183105469
+    "min": 11.734999656677246,
+    "max": 34.89699935913086
   },
   "activeFeaturesConfig": [
     {
@@ -51,8 +51,8 @@
       "name": "白銀期貨價格 (Lag)",
       "isExternal": false,
       "minMax": {
-        "min": 22.09600067138672,
-        "max": 115.08000183105469
+        "min": 11.734999656677246,
+        "max": 34.89699935913086
       }
     },
     {
@@ -60,17 +60,8 @@
       "name": "SLV ETF 收盤價",
       "isExternal": true,
       "minMax": {
-        "min": 20.200000762939453,
-        "max": 105.5999984741211
-      }
-    },
-    {
-      "key": "slvVolume",
-      "name": "SLV ETF 成交量",
-      "isExternal": true,
-      "minMax": {
-        "min": 3967700,
-        "max": 510687700
+        "min": 11.210000038146973,
+        "max": 31.739999771118164
       }
     },
     {
@@ -78,8 +69,17 @@
       "name": "SLV ETF 成交量 ROC",
       "isExternal": true,
       "minMax": {
-        "min": -0.7258720869979757,
-        "max": 3.115316556624888
+        "min": -0.8101480935539802,
+        "max": 3.5347223191967716
+      }
+    },
+    {
+      "key": "rsiPrices",
+      "name": "白銀 RSI 指標 (5)",
+      "isExternal": true,
+      "minMax": {
+        "min": 1.9991058398747725,
+        "max": 97.69433557301483
       }
     },
     {
@@ -87,17 +87,17 @@
       "name": "白銀 RSI 指標 (12)",
       "isExternal": true,
       "minMax": {
-        "min": 25.285170074114802,
+        "min": 12.055081461684722,
         "max": 88.72092661026082
       }
     },
     {
-      "key": "socialSentiment",
-      "name": "StockTwits 白銀情緒",
+      "key": "vixRoc",
+      "name": "VIX 變動率 (ROC)",
       "isExternal": true,
       "minMax": {
-        "min": 43.34649931906851,
-        "max": 57.92930620340296
+        "min": -0.35753873962348437,
+        "max": 1.1559792516603906
       }
     },
     {
@@ -105,8 +105,17 @@
       "name": "黃金價格 (GC=F)",
       "isExternal": true,
       "minMax": {
-        "min": 1992.800048828125,
-        "max": 5318.39990234375
+        "min": 1127.800048828125,
+        "max": 3425.300048828125
+      }
+    },
+    {
+      "key": "oilPrices",
+      "name": "原油價格 (CL=F)",
+      "isExternal": true,
+      "minMax": {
+        "min": -37.630001068115234,
+        "max": 123.69999694824219
       }
     },
     {
@@ -114,17 +123,17 @@
       "name": "美元指數 (DXY)",
       "isExternal": true,
       "minMax": {
-        "min": 96.22000122070312,
-        "max": 109.95999908447266
+        "min": 88.58999633789062,
+        "max": 114.11000061035156
       }
     },
     {
-      "key": "vixPrices",
-      "name": "VIX 恐慌指數 (^VIX)",
+      "key": "tnxPrices",
+      "name": "10年期利率 (^TNX)",
       "isExternal": true,
       "minMax": {
-        "min": 11.859999656677246,
-        "max": 52.33000183105469
+        "min": 0.49900001287460327,
+        "max": 4.98799991607666
       }
     },
     {
@@ -132,8 +141,8 @@
       "name": "銅期貨價格 (HG=F)",
       "isExternal": true,
       "minMax": {
-        "min": 3.686000108718872,
-        "max": 6.485000133514404
+        "min": 2.0834999084472656,
+        "max": 5.216000080108643
       }
     },
     {
@@ -141,8 +150,8 @@
       "name": "白銀庫存代理 (SLV oz/share×1k)",
       "isExternal": true,
       "minMax": {
-        "min": 854.5359295549931,
-        "max": 967.8725248414911
+        "min": 882.9332626173841,
+        "max": 972.8801415286979
       }
     },
     {
@@ -150,8 +159,8 @@
       "name": "黃金/白銀比",
       "isExternal": true,
       "minMax": {
-        "min": 44.1649280425061,
-        "max": 105.40682604986647
+        "min": 63.402271547190075,
+        "max": 125.88837597345282
       }
     },
     {
@@ -159,32 +168,41 @@
       "name": "COT Managed Money Net",
       "isExternal": true,
       "minMax": {
-        "min": -8983,
-        "max": 49488
+        "min": -48923,
+        "max": 98564
       }
     },
     {
-      "key": "priceROC",
-      "name": "白銀日報酬率 (ROC)",
+      "key": "ma20Silver",
+      "name": "白銀 MA20",
       "isExternal": true,
       "minMax": {
-        "min": -0.31346844308759625,
-        "max": 0.1402526465323732
+        "min": 14.003900051116943,
+        "max": 33.807750129699706
       }
     },
     {
-      "key": "ma5Silver",
-      "name": "白銀 MA5",
+      "key": "maCross",
+      "name": "MA Cross (MA5-MA20)",
       "isExternal": true,
       "minMax": {
-        "min": 22.4197998046875,
-        "max": 109.73520202636719
+        "min": -0.22483183903255347,
+        "max": 0.1705112767474914
+      }
+    },
+    {
+      "key": "macdLine",
+      "name": "MACD 線 (12-26 EMA)",
+      "isExternal": true,
+      "minMax": {
+        "min": -1.424425765733515,
+        "max": 2.33302507561201
       }
     }
   ],
-  "finalNumFeatures": 15,
+  "finalNumFeatures": 17,
   "cloud": {
-    "trainedAt": "2026-10-16T17:56:13.817Z",
+    "trainedAt": "2026-10-16T18:32:47.063Z",
     "dataTo": "2026-10-16",
     "refit": true,
     "horizon": 5

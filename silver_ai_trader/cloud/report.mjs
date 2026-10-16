@@ -261,7 +261,14 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   // H 日目標互相重疊、彼此不獨立，信賴區間用有效樣本數（約 n / H）
   const effN = T.effectiveN || T.n;
   const [lo, hi] = wilson(T.DA, effN);
-  const beatsUp = T.DA > B.alwaysUpDA, sig = lo > 50;
+  // 顯著性要和「最強的簡單規則」比，不是和 50% 比：行情單邊時，永遠猜漲就能遠高於 50%
+  const bestRule = Math.max(50, B.alwaysUpDA || 0, B.momentumDA || 0);
+  const bestRuleName = bestRule === B.alwaysUpDA ? '永遠猜漲' : bestRule === B.momentumDA ? '跟前一段同方向' : '擲硬幣';
+  const beatsUp = T.DA > B.alwaysUpDA, sig = lo > bestRule;
+  // 交叉驗證：各折平均和測試期間差太多，代表表現隨時期大幅變化
+  const cvDA = (R.cv || []).filter(c => Number.isFinite(c.DA));
+  const cvMean = cvDA.length ? cvDA.reduce((a, c) => a + c.DA, 0) / cvDA.length : NaN;
+  const cvGap = Number.isFinite(cvMean) && Math.abs(cvMean - T.DA) > 8;
   // 價格誤差差距在 2% 以內視為相當，不宣稱勝負
   const rwRel = (T.MAPE - B.randomWalkMAPE) / B.randomWalkMAPE;
   const rwVerdict = Math.abs(rwRel) <= 0.02 ? 'tie' : (rwRel < 0 ? 'better' : 'worse');
@@ -272,12 +279,15 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   const upShare = nPred ? upPred / nPred : NaN;
   const oneSided = Number.isFinite(upShare) && (upShare >= 0.9 || upShare <= 0.1);
   const v = $('verdict');
-  v.className = 'verdict ' + (beatsUp && sig ? 'good' : (!beatsUp ? 'bad' : ''));
+  v.className = 'verdict ' + (beatsUp && sig && !cvGap ? 'good' : (!beatsUp ? 'bad' : ''));
   v.innerHTML =
     '<p><strong>方向：</strong>測試期間 ' + T.n + ' 個交易日' + (H > 1 ? '（' + H + ' 日報酬互相重疊，約等於 ' + effN + ' 個獨立樣本）' : '') + '，猜對' + (H > 1 ? ' ' + H + ' 日' : '') + '漲跌 <span class="num">' + fx(T.DA, 1) + '%</span>' +
     '（95% 信賴區間 <span class="num">' + fx(lo, 0) + '–' + fx(hi, 0) + '%</span>），' +
     (beatsUp ? '高於' : '沒有高於') + '「永遠猜漲」的 <span class="num">' + fx(B.alwaysUpDA, 1) + '%</span>。' +
-    (sig ? '區間下緣高於 50%，不太可能只是運氣。' : '區間仍包含 50%，樣本不足以確定模型比擲硬幣好。') + '</p>' +
+    (sig ? '區間下緣也高於最強的簡單規則（' + bestRuleName + ' ' + fx(bestRule, 1) + '%），不太可能只是運氣。'
+         : '區間下緣 ' + fx(lo, 0) + '% 沒有高於最強的簡單規則（' + bestRuleName + ' ' + fx(bestRule, 1) + '%），還不能確定模型比簡單規則好。') + '</p>' +
+    (cvGap ? '<p><strong>穩定性：</strong>交叉驗證 ' + cvDA.length + ' 折的方向準確率平均只有 <span class="num">' + fx(cvMean, 1) + '%</span>，和測試期間的 ' + fx(T.DA, 1) +
+      '% 差距很大。表現隨時期變化劇烈，測試期間的成績可能只是剛好適合那段行情。</p>' : '') +
     (oneSided ? '<p><strong>注意：</strong>模型在測試期間有 <span class="num">' + fx(upShare * 100, 0) + '%</span> 的時間都預測' + (upShare >= 0.5 ? '上漲' : '下跌') +
       '，等於沒有學到漲跌訊號，只是學到訓練期間的平均方向。</p>' : '') +
     '<p><strong>價格：</strong>平均誤差 <span class="num">' + fx(T.MAPE, 2) + '%</span>，' +
@@ -318,7 +328,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     (H > 1 ? '；各期間之間留了 ' + (H - 1) + ' 天間隔，訓練標籤不會跨進測試期間。' : '。');
   const row = (name, da, mape, note, cls = '') => '<tr class="' + cls + '"><td>' + name + '</td><td class="n">' + da + '</td><td class="n">' + mape + '</td><td>' + note + '</td></tr>';
   $('testTable').innerHTML = '<thead><tr><th>方法</th><th class="n">方向準確率</th><th class="n">價格誤差 (MAPE)</th><th>說明</th></tr></thead><tbody>' +
-    row('本模型', fx(T.DA, 1) + '%', fx(T.MAPE, 2) + '%', '<span class="pill ' + (sig ? 'good' : '') + '">95% 區間 ' + fx(lo, 0) + '–' + fx(hi, 0) + '%</span>', 'model') +
+    row('本模型', fx(T.DA, 1) + '%', fx(T.MAPE, 2) + '%', '<span class="pill ' + (sig ? 'good' : '') + '">95% 區間 ' + fx(lo, 0) + '–' + fx(hi, 0) + '%' + (H > 1 ? '（有效樣本 ' + effN + '）' : '') + '</span>', 'model') +
     row('永遠猜漲', fx(B.alwaysUpDA, 1) + '%', '—', '測試期間上漲天數的比例') +
     row(H > 1 ? '跟前 ' + H + ' 天同方向' : '跟昨天同方向', fx(B.momentumDA, 1) + '%', '—', H > 1 ? '過去 ' + H + ' 天漲就猜接下來也漲' : '昨天漲就猜漲、跌就猜跌') +
     row(H > 1 ? H + ' 天後 = 今天' : '明天 = 今天', '—', fx(B.randomWalkMAPE, 2) + '%', '隨機漫步：直接拿今天收盤當預測') + '</tbody>';
