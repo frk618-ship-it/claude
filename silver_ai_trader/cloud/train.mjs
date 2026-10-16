@@ -64,7 +64,9 @@ const DEFAULT_CONFIG = {
         futureDays: 3, historyYears: 2, batchSize: 32,
         directionalLambda: 0.3, huberDelta: 1.0,
         algorithm: 'BiGRU', validationMode: VALIDATION_MODE.NONE, kFolds: 5,
-        predTarget: 'price',
+        // 預設預測對數報酬率：正規化範圍只來自訓練期間，價格創新高時「價格迴歸」必須外插、誤差暴增，
+        // 報酬率沒有這個問題（瀏覽器版預設仍是價格迴歸）
+        predTarget: 'logreturn',
     },
     patience: 30,                // 驗證 loss 連續幾個 epoch 沒進步就停
     factors: {
@@ -93,6 +95,9 @@ const DEFAULT_CONFIG = {
             predTarget: ['price', 'logreturn'],
         },
         factorKeepProb: 0.7,
+        // 合理性門檻：驗證期間的價格誤差不得超過「明天 = 今天」的這個倍數，才進入排名。
+        // 驗證期間只有幾十天，單看方向準確率挑最高分，選到的常是運氣好、但價格完全失準的模型。
+        maxMapeVsNaive: 1.5,
     },
     refit: true,
     workers: null,   // null = CPU 核心數
@@ -291,7 +296,7 @@ const runTrialJob = async (raw, job) => {
     const r = await trainModel(ds, tp, { to: inner.trainEnd, valEnd: ds.split.trainEnd, epochs, patience, quiet: true });
     const ev = evaluate(r.model, ds, tp, raw, inner.trainEnd, ds.split.trainEnd);
     r.model.dispose();
-    return { valDA: ev.DA, valMAPE: ev.MAPE, valLoss: r.bestLoss, bestEpoch: r.bestEpoch, sec: (Date.now() - ts) / 1000 };
+    return { valDA: ev.DA, valMAPE: ev.MAPE, valNaiveMAPE: calculateMAPE(ev.actual, ev.prev), valLoss: r.bestLoss, bestEpoch: r.bestEpoch, sec: (Date.now() - ts) / 1000 };
 };
 const runFoldJob = async (raw, job) => {
     const { params, factors: f, fold, k, epochs, patience } = job;
@@ -397,7 +402,15 @@ const main = async () => {
         search.cpuSec = search.trials.reduce((a, t) => a + t.sec, 0);
         search.workers = WORKERS;
         log(`搜尋完成：${search.wallSec.toFixed(0)}s（${WORKERS} 個行程平行；逐一執行約需 ${search.cpuSec.toFixed(0)}s）`);
-        const ok = search.trials.filter(t => Number.isFinite(t.valDA));
+        const gate = config.search.maxMapeVsNaive;
+        search.trials.forEach(t => { t.passed = Number.isFinite(t.valDA) && t.valMAPE <= gate * t.valNaiveMAPE; });
+        search.gate = gate;
+        let ok = search.trials.filter(t => t.passed);
+        log(`通過價格合理性檢查（驗證 MAPE ≤ ${gate} × 明天=今天）：${ok.length} / ${search.trials.length} 組`);
+        if (!ok.length) {
+            log('⚠️ 沒有任何一組通過檢查，改用方向準確率最高的一組；請把結果當作參考');
+            ok = search.trials.filter(t => Number.isFinite(t.valDA));
+        }
         if (ok.length) {
             ok.sort((a, b) => (b.valDA - a.valDA) || (a.valLoss - b.valLoss));
             search.best = ok[0];
