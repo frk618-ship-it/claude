@@ -174,3 +174,13 @@ def test_annual_fallback_for_annual_only_filers(tmp_path):
     assert m["roe_ttm"] == pytest.approx(0.1) and m["eps_ttm"] == 10
     assert m["fcf_ttm"] == 80
     assert m["dio"] == pytest.approx(300 / 900 * 365)  # annual COGS -> 365-day basis
+
+
+def test_dashboard_light_theme_and_news_link():
+    cfg = load_fin_config(ROOT / "config" / "target_makers.yaml")
+    assert cfg.news_url.endswith("/news/")
+    data = build_dashboard_data([analyze(make_company(), cfg)], cfg, NOW)
+    assert data["news_url"] == cfg.news_url
+    html = render_html(data)
+    assert 'id="news-link"' in html and cfg.news_url in html
+    assert "prefers-color-scheme" not in html  # always the light palette, even in OS dark mode

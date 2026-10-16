@@ -36,6 +36,8 @@ settings:
   data_dir: data/financials
   report_dir: reports/financials
   dashboard_dir: reports/dashboard
+  # 儀表板標題列的新聞網站連結(用絕對網址,Artifact 版本也能用;留空則不顯示)
+  news_url: https://frk618-ship-it.github.io/claude/news/
   display_currency: TWD         # 儀表板金額換算幣別
   # 參考匯率(1 單位外幣 = ? 台幣)。fetch 會從 Yahoo Finance 取得最新匯率存到 data/financials/fx.json 並優先使用;
   # 取不到時才用這裡的數字,請定期更新。

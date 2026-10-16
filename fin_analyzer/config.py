@@ -94,6 +94,7 @@ class FinConfig:
     fx_rates: dict[str, float] = field(default_factory=dict)  # 1 unit of currency -> display currency
     dashboard_dir: str = "reports/dashboard"
     title: str = ""
+    news_url: str = ""  # link to the industry-news site shown in the dashboard header
 
     @property
     def companies(self) -> list[Company]:
@@ -155,4 +156,5 @@ def load_fin_config(path: str | Path) -> FinConfig:
         fx_rates={str(k).upper(): float(v) for k, v in (s.get("fx_rates", {}) or {}).items()},
         dashboard_dir=str(s.get("dashboard_dir", "reports/dashboard")),
         title=str(raw.get("title", "")),
+        news_url=str(s.get("news_url", "") or ""),
     )

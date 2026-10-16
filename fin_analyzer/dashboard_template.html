@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>__TITLE__</title>
 <style>
 :root {
@@ -21,34 +22,16 @@
   --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
   --good: #006300; --critical: #d03b3b;
 }
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) {
-    color-scheme: dark;
-    --page: #0d0d0d; --surface: #1a1a19;
-    --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
-    --grid: #2c2c2a; --axis: #383835;
-    --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
-    --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
-    --good: #0ca30c; --critical: #e66767;
-  }
-}
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --page: #0d0d0d; --surface: #1a1a19;
-  --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
-  --grid: #2c2c2a; --axis: #383835;
-  --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
-  --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
-  --good: #0ca30c; --critical: #e66767;
-}
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--page); color: var(--ink-1);
   font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
 header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
 header .sub { color: var(--ink-2); font-size: 13px; }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.navlink { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--ink-1); font-size: 13px; text-decoration: none; }
+.navlink:hover { background: var(--wash); }
+.navlink:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 .fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary::before { content: "▸"; color: var(--ink-3); transition: transform .15s; }
@@ -114,7 +97,7 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
 <body>
 <div class="wrap">
   <header>
-    <h1 id="title"></h1>
+    <div class="topbar"><h1 id="title"></h1><a class="navlink" id="news-link" hidden>📰 靶材產業新聞摘要 →</a></div>
     <div class="sub" id="sub"></div>
     <details class="fold" id="banners-fold" hidden>
       <summary>⚠️ 資料提醒 <span id="banner-count"></span>(點擊展開)</summary>
@@ -317,6 +300,7 @@ function addTrend(ticker, front) {
 // ---------- header, tiles ----------
 function renderHeader() {
   $("title").textContent = D.title;
+  if (D.news_url) { $("news-link").href = D.news_url; $("news-link").hidden = false; }
   document.title = D.title;
   const fx = D.fx;
   const rates = Object.entries(fx.rates).filter(([k]) => k !== fx.base).map(([k, v]) => `1 ${k} = ${v.toFixed(k === "JPY" ? 4 : 3)} ${fx.base}`).join("、");
@@ -598,8 +582,6 @@ for (const c of D.companies) if (Object.keys(state.trendSel).length < 3) addTren
 renderAll();
 renderMonthly();
 renderNotes();
-const mq = window.matchMedia("(prefers-color-scheme: dark)");
-if (mq.addEventListener) mq.addEventListener("change", () => { renderAll(); renderMonthly(); });
 </script>
 </body>
 </html>
