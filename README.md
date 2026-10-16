@@ -193,6 +193,7 @@ python -m fin_analyzer dashboard -c examples/demo_config.yaml # 離線示範(虛
   - 營業利益一律採「毛利 − 營業費用」(Yahoo `Operating Income`),與台股的營業利益口徑一致;IFRS 日本公司(如 JX金屬)申報的營業利益、中國公司的「營業利潤」包含其他營業收支或投資收益,會比本工具的數字高,差額歸入業外。
 - **FinMind 限流**:未設定 `FINMIND_TOKEN` 時,短時間內連續請求會被回 402,程式會等待後自動重試;FinMind 的現金流量表不含發放現金股利,台股的 `dividends_paid` 會是空白。
 - **深度報告**(`analyze`):單一公司的損益、杜邦分析、營運效率、財務結構、現金流、月營收、F-score / Z''-score、評價與同業比較;設定 `ANTHROPIC_API_KEY` 後加上 Claude 評論(預設模型 `claude-opus-5-5`,可用 `--model` 或 `FIN_ANALYZER_MODEL` 更換)。
+- **網站**:儀表板與新聞網站一起發布到 GitHub Pages:`https://<帳號>.github.io/<repo>/financials/`(另有 `dashboard.json`、`comparison.csv`)。`main` 上的 `reports/dashboard/` 更新時,「發布網站」workflow 會自動重新發布。
 - **自動執行**:每月 12 日(月營收公布後)由 Claude 排程任務下載資料、產生儀表板與報告、commit 並更新儀表板 Artifact;`.github/workflows/fin-report.yml` 只保留手動觸發(可指定焦點公司)。
 - `examples/demo_financials/`、`examples/demo_dashboard/` 為**虛構**公司資料與其產出的示範,不代表任何真實公司。
 - 本工具僅為財務資料的量化整理,不構成投資建議。

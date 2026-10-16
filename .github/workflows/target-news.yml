@@ -80,6 +80,13 @@ jobs:
       - name: Build site
         run: python -m target_news_agent site -i reports -o site/news --root-redirect site
 
+      - name: Add financial dashboard
+        run: |
+          if [ -f reports/dashboard/index.html ]; then
+            mkdir -p site/financials
+            cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv site/financials/
+          fi
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
