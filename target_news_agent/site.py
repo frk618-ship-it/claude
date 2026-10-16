@@ -503,7 +503,7 @@ def render_page(
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span></div>
-<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a></nav>
+<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a><a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}

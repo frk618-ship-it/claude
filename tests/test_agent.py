@@ -538,6 +538,7 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
 
     home = (out / "index.html").read_text(encoding="utf-8")
     assert "本期無新收錄" in home and "Densification" in home and 'href="papers.html"' in home
+    assert 'href="../financials/"' in home and "財務儀表板" in home  # dashboard published next to /news/
     old = (out / "2026-10-12.html").read_text(encoding="utf-8")
     assert "本期新收錄 4 篇" in old
 
