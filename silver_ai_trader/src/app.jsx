@@ -1,4 +1,20 @@
 import {
+    alignMapToDates,
+    COT_API,
+    cotQueryUrl,
+    parseCotDisagg,
+    parseCotLegacy,
+    treasuryRealYieldUrl,
+    parseTreasuryRealYieldXML,
+    FEAR_GREED_URL,
+    parseFearGreed,
+    STOCKTWITS_SYMBOLS,
+    stockTwitsUrl,
+    countStockTwits,
+    summarizeStockTwits,
+    googleTrendsExploreUrl,
+    googleTrendsWidgetUrl,
+    parseGoogleTrendsJSON,
     VALIDATION_MODE,
     denormalizePrice,
     getDirectionalHuberLoss,
@@ -426,14 +442,9 @@ import {
         //   [{x: unixMs, y: score(0-100)}, ...]  每日一筆，數年歷史
         // ==========================================
         const fetchFearGreedIndex = async (dates) => {
-            const CNN_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata";
             const CACHE_KEY = 'feargreed';
-
-            const alignToDates = (map, fallback = 50) => {
-                const out = []; let last = fallback;
-                for (const d of dates) { if (map.has(d)) last = map.get(d); out.push(Number.isFinite(last) ? last : fallback); }
-                return out;
-            };
+            // CNN 歷史開始之前填中性值 50；不能填「今天」的分數，那等於把未來資訊放進過去
+            const alignToDates = (map, fallback = 50) => alignMapToDates(map, dates, fallback);
             const mockFallback = (currentScore = 50) => {
                 const out = []; let v = currentScore;
                 for (let i = 0; i < dates.length; i++) { v = Math.max(5, Math.min(95, v + (Math.random() - 0.5) * 3)); out.push(v); }
@@ -442,24 +453,14 @@ import {
             if (!Array.isArray(dates) || dates.length === 0) return mockFallback();
 
             try {
-                const resp = await ProxyRotator.fetchAny(CNN_URL, { timeoutMs: 10000, headers: { Accept: 'application/json' } });
-                const json = await resp.json();
-                const currentScore  = parseFloat(json?.fear_and_greed?.score) || 50;
-                const currentRating = json?.fear_and_greed?.rating || "Neutral";
-                const historical = json?.fear_and_greed_historical?.data || [];
-                if (historical.length === 0) throw new Error("Empty historical data");
-                const fgMap = new Map();
-                historical.forEach(pt => {
-                    const ms = parseInt(pt.x, 10); if (!Number.isFinite(ms)) return;
-                    const d = new Date(ms);
-                    const ymd = `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
-                    const val = parseFloat(pt.y); if (Number.isFinite(val)) fgMap.set(ymd, val);
-                });
+                const resp = await ProxyRotator.fetchAny(FEAR_GREED_URL, { timeoutMs: 10000, headers: { Accept: 'application/json' } });
+                const { map: fgMap, currentScore, currentRating } = parseFearGreed(await resp.json());
+                if (fgMap.size === 0) throw new Error("Empty historical data");
                 // 存快取
                 const mapObj = {}; fgMap.forEach((v, k) => { mapObj[k] = v; });
                 MarketDataCache.set(CACHE_KEY, { map: mapObj, score: currentScore, rating: currentRating });
                 console.log(`[F&G] OK: ${fgMap.size} pts, score=${currentScore.toFixed(1)}`);
-                return { values: alignToDates(fgMap, currentScore), source: "real", currentScore, currentRating };
+                return { values: alignToDates(fgMap, 50), source: "real", currentScore, currentRating };
             } catch (e) {
                 console.warn("[F&G] All proxies failed:", e.message);
                 // 備援：上次成功抓到的歷史序列（只缺最近幾天，向前填補）
@@ -467,7 +468,7 @@ import {
                 if (cached?.map) {
                     console.warn(`[F&G] 使用 ${MarketDataCache.getCacheDate(CACHE_KEY)} 的快取資料`);
                     const fgMap = new Map(Object.entries(cached.map));
-                    return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
+                    return { values: alignToDates(fgMap, 50), source: "real", currentScore: cached.score, currentRating: cached.rating };
                 }
                 return mockFallback();
             }
@@ -481,22 +482,13 @@ import {
         //         totalTagged: number, symbolsQueried: string[] }
         // ==========================================
         const fetchStockTwitsSentimentReal = async () => {
-            const symbols = ["SLV", "SI_F"];
+            const symbols = STOCKTWITS_SYMBOLS;
             // 不快取：StockTwits 只提供「最新約 30 則」的當下情緒，舊快照沒有參考價值
 
             const querySymbol = async (sym) => {
-                const url = `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
                 try {
-                    const resp = await ProxyRotator.fetchAny(url, { timeoutMs: 8000, skipDirect: true });
-                    const data = await resp.json();
-                    if (data?.response?.status !== 200) throw new Error(`API status ${data?.response?.status}`);
-                    let bullish = 0, bearish = 0, tagged = 0;
-                    (data.messages || []).forEach(msg => {
-                        const s = msg?.entities?.sentiment?.basic;
-                        if (s === "Bullish") { bullish++; tagged++; }
-                        else if (s === "Bearish") { bearish++; tagged++; }
-                    });
-                    return { bullish, bearish, tagged, total: (data.messages || []).length };
+                    const resp = await ProxyRotator.fetchAny(stockTwitsUrl(sym), { timeoutMs: 8000, skipDirect: true });
+                    return countStockTwits(await resp.json());
                 } catch (e) {
                     console.warn(`[StockTwits] ${sym} failed:`, e.message);
                     return null;
@@ -505,22 +497,9 @@ import {
 
             // 並行查詢所有 symbol
             const results = await Promise.all(symbols.map(querySymbol));
-            const valid = results.filter(r => r !== null && r.tagged > 0);
-
-            if (valid.length === 0) {
-                console.warn("[StockTwits] All symbols failed or no tagged messages.");
-                return { score: 50, source: "mock", bullishPct: 50, bearishPct: 50, totalTagged: 0, symbolsQueried: symbols };
-            }
-
-            // 合計所有有效 symbol 的標記訊息
-            const totalBullish = valid.reduce((s, r) => s + r.bullish, 0);
-            const totalTagged  = valid.reduce((s, r) => s + r.tagged, 0);
-            const bullishPct   = totalTagged > 0 ? (totalBullish / totalTagged) * 100 : 50;
-            const bearishPct   = 100 - bullishPct;
-            const score        = bullishPct;
-
-            console.log(`[StockTwits] Real score: ${score.toFixed(1)}% bullish (${totalTagged} tagged msgs from ${valid.length}/${symbols.length} symbols)`);
-            const result = { score, source: "real", bullishPct, bearishPct, totalTagged, symbolsQueried: symbols };
+            const result = summarizeStockTwits(results, symbols);
+            if (result.source === 'mock') console.warn("[StockTwits] All symbols failed or no tagged messages.");
+            else console.log(`[StockTwits] Real score: ${result.score.toFixed(1)}% bullish (${result.totalTagged} tagged msgs)`);
             return result;
         };
         
@@ -533,31 +512,18 @@ import {
          * 備援: 以 0.5% 填補 (TIPS 資料始於 2004)
          */
         const fetchTIPSYield = async (dates) => {
-            const TREASURY_BASE = 'https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml';
             const CORS_PROXIES = corsProxies();
-            const parseXML = (xml) => {
-                const map = new Map();
-                const blocks = xml.match(/<m:properties>[\s\S]*?<\/m:properties>/g) || [];
-                for (const b of blocks) {
-                    const dm = b.match(/<d:NEW_DATE[^>]*>(\d{4}-\d{2}-\d{2})/);
-                    const ym = b.match(/<d:BC_5YEAR[^>]*>([\d.\-]+)<\/d:BC_5YEAR>/);
-                    if (!dm || !ym) continue;
-                    const v = parseFloat(ym[1]);
-                    if (Number.isFinite(v)) map.set(dm[1], v);
-                }
-                return map;
-            };
             const years = [...new Set(dates.map(d => d.slice(0, 4)))].sort();
             const tipsMap = new Map();
             // 各年度資料彼此獨立 → 平行抓取。原本 5~6 年逐年串行，
             // 每年最差要等到 proxy 逾時，是整個載入流程最長的單一環節。
             const perYear = await Promise.all(years.map(async (year) => {
-                const baseUrl = TREASURY_BASE + '?data=daily_treasury_real_yield_curve&field_tdr_date_value=' + year;
+                const baseUrl = treasuryRealYieldUrl(year);
                 // 直連與各 proxy 一起競速，不再逐一等到逾時
                 const xml = await raceText([baseUrl, ...CORS_PROXIES.map(p => p(baseUrl))], { timeoutMs: 7000 });
                 if (xml) {
                     try {
-                        const m = parseXML(xml);
+                        const m = parseTreasuryRealYieldXML(xml);
                         if (m.size > 0) { console.log('[TIPS] ' + year + ': ' + m.size + ' records'); return m; }
                     } catch(e) { console.warn('[TIPS] ' + year + ' 解析失敗:', e?.message?.slice(0, 60)); }
                 }
@@ -565,11 +531,7 @@ import {
             }));
             // 依年份順序合併，確保後續前向填補的結果與串行版本一致
             perYear.forEach(m => { if (m) m.forEach((v, k) => tipsMap.set(k, v)); });
-            let lastKnown = null;
-            const result = dates.map(d => {
-                if (tipsMap.has(d)) lastKnown = tipsMap.get(d);
-                return lastKnown !== null ? lastKnown : 0.5;
-            });
+            const result = alignMapToDates(tipsMap, dates, 0.5);
             console.log('[TIPS] series length=' + result.length + ', latest=' + result[result.length-1]);
             return result;
         };
@@ -607,24 +569,9 @@ import {
          */
 
         const fetchGoogleTrends = async (dates) => {
-            const KEYWORD   = 'silver';
-            const GEO       = 'US';
-            // 從最早日期到今天，Google Trends 最多 5 年
-            const startDate = dates[0] ? dates[0].slice(0, 7) : '2020-01';
-            const endDate   = new Date().toISOString().slice(0, 7);
-            const TIME_STR  = `${startDate} ${endDate}`;
-
-            const EXPLORE_URL = 'https://trends.google.com/trends/api/explore';
-            const WIDGET_URL  = 'https://trends.google.com/trends/api/widgetdata/multiline';
-
             // Google Trends 的 proxy 清單（allorigins 對 text 較可靠）
             const GT_PROXIES = corsProxies(['allorigins', 'corsproxy.io', 'codetabs']);
 
-            const stripPrefix = (text) => {
-                // Google Trends API 回應前置 ")]}'"
-                const idx = text.indexOf('{');
-                return idx >= 0 ? text.slice(idx) : text;
-            };
 
             // Google Trends 要兩段請求（取 token → 取資料），逐一試 proxy 會把等待加倍。
             // 改競速後最差情況從 3×14s×2 ≈ 84 秒降到約 13 秒。
@@ -632,20 +579,13 @@ import {
                 raceText(GT_PROXIES.map(fn => fn(url)), { timeoutMs: ms });
 
             // Step 1: explore → get token
-            const exploreParams = new URLSearchParams({
-                hl: 'en-US', tz: '-480',
-                req: JSON.stringify({
-                    comparisonItem: [{ keyword: KEYWORD, geo: GEO, time: TIME_STR }],
-                    category: 0, property: ''
-                })
-            });
-            const exploreUrl = EXPLORE_URL + '?' + exploreParams.toString();
+            const exploreUrl = googleTrendsExploreUrl(dates);
 
             let token = null;
             try {
                 const raw = await fetchViaProxies(exploreUrl);
                 if (!raw) throw new Error('no response from explore');
-                const json = JSON.parse(stripPrefix(raw));
+                const json = parseGoogleTrendsJSON(raw);
                 const widget = (json.widgets || []).find(w => w.id === 'TIMESERIES');
                 if (!widget?.token) throw new Error('TIMESERIES widget not found');
                 token = widget.token;
@@ -656,20 +596,12 @@ import {
             }
 
             // Step 2: widgetdata → get interest over time
-            const widgetParams = new URLSearchParams({
-                hl: 'en-US', tz: '-480',
-                req: JSON.stringify({ time: TIME_STR, resolution: 'WEEK', locale: 'en-US',
-                    comparisonItem: [{ geo: { country: GEO }, complexKeywordsRestriction: { keyword: [{ type: 'BROAD', value: KEYWORD }] } }],
-                    requestOptions: { property: '', backend: 'IZG', category: 0 }
-                }),
-                token,
-            });
-            const widgetUrl = WIDGET_URL + '?' + widgetParams.toString();
+            const widgetUrl = googleTrendsWidgetUrl(dates, token);
 
             try {
                 const raw2 = await fetchViaProxies(widgetUrl);
                 if (!raw2) throw new Error('no response from widgetdata');
-                const json2 = JSON.parse(stripPrefix(raw2));
+                const json2 = parseGoogleTrendsJSON(raw2);
                 const timeline = json2?.default?.timelineData || [];
                 if (timeline.length === 0) throw new Error('empty timeline data');
 
@@ -689,8 +621,6 @@ import {
             // 2) CFTC Legacy Futures API (Non-Commercial) - fallback
             // 3) CFTC HTML Report (current week only) - last resort
             // ==========================================
-            const DISAG_BASE  = 'https://publicreporting.cftc.gov/resource/72hh-3qpy.json';
-            const LEGACY_BASE = 'https://publicreporting.cftc.gov/resource/6dca-aqww.json';
             const HTML_URL    = 'https://www.cftc.gov/dea/futures/deacmxsf.htm';
 
             const CORS_PROXIES = corsProxies();
@@ -720,39 +650,6 @@ import {
             };
 
             // Build SoQL URL: $where value is encodeURIComponent'd (fixes wildcard % encoding)
-            const buildUrl = (base, select, whereExpr, orderExpr, limit) =>
-                `${base}?$select=${select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(orderExpr)}&$limit=${limit}`;
-
-            const parseDisagg = (records) => {
-                const map = new Map();
-                if (!Array.isArray(records)) return map;
-                for (const r of records) {
-                    const raw = r.as_of_date_form_yyyy_mm_dd || r.report_date_as_yyyy_mm_dd;
-                    if (!raw) continue;
-                    const d   = String(raw).split('T')[0];
-                    const lng = parseFloat(r.m_money_positions_long_all);
-                    const sht = parseFloat(r.m_money_positions_short_all);
-                    if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
-                    map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || '' });
-                }
-                return map;
-            };
-
-            const parseLegacy = (records) => {
-                const map = new Map();
-                if (!Array.isArray(records)) return map;
-                for (const r of records) {
-                    const raw = r.report_date_as_yyyy_mm_dd || r.as_of_date_form_yyyy_mm_dd;
-                    if (!raw) continue;
-                    const d   = String(raw).split('T')[0];
-                    const lng = parseFloat(r.noncomm_positions_long_all);
-                    const sht = parseFloat(r.noncomm_positions_short_all);
-                    if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
-                    map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || '' });
-                }
-                return map;
-            };
-
             const successReturn = (map, source, phase) => {
                 const keys = [...map.keys()].sort();
                 const latestDate = keys[keys.length - 1];
@@ -764,36 +661,28 @@ import {
 
             emitStatus({ state: 'loading', source: null, records: 0, latestDate: null, latestNet: null, message: null, phase: 'start' });
 
-            const SILVER_WHERES = [
-                "upper(market_and_exchange_names) like '%SILVER%COMMODITY%EXCHANGE%INC%'",
-                "upper(market_and_exchange_names) like '%SILVER%EXCHANGE%INC%'",
-                "upper(market_and_exchange_names) like '%SILVER%'",
-            ];
-
             // ─── Source 1: Disaggregated Futures (Managed Money) ───
-            const DISAG_SEL = 'as_of_date_form_yyyy_mm_dd,market_and_exchange_names,m_money_positions_long_all,m_money_positions_short_all,open_interest_all';
-            for (let wi = 0; wi < SILVER_WHERES.length; wi++) {
-                const base = buildUrl(DISAG_BASE, DISAG_SEL, SILVER_WHERES[wi], 'as_of_date_form_yyyy_mm_dd DESC', 300);
+            for (let wi = 0; wi < COT_API.silverWheres.length; wi++) {
+                const base = cotQueryUrl(COT_API.disagg, COT_API.silverWheres[wi]);
                 // 直連與各 proxy 競速，不再逐一等到逾時（最差從 5×14s 降為一次逾時）
                 emitStatus({ state: 'loading', phase: `disag_w${wi+1}` });
                 const txt = await raceText([base, ...CORS_PROXIES.map(p => p(base))], { timeoutMs: 7000 });
                 if (txt) {
                     try {
-                        const map = parseDisagg(JSON.parse(txt));
+                        const map = parseCotDisagg(JSON.parse(txt));
                         if (map.size > 0) return successReturn(map, 'Disagg', 'disag_ok');
                     } catch(e) { console.warn(`[COT] Disagg w${wi+1} 解析失敗:`, e?.message?.slice(0,80)); }
                 }
             }
 
             // ─── Source 2: Legacy Futures (Non-Commercial) ───
-            const LEGACY_SEL = 'report_date_as_yyyy_mm_dd,market_and_exchange_names,noncomm_positions_long_all,noncomm_positions_short_all,open_interest_all';
-            for (let wi = 0; wi < SILVER_WHERES.length; wi++) {
-                const base = buildUrl(LEGACY_BASE, LEGACY_SEL, SILVER_WHERES[wi], 'report_date_as_yyyy_mm_dd DESC', 300);
+            for (let wi = 0; wi < COT_API.silverWheres.length; wi++) {
+                const base = cotQueryUrl(COT_API.legacy, COT_API.silverWheres[wi]);
                 emitStatus({ state: 'loading', phase: `legacy_w${wi+1}` });
                 const txt = await raceText([base, ...CORS_PROXIES.map(p => p(base))], { timeoutMs: 7000 });
                 if (txt) {
                     try {
-                        const map = parseLegacy(JSON.parse(txt));
+                        const map = parseCotLegacy(JSON.parse(txt));
                         if (map.size > 0) return successReturn(map, 'Legacy', 'legacy_ok');
                     } catch(e) { console.warn(`[COT] Legacy w${wi+1} 解析失敗:`, e?.message?.slice(0,80)); }
                 }

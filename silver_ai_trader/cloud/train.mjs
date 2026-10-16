@@ -44,6 +44,7 @@ process.env.TF_CPP_MIN_LOG_LEVEL ??= '2';
 const tf = require('@tensorflow/tfjs-node');
 globalThis.tf = tf;
 const core = await import('../src/core.js');
+const sources = await import('./sources.mjs');
 const {
     MARKET_SYMBOLS, alignSymbolSeries, deriveFeatures, filterDataByYears, checkDataQuality,
     createMultivariateDataset, createModel, resolveTargetSpec, buildTargetTensor, windowsToTensor,
@@ -140,22 +141,13 @@ const fetchYahoo = async (symbol) => {
     return null;
 };
 
-// 抓不到的資料源：這些因子在 Yahoo 模式下沒有真實資料，自動排除
-const UNAVAILABLE_IN_YAHOO_MODE = {
-    tipsYield: 'TIPS 實質利率（美國財政部）',
-    gtrend: 'Google Trends',
-    cotNetPosition: 'CFTC COT',
-    fearGreed: 'CNN Fear & Greed',
-    socialSentiment: 'StockTwits（最近 30 天會被拉向中性值）',
-};
-
 const loadData = async () => {
     if (DATA_FILE) {
         log(`讀取瀏覽器匯出的資料：${DATA_FILE}`);
         const exported = JSON.parse(readFileSync(DATA_FILE, 'utf8'));
         const raw = exported.data || exported;
         if (!Array.isArray(raw?.prices) || !Array.isArray(raw?.dates)) throw new Error('資料檔格式不符（缺少 dates / prices）');
-        return { raw, source: 'browser-export', unavailable: {} };
+        return { raw, source: 'browser-export', unavailable: {}, sourceStatus: [] };
     }
     log('從 Yahoo Finance 抓取 8 個市場品種…');
     const series = {};
@@ -173,8 +165,37 @@ const loadData = async () => {
     // 抓不到的品種用白銀期貨的時間軸填中性值（並標記為模擬），由 checkDataQuality 排除相關因子
     for (const s of missing) series[s] = { ...series['SI=F'], close: series['SI=F'].close.map(() => 1), isMock: true };
     const base = alignSymbolSeries(series);
-    const raw = deriveFeatures(base, { mockSymbols: missing });
-    return { raw, source: 'yahoo', unavailable: UNAVAILABLE_IN_YAHOO_MODE };
+
+    // 輔助資料：五個來源平行抓取；抓不到的就排除對應因子（並在報告列出原因）
+    log('抓取輔助資料（CFTC COT、美國財政部 TIPS、CNN Fear & Greed、Google Trends、StockTwits）…');
+    const [cot, tips, fg, gt, st] = await Promise.allSettled([
+        sources.fetchCOT(core),
+        sources.fetchTIPS(core, base.dates),
+        sources.fetchFearGreed(core, base.dates),
+        sources.fetchGoogleTrends(core, base.dates),
+        sources.fetchStockTwits(core),
+    ]);
+    const aux = { mockSymbols: missing };
+    const unavailable = {};
+    const sourceStatus = [];
+    const note = (name, res, okDetail, factor, onOk) => {
+        if (res.status === 'fulfilled') { onOk(res.value); sourceStatus.push({ name, ok: true, detail: okDetail(res.value) }); }
+        else {
+            const why = res.reason?.message || String(res.reason);
+            if (factor) unavailable[factor] = `${name}：${why}`;
+            sourceStatus.push({ name, ok: false, detail: why });
+        }
+        log(`  ${res.status === 'fulfilled' ? '✓' : '✗'} ${name}：${sourceStatus[sourceStatus.length - 1].detail}`);
+    };
+    note('CFTC COT', cot, v => `${v.source}，${v.map.size} 週`, 'cotNetPosition', v => { aux.cotDataMap = v.map; });
+    note('美國財政部 TIPS', tips, v => `${v.points} 天（${v.coverage}）`, 'tipsYield', v => { aux.tipsYield = v.values; });
+    note('CNN Fear & Greed', fg, v => `${v.points} 天，目前 ${v.currentScore.toFixed(1)}（${v.currentRating}）`, 'fearGreed', v => { aux.fearGreedData = v; });
+    note('Google Trends', gt, v => `${v.points} 週`, 'gtrend', v => { aux.gtrend = v.values; });
+    // StockTwits 只影響最後一天；歷史部分是價格動量代理，抓不到也不排除因子
+    note('StockTwits', st, v => `多方 ${v.bullishPct.toFixed(0)}%（${v.totalTagged} 則）`, null, v => { aux.stockTwitsResult = v; });
+
+    const raw = deriveFeatures(base, aux);
+    return { raw, source: 'yahoo', unavailable, sourceStatus };
 };
 
 // ── 訓練 ──────────────────────────────────────────────────────
@@ -330,14 +351,14 @@ const runPool = async (jobs, workers, onDone) => {
 // ── 主流程 ────────────────────────────────────────────────────
 const main = async () => {
     log(`TensorFlow backend：${tf.getBackend()}（${os.cpus().length} CPU）`);
-    const { raw: rawAll, source, unavailable } = await loadData();
+    const { raw: rawAll, source, unavailable, sourceStatus } = await loadData();
     const raw = filterDataByYears(rawAll, config.params.historyYears);
     log(`資料：${raw.dates[0]} ~ ${raw.dates[raw.dates.length - 1]}，共 ${raw.dates.length} 個交易日（近 ${config.params.historyYears} 年）`);
 
     // 排除沒有真實資料的因子（雲端不互動，直接排除並記錄，而不是中止）
     let factors = { ...config.factors };
     const excluded = [];
-    for (const [k, why] of Object.entries(unavailable)) if (factors[k]) { factors[k] = false; excluded.push({ key: k, reason: `${why} 在此環境無法連線` }); }
+    for (const [k, why] of Object.entries(unavailable)) if (factors[k]) { factors[k] = false; excluded.push({ key: k, reason: why }); }
     const dq = checkDataQuality(raw, factors);
     if (raw.dataQuality?.allMock) throw new Error('這份資料是瀏覽器的「模擬資料」，無法用於訓練。請在瀏覽器載入真實資料後再匯出。');
     if (dq.mockSelected.includes('price')) throw new Error(dq.reason);
@@ -477,6 +498,7 @@ const main = async () => {
             dataSource: source,
             dataRange: { from: raw.dates[0], to: lastDate, days: raw.dates.length },
             excludedFactors: excluded,
+            sources: sourceStatus,
         },
         params, patience: config.patience,
         features: ds.activeFeatures.map(f => ({ key: f.key, name: f.name })),

@@ -104,6 +104,11 @@ tr.model td { font-weight: 600; }
 dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: .9rem; }
 dt { color: var(--ink-3); } dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sources { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: .9rem; }
+.sources li { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.sources .st { font-family: var(--font-mono); font-size: .8rem; width: 1.2em; flex: none; }
+.sources .st.ok { color: var(--up); } .sources .st.fail { color: var(--down); }
+.sources .nm { flex: none; min-width: 9em; } .sources .dt { color: var(--ink-3); min-width: 0; overflow-wrap: anywhere; }
 .chip { font-size: .8rem; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); }
 footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge); padding-top: 16px; }
 @media (max-width: 480px) { .chart { height: 300px; } .chart.short { height: 260px; } h1 { font-size: 1.45rem; } }
@@ -195,6 +200,8 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
       <dl id="paramInfo"></dl>
     </div>
     <div class="panel" style="display:grid;gap:10px">
+      <div class="muted" id="srcLabel" hidden>輔助資料來源</div>
+      <ul class="sources" id="sources" hidden></ul>
       <div class="muted">使用的特徵</div>
       <div class="chips" id="features"></div>
       <div id="excluded"></div>
@@ -230,7 +237,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   $('metaLine').innerHTML = [
     '資料截至 <span class="num">' + esc(R.forecast.lastDate) + '</span>',
     esc(ALG[P.algorithm] || P.algorithm) + ' · ' + esc(TARGET[P.predTarget] || P.predTarget),
-    '訓練於 ' + (m.dataSource === 'yahoo' ? 'Claude 雲端（Yahoo Finance 資料）' : 'Claude 雲端（瀏覽器匯出資料）'),
+    '訓練於 Claude 雲端' + (m.dataSource === 'yahoo' ? '' : '（瀏覽器匯出資料）'),
     '產生於 <span class="num">' + esc(m.createdAt.slice(0, 16).replace('T', ' ')) + ' UTC</span>',
   ].map(s => '<span>' + s + '</span>').join('');
 
@@ -366,7 +373,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   const S = R.split, rt = m.runtime;
   const dl = (pairs) => pairs.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
   $('runInfo').innerHTML = dl([
-    ['資料來源', m.dataSource === 'yahoo' ? 'Yahoo Finance（8 個市場品種）' : '瀏覽器匯出資料'],
+    ['資料來源', m.dataSource === 'yahoo' ? 'Yahoo Finance（8 個市場品種）＋ 輔助資料（見下方）' : '瀏覽器匯出資料'],
     ['資料期間', '<span class="num">' + m.dataRange.from + ' ~ ' + m.dataRange.to + '</span>（' + m.dataRange.days + ' 個交易日）'],
     ['訓練期間', '<span class="num">' + S.train.from + ' ~ ' + S.train.to + '</span>（' + S.train.n + '）'],
     ['驗證期間', '<span class="num">' + S.val.from + ' ~ ' + S.val.to + '</span>（' + S.val.n + '）'],
@@ -380,6 +387,10 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     ['lookback', P.lookback + ' 天'], ['隱藏單元', P.layers], ['學習率', P.lr], ['batch', P.batchSize],
     ['方向懲罰 λ', P.directionalLambda], ['預測天數', P.futureDays],
   ]);
+  if (m.sources && m.sources.length) {
+    $('srcLabel').hidden = false; $('sources').hidden = false;
+    $('sources').innerHTML = m.sources.map(x => '<li><span class="st ' + (x.ok ? 'ok' : 'fail') + '">' + (x.ok ? '✓' : '✗') + '</span><span class="nm">' + esc(x.name) + '</span><span class="dt">' + esc(x.detail) + '</span></li>').join('');
+  }
   $('features').innerHTML = R.features.map(f => '<span class="chip">' + esc(f.name) + '</span>').join('');
   if (m.excludedFactors && m.excludedFactors.length) {
     $('excluded').innerHTML = '<p class="muted">未使用：' + m.excludedFactors.map(e => esc(e.reason)).join('；') + '。</p>';

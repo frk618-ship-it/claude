@@ -1458,11 +1458,7 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
         base2 = Math.max(10, Math.min(90, base2));
         arr[i] = base2;
       }
-      const blendDays = Math.min(30, n);
-      for (let i = 0; i < blendDays; i++) {
-        const w = (i + 1) / blendDays;
-        arr[n - blendDays + i] = arr[n - blendDays + i] * (1 - w) + realSTScore * w;
-      }
+      if (n > 0 && stSource === "real") arr[n - 1] = realSTScore;
       return arr;
     })();
     const last = (arr) => arr[arr.length - 1];
@@ -1610,6 +1606,138 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
       equityCurve,
       trades
     };
+  };
+  var alignMapToDates = (map, dates, fallback) => {
+    let last = fallback;
+    return dates.map((d) => {
+      if (map.has(d)) last = map.get(d);
+      return Number.isFinite(last) ? last : fallback;
+    });
+  };
+  var COT_API = {
+    disagg: {
+      base: "https://publicreporting.cftc.gov/resource/72hh-3qpy.json",
+      // 這個資料集只有 report_date_as_yyyy_mm_dd（沒有 as_of_date_form_yyyy_mm_dd）；
+      // 選取不存在的欄位會讓整個查詢失敗，過去因此一直退回 Legacy 資料集
+      select: "report_date_as_yyyy_mm_dd,market_and_exchange_names,m_money_positions_long_all,m_money_positions_short_all,open_interest_all",
+      order: "report_date_as_yyyy_mm_dd DESC"
+    },
+    legacy: {
+      base: "https://publicreporting.cftc.gov/resource/6dca-aqww.json",
+      select: "report_date_as_yyyy_mm_dd,market_and_exchange_names,noncomm_positions_long_all,noncomm_positions_short_all,open_interest_all",
+      order: "report_date_as_yyyy_mm_dd DESC"
+    },
+    silverWheres: [
+      "upper(market_and_exchange_names) like '%SILVER%COMMODITY%EXCHANGE%INC%'",
+      "upper(market_and_exchange_names) like '%SILVER%EXCHANGE%INC%'",
+      "upper(market_and_exchange_names) like '%SILVER%'"
+    ]
+  };
+  var cotQueryUrl = (src, whereExpr, limit = 300) => `${src.base}?$select=${src.select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(src.order)}&$limit=${limit}`;
+  var parseCotDisagg = (records) => {
+    const map = /* @__PURE__ */ new Map();
+    if (!Array.isArray(records)) return map;
+    for (const r of records) {
+      const raw = r.as_of_date_form_yyyy_mm_dd || r.report_date_as_yyyy_mm_dd;
+      if (!raw) continue;
+      const d = String(raw).split("T")[0];
+      const lng = parseFloat(r.m_money_positions_long_all);
+      const sht = parseFloat(r.m_money_positions_short_all);
+      if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
+      map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || "" });
+    }
+    return map;
+  };
+  var parseCotLegacy = (records) => {
+    const map = /* @__PURE__ */ new Map();
+    if (!Array.isArray(records)) return map;
+    for (const r of records) {
+      const raw = r.report_date_as_yyyy_mm_dd || r.as_of_date_form_yyyy_mm_dd;
+      if (!raw) continue;
+      const d = String(raw).split("T")[0];
+      const lng = parseFloat(r.noncomm_positions_long_all);
+      const sht = parseFloat(r.noncomm_positions_short_all);
+      if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
+      map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || "" });
+    }
+    return map;
+  };
+  var treasuryRealYieldUrl = (year) => "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_real_yield_curve&field_tdr_date_value=" + year;
+  var parseTreasuryRealYieldXML = (xml) => {
+    const map = /* @__PURE__ */ new Map();
+    const blocks = String(xml).match(/<m:properties>[\s\S]*?<\/m:properties>/g) || [];
+    for (const b of blocks) {
+      const dm = b.match(/<d:NEW_DATE[^>]*>(\d{4}-\d{2}-\d{2})/);
+      const ym = b.match(/<d:(?:TC|BC)_5YEAR[^>]*>([\d.\-]+)<\/d:(?:TC|BC)_5YEAR>/);
+      if (!dm || !ym) continue;
+      const v = parseFloat(ym[1]);
+      if (Number.isFinite(v)) map.set(dm[1], v);
+    }
+    return map;
+  };
+  var FEAR_GREED_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata";
+  var parseFearGreed = (json) => {
+    const currentScore = parseFloat(json?.fear_and_greed?.score) || 50;
+    const currentRating = json?.fear_and_greed?.rating || "Neutral";
+    const historical = json?.fear_and_greed_historical?.data || [];
+    const map = /* @__PURE__ */ new Map();
+    historical.forEach((pt) => {
+      const ms = parseInt(pt.x, 10);
+      if (!Number.isFinite(ms)) return;
+      const d = new Date(ms);
+      const ymd = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`;
+      const val = parseFloat(pt.y);
+      if (Number.isFinite(val)) map.set(ymd, val);
+    });
+    return { map, currentScore, currentRating };
+  };
+  var STOCKTWITS_SYMBOLS = ["SLV", "SI_F"];
+  var stockTwitsUrl = (sym) => `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
+  var countStockTwits = (data) => {
+    if (data?.response?.status !== 200) throw new Error(`API status ${data?.response?.status}`);
+    let bullish = 0, bearish = 0, tagged = 0;
+    (data.messages || []).forEach((msg) => {
+      const s = msg?.entities?.sentiment?.basic;
+      if (s === "Bullish") {
+        bullish++;
+        tagged++;
+      } else if (s === "Bearish") {
+        bearish++;
+        tagged++;
+      }
+    });
+    return { bullish, bearish, tagged, total: (data.messages || []).length };
+  };
+  var summarizeStockTwits = (counts, symbols = STOCKTWITS_SYMBOLS) => {
+    const valid = counts.filter((r) => r && r.tagged > 0);
+    if (valid.length === 0) return { score: 50, source: "mock", bullishPct: 50, bearishPct: 50, totalTagged: 0, symbolsQueried: symbols };
+    const totalBullish = valid.reduce((s, r) => s + r.bullish, 0);
+    const totalTagged = valid.reduce((s, r) => s + r.tagged, 0);
+    const bullishPct = totalTagged > 0 ? totalBullish / totalTagged * 100 : 50;
+    return { score: bullishPct, source: "real", bullishPct, bearishPct: 100 - bullishPct, totalTagged, symbolsQueried: symbols };
+  };
+  var GOOGLE_TRENDS = { keyword: "silver", geo: "US" };
+  var googleTrendsTimeRange = (dates) => `${dates[0] || "2021-01-01"} ${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}`;
+  var googleTrendsExploreUrl = (dates) => "https://trends.google.com/trends/api/explore?" + new URLSearchParams({
+    hl: "en-US",
+    tz: "-480",
+    req: JSON.stringify({ comparisonItem: [{ keyword: GOOGLE_TRENDS.keyword, geo: GOOGLE_TRENDS.geo, time: googleTrendsTimeRange(dates) }], category: 0, property: "" })
+  }).toString();
+  var googleTrendsWidgetUrl = (dates, token) => "https://trends.google.com/trends/api/widgetdata/multiline?" + new URLSearchParams({
+    hl: "en-US",
+    tz: "-480",
+    req: JSON.stringify({
+      time: googleTrendsTimeRange(dates),
+      resolution: "WEEK",
+      locale: "en-US",
+      comparisonItem: [{ geo: { country: GOOGLE_TRENDS.geo }, complexKeywordsRestriction: { keyword: [{ type: "BROAD", value: GOOGLE_TRENDS.keyword }] } }],
+      requestOptions: { property: "", backend: "IZG", category: 0 }
+    }),
+    token
+  }).toString();
+  var parseGoogleTrendsJSON = (text) => {
+    const i = String(text).indexOf("{");
+    return JSON.parse(i >= 0 ? text.slice(i) : text);
   };
 
   // src/app.jsx
@@ -1930,17 +2058,8 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     });
   };
   var fetchFearGreedIndex = async (dates) => {
-    const CNN_URL = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata";
     const CACHE_KEY = "feargreed";
-    const alignToDates = (map, fallback = 50) => {
-      const out = [];
-      let last = fallback;
-      for (const d of dates) {
-        if (map.has(d)) last = map.get(d);
-        out.push(Number.isFinite(last) ? last : fallback);
-      }
-      return out;
-    };
+    const alignToDates = (map, fallback = 50) => alignMapToDates(map, dates, fallback);
     const mockFallback = (currentScore = 50) => {
       const out = [];
       let v = currentScore;
@@ -1952,102 +2071,54 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     };
     if (!Array.isArray(dates) || dates.length === 0) return mockFallback();
     try {
-      const resp = await ProxyRotator.fetchAny(CNN_URL, { timeoutMs: 1e4, headers: { Accept: "application/json" } });
-      const json = await resp.json();
-      const currentScore = parseFloat(json?.fear_and_greed?.score) || 50;
-      const currentRating = json?.fear_and_greed?.rating || "Neutral";
-      const historical = json?.fear_and_greed_historical?.data || [];
-      if (historical.length === 0) throw new Error("Empty historical data");
-      const fgMap = /* @__PURE__ */ new Map();
-      historical.forEach((pt) => {
-        const ms = parseInt(pt.x, 10);
-        if (!Number.isFinite(ms)) return;
-        const d = new Date(ms);
-        const ymd = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`;
-        const val = parseFloat(pt.y);
-        if (Number.isFinite(val)) fgMap.set(ymd, val);
-      });
+      const resp = await ProxyRotator.fetchAny(FEAR_GREED_URL, { timeoutMs: 1e4, headers: { Accept: "application/json" } });
+      const { map: fgMap, currentScore, currentRating } = parseFearGreed(await resp.json());
+      if (fgMap.size === 0) throw new Error("Empty historical data");
       const mapObj = {};
       fgMap.forEach((v, k) => {
         mapObj[k] = v;
       });
       MarketDataCache.set(CACHE_KEY, { map: mapObj, score: currentScore, rating: currentRating });
       console.log(`[F&G] OK: ${fgMap.size} pts, score=${currentScore.toFixed(1)}`);
-      return { values: alignToDates(fgMap, currentScore), source: "real", currentScore, currentRating };
+      return { values: alignToDates(fgMap, 50), source: "real", currentScore, currentRating };
     } catch (e) {
       console.warn("[F&G] All proxies failed:", e.message);
       const cached = MarketDataCache.getData(CACHE_KEY);
       if (cached?.map) {
         console.warn(`[F&G] 使用 ${MarketDataCache.getCacheDate(CACHE_KEY)} 的快取資料`);
         const fgMap = new Map(Object.entries(cached.map));
-        return { values: alignToDates(fgMap, cached.score), source: "real", currentScore: cached.score, currentRating: cached.rating };
+        return { values: alignToDates(fgMap, 50), source: "real", currentScore: cached.score, currentRating: cached.rating };
       }
       return mockFallback();
     }
   };
   var fetchStockTwitsSentimentReal = async () => {
-    const symbols = ["SLV", "SI_F"];
+    const symbols = STOCKTWITS_SYMBOLS;
     const querySymbol = async (sym) => {
-      const url = `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
       try {
-        const resp = await ProxyRotator.fetchAny(url, { timeoutMs: 8e3, skipDirect: true });
-        const data = await resp.json();
-        if (data?.response?.status !== 200) throw new Error(`API status ${data?.response?.status}`);
-        let bullish = 0, bearish = 0, tagged = 0;
-        (data.messages || []).forEach((msg) => {
-          const s = msg?.entities?.sentiment?.basic;
-          if (s === "Bullish") {
-            bullish++;
-            tagged++;
-          } else if (s === "Bearish") {
-            bearish++;
-            tagged++;
-          }
-        });
-        return { bullish, bearish, tagged, total: (data.messages || []).length };
+        const resp = await ProxyRotator.fetchAny(stockTwitsUrl(sym), { timeoutMs: 8e3, skipDirect: true });
+        return countStockTwits(await resp.json());
       } catch (e) {
         console.warn(`[StockTwits] ${sym} failed:`, e.message);
         return null;
       }
     };
     const results = await Promise.all(symbols.map(querySymbol));
-    const valid = results.filter((r) => r !== null && r.tagged > 0);
-    if (valid.length === 0) {
-      console.warn("[StockTwits] All symbols failed or no tagged messages.");
-      return { score: 50, source: "mock", bullishPct: 50, bearishPct: 50, totalTagged: 0, symbolsQueried: symbols };
-    }
-    const totalBullish = valid.reduce((s, r) => s + r.bullish, 0);
-    const totalTagged = valid.reduce((s, r) => s + r.tagged, 0);
-    const bullishPct = totalTagged > 0 ? totalBullish / totalTagged * 100 : 50;
-    const bearishPct = 100 - bullishPct;
-    const score = bullishPct;
-    console.log(`[StockTwits] Real score: ${score.toFixed(1)}% bullish (${totalTagged} tagged msgs from ${valid.length}/${symbols.length} symbols)`);
-    const result = { score, source: "real", bullishPct, bearishPct, totalTagged, symbolsQueried: symbols };
+    const result = summarizeStockTwits(results, symbols);
+    if (result.source === "mock") console.warn("[StockTwits] All symbols failed or no tagged messages.");
+    else console.log(`[StockTwits] Real score: ${result.score.toFixed(1)}% bullish (${result.totalTagged} tagged msgs)`);
     return result;
   };
   var fetchTIPSYield = async (dates) => {
-    const TREASURY_BASE = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml";
     const CORS_PROXIES = corsProxies();
-    const parseXML = (xml) => {
-      const map = /* @__PURE__ */ new Map();
-      const blocks = xml.match(/<m:properties>[\s\S]*?<\/m:properties>/g) || [];
-      for (const b of blocks) {
-        const dm = b.match(/<d:NEW_DATE[^>]*>(\d{4}-\d{2}-\d{2})/);
-        const ym = b.match(/<d:BC_5YEAR[^>]*>([\d.\-]+)<\/d:BC_5YEAR>/);
-        if (!dm || !ym) continue;
-        const v = parseFloat(ym[1]);
-        if (Number.isFinite(v)) map.set(dm[1], v);
-      }
-      return map;
-    };
     const years = [...new Set(dates.map((d) => d.slice(0, 4)))].sort();
     const tipsMap = /* @__PURE__ */ new Map();
     const perYear = await Promise.all(years.map(async (year) => {
-      const baseUrl = TREASURY_BASE + "?data=daily_treasury_real_yield_curve&field_tdr_date_value=" + year;
+      const baseUrl = treasuryRealYieldUrl(year);
       const xml = await raceText([baseUrl, ...CORS_PROXIES.map((p) => p(baseUrl))], { timeoutMs: 7e3 });
       if (xml) {
         try {
-          const m = parseXML(xml);
+          const m = parseTreasuryRealYieldXML(xml);
           if (m.size > 0) {
             console.log("[TIPS] " + year + ": " + m.size + " records");
             return m;
@@ -2061,43 +2132,19 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     perYear.forEach((m) => {
       if (m) m.forEach((v, k) => tipsMap.set(k, v));
     });
-    let lastKnown = null;
-    const result = dates.map((d) => {
-      if (tipsMap.has(d)) lastKnown = tipsMap.get(d);
-      return lastKnown !== null ? lastKnown : 0.5;
-    });
+    const result = alignMapToDates(tipsMap, dates, 0.5);
     console.log("[TIPS] series length=" + result.length + ", latest=" + result[result.length - 1]);
     return result;
   };
   var fetchGoogleTrends = async (dates) => {
-    const KEYWORD = "silver";
-    const GEO = "US";
-    const startDate = dates[0] ? dates[0].slice(0, 7) : "2020-01";
-    const endDate = (/* @__PURE__ */ new Date()).toISOString().slice(0, 7);
-    const TIME_STR = `${startDate} ${endDate}`;
-    const EXPLORE_URL = "https://trends.google.com/trends/api/explore";
-    const WIDGET_URL = "https://trends.google.com/trends/api/widgetdata/multiline";
     const GT_PROXIES = corsProxies(["allorigins", "corsproxy.io", "codetabs"]);
-    const stripPrefix = (text) => {
-      const idx = text.indexOf("{");
-      return idx >= 0 ? text.slice(idx) : text;
-    };
     const fetchViaProxies = (url, ms = 7e3) => raceText(GT_PROXIES.map((fn) => fn(url)), { timeoutMs: ms });
-    const exploreParams = new URLSearchParams({
-      hl: "en-US",
-      tz: "-480",
-      req: JSON.stringify({
-        comparisonItem: [{ keyword: KEYWORD, geo: GEO, time: TIME_STR }],
-        category: 0,
-        property: ""
-      })
-    });
-    const exploreUrl = EXPLORE_URL + "?" + exploreParams.toString();
+    const exploreUrl = googleTrendsExploreUrl(dates);
     let token = null;
     try {
       const raw = await fetchViaProxies(exploreUrl);
       if (!raw) throw new Error("no response from explore");
-      const json = JSON.parse(stripPrefix(raw));
+      const json = parseGoogleTrendsJSON(raw);
       const widget = (json.widgets || []).find((w) => w.id === "TIMESERIES");
       if (!widget?.token) throw new Error("TIMESERIES widget not found");
       token = widget.token;
@@ -2106,23 +2153,11 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
       console.warn("[GTrend] explore step failed:", e?.message?.slice(0, 80));
       return new Array(dates.length).fill(50);
     }
-    const widgetParams = new URLSearchParams({
-      hl: "en-US",
-      tz: "-480",
-      req: JSON.stringify({
-        time: TIME_STR,
-        resolution: "WEEK",
-        locale: "en-US",
-        comparisonItem: [{ geo: { country: GEO }, complexKeywordsRestriction: { keyword: [{ type: "BROAD", value: KEYWORD }] } }],
-        requestOptions: { property: "", backend: "IZG", category: 0 }
-      }),
-      token
-    });
-    const widgetUrl = WIDGET_URL + "?" + widgetParams.toString();
+    const widgetUrl = googleTrendsWidgetUrl(dates, token);
     try {
       const raw2 = await fetchViaProxies(widgetUrl);
       if (!raw2) throw new Error("no response from widgetdata");
-      const json2 = JSON.parse(stripPrefix(raw2));
+      const json2 = parseGoogleTrendsJSON(raw2);
       const timeline = json2?.default?.timelineData || [];
       if (timeline.length === 0) throw new Error("empty timeline data");
       const result = alignWeeklyTrends(timeline, dates);
@@ -2134,8 +2169,6 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     }
   };
   var fetchCOTData = async (onStatus) => {
-    const DISAG_BASE = "https://publicreporting.cftc.gov/resource/72hh-3qpy.json";
-    const LEGACY_BASE = "https://publicreporting.cftc.gov/resource/6dca-aqww.json";
     const HTML_URL = "https://www.cftc.gov/dea/futures/deacmxsf.htm";
     const CORS_PROXIES = corsProxies();
     const emitStatus = (patch) => {
@@ -2162,35 +2195,6 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
         }
       }
     };
-    const buildUrl = (base, select, whereExpr, orderExpr, limit) => `${base}?$select=${select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(orderExpr)}&$limit=${limit}`;
-    const parseDisagg = (records) => {
-      const map = /* @__PURE__ */ new Map();
-      if (!Array.isArray(records)) return map;
-      for (const r of records) {
-        const raw = r.as_of_date_form_yyyy_mm_dd || r.report_date_as_yyyy_mm_dd;
-        if (!raw) continue;
-        const d = String(raw).split("T")[0];
-        const lng = parseFloat(r.m_money_positions_long_all);
-        const sht = parseFloat(r.m_money_positions_short_all);
-        if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
-        map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || "" });
-      }
-      return map;
-    };
-    const parseLegacy = (records) => {
-      const map = /* @__PURE__ */ new Map();
-      if (!Array.isArray(records)) return map;
-      for (const r of records) {
-        const raw = r.report_date_as_yyyy_mm_dd || r.as_of_date_form_yyyy_mm_dd;
-        if (!raw) continue;
-        const d = String(raw).split("T")[0];
-        const lng = parseFloat(r.noncomm_positions_long_all);
-        const sht = parseFloat(r.noncomm_positions_short_all);
-        if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
-        map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || "" });
-      }
-      return map;
-    };
     const successReturn = (map, source, phase) => {
       const keys = [...map.keys()].sort();
       const latestDate = keys[keys.length - 1];
@@ -2200,33 +2204,26 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
       return map;
     };
     emitStatus({ state: "loading", source: null, records: 0, latestDate: null, latestNet: null, message: null, phase: "start" });
-    const SILVER_WHERES = [
-      "upper(market_and_exchange_names) like '%SILVER%COMMODITY%EXCHANGE%INC%'",
-      "upper(market_and_exchange_names) like '%SILVER%EXCHANGE%INC%'",
-      "upper(market_and_exchange_names) like '%SILVER%'"
-    ];
-    const DISAG_SEL = "as_of_date_form_yyyy_mm_dd,market_and_exchange_names,m_money_positions_long_all,m_money_positions_short_all,open_interest_all";
-    for (let wi = 0; wi < SILVER_WHERES.length; wi++) {
-      const base = buildUrl(DISAG_BASE, DISAG_SEL, SILVER_WHERES[wi], "as_of_date_form_yyyy_mm_dd DESC", 300);
+    for (let wi = 0; wi < COT_API.silverWheres.length; wi++) {
+      const base = cotQueryUrl(COT_API.disagg, COT_API.silverWheres[wi]);
       emitStatus({ state: "loading", phase: `disag_w${wi + 1}` });
       const txt = await raceText([base, ...CORS_PROXIES.map((p) => p(base))], { timeoutMs: 7e3 });
       if (txt) {
         try {
-          const map = parseDisagg(JSON.parse(txt));
+          const map = parseCotDisagg(JSON.parse(txt));
           if (map.size > 0) return successReturn(map, "Disagg", "disag_ok");
         } catch (e) {
           console.warn(`[COT] Disagg w${wi + 1} 解析失敗:`, e?.message?.slice(0, 80));
         }
       }
     }
-    const LEGACY_SEL = "report_date_as_yyyy_mm_dd,market_and_exchange_names,noncomm_positions_long_all,noncomm_positions_short_all,open_interest_all";
-    for (let wi = 0; wi < SILVER_WHERES.length; wi++) {
-      const base = buildUrl(LEGACY_BASE, LEGACY_SEL, SILVER_WHERES[wi], "report_date_as_yyyy_mm_dd DESC", 300);
+    for (let wi = 0; wi < COT_API.silverWheres.length; wi++) {
+      const base = cotQueryUrl(COT_API.legacy, COT_API.silverWheres[wi]);
       emitStatus({ state: "loading", phase: `legacy_w${wi + 1}` });
       const txt = await raceText([base, ...CORS_PROXIES.map((p) => p(base))], { timeoutMs: 7e3 });
       if (txt) {
         try {
-          const map = parseLegacy(JSON.parse(txt));
+          const map = parseCotLegacy(JSON.parse(txt));
           if (map.size > 0) return successReturn(map, "Legacy", "legacy_ok");
         } catch (e) {
           console.warn(`[COT] Legacy w${wi + 1} 解析失敗:`, e?.message?.slice(0, 80));

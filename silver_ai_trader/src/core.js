@@ -1274,8 +1274,9 @@ const deriveFeatures = (base, aux = {}) => {
 
     // StockTwits 情緒序列
     // StockTwits 僅提供最新 ~30 則訊息，無歷史 API：
-    //   - 歷史各天：以「價格動量」建構代理序列
-    //   - 最後 30 天線性插值收斂到真實分數
+    //   - 歷史各天：以「價格動量」建構代理序列（只用到當天以前的價格）
+    //   - 只有最後一天換成真實分數。不能往回混進過去幾天 ——
+    //     那會讓過去的特徵含有「今天」才知道的情緒（前視偏差），而最近幾十天正好是測試期間
     const realSTScore = stockTwitsResult.score;        // 0–100
     const stSource    = stockTwitsResult.source;       // 'real' | 'mock'
     const socialSentiment = (() => {
@@ -1292,11 +1293,7 @@ const deriveFeatures = (base, aux = {}) => {
             base = Math.max(10, Math.min(90, base));
             arr[i] = base;
         }
-        const blendDays = Math.min(30, n);
-        for (let i = 0; i < blendDays; i++) {
-            const w = (i + 1) / blendDays;   // 0→1，越近現在權重越大
-            arr[n - blendDays + i] = arr[n - blendDays + i] * (1 - w) + realSTScore * w;
-        }
+        if (n > 0 && stSource === 'real') arr[n - 1] = realSTScore;
         return arr;
     })();
 
@@ -1469,7 +1466,168 @@ const decodePredictedPrices = (raw, predTarget, minMax, prevPrices) => {
 };
 
 
+// ══════════════════════════════════════════════════════════════
+// 輔助資料來源：網址與解析（瀏覽器與雲端共用；抓取方式各自實作）
+// ══════════════════════════════════════════════════════════════
+
+// 依日期前向填補對齊交易日；第一筆資料之前填 fallback
+const alignMapToDates = (map, dates, fallback) => {
+    let last = fallback;
+    return dates.map(d => {
+        if (map.has(d)) last = map.get(d);
+        return Number.isFinite(last) ? last : fallback;
+    });
+};
+
+// ── CFTC COT（Socrata API）──
+const COT_API = {
+    disagg: {
+        base: 'https://publicreporting.cftc.gov/resource/72hh-3qpy.json',
+        // 這個資料集只有 report_date_as_yyyy_mm_dd（沒有 as_of_date_form_yyyy_mm_dd）；
+        // 選取不存在的欄位會讓整個查詢失敗，過去因此一直退回 Legacy 資料集
+        select: 'report_date_as_yyyy_mm_dd,market_and_exchange_names,m_money_positions_long_all,m_money_positions_short_all,open_interest_all',
+        order: 'report_date_as_yyyy_mm_dd DESC',
+    },
+    legacy: {
+        base: 'https://publicreporting.cftc.gov/resource/6dca-aqww.json',
+        select: 'report_date_as_yyyy_mm_dd,market_and_exchange_names,noncomm_positions_long_all,noncomm_positions_short_all,open_interest_all',
+        order: 'report_date_as_yyyy_mm_dd DESC',
+    },
+    silverWheres: [
+        "upper(market_and_exchange_names) like '%SILVER%COMMODITY%EXCHANGE%INC%'",
+        "upper(market_and_exchange_names) like '%SILVER%EXCHANGE%INC%'",
+        "upper(market_and_exchange_names) like '%SILVER%'",
+    ],
+};
+const cotQueryUrl = (src, whereExpr, limit = 300) =>
+    `${src.base}?$select=${src.select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(src.order)}&$limit=${limit}`;
+
+// Disaggregated：Managed Money 淨部位；鍵為截至日（週二）
+const parseCotDisagg = (records) => {
+    const map = new Map();
+    if (!Array.isArray(records)) return map;
+    for (const r of records) {
+        const raw = r.as_of_date_form_yyyy_mm_dd || r.report_date_as_yyyy_mm_dd;
+        if (!raw) continue;
+        const d   = String(raw).split('T')[0];
+        const lng = parseFloat(r.m_money_positions_long_all);
+        const sht = parseFloat(r.m_money_positions_short_all);
+        if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
+        map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || '' });
+    }
+    return map;
+};
+
+// Legacy：Non-Commercial 淨部位
+const parseCotLegacy = (records) => {
+    const map = new Map();
+    if (!Array.isArray(records)) return map;
+    for (const r of records) {
+        const raw = r.report_date_as_yyyy_mm_dd || r.as_of_date_form_yyyy_mm_dd;
+        if (!raw) continue;
+        const d   = String(raw).split('T')[0];
+        const lng = parseFloat(r.noncomm_positions_long_all);
+        const sht = parseFloat(r.noncomm_positions_short_all);
+        if (!Number.isFinite(lng) || !Number.isFinite(sht)) continue;
+        map.set(d, { net: lng - sht, long: lng, short: sht, openInterest: parseFloat(r.open_interest_all) || null, market: r.market_and_exchange_names || '' });
+    }
+    return map;
+};
+
+// ── 美國財政部 5 年期 TIPS 實質殖利率（每年一份 XML）──
+const treasuryRealYieldUrl = (year) =>
+    'https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_real_yield_curve&field_tdr_date_value=' + year;
+const parseTreasuryRealYieldXML = (xml) => {
+    const map = new Map();
+    const blocks = String(xml).match(/<m:properties>[\s\S]*?<\/m:properties>/g) || [];
+    for (const b of blocks) {
+        const dm = b.match(/<d:NEW_DATE[^>]*>(\d{4}-\d{2}-\d{2})/);
+        // 財政部已把欄位從 BC_5YEAR 改名為 TC_5YEAR；兩種都接受
+        const ym = b.match(/<d:(?:TC|BC)_5YEAR[^>]*>([\d.\-]+)<\/d:(?:TC|BC)_5YEAR>/);
+        if (!dm || !ym) continue;
+        const v = parseFloat(ym[1]);
+        if (Number.isFinite(v)) map.set(dm[1], v);
+    }
+    return map;
+};
+
+// ── CNN Fear & Greed ──
+const FEAR_GREED_URL = 'https://production.dataviz.cnn.io/index/fearandgreed/graphdata';
+const parseFearGreed = (json) => {
+    const currentScore  = parseFloat(json?.fear_and_greed?.score) || 50;
+    const currentRating = json?.fear_and_greed?.rating || 'Neutral';
+    const historical = json?.fear_and_greed_historical?.data || [];
+    const map = new Map();
+    historical.forEach(pt => {
+        const ms = parseInt(pt.x, 10); if (!Number.isFinite(ms)) return;
+        const d = new Date(ms);
+        const ymd = `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
+        const val = parseFloat(pt.y); if (Number.isFinite(val)) map.set(ymd, val);
+    });
+    return { map, currentScore, currentRating };
+};
+
+// ── StockTwits（只有最新約 30 則訊息，沒有歷史）──
+const STOCKTWITS_SYMBOLS = ['SLV', 'SI_F'];
+const stockTwitsUrl = (sym) => `https://api.stocktwits.com/api/2/streams/symbol/${sym}.json`;
+const countStockTwits = (data) => {
+    if (data?.response?.status !== 200) throw new Error(`API status ${data?.response?.status}`);
+    let bullish = 0, bearish = 0, tagged = 0;
+    (data.messages || []).forEach(msg => {
+        const s = msg?.entities?.sentiment?.basic;
+        if (s === 'Bullish') { bullish++; tagged++; }
+        else if (s === 'Bearish') { bearish++; tagged++; }
+    });
+    return { bullish, bearish, tagged, total: (data.messages || []).length };
+};
+// counts：每個 symbol 的 countStockTwits 結果（失敗為 null）
+const summarizeStockTwits = (counts, symbols = STOCKTWITS_SYMBOLS) => {
+    const valid = counts.filter(r => r && r.tagged > 0);
+    if (valid.length === 0) return { score: 50, source: 'mock', bullishPct: 50, bearishPct: 50, totalTagged: 0, symbolsQueried: symbols };
+    const totalBullish = valid.reduce((s, r) => s + r.bullish, 0);
+    const totalTagged  = valid.reduce((s, r) => s + r.tagged, 0);
+    const bullishPct   = totalTagged > 0 ? (totalBullish / totalTagged) * 100 : 50;
+    return { score: bullishPct, source: 'real', bullishPct, bearishPct: 100 - bullishPct, totalTagged, symbolsQueried: symbols };
+};
+
+// ── Google Trends（兩段請求：explore 取 token → widgetdata 取週資料）──
+const GOOGLE_TRENDS = { keyword: 'silver', geo: 'US' };
+// 時間範圍必須是完整日期（YYYY-MM-DD YYYY-MM-DD）；只給年月（YYYY-MM）會被回 HTTP 400
+const googleTrendsTimeRange = (dates) => `${dates[0] || '2021-01-01'} ${new Date().toISOString().slice(0, 10)}`;
+const googleTrendsExploreUrl = (dates) => 'https://trends.google.com/trends/api/explore?' + new URLSearchParams({
+    hl: 'en-US', tz: '-480',
+    req: JSON.stringify({ comparisonItem: [{ keyword: GOOGLE_TRENDS.keyword, geo: GOOGLE_TRENDS.geo, time: googleTrendsTimeRange(dates) }], category: 0, property: '' }),
+}).toString();
+const googleTrendsWidgetUrl = (dates, token) => 'https://trends.google.com/trends/api/widgetdata/multiline?' + new URLSearchParams({
+    hl: 'en-US', tz: '-480',
+    req: JSON.stringify({ time: googleTrendsTimeRange(dates), resolution: 'WEEK', locale: 'en-US',
+        comparisonItem: [{ geo: { country: GOOGLE_TRENDS.geo }, complexKeywordsRestriction: { keyword: [{ type: 'BROAD', value: GOOGLE_TRENDS.keyword }] } }],
+        requestOptions: { property: '', backend: 'IZG', category: 0 } }),
+    token,
+}).toString();
+// 回應前置 ")]}'"，去掉後才是 JSON
+const parseGoogleTrendsJSON = (text) => { const i = String(text).indexOf('{'); return JSON.parse(i >= 0 ? text.slice(i) : text); };
+
+
 export {
+    alignMapToDates,
+    COT_API,
+    cotQueryUrl,
+    parseCotDisagg,
+    parseCotLegacy,
+    treasuryRealYieldUrl,
+    parseTreasuryRealYieldXML,
+    FEAR_GREED_URL,
+    parseFearGreed,
+    STOCKTWITS_SYMBOLS,
+    stockTwitsUrl,
+    countStockTwits,
+    summarizeStockTwits,
+    GOOGLE_TRENDS,
+    googleTrendsTimeRange,
+    googleTrendsExploreUrl,
+    googleTrendsWidgetUrl,
+    parseGoogleTrendsJSON,
     decodePredictedPrices,
     calcMaxDrawdown,
     calcSharpe,
