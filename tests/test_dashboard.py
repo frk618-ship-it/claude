@@ -9,7 +9,7 @@ from fin_analyzer.analysis import analyze
 from fin_analyzer.cli import main
 from fin_analyzer.config import Company, guess_market, load_fin_config
 from fin_analyzer.dashboard import build_dashboard_data, load_fx, render_html
-from fin_analyzer.yahoo import fetch_fx, fetch_yahoo, frames_to_quarters
+from fin_analyzer.yahoo import adjust_for_splits, fetch_fx, fetch_yahoo, fill_quarter_from_annual, frames_to_quarters
 
 NOW = datetime(2026, 10, 16, tzinfo=timezone.utc)
 
@@ -112,3 +112,62 @@ def test_dashboard_cli_demo(tmp_path):
     assert (tmp_path / "comparison.csv").read_text(encoding="utf-8-sig").startswith("代號,公司")
     # Companies without data are listed, not fatal.
     assert main(["dashboard", "-c", str(DEMO_CONFIG), "--data-dir", str(tmp_path / "empty"), "-o", str(tmp_path / "x")]) == 1
+
+
+def test_cn_direct_method_operating_cash_flow():
+    q = frames_to_quarters({"cashflow": {"2026-06-30": {"Cash Flowsfromusedin Operating Activities Direct": 143.0,
+                                                         "Capital Expenditure": -288.0}}})
+    assert q["2026Q2"]["operating_cf"] == 143 and q["2026Q2"]["capex"] == 288
+
+
+def test_fill_quarter_from_annual():
+    quarters = {p: {"revenue": v, "eps": 0.1} for p, v in {"2025Q1": 100.0, "2025Q2": 110.0, "2025Q4": 130.0}.items()}
+    annual = {"2025Q4": {"revenue": 460.0, "eps": 0.5}, "2024Q4": {"revenue": 400.0}}
+    assert fill_quarter_from_annual(quarters, annual) == ["2025Q3"]
+    assert quarters["2025Q3"]["revenue"] == 120  # FY - other three quarters
+    assert quarters["2025Q3"]["eps"] is None  # EPS is not additive
+    assert "2024Q3" not in quarters  # 2024 has no quarters -> nothing derived
+
+
+def test_adjust_for_splits():
+    rows = {"2026Q1": {"shares": 57.0, "eps": 1595.0}, "2026Q4": {"shares": 572.0, "eps": 40.0}}
+    assert adjust_for_splits(rows, {"2017-09-27": 0.1, "2026-09-29": 10.0}) == ["2026Q1"]
+    assert rows["2026Q1"] == {"shares": 570.0, "eps": 159.5}
+    assert rows["2026Q4"] == {"shares": 572.0, "eps": 40.0}  # already post-split
+
+
+class AnnualOnlyTicker(FakeTicker):
+    """Japanese filer on Yahoo: EPS-only quarters, semi-annual balance sheets, annual statements."""
+
+    def __init__(self, symbol):
+        super().__init__(symbol)
+        self.quarterly_income_stmt = FakeFrame({"2026-06-30": {"Basic EPS": 56.8}})
+        self.quarterly_balance_sheet = FakeFrame({
+            d: {"Total Assets": 2000.0, "Stockholders Equity": 1000.0, "Ordinary Shares Number": 10.0, "Inventory": 300.0}
+            for d in ("2025-03-31", "2026-03-31")})
+        self.quarterly_cashflow = FakeFrame({})
+        self.income_stmt = FakeFrame({
+            "2026-03-31": {"Total Revenue": 1200.0, "Cost Of Revenue": 900.0, "Operating Income": 150.0,
+                           "Net Income Common Stockholders": 100.0, "Basic EPS": 10.0},
+            "2025-03-31": {"Total Revenue": 1000.0, "Cost Of Revenue": 760.0, "Net Income Common Stockholders": 80.0},
+        })
+        self.cashflow = FakeFrame({"2026-03-31": {"Operating Cash Flow": 130.0, "Capital Expenditure": -50.0}})
+
+
+def test_annual_fallback_for_annual_only_filers(tmp_path):
+    from fin_analyzer.models import load_company, save_company
+
+    d = fetch_yahoo("4042.T", ticker_factory=AnnualOnlyTicker)
+    assert "年度財報" in d.note and d.annual["2026Q1"]["gross_profit"] == 300
+    save_company(d, tmp_path)
+    d = load_company("4042.T", tmp_path)
+    assert d.annual["2026Q1"]["revenue"] == 1200  # annual.csv round-trip
+
+    a = analyze(d, load_fin_config(DEMO_CONFIG))
+    assert a.latest == "2026Q1"  # not the EPS-only 2026Q2 row
+    m = a.latest_metrics
+    assert m["revenue_ttm"] == 1200 and m["revenue_ttm_yoy"] == pytest.approx(0.2)
+    assert m["gross_margin_ttm"] == pytest.approx(0.25) and m["operating_margin_ttm"] == pytest.approx(0.125)
+    assert m["roe_ttm"] == pytest.approx(0.1) and m["eps_ttm"] == 10
+    assert m["fcf_ttm"] == 80
+    assert m["dio"] == pytest.approx(300 / 900 * 365)  # annual COGS -> 365-day basis

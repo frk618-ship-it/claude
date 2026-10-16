@@ -44,12 +44,24 @@ def _pct(v: float) -> str:
     return f"{v * 100:.1f}%"
 
 
+def latest_period(data: CompanyData, qm: dict[str, dict[str, float | None]]) -> str:
+    """Latest quarter with TTM revenue, else with quarterly revenue, else the last period.
+
+    Sources sometimes add a newer row holding only EPS or a balance sheet (e.g. Japanese
+    filers on Yahoo Finance); analysing that row would leave almost every metric blank."""
+    for ok in (lambda p: qm[p].get("revenue_ttm") is not None, lambda p: data.get(p, "revenue") is not None):
+        found = next((p for p in reversed(data.periods) if ok(p)), None)
+        if found:
+            return found
+    return data.periods[-1]
+
+
 def analyze(data: CompanyData, cfg: FinConfig, company: Company | None = None) -> Analysis:
     if not data.periods:
         raise ValueError(f"{data.label}: no quarterly data")
     qm = quarter_metrics(data)
     mm = monthly_metrics(data)
-    latest = data.periods[-1]
+    latest = latest_period(data, qm)
     a = Analysis(
         data=data,
         quarterly=qm,

@@ -4,6 +4,12 @@ Used for markets FinMind does not cover, e.g. JX金屬 (5016.T), 東曹 (4042.T)
 Solstice (SOLS), 江豐電子 (300666.SZ), 有研新材 (600206.SS). Yahoo's quarterly
 statements are single-quarter amounts and usually cover the last 4-6 quarters.
 
+Yahoo's quarterly data has gaps: Chinese A-shares often lack one quarter (e.g. Q3),
+and Japanese filers may have no quarterly income / cash-flow statements at all. The
+annual statements are therefore fetched too: a single missing quarter is recovered as
+fiscal-year total minus the other three quarters, and the fiscal-year totals are kept
+(``CompanyData.annual``) so TTM metrics can fall back to them.
+
 ``yfinance`` is imported lazily so the rest of the tool works without it.
 """
 
@@ -12,7 +18,7 @@ from __future__ import annotations
 import logging
 import math
 
-from .models import CompanyData, period_from_date
+from .models import CompanyData, parse_period, period_from_date, shift_period
 
 log = logging.getLogger(__name__)
 
@@ -46,7 +52,9 @@ YAHOO_FIELD_MAP: dict[str, tuple[str, list[str], int]] = {
     "retained_earnings": ("balance", ["Retained Earnings"], 1),
     "equity": ("balance", ["Total Equity Gross Minority Interest"], 1),
     "equity_parent": ("balance", ["Stockholders Equity", "Common Stock Equity"], 1),
-    "operating_cf": ("cashflow", ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"], 1),
+    # Chinese A-shares report the direct method; Yahoo labels it "...Operating Activities Direct".
+    "operating_cf": ("cashflow", ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities",
+                                  "Cash Flowsfromusedin Operating Activities Direct"], 1),
     "capex": ("cashflow", ["Capital Expenditure", "Purchase Of PPE"], -1),
     "dividends_paid": ("cashflow", ["Cash Dividends Paid", "Common Stock Dividend Paid"], -1),
 }
@@ -84,6 +92,58 @@ def frames_to_quarters(
     return quarters
 
 
+# Fiscal-year flow totals kept from the annual statements.
+ANNUAL_FIELDS = {k: v for k, v in YAHOO_FIELD_MAP.items() if v[0] in ("income", "cashflow")}
+
+
+def fill_quarter_from_annual(
+    quarters: dict[str, dict[str, float | None]], annual: dict[str, dict[str, float | None]]
+) -> list[str]:
+    """Fill a quarter's missing flow field when the other three quarters of that fiscal year
+    are known: Q = FY - (other three). Returns the periods that received derived values."""
+    filled: set[str] = set()
+    for fy_end, totals in annual.items():
+        qs = [shift_period(fy_end, -i) for i in range(4)]
+        for fld, total in totals.items():
+            if fld == "eps" or fld not in ANNUAL_FIELDS or total is None:  # EPS is not additive
+                continue
+            vals = {q: quarters.get(q, {}).get(fld) for q in qs}
+            missing = [q for q, v in vals.items() if v is None]
+            if len(missing) != 1:
+                continue
+            q = missing[0]
+            row = quarters.setdefault(q, {f: None for f in YAHOO_FIELD_MAP})
+            row[fld] = total - sum(v for v in vals.values() if v is not None)
+            filled.add(q)
+    return sorted(filled, key=parse_period)
+
+
+def adjust_for_splits(rows: dict[str, dict[str, float | None]], splits: dict[str, float]) -> list[str]:
+    """Restate share counts and EPS to today's share basis. Yahoo's price history is already
+    split-adjusted, but the statements keep the share count of their period, so a split
+    after the period end would distort P/E, P/B and market cap. ``splits``: date -> ratio."""
+    adjusted = []
+    for p, row in rows.items():
+        y, q = parse_period(p)
+        period_end = f"{y:04d}-{q * 3:02d}-31"  # string compare: later than any day of the quarter's last month
+        factor = 1.0
+        for date, ratio in splits.items():
+            if str(date)[:10] > period_end and ratio and ratio > 0:
+                factor *= ratio
+        if factor != 1.0:
+            if row.get("shares") is not None:
+                row["shares"] *= factor
+            if row.get("eps") is not None:
+                row["eps"] /= factor
+            adjusted.append(p)
+    return adjusted
+
+
+def _frame(t, attr: str) -> dict:
+    df = getattr(t, attr, None)
+    return df.to_dict() if df is not None and hasattr(df, "to_dict") else {}
+
+
 def fetch_yahoo(ticker: str, name: str = "", currency: str = "", ticker_factory=None) -> CompanyData:
     """Fetch quarterly statements and ~1 year of prices for a Yahoo Finance symbol."""
     if ticker_factory is None:
@@ -99,6 +159,20 @@ def fetch_yahoo(ticker: str, name: str = "", currency: str = "", ticker_factory=
     quarters = frames_to_quarters(frames)
     if not quarters:
         raise RuntimeError(f"Yahoo Finance returned no statements for {ticker}")
+    annual = {
+        p: row
+        for p, row in frames_to_quarters({"income": _frame(t, "income_stmt"), "cashflow": _frame(t, "cashflow")}, ANNUAL_FIELDS).items()
+        if any(v is not None for v in row.values())
+    }
+    filled = fill_quarter_from_annual(quarters, annual)
+    splits = {}
+    try:
+        raw_splits = getattr(t, "splits", None)
+        splits = {str(k)[:10]: float(v) for k, v in (raw_splits.to_dict() if raw_splits is not None else {}).items()}
+    except Exception as exc:  # split history is a best-effort extra
+        log.warning("%s: split history unavailable: %s", ticker, exc)
+    if adjust_for_splits(quarters, splits) + adjust_for_splits(annual, splits):
+        log.info("%s: shares / EPS restated for stock splits %s", ticker, splits)
     info: dict = {}
     try:
         info = t.info or {}
@@ -109,7 +183,16 @@ def fetch_yahoo(ticker: str, name: str = "", currency: str = "", ticker_factory=
         name=name or info.get("shortName", ""),
         currency=currency or info.get("financialCurrency") or info.get("currency") or "",
         quarters=quarters,
+        annual=annual,
     )
+    notes = []
+    if filled:
+        notes.append(f"{'、'.join(filled)} 部分損益/現金流量為年度合計減其餘三季推得")
+    last_fy = max(annual, key=parse_period) if annual else None
+    if last_fy and any(quarters.get(shift_period(last_fy, -i), {}).get("revenue") is None for i in range(4)):
+        notes.append(f"Yahoo Finance 季度損益不完整,近四季指標改用截至 {last_fy} 的年度財報")
+    if notes:
+        data.note = f"{data.label}:" + ";".join(notes)
     hist = t.history(period="1y", auto_adjust=False)
     data.prices = sorted((str(idx)[:10], float(c)) for idx, c in hist["Close"].items() if _clean(c) is not None)
     data.fill_derived()

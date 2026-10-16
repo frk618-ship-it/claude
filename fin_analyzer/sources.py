@@ -16,6 +16,7 @@ import json
 import logging
 import os
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import defaultdict
@@ -79,14 +80,29 @@ DEFAULT_YTD = {"income": False, "balance": False, "cashflow": True}
 Fetcher = Callable[[str, dict], list[dict]]
 
 
-def http_fetch(dataset: str, params: dict) -> list[dict]:
+# Without a token FinMind throttles bursts with HTTP 402 ("Requests reach the upper limit");
+# the quota frees up within minutes, so wait and retry instead of dropping the company.
+RATE_LIMIT_WAITS = (30, 60, 120, 240)
+
+
+def http_fetch(dataset: str, params: dict, waits=RATE_LIMIT_WAITS, sleep=time.sleep) -> list[dict]:
     query = urllib.parse.urlencode({"dataset": dataset, **params})
     req = urllib.request.Request(f"{API_URL}?{query}", headers={"User-Agent": "fin-analyzer/0.1"})
     token = os.environ.get("FINMIND_TOKEN")
     if token:
         req.add_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        payload = json.loads(resp.read().decode("utf-8"))
+    for attempt in range(len(waits) + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                payload = json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code != 402:
+                raise
+            payload = {"status": 402, "msg": str(exc)}
+        if payload.get("status") != 402 or attempt == len(waits):
+            break
+        log.warning("FinMind rate limit on %s; retrying in %ss (set FINMIND_TOKEN to raise the quota)", dataset, waits[attempt])
+        sleep(waits[attempt])
     if payload.get("status") not in (200, None):
         raise RuntimeError(f"FinMind {dataset}: {payload.get('msg')}")
     return payload.get("data", [])

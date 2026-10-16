@@ -118,6 +118,12 @@ python -m fin_analyzer dashboard -c examples/demo_config.yaml # 離線示範(虛
 - **資料來源**:台股走 [FinMind](https://finmindtrade.com)(公開資訊觀測站財報,含月營收;`FINMIND_TOKEN` 選填);日本、美國、中國大陸走 Yahoo Finance(`yfinance`,季報通常只有最近 4–6 季,因此部分近四季年增等指標可能缺值)。
 - **手動資料**:也可依 `data/financials/<代號>/quarterly.csv`、`monthly_revenue.csv`、`prices.csv`、`meta.json`(含 `currency`)格式自行填入。
 - **跨國比較注意**:各國會計準則不同,日本公司多為 3 月制財年;季度一律依季末日期對齊日曆季度。
+- **Yahoo Finance 資料缺口的處理**(`fetch` 會在 `meta.json` 的 `note` 記錄,儀表板以提示列顯示):
+  - 某一季缺損益/現金流量(常見於 A 股的 Q3、美股的較早季度),而同一財年其餘三季齊全時,以「年度合計 − 其餘三季」補回。
+  - 日本公司在 Yahoo 多半沒有季度損益與現金流量,資產負債表也只有半年度:此時改用 `annual.csv` 的年度財報計算近四季指標,最新季為財年結束季(3 月制 → Q1),單季年增等單季指標留空。
+  - 股票分割後,Yahoo 股價已還原,但財報股數未調整;`fetch` 依分割紀錄把股數與 EPS 換算為分割後基準。
+  - 營業利益一律採「毛利 − 營業費用」(Yahoo `Operating Income`),與台股的營業利益口徑一致;IFRS 日本公司(如 JX金屬)申報的營業利益、中國公司的「營業利潤」包含其他營業收支或投資收益,會比本工具的數字高,差額歸入業外。
+- **FinMind 限流**:未設定 `FINMIND_TOKEN` 時,短時間內連續請求會被回 402,程式會等待後自動重試;FinMind 的現金流量表不含發放現金股利,台股的 `dividends_paid` 會是空白。
 - **深度報告**(`analyze`):單一公司的損益、杜邦分析、營運效率、財務結構、現金流、月營收、F-score / Z''-score、評價與同業比較;設定 `ANTHROPIC_API_KEY` 後加上 Claude 評論(預設模型 `claude-opus-5-5`,可用 `--model` 或 `FIN_ANALYZER_MODEL` 更換)。
 - **自動執行**:`.github/workflows/fin-report.yml` 每月 12 日(月營收公布後)下載資料、產生儀表板與報告並 commit,也可手動觸發並指定焦點公司。
 - `examples/demo_financials/`、`examples/demo_dashboard/` 為**虛構**公司資料與其產出的示範,不代表任何真實公司。

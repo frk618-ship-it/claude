@@ -269,3 +269,33 @@ def test_commentary_with_fake_client():
     assert "<financials>" in call["messages"][0]["content"]
     md = render_markdown(a, [], cfg, c, NOW)
     assert "## 分析摘要(Claude)" in md and "**同業相對位置**" in md
+
+
+def test_eps_ttm_falls_back_to_net_income_over_shares():
+    d = make_company()
+    d.quarters["2025Q2"]["eps"] = None  # e.g. a quarter derived from annual totals
+    d.quarters["2025Q4"]["shares"] = 100.0
+    m = quarter_metrics(d)["2025Q4"]
+    assert m["eps_ttm"] == pytest.approx(4 * 110 / 100)
+
+
+def test_http_fetch_retries_on_rate_limit(monkeypatch):
+    import io
+    import urllib.error
+
+    from fin_analyzer import sources
+
+    calls, waits = [], []
+
+    def fake_urlopen(req, timeout):
+        calls.append(req.full_url)
+        if len(calls) < 3:
+            raise urllib.error.HTTPError(req.full_url, 402, "Payment Required", {}, io.BytesIO(b""))
+        return io.BytesIO(b'{"status": 200, "data": [{"x": 1}]}')
+
+    monkeypatch.setattr(sources.urllib.request, "urlopen", fake_urlopen)
+    assert sources.http_fetch("TaiwanStockInfo", {"data_id": "1785"}, waits=(1, 2, 3), sleep=waits.append) == [{"x": 1}]
+    assert waits == [1, 2]
+    calls.clear()
+    with pytest.raises(RuntimeError, match="402"):
+        sources.http_fetch("TaiwanStockInfo", {}, waits=(1,), sleep=waits.append)

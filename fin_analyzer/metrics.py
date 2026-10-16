@@ -94,7 +94,19 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         ttm_prev = [shift_period(p, -4 - i) for i in range(4)]
 
         def ttm_sum(name: str, periods=ttm) -> float | None:
-            return _sum(*(g(q, name) for q in periods))
+            v = _sum(*(g(q, name) for q in periods))
+            if v is None:  # incomplete quarters: use the fiscal year ending in periods[0], if any
+                v = data.annual.get(periods[0], {}).get(name)
+            return v
+
+        def turnover_days(balance: str, flow: str) -> float | None:
+            d = _days(avg(g(p, balance), g(prev_q, balance)), g(p, flow))
+            fy = data.annual.get(p, {}).get(flow)
+            if d is None and g(p, flow) is None and fy is not None:
+                bal = avg(g(p, balance), g(prev_y, balance)) or g(p, balance)
+                d = _days(bal, fy)
+                d = None if d is None else d * 4  # annual flow: 365 days instead of a quarter
+            return d
 
         rev, cogs = g(p, "revenue"), g(p, "cogs")
         pretax = g(p, "pretax_income")
@@ -113,6 +125,8 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
             "eps_yoy": growth(g(p, "eps"), g(prev_y, "eps")),
             "eps_ttm": ttm_sum("eps"),
         }
+        if m["eps_ttm"] is None:  # a quarter without EPS: TTM parent net income / period-end shares
+            m["eps_ttm"] = div(ttm_sum("net_income_parent"), g(p, "shares"))
 
         # TTM returns & DuPont (average of balances 4 quarters apart).
         rev_ttm, ni_ttm = ttm_sum("revenue"), ttm_sum("net_income_parent")
@@ -140,9 +154,9 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["interest_coverage_ttm"] = div(ebit_ttm, int_ttm) if int_ttm and int_ttm > 0 else None
 
         # Working-capital efficiency (quarter flows, average balances).
-        m["dso"] = _days(avg(g(p, "receivables"), g(prev_q, "receivables")), rev)
-        m["dio"] = _days(avg(inv, g(prev_q, "inventory")), cogs)
-        m["dpo"] = _days(avg(g(p, "payables"), g(prev_q, "payables")), cogs)
+        m["dso"] = turnover_days("receivables", "revenue")
+        m["dio"] = turnover_days("inventory", "cogs")
+        m["dpo"] = turnover_days("payables", "cogs")
         m["ccc"] = _sum(m["dso"], m["dio"], -m["dpo"] if m["dpo"] is not None else None)
         if m["ccc"] is None and m["dso"] is not None and m["dio"] is not None and g(p, "payables") is None:
             m["ccc"] = m["dso"] + m["dio"]  # no payables data: DSO + DIO
