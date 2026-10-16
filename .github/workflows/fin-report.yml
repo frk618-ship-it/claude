@@ -1,8 +1,7 @@
 name: 靶材製造商財務儀表板
 
 on:
-  schedule:
-    - cron: "17 1 12 * *"   # 每月 12 日 09:17(台北時間),月營收於每月 10 日前公布
+  # 每月自動更新改由 Claude 排程任務執行(同時更新儀表板 Artifact),此處僅保留手動觸發,避免兩邊同日各自 commit。
   workflow_dispatch:
     inputs:
       focus:
