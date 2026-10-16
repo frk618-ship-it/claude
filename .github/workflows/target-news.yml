@@ -1,17 +1,31 @@
 name: 靶材產業新聞
+# 手動執行:Actions 頁面選「靶材產業新聞」→ Run workflow,可指定天數
 
 on:
   schedule:
-    - cron: "23 0 * * *"   # 每天 08:23(台北時間)
+    # 每天 07:41(台北時間)。避開整點與半點:GitHub 在整點前後負載高,排程常被延遲或略過。
+    - cron: "41 23 * * *"
   workflow_dispatch:
     inputs:
       days:
         description: "蒐集最近幾天的新聞"
         required: false
-        default: "3"
+        default: "7"
+      papers_only:
+        description: "只蒐集技術文獻,併入今天的報告(不重抓新聞)"
+        type: boolean
+        required: false
+        default: false
+      resummarize:
+        description: "為之前沒有 AI 摘要的報告補上摘要與翻譯(需 ANTHROPIC_API_KEY)"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: target-news
@@ -20,6 +34,14 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    env:
+      # 選填:設定 NOTION_TOKEN 與資料庫 ID 後,每次執行會把新聞 / 技術文獻同步到 Notion
+      # 最簡單:只設 NOTION_TOKEN 與 NOTION_PARENT_PAGE_ID,第一次同步會在該頁面下自動建立三個資料庫
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      NOTION_PAPERS_DATABASE_ID: ${{ secrets.NOTION_PAPERS_DATABASE_ID }}
+      NOTION_COMPANIES_DATABASE_ID: ${{ secrets.NOTION_COMPANIES_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,7 +56,18 @@ jobs:
         env:
           # 選填:設定後會用 Claude 產生中文摘要、重要度與本期總覽
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python -m target_news_agent -v run --days "${{ github.event.inputs.days || '3' }}"
+          # 選填:技術文獻搜尋(OpenAlex)用的聯絡 email / API key
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.papers_only }}" = "true" ]; then
+            python -m target_news_agent -v run --papers-only
+          else
+            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '7' }}"
+          fi
+          if [ "${{ github.event.inputs.resummarize }}" = "true" ]; then
+            python -m target_news_agent -v resummarize
+          fi
 
       - name: Commit report
         run: |
@@ -43,3 +76,27 @@ jobs:
           git add reports data
           git diff --cached --quiet || git commit -m "news: 靶材產業新聞 $(TZ=Asia/Taipei date +%F)"
           git push
+
+      - name: Build site
+        run: python -m target_news_agent site -i reports -o site/news --root-redirect site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Sync to Notion
+        if: env.NOTION_TOKEN != '' && (env.NOTION_PARENT_PAGE_ID != '' || env.NOTION_DATABASE_ID != '' || env.NOTION_PAPERS_DATABASE_ID != '' || env.NOTION_COMPANIES_DATABASE_ID != '')
+        continue-on-error: true   # Notion 失敗只顯示警告,不擋網站發布;可之後手動重跑 notion-sync
+        run: python -m target_news_agent -v notion-sync
+
+  deploy:
+    needs: collect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

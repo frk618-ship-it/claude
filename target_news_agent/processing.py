@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 import unicodedata
 from collections import Counter
@@ -13,6 +14,8 @@ from opencc import OpenCC
 
 from .config import Config, Entity
 from .models import NewsItem
+
+log = logging.getLogger(__name__)
 
 GENERAL_CATEGORY = "產業動態"
 TITLE_SIMILARITY = 0.88
@@ -44,16 +47,19 @@ def item_id(item: NewsItem) -> str:
 
 def match_entities(item: NewsItem, entities: list[Entity], context_terms: list[str]) -> list[str]:
     low = item.text.lower()
-    has_ctx = any(_contains(low, t) for t in context_terms)
+
+    def has_ctx(e: Entity) -> bool:
+        return any(_contains(low, t) for t in (e.context_terms or context_terms))
+
     matched = []
     for e in entities:
         if e.is_topic:
             continue
-        if any(_contains(low, a) for a in e.aliases) and (has_ctx or not e.require_context):
+        if any(_contains(low, a) for a in e.aliases) and (not e.require_context or has_ctx(e)):
             matched.append(e.name)
-    if not matched and has_ctx:
+    if not matched:
         topic = next((e for e in entities if e.name == item.query_entity and e.is_topic), None)
-        if topic is not None:
+        if topic is not None and has_ctx(topic):
             matched.append(topic.name)
     return matched
 
@@ -117,13 +123,24 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
     index = {e.name: e for e in config.entities}
 
     relevant = []
+    kept: Counter[str] = Counter()
+    dropped: dict[str, list[str]] = {}
+    too_old: Counter[str] = Counter()
     for item in items:
         if item.published and item.published < cutoff:
+            too_old[item.query_entity] += 1
             continue
         item.entities = match_entities(item, config.entities, s.context_terms)
         if not item.entities:
+            dropped.setdefault(item.query_entity, []).append(item.title)
             continue
+        kept[item.query_entity] += 1
         relevant.append(item)
+    # Per-search tuning aid: how much each search keeps, and what the context check throws away.
+    for name, titles in dropped.items():
+        log.info("filter %-30s kept %3d, dropped %3d  e.g. %s", name, kept[name], len(titles), " | ".join(titles[:3]))
+    for name, n in too_old.items():
+        log.info("filter %-30s %3d items older than %d days skipped", name, n, s.days)
 
     unique = dedupe(relevant)
     for item in unique:
@@ -131,6 +148,20 @@ def process(items: list[NewsItem], config: Config, now: datetime | None = None) 
         item.categories = classify(item, s.categories)
         item.score = score(item, index, now)
     unique.sort(key=lambda i: (i.score, i.published or now), reverse=True)
+    # Busy topics (e.g. gold price news) keep only their newest max_items items.
+    caps = {e.name: e.max_items for e in config.entities if e.max_items}
+    if caps:
+        newest = sorted(unique, key=lambda i: i.published or now, reverse=True)
+        taken: Counter[str] = Counter()
+        drop = set()
+        for item in newest:
+            # Items merged from two capped searches (same headline in zh-TW and zh-CN) count against the first.
+            if item.entities and all(e in caps for e in item.entities):
+                name = item.entities[0]
+                taken[name] += 1
+                if taken[name] > caps[name]:
+                    drop.add(id(item))
+        unique = [i for i in unique if id(i) not in drop]
     return unique
 
 

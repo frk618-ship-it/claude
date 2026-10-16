@@ -1,0 +1,2777 @@
+{
+  "generated": "2026-10-15T20:33:32.481992+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期焦點集中在晶圓廠與記憶體廠的大規模擴產，對 PVD 機台與靶材的中長期需求是明確利多。台積電法說公布第三季營收新台幣1.49兆元創新高，2026年資本支出指引為600至640億美元；台美日同步擴充3奈米產能，近20座廠依計畫推進，並證實評估德州擴產及與馬斯克Terafab洽談合作。美光在台投資逾兆元，封測二廠啟用、HBM持續擴產；格羅方德獲日本最高210億美元資金支持，將在紐約州興建兩座晶圓廠，美國政府並將入股約4%。靶材端，JX金屬規劃投資最高1,200億日圓；江豐電子籌劃赴港發行H股，有研新材則強調旗下子公司是長存控股的重要靶材供應商，中國靶材廠在資本市場與在地客戶上的動作明顯加速。",
+    "key_trends": [
+      "先進製程與先進封裝資本支出持續上修：台積電2026年資本支出600至640億美元、全球近20座廠同步推進，艾司摩爾也提到晶片設備搶購潮、2028年擴產再升級。銅、鈷、鉭、鈦等先進製程靶材及PVD機台需求可望維持高檔。",
+      "HBM與AI封測產能擴張帶動後段PVD需求：美光封測二廠啟用並續擴HBM，日月光AI封測擴產，頎邦營收連兩月創新高並以矽光子金凸塊接棒。凸塊、RDL所需的鈦、銅、金等靶材與濺鍍需求同步升溫，但日月光已出現擴產背後的現金壓力。",
+      "美日政策資金推動美國在地化建廠：格羅方德取得日本最高210億美元資金、美國政府入股約4%，台積電評估德州擴產並堅持晶圓廠須由台積電營運。靶材供應商需評估北美在地供應、認證與物流布局。",
+      "國際靶材龍頭加碼投資：JX金屬規劃投資最高1,200億日圓，顯示高階靶材產能擴充已在進行，未來高純度靶材的供給與價格競爭格局可能隨之改變。",
+      "中國靶材廠加速資本化與在地綁定：江豐電子上半年淨利年增113.6%、第二季淨利大增246%，並籌劃H股上市；有研新材子公司為長存控股的重要靶材供應商。中國在地化供應鏈持續強化，對非中系供應商在中國市場的空間形成壓力。",
+      "記憶體與成熟製程廠擴產分化：華邦電累計砸16.7億元買設備，世界先進大擴產、轉攻邊緣AI並暫緩矽光子。SK海力士一方面傳出延後部分HBM4後段設備訂單，一方面向美方爭取擴產大連廠。台灣靶材廠光洋科9月營收50.78億元、月增年增，反映需求熱度。"
+    ],
+    "watch_points": [
+      "台積電3奈米擴產與德州、Terafab合作的具體時程及規模，以及美光HBM封測產能的爬坡進度，並據此評估先進製程與封裝用靶材的備料及產能配置。",
+      "SK海力士延後HBM4後段設備訂單是否擴大、影響擴產節奏，以及美方是否放行大連廠擴產，兩者都可能改變記憶體端PVD機台與靶材的拉貨時點。",
+      "JX金屬1,200億日圓投資的產品別、地點與完工時程，及其對高純度靶材供給和報價的影響。",
+      "江豐電子H股募資用途（擴產或海外布局），以及有研新材與長存的合作深化程度，觀察中國靶材廠是否加速進入台、美、日客戶供應鏈。",
+      "格羅方德紐約新廠的製程定位與設備採購時程，以及美國在地化採購要求是否延伸到材料端，作為北美供應鏈布局的依據。"
+    ]
+  },
+  "items": [
+    {
+      "id": "b4e959bc12b9e94f",
+      "title": "HBM先進封測產能升級！美光在台砸逾兆元擴產，台積電等供應鏈迎新局-財經焦點情報站",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPR3V5czRsb3kzU0hLTE5kQTBaREQwalUxaDJwYTlNeW1FVDN3MGl0VVBGN29wM2ZkTlNrZDN3ZUh4dTUwNlFNRENuQ1hqdU9NdnV1TWdJdmxEOEwyNzVvbHQyd3oyX2lEQmdhVDl5QmV6bUE5TVdnNW1VbFhoX1YtYVdn?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-15T07:17:12+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)",
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 6.47,
+      "summary": "美光在台投入逾兆元擴充HBM先進封測產能,台積電等供應鏈可望受惠。HBM封裝的凸塊、RDL等製程使用PVD,將推升濺鍍機台與銅、鈦等靶材需求。",
+      "importance": 5,
+      "title_zh": "HBM先進封測產能升級！美光在臺砸逾兆元擴產，臺積電等供應鏈迎新局-財經焦點情報站",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3d18020c21927278",
+      "title": "美光台灣四地擴產，HBM與EUV量產進度先看哪裡-思齊波段操盤手",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9qMlZnLUt4SGs4YlB2Q3RlVkt0TjUxWnNZalpXRUFxS3ZLRy1GejIxM0dGZ1o2TWltYUpBYzJjem4xUEhndVdLVDItU1A2ZGl5Q05tMUo4QUMzS2JDZTUzU3JyaVNlZURpVU80dFg2R3F1Yy13OWV1OHdNanhJNTg?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-15T08:23:11+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 6.27,
+      "summary": "美光在台灣四地同步擴產,市場關注HBM與EUV製程的量產進度。記憶體前段與封測產能增加,將帶動在地靶材與PVD設備的需求。",
+      "importance": 4,
+      "title_zh": "美光臺灣四地擴產，HBM與EUV量產進度先看哪裡-思齊波段操盤手",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c019de13ccc0a205",
+      "title": "美光新廠啟用典禮 賴清德：期盼與台廠合力打造下一世代AI產品",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBRTzVTZUFfZFJjUi1EUUFqTlFkaFBRTjJGY0JLUWdFVFRpMm50OE54NzJlNEx0aERDMnBfVXhNSUJNNjdmTjk1d2d4WQ?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-10-15T08:22:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "美光台灣新廠舉行啟用典禮,賴清德總統期盼與台廠合作打造下一世代AI產品。新產能開出後,在地靶材供應商有機會切入供應鏈。",
+      "importance": 4,
+      "title_zh": "美光新廠啟用典禮 賴清德：期盼與臺廠合力打造下一世代AI產品",
+      "snippet_zh": ""
+    },
+    {
+      "id": "70a0e5e370e41738",
+      "title": "台積電、馬斯克Terafab「談新廠合作」？魏哲家首度鬆口了",
+      "link": "https://news.google.com/rss/articles/CBMixAJBVV95cUxNWFhCanVsM2xEejN1SGo5WVVGZzZlUmdwUTd3WW16akcxRTlkelA3QTFMcnpzMFRUWHF3Q3VoeTJHNloxNTZCaXJzR09DQ1dXT2w4NFQ5bkFwSzd3eENyRF81Tzc0djE2QmxfdjlSVEFGdjRvZjh0d3h4Y3paSEVkMkw2NnFvRXgzaEJ2eC1mUmhrdGRYOEw1Q3RYUjhQelFRek9pWXZEVzBkRkVERjlOa3JkTnNkT0hjVDB1X1NsRU9uREFVY3dZMmxXUDRMRXR0U0J4SlZKV0pYUUNyUS1qYVlodDZZZ05aNUNOY29GamJUMUxmUU9lY2J5OG5KdjlmQ05qS3pRR04yQlp2TU5UdE1CZnA5ckgxa3RKVE5ERlViNkZyNENQdnphTExWaXBycVBudWFrUWJPNkpkS2ZhX25tbWQ?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-15T07:59:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "擴產與投資"
+      ],
+      "score": 5.47,
+      "summary": "魏哲家首度回應台積電與馬斯克Terafab洽談新廠合作的傳聞。若合作成形,將新增晶圓產能並帶動PVD設備與靶材需求。",
+      "importance": 4,
+      "title_zh": "臺積電、馬斯克Terafab「談新廠合作」？魏哲家首度鬆口了",
+      "snippet_zh": ""
+    },
+    {
+      "id": "84852c8168488af5",
+      "title": "台積電全球擴產加速！近 20 座廠依計畫進行，台美日產能再升級",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN2hjbmhMOXdfekZuYzlSblJJSWsxNXdZOWZ5LVdXX1dIY3llU3FRYTlHZnlNVlhEM1RQYl91eVV6T0NWR2V4cmNoODVDdHlPeTRjbDRydFNXSlRWRklVSFRzSF9lelljaVlpNHdrRWU0ZnpSWjZYeUMtUEN4TDlUcFEydENKWWNzcE5GM3dySFNIUklZMTFBTTJVMGcxMFhYcFBFTTBGdXpEWlpqYTZFYw?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-10-15T07:58:14+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "台積電全球近20座廠依計畫推進,台美日產能同步升級。大規模建廠將長期支撐濺鍍機台與靶材需求,海外據點的就近供貨能力也更顯重要。",
+      "importance": 5,
+      "title_zh": "臺積電全球擴產加速！近 20 座廠依計畫進行，臺美日產能再升級",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0bfcba80c9d14065",
+      "title": "格芯獲美日支持擴建美國產能 大摩：輕資本擴張有望增厚盈利",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE04QVFaNGE2TGJmRzhjX1lSeHg0VE1kc3Vmc3NEcFRWLTd2QWpQOFVuUGwycEd2RkdWRl8wMTdZSEVmMUpIZnRfVkpkYXZpVWhlbTVLVVpKdTM0dllXWENsU3poZVM0ZUMwX2c?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-15T07:19:06+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.47,
+      "summary": "格芯獲美日兩國支持擴建美國產能,大摩認為輕資本擴張模式有望增厚盈利。成熟製程產能擴充有利美國當地靶材需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bcaa7f64c3082f4b",
+      "title": "赴德州評估擴產！魏哲家霸氣回應：晶圓廠須由台積電營運",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLZkVERERCcWZzTndHOU9oQnVaV0xnMGNmV3RscU9NU0dQNEdYLUtlRVlGNzJ0UmtMTlF1VjJVNU51NG1oYms5NTBLd0s3Uy12MnQ4SlV0bEVxS1BVWV84?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-10-15T07:08:01+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "台積電赴德州評估擴產,魏哲家強調晶圓廠必須由台積電營運。美國新產能將增加當地靶材與PVD設備的採購需求。",
+      "importance": 4,
+      "title_zh": "赴德州評估擴產！魏哲家霸氣回應：晶圓廠須由臺積電營運",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5c0514b8e38dcd0d",
+      "title": "美光封測二廠啟用，HBM續擴產",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZ0l4cHRZUWN6dkM0eHRHSzdVVkdiSkYwZGlxNHdKNnlHbWRqZktIdHJ6OWcwVmk0bmJkc2ZzTDNVMjItb0sxOVJoOFhiOExGY3Z0QUVEX3RDZkpES1ZnNDdkODRHZEdwdmdxQXhIX003LUNxT0tjdkR1VmVqSU5vU0Q1VjJYRDNlZDhiNzgzMVk1ZnFoVHY5SFAxT3Z5VUVwN0xnZjB1TEstOEZ4S3hGYmhkeFRQcjRUTU9FRDhTcHRleGpRNDdqdnRkV0h3cXVrZlhxNE9FU0NNYUR6QXVwVzBwVWo?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-10-15T06:56:15+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "美光封測二廠正式啟用,HBM產能持續擴充。先進封裝的PVD製程需求增加,有利凸塊與RDL相關靶材的銷售。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7f08cab560d30a93",
+      "title": "美光新廠風光開幕、員工準備開走！賴清德喊「魚幫水、水幫魚」",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1CcEFjWWhvZk5GZnAyZEFia19HeEt3TmxaRTZQZllZRkQ3SVFvSkNqbzg3cGN6WjE1eUx2STFvQ1dHVHNkaGZaYV92Ml9HV0pDS1HSAVJBVV95cUxNQnBBY1lob2ZORmZwMmRBYmtfR3hLd05sWkU2UGZZWUZEN0lRb0pDam84N3BjeloxNXlMdkkxb0NXR1RzZGhmWmFfdjJfR1dKQ0tR?oc=5",
+      "source": "NOWnews今日新聞",
+      "published": "2026-10-15T06:51:48+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "美光新廠開幕,賴清德以「魚幫水、水幫魚」形容產業合作,報導也提及員工流動話題。內容偏重活動報導,但仍反映美光在台擴產。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ff0c93cc4df7b630",
+      "title": "台積電法說／台美日同步擴充3奈米產能 魏哲家：絕不讓出任何商機",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1OaERXd0xmVWFrZzNBWmU3RGVYYV82OHJOWVV4emZmc2xURVQ3NjBfdmRYZlVfSmdFN3lJQlhlVGRueGhfcFdmdFc2N2p2eXc?oc=5",
+      "source": "TVBS新聞網",
+      "published": "2026-10-15T06:47:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "台積電法說會表示台美日將同步擴充3奈米產能,魏哲家強調絕不讓出任何商機。先進製程擴產將直接推升高純度金屬靶材與PVD機台需求。",
+      "importance": 5,
+      "title_zh": "臺積電法說／臺美日同步擴充3奈米產能 魏哲家：絕不讓出任何商機",
+      "snippet_zh": ""
+    },
+    {
+      "id": "066275a4df77964a",
+      "title": "SK海力士據報向美爭取在陸擴產 與赴美設廠計畫掛鉤",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5GMFZHUjJoUVV1QXdqUVFtRkJGWTUwVXVsekZnWUJ4Z002S0tGcEtTdjd0ekxmX1R0aDJpRHV6Z09RWnZWbTMzTHJ4WjRLWHJn0gFWQVVfeXFMTWtpNlBhMjBBNE1HX0FiU09iMnpHcVQwQmk2MExNMDhSTkU2XzRSOFpyWGMtRWhqNElnWUw2M1BQMGtpQkh0VHRUZzdwYWt1UmR2OXZqSlE?oc=5",
+      "source": "UDN",
+      "published": "2026-10-15T06:13:36+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "據報SK海力士向美方爭取在中國擴產,並將此訴求與赴美設廠計畫掛鉤。結果將影響中國與美國兩地記憶體產能布局,以及靶材的供應區域。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bc81c487e887ef89",
+      "title": "美光新廠啟用賴總統：世界越需要AI 就越需要值得信賴的台灣| 政治",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9KWVQ0NDZCMG50SXhvRWlBdWdNR2gtSUlIdHFGNHBlRHBpLTQzd3lDWWMyVktLWlh6dW9lY3RzMHpwY2ZxNTllaHNpNDRQSGtqWlcxYXNiOW9yRUYwTFdZ?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-10-15T05:59:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "美光新廠啟用,賴總統表示世界越需要AI就越需要值得信賴的台灣。此為政策面表態,間接支持在台半導體供應鏈的發展。",
+      "importance": 3,
+      "title_zh": "美光新廠啟用賴總統：世界越需要AI 就越需要值得信賴的臺灣| 政治",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cdf8004ae34311b7",
+      "title": "SK海力士赴美設廠有條件？傳要求放行擴產大連廠- 新聞",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaDlHMXRJY0o1UjdLNDhudldkaEtuNTcyTl9BbUZCVHh2MTJ4T2QtNG56d1luRUZzOUVsX0g1SEpfZ1ZIcmxrZGxhMGlnN1lFNXM4b1BIaS1sSnVRUl8zRDBpMHVwdFhtYTRSbDRRcGpQUmc4U2x2M20wdFY5bV9LXzk5bDdXZ18zVk95bUl4V3Radw?oc=5",
+      "source": "MoneyDJ",
+      "published": "2026-10-15T05:48:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "政策與貿易",
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "傳SK海力士以放行大連廠擴產作為赴美設廠的條件。美方出口管制鬆緊將左右中國記憶體產能及當地靶材需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6a0e7e8230ce2e13",
+      "title": "美光封測二廠啟用，HBM續擴產- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1OX2ZwTkR6MVJ1ZVpmSU1rZ19qMmNZWDR3WmRZVHdtQ3ZTb1Y3VlZTZzNBS1hiWGRJeE1JeTJpcDJ3dEdjUWV4U3I1RUhPQ0V0dTRLQUI3REo?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-15T05:23:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "美光封測二廠啟用,HBM持續擴產(同主題轉載)。先進封裝PVD需求將隨之增加。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c5707f9a54781201",
+      "title": "台積電法說會！估Q4營收達543億 資本支出達640億美元",
+      "link": "https://news.google.com/rss/articles/CBMizAJBVV95cUxQakxVMXpkZ2JiNUwxamlrWEgzLXJfTnZRWWtWNmZoR3VQUGdaYzRFN0tTTk9LM3VheEVmSUdmTkxEWFFJMjVSOERrLUt0X0QtMmFXOVVDeWpXbmVReHBSU2ctdHNIMF9pSUs2aV84ZlM2Y3lzaktOZXFZem1ic25NMVM3Uzc2cXVjdDI4ZGRTSVMzbXluWGc5Wmx4eTFoRGRmRFE5WFZDWk1ieDFsVWgtOWJRUmRZNllJdms2MUtwOFRtZkpVZ2RsbTZEU0VJSnJGMjM0MmZHbVhzd2RSS1VDTkNfdmJNWnF0WmxnNDktbDA0UnpTLUY3ellndm9SblFxQnc4SXZsTEVZQllsUGNKLVZMZ0oyVmpUT0dHZ3dES29OUHM0Nk9weUZKWnhLcUNQS0l6bDNCQzRDT2xYTC1GWnZjWVZEYVJ0eE11bg?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-10-15T07:05:12+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.97,
+      "summary": "台積電法說會預估第四季營收達543億,資本支出達640億美元。高額資本支出代表濺鍍設備與靶材需求可望維持強勁。",
+      "importance": 5,
+      "title_zh": "臺積電法說會！估Q4營收達543億 資本支出達640億美元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8c196e4c4ce7e2e1",
+      "title": "台積電法說會／Q3又新高，魏哲家：獲利能力沒天花板！和馬斯克談Terafab最關鍵條件「晶圓廠必須我們營運」",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOLUc4N2p3azF0ZTU0VlVaSGtNa2lpbHVRa3hjT1RrOE9EbFpoYjF2YUJaLUo3dlYxVlJ0QTBpeTNvclhqYjVkaGxVbjVzLUFiYmZfZlBINXFfR0h0VmlVZ1AxMWdqdk1MeUhBckNyNE5xTUlpRnUzeDR1NlhWa2JCNQ?oc=5",
+      "source": "今周刊",
+      "published": "2026-10-15T06:52:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.97,
+      "summary": "台積電第三季營運再創新高,魏哲家稱獲利能力沒有天花板,並表示與Terafab合作的關鍵條件是晶圓廠須由台積電營運。終端客戶營運強勁,有利靶材拉貨。",
+      "importance": 4,
+      "title_zh": "臺積電法說會／Q3又新高，魏哲家：獲利能力沒天花板！和馬斯克談Terafab最關鍵條件「晶圓廠必須我們營運」",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3a8bf48271c26a2d",
+      "title": "格羅方德將在紐約州建廠，日本提供資金",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTDJPSTRMUG1ES215bW1ZNE5DM2tSa1U1ZWwwbmx4bEYwRXBtRy1mRDUzb3c5SUhob1RleXdHS1FGVFB4MjdMdUwzMW9QWTJPa2lTcXZGSXdQWExJMTdUdnlSRkpQcW9iV1hTUThaQ2M0ckJEbGYzM003QlFYMGpKa016UmJPaHMxdVJISjJn?oc=5",
+      "source": "日經中文網",
+      "published": "2026-10-15T08:00:23+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.47,
+      "summary": "格羅方德將在紐約州建廠,由日本提供資金。美國新增晶圓產能,將帶動當地PVD與靶材的需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "65f4d8c5e3fef6eb",
+      "title": "JX Advanced Metals Corporation plans to invest up to JPY120 billion ov",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQbEZidGZrR3U5TjdwcWJyQVZxTlB5T0l5X0FCN2JWcTNfTnU2Qk9UVW5vcnNpdmd3UDNDN1AzbjEyOUxaZ0M2Y250LUs3d2Iwc1RnSGwzV09GcEpndlFxYTk1dFN0QVFmTW95RmgybWpESEJXRHVkdDRiYmtZb1BXbE1xZzlDemhMV0FXMHVyaTRkMWc1VHJ2N1N6eTJjWENya1dybXVWY2NDckI3MXk5NDN6cnJWMmdJNzZXc25YWmNIVktlUXRiOVlIbEdvUTZhbFBuUjQzd01MZw?oc=5",
+      "source": "Shanghai Metals Market",
+      "published": "2026-10-15T07:56:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.47,
+      "summary": "全球主要靶材廠JX金屬計畫投資最高1,200億日圓。若資金投入靶材與高純金屬產能,將強化其供應能力與競爭地位。",
+      "importance": 5,
+      "title_zh": "JX Advanced Metals Corporation 計劃投資最高 JPY120 billion",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4626bf5b82d93364",
+      "title": "有研新材：与长江存储建立稳定合作关系|董秘|亿金|投资者|数据|供应商",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQWhzU05DWWhlQmw5REF4U283bUI4bmVhTzRsbllmZHlMWjFjWW5zVV9lamQ1ajdMVnp2V193MDEyelY4Wm1vZVpGOHVEYnY2enI2bzAtWXpJeFFzSTRRVmpDbnRfYUZsZTFUZERaSXBQdkM1RElYUi1jVHRzWS00ZXdURER3aTRpOGNTUVNOUXIzc2Zya2Vv?oc=5",
+      "source": "finance.sina.com.cn",
+      "published": "2026-10-14T12:30:40+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "擴產與投資"
+      ],
+      "score": 4.36,
+      "summary": "有研新材表示已與長江存儲建立穩定合作關係(旗下億金為靶材業務)。顯示中國靶材廠持續打入本土記憶體大廠,國產替代加速。",
+      "importance": 4,
+      "title_zh": "有研新材：與長江存儲建立穩定合作關係|董秘|億金|投資者|數據|供應商",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e3851bbc525d52aa",
+      "title": "\"中国靶材第一股\"「江丰电子」宣布筹划H股上市，Q2净利润大增246%",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9FRVZ2TDhocUQ1M1JLY3NMRWo2SkIyT0JFQlN4ZnE1OGRZMEItejJIM2ZweDFNU0lDeEEwNEJhRjV4aU03dkp1VmxJMUFDN212M3BMM25FaHpjZ0xGcks5dWxfNEJuaHFCNXo0MEgwcw?oc=5",
+      "source": "finance.sina.com.cn",
+      "published": "2026-10-15T09:54:14+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "「中國靶材第一股」江豐電子宣布籌劃H股上市,第二季淨利大增246%。獲利成長加上募資,將強化其擴產與國際化競爭力。",
+      "importance": 4,
+      "title_zh": "\"中國靶材第一股\"「江豐電子」宣佈籌劃H股上市，Q2淨利潤大增246%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f1b37d70b2bc465a",
+      "title": "〈台積電法說〉證實德州設廠並與Terafab洽談 魏哲家：晶圓廠須由台積電營運",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE13aHVIYjBjMTljNE9pblBwMC1NdDVtQ1RNWjFkUHFHUS0yVzhGMkJQbHhQTmxhc1VhTVE1N1lVTmN6TlZvd1V1Y25LOEFkN1E?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-10-15T08:24:21+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "台積電法說會證實德州設廠,並與Terafab洽談合作,前提是晶圓廠須由台積電營運。美國產能擴張將帶動當地靶材需求。",
+      "importance": 4,
+      "title_zh": "〈臺積電法說〉證實德州設廠並與Terafab洽談 魏哲家：晶圓廠須由臺積電營運",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5e6290c42723a63b",
+      "title": "Silver price today, Thursday, October 15, 2026: Silver prices opened at the lowest level since July",
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOVlpWcHQ5dENZVmdpSC1YMnc1dXhYa2xueEc2cEhVV3p3YnliRldoVUg5cHVmZXVRaENJU1Y5eWlTQmc5cjVBRExPTmp0eVdlMWY4Y1pobDBPVVk4MkIyZlJ3OXZrLU9HS3JkbEhSWU5LQnhsSld2SDM0bS13TS1jZkhNeERnNkU3SnktR1lGdjVGdUdaV1ljYUJIaGR6R25lcXpNaXp5bzA4OTB5NVdpUGJMM3FOUEpJNkNpLUtiYkhkTU9TUFFEYVRjOWxfNHE4QVN0Z0xtc3dZRTNKTHFFYjdQdmdrRkNwSDRxUDRQSlc2MEE5Q1NnSjliUWxfLVZH?oc=5",
+      "source": "Yahoo Finance",
+      "published": "2026-10-15T11:22:05+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "銀價以7月以來最低水準開盤。銀價下跌可望降低銀靶材的原料成本。",
+      "importance": 2,
+      "title_zh": "今日銀價,2026 年 10 月 15 日星期四:銀價開盤創 7 月以來最低水準",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9936e91f0d58a768",
+      "title": "Gold price today, Thursday, October 15, 2026: Lowest open all week ahead of PPI data",
+      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQVUdyMEV0cGh6dkFmSnFOTm42QnhoMDl6TU95ZTJmLTJQTlNYWmxLOFQ4WHZDNUpjanF2a2l6NnB4Y3FUbWhUS21OSjhvdGp1aWRmNERjTS1LLTlseHU2MGNiNVJHd2toOHc5THRxcHpHRWk3a2hUNVRmYU9HalMwTXdrbHBfWnNydTFOUlI3TnVxT1k1VnB5eGF1dmdhUFhkWmU3UGFzUjc4c0djSGRrc1JfZklocUMwbG5mX2NjUVpLX2F2aWk3dzRhOURWOWZuazhKZzZJQl9OTE5JX3Y5ZXdhT2NPV2VTMzJHdQ?oc=5",
+      "source": "Yahoo Finance",
+      "published": "2026-10-15T11:12:39+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "金價在PPI數據公布前,以本週最低水準開盤。金價變動影響金靶材的成本。",
+      "importance": 2,
+      "title_zh": "今日金價,2026 年 10 月 15 日星期四:PPI 數據公佈前,開盤價創本週最低",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6e72a799e5680f15",
+      "title": "銀価格が急落 金との価格差ひらく、「長期の買い手」欠ける",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAzRnF0NWZJYXFTZE54eHU0U1R5elhzTEtaRHpMc2FwMVN6TkhHSHN5QV85QUlGLWJGcGJtOUpSeWRmNlVVXzFrMDJnaVJPU3JzcU1QVXFQbGtQY2VYY3p4eFk0YlI4T19RRjI4eA?oc=5",
+      "source": "日本経済新聞",
+      "published": "2026-10-15T11:08:37+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "行情綜合:貴金属相場"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "銀價急跌,與金價的價差擴大,市場缺乏長期買家。銀原料成本短期下滑。",
+      "importance": 2,
+      "title_zh": "銀價急跌,與黃金價差擴大,缺乏「長期買家」",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a8de0e98d10c53e3",
+      "title": "Gold Price Forecast: Softer Dollar Fuels Rebound After Hot CPI",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZnBxaDRUOW44alZHbmowQ1gybDVRQkxMUkU1a1duTTdHSDJpWXFpejZHTHluenhyUHRISms2Wk5ySVRDenNtWXRieGFwVjM2U2JCbi01QXlKTUllRzI2aHFubnAwOHNIdU9GQUE2TGppeEVWX2x0RTFDVjI2SzFsUlB3Nm4zRlItNVhDNzN2LTR2ajZyRVA2RUZfWHhQZVZEaWZFZ0IzM1d0YUFUNVZxbmVFLW9RQkR5OXd6eA?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-10-15T10:05:08+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "美國CPI偏熱後美元走軟,金價隨之反彈。貴金屬靶材成本仍處高檔波動。",
+      "importance": 2,
+      "title_zh": "金價預測:CPI 高於預期後,美元走軟推動反彈",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5d1f0c992dbf296b",
+      "title": "오늘(10월 15일) 금 가격: 금값이 4,000달러까지 떨어질 수 있을까?",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNS0JLMlR2a1N6ODJWRFhYV3g5Y3U3MVBzTlc4Z2c2TjRvWFh2ZF9OWkhtNF9rWEh5RnE4dVZfVGcwaE1CN3N2TFd1UVhGVnU5ME9UX0RYaE9fbi1jcVgxS3AzUEFfdzZIU0ZvRU1WNE5ENVZWWUJrWlJNNW5aXy1SUEpaOFQ?oc=5",
+      "source": "Vietnam.vn",
+      "published": "2026-10-15T08:27:54+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "行情綜合:귀금속 시세"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.28,
+      "summary": "韓文報導探討金價是否可能跌至4000美元。屬行情評論,間接影響金靶材成本。",
+      "importance": 2,
+      "title_zh": "今日(10 月 15 日)金價:金價可能跌至 4,000 美元嗎?",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bf34979324dcc555",
+      "title": "금 한돈 시세, 10월 15일 순금 가격 상승 속 거래소 금값 하락",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9pdVhLVHYzZDJEOFJLOU8xNVZOamwzYkdfbDdVNnNUeWVvc2pnZ0NCTlpwdS1EQ3VUXzNqMWZkN1V6elFldkdONkFBdF9GT1NyMFAxRHlZMEhiaHN0dGNEbHU3OUlSOGFNanVkNzJubjMyUQ?oc=5",
+      "source": "톱스타뉴스",
+      "published": "2026-10-15T07:37:26+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "行情綜合:귀금속 시세"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.27,
+      "summary": "韓國純金零售價上漲,交易所金價則下跌。屬在地零售行情,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "一錢黃金行情:10 月 15 日純金價格上漲,交易所金價下跌",
+      "snippet_zh": ""
+    },
+    {
+      "id": "649c0250cdba942b",
+      "title": "国際金価格、米物価ショックを乗り越え1日で反発…ドル安・FRB慎重論が影響",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE54RG5qMFNKcVBoeFZWaVBMU21JQllYOXBuZjRybDNObzcxZWxJZGw0c0dJMnY3MnhYN0NkT3QxcUFNaE9XUUQzMUVuNUpCMEwxQnpVNzdTcWkybGZ2dHRLQXZEdlM2WnZOMzM5dHItcWNCTHRN?oc=5",
+      "source": "BigGo ファイナンス",
+      "published": "2026-10-15T07:35:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "行情綜合:貴金属相場"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.27,
+      "summary": "國際金價在美國物價數據衝擊後一日內反彈,主因為美元走弱與聯準會態度謹慎。貴金屬成本持續波動。",
+      "importance": 2,
+      "title_zh": "國際金價擺脫美國物價衝擊,一天內反彈……受美元走弱及 FRB 審慎論影響",
+      "snippet_zh": ""
+    },
+    {
+      "id": "741e298b93cf813b",
+      "title": "Gold, silver back in shine after crash: What drove the fall, why prices surge, what's next for investors? Explained",
+      "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQaUx4OXctRFFGR0NoLTl3MHJTMkEtUDRueVU5NWZibjBjN19uYTBiM3VJaHJrN3FQblRTQUY3bnVFTHNkVFduSmFYRjJBVnJkZ1BsM2tLNmxUeVhOQlc3c3plOWNhVmhzTldPRUJXRWtOd3Y5cXRaNVhzbjByOVlaOHVMZk9BX0Y4M0ZVbEhXNFNWZXlFMi1hRF9LNzdqVXlhN2d3d0JiTmZyTnJ1U2xGZ0hqUTZ0b2ZFal9yTEhKclJ6TlhueXFYZF8xTG9IYmJsWkVxY21peEJULUM5bExnRVNYUDdUUVFNTnA0VlQ5S1ItaGRtQUh0aVdIaXJfSk9MYkZHei1DSWpiaXhDMlHSAZMCQVVfeXFMUGR4ZFFBOHlNZ2l3NG5HVjBPUzVtZUxWbUdnLWVUTFJWTk96clpvNkJ5V0hYMVNTelp4NDJxRWFwcXBGTzI5dlMtWGRnX3lmMGJ6QjZnbzVqM3R1VzlkMy00Q29kd081S054aDBud1VJcnpKdUxXT0RXWm5nVkZPZHRRME1MVFF6NXZDV2NXN2tTZ2tEdWtIMmlBX0VBSXNGSHB4Z0ZVMy1Dai1NQ1VDZGpfbjV6UDdUa3NvdjhlMzljOXJKYk53dWF1R3Z3bWlHQmV1S1l5Umk5a09QdHZESTJZSG5tZ0RtU3ZCY0ZCODM2Ullkd1N5bTRFX1Nfc0NUSTdabnBZYk9pSDF3dWdjMnFIZ2s?oc=5",
+      "source": "Livemint",
+      "published": "2026-10-15T06:58:54+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.27,
+      "summary": "金銀價格崩跌後回穩,報導解析下跌原因與後市展望。貴金屬價格劇烈波動,增加靶材報價與採購避險的難度。",
+      "importance": 2,
+      "title_zh": "金、銀崩跌後重拾光彩:下跌原因為何、價格為何飆升、投資人下一步如何?一文解析",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d4bd1a176126be1b",
+      "title": "金価格の反落も強気の布陣は不変 ファンドマネジャーは2年以内の最高値更新を予想",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAtS3FvWEVoSmFNc2p4YXZfNi1qRzZoekVwbjJVdlMtYllnaVVKQmVlQzFyaVM0VGZRaG1HOGVlWENXcGNJTjdSbnp2R1hoS0d2VUx4TUlWR2J3aEFMX2F4d3RIVjZpYm1YMWhsWUtVenBLZ0ZP?oc=5",
+      "source": "BigGo ファイナンス",
+      "published": "2026-10-15T06:36:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "行情綜合:貴金属相場"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "金價回落,但基金經理人仍預期兩年內創新高。金靶材成本中長期恐維持高檔。",
+      "importance": 2,
+      "title_zh": "金價雖回落,看多佈局不變 基金經理人預期兩年內再創新高",
+      "snippet_zh": ""
+    },
+    {
+      "id": "51c6c1624d4c1c70",
+      "title": "黃金價格反彈至4100美元上方，美國通膨升溫令升息風險重返市場",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNVlhfRkRiZjhKQmp4ak5GbGhfUjFsUXF1aFNIYTVrektHTk5za05yaC1iS3hzTGFyVUdaRGlSUkRMQXhuZ2ZZQ1JMZDhlOXYwS0JqU253SXY4SkIyMmNTSDNEWmpWWmxzRzV6R25ZNXZ2dVI5TmpTQng5LUpocUZ0RldsYXVwSTV4aHprU0JLb1hSME5hZ3oyUmZBMXRFXzNlMzRQbm11dzU3NUFWTWg0WFF4a1EtZXIxSVNLS21JT2FteGlwUjFXZGZwOWM?oc=5",
+      "source": "TradingKey",
+      "published": "2026-10-15T03:43:20+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.25,
+      "summary": "金價反彈至4100美元以上,美國通膨升溫使升息風險重回市場。貴金屬靶材成本維持高檔。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "883053c24ed7b7e6",
+      "title": "股票行情快报：欧莱新材（688530）10月15日主力资金净卖出1649.32万元",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQYkNZeC1Tc3cteEtvaWpwYy13RVhwTV8tdEFNZ2xQXzRUbGFVVC1aMUJZUWtKTWNscXQ0MGJKVkdqX1Y1cUdZdmlrMkRGWks3SzI3dkdJWFVVVXdxYkh2cVIxZVJidHNIbjlsUm1HSVR2YTJLZWdqUWEtOUF3UUJ3NTFON0FPTS1BeUlDYQ?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T12:09:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "靶材廠歐萊新材10月15日主力資金淨賣出1649.32萬元。屬股市資金動向,對營運基本面影響有限。",
+      "importance": 2,
+      "title_zh": "股票行情快報：歐萊新材（688530）10月15日主力資金淨賣出1649.32萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3752c8383440be7d",
+      "title": "格芯獲日資210億美元 紐約州打造兩座晶圓廠",
+      "link": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxPT05ONXlSWi1wR2I2YUNXdjR5VTFfZmItX1FqbThZdDY1aU1Mb0lNZ0JCVlpWckRELWlJMmFoRzB2bUE4bzBDSzVySDFMZ1luZGh6VkNBS2I2UWdnMTYwOHBFaVVOOFJ2dGZfV3hjaklCRzVfdWpva2JoVHlGalFrcmZ2OEJHMWY1aldKM0d2WVk3Q0NFejloZ3VNMmw5SE5sRXFWV042VFo1OFM4U2pralQxWHVXa0x3YW9hTVV4RlAtVGNOXzhVZzFtcHpQQU5kYmJlUy16bmdoSU92eWhQeFlrd3lBR2lhYjlsS1pLQWdkOVhBMlF5TmNzcVFmWjBMU1BsbjcxSmI1cE5tYnNYMUY2aG80RGxQU3VBQzRwaVFseU53UmpWb0pFTllyRFZSTmhsbFFaaVJjYW1UeGxZR3VPLXJxQ0JWUzlOa1MxbHk?oc=5",
+      "source": "商傳媒",
+      "published": "2026-10-15T10:32:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "格芯獲日資210億美元,將在紐約州打造兩座晶圓廠。大型新廠將帶來可觀的PVD設備與靶材需求。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c93fe9f6c3918278",
+      "title": "頎邦闖進AI光通訊！股價3個月飆近5倍、目標價喊365元，秘密武器「金凸塊」是什麼？",
+      "link": "https://news.google.com/rss/articles/CBMimgNBVV95cUxNajVnTDZUdU9RQUlBODRhdlFtVTYxSF9uLTVRVjJCbXVXbVphd3dkZjVoNjg1R1g2Ukl0NHVhQldnMHppVFBiMmZTQXRZRDhaS1RUdkJsQmgtb0o4RUFKYXdFZk5hV2xDSzBmM2czMzFfWW90alhSa2hTcEdRYldxWlhrX1JtWGNrREM3elJaMmNGTGFtRXNsSzcwLXFKb2p0V3h2cjIwcUhDZENFNjNMcVVnX3ZIcWJnTngwYzRqVTBWaW8xSzU3U1IxSDZMMjhmRGtsU3ZHb0N1NHRydHRtUjhQU2RMVG5aYjRmeVU5Tkw3VjBPcno0R1pyYUk4YWJpVGdBdFQxcU5sbmJ5cWFDQTN1azFJelBEMmhtQS1yblZIYW1uMHBqRlBXNHBUOEdkem9SN3dkUllJdUtlZkp5SkpmTnIzVnBJQTA0aDR2X0NzYTR2aTNLMEhVaUdiSkVIMmxDbjVHRFhMOVZNbTBaTDI2cVRPdGhHQVVIVy1STVJyaG4waG9kV3diWE5HdFNxR3FIWnI2bWowUQ?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-15T09:12:11+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "頎邦 (Chipbond)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "封測廠頎邦以金凸塊技術切入AI光通訊,股價3個月飆漲近5倍,目標價喊到365元。金凸塊製程使用濺鍍形成凸塊下金屬層,有利金與鈦鎢等靶材需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c495bfb604e61829",
+      "title": "頎邦(6147)做什麼的？金凸塊概念股，頎邦目標價多少？",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPQ1NveEpiNFB0UWtEVDBWMnU2YTYzWGU0NXRzbHBhMlZIU1hjNHNjODdPZmMxcldIZ3htRWdwaWRGeEw0Q25lRnU5SHFsbEMyRmRKcV9kdFpKdS1vWnREMzZLclZIdVhKY21MRmJqVnVGZTVmUnJDUG9LVC14bDBjZ3BnVGpoQlhlUjcyQg?oc=5",
+      "source": "數位時代",
+      "published": "2026-10-15T09:12:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "頎邦 (Chipbond)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "報導介紹頎邦的金凸塊業務與目標價。可作為了解封裝端PVD與金靶材需求的參考。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c3b4c42dd526da25",
+      "title": "江丰电子，筹划赴香港上市，拟聘立信德豪审计",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQam9CMFc1cW82d3pLeEFCeDIyR3FhOU5OMVRSbkpYMnp0WHVGUmhJem1KbFJra3R4ZGcwZEFqX3MzdjRkaEpLNjIySzk3a2RfdkVqV2tqdDBUNUdaa0t3SzAyV3VPS1VKN0lEdDlXZHhVV3dDSURGbEpYVlVQdU5UbGxseU1zTVo4T3JJVw?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T05:34:09+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.96,
+      "summary": "江豐電子籌劃赴香港上市,擬聘立信德豪擔任審計機構。上市程序持續推進,將強化其募資與國際擴張能力。",
+      "importance": 3,
+      "title_zh": "江豐電子，籌劃赴香港上市，擬聘立信德豪審計",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dfc07564859b515e",
+      "title": "资本注入后，江丰电子在亚瑞半导体单元的持股下降；股价下跌4%",
+      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQMDhfVGV4Tm1hdDNxbUlWajhvS0Y5dG9YOE1uNjdiTUJIeTI5TExIZ294UjhVTC1oZGgxY0Z0WHdIT3ViOHNKdU1DSnF6VE44R2FJSk9haFlDLU8zcEd6WWdzVGpacjFYanhjWkpsVUtDSDVvZUtQZGZ1bC1PSjNWTzVTb3hyb3ViSXYzVFhlUVNyUnlSWThHeEdTOEFqU2RZUFVmUEtjSnJoSG44TVQ2cnZBRl8yQWVrZE9Rd0Y5Tk5FbUM5ZGhwTE9CS3ZyRlVVY3BvTkhOWXh3NGtaSkUwUE9PWlpzQQ?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-15T04:17:33+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "併購與合作",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子旗下亞瑞半導體單元引入資本後,江豐持股比例下降,股價下跌4%。屬子公司股權調整,對靶材本業影響有限。",
+      "importance": 3,
+      "title_zh": "資本注入後，江豐電子在亞瑞半導體單元的持股下降；股價下跌4%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ed62a47588edab58",
+      "title": "加快国际化战略布局，江丰电子拟申请在港交所上市：去年外销收入16亿元，占公司总收入的34%",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBqaHNLTERjTmlzM29IdnUzS0YxUDNka2t5WnMyUGhLaW1veVFMT2ctVlR4bGE2U01CSFE4UU9mQzNQc0lnVWJaRmc1d2M2MzE3RGRjVWF6OTlKT3l0ZWVwSVRn?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-15T04:06:31+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子為加快國際化布局,擬申請港交所上市;去年外銷收入16億元,占總收入34%。中國靶材廠加速搶進海外市場,對日美台靶材廠構成競爭壓力。",
+      "importance": 4,
+      "title_zh": "加快國際化戰略佈局，江豐電子擬申請在港交所上市：去年外銷收入16億元，佔公司總收入的34%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2de1ef9b7b6ef64c",
+      "title": "江丰电子拟发行H股并在港交所主板上市",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9KOHBXb3FwM2JnTzNDMjN6QlcyZ2NHVXRtLXdlSmtWTDdXN1luaUctdTh3WmJPMm1iSUc3b3pKVkhGeEthTGYzdTk0UkFKVHY4ZnpYUVhQRllXT2x1eUE?oc=5",
+      "source": "DoNews",
+      "published": "2026-10-15T03:43:03+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子擬發行H股並在港交所主板上市。募資後可能用於擴產與海外布局。",
+      "importance": 3,
+      "title_zh": "江豐電子擬發行H股並在港交所主板上市",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f5cd9765af94de83",
+      "title": "金價下跌，銀價大跌！原因找到了",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5uUEJFMUlERDhoRE9QYnFPNDFtVnA5UXhSUnA4X0Y1T0diaF9BRDlIMWlxbzRpaVNXSW81MldBVnpsMmNibmVOanB1V3BDanFBa3NjUTVyQ3BRUUNB?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-15T01:30:19+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬",
+        "行情綜合:贵金属"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "金價下跌、銀價大跌,報導分析背後原因。貴金屬原料成本短線下滑。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2ef10fa28e28b730",
+      "title": "江丰电子(300666):独立董事提名人声明与承诺（汪宇）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBYenU3ejhJOWtseVM5WnNwNmk5UGN4NTJqODkzN0hia183VXA4dE1WOERCckFrb1dBWk5CX0hCQWdQbmx4a0dhaHhUa09MQ09LUjNFVWp3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:19+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "江豐電子公告獨立董事提名人(汪宇)的聲明與承諾。屬公司治理例行公告,影響有限。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):獨立董事提名人聲明與承諾（汪宇）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cbb9231cd70f1e19",
+      "title": "有研新材：有研新材料股份有限公司2026年第三季度报告",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQdlNwX3ZCVG5UZkdFRFV6cEl4aXdwbnNoeVJHa0xxZEtJTDZjZTJsZmJ1a2hibXIyZ2tGeDNteDIzWWR2QUZPenZ2WWJiQzM1MEV0Rl9LaHpYQnpvQUQtT3UzX0RtQ2VwUVRnR2liSGlqMkRKX0dvMTgtSHRZUmlQRUFlalhIWU9EbFUteTZRaFMwSExyT3FhenB5TzFyWGxYX2s4WFBB?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-12T16:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.59,
+      "summary": "有研新材發布2026年第三季度報告。該公司是中國主要的半導體靶材供應商之一,財報可作為評估中國靶材廠營運動能與競爭力的參考。",
+      "importance": 3,
+      "title_zh": "有研新材：有研新材料股份有限公司2026年第三季度報告",
+      "snippet_zh": ""
+    },
+    {
+      "id": "10c3b50745879979",
+      "title": "金价银价双双回落，普通人别跟风入手",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1hNkhmdGIyQnNOd0drdjBSbnFlcmw2NHVlQ01KVWpTMFBiWkYxV09BbGFWNEU4Qy1GWDJuSGVPdGY3c1VvVXNwVm5PQTFHdUlWdDJlMGFNTF95NlhCNU5KOFA5WWxMWEF5Wk9oc3hVcXJ4S3c?oc=5",
+      "source": "新浪网",
+      "published": "2026-10-15T10:24:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "行情綜合:贵金属"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "金價與銀價同步回落,本文主要提醒一般投資人不要跟風進場。內容偏向消費理財,與靶材的關聯僅限原料價格趨勢。",
+      "importance": 1,
+      "title_zh": "金價銀價雙雙回落，普通人別跟風入手",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8bf5819b60e857ca",
+      "title": "黃金走勢：美國9月CPI「利空落地」，金價反彈行情或開啟！",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1TYmpjb0k1dnNfelotekUtOGYxaTRMcHFmZ0ZWRXJhWTVqWDNDc1VvQUxTQWVqbDJqMENVaUhyUnNmZ0NmdThrTVpPVjl5SDdVdUc1VVpFcTl3SDB2MlFqZHN6OTZVSDd6Y25ycjRkanJUZElzaWsxYXpn?oc=5",
+      "source": "Mitrade",
+      "published": "2026-10-15T10:14:37+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "分析認為美國9月CPI公布後「利空出盡」,金價可能展開反彈。貴金屬靶材的原料成本恐隨之波動。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c574267f6b4cdce8",
+      "title": "通胀叠加经济放缓，美联储表态转向，金价反转_金市直播",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA4NmNZU1p5U1FMNU9oWXRQcS1lZjdwNFNTQWg4eVZkYjl1eE9NdjQtRjJoMnpyWUJ2bS0tbXo3WVhhaXRXbUY0NzQ3U2xfSkEzZzd6aTI1bmRqRzIweDEyNmRLbm9JZUNN?oc=5",
+      "source": "黄金网",
+      "published": "2026-10-15T08:38:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "行情綜合:贵金属"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "市場評論指出,在通膨與經濟放緩並存下,聯準會態度轉向,金價出現反轉。金價方向不明,對金靶材成本規劃增添不確定性。",
+      "importance": 2,
+      "title_zh": "通脹疊加經濟放緩，美聯儲表態轉向，金價反轉_金市直播",
+      "snippet_zh": ""
+    },
+    {
+      "id": "686047b884afdfaf",
+      "title": "首次打折、机构下调预期，老铺黄金在金价下行期释放了什么信号？",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE44QUdfZTFsVXlTbnFuU3drWGFjTFlqYnQzYnVMVDA4Q0UxN1ZpSHRPY2xiSlNlTklNSlN6aUtmeDVqRmQtQ1B3TTk5WkQ2Mm0yZkZ3dkgtS3NaRkJuOGp0WEFuUEVOZklC?oc=5",
+      "source": "中金在线",
+      "published": "2026-10-15T08:18:02+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "行情綜合:贵金属"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.47,
+      "summary": "老鋪黃金首度打折,機構也下調預期,反映金價下行期間金飾消費轉弱。此為消費端動態,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "首次打折、機構下調預期，老鋪黃金在金價下行期釋放了什麼信號？",
+      "snippet_zh": ""
+    },
+    {
+      "id": "308ca2086daefa84",
+      "title": "国际金价夜间跳水 沪金跌回8字头带动品牌金饰克价下调",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5jQjduM3MwRnVvMFBmSm0yY0lOWVkxVldYZWlOcU1XUFN5ZXQwWERubkFoWU1BaHY1WUM4djM3LXpxbGltYl9iZjY0NHJvSnNOaDNWTzRQYTgtd3doWmhCeWdlREhDUXE4NVBqNHVHUVJzTWc?oc=5",
+      "source": "中华网财经",
+      "published": "2026-10-15T08:02:32+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "行情綜合:贵金属"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.47,
+      "summary": "國際金價夜間急跌,上海金跌回8字頭,品牌金飾每克價格隨之下調。短期金價走弱,對金靶材原料成本略有利。",
+      "importance": 1,
+      "title_zh": "國際金價夜間跳水 滬金跌回8字頭帶動品牌金飾克價下調",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c13960db16874aba",
+      "title": "China gold market update: Q3 ends with strong official gold buying | Post by Ray Jia | Insights",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOckgzTVVVNEdtcjU3d0EtWWVybTYwN0ZuUndKZXRhOUFQMDhMTGROOFVXWTBMb1FuTkVvUktrWmJKUnlfT21lbEFzdVZ2SDI3MHFGdGdOQmNMSG9CZGpzYXJyOWxaeWVmaG5IN0ZvekdDUnczMXJvSGdHWFpTQXlmZ18xZ3ZLNmxqOGNqdUVMcDBodFM3TWJfcnd3cGx3TjlsTFdQWmN3WlBqb3hH?oc=5",
+      "source": "World Gold Council",
+      "published": "2026-10-15T07:52:28+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.47,
+      "summary": "世界黃金協會指出,中國官方在第三季末持續大量購金。央行買盤支撐金價底部,可能限制貴金屬靶材原料成本的下降空間。",
+      "importance": 2,
+      "title_zh": "中國黃金市場最新動態:第三季以強勁的官方購金作收 | Ray Jia 發文 | Insights",
+      "snippet_zh": ""
+    },
+    {
+      "id": "626b96a2f8206cc4",
+      "title": "為什麼「黃金基金」的漲幅比一般金價更有爆發力？3,000元輕鬆起投",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8tZEM0YV91OEc1b2JWdEJNR2hrSUNxZXkxeWV0eGhVc0g2ZlFlaWg0bWx0RkREQndJZ1pHYmNwdWZVR0l0LV9LNS1VQmpJa0Q5LXlCd2ZpSEdueVQ5NmFJUzY4NGRVc0V3YUotSVZKejc5dHhVclHSAVhBVV95cUxQVUFXTVpNcXE3aG43TkUybjZUNXVwN2pMQXAzdUt3b190Zm5KcHVUSWFocVl2alA3RW96QmtuSnVfcGRxWDNHcU5RamlEd3JWSGhacGJBaGRH?oc=5",
+      "source": "UDN",
+      "published": "2026-10-15T04:18:13+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.45,
+      "summary": "本文介紹黃金基金的漲幅特性與小額投資方式,屬理財內容。與靶材產業關聯薄弱。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "885d0b0ee25d97cc",
+      "title": "黃金避險神話破功？通膨超標、美元飆升 金價跌探 4 個月低點！",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBwUUtEOGFkSXZCVzBVaTJLSkZhTXR3N3poRVZmZk5YTkhKMUlNc0lDS19lcmlxdW5fbnoxaElseFp1akgxbGZDQ3NVb3h6UGF4SmfSAVJBVV95cUxQcFFLRDhhZEl2QlcwVWkyS0pGYU10dzd6aEVWZmZOWE5ISjFJTXNJQ0tfZXJpcXVuX256MWhJbHhadWpIMWxmQ0NzVW94elBheEpn?oc=5",
+      "source": "NOWnews今日新聞",
+      "published": "2026-10-15T02:18:11+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.44,
+      "summary": "在通膨超標、美元走強下,金價跌至4個月低點。短期貴金屬原料成本下降,有利金、銀靶材廠的採購。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bc6b6863643f06ce",
+      "title": "Key facts: TSMC (2330) Q3 revenue NT$1.49T record; 2026 capex $60–64B",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNQ1JYZHZ6cVJfM1BCa29VSi1Ga2c1VFBIc1BNWTVtRkdaZTVEXzZvQ2ZXdWhzcWNEMUFFYVRfZlVTZWFEa19UdC1zdXFQUnJTYzFSQUVheFFSQmlyYkdvQjNRb2dURWwyeUQ1NHFkZ3V1WlpoM2ppSGI3VWdMLXRlSGpWVTc3NG5NcjVVWllaVUF4NExmTUVjOU1oS0dXaGdhdGFqMXByVE1HQVV3aW53Z1puYjVpWmM3OXVvNUtuaUhaWlll?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-15T01:00:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.98,
+      "summary": "台積電第三季營收達新台幣1.49兆元、創新高,2026年資本支出預估為600億至640億美元。高資本支出將持續帶動PVD機台與高純度靶材的需求,是靶材廠最關鍵的客戶指標。",
+      "importance": 5,
+      "title_zh": "重點摘要:TSMC(2330)第三季營收達NT$1.49T,創歷史新高;2026年資本支出為$60–64B",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e41aed3a9faa6350",
+      "title": "日美投資案擴及半導體 格羅方德將在紐約州建2座晶圓廠",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA1QlRwQUM5MXlOV0l6VGs4aUloUVl3Sl9YenNNUTVfVTczdDNyMkpmU1JWZmJUalBMMkJ4RHNjUWl0RjZCQklweFplbFpTUTFRWW9Lam5Sck04Z9IBX0FVX3lxTE1TUmlPcUFCS3FKY3U1NGt2QjNLYjRMMG1KQ3Y3QzZnRUZ4UFlxN2pXa1NHUE9QZHRzeUF4ZkNkenZzZzFKUlNKZXlEWDhvZmZ6SzRDVzlNQWltYlhUNEw0?oc=5",
+      "source": "經濟日報",
+      "published": "2026-10-15T04:08:21+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.5,
+      "summary": "日美投資案延伸至半導體領域,格羅方德將在紐約州興建2座晶圓廠。新廠將帶來濺鍍設備與靶材的新增需求,也是供應商切入美國在地供應鏈的機會。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9e6d6660a8b914b0",
+      "title": "日本出資、美國建廠！格芯獲210億美元資金支持，華府還將入股4%",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TcUR0TFNCdV83U3FJVzRJaGpXRWdWSTRFRXFQWlIzTktQbnRnVC1WYnh4Q25CTjl4eVEwM1B2NURTWFZBNnBVNXB6dXhteW8?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-10-15T01:01:04+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.48,
+      "summary": "格芯獲日本210億美元資金支持在美建廠,美國政府並將入股4%。政策支持新廠建置,中長期可望帶動美國當地PVD機台與靶材採購。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8abc2bfe2909a9ba",
+      "title": "江丰电子筹划赴港IPO：上半年净利增113.6%，A股市值约497亿元",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNUXZibk5DQThraGNQejd2cF84bkY5NmlheFpIX1JCM0U1d0QzT3gyak9oQ0QyZy1nZFNIbEgwQmxIa0VOa0pfOEdRZG4wVVNYX1QxdXM3bDVraUtuQkx2SHF3Njg2RTFDZEdVb3lNUW5FOGw2R1NYOEdHRHRYTFZHMEFHUk9IekJCcmo4bw?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T03:43:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 3.99,
+      "summary": "江豐電子籌劃赴港IPO,上半年淨利年增113.6%,A股市值約497億元人民幣。中國龍頭靶材廠獲利強勁並擴大籌資管道,未來可能加速擴產,加劇全球靶材競爭。",
+      "importance": 4,
+      "title_zh": "江豐電子籌劃赴港IPO：上半年淨利增113.6%，A股市值約497億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b3c5946acea58d5b",
+      "title": "英特爾以色列晶圓廠爆炸釀3員工重傷 事故原因待查",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBMQWxobnBtVlJubTNTSndMa2ZBOUhjd3QtVGNtbEVmcDU5T1M4dnhOSU4wdmRIa0hFZ0pSdGRLVXI0UHduYmxBVGJKUnAzRlhEeFB2U2ZWTHBMaEpzb1JGMC02dHRYb21HaGNJ?oc=5",
+      "source": "DIGITIMES",
+      "published": "2026-10-15T02:01:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "英特爾 (Intel)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "英特爾以色列晶圓廠發生爆炸,造成3名員工重傷,事故原因仍待調查。若影響產線運作,可能短暫衝擊當地靶材及耗材的拉貨。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "14feb175de7689fc",
+      "title": "英特爾以色列先進晶圓廠驚傳爆炸、疑涉特殊氣體",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVlNxQzRGVDRRVjAzcEJwRWxPR3hMeEVqNi1oYjhYZWFrYzRIQmFHUm13SDRZNmwwelkwLUFEWG9ETWFBc0ptYnBpYVhkbzhhQlRhd3pMTDhaMnl4UGNBX21vdjl0akdDenBNOTFIM1Z1SzVZc3AtX19ZTEpnc0ZkTHl3STZ6YTlFbE95dEFlWGV0UQ?oc=5",
+      "source": "MoneyDJ",
+      "published": "2026-10-15T01:43:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "英特爾 (Intel)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "英特爾以色列先進晶圓廠傳出爆炸,疑似涉及特殊氣體。後續停工範圍與安全檢查可能影響該廠的材料需求節奏。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "93e11e27f53294e8",
+      "title": "焦點股》光洋科：台積電走弱拖累 跌逾5％",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1FRHktLWRVWHlKQmJJN0hiS1RIOUNXNVlGNTJZV3E2TUpnTDNfZUhGTjlqcVh1QnlWdFRWNlgwbGJiX2xZZV9SaDVVa1Z2eW1SRmx0aF9XZ1E?oc=5",
+      "source": "自由時報",
+      "published": "2026-10-14T13:17:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "受台積電股價走弱拖累,靶材廠光洋科股價下跌逾5%。反映市場將光洋科視為台積電供應鏈,股價隨主要客戶的評價連動。",
+      "importance": 2,
+      "title_zh": "焦點股》光洋科：臺積電走弱拖累 跌逾5％",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9bf62452666e732d",
+      "title": "1785 光洋科 - 營收數據亮點 單月雙增：9 月營收達 50.78 億元，月... - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE82T2M1Y2FUclB4NXN6T0FrUkd0NmU3QTZhTUpSUVBvLWJLRHZrbUJiVElnY2kwQXkwbWRjZjFGYm9rVUxVVWJ1SGVIaVpKTk4waVZMMmxLVDU?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-09T11:21:07+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.18,
+      "summary": "光洋科9月營收達50.78億元,月增、年增雙成長。顯示靶材與貴金屬業務出貨強勁,台系靶材廠營運維持高檔。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f6db4e83aa23f4cc",
+      "title": "討論牆| 頎邦(6147)8月營收連兩月創歷史新高，毛利率從15%谷底回升至30%、矽光子金凸塊接棒",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE14dVlyelM3NzBqejR4Rk5fb2JjeWJGc2JTeUhMMDd3Y2xnZmhNWmpSYWhtb3RjLWNSdFZJclVXU2F5bkRrTWs3WGtMQUREaG1yellpanNnTjN0Nm93eWJwQTZQOXM?oc=5",
+      "source": "LINE TODAY",
+      "published": "2026-10-08T19:47:13+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "頎邦 (Chipbond)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.09,
+      "summary": "頎邦8月營收連續兩個月創歷史新高,毛利率由15%谷底回升至30%,矽光子金凸塊成為新成長動能。金凸塊製程需要PVD,可望帶動金靶材與相關靶材的需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6588d3f4df232be0",
+      "title": "欧莱新材：10月14日融资买入2053.74万元，融资融券余额2.44亿元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPb3ZYM3gxWUVMa1NpRHhfOVg4a2dDTjJsTFpYbWhGZE93YmZtbi0xNjdkY1RfWU9QVEU1VDdodkNYR2M5RkRGVERBZ1Q0V0RIcFpXUGZ2M1pwd192Q25ESjdLS09qcmU1OXp0Z3JLMXd0aE1UM3NZUWppS1FXSUlyWGZoN1RhS2x5?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T04:32:47+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "歐萊新材10月14日融資買入2053.74萬元,融資融券餘額為2.44億元。屬中國靶材廠的股市交易資訊,對產業基本面影響有限。",
+      "importance": 1,
+      "title_zh": "歐萊新材：10月14日融資買入2053.74萬元，融資融券餘額2.44億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7a2355e3349126b5",
+      "title": "【11:01 即時新聞】鑫科(3663)小漲守在近月高檔，FOPLP與半導體靶材受關注",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNnRjRHpNVklycmFjRzZBUXNGM1plY0ZRYV9KcVZiZmhHenFvZnVsTU1WU0RURHZnemtBUWlDR2Rsc0h2c2ZJWUxTa3lGMHNaaDQwUzRjVkVsbFdidlJ3WGZmU2RqbVFyeDk2SE44TzZ5a21HRGlIUFphR3dscWs5UEk0RUxUYmMzYUhURnhn?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-15T03:01:33+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "鑫科材料 (Thintech)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "鑫科股價小漲並守在近月高檔,FOPLP(面板級扇出型封裝)與半導體靶材題材受到市場關注。顯示先進封裝PVD需求帶動台系靶材廠的成長期待。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "50b9920416a3f969",
+      "title": "有研新材：控股子公司是长存控股靶材重要供应商",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOai1yTjdScnVUVHRBM1N5cjZRdjFoeXV4SEw2VEM4T1VZWFV4ZnFEU2U1eVp3dndyQTB0SnRhMGttc0IzNjJGTnBwX3VXU3RxdnZDUjczM1NpQXU3bjA2enNlUjdKWl92QUI5Mk9sTTRGODRjLXRUdDc0ZThmV20yQU9ZS3RJbVM2cHM5MTg2Q05tREVEdDJGUTJFM3pEQVJaN0JnN2E3b2pGWWo0MXRFemtXaUJORGdENU44Z1Ftcmtwbm9BcEVJWm1fbm9oYXc4ZXpMYWZn?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T02:26:18+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "有研新材表示,旗下控股子公司是長存控股的重要靶材供應商。凸顯中國記憶體廠擴產帶動在地靶材供應,外資靶材廠在中國市場的份額恐受擠壓。",
+      "importance": 4,
+      "title_zh": "有研新材：控股子公司是長存控股靶材重要供應商",
+      "snippet_zh": ""
+    },
+    {
+      "id": "95355c97898ca7cb",
+      "title": "江丰电子拟发行H股赴港上市",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5ReHZFdktxaVlXX3FyWFhrLU1BUjJPX0dGZ3NGOUU4OXU5WlVMSUFnODlQV0s2UUxyWW8yVlRnUC1EYjluSnMydjI1MFlsZFVxSVdidXpqNllxVlM5VkFrc2pkOUNTdw?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-15T01:14:24+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "江豐電子擬發行H股赴港上市。擴大募資有助其靶材產能與海外布局,將強化與日美台系靶材廠的競爭。",
+      "importance": 4,
+      "title_zh": "江豐電子擬發行H股赴港上市",
+      "snippet_zh": ""
+    },
+    {
+      "id": "33c3f75a3734203d",
+      "title": "GlobalFoundries將在紐約興建兩座晶圓廠，獲日本最高210億美元融資",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5iTGM3b2tQQ0ZZcGZnTmNBZ2NBUEVudm93OEhWYXhiekhOLWNBeHkxSlJVckp5enA1MFNmbXlMeWxIQ05mZTVBTnZKSnlpTUhXcEtCZE5PQnA?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-14T20:22:27+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "GlobalFoundries將在紐約興建兩座晶圓廠,獲日本最高210億美元融資。新廠建置將帶動濺鍍設備與靶材的中長期需求。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "46f6218979790e60",
+      "title": "江丰电子(300666):独立董事候选人声明与承诺（何建昌）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5RelJkdDcxR2dXU0c2ejhGZmMtVEl3b3FXSGY4Sm9WaFRXWDRwX0ttWnhOazFzMjB5QkRjVm04dE81TW9aZEE1YUR0V2NyY1VCOVk3Y0Zn?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:20+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "江豐電子公告獨立董事候選人何建昌的聲明與承諾。屬公司治理例行公告,對靶材供需影響有限。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):獨立董事候選人聲明與承諾（何建昌）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "39425b39faa7805c",
+      "title": "江丰电子(300666.SZ)：筹划发行H股股票并上市相关事项_公司新闻",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBUWlhjSmRTdUowdjlfMVVFamtaSjhxVy1NRDVsMF9waEVBS3cydzUzWkxRMm04Z0xQaVkxblN3RnY2R1VzOHg2YWdWUGlZTmNJemJ2S004TFJLMDBjelRBVG9n?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T13:20:18+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "江豐電子公告正在籌劃發行H股並上市相關事項。此舉有助其取得國際資金、推動擴產與海外拓展。",
+      "importance": 4,
+      "title_zh": "江豐電子(300666.SZ)：籌劃發行H股股票並上市相關事項_公司新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "350cd5b80c88d5a4",
+      "title": "(株)フルヤ金属【7826】：株つぶやき",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBfNEpULWk2WUI4TGJqVzlNVlNDUzFKUDkxc2lkeTJ6ZHpMNEdGSDQ4TlpXLXBGNk5uU0drQUkzVkNBUlM3Y1Q4cmt4dUs5TWJRb1hzVnB3WXg?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-14T01:20:09+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.84,
+      "summary": "此則為古屋金屬(フルヤ金属)的投資人網路留言討論區,未提供實質營運資訊。",
+      "importance": 1,
+      "title_zh": "(株)Furuya Metal(フルヤ金屬)【7826】:股票留言",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3ef5f5f0cf0de43d",
+      "title": "JX金属（株） 常務執行役員 先端材料事業本部長 諏訪邉武史氏",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VdGhtSTlpUk9xR1E0a29XYWpkbUpsaWtQSXhCd2Z3SEYxaVNmTVVWZVJ4d3A5OU84WEhGSnAxc0FtZ01uRVFYcm45Yko5VmJPS0lOOHlwa3VQNFRXRWc?oc=5",
+      "source": "産業タイムズ社",
+      "published": "2026-10-09T05:30:13+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "產業動態"
+      ],
+      "score": 2.15,
+      "summary": "日本產業媒體專訪JX金屬常務執行役員、先端材料事業本部長諏訪邉武史。JX是全球靶材龍頭,專訪內容可作為了解其靶材策略與技術方向的參考。",
+      "importance": 3,
+      "title_zh": "JX金屬（株） 常務執行役員 先端材料事業本部長 諏訪邉武史氏",
+      "snippet_zh": ""
+    },
+    {
+      "id": "370dd22e4c925614",
+      "title": "台積電、三星布局見端倪 艾司摩爾「晶片設備搶購潮」喊2028年擴產再升級",
+      "link": "https://news.google.com/rss/articles/CBMirgNBVV95cUxPWWlWTG1ENzlUbHVYLXpGenBPXzJMUG0wTk8zYnFzMTZ3X0FmNGxtbEpyamdKYWpfZUMxUE9ERmkxS3NIcmlPOER0eU9xdTF1bUdZY0xKMFBkNFRnTXJZVEdQcDVraHhaeTZqZDBNdTdWQ3FaRmZwN2dfQjczWHZlRFEyNUwxYmRqVFR5bjRsUC1oT0ppdnVVNmo3dEIxRDBiVC1XbGNmbm05d2VKZVFQMWJkbnlOSVlyLWdHQzFneG9TUXRjZkc3cUptREdUVXVTRDg3Z1FZd2cwbW9LWU10aEdqX19fSEdOdlNjUVFhdWpMcm10TmRRbVRTMGlpTFVtY2lnMnJfWXhxcXVfaWlXT1VvQktnN3BLTkNvU0JWMkJFU1lNa1V4bkZFaEhzcy1PT3ZHRWZwek85bHREQ1BiREE0ZVQ5V3hXamxOcEkxbllrRWtZNVgzUUhvNVFScERqQWNOallzWDl0Vm9oU05SMURJd21MYXE0dG5SSVp5N3BTZE4wd1B4WC1KTzl4OWotaG9Gd0twT3dsQjV6cXlSV3FkSEc1a1pNYUpZUzZn?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-14T10:56:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.42,
+      "summary": "台積電、三星的擴產布局逐漸明朗,艾司摩爾指出晶片設備出現搶購潮,並表示2028年擴產將再升級。晶圓廠擴產將同步帶動PVD機台與靶材需求。",
+      "importance": 4,
+      "title_zh": "臺積電、三星佈局見端倪 艾司摩爾「晶片設備搶購潮」喊2028年擴產再升級",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7163097b4a430125",
+      "title": "SK Hynix reportedly delays orders for some HBM4 back-end equipment; will capacity expansion be affected?",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTGJFSmxXNGpCaU1PMjdtNzBlU0VHdXZzYlItbXBjTGIzdTUxLVlDMngyUDFJcTR2TDJNcmt4Vjh6aEtPUm9iSGRkb05TRkFpMUdMZTU3MWJTUC1VQUNldTBVdFBncURJVWktVFlmLTByNGNXSmxHZEVYWkZWamtzMVhDSXRrY3Z1Skk4U3BGTl9YTlpiMmROVXFJYWdGYk41dmc?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-14T09:10:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "擴產與投資"
+      ],
+      "score": 5.41,
+      "summary": "傳SK海力士延後部分HBM4後段設備的訂單,市場關注其擴產是否受影響。若HBM擴產放緩,可能壓抑先進封裝PVD與相關靶材的短期需求。",
+      "importance": 4,
+      "title_zh": "傳SK Hynix延後部分HBM4後段設備訂單,擴產計畫是否受影響?",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6684f2be73919b5b",
+      "title": "日月光獲利大增，AI封測擴產背後的現金壓力",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBaT0pGTWdtZ2pDLVBIMDNjWkVUU0dEekVULXQ3OW5XYTU4SjZzQUhTX3JhQXNYclFPRzJ4NXBSUXI0QjlPdEwwYklWTW9EQjNiZDVJZnpCcmFpN0NSTlVPVmNkcw?oc=5",
+      "source": "口袋證券",
+      "published": "2026-10-14T07:17:25+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.4,
+      "summary": "日月光獲利大增,但積極擴充AI封測產能也帶來現金壓力。其先進封裝擴產將帶動凸塊、RDL製程所需的PVD機台與靶材需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8e8db82a1e7284b5",
+      "title": "日本出資、美國建廠！格羅方德獲210億美元資金支持，華府還將入股4%",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBENHRrbjJadURUMUd4Y1R6Nnp0VWR4UXBFSmI4TzFxOG1uWE9vblVnb3I0TlRwY3dtQW00dnprQkplVi1qak5SdVgyS29jT1RGLXlnSDVn?oc=5",
+      "source": "優分析UAnalyze",
+      "published": "2026-10-15T00:48:05+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.5,
+      "summary": "格羅方德獲日本210億美元資金支持在美建廠,美國政府將入股4%。美國晶圓產能擴增,將帶動當地靶材與濺鍍設備需求。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5a58d9e7294bc639",
+      "title": "GlobalFoundries Eyes $21B Japan-Backed New York Fab Expansion",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNzNWdjcxc05IMWFwUVRaZXRMYmVLMTN5VmN2U29ZNWtJdWt3LWRBQ1JkNENIMVVqTHAwdnR3cXJWRDNzNTJpa0hta2RFdlNKUlhmWU1DeHJfQkJmNjV0RnJrV0ZjNlJqT25Sd05ULUJWaUlHNkl0S3FVaGRGaG0xc01US3owYWFYOVdRNm5oSlRzeHNWLVppTHprbmxBMkU?oc=5",
+      "source": "Yahoo Finance",
+      "published": "2026-10-14T18:02:35+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.46,
+      "summary": "GlobalFoundries規劃獲日本支持的210億美元紐約晶圓廠擴建案。新廠將成為PVD設備與靶材供應商的潛在新訂單來源。",
+      "importance": 5,
+      "title_zh": "GlobalFoundries擬在日本支持下斥資210億美元擴建紐約晶圓廠",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fe72083c63b9fc5b",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司投资者关系管理制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE03VW5kRGVzdjJTNmQ1MzVmelpvMm5odVZYUnlNa1h1WXVfcTZOQWE2TkVtcDAwXzJ2VlVGSXY4Ml92SWlwQ3BrSGMtN2JqYWNOME1pZ1hJdmlZSy16RmZ4TE1ZMEtVR0pGbHdj?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:02:02+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資"
+      ],
+      "score": 4.45,
+      "summary": "江豐電子公告H股上市後適用的投資者關係管理制度草案。屬赴港上市的配套文件,對營運本身影響有限。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司投資者關係管理制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f2d306a4aa7003f2",
+      "title": "格芯紐約建2新廠 獲日資210億美元、美政府持股4%",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9aTnkzM1gzRkIzbHQzT25heURtUkhUTlRjSlBpVkJWX2NCTmx3X0FRN185QUFfX3ZMTnRfUldYOENUWmFpOFNram5OUzhTbUZwMHV0bFhhMUlzUHc0em55Y1IwcDlLOU3SAWdBVV95cUxPWk55MzNYM0ZCM2x0M09uYXlEbVJIVE5UY0pQaVZCVl9jQk5sd19BUTdfOUFBX192TE50X1JXWDhDVFphaThTa2puTlM4U21GcDB1dGxYYTFJc1B3NHpueWNSMHA5SzlN?oc=5",
+      "source": "世界新聞網",
+      "published": "2026-10-14T15:24:21+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.44,
+      "summary": "格芯將在紐約興建2座新廠,獲日資210億美元,美國政府持股4%。新廠將推升美國本土的濺鍍製程材料需求。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "273f19fa50f3e59d",
+      "title": "美政府將取得格芯4%股權紐約州新廠將獲日本210億美元| 全球財經| 全球",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9GY1FhTVc3MWZ5aXdTRG13RGtMUjdfVWFWNDZHUno2Z2N5Mk03RTBsdjNza1BUREVob2NfeEFHV2R5cFUxYnVzLVNKdTN4WFdzcEJOOXZGdzNpMUlza0gzcjZndUlqRUxxNk56bV8tdzNwR2R0cnJXY0doRQ?oc=5",
+      "source": "UDN",
+      "published": "2026-10-14T13:59:50+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.44,
+      "summary": "美國政府將取得格芯4%股權,紐約州新廠將獲日本210億美元資金。政府資金背書提高建廠的確定性,有利設備與靶材供應商的訂單規劃。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "401396f109c58fdd",
+      "title": "日本擬斥資最多210億美元助格芯在美建廠 美國政府將持股約4%",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1qRThTTkh3cVVUZWlyWFR2LVdRQTJhNzNHR2RkTDA1d250V2wxTVJuV1RnNld5Q3RwV3psd1hKN19rT2Ria2NsZzZSWjU0czdjc0g2djl2Zkl2Q05KZkJvU1ZhQU50UHBCT2c?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-14T12:51:30+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.43,
+      "summary": "日本擬斥資最多210億美元協助格芯在美建廠,美國政府將持股約4%。將帶動PVD機台與靶材的新增需求。",
+      "importance": 5,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7d013f3455fcfc35",
+      "title": "華邦電突發重訊！累積砸16.7億元買設備 擴充生產產能",
+      "link": "https://news.google.com/rss/articles/CBMi1wJBVV95cUxQR3VhaVBYZlR3cDRLbV9pZ0NzemE5NzdxdGF2cERzeFJyTVd2SmUzNHRrZFlPWnBYaHdrUWFaZ1k0b1p5WldrT2RpQ3o0dlN2aWJxTkRzTXFjQm41UVlMQ1FfVXlKNjVZUGw4VkRaSlNtMWFsclM3SEw3ajdwcFZMcllkU2ZtNUpmZG9ZUkNsTkZIekIyRlg0QVY1bnVlaERCUGpMNXZvSUpBN2dJMnhuaTlpSnJkclBZaDB3SlhqT05hdmVWY1loQlFraENLMnU0SE9OaGFxbkphRE9mQmtTOTVfOG9jdG9GSk5Cb2pPWXJVY1gzaC1fcl8xSV9FNm5vQTAzY2JzNVM0ZE9wUzdQQUpEUF9sYkJCZm5XbnVQNE9EQ213dWd1VXh5Y2FJSnpteW14NDZLNmE0VUp6SjktdXJNM21PYWNlU2tKYVdiOVh0QU5ibXlZ?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-14T11:15:04+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "華邦電 (Winbond)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.42,
+      "summary": "華邦電公告累計投入16.7億元購置設備以擴充產能。記憶體擴產可望增加濺鍍設備與靶材的拉貨。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "efef2fb91d01b172",
+      "title": "中國擴產免驚、設備交期限制供給！南亞科李培瑛看供需：產能全被長約鎖死 DRAM還是缺",
+      "link": "https://news.google.com/rss/articles/CBMi9gNBVV95cUxPc2djZVRJWHh1N1M1TWZ0TGxRd2FYZTRHWnYtNlNIYlVqa29SaVpBR2xPYktKLUNIR25pUXBMRjRJWkR5M0Q2aHZLbjBjQ1Y1UXphN3BBQXhXYUo0aWtTemYtcGtHV2tuT1ZqY2pCYldKWW5fNEFsUy1SRWxFbTNPZmZaNzVLSW5la19pNUE3RWxLMmF0cDByc05aa01wNE9PUlZ0VmVQTUJ6ZU55VDU1YXZDSE1GTVJsRlRnZkQ0a2pmMVRWTXhFYTdVaHJNMXRHYV94YWtDcDNDeXVOdklrT0ZpeGFaSFBHX2NhVlVuZlF6MTJkU1ZvUXp0ckdSNW42ZEdwTUFOMXRmNUo3enJ1dTYtVTlBX1ZyNW94cFhqSWdybms0amZMa283cnh2Z3JNRV9xbXNuV0syMEVlXzVTV0dhOEd1WXk1UnhXRW8yU1lTNXFZczlqRzctbDc5UmN3cVhLZXRxVVJjTFE1N3BYcjV3WEtfdDdCWmNMV1Y0V2poMDRFMHBBbzItSHVONTJ6WE1NTUM4WGlBQV93bkJ5NVlmamR5b2t3b3R0Vk9BMGJYMXpHdkRodnE5Y1RlMzlKU2lxTEwyNjREQUVQaDM1VjdhRVdaVUNMSl8wVzVqX3NJZ3JZYmZVei00bFg3ZmlBaHJYNXln?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-12T08:12:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "南亞科 (Nanya Technology)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "擴產與投資"
+      ],
+      "score": 4.11,
+      "summary": "南亞科總經理李培瑛表示,不擔心中國擴產,設備交期限制了供給,產能已全被長約鎖定,DRAM仍然吃緊。記憶體廠稼動率維持高檔,支撐靶材的穩定需求。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "457cc95d5ca3550e",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司反洗钱及经济制裁管理制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8yVDVTU3pmSXQtSGVRLTJkRjZRLWRrRXBtR2otTUZMS3h1UmNiMU1xNDdxTXlHTXg5ODAwZ1RxN21obmFOdFhzZzc5TmVkT1lxakQzTFJB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:57+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "政策與貿易"
+      ],
+      "score": 3.93,
+      "summary": "江豐電子公告H股上市後適用的反洗錢及經濟制裁管理制度草案。顯示其因應國際上市與出口合規的準備。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司反洗錢及經濟制裁管理制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8aef6951e0d1d396",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司董事会成员及雇员多元化政策（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wc01ycGQ0QXBKZHRjcHlMVDFOZkp4ZHBBRFFPTXhRSXY1bWtZclRZUF82X2RESEQwNTcyR0ZUSmxabDEzTGp3TWNWT2szd19aQ2pvOEZB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:55+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "政策與貿易"
+      ],
+      "score": 3.93,
+      "summary": "江豐電子公告H股上市後適用的董事會成員及僱員多元化政策草案。屬公司治理文件,與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司董事會成員及僱員多元化政策（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4c6e8374a5ab8b88",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司股东通讯政策（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE95RDZZZ2dZQkNfcUN4OWg3aDRhTUp1ZlBDQjk4bGRBZDU1RlV0NmxUZ1hEODIyaHA0N2VrMGtVQjlkMm1nbVc2aklZX1lTV1ROUDdlNmV3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "政策與貿易"
+      ],
+      "score": 3.93,
+      "summary": "江豐電子公告H股上市後適用的股東通訊政策草案。屬赴港上市的配套文件,對產業影響有限。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司股東通訊政策（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "49da0a8fed2668c5",
+      "title": "江豐電子(300666.SZ)籌劃發行H股股票並上市相關事項 作者 智通財經 - Investing.com 香港 - 股市報價& 財經新聞",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE01cVFSeVZDdWlJODVlUVNkdEpnNUh0bVh0SDV1WFVuVmtJRDBtUHdzUmNVbldYNHZmb0NJVEU0Ui1rTk5QSlNSZ3RRbkJlVkRKbkIxQnI3MXBScmt2TjNtR3FfaC1EdlM5RER2Y2ROVFI?oc=5",
+      "source": "Investing.com 香港 - 股市報價& 財經新聞",
+      "published": "2026-10-14T14:22:28+00:00",
+      "snippet": "江豐電子(300666.SZ)籌劃發行H股股票並上市相關事項 作者 智通財經 Investing.com 香港 - 股市報價& 財經新聞",
+      "edition": "zh-TW",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "原物料與價格"
+      ],
+      "score": 3.74,
+      "summary": "智通財經報導江豐電子籌劃發行H股並上市。中國靶材龍頭擴大國際資本市場布局,未來產能與海外競爭力可能提升。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7c75f4295896f106",
+      "title": "世界先進大擴產2／暫捨矽光子拚邊緣AI 世界先進董座方略揭真相",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53VC1ISzBoRG8yRzBuR1dFZXVmbmFfeE4tRUdkYUtVbEVRTEtBaG50Y29ISmh2RU5HeG5VVm1kR1JtS3hQajdZZm1RNXh1YldwRXVDU1NiMm0?oc=5",
+      "source": "鏡報",
+      "published": "2026-10-08T07:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "世界先進 (VIS)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.54,
+      "summary": "世界先進董事長說明擴產策略,暫緩矽光子、轉攻邊緣AI相關應用。晶圓廠擴產會帶動PVD機台與靶材需求,值得靶材業者關注其新產能時程與製程配置。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ff4fe782a1151beb",
+      "title": "有研新材（600206）10月14日主力资金净卖出5.81亿元_主力研究",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1fWEFSbzBLMFZNT25qLU9VVzB1MGFUS0VjWWxmajBTSXVPRWVtQjRGM3dPRVIxRUFnSDNEQXlqdjkzWXFfOEJkZFBTT2tFYmNiQ1BFTU00bnFVWGlXOTl1Ug?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-15T00:24:30+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "有研新材10月14日主力資金淨賣出5.81億元人民幣,屬股價籌碼面消息,與靶材供需無直接關聯。",
+      "importance": 1,
+      "title_zh": "有研新材（600206）10月14日主力資金淨賣出5.81億元_主力研究",
+      "snippet_zh": ""
+    },
+    {
+      "id": "42b79e91d7248793",
+      "title": "欧莱新材：融资净偿还1085.19万元，融资余额2.44亿元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9JaWoweW1oWHRHRVNaa2VKSzliVFlhbjlpanFuVGE0RVdlTk5qbURvamUzVEtNMEFjV25jRXJhR3NidTFFWHQ5NjRwQkRYNE52N3F2M00yYy11VGJMRmxDRVllSzdOQQ?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-15T00:07:53+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "歐萊新材融資淨償還1085.19萬元人民幣,融資餘額2.44億元,屬股市融資融券數據,對靶材產業影響有限。",
+      "importance": 1,
+      "title_zh": "歐萊新材：融資淨償還1085.19萬元，融資餘額2.44億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "43dd0bb72860eed7",
+      "title": "「誰か1人だけ赤字」ではバトンが渡らない JX金属×経産省が挑む重要鉱物リサイクル、“もうかる仕組み”どうつくる？",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFB4YXctMGpmZ1o0bWhpYzVQR3AzUmM4WVFPeVlZMUg0dmZidjlUdk15YXVabE5oLXV2ekZOSklhZHZFZ3BOanRlLUxnUk55bzNVQ2tkbUI4ZW1HM0h5cXpQemk5QjlJMnNJMkVVQ3ROVFkzdw?oc=5",
+      "source": "ITmedia",
+      "published": "2026-10-14T22:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "JX金屬與日本經產省合作推動重要礦物回收,探討如何建立產業鏈各環節都能獲利的回收機制。長期有助穩定靶材用稀有金屬原料供應,並推動靶材回收循環。",
+      "importance": 3,
+      "title_zh": "「只要有一方虧損」接力棒就傳不下去:JX金屬×經產省挑戰關鍵礦物回收,如何打造「能獲利的機制」?",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6b3bc0b23135194d",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司高层人员持股变动管理办法（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1TLURYV0czNURrWUxEVXhSS0FWOFRhOXJ5bGRzMUNQWGViMkktSGJqVXVpcGhKRHp3dXl3dDhFakFZYmxjaEFSZWxCNFZmWG14MGYtUGZjcmJiYXVtNTdIV3lIcHUteDE1NTg4?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:02:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的高層人員持股變動管理辦法草案,屬赴港上市配套的公司治理文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司高層人員持股變動管理辦法（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ff670eb07adaa36c",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司信息披露暂缓与豁免管理制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9PSS0wOUhqZjVqWDlLVDZpV2J0dlhNc3VwOElkV2NlaDg5X2V0ekNXZjNYR0JYbUE2UWdrR0VVSUI1Y3BMaGNhUnhSV0RSWk5rRkJNck50ZXdLalNhN1c5dUhrb3VXak5BRWlJ?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:02:13+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的資訊揭露暫緩與豁免管理制度草案,屬赴港上市配套治理文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司信息披露暫緩與豁免管理制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f1da9c2330a8860e",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司内幕信息知情人登记制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1TMkRndkM3U21HS1YzY2dURG9MWnllNkd6emRFWHpNcldhYlFQaFV0NXpmN2NNLVNLOEk3d044d3ZmM1JQT25IVzRtOXZwdEVVeGVnSVNfQjduSlFfa3hocVBnNENKd2RDSkRj?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:02:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的內幕資訊知情人登記制度草案,屬上市配套文件,與靶材營運無直接關聯。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司內幕信息知情人登記制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "794636985497c752",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司累积投票制实施细则（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE92TjFxWU9LTU1pUVJMdTRPQ1hldUdtakM0UjFVUkpjMGctZnMwcEIyYUJwemFkVE1CbVdkdFZyc2dKUzhKQlhFZjBkcXlsZ3pNYVVnZ0lTUHM3X2p0LXhSZWF3eFc1X09Bemhj?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:58+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的累積投票制實施細則草案,屬公司治理程序性公告。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司累積投票制實施細則（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1beb0bc4e467268e",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司境外发行证券及上市相关保密和档案管理工作制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9CYm9GMGpUQjhBVVBYWVZJOEJsZ0cwRkk5VV9kOW1sTnp0aEFMZ0gyY2J5eU9HVVRSM090MW1oaXZlbnNIck9mN1pzNC01VjFEWEtId1R2czNLSlpTbVk5cGdxQ0RlZVJEZ2F3?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:52+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布境外發行證券及上市相關保密與檔案管理制度草案,為H股上市準備工作之一。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司境外發行證券及上市相關保密和檔案管理工作制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "41645776c062c60a",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司会计师事务所选聘制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5ibkhsb3ZZd2xDdVZjS2V3bmhyeVE4Rnl2MGJkdVVjb0xzOHVQazZGaU5TN1pfNDF4MGJ4VzBjeGdCRWdaRlBVX2dGRlR2RVN0bzZlVTZ5dTY1OHBYenlVaFVzMlNiX2tiVHdR?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:50+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的會計師事務所選聘制度草案,屬程序性治理文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司會計師事務所選聘制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1824181a1d661a2d",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司关联交易决策制度（草案）（H股发行并上市后适用）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5fS2plcnBNRTBQOUw0cGhpN3U5cUIzNWRxVGxPOGU3ZXdaNlJXOXRHM1VtZDNnRWJ5TzR2Tmk2TkxLaVdWVEU3SDFhQXc4VUZVSWY2Rmc5VE93Z2ptdUYteHhKNjB4LXFHekQw?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的關聯交易決策制度草案,屬上市配套治理規範。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司關聯交易決策制度（草案）（H股發行並上市後適用）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "de1f7af28aa76bc6",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司对外担保管理制度（草案）（H股发行并上市后适用）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5TdjdLR1lnMy1sYm1MZ1lpS1pMbW90TnJOWVUwTXlGUFFRWEI3XzNrR3dUZG9XaTBtR1ZvaEowNlB1YUdLM2dyTk9XSVRJR2h4WTBSbTZZSjFTMGo0RFFsdjVEUDRHaTNhWFNZ?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:46+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的對外擔保管理制度草案,屬程序性公告。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司對外擔保管理制度（草案）（H股發行並上市後適用）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "90abc2c8ad3cb464",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司独立董事工作制度（草案）（H股发行并上市后适用）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1WS3ROYUtoS2FiT2tfREhUWGpXUG40bnZWQ3ZXNDhrRHR2QWVKZFZIc256N0g1cWpDaEtTX3kyaURvSmZhRC11ZFpzSmFjZXo5SlVPRm9xdDNsYy1obXBuOUszSzBHallicjlF?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:44+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的獨立董事工作制度草案,屬公司治理配套文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司獨立董事工作制度（草案）（H股發行並上市後適用）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "95c2e4f0867c9c3b",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司董事会议事规则修订对照表（2026年10月）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9uRUtTRUdVOUxqUEkwX3ZxUHZXczQ0LVB3Y1FIMUxRRVVoZms4eXNkTm1YaFdQekVGZzVMREY4YjNhTkJfNjNTZWd6WTlmZUxGVVJRUGo4LTFROGRLS2ZWTFVkYmdfYk5RUzRJ?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:40+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子公布董事會議事規則修訂對照表(2026年10月),配合H股上市調整治理規範。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司董事會議事規則修訂對照表（2026年10月）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "57f5813b67cdaa95",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司总经理工作细则（草案）（H股发行并上市后适用）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5rdmlPbFkwMnRaLUtwbkhTVEVYQ3hnNWg0NjRGcVJORThkems4VXR0T0R1SVlad1FJcnNYZEFNYndwbk9NM2R4bWhhVG1aa01MemthTzlaY3hNVmZDUWZIeHQ2aEF0NlpLX2VJ?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:39+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的總經理工作細則草案,屬程序性治理文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司總經理工作細則（草案）（H股發行並上市後適用）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "aed3b476bf501478",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司董事会议事规则（草案）（H股发行并上市后适用）_公司公告_每日必读",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAtYkxqZ0tLcDVVX2doN21fR01xLWNhbW1wS1d6VGJuUllmY1F6OENSZkZWYmZzSmFUMUhISExQRDBPTFJuc3FZcjhvSkV3bnFLRXZzcDRvSC1uOG5kNThIeS16MkJUNk5UMDhz?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:37+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的董事會議事規則草案,屬上市配套文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司董事會議事規則（草案）（H股發行並上市後適用）_公司公告_每日必讀",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b144e47a264dd48a",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司董事会秘书工作细则（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBDVkp6ZUNQSWpsTmVwS0dWZ282OVljS1hTcGlTNV9ROVJrdExOdHVNMmRZdVotQjFpQ0k1bkRXQ0xnMXVaU1kyOU5IWTRjSFJRdnMwRERhb010VXZhc19zTFNLeHNXUkdOMU1B?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:34+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的董事會秘書工作細則草案,屬程序性公告。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司董事會秘書工作細則（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dbbe1b7f81da1624",
+      "title": "江丰电子: 宁波江丰电子材料股份有限公司董事会提名委员会实施细则（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0ydGQ3bjJrYWV5Q292NDRnQkVoS2o1bVQtSzRRaDNic0RWVEkxRnQzc0psTzBEbFBGZGdKMHJ3b1JUVG9XWmh4Z3FBTDY0a045YU00ZUJIdldvbm1HamYwOVVRRHM4enBzalJB?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T17:01:31+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "江豐電子發布H股上市後適用的董事會提名委員會實施細則草案,屬治理配套文件。",
+      "importance": 1,
+      "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司董事會提名委員會實施細則（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c69d5cc7b159d23a",
+      "title": "半导体靶材龙头江丰电子筹划H股上市，去年境外收入超三成",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vVHhtb1hQTVJ0ZWU3UDhCbkNodXpJckQ2dkVncTVCVXpsLW82ZF9mMHVBWGU1Y01LSi1ON2VWSXNiNU5hRjJrOGc1RmZPZ2FYbHc2bktXSnVNSWZIMHRZUG9KeFl5QQ?oc=5",
+      "source": "https://www.mrjjxw.com/",
+      "published": "2026-10-14T15:29:05+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "中國半導體靶材龍頭江豐電子籌劃H股上市,去年境外收入占比超過三成。赴港募資可望強化其海外擴張與產能投資,國際靶材競爭可能加劇。",
+      "importance": 4,
+      "title_zh": "半導體靶材龍頭江豐電子籌劃H股上市，去年境外收入超三成",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b3d9919158faac1e",
+      "title": "美股異動丨格芯升超6%，獲選在美日半導體合作計劃下運營兩家晶圓廠",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9TcGlWNGxiaC1ZMXJfaHVRTUxBTWN4X0dVYWpxUERoRGVmeFdSYnFSQUgwd0x2alFhdFdJRUJ5T25IS2Qxc1FHT0syV1ZQZFVleU4xdnBtYlVfRnJCQV9WdndDY3JXZkRYUEE?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-14T14:41:05+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "格芯獲選在美日半導體合作計畫下營運兩座晶圓廠,股價大漲逾6%。新晶圓廠營運將帶動PVD機台與靶材需求,也是靶材業者潛在的客戶機會。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4b156ab2f82d69f8",
+      "title": "江丰电子(300666.SZ)筹划发行H股股票并上市相关事项",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSno0bXhBNnhLdnZsZjdLVi1PaVNjQnpweDI3a3BaWGZtNWxqd0dSZWhiRjNDUEpibW93SmZOMktxd2owWXdGdU1PblVaY0hHR1dXNndfYm1Hc005SlNuVUV5d0hWbjM0c183LWFqRGtNeUppV0RqUjRRa3NUWHp0MHVpSGVxQmpWY29jMDhpU1VLSDBBTzk4bkVzbUJrWHRKbDUwZ092ZWhqUmJHek55LXFRQTJzZw?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-14T14:27:44+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "江豐電子宣布籌劃發行H股並上市。募資後可能加速擴產與國際布局,對日美台靶材廠的競爭壓力值得關注。",
+      "importance": 4,
+      "title_zh": "江豐電子(300666.SZ)籌劃發行H股股票並上市相關事項",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fc45e356be002b3d",
+      "title": "江丰电子(300666):召开2026年第四次临时股东会的通知",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBXelJ3bXRQTElGYmZEWGdaeGhvc0s5TUtuY2RHLUJicEpxWFNtclh2WENEMndMM0FFZTMyaG9mSlBxNUphdFdMYzBjaVN4NmdaOVZsZHBR?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子公告召開2026年第四次臨時股東會,預計審議H股上市等相關議案。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):召開2026年第四次臨時股東會的通知",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b9ba3ff13cf92a89",
+      "title": "江丰电子(300666):第四届董事会第四十一次会议决议",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBYZWRvT0RjWldydTFtdDZGYmxQSV9mS1VXWGhtbm8tWExvVFJhRFZTbDVoeEN5WDMwQ19OSkQ5WFFpVTZMbko2anowSS1rMGNScDBNTjF3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子公布第四屆董事會第四十一次會議決議,內容涉及H股上市相關議案。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):第四屆董事會第四十一次會議決議",
+      "snippet_zh": ""
+    },
+    {
+      "id": "37d94e46b8a83fca",
+      "title": "江丰电子(300666):独立董事提名人声明与承诺（王明江）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9NcTRvX3BvWUpkY3hIUmFkVml1T3JaS01PRUQ3amJ0ZGpiRVc4UDhpR0U3dGFXMF9ZYWdoYm9oVUdZOE56djFwemZadnpvLUFIZDRWbl9n?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:19+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子公告獨立董事提名人聲明與承諾(王明江),屬人事程序性文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):獨立董事提名人聲明與承諾（王明江）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "348e09869850fb61",
+      "title": "江丰电子(300666):独立董事候选人声明与承诺（汪宇）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9qbFl3Nm5ENFBHcWJHNHZITHI1Ym1ZNmtVU194SzdaX3VmcWhiY0ZrZzhiN01wNjdETWRPREctVkhBZ1A2THRHWWtic3dpUWJGU1Bsd3hB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:42:18+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子公告獨立董事候選人聲明與承諾(汪宇),屬人事程序性文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):獨立董事候選人聲明與承諾（汪宇）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "766348bcd34b968c",
+      "title": "江丰电子(300666):独立董事候选人关于参加最近一次独立董事培训并取得独立董事培训证明的承诺函（何建昌）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0tSTE3dlpGSDBwSjRpTlFVOHg1bUVXQzh0SEg1RDZPZTVOVkNDZXYzV2pXX3VvRXZkM3N5RHdjVTRRSXFjOWZsTFo5XzNQQlk2OEJpQ1Nn?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:37:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子獨立董事候選人何建昌出具培訓證明承諾函,屬程序性公告。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):獨立董事候選人關於參加最近一次獨立董事培訓並取得獨立董事培訓證明的承諾函（何建昌）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fd22303564eaf7a3",
+      "title": "江丰电子(300666):筹划发行H股股票并上市相关事项的提示性公告",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKYUJQN1BXenZRMktRejRldVI2NjZ0YThPZ0VQNS1BX2pEM3dzamhYUnV1LVVCZHhPbkNBWVZXbWpobldHMl9DcXY4TGx5ajFyRkJibEVB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:37:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布籌劃H股發行上市的提示性公告,正式啟動赴港上市程序,後續募資用途與擴產計畫值得追蹤。",
+      "importance": 4,
+      "title_zh": "江豐電子(300666):籌劃發行H股股票並上市相關事項的提示性公告",
+      "snippet_zh": ""
+    },
+    {
+      "id": "27f8b073a4133209",
+      "title": "江丰电子(300666):聘请H股发行及上市审计机构",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1GaEV4UzR5SGhkSmh6YXNoOEdRZkpidjVCLVRwTW9DNVhFQ3NlbXRQNnZyV0V6OVI2SzZOcWlzMDdVN0hlTlVRdXBkWkVYM1M2MWFQOFp3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:37:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子聘請H股發行及上市審計機構,顯示赴港上市作業已實質推進。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):聘請H股發行及上市審計機構",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a8334b2a336159cc",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司环境、社会和公司治理（ESG）管理制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xLXE5RDVEcEZySVJiX2FoYThtNS0wSkp3dVptNXp0Wm5lS0EtX0NpQV9zckFKNUl1OVRKVlhYVzJCOFMxOFgzQkNIbjdfeUxSWHJwYnd3?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:59+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布H股上市後適用的ESG管理制度草案,有助符合國際客戶的永續供應鏈要求。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司環境、社會和公司治理（ESG）管理制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3e22518a1d858cc8",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司商业道德行为准则（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE11dkRRempoSkVSemlURFpOeXBvVjgwTHJwTnlDRTY1WlVkaDJkcW9EYUFDX1c0YXRublcxV3lLY21wZHVtX0s5UFZSYkluRmN0aDUyc1Vn?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:58+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布H股上市後適用的商業道德行為準則草案,屬治理配套文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司商業道德行為準則（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7569fce0a2dfeaf3",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司股东提名人选参选董事的程序（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBvYm9QbUQ3TS1pVlljbGVwRmtFX1BCWXJDdTE4VExVb051UWdCb2EwTDRnZEhYY3hVU0padWR6MTVrelpvZ1RuOFdjd1czMlpMY0hjei13?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:48+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布股東提名人選參選董事程序草案,屬H股上市配套治理文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司股東提名人選參選董事的程序（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3939af4daaad5e3e",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司董事会议事规则修订对照表（2026年10月）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBZd1IyRk9CcDVjeTFsZ3JOcW1MdC14Q0dneXNMR1QtWktRdUk3SUdfWktDX2prUWNGcnJ0ajFodmxDeU0ybWZrOXY5OGxUNk1GZHFSaFBR?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:44+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子公布董事會議事規則修訂對照表(2026年10月),與先前公告內容相同,屬程序性文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司董事會議事規則修訂對照表（2026年10月）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b70058ba2da120eb",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司董事会薪酬与考核委员会实施细则（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1zNWZkSlZEc1VOOXhrZ1NpdFFxa2NhX2F3MzQ3THBUcFVENDk4MUNBQzB1N09zaW9QdUJ3U2VocDk4OFhfVlF6aUJPR3ZnaVBNeTFPTC1B?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:39+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布H股上市後適用的董事會薪酬與考核委員會實施細則草案,屬治理配套文件。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司董事會薪酬與考核委員會實施細則（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2437474c1f3e6a1a",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司董事、高级管理人员离职管理制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAwdnRBWkNYRHNDODlFc1Z6UkFxOUVJdUdGVHY0U1JBLUpIOE50SzdKLWdMRzFSYXlCMHBtLVI5ekx5WEJDNjNBVzd0TzlwbnNEVWFRZ2RR?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:38+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子發布H股上市後適用的董事、高階管理人員離職管理制度草案,屬程序性公告。",
+      "importance": 1,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司董事、高級管理人員離職管理制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d62c5c677353c34f",
+      "title": "江丰电子(300666):制定与修订于H股发行上市后适用的《公司章程》及部分管理、内部治理制度",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54UEVBZUk2T3FhQjN3Yy1ET1RjMzF3dDNpcDVkSVVXLUNnaFhSd1Iyc3NPTzIwV1ZYdDBxWFFfTmdjdFFDY3NTVVo1aWxUdDhVNC05MGFB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:38+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子制定與修訂H股上市後適用的公司章程及多項內部治理制度,為赴港上市的整體配套。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):制定與修訂於H股發行上市後適用的《公司章程》及部分管理、內部治理制度",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7ba601610053c3c5",
+      "title": "江丰电子(300666):向金融机构新增综合授信额度",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9xeXBUdG4zaXZxVXl2ZXUycVVYeWY3RkZkblpObmRJVzNEaDMxd0I4cVZFV25zclBjdDhKYUFOTmxlSVQwTC1PNFNEaHZ5WWNWT18wbGZB?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:38+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子向金融機構新增綜合授信額度,可為後續擴產與營運資金提供彈性。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):向金融機構新增綜合授信額度",
+      "snippet_zh": ""
+    },
+    {
+      "id": "28e1fa3a1e763f90",
+      "title": "江丰电子：2026年10月14日董事会审议通过H股上市议案",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPUFotZ3NVbUZtbHExVzdCU2dFQ0NxeE1zSFNkelJfRnhGMVBhaF9oeFJ2NDh4bHdBWlFkSFkwWG1IU3NCaTlPYWJYZnRzX2FoVXlUYUlTN1QyZjl4OGRxWC1QM3cwcnhtbGZCbVMyb2Z0S2h0eXRfaUtlQTdPZ000NDhqVFpJZlBlaDc0Tw?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-14T13:31:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子董事會於2026年10月14日審議通過H股上市議案,中國靶材龍頭加速資本市場布局,可能進一步擴大產能與海外市占。",
+      "importance": 3,
+      "title_zh": "江豐電子：2026年10月14日董事會審議通過H股上市議案",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6a0dc6b787d6a138",
+      "title": "江丰电子：筹划发行H股并在香港联交所主板上市",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRlNmSHRWdHJRQW1IdGY1aUJkRGpzVWd2TlpVVFBrSXo2VVlfM0tBTmpNNjc4OFVsZUFVWmFfMGt3Rk82cFEzbTVzV3hQRE5kRS1NZDNsaU9kOUNjTms1aFVMUVlSTG1Ca2xaSTAtclhKRUdGYjdSYVJjSHJBNTVodnVIcThyeEJHUnRMYg?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-14T13:31:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "江豐電子籌劃發行H股並在香港聯交所主板上市,募資後可望強化靶材產能與國際競爭力。",
+      "importance": 3,
+      "title_zh": "江豐電子：籌劃發行H股並在香港聯交所主板上市",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b36dc7b89c710a7d",
+      "title": "有研新材(600206.SH)：与长江存储建立了稳定的合作关系_公司新闻_财经",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9MckNxOUJHYnI5aWhWQ2U3bFByWUR3N1ZJRTU0emN5aDNhTlptM2k2WjdtbFJMZEJMdHRiWUNLVGprWW5DZEFHamdxUGoyTDUtaGliV1QwaXhVbnBjaWJ2OQ?oc=5",
+      "source": "证券之星",
+      "published": "2026-10-14T10:04:58+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "有研新材表示已與長江存儲建立穩定合作關係。顯示中國靶材廠打入本土記憶體大廠供應鏈,國產替代趨勢持續擠壓外商靶材的市占空間。",
+      "importance": 4,
+      "title_zh": "有研新材(600206.SH)：與長江存儲建立了穩定的合作關係_公司新聞_財經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1d7bb2189e383244",
+      "title": "有研新材(600206)龙虎榜数据(10-14)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE12NExMTjIyNVZuN3h6WVZ3UUF4SXRWZXJ2Nnp5aUk2Zi1jQTVIb0hDNGZSNzZKSFpJQW9uU2ZTRGdJX0tjcDRSQWJfRF9UN2FITEZsVWYzVy15eFh3Y3NYWnY3bVFwQQ?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-14T09:46:35+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "有研新材10月14日登上龍虎榜,屬股價交易數據,與靶材基本面關聯薄弱。",
+      "importance": 1,
+      "title_zh": "有研新材(600206)龍虎榜數據(10-14)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "48d5db7e118c7044",
+      "title": "10月14日有研新材（600206）龙虎榜数据：北向资金净卖出3583.58万元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOejlkRWQ4YTJmT0wtWVlaWnJpOTFQOGZ6RG1TWlVja3hHQV8tb25CUGEtalFfRU9ZbzFYMWxEblRNWXlsdzhOS0J6MG9KYmJIbXlINjlUQ0NybDNzNlFRMi12SmRTWF82T1pTZHVmOWZkZVl6eFN4akJISHF2NnVwaE9kQXFxekJO?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-14T09:29:41+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "有研新材10月14日龍虎榜顯示北向資金淨賣出3583.58萬元人民幣,屬籌碼面消息。",
+      "importance": 1,
+      "title_zh": "10月14日有研新材（600206）龍虎榜數據：北向資金淨賣出3583.58萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d026c5f3784ccdeb",
+      "title": "1785 光洋科- 外資表示我小買你們興奮什麼? - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9KRzN2RFYyM1BMM3FxVzlmemhia0FMMmtrYlNWenY1d3BrSG9VZ0pvdTdDZkRTMkNLay1Ya1RlMFB6ZlFZQ0UyRld5cGNtODhDeWhHVnBOVXU?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-14T09:23:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "股市論壇討論光洋科外資買超動向,屬投資人觀點,無實質營運資訊。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c4897ee2a677ad02",
+      "title": "有研新材跌停，沪股通净卖出3583.58万元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFByX2RBRlZvdlZlbTFtRVdTOUQteDRvbFZXcjFBZ3U1aC1Ha0loRUwweG1DUDlycHJJTl9vWTNCR1VuMDB2TlZVUzI1aEItbEM2QjM0Z2JIZjBsLWNfOTNBOTBwLUdtdw?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-14T03:31:07+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.87,
+      "summary": "有研新材股價跌停,滬股通淨賣出3583.58萬元人民幣;報導未說明原因,屬市場交易面消息。",
+      "importance": 2,
+      "title_zh": "有研新材跌停，滬股通淨賣出3583.58萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1dbb1c91d6860eaa",
+      "title": "江丰电子：10月12日融券卖出5800股，融资融券余额14.63亿元",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1XMkRrZTNBQjR0Skstb19zNXFWbnRZN3NVSkFpamdxUkU2T1ZkYldnUzdUbnRVNUlCTGhYbmp4eXNsaUtNbU4zQWkydVZFQkhESVE?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-13T05:00:31+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.74,
+      "summary": "江豐電子10月12日融券賣出5800股,融資融券餘額14.63億元人民幣,屬交易數據。",
+      "importance": 1,
+      "title_zh": "江豐電子：10月12日融券賣出5800股，融資融券餘額14.63億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dc47dd6fd97054be",
+      "title": "歐洲最大晶圓廠布局實體 AI！格羅方德砸 11 億歐元擴建德國晶圓廠、2028 年啟動生產",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPTXdqRlNqQWlYVmtwWXNrZzZDNkZ4eF9uLUZZRlRGdmRnU3pGUTJUUUp4bnQtYmVxY2VTYnhPMURlUDV1ZGgzcWFnTnRwamhLT3p5VC01UkVyblN3Y0JmNXUzcFRtOXMxUGZOZDFNNTIxWWpkQ3I4Mkc0Rnp5Q3NpUm1pMjZNalVQUktiRlRLMk1zQkQy?oc=5",
+      "source": "INSIDE",
+      "published": "2026-10-12T02:55:15+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.58,
+      "summary": "格芯投資11億歐元擴建德國德勒斯登晶圓廠,預計2028年啟動生產,布局實體AI。歐洲新增產能將帶動PVD設備與靶材需求,歐洲在地供應機會值得關注。",
+      "importance": 4,
+      "title_zh": "歐洲最大晶圓廠佈局實體 AI！格羅方德砸 11 億歐元擴建德國晶圓廠、2028 年啟動生產",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4d3f372db7e57e00",
+      "title": "1785 光洋科- 噴發前的寧靜- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE95Qy1iMFRDVFlsR2NrSW4xLWVKZzBfR184S1Z1Qlk0Q1poVEpMVl9KSkEwOWRiOC1WU2ctRm1jMWZjNmx0X1FFTnZTNkxLMklpbGpJVHRvc2I?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-08T04:02:05+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.02,
+      "summary": "股市論壇對光洋科股價走勢的看多討論,無實質營運資訊。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 4173.0,
+      "prev": 4107.9,
+      "date": "2026-10-15",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 1.58
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 56.85,
+      "prev": 55.55,
+      "date": "2026-10-15",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 2.34
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1620.8,
+      "prev": 1601.3,
+      "date": "2026-10-15",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 1.22
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 1127.5,
+      "prev": 1087.1,
+      "date": "2026-10-15",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 3.72
+    }
+  ],
+  "papers": [],
+  "research_days": 30
+}

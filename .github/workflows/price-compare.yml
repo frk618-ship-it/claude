@@ -1,0 +1,51 @@
+name: 物料比價
+# 手動執行:Actions 頁面選「物料比價」→ Run workflow,輸入品名規格。
+# 比價報告會 commit 到 reports/prices/(比價網站已下線,不再發布到 GitHub Pages)。
+
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: "物料品名規格,例如:鈦靶 4N5 Φ300x6.35mm"
+        required: true
+      quantity:
+        description: "需求數量(選填),例如:10 片、100 g"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: price-compare
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Search and compare
+        env:
+          # 必填才會做網路搜尋;未設定時只比對 data/quotes/quotes.csv
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          QUERY: ${{ github.event.inputs.query }}
+          QUANTITY: ${{ github.event.inputs.quantity }}
+        run: |
+          python -m price_compare -v search -q "$QUANTITY" "$QUERY" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/prices
+          git diff --cached --quiet || git commit -m "price: 物料比價 $(TZ=Asia/Taipei date +%F)"
+          git push

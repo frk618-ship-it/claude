@@ -2,16 +2,22 @@
 #
 # entities:
 #   name            顯示名稱
-#   role            producer(生產商) / distributor(銷售商、代理商) / topic(產業主題,不屬特定公司)
+#   role            producer(生產商) / distributor(銷售商、代理商) / equipment(濺鍍設備商)
+#                   / process(製程相關:生產中使用 PVD 設備的半導體廠)
+#                   / packaging(封裝廠:凸塊、RDL、扇出型等製程使用 PVD 設備) / topic(產業主題)
 #   region          地區,僅供報告顯示
 #   ticker          股票代號(選填)
-#   aliases         用來搜尋與比對新聞的名稱(中英日皆可)
-#   require_context true = 公司業務範圍廣(例如 Honeywell、三菱綜合材料),
+#   aliases         用來搜尋與比對新聞的名稱(中英日韓皆可)
+#   require_context true = 公司業務範圍廣(例如 Solstice/Honeywell、三菱綜合材料),
 #                   新聞必須同時出現 context_terms 中的靶材相關字詞才收錄
+#   query_context   (選填,預設 true)false = 搜尋時只用公司名稱,相關字詞只在本地過濾;
+#                   新聞量大的公司(半導體廠)用這個,避免過長的查詢讓 Google 忽略日期限制
+#   context_terms   (選填)這個項目專用的相關字詞,取代下方全域 context_terms;
+#                   設備商用濺鍍 / PVD 字詞,避免收到蝕刻、CVD 等不相關新聞
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
 
 settings:
-  days: 3                     # 只保留最近 N 天的新聞
+  days: 7                     # 只保留最近 N 天的新聞
   request_delay: 0.6          # 每次抓取之間的間隔秒數,避免被來源限流
   default_editions: [zh-TW, en]
   sources:
@@ -28,7 +34,7 @@ settings:
     ko:    {hl: ko,    gl: KR, ceid: "KR:ko"}
 
   # 寬業務公司(require_context)搜尋時附加的字詞,保持精簡以免查詢過長
-  query_context_terms: [靶材, 濺鍍, 溅射, sputtering, スパッタリング]
+  query_context_terms: [靶材, 濺鍍, 溅射, sputtering, スパッタリング, 스퍼터링]
 
   # 本地過濾用:判斷「與靶材相關」的字詞(require_context 的公司必須命中其一)
   context_terms:
@@ -53,13 +59,13 @@ settings:
 
   # 新聞分類(依關鍵字比對,可多選);LLM 摘要啟用時會再校正分類
   categories:
-    擴產與投資: [擴產, 扩产, 新廠, 新厂, 產能, 产能, 投資, 投资, 建廠, 建厂, 增資, 定增, expansion, expand, new plant, new facility, capacity, invest, 増産, 新工場, 設備投資]
-    營收與財報: [營收, 营收, 財報, 财报, 獲利, 盈利, 淨利, 净利, 毛利, EPS, 業績, 业绩, revenue, earnings, profit, quarter, guidance, 決算, 売上, 営業利益]
-    併購與合作: [併購, 并购, 收購, 收购, 合併, 合资, 合資, 策略聯盟, 戰略合作, 战略合作, 簽約, 签约, acquisition, acquire, merger, joint venture, partnership, agreement, 買収, 提携, 合弁]
-    原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ]
-    技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産]
-    客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer]
-    政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税]
+    擴產與投資: [擴產, 扩产, 新廠, 新厂, 產能, 产能, 投資, 投资, 建廠, 建厂, 增資, 定增, expansion, expand, new plant, new facility, capacity, invest, 増産, 新工場, 設備投資, 증설, 신공장, 생산능력, 설비투자, 투자]
+    營收與財報: [營收, 营收, 財報, 财报, 獲利, 盈利, 淨利, 净利, 毛利, EPS, 業績, 业绩, revenue, earnings, profit, quarter, guidance, 決算, 売上, 営業利益, 매출, 실적, 영업이익, 순이익, 분기]
+    併購與合作: [併購, 并购, 收購, 收购, 合併, 合资, 合資, 策略聯盟, 戰略合作, 战略合作, 簽約, 签约, acquisition, acquire, merger, joint venture, partnership, agreement, 買収, 提携, 合弁, 인수, 합병, 합작, 제휴, 업무협약, MOU]
+    原物料與價格: [價格, 价格, 漲價, 涨价, 報價, 报价, 原料, 原材料, 鉭, 钽, 銦, 铟, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 銅價, 铜价, price, prices, tantalum, indium, cobalt, tungsten, molybdenum, ruthenium, 価格, 値上げ, 가격, 원자재, 탄탈, 인듐, 코발트, 텅스텐, 몰리브덴, 루테늄]
+    技術與新產品: [新產品, 新产品, 研發, 研发, 專利, 专利, 技術, 技术, 突破, 量產, 量产, 國產化, 国产化, 先進製程, 先进制程, launch, develop, patent, technology, breakthrough, 開発, 新製品, 量産, 신제품, 개발, 특허, 기술, 양산, 국산화]
+    客戶與供應鏈: [台積電, 台积电, TSMC, 三星, Samsung, Intel, 英特爾, 中芯, SMIC, 美光, Micron, SK海力士, SK hynix, 京東方, 京东方, BOE, 面板, 供應鏈, 供应链, 認證, 认证, 驗證, 客戶, 客户, supplier, supply chain, qualification, customer, 삼성전자, SK하이닉스, LG디스플레이, 공급망, 고객사, 협력사, 인증]
+    政策與貿易: [關稅, 关税, 出口管制, 管制, 制裁, 補貼, 补贴, 政策, tariff, export control, sanction, subsidy, CHIPS Act, 輸出規制, 関税, 관세, 수출 규제, 수출통제, 제재, 보조금]
 
   # 熱門關鍵字統計的候選詞(材料、應用)
   hot_terms: [鉭, 钽, 銅, 铜, 鋁, 铝, 鈦, 钛, 鈷, 钴, 鎢, 钨, 鉬, 钼, 釕, 钌, 鉑, ITO, IGZO, 氧化物, tantalum, copper, aluminum, titanium, cobalt, tungsten, molybdenum, ruthenium, 半導體, 半导体, 面板, 光伏, 太陽能, HJT, 先進封裝, 先进封装, semiconductor, display, solar, AI, HBM]
@@ -70,9 +76,9 @@ entities:
     role: producer
     region: 日本
     ticker: "5016.T"
-    aliases: [JX金屬, JX金属, JX Advanced Metals, JX Nippon Mining]
+    aliases: [JX金屬, JX金属, JX Advanced Metals, JX Nippon Mining, JX금속]
     require_context: false
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: 東曹 (Tosoh)
     role: producer
     region: 日本
@@ -91,9 +97,9 @@ entities:
     role: producer
     region: 日本
     ticker: "5711.T"
-    aliases: [三菱綜合材料, 三菱综合材料, Mitsubishi Materials, 三菱マテリアル]
+    aliases: [三菱綜合材料, 三菱综合材料, Mitsubishi Materials, 三菱マテリアル, 미쓰비시머티리얼]
     require_context: true
-    editions: [en, ja]
+    editions: [en, ja, ko]
   - name: 住友金屬礦山 (Sumitomo Metal Mining)
     role: producer
     region: 日本
@@ -105,9 +111,9 @@ entities:
     role: producer
     region: 日本
     ticker: "6728.T"
-    aliases: [愛發科, 爱发科, ULVAC, アルバック]
+    aliases: [愛發科, 爱发科, ULVAC, アルバック, 울박]
     require_context: true
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: 古屋金屬 (Furuya Metal)
     role: producer
     region: 日本
@@ -118,9 +124,9 @@ entities:
   - name: 田中貴金屬 (Tanaka Precious Metals)
     role: producer
     region: 日本
-    aliases: [田中貴金屬, 田中贵金属, Tanaka Precious Metal, TANAKA Kikinzoku, 田中貴金属]
+    aliases: [田中貴金屬, 田中贵金属, Tanaka Precious Metal, TANAKA Kikinzoku, 田中貴金属, 다나카귀금속]
     require_context: true
-    editions: [zh-TW, en, ja]
+    editions: [zh-TW, en, ja, ko]
   - name: Proterial (原日立金屬)
     role: producer
     region: 日本
@@ -129,20 +135,22 @@ entities:
     editions: [en, ja]
 
   # ---------- 生產商:歐美 ----------
-  - name: Honeywell 電子材料
+  # Honeywell 先進材料部門(含靶材)於 2025 年分拆為 Solstice Advanced Materials;
+  # 保留 Honeywell 別名以涵蓋仍沿用舊名的報導。不用單字 "Solstice",以免誤配同名產品。
+  - name: Solstice (原 Honeywell 電子材料)
     role: producer
     region: 美國
-    ticker: HON
-    aliases: [Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合]
+    ticker: SOLS
+    aliases: [Solstice Advanced Materials, Solstice 先進材料, Honeywell, 霍尼韋爾, 霍尼韦尔, 漢威聯合, 하니웰]
     require_context: true
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Materion
     role: producer
     region: 美國
     ticker: MTRN
-    aliases: [Materion, 美題隆, 美题隆]
+    aliases: [Materion, 美題隆, 美题隆, 머티리온]
     require_context: false
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Plansee
     role: producer
     region: 奧地利
@@ -152,15 +160,15 @@ entities:
   - name: Heraeus
     role: producer
     region: 德國
-    aliases: [Heraeus, 賀利氏, 贺利氏]
+    aliases: [Heraeus, 賀利氏, 贺利氏, 헤레우스]
     require_context: true
-    editions: [zh-TW, en]
+    editions: [zh-TW, en, ko]
   - name: Umicore
     role: producer
     region: 比利時
-    aliases: [Umicore, 優美科, 优美科]
+    aliases: [Umicore, 優美科, 优美科, 유미코아]
     require_context: true
-    editions: [en]
+    editions: [en, ko]
 
   # ---------- 生產商:中國大陸 ----------
   - name: 江豐電子 (KFMI)
@@ -253,6 +261,338 @@ entities:
     require_context: false
     editions: [en]
 
+  # ---------- 濺鍍設備商 ----------
+  # 業務範圍廣的設備商(require_context: true)只收錄同時提到濺鍍 / PVD 的新聞。
+  - name: 應用材料 (Applied Materials)
+    role: equipment
+    region: 美國
+    ticker: AMAT
+    aliases: [應用材料, 应用材料, Applied Materials, アプライド マテリアルズ, 어플라이드 머티어리얼즈]
+    require_context: true
+    # 英文只用技術片語:單獨的 "sputtering" 也有「表現疲軟」的意思(例如體育、經濟新聞)
+    context_terms: &sputter_ctx [濺鍍, 溅射, 磁控, PVD, magnetron, physical vapor deposition, sputter deposition, sputtering system, sputtering equipment, sputtering tool, sputtering target, sputtering cathode, スパッタ, 스퍼터, 물리기상증착]
+    editions: [zh-TW, en, ja, ko]
+  - name: 北方華創 (NAURA)
+    role: equipment
+    region: 中國大陸
+    ticker: "002371.SZ"
+    aliases: [北方華創, 北方华创, NAURA]
+    require_context: true
+    context_terms: *sputter_ctx
+    editions: [zh-TW, zh-CN, en]
+  - name: 佳能安內華 (Canon ANELVA)
+    role: equipment
+    region: 日本
+    aliases: [Canon ANELVA, Canon Anelva, キヤノンアネルバ, 佳能安內華]
+    require_context: false
+    editions: [ja, en]
+  - name: 芝浦機電 (Shibaura Mechatronics)
+    role: equipment
+    region: 日本
+    ticker: "6590.T"
+    aliases: [Shibaura Mechatronics, 芝浦メカトロニクス, 芝浦機電]
+    require_context: true
+    context_terms: *sputter_ctx
+    editions: [ja, en]
+  - name: Evatec
+    role: equipment
+    region: 瑞士
+    aliases: [Evatec]
+    require_context: false
+    editions: [en]
+  - name: Bühler Leybold Optics
+    role: equipment
+    region: 德國
+    aliases: [Leybold Optics, Bühler Leybold]
+    require_context: false
+    editions: [en]
+  - name: VON ARDENNE
+    role: equipment
+    region: 德國
+    aliases: [VON ARDENNE, Von Ardenne]
+    require_context: false
+    editions: [en]
+  - name: Singulus Technologies
+    role: equipment
+    region: 德國
+    ticker: SNG.DE
+    aliases: [Singulus]
+    require_context: false
+    editions: [en]
+  - name: Veeco
+    role: equipment
+    region: 美國
+    ticker: VECO
+    aliases: [Veeco]
+    require_context: true
+    context_terms: [PVD, ion beam deposition, sputter deposition, sputtering system, magnetron, 濺鍍, 离子束]
+    editions: [en]
+  - name: Intevac
+    role: equipment
+    region: 美國
+    ticker: IVAC
+    aliases: [Intevac]
+    require_context: false
+    editions: [en]
+  - name: 天虹科技 (Skytech)
+    role: equipment
+    region: 台灣
+    aliases: [天虹科技]
+    require_context: false
+    editions: [zh-TW]
+  - name: 아바코 (AVACO)
+    role: equipment
+    region: 韓國
+    aliases: [아바코, AVACO]
+    require_context: false
+    editions: [ko]
+
+  # ---------- 製程相關:在生產中使用 PVD(濺鍍)設備的半導體廠 = 靶材與濺鍍設備的終端客戶 ----------
+  # 這些公司新聞量很大,只收錄標題 / 摘要提到 PVD / 濺鍍 / 靶材、資本支出 / 設備投資,或擴產 / 擴建 / 新廠的新聞
+  # (都會帶動 PVD 機台與靶材需求);股價、人事、產品發表等新聞不收。
+  - name: 台積電 (TSMC)
+    role: process
+    region: 台灣
+    ticker: "2330.TW"
+    aliases: [台積電, 台积电, TSMC]
+    require_context: true
+    query_context: false
+    context_terms: &fab_ctx [濺鍍, 溅射, 靶材, PVD, 物理氣相沉積, 物理气相沉积, physical vapor deposition, sputtering target, sputter deposition, sputtering system, sputtering equipment, スパッタ, 스퍼터, 資本支出, 资本支出, capex, capital expenditure, 設備投資, 设备投资, 設備採購, 设备采购, 설비투자, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 晶圓廠, 晶圆厂, 新工場, 増産, 증설, 신공장, new fab, fab expansion, capacity expansion, new plant]
+    editions: [zh-TW, en]
+  - name: 聯電 (UMC)
+    role: process
+    region: 台灣
+    ticker: "2303.TW"
+    aliases: [聯電, 联电, United Microelectronics]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 力積電 (PSMC)
+    role: process
+    region: 台灣
+    ticker: "6770.TW"
+    aliases: [力積電, 力积电, Powerchip]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 世界先進 (VIS)
+    role: process
+    region: 台灣
+    ticker: "5347.TW"
+    aliases: [世界先進, Vanguard International Semiconductor]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 華邦電 (Winbond)
+    role: process
+    region: 台灣
+    ticker: "2344.TW"
+    aliases: [華邦電, 华邦电, Winbond]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 南亞科 (Nanya Technology)
+    role: process
+    region: 台灣
+    ticker: "2408.TW"
+    aliases: [南亞科, 南亚科, Nanya Technology]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW]
+  - name: 三星電子 (Samsung Electronics)
+    role: process
+    region: 韓國
+    ticker: "005930.KS"
+    aliases: [三星電子, 三星电子, Samsung Electronics, 삼성전자]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en, ko]
+  - name: SK海力士 (SK hynix)
+    role: process
+    region: 韓國
+    ticker: "000660.KS"
+    aliases: [SK海力士, SK hynix, SK하이닉스]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en, ko]
+  - name: 美光 (Micron)
+    role: process
+    region: 美國
+    ticker: "MU"
+    aliases: [美光, Micron Technology]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 英特爾 (Intel)
+    role: process
+    region: 美國
+    ticker: "INTC"
+    aliases: [英特爾, 英特尔, Intel]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 格羅方德 (GlobalFoundries)
+    role: process
+    region: 美國
+    ticker: "GFS"
+    aliases: [格羅方德, 格芯, GlobalFoundries]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, en]
+  - name: 中芯國際 (SMIC)
+    role: process
+    region: 中國大陸
+    ticker: "0981.HK"
+    aliases: [中芯國際, 中芯国际, SMIC]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-TW, zh-CN, en]
+  - name: 華虹半導體 (Hua Hong)
+    role: process
+    region: 中國大陸
+    ticker: "1347.HK"
+    aliases: [華虹半導體, 华虹半导体, 华虹公司, Hua Hong Semiconductor]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-CN]
+  - name: 長江存儲 (YMTC)
+    role: process
+    region: 中國大陸
+    aliases: [長江存儲, 长江存储, YMTC]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-CN, en]
+  - name: 長鑫存儲 (CXMT)
+    role: process
+    region: 中國大陸
+    aliases: [長鑫存儲, 长鑫存储, 长鑫科技, CXMT]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [zh-CN, en]
+  - name: 鎧俠 (Kioxia)
+    role: process
+    region: 日本
+    ticker: "285A.T"
+    aliases: [鎧俠, 铠侠, Kioxia, キオクシア]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [ja, en, zh-TW]
+  - name: Rapidus
+    role: process
+    region: 日本
+    aliases: [Rapidus, ラピダス]
+    require_context: true
+    query_context: false
+    context_terms: *fab_ctx
+    editions: [ja, en]
+
+  # ---------- 封裝廠:凸塊 / UBM、重佈線(RDL)、扇出型與先進封裝製程使用 PVD(濺鍍)設備 ----------
+  # 只收錄提到 PVD / 濺鍍 / 靶材、先進封裝製程(凸塊、RDL、扇出、面板級、CoWoS 等),或資本支出 / 擴產 / 新廠的新聞。
+  - name: 日月光投控 (ASE)
+    role: packaging
+    region: 台灣
+    ticker: "3711.TW"
+    aliases: [日月光, ASE Technology, ASE Holding]
+    require_context: true
+    query_context: false
+    context_terms: &pkg_ctx [濺鍍, 溅射, 靶材, PVD, sputtering, 先進封裝, 先进封装, advanced packaging, 凸塊, 凸块, bumping, UBM, 重佈線, 重布线, RDL, 扇出, fan-out, 面板級封裝, 面板级封装, FOPLP, CoWoS, SoIC, 矽中介層, 硅中介层, interposer, 晶圓級封裝, 晶圆级封装, WLCSP, TSV, 玻璃基板, 資本支出, 资本支出, capex, 擴產, 扩产, 擴充, 扩充, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂]
+    editions: [zh-TW, en]
+  - name: 矽品 (SPIL)
+    role: packaging
+    region: 台灣
+    aliases: [矽品, Siliconware]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: Amkor 艾克爾
+    role: packaging
+    region: 美國
+    ticker: "AMKR"
+    aliases: [Amkor, 艾克爾, 앰코]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [en, zh-TW, ko]
+  - name: 長電科技 (JCET)
+    role: packaging
+    region: 中國大陸
+    ticker: "600584.SS"
+    aliases: [長電科技, 长电科技, JCET]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN, en]
+  - name: 通富微電 (TFME)
+    role: packaging
+    region: 中國大陸
+    ticker: "002156.SZ"
+    aliases: [通富微電, 通富微电, Tongfu Microelectronics]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN]
+  - name: 華天科技 (Huatian)
+    role: packaging
+    region: 中國大陸
+    ticker: "002185.SZ"
+    aliases: [華天科技, 华天科技]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-CN]
+  - name: 力成 (Powertech)
+    role: packaging
+    region: 台灣
+    ticker: "6239.TW"
+    aliases: [力成科技, 力成(6239), 力成（6239）, Powertech Technology]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 頎邦 (Chipbond)
+    role: packaging
+    region: 台灣
+    ticker: "6147.TWO"
+    aliases: [頎邦, Chipbond]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 南茂 (ChipMOS)
+    role: packaging
+    region: 台灣
+    ticker: "8150.TW"
+    aliases: [南茂, ChipMOS]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+  - name: 精材 (XinTec)
+    role: packaging
+    region: 台灣
+    ticker: "3374.TWO"
+    aliases: [精材, XinTec]
+    require_context: true
+    query_context: false
+    context_terms: *pkg_ctx
+    editions: [zh-TW]
+
   # ---------- 產業主題(不限公司) ----------
   - name: 產業綜合:濺鍍靶材
     role: topic
@@ -274,3 +614,118 @@ entities:
     region: 全球
     aliases: [スパッタリングターゲット]
     editions: [ja]
+  - name: 產業綜合:스퍼터링 타겟
+    role: topic
+    region: 全球
+    aliases: [스퍼터링 타겟, 스퍼터링 타깃]
+    editions: [ko]
+  - name: 設備綜合:濺鍍設備
+    role: topic
+    region: 全球
+    aliases: [濺鍍設備, PVD設備, 磁控濺鍍]
+    context_terms: *sputter_ctx
+    editions: [zh-TW]
+  - name: 設備綜合:溅射设备
+    role: topic
+    region: 全球
+    aliases: [溅射设备, PVD设备, 磁控溅射]
+    context_terms: *sputter_ctx
+    editions: [zh-CN]
+  - name: 設備綜合:Sputtering Equipment
+    role: topic
+    region: 全球
+    aliases: [sputtering equipment, PVD equipment, sputtering system, magnetron sputtering]
+    context_terms: *sputter_ctx
+    editions: [en]
+  - name: 設備綜合:スパッタ装置
+    role: topic
+    region: 全球
+    aliases: [スパッタ装置, スパッタリング装置]
+    context_terms: *sputter_ctx
+    editions: [ja]
+  - name: 設備綜合:스퍼터 장비
+    role: topic
+    region: 全球
+    aliases: [스퍼터 장비, 스퍼터링 장비]
+    context_terms: *sputter_ctx
+    editions: [ko]
+
+  # ---------- 貴金屬行情:金、銀、鉑、鈀、釕、銥、銠(貴金屬靶材的原料成本) ----------
+  # 新聞量很大,只搜繁中與英文,每次各保留最新的 max_items 則(合計約 8 則)。
+  - name: 行情綜合:貴金屬
+    role: metals
+    region: 全球
+    aliases: [金價, 銀價, 鉑金價格, 鈀金價格, 貴金屬 行情, 釕 價格]
+    context_terms: &metal_ctx [金價, 金价, 銀價, 银价, 鉑, 铂, 鈀, 钯, 釕, 钌, 銥, 铱, 銠, 铑, 貴金屬, 贵金属, 黃金, 黄金, 白銀, 白银, gold, silver, platinum, palladium, ruthenium, iridium, rhodium, precious metal, 金価格, 銀価格, プラチナ, パラジウム, ルテニウム, 貴金属, 금값, 은값, 백금, 팔라듐, 귀금속]
+    max_items: 4
+    editions: [zh-TW]
+  - name: 行情綜合:Precious Metals
+    role: metals
+    region: 全球
+    aliases: [gold price, silver price, platinum price, palladium price, ruthenium price, rhodium price]
+    context_terms: *metal_ctx
+    max_items: 4
+    editions: [en]
+
+# ---------- 貴金屬報價:每日收盤價與漲跌(Stooq,失敗時改用 Yahoo Finance;免金鑰) ----------
+metals:
+  enabled: true
+  symbols:
+    - {name: 黃金, code: Au, stooq: xauusd, yahoo: GC=F}
+    - {name: 白銀, code: Ag, stooq: xagusd, yahoo: SI=F}
+    - {name: 鉑金, code: Pt, stooq: xptusd, yahoo: PL=F}
+    - {name: 鈀金, code: Pd, stooq: xpdusd, yahoo: PA=F}
+
+# ---------- 技術文獻:靶材製造技術相關期刊與研究 ----------
+# 來源:OpenAlex(學術文獻索引,免費)、arXiv 預印本、期刊 RSS。
+# 論文必須在標題/摘要明確提到濺鍍靶材才收錄("target" 單字太廣,不夠)。
+research:
+  enabled: true
+  days: 30                    # 論文發表較慢,預設看最近 30 天;已報告過的不會重複出現
+  per_query: 50
+  request_delay: 1.0
+  mailto: ""                  # 選填:填 email 可使用 OpenAlex 較穩定的服務(也可設環境變數 OPENALEX_MAILTO)
+  sources:
+    openalex: true
+    arxiv: true
+    feeds:                    # 期刊最新文章 RSS(ScienceDirect);只保留與靶材相關的文章
+      - {name: Thin Solid Films, url: "https://rss.sciencedirect.com/publication/science/00406090"}
+      - {name: Surface and Coatings Technology, url: "https://rss.sciencedirect.com/publication/science/02578972"}
+      - {name: Vacuum, url: "https://rss.sciencedirect.com/publication/science/0042207X"}
+      - {name: Journal of Alloys and Compounds, url: "https://rss.sciencedirect.com/publication/science/09258388"}
+      - {name: Ceramics International, url: "https://rss.sciencedirect.com/publication/science/02728842"}
+      - {name: Int. J. Refractory Metals and Hard Materials, url: "https://rss.sciencedirect.com/publication/science/02634368"}
+
+  # OpenAlex 搜尋字(英文為主,也涵蓋部分中日文期刊)
+  queries:
+    - sputtering target fabrication
+    - sputtering target microstructure
+    - sputtering target sintering
+    - sputtering target grain size texture
+    - high purity sputtering target
+    - ITO target
+    - IGZO target
+    - rotary sputtering target
+    - sputtering target bonding backing plate
+    - tantalum sputtering target
+    - copper sputtering target
+    - tungsten sputtering target
+    - molybdenum sputtering target
+    - sputtering target recycling
+    - 濺射靶材
+  arxiv_queries:              # 合併成一次 arXiv 查詢(OR),避免連續請求被限流
+    - sputtering target
+    - target microstructure sputtering
+
+  # 依製程/技術分類(關鍵字比對標題與摘要,可多選)
+  topics:
+    粉末冶金與燒結: [powder, sinter, sintering, sintered, hot press, hot pressing, hot isostatic, HIP, spark plasma, SPS, densification, relative density, 燒結, 烧结, 粉末, 熱壓, 热压]
+    熔煉與鑄造: [melting, casting, cast, ingot, vacuum arc, electron beam melting, induction melting, 熔煉, 熔炼, 鑄造, 铸造]
+    塑性加工與晶粒織構: [rolling, forging, ECAP, grain size, grain refinement, texture, recrystallization, annealing, deformation, 晶粒, 織構, 织构, 軋製, 轧制, 鍛造, 锻造]
+    高純化與雜質控制: [high purity, high-purity, purification, impurity, impurities, refining, zone refining, 5N, 6N, 純化, 提纯, 雜質, 杂质]
+    綁定與背板: [bonding, backing plate, solder, diffusion bonding, indium bonding, 綁定, 绑定, 背板]
+    陶瓷與氧化物靶: [ITO, IGZO, AZO, oxide target, ceramic target, indium tin oxide, nitride, 氧化物, 陶瓷]
+    合金與複合靶: [alloy target, alloy, composite target, high-entropy, 合金]
+    旋轉靶: [rotary, rotatable, cylindrical target, tubular target, 旋轉靶, 旋转靶]
+    濺鍍行為與靶材利用率: [erosion, utilization, target utilization, arcing, nodule, nodules, sputtering yield, deposition rate, poisoning, 利用率, 刻蝕]
+    回收與再利用: [recycling, recycle, recycled, spent target, reclaim, recovery, 回收]

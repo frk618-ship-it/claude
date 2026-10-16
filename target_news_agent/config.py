@@ -7,7 +7,15 @@ from pathlib import Path
 
 import yaml
 
-ROLE_LABELS = {"producer": "生產商", "distributor": "銷售商", "topic": "產業主題"}
+ROLE_LABELS = {
+    "producer": "生產商",
+    "distributor": "銷售商",
+    "equipment": "濺鍍設備商",
+    "process": "製程相關(PVD 半導體廠)",
+    "packaging": "封裝廠(PVD)",
+    "topic": "產業主題",
+    "metals": "貴金屬行情",
+}
 
 
 @dataclass
@@ -19,6 +27,13 @@ class Entity:
     ticker: str = ""
     require_context: bool = False
     editions: list[str] = field(default_factory=list)
+    # Own context words (e.g. sputtering / PVD for equipment makers); empty = the global ones.
+    context_terms: list[str] = field(default_factory=list)
+    # False = search by name only and leave the context check to the local filter
+    # (a long OR clause can make Google ignore the date limit and return old articles).
+    query_context: bool = True
+    # Keep at most this many items from this search per run (0 = no limit); for very busy topics.
+    max_items: int = 0
 
     @property
     def role_label(self) -> str:
@@ -26,7 +41,7 @@ class Entity:
 
     @property
     def is_topic(self) -> bool:
-        return self.role == "topic"
+        return self.role in ("topic", "metals")
 
 
 @dataclass
@@ -45,9 +60,28 @@ class Settings:
 
 
 @dataclass
+class ResearchSettings:
+    """Journal / preprint search on target manufacturing technology (section `research:`)."""
+
+    enabled: bool = True
+    days: int = 30
+    per_query: int = 50
+    request_delay: float = 1.0
+    openalex: bool = True
+    arxiv: bool = True
+    mailto: str = ""
+    queries: list[str] = field(default_factory=list)
+    arxiv_queries: list[str] = field(default_factory=list)
+    feeds: list[dict[str, str]] = field(default_factory=list)
+    topics: dict[str, list[str]] = field(default_factory=dict)
+
+
+@dataclass
 class Config:
     settings: Settings
     entities: list[Entity]
+    research: ResearchSettings | None = None
+    metals: list = field(default_factory=list)  # list[metals.MetalSpec]
 
 
 def load_config(path: str | Path) -> Config:
@@ -86,6 +120,34 @@ def load_config(path: str | Path) -> Config:
                 ticker=str(e.get("ticker", "") or ""),
                 require_context=bool(e.get("require_context", False)),
                 editions=editions,
+                context_terms=[str(t) for t in e.get("context_terms") or []],
+                query_context=bool(e.get("query_context", True)),
+                max_items=int(e.get("max_items", 0) or 0),
             )
         )
-    return Config(settings=settings, entities=entities)
+    research = None
+    r = raw.get("research")
+    if r:
+        sources = r.get("sources", {}) or {}
+        research = ResearchSettings(
+            enabled=bool(r.get("enabled", True)),
+            days=int(r.get("days", 30)),
+            per_query=int(r.get("per_query", 50)),
+            request_delay=float(r.get("request_delay", 1.0)),
+            openalex=bool(sources.get("openalex", True)),
+            arxiv=bool(sources.get("arxiv", True)),
+            mailto=str(r.get("mailto", "") or ""),
+            queries=[str(q) for q in r.get("queries", [])],
+            arxiv_queries=[str(q) for q in r.get("arxiv_queries", []) or []],
+            feeds=list(sources.get("feeds", []) or []),
+            topics={k: [str(t) for t in v] for k, v in (r.get("topics", {}) or {}).items()},
+        )
+    from .metals import MetalSpec
+
+    m = raw.get("metals") or {}
+    metals = [
+        MetalSpec(name=str(x["name"]), code=str(x["code"]), stooq=str(x.get("stooq", "") or ""),
+                  yahoo=str(x.get("yahoo", "") or ""), unit=str(x.get("unit", "USD/oz")))
+        for x in (m.get("symbols") or [])
+    ] if m.get("enabled", True) else []
+    return Config(settings=settings, entities=entities, research=research, metals=metals)
