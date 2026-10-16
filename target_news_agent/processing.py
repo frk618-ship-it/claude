@@ -59,7 +59,9 @@ def match_entities(item: NewsItem, entities: list[Entity], context_terms: list[s
             matched.append(e.name)
     if not matched:
         topic = next((e for e in entities if e.name == item.query_entity and e.is_topic), None)
-        if topic is not None and has_ctx(topic):
+        if topic is not None and has_ctx(topic) and (
+            not topic.also_terms or any(_contains(low, t) for t in topic.also_terms)
+        ):
             matched.append(topic.name)
     return matched
 

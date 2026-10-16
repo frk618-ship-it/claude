@@ -15,6 +15,8 @@
 #                   新聞量大的公司(半導體廠)用這個,避免過長的查詢讓 Google 忽略日期限制
 #   context_terms   (選填)這個項目專用的相關字詞,取代下方全域 context_terms;
 #                   設備商用濺鍍 / PVD 字詞,避免收到蝕刻、CVD 等不相關新聞
+#   also_terms      (選填,主題搜尋用)新聞除了 context_terms,還必須提到其中一個字詞;
+#                   例如回收主題:要同時談到回收「和」靶材 / 濺鍍 / 銦 / 鉭
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
 
 settings:
@@ -670,30 +672,35 @@ entities:
     editions: [en]
 
   # ---------- 靶材回收循環:廢靶回收、銦/鉭/貴金屬等精煉再生、循環經濟 ----------
-  # 搜尋字以空白分隔 = 同時出現(例如「靶材 回收」);context_terms 再確認新聞確實談到回收再生。
+  # 搜尋字以空白分隔 = 同時出現(例如「靶材 回收」)。新聞必須同時提到回收再生(context_terms)
+  # 與靶材相關字詞(also_terms),否則一般的紙盒、玻璃、電池回收新聞也會混進來。
   - name: 回收綜合:靶材回收
     role: recycling
     region: 全球
     aliases: [靶材 回收, 廢靶 回收, 殘靶 回收, 靶材 循環經濟, 銦 回收 ITO, 靶材 精煉 回收]
     context_terms: &recycle_ctx [回收, 再生, 再利用, 循環經濟, 循环经济, 資源循環, 资源循环, 精煉, 精炼, 廢靶, 废靶, 殘靶, 残靶, recycling, recycled, recycle, reclaim, reclaimed, reclamation, recovery, refining, circular economy, closed-loop, closed loop, spent target, リサイクル, 回収, 再資源化, 재활용, 회수, 순환]
+    also_terms: &recycle_target [靶材, 廢靶, 废靶, 殘靶, 残靶, 濺鍍, 濺射, 溅射, sputtering, sputter, スパッタ, ターゲット材, 스퍼터링, ITO, 銦, 铟, indium, インジウム, 인듐, 鉭, 钽, tantalum, タンタル, 탄탈]
     editions: [zh-TW]
   - name: 回收綜合:靶材回收(简)
     role: recycling
     region: 全球
     aliases: [靶材 回收, 废靶 回收, 残靶 回收, 靶材 再生, 铟 回收 ITO, 稀贵金属 回收 靶材]
     context_terms: *recycle_ctx
+    also_terms: *recycle_target
     editions: [zh-CN]
   - name: 回收綜合:Target Recycling
     role: recycling
     region: 全球
     aliases: [sputtering target recycling, spent sputtering target, target reclamation, ITO target recycling, indium recycling, tantalum recycling]
     context_terms: *recycle_ctx
+    also_terms: *recycle_target
     editions: [en]
   - name: 回收綜合:ターゲットリサイクル
     role: recycling
     region: 全球
-    aliases: [ターゲット リサイクル, スパッタリングターゲット リサイクル, インジウム リサイクル, 使用済みターゲット]
+    aliases: [スパッタリングターゲット リサイクル, ターゲット材 リサイクル, インジウム リサイクル, ITO リサイクル]
     context_terms: *recycle_ctx
+    also_terms: *recycle_target
     editions: [ja]
 
 # ---------- 貴金屬報價:每日收盤價與漲跌(Stooq,失敗時改用 Yahoo Finance;免金鑰) ----------

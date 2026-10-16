@@ -1050,7 +1050,12 @@ def test_target_recycling_topic(config, tmp_path):
         return match_entities(item, config.entities, config.settings.context_terms)
 
     assert ents("Indium recycling plant reclaims spent ITO sputtering targets") == ["回收綜合:Target Recycling"]
+    assert all(e.also_terms for e in recycling)  # recycling AND target words required
     assert ents("Sputtering target market to grow 6% a year") == []  # no recycling context
+    # Real false positives from the first run: recycling news that has nothing to do with targets.
+    assert ents("ニトリ、埼玉県に「リサイクルセンター（仮称）」開設、2028年度稼働へ", "回收綜合:ターゲットリサイクル") == []
+    assert ents("废旧动力电池到高纯稀有金属！2027武汉再生金属与新能源材料回收展会", "回收綜合:靶材回收(简)") == []
+    assert ents("使用済みITOターゲットからインジウムをリサイクル", "回收綜合:ターゲットリサイクル") == ["回收綜合:ターゲットリサイクル"]
     assert ents("光洋科擴大廢靶回收與貴金屬精煉產能", "回收綜合:靶材回收") == ["光洋科 (Solar Applied Materials)"]
 
     cats = config.settings.categories
