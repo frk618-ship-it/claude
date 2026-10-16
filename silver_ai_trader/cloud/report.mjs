@@ -134,7 +134,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     <div class="panel">
       <div class="legend">
         <span class="key"><i style="background:var(--s1)"></i>實際收盤</span>
-        <span class="key"><i style="background:var(--s2)"></i>模型逐日預測（前一天資料 → 下一天）</span>
+        <span class="key"><i style="background:var(--s2)"></i><span id="predLegend">模型逐日預測（前一天資料 → 下一天）</span></span>
         <span class="key"><i class="dash"></i>未來預測</span>
         <span class="key"><i class="zone"></i>測試期間（模型訓練時沒看過）</span>
       </div>
@@ -234,9 +234,11 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
 
   // ── 頁首 ──
   const m = R.meta, P = R.params;
+  const H = (R.test && R.test.horizon) || 1;          // 預測幾個交易日後
+  const hTxt = H > 1 ? H + ' 個交易日後' : '隔日';
   $('metaLine').innerHTML = [
     '資料截至 <span class="num">' + esc(R.forecast.lastDate) + '</span>',
-    esc(ALG[P.algorithm] || P.algorithm) + ' · ' + esc(TARGET[P.predTarget] || P.predTarget),
+    esc(ALG[P.algorithm] || P.algorithm) + ' · ' + (H > 1 ? '預測 ' + H + ' 日報酬' : esc(TARGET[P.predTarget] || P.predTarget)),
     '訓練於 Claude 雲端' + (m.dataSource === 'yahoo' ? '' : '（瀏覽器匯出資料）'),
     '產生於 <span class="num">' + esc(m.createdAt.slice(0, 16).replace('T', ' ')) + ' UTC</span>',
   ].map(s => '<span>' + s + '</span>').join('');
@@ -246,16 +248,19 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   const cells = ['<div class="fc"><span class="label">最新收盤 · ' + esc(F.lastDate) + '</span><span class="price">' + fx(F.lastPrice, 3) + '</span><span class="muted">美元 / 盎司</span></div>'];
   F.dates.forEach((d, i) => {
     const p = F.prices[i], chg = p / F.lastPrice - 1, up = chg >= 0;
-    cells.push('<div class="fc"><span class="label">T+' + (i + 1) + ' · ' + esc(d) + '</span><span class="price">' + fx(p, 3) +
+    cells.push('<div class="fc"><span class="label">T+' + (H > 1 ? H : i + 1) + ' · ' + esc(d) + '</span><span class="price">' + fx(p, 3) +
       '</span><span class="chg ' + (up ? 'up' : 'down') + '">' + (up ? '▲ 漲 ' : '▼ 跌 ') + signed(chg) + '</span></div>');
   });
   $('forecast').innerHTML = cells.join('');
   $('fcNote').textContent = (R.training.refit ? '預測使用以全部資料重新訓練的模型。' : '') +
-    'T+2 之後是把前一步的預測再餵回模型推算，誤差會累積，參考價值隨天數遞減。';
+    (H > 1 ? '模型直接預測 ' + H + ' 個交易日後的收盤價（以今天收盤為起點的 ' + H + ' 日報酬），不是逐日推算。'
+           : 'T+2 之後是把前一步的預測再餵回模型推算，誤差會累積，參考價值隨天數遞減。');
 
   // ── 結論 ──
   const T = R.test, B = T.baselines;
-  const [lo, hi] = wilson(T.DA, T.n);
+  // H 日目標互相重疊、彼此不獨立，信賴區間用有效樣本數（約 n / H）
+  const effN = T.effectiveN || T.n;
+  const [lo, hi] = wilson(T.DA, effN);
   const beatsUp = T.DA > B.alwaysUpDA, sig = lo > 50;
   // 價格誤差差距在 2% 以內視為相當，不宣稱勝負
   const rwRel = (T.MAPE - B.randomWalkMAPE) / B.randomWalkMAPE;
@@ -263,12 +268,12 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   const v = $('verdict');
   v.className = 'verdict ' + (beatsUp && sig ? 'good' : (!beatsUp ? 'bad' : ''));
   v.innerHTML =
-    '<p><strong>方向：</strong>測試期間 ' + T.n + ' 個交易日，猜對漲跌 <span class="num">' + fx(T.DA, 1) + '%</span>' +
+    '<p><strong>方向：</strong>測試期間 ' + T.n + ' 個交易日' + (H > 1 ? '（' + H + ' 日報酬互相重疊，約等於 ' + effN + ' 個獨立樣本）' : '') + '，猜對' + (H > 1 ? ' ' + H + ' 日' : '') + '漲跌 <span class="num">' + fx(T.DA, 1) + '%</span>' +
     '（95% 信賴區間 <span class="num">' + fx(lo, 0) + '–' + fx(hi, 0) + '%</span>），' +
     (beatsUp ? '高於' : '沒有高於') + '「永遠猜漲」的 <span class="num">' + fx(B.alwaysUpDA, 1) + '%</span>。' +
     (sig ? '區間下緣高於 50%，不太可能只是運氣。' : '區間仍包含 50%，樣本不足以確定模型比擲硬幣好。') + '</p>' +
     '<p><strong>價格：</strong>平均誤差 <span class="num">' + fx(T.MAPE, 2) + '%</span>，' +
-    ({ better: '優於', tie: '與', worse: '不如' })[rwVerdict] + '「明天 = 今天」的 <span class="num">' + fx(B.randomWalkMAPE, 2) + '%</span>' +
+    ({ better: '優於', tie: '與', worse: '不如' })[rwVerdict] + '「' + (H > 1 ? H + ' 天後 = 今天' : '明天 = 今天') + '」的 <span class="num">' + fx(B.randomWalkMAPE, 2) + '%</span>' +
     ({ better: '。', tie: '相當，模型對價格水準沒有額外資訊。', worse: '，價格水準請以方向判讀為主。' })[rwVerdict] + '</p>';
 
   // ── 圖表共用 ──
@@ -286,6 +291,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   const draw = (id, data, lay) => { if (window.Plotly) Plotly.newPlot(id, data, lay, cfg); else $(id).innerHTML = '<p class="muted" style="padding:24px">圖表函式庫載入失敗（需連線到 cdn.jsdelivr.net）。</p>'; };
 
   // ── 價格圖 ──
+  if (H > 1) $('predLegend').textContent = '模型預測（' + H + ' 天前的資料 → 預測當天）';
   const Fi = R.fitted;
   const priceData = [
     { x: Fi.dates, y: Fi.actual, name: '實際收盤', type: 'scatter', mode: 'lines', line: { color: tok('--s1'), width: 2 }, hovertemplate: '%{y:.3f}' },
@@ -300,25 +306,28 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   }));
 
   // ── 測試表 ──
-  $('testNote').textContent = R.split.test.from + ' ~ ' + R.split.test.to + '。這段資料在訓練、早停與參數挑選時都沒有用到。';
+  $('testNote').textContent = R.split.test.from + ' ~ ' + R.split.test.to + '。這段資料在訓練、早停與參數挑選時都沒有用到' +
+    (H > 1 ? '；各期間之間留了 ' + (H - 1) + ' 天間隔，訓練標籤不會跨進測試期間。' : '。');
   const row = (name, da, mape, note, cls = '') => '<tr class="' + cls + '"><td>' + name + '</td><td class="n">' + da + '</td><td class="n">' + mape + '</td><td>' + note + '</td></tr>';
   $('testTable').innerHTML = '<thead><tr><th>方法</th><th class="n">方向準確率</th><th class="n">價格誤差 (MAPE)</th><th>說明</th></tr></thead><tbody>' +
     row('本模型', fx(T.DA, 1) + '%', fx(T.MAPE, 2) + '%', '<span class="pill ' + (sig ? 'good' : '') + '">95% 區間 ' + fx(lo, 0) + '–' + fx(hi, 0) + '%</span>', 'model') +
     row('永遠猜漲', fx(B.alwaysUpDA, 1) + '%', '—', '測試期間上漲天數的比例') +
-    row('跟昨天同方向', fx(B.momentumDA, 1) + '%', '—', '昨天漲就猜漲、跌就猜跌') +
-    row('明天 = 今天', '—', fx(B.randomWalkMAPE, 2) + '%', '隨機漫步：直接拿今天收盤當預測') + '</tbody>';
+    row(H > 1 ? '跟前 ' + H + ' 天同方向' : '跟昨天同方向', fx(B.momentumDA, 1) + '%', '—', H > 1 ? '過去 ' + H + ' 天漲就猜接下來也漲' : '昨天漲就猜漲、跌就猜跌') +
+    row(H > 1 ? H + ' 天後 = 今天' : '明天 = 今天', '—', fx(B.randomWalkMAPE, 2) + '%', '隨機漫步：直接拿今天收盤當預測') + '</tbody>';
 
   // ── 回測 ──
   const BT = R.backtest;
   if (!BT) { $('btSection').hidden = true; } else {
     const c = BT.config;
-    $('btNote').textContent = '每天依模型預測的漲跌做多' + (c.allowShort ? '或放空' : '') + '，隔天收盤平倉；單邊手續費 ' + c.feeBps + ' bps、滑價 ' + c.slippageBps + ' bps，槓桿 ' + c.leverage + ' 倍。';
+    const hd = BT.holdDays || 1;
+    $('btNote').textContent = (hd > 1 ? '每 ' + hd + ' 個交易日依模型預測的漲跌做多' + (c.allowShort ? '或放空' : '') + '，持有 ' + hd + ' 天後收盤平倉（交易不重疊）；'
+                                      : '每天依模型預測的漲跌做多' + (c.allowShort ? '或放空' : '') + '，隔天收盤平倉；') + '單邊手續費 ' + c.feeBps + ' bps、滑價 ' + c.slippageBps + ' bps，槓桿 ' + c.leverage + ' 倍。';
     const stat = (k, v, cls = '') => '<div class="stat"><span class="v ' + cls + '">' + v + '</span><span class="k">' + k + '</span></div>';
     $('btStats').innerHTML = stat('策略報酬', signed(BT.totalReturn, 1)) + stat('買進持有', signed(BT.buyHoldReturn, 1)) +
       stat('最大回撤', pct(BT.maxDD, 1)) + stat('Sharpe（年化）', fx(BT.sharpe, 2)) + stat('勝率', pct(BT.winRate, 1)) + stat('交易次數', BT.tradeCount);
     // 買進持有：測試期間第一天的前一日收盤買進，之後每天以收盤價計值
     const ec = BT.equityCurve;
-    const prev0 = (() => { const i = R.fitted.dates.indexOf(R.test.dates[0]); return i > 0 ? R.fitted.actual[i - 1] : R.test.actual[0]; })();
+    const prev0 = Number.isFinite(BT.buyHoldEntry) ? BT.buyHoldEntry : (() => { const i = R.fitted.dates.indexOf(R.test.dates[0]); return i > 0 ? R.fitted.actual[i - 1] : R.test.actual[0]; })();
     const bh = ec.map(d => { const i = R.fitted.dates.indexOf(d.date); return BT.initialCapital * (i >= 0 ? R.fitted.actual[i] : NaN) / prev0; });
     draw('btChart', [
       { x: ec.map(d => d.date), y: ec.map(d => d.equity), type: 'scatter', mode: 'lines', line: { color: tok('--s1'), width: 2 }, name: '模型訊號', hovertemplate: '%{y:,.0f}' },
@@ -327,13 +336,13 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   }
 
   // ── 訓練過程 ──
-  const H = R.training.history;
+  const HIST = R.training.history;
   // loss 跨越一個數量級以上才用對數刻度，否則線性刻度比較好讀
-  const lossVals = H.flatMap(h => [h.loss, h.val_loss]).filter(v => Number.isFinite(v) && v > 0);
+  const lossVals = HIST.flatMap(h => [h.loss, h.val_loss]).filter(v => Number.isFinite(v) && v > 0);
   const logScale = lossVals.length && Math.max(...lossVals) / Math.min(...lossVals) > 30;
   draw('lossChart', [
-    { x: H.map(h => h.epoch), y: H.map(h => h.loss), type: 'scatter', mode: 'lines', line: { color: tok('--s1'), width: 2 }, name: '訓練', hovertemplate: '%{y:.5f}' },
-    { x: H.map(h => h.epoch), y: H.map(h => h.val_loss), type: 'scatter', mode: 'lines', line: { color: tok('--s2'), width: 2 }, name: '驗證', hovertemplate: '%{y:.5f}' },
+    { x: HIST.map(h => h.epoch), y: HIST.map(h => h.loss), type: 'scatter', mode: 'lines', line: { color: tok('--s1'), width: 2 }, name: '訓練', hovertemplate: '%{y:.5f}' },
+    { x: HIST.map(h => h.epoch), y: HIST.map(h => h.val_loss), type: 'scatter', mode: 'lines', line: { color: tok('--s2'), width: 2 }, name: '驗證', hovertemplate: '%{y:.5f}' },
   ], layout({
     xaxis: axis({ title: { text: 'epoch', font: { size: 11, color: tok('--ink-3') } } }),
     yaxis: axis(logScale ? { type: 'log', dtick: 1, exponentformat: 'power', title: { text: 'loss（對數刻度）', font: { size: 11, color: tok('--ink-3') } } }
@@ -342,7 +351,7 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     annotations: [{ x: R.training.bestEpoch, y: 1, yref: 'paper', text: '採用的 epoch', showarrow: false, xanchor: 'left', yanchor: 'top', font: { size: 11, color: tok('--ink-3') } }],
   }));
   const tr = R.training;
-  $('trainNote').textContent = '共 ' + H.length + ' 個 epoch，驗證 loss 最低在第 ' + tr.bestEpoch + ' 個（之後連續 ' + R.patience + ' 個沒進步即停止）。' +
+  $('trainNote').textContent = '共 ' + HIST.length + ' 個 epoch，驗證 loss 最低在第 ' + tr.bestEpoch + ' 個（之後連續 ' + R.patience + ' 個沒進步即停止）。' +
     '訓練耗時 ' + fx(tr.seconds, 1) + ' 秒，平均每個 epoch ' + fx(tr.msPerEpoch, 0) + ' 毫秒。' +
     (tr.refit ? '評估後再用全部 ' + tr.refit.samples + ' 筆資料重訓 ' + tr.refit.epochs + ' 個 epoch 作為輸出模型。' : '');
 

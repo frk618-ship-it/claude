@@ -2754,6 +2754,9 @@ import {
                     if (uploadedConfig || savedConfigStr) {
                         const config = uploadedConfig || JSON.parse(savedConfigStr);
                         if (!uploadedConfig) logsUpdater('⚠️ 未提供 silver-config.json，改用本機最近一次訓練的設定；若模型來自別處，參數可能不符。');
+                        if ((config.params.horizon || 1) > 1) {
+                            throw new Error(`這個模型預測的是 ${config.params.horizon} 個交易日後的報酬，瀏覽器版只支援隔日預測；請以雲端報告為準`);
+                        }
                         // 正規化範圍取決於資料期間；與訓練時差太多，模型的輸入尺度就會偏掉
                         if (uploadedConfig && marketData && config.priceMinMax) {
                             const chk = createMultivariateDataset(marketData, config.params.lookback, config.selectedFactors);
@@ -2858,7 +2861,7 @@ import {
                 }
 
                 logsUpdater('開始準備數據集...');
-                const { X, y, yDir, yLogRet, prevPrices, minMax, allMinMax, activeFeatures, numFeatures: finalNumFeatures, split } = createMultivariateDataset(marketData, params.lookback, selectedFactors);
+                const { X, y, yDir, yLogRet, prevPrices, minMax, allMinMax, activeFeatures, numFeatures: finalNumFeatures, split, latestWindow } = createMultivariateDataset(marketData, params.lookback, selectedFactors);
 
                 // ── 時序保留集：最後一段完全不參與訓練，之後用它公平比較挑戰者與現任冠軍。
                 //    絕不隨機切分 —— 那會讓未來資料洩漏進訓練集。
@@ -3304,7 +3307,8 @@ import {
                     params.futureDays,
                     logsUpdater,
                     _predTarget,
-                    prevPrices
+                    prevPrices,
+                    latestWindow           // 結束在最新交易日的視窗，預測才是從「今天收盤」往後
                 );
 
                 // ══ 保留集評分：挑戰者與冠軍都用「同一段」資料評，比較才公平 ══

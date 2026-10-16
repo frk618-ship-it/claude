@@ -14,6 +14,7 @@
 //   node train.mjs --trials 20              先做 20 組超參數搜尋，再用最佳組合訓練
 //   node train.mjs --out output             輸出目錄（預設 output/）
 //   node train.mjs --workers 4              平行執行的行程數（預設 = CPU 核心數；用於參數搜尋與交叉驗證）
+//   node train.mjs --horizon 5              預測 5 個交易日後的報酬（預設 1 = 隔日）
 //
 // 評估方式（比瀏覽器版更嚴謹）：
 //   資料依時間切成 訓練 | 驗證 | 測試 三段。
@@ -67,6 +68,8 @@ const DEFAULT_CONFIG = {
         // 預設預測對數報酬率：正規化範圍只來自訓練期間，價格創新高時「價格迴歸」必須外插、誤差暴增，
         // 報酬率沒有這個問題（瀏覽器版預設仍是價格迴歸）
         predTarget: 'logreturn',
+        // 預測幾個交易日後的報酬（1 = 隔日）。大於 1 時固定預測對數報酬率
+        horizon: 1,
     },
     patience: 30,                // 驗證 loss 連續幾個 epoch 沒進步就停
     factors: {
@@ -113,6 +116,7 @@ let config = DEFAULT_CONFIG;
 if (arg('--config')) config = deepMerge(config, JSON.parse(readFileSync(arg('--config'), 'utf8')));
 if (arg('--trials')) config.search.trials = parseInt(arg('--trials'), 10);
 if (arg('--epochs')) config.params.epochs = parseInt(arg('--epochs'), 10);
+if (arg('--horizon')) config.params.horizon = parseInt(arg('--horizon'), 10);
 if (flag('--no-refit')) config.refit = false;
 if (arg('--workers')) config.workers = parseInt(arg('--workers'), 10);
 const OUT = path.resolve(HERE, arg('--out', 'output'));
@@ -203,19 +207,28 @@ const loadData = async () => {
     return { raw, source: 'yahoo', unavailable, sourceStatus };
 };
 
+// ── 切分 ──────────────────────────────────────────────────────
+// 訓練 | 驗證 | 測試。horizon > 1 時相鄰樣本的目標期間互相重疊，
+// 每段尾端要丟掉 horizon-1 筆（purge），否則訓練標籤會用到驗證/測試期間的價格。
+const segmentsFor = (ds, end = ds.split.trainEnd) => {
+    const P = (ds.horizon || 1) - 1;
+    const inner = splitHoldout(end);
+    return { trainTo: inner.trainEnd - P, valFrom: inner.trainEnd, valTo: end - P, valid: inner.holdLen > P && inner.trainEnd - P > 0 };
+};
+
 // ── 訓練 ──────────────────────────────────────────────────────
 const disposeAll = (arr) => arr.forEach(t => { try { t?.dispose?.(); } catch (_) {} });
 
-// 在 [from, to) 訓練、[to, valEnd) 驗證；早停並還原驗證 loss 最低的權重
-const trainModel = async (ds, params, { from = 0, to, valEnd, epochs, patience, quiet = false, onEpoch } = {}) => {
+// 在 [from, to) 訓練、[valFrom, valEnd) 驗證；早停並還原驗證 loss 最低的權重
+const trainModel = async (ds, params, { from = 0, to, valFrom = to, valEnd, epochs, patience, quiet = false, onEpoch } = {}) => {
     const lookback = ds.X[0].length, nf = ds.X[0][0].length;
     const spec = resolveTargetSpec(params.predTarget, params);
     const model = createModel(params.algorithm, lookback, nf, params);
     model.compile({ optimizer: tf.train.adam(params.lr), loss: spec.loss });
     const slice = (a, b) => buildTargetTensor(ds.y.slice(a, b), ds.yDir.slice(a, b), params.predTarget, ds.yLogRet.slice(a, b));
     const xT = windowsToTensor(ds.X, from, to), yT = slice(from, to);
-    const hasVal = valEnd > to;
-    const xV = hasVal ? windowsToTensor(ds.X, to, valEnd) : null, yV = hasVal ? slice(to, valEnd) : null;
+    const hasVal = valEnd > valFrom;
+    const xV = hasVal ? windowsToTensor(ds.X, valFrom, valEnd) : null, yV = hasVal ? slice(valFrom, valEnd) : null;
 
     let best = Infinity, bestEpoch = 0, bestWeights = null, since = 0;
     const history = [];
@@ -250,27 +263,30 @@ const evaluate = (model, ds, params, raw, from, to) => {
     const p = model.predict(x);
     const out = Array.from(p.dataSync());
     disposeAll([x, p]);
+    const h = ds.horizon || 1;
     const prev = ds.prevPrices.slice(from, to);
     const pred = decodePredictedPrices(out, params.predTarget, ds.minMax, prev);
-    const actual = prev.map((_, i) => raw.prices[ds.startIdx + from + i]);
-    const dates = prev.map((_, i) => raw.dates[ds.startIdx + from + i]);
+    const tIdx = (i) => ds.startIdx + from + i + h - 1;                 // 目標日的價格索引
+    const actual = prev.map((_, i) => raw.prices[tIdx(i)]);
+    const dates = prev.map((_, i) => raw.dates[tIdx(i)]);
+    const prevH = prev.map((_, i) => raw.prices[ds.startIdx + from + i - 1 - h]);   // 基準日再往前 h 天（動能基準用）
     const s = scoreHoldout(actual, pred, prev);
-    return { dates, actual, pred, prev, DA: s.holdoutDA, MAPE: s.holdoutMAPE, n: s.holdoutN };
+    return { dates, actual, pred, prev, prevH, DA: s.holdoutDA, MAPE: s.holdoutMAPE, n: s.holdoutN };
 };
 
 // 比較基準：模型至少要贏過這些簡單規則才有意義
-const baselines = ({ actual, prev }) => {
+const baselines = ({ actual, prev, prevH }) => {
     const n = actual.length;
     let up = 0, mom = 0, momN = 0;
     for (let i = 0; i < n; i++) {
-        const isUp = actual[i] >= prev[i];
-        if (isUp) up++;
-        if (i > 0) { momN++; if ((prev[i] >= prev[i - 1] ? actual[i] >= prev[i] : actual[i] < prev[i])) mom++; }
+        if (actual[i] >= prev[i]) up++;
+        // 動能：猜「接下來 h 天」和「過去 h 天」同方向
+        if (Number.isFinite(prevH?.[i])) { momN++; if ((prev[i] >= prevH[i]) === (actual[i] >= prev[i])) mom++; }
     }
     return {
-        randomWalkMAPE: calculateMAPE(actual, prev),          // 預測「明天 = 今天」
+        randomWalkMAPE: calculateMAPE(actual, prev),          // 預測「之後 = 現在」
         alwaysUpDA: n ? (up / n) * 100 : NaN,                  // 永遠猜漲
-        momentumDA: momN ? (mom / momN) * 100 : NaN,           // 猜跟昨天同方向
+        momentumDA: momN ? (mom / momN) * 100 : NaN,           // 猜跟前一段同方向
     };
 };
 
@@ -290,24 +306,26 @@ const nextBusinessDays = (lastDate, n) => {
 const runTrialJob = async (raw, job) => {
     const { tp, factors: tf_, epochs, patience } = job;
     const ts = Date.now();
-    const ds = createMultivariateDataset(raw, tp.lookback, tf_);
-    const inner = splitHoldout(ds.split.trainEnd);
-    if (ds.split.holdLen <= 0 || inner.holdLen <= 0) throw new Error('資料不足');
-    const r = await trainModel(ds, tp, { to: inner.trainEnd, valEnd: ds.split.trainEnd, epochs, patience, quiet: true });
-    const ev = evaluate(r.model, ds, tp, raw, inner.trainEnd, ds.split.trainEnd);
+    const ds = createMultivariateDataset(raw, tp.lookback, tf_, null, { horizon: tp.horizon });
+    const sg = segmentsFor(ds);
+    if (ds.split.holdLen <= 0 || !sg.valid) throw new Error('資料不足');
+    const r = await trainModel(ds, tp, { to: sg.trainTo, valFrom: sg.valFrom, valEnd: sg.valTo, epochs, patience, quiet: true });
+    const ev = evaluate(r.model, ds, tp, raw, sg.valFrom, sg.valTo);
     r.model.dispose();
     return { valDA: ev.DA, valMAPE: ev.MAPE, valNaiveMAPE: calculateMAPE(ev.actual, ev.prev), valLoss: r.bestLoss, bestEpoch: r.bestEpoch, sec: (Date.now() - ts) / 1000 };
 };
 const runFoldJob = async (raw, job) => {
     const { params, factors: f, fold, k, epochs, patience } = job;
-    const ds = createMultivariateDataset(raw, params.lookback, f);
+    const ds = createMultivariateDataset(raw, params.lookback, f, null, { horizon: params.horizon });
+    const P = ds.horizon - 1;
     const blk = Math.floor(ds.split.trainEnd / (k + 1));
-    const trEnd = (fold + 1) * blk, teEnd = fold === k - 1 ? ds.split.trainEnd : trEnd + blk;
-    const fin = splitHoldout(trEnd);
-    const r = await trainModel(ds, params, { to: fin.trainEnd, valEnd: trEnd, epochs, patience, quiet: true });
+    // 最後一折的測試也要在測試段之前結束（目標期間不跨進最終測試段）
+    const trEnd = (fold + 1) * blk, teEnd = fold === k - 1 ? ds.split.trainEnd - P : trEnd + blk;
+    const sg = segmentsFor(ds, trEnd);
+    const r = await trainModel(ds, params, { to: sg.trainTo, valFrom: sg.valFrom, valEnd: sg.valTo, epochs, patience, quiet: true });
     const ev = evaluate(r.model, ds, params, raw, trEnd, teEnd);
     r.model.dispose();
-    const at = (i) => raw.dates[ds.startIdx + i];
+    const at = (i) => raw.dates[ds.startIdx + i + P];
     return { fold: fold + 1, trainN: trEnd, testFrom: at(trEnd), testTo: at(teEnd - 1), DA: ev.DA, MAPE: ev.MAPE, bestEpoch: r.bestEpoch };
 };
 
@@ -379,6 +397,14 @@ const main = async () => {
 
     // ── 超參數搜尋（只看驗證段，不碰測試段）──
     let params = { ...config.params };
+    const H = Math.max(1, params.horizon || 1);
+    params.horizon = H;
+    if (H > 1) {
+        // 多日報酬只支援對數報酬率：價格迴歸要外插、方向懲罰 loss 依賴「相鄰樣本 = 相鄰交易日」
+        if (params.predTarget !== 'logreturn') log(`預測 ${H} 日報酬：目標固定為對數報酬率`);
+        params.predTarget = 'logreturn';
+        config.search.space = { ...config.search.space, predTarget: ['logreturn'] };
+    }
     const search = { trials: [] };
     if (config.search.trials > 0) {
         log(`超參數搜尋：${config.search.trials} 組（每組最多 ${config.search.epochs} epochs）`);
@@ -387,7 +413,7 @@ const main = async () => {
         const factorKeys = Object.keys(factors).filter(k => factors[k]);
         const jobs = Array.from({ length: config.search.trials }, () => {
             const tp = { ...params };
-            for (const k of Object.keys(sp)) tp[k] = pick(sp[k]);
+            for (const k of Object.keys(config.search.space)) tp[k] = pick(config.search.space[k]);
             const tf_ = Object.fromEntries(factorKeys.map(k => [k, Math.random() < config.search.factorKeepProb]));
             return { type: 'trial', dataPath, tp, factors: tf_, epochs: config.search.epochs, patience: config.search.patience };
         });
@@ -421,16 +447,18 @@ const main = async () => {
     }
 
     // ── 資料集與切分 ──
-    const ds = createMultivariateDataset(raw, params.lookback, factors);
+    const ds = createMultivariateDataset(raw, params.lookback, factors, null, { horizon: H });
     if (!ds.X.length || ds.split.holdLen <= 0) throw new Error('資料不足以切出測試段');
-    const inner = splitHoldout(ds.split.trainEnd);       // 訓練段再切出驗證段，給早停用
-    const at = (i) => raw.dates[ds.startIdx + i];
+    const sg = segmentsFor(ds);                           // 訓練段再切出驗證段，給早停用（含 purge 間隔）
+    if (!sg.valid) throw new Error('資料不足以切出驗證段');
+    const at = (i) => raw.dates[ds.startIdx + i + H - 1]; // 以「目標日」標示期間
     const split = {
-        train: { n: inner.trainEnd, from: at(0), to: at(inner.trainEnd - 1) },
-        val:   { n: ds.split.trainEnd - inner.trainEnd, from: at(inner.trainEnd), to: at(ds.split.trainEnd - 1) },
+        train: { n: sg.trainTo, from: at(0), to: at(sg.trainTo - 1) },
+        val:   { n: sg.valTo - sg.valFrom, from: at(sg.valFrom), to: at(sg.valTo - 1) },
         test:  { n: ds.split.holdLen, from: at(ds.split.holdStart), to: at(ds.X.length - 1) },
+        purge: H - 1,
     };
-    log(`切分：訓練 ${split.train.n}｜驗證 ${split.val.n}｜測試 ${split.test.n}（${split.test.from} ~ ${split.test.to}）`);
+    log(`切分：訓練 ${split.train.n}｜驗證 ${split.val.n}｜測試 ${split.test.n}（${split.test.from} ~ ${split.test.to}）${H > 1 ? `，各段之間間隔 ${H - 1} 筆` : ''}`);
     log(`特徵 ${ds.numFeatures} 個：${ds.activeFeatures.map(f => f.key).join(', ')}`);
 
     // ── walk-forward 交叉驗證（選用）──
@@ -447,20 +475,24 @@ const main = async () => {
     }
 
     // ── 主訓練：訓練段訓練、驗證段早停，測試段完全不參與 ──
-    log(`訓練 ${params.algorithm}（目標：${params.predTarget}，最多 ${params.epochs} epochs，早停 ${config.patience}）`);
+    log(`訓練 ${params.algorithm}（目標：${H > 1 ? `${H} 日` : ''}${params.predTarget}，最多 ${params.epochs} epochs，早停 ${config.patience}）`);
     const tTrain = Date.now();
-    const main = await trainModel(ds, params, { to: inner.trainEnd, valEnd: ds.split.trainEnd, epochs: params.epochs, patience: config.patience });
+    const main = await trainModel(ds, params, { to: sg.trainTo, valFrom: sg.valFrom, valEnd: sg.valTo, epochs: params.epochs, patience: config.patience });
     const trainSec = (Date.now() - tTrain) / 1000;
     log(`  完成：${main.history.length} epochs，最佳在第 ${main.bestEpoch} epoch（${trainSec.toFixed(1)}s，平均 ${(trainSec / main.history.length * 1000).toFixed(0)} ms/epoch）`);
 
     const test = evaluate(main.model, ds, params, raw, ds.split.holdStart, ds.X.length);
     const base = baselines(test);
-    log(`測試段：DA ${test.DA.toFixed(2)}%  MAPE ${test.MAPE.toFixed(2)}%（永遠猜漲 DA ${base.alwaysUpDA.toFixed(1)}%，明天=今天 MAPE ${base.randomWalkMAPE.toFixed(2)}%）`);
+    // 相鄰樣本的 H 日目標互相重疊，彼此不獨立；信賴區間要用有效樣本數（約 n / H）
+    const effectiveN = Math.max(1, Math.floor(test.n / H));
+    log(`測試段：DA ${test.DA.toFixed(2)}%  MAPE ${test.MAPE.toFixed(2)}%（永遠猜漲 DA ${base.alwaysUpDA.toFixed(1)}%，不變 MAPE ${base.randomWalkMAPE.toFixed(2)}%；有效樣本 ${effectiveN}）`);
 
+    // 回測：每 H 天依預測做一次多/空，持有 H 天（交易不重疊）
+    const tradeIdx = test.pred.map((_, t) => t).filter(t => t % H === 0);
     const bt = simulateBacktest({
         prices: raw.prices, dates: raw.dates,
-        priceIndices: test.pred.map((_, t) => ds.startIdx + ds.split.holdStart + t),
-        predPrices: test.pred, config: config.backtest,
+        priceIndices: tradeIdx.map(t => ds.startIdx + ds.split.holdStart + t + H - 1),
+        predPrices: tradeIdx.map(t => test.pred[t]), config: config.backtest, holdDays: H,
     });
     const p0 = test.prev[0], p1 = test.actual[test.actual.length - 1];
     const buyHold = p0 > 0 ? p1 / p0 - 1 : NaN;
@@ -471,22 +503,30 @@ const main = async () => {
     if (config.refit) {
         const epochs = Math.max(1, main.bestEpoch);
         log(`以全部資料重訓 ${epochs} epochs（輸出模型用）`);
-        const r = await trainModel(ds, params, { to: ds.X.length, valEnd: ds.X.length, epochs, patience: Infinity, quiet: true });
+        const r = await trainModel(ds, params, { to: ds.X.length, valFrom: ds.X.length, valEnd: ds.X.length, epochs, patience: Infinity, quiet: true });
         finalModel = r.model; main.model.dispose();
         refit = { epochs, samples: ds.X.length };
     }
 
     // ── 未來預測、全期間擬合、因子影響 ──
     const quietLog = () => {};
-    const mp = await runMultiStepPrediction(finalModel, ds.X, ds.y, ds.minMax, ds.activeFeatures, ds.numFeatures, params.lookback, params.futureDays, quietLog, params.predTarget, ds.prevPrices);
+    const mp = await runMultiStepPrediction(finalModel, ds.X, ds.y, ds.minMax, ds.activeFeatures, ds.numFeatures, params.lookback, params.futureDays, quietLog, params.predTarget, ds.prevPrices, ds.latestWindow);
     const lastDate = raw.dates[raw.dates.length - 1];
-    const forecast = {
-        lastDate, lastPrice: raw.prices[raw.prices.length - 1],
-        dates: nextBusinessDays(lastDate, params.futureDays),
-        prices: mp.futurePrices,
-        dirProbs: mp.futureDirProbs?.length ? mp.futureDirProbs : null,
-    };
-    log(`未來 ${params.futureDays} 日預測（${lastDate} 收盤 ${forecast.lastPrice.toFixed(3)}）：${forecast.dates.map((d, i) => `${d} ${forecast.prices[i].toFixed(3)}`).join('，')}`);
+    const lastPrice = raw.prices[raw.prices.length - 1];
+    let forecast;
+    if (H > 1) {
+        // 直接預測：以最新視窗（結束在今天收盤）預測 H 個交易日後的價格
+        const x = windowsToTensor([ds.latestWindow]);
+        const p = finalModel.predict(x);
+        const out = Array.from(p.dataSync());
+        disposeAll([x, p]);
+        forecast = { lastDate, lastPrice, horizon: H, dates: [nextBusinessDays(lastDate, H)[H - 1]],
+                     prices: decodePredictedPrices(out, params.predTarget, ds.minMax, [lastPrice]), dirProbs: null };
+    } else {
+        forecast = { lastDate, lastPrice, horizon: 1, dates: nextBusinessDays(lastDate, params.futureDays),
+                     prices: mp.futurePrices, dirProbs: mp.futureDirProbs?.length ? mp.futureDirProbs : null };
+    }
+    log(`預測（${lastDate} 收盤 ${lastPrice.toFixed(3)}）：${forecast.dates.map((d, i) => `${d} ${forecast.prices[i].toFixed(3)}`).join('，')}`);
 
     // ── 輸出 ──
     mkdirSync(OUT, { recursive: true });
@@ -496,7 +536,7 @@ const main = async () => {
         priceMinMax: { min: ds.minMax.price.min, max: ds.minMax.price.max },
         activeFeaturesConfig: ds.activeFeatures.map(f => ({ key: f.key, name: f.name, isExternal: f.isExternal, minMax: { min: f.minMax.min, max: f.minMax.max } })),
         finalNumFeatures: ds.numFeatures,
-        cloud: { trainedAt: new Date().toISOString(), dataTo: lastDate, refit: !!refit },
+        cloud: { trainedAt: new Date().toISOString(), dataTo: lastDate, refit: !!refit, horizon: H },
     };
     writeFileSync(path.join(OUT, 'silver-config.json'), JSON.stringify(browserConfig, null, 2));
 
@@ -518,12 +558,13 @@ const main = async () => {
         split,
         training: { history: main.history, bestEpoch: main.bestEpoch, bestValLoss: main.bestLoss, seconds: trainSec, msPerEpoch: trainSec / main.history.length * 1000, refit },
         cv, search: config.search.trials > 0 ? search : null,
-        test: { DA: test.DA, MAPE: test.MAPE, n: test.n, baselines: base, dates: test.dates, actual: test.actual, pred: test.pred },
-        backtest: bt ? { ...bt, buyHoldReturn: buyHold, config: config.backtest } : null,
+        test: { DA: test.DA, MAPE: test.MAPE, n: test.n, effectiveN, horizon: H, baselines: base, dates: test.dates, actual: test.actual, pred: test.pred },
+        backtest: bt ? { ...bt, buyHoldReturn: buyHold, buyHoldEntry: p0, holdDays: H, config: config.backtest } : null,
         forecast,
         fitted: {
-            dates: ds.prevPrices.map((_, i) => raw.dates[ds.startIdx + i]),
-            actual: ds.prevPrices.map((_, i) => raw.prices[ds.startIdx + i]),
+            // 每筆預測對應的是「目標日」（H 天後）的價格
+            dates: ds.prevPrices.map((_, i) => raw.dates[ds.startIdx + i + H - 1]),
+            actual: ds.prevPrices.map((_, i) => raw.prices[ds.startIdx + i + H - 1]),
             pred: fittedPreds,
             testFrom: split.test.from,
         },

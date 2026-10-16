@@ -713,7 +713,10 @@ const windowsToTensor = (X, from = 0, to = X.length) => {
     return tf.tensor3d(flat, [n, lb, nf]);
 };
 
-const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples = null) => {
+// opts.horizon：預測幾個交易日後（預設 1 = 隔日）。第 k 筆樣本的輸入是到 P[t] 為止的視窗，
+// 目標是 P[t+horizon]（對數報酬率目標為 ln(P[t+horizon] / P[t])）。
+const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples = null, opts = {}) => {
+    const horizon = Math.max(1, opts.horizon || 1);
     const { prices, slvPrices, slvVolume, slvVolumeRoc, goldPrices, oilPrices, dxyPrices, vixPrices, tnxPrices, copperPrices, silverInventory, goldSilverRatio, socialSentiment, rsiPrices, rsiPrices12, vixRoc, tipsYield, cotNetPosition,
             priceROC, ma5Silver, ma20Silver, maCross, macdLine, fearGreed, gtrend } = data;
 
@@ -723,8 +726,10 @@ const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples =
     // 保留集之後的值可能超出 [0,1]，這是正常的，代表價格突破訓練期間的範圍。
     // maxSamples: 只建最後 N 個視窗（搜尋用），省去建全量再 slice 的白工
     const startIdx = maxSamples ? Math.max(lookback, prices.length - maxSamples) : lookback;
-    const split = splitHoldout(Math.max(0, prices.length - startIdx));
-    // 訓練樣本的目標價格索引為 startIdx .. startIdx+trainEnd-1，輸入也都落在其之前
+    // 樣本數：最後 horizon-1 天沒有「未來目標」，不成樣本
+    const split = splitHoldout(Math.max(0, prices.length - startIdx - (horizon - 1)));
+    // 正規化只用到 startIdx+trainEnd 之前的價格。horizon > 1 時，
+    // 呼叫端必須在訓練段尾端留 horizon-1 筆間隔（purge），訓練目標才不會超過這個範圍
     const fitEnd = Math.max(1, Math.min(prices.length, startIdx + split.trainEnd));
 
     const scale = (arr) => {
@@ -819,28 +824,32 @@ const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples =
         return { X: [], y: [], yDir: [], yLogRet: [], prevPrices: [],
                  minMax: { price: pObj, logRet: { mean: 0, std: 1 } },
                  allMinMax: {}, activeFeatures, numFeatures: 0,
-                 split: { trainEnd: 0, holdStart: 0, holdLen: 0 }, startIdx };
+                 split: { trainEnd: 0, holdStart: 0, holdLen: 0 }, startIdx, horizon, latestWindow: null };
     }
 
-    for(let i = startIdx; i < prices.length; i++) {
+    const windowEndingAt = (last) => {   // 輸入視窗：索引 last-lookback+1 .. last
         const sequence = [];
-        for(let j = 0; j < lookback; j++) {
-            sequence.push(activeFeatures.map(f => f.scaled[i - lookback + j]));
-        }
-        X.push(sequence);
-        y.push(pObj.scaled[i]);
-        // 方向標籤：今日價格 vs 前一日（用未正規化價格判斷）
-        yDir.push(prices[i] > prices[i - 1] ? 1 : 0);
-        // 對數報酬率目標 r = ln(P_t / P_{t-1})，以及重建價格所需的前一日實際價格
-        const pPrev = prices[i - 1], pNow = prices[i];
+        for (let j = last - lookback + 1; j <= last; j++) sequence.push(activeFeatures.map(f => f.scaled[j]));
+        return sequence;
+    };
+    for(let i = startIdx; i + horizon - 1 < prices.length; i++) {
+        const ti = i + horizon - 1;          // 目標價格的索引
+        X.push(windowEndingAt(i - 1));
+        y.push(pObj.scaled[ti]);
+        // 方向標籤：目標日價格 vs 輸入視窗最後一天（用未正規化價格判斷）
+        yDir.push(prices[ti] > prices[i - 1] ? 1 : 0);
+        // 對數報酬率目標 r = ln(P_target / P_last)，以及重建價格所需的基準價格
+        const pPrev = prices[i - 1], pNow = prices[ti];
         yLogRet.push((pPrev > 0 && pNow > 0) ? Math.log(pNow / pPrev) : 0);
         prevPrices.push(pPrev);
     }
+    // 預測未來用的視窗：結束在最後一個交易日（訓練樣本的最後一個視窗少了這一天）
+    const latestWindow = windowEndingAt(prices.length - 1);
 
     // 對數報酬率用 z-score 標準化：報酬率以 0 為中心且量級小（~±0.02），
     // 用 min-max 會被極端值主導，標準化才能讓 Huber 在合理尺度上運作。
     // 同樣只用訓練段計算統計量
-    const lrFit  = yLogRet.slice(0, split.trainEnd || yLogRet.length);
+    const lrFit  = yLogRet.slice(0, Math.max(1, (split.trainEnd || yLogRet.length) - (horizon - 1)));
     const lrMean = lrFit.length ? lrFit.reduce((s, v) => s + v, 0) / lrFit.length : 0;
     const lrVar  = lrFit.length ? lrFit.reduce((s, v) => s + (v - lrMean) ** 2, 0) / lrFit.length : 0;
     const lrStd  = Math.sqrt(lrVar) || 1;   // 全為常數時避免除以 0
@@ -852,7 +861,7 @@ const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples =
     // split：與正規化使用同一個切分點，呼叫端的保留集/驗證集必須用它
     return { X, y, yDir, yLogRet: yLogRetScaled, prevPrices,
              minMax: { price: pObj, logRet: { mean: lrMean, std: lrStd } },
-             allMinMax, activeFeatures, numFeatures, split, startIdx };
+             allMinMax, activeFeatures, numFeatures, split, startIdx, horizon, latestWindow };
 };
 
 // ... (calculateFactorInfluence, calculateDirectionalAccuracy, calculateKFoldDirectionalAccuracy, runMultiStepPrediction, exportModel remains the same) ...
@@ -989,7 +998,9 @@ const calculateKFoldDirectionalAccuracy = (testActuals, testPreds) => {
 };
 
 
-const runMultiStepPrediction = async (model, X, y, minMax, activeFeatures, finalNumFeatures, lookback, futureDays, logsUpdater, predTarget = 'price', prevPrices = null) => {
+// latestWindow：結束在最後一個交易日的輸入視窗（createMultivariateDataset 回傳）。
+// 未提供時退回 X 的最後一筆 —— 那個視窗少了最新一天，第一步預測其實是「今天」。
+const runMultiStepPrediction = async (model, X, y, minMax, activeFeatures, finalNumFeatures, lookback, futureDays, logsUpdater, predTarget = 'price', prevPrices = null, latestWindow = null) => {
     logsUpdater('正在計算歷史擬合路徑...');
     if (X.length === 0) {
         logsUpdater('錯誤: 歷史數據不足，無法進行預測。');
@@ -1085,7 +1096,7 @@ const runMultiStepPrediction = async (model, X, y, minMax, activeFeatures, final
     logsUpdater(`正在執行 T+${futureDays} 日迭代預測（lookback=${iterLookback}, features=${iterFeatures}）...`);
 
     // deep-copy 最後一個 window，確保不污染原始 X
-    let currentInput = X[X.length - 1].map(row => Float32Array.from(row));
+    let currentInput = (latestWindow || X[X.length - 1]).map(row => Float32Array.from(row));
     const futurePrices = [];
     const futureDirProbs = [];
     let lastScaled = currentInput[currentInput.length - 1][0]; // 最後一步的 price scaled 值
@@ -1153,7 +1164,7 @@ const runMultiStepPrediction = async (model, X, y, minMax, activeFeatures, final
     if (finalNumFeatures > 1) {
         try {
             influenceScores = await calculateFactorInfluence(
-                model, X[X.length - 1], minMax, activeFeatures, finalNumFeatures
+                model, latestWindow || X[X.length - 1], minMax, activeFeatures, finalNumFeatures
             );
         } catch (e) {
             logsUpdater(`⚠️ 因子敏感度分析失敗: ${e.message?.slice(0,80)}`);
@@ -1379,7 +1390,8 @@ const calcSharpe = (returns, periodsPerYear = 252) => {
     return (mean / std) * Math.sqrt(periodsPerYear);
 };
 
-const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {} }) => {
+// holdDays：每筆交易持有幾天（以 prices[i-holdDays] 進場、prices[i] 出場）；預設 1
+const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {}, holdDays = 1 }) => {
     const initialCapital = Math.max(parseFloat(config.initialCapital) || 100000, 0);
     const leverage = Math.max(parseFloat(config.leverage) || 1.0, 0);
     const positionPct = Math.min(Math.max(parseFloat(config.positionPct) || 1.0, 0), 1);
@@ -1398,8 +1410,8 @@ const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {}
 
     for (let t = 0; t < priceIndices.length; t++) {
         const i = priceIndices[t];
-        if (i <= 0 || i >= prices.length) continue;
-        const entry = prices[i - 1];
+        if (i - holdDays < 0 || i >= prices.length) continue;
+        const entry = prices[i - holdDays];
         const exit = prices[i];
         if (!(Number.isFinite(entry) && Number.isFinite(exit) && entry > 0)) continue;
         const predPrice = predPrices[t];
@@ -1435,7 +1447,7 @@ const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {}
         finalEquity: equity,
         totalReturn: (equity / initialCapital) - 1,
         maxDD: calcMaxDrawdown(equityCurve.map(d => d.equity)),
-        sharpe: calcSharpe(dailyRets, 252),
+        sharpe: calcSharpe(dailyRets, 252 / holdDays),
         tradeCount,
         winRate: tradeCount > 0 ? wins / tradeCount : 0,
         equityCurve,
