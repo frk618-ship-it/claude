@@ -461,10 +461,14 @@ const checkDataQuality = (data, selectedFactors) => {
     return { blocked: false, reason: null, mockSelected: [] };
 };
 
+// 保留最近 years 年（以日曆日期計算）。以前誤把 years×365 當成「交易日筆數」，
+// 實際取到的期間約多出 45%（2 年變成約 2.9 年）。
 const filterDataByYears = (data, years) => { 
     if (!data || !data.dates || data.dates.length === 0) return data;
-    const daysToFilter = Math.floor(years * 365.25);
-    const startIndex = Math.max(0, data.dates.length - daysToFilter);
+    const lastMs = Date.parse(data.dates[data.dates.length - 1] + 'T00:00:00Z');
+    const cutoff = new Date(lastMs - years * 365.25 * 86_400_000).toISOString().slice(0, 10);
+    let startIndex = data.dates.findIndex(d => d >= cutoff);
+    if (startIndex < 0) startIndex = 0;
     if (startIndex === 0 && data.dates.length <= 10) return data; 
     const filtered = {};
     Object.keys(data).forEach(key => {
@@ -1511,7 +1515,8 @@ const COT_API = {
         "upper(market_and_exchange_names) like '%SILVER%'",
     ],
 };
-const cotQueryUrl = (src, whereExpr, limit = 300) =>
+// 每週一筆；700 週約 13 年
+const cotQueryUrl = (src, whereExpr, limit = 700) =>
     `${src.base}?$select=${src.select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(src.order)}&$limit=${limit}`;
 
 // Disaggregated：Managed Money 淨部位；鍵為截至日（週二）

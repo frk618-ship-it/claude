@@ -32,7 +32,7 @@ export const fetchCOT = async (core) => {
         for (const where of core.COT_API.silverWheres) {
             try {
                 const map = parse(await fetchWithRetry(core.cotQueryUrl(src, where), { retries: 1 }));
-                if (map.size > 0) return { map, source: kind };
+                if (map.size > 0) return { map, source: kind, firstDate: [...map.keys()].sort()[0] };
             } catch (_) { /* 換下一個條件 */ }
         }
     }
@@ -48,18 +48,20 @@ export const fetchTIPS = async (core, dates) => {
     maps.forEach(m => m && m.forEach((v, k) => all.set(k, v)));
     if (all.size === 0) throw new Error('財政部 XML 沒有資料');
     const covered = years.filter((_, i) => maps[i]?.size > 0).length;
-    return { values: core.alignMapToDates(all, dates, 0.5), points: all.size, coverage: `${covered}/${years.length} 年` };
+    return { values: core.alignMapToDates(all, dates, 0.5), points: all.size, coverage: `${covered}/${years.length} 年`, firstDate: [...all.keys()].sort()[0] };
 };
 
 // CNN Fear & Greed：網址加上起始日可取得較長的歷史
+// CNN 的歷史大約從 2021 年開始；要求更早的起始日會回 HTTP 500，此時改用最早可用的日期
 export const fetchFearGreed = async (core, dates) => {
-    const json = await fetchWithRetry(`${core.FEAR_GREED_URL}/${dates[0]}`, {
-        headers: { Accept: 'application/json, text/plain, */*', Origin: 'https://edition.cnn.com', Referer: 'https://edition.cnn.com/' },
-    });
+    const headers = { Accept: 'application/json, text/plain, */*', Origin: 'https://edition.cnn.com', Referer: 'https://edition.cnn.com/' };
+    const start = dates[0] < '2021-01-04' ? '2021-01-04' : dates[0];
+    const json = await fetchWithRetry(`${core.FEAR_GREED_URL}/${start}`, { headers })
+        .catch(() => fetchWithRetry(core.FEAR_GREED_URL, { headers }));
     const { map, currentScore, currentRating } = core.parseFearGreed(json);
     if (map.size === 0) throw new Error('CNN 沒有回傳歷史資料');
     // 歷史開始之前填中性值 50，不能填今天的分數
-    return { values: core.alignMapToDates(map, dates, 50), source: 'real', currentScore, currentRating, points: map.size };
+    return { values: core.alignMapToDates(map, dates, 50), source: 'real', currentScore, currentRating, points: map.size, firstDate: [...map.keys()].sort()[0] };
 };
 
 // StockTwits：只有最新約 30 則訊息的當下情緒

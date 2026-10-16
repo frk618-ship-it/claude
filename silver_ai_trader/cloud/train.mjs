@@ -126,11 +126,14 @@ const t0 = Date.now();
 const log = (...m) => console.log(`[${((Date.now() - t0) / 1000).toFixed(0).padStart(4)}s]`, ...m);
 
 // ── 資料 ──────────────────────────────────────────────────────
-// 從 Yahoo Finance 抓 5 年日線（與瀏覽器版 Yahoo 備援相同的端點）
-const fetchYahoo = async (symbol) => {
+// 從 Yahoo Finance 抓日線（與瀏覽器版 Yahoo 備援相同的端點）。
+// 用明確的起訖時間：range=max 會被 Yahoo 自動改成月線。多抓半年給 lookback 視窗用。
+const fetchYahoo = async (symbol, years) => {
+    const period2 = Math.floor(Date.now() / 1000);
+    const period1 = period2 - Math.ceil((Math.max(years, 1) + 0.5) * 365.25 * 86400);
     for (let attempt = 0; attempt < 4; attempt++) {
         for (const host of ['query1', 'query2']) {
-            const url = `https://${host}.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?range=5y&interval=1d`;
+            const url = `https://${host}.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?period1=${period1}&period2=${period2}&interval=1d`;
             try {
                 const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (silver-ai-trader cloud trainer)' } });
                 if (r.status === 429) throw new Error('HTTP 429');
@@ -161,7 +164,7 @@ const loadData = async () => {
     log('從 Yahoo Finance 抓取 8 個市場品種…');
     const series = {};
     for (const s of MARKET_SYMBOLS) {
-        series[s] = await fetchYahoo(s);
+        series[s] = await fetchYahoo(s, config.params.historyYears);
         if (!series[s]) {
             if (s === 'SI=F') throw new Error('白銀期貨 (SI=F) 抓取失敗，無法訓練');
             log(`  ⚠️ ${s} 抓取失敗`);
@@ -188,7 +191,7 @@ const loadData = async () => {
     const unavailable = {};
     const sourceStatus = [];
     const note = (name, res, okDetail, factor, onOk) => {
-        if (res.status === 'fulfilled') { onOk(res.value); sourceStatus.push({ name, ok: true, detail: okDetail(res.value) }); }
+        if (res.status === 'fulfilled') { onOk(res.value); sourceStatus.push({ name, ok: true, detail: okDetail(res.value), factor, firstDate: res.value.firstDate || null }); }
         else {
             const why = res.reason?.message || String(res.reason);
             if (factor) unavailable[factor] = `${name}：${why}`;
@@ -382,6 +385,20 @@ const main = async () => {
     let factors = { ...config.factors };
     const excluded = [];
     for (const [k, why] of Object.entries(unavailable)) if (factors[k]) { factors[k] = false; excluded.push({ key: k, reason: why }); }
+    // 涵蓋率：輔助資料若晚於訓練期間開始才有，前段會被填成固定值，
+    // 模型可能把「有沒有資料」當成訊號（等於學到「這是哪個年代」），因此排除
+    const COVERAGE_SLACK_DAYS = 45;
+    const startMs = Date.parse(raw.dates[0] + 'T00:00:00Z');
+    for (const st of sourceStatus) {
+        if (!st.ok || !st.factor || !st.firstDate || !factors[st.factor]) continue;
+        const lagDays = (Date.parse(st.firstDate + 'T00:00:00Z') - startMs) / 86_400_000;
+        if (lagDays > COVERAGE_SLACK_DAYS) {
+            factors[st.factor] = false;
+            const why = `${st.name}：只有 ${st.firstDate} 之後的資料，未涵蓋整個期間（從 ${raw.dates[0]} 起）`;
+            excluded.push({ key: st.factor, reason: why });
+            st.detail += `；${st.firstDate} 起，未涵蓋整個期間，不使用`;
+        }
+    }
     const dq = checkDataQuality(raw, factors);
     if (raw.dataQuality?.allMock) throw new Error('這份資料是瀏覽器的「模擬資料」，無法用於訓練。請在瀏覽器載入真實資料後再匯出。');
     if (dq.mockSelected.includes('price')) throw new Error(dq.reason);

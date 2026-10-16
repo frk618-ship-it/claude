@@ -738,8 +738,10 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
   };
   var filterDataByYears = (data, years) => {
     if (!data || !data.dates || data.dates.length === 0) return data;
-    const daysToFilter = Math.floor(years * 365.25);
-    const startIndex = Math.max(0, data.dates.length - daysToFilter);
+    const lastMs = Date.parse(data.dates[data.dates.length - 1] + "T00:00:00Z");
+    const cutoff = new Date(lastMs - years * 365.25 * 864e5).toISOString().slice(0, 10);
+    let startIndex = data.dates.findIndex((d) => d >= cutoff);
+    if (startIndex < 0) startIndex = 0;
     if (startIndex === 0 && data.dates.length <= 10) return data;
     const filtered = {};
     Object.keys(data).forEach((key) => {
@@ -1641,7 +1643,7 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
       "upper(market_and_exchange_names) like '%SILVER%'"
     ]
   };
-  var cotQueryUrl = (src, whereExpr, limit = 300) => `${src.base}?$select=${src.select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(src.order)}&$limit=${limit}`;
+  var cotQueryUrl = (src, whereExpr, limit = 700) => `${src.base}?$select=${src.select}&$where=${encodeURIComponent(whereExpr)}&$order=${encodeURIComponent(src.order)}&$limit=${limit}`;
   var parseCotDisagg = (records) => {
     const map = /* @__PURE__ */ new Map();
     if (!Array.isArray(records)) return map;
