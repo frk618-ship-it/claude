@@ -198,10 +198,16 @@ def test_fetch_company_with_fake_api():
     assert {c[0] for c in calls} >= {"TaiwanStockFinancialStatements", "TaiwanStockMonthRevenue"}
 
 
-def test_example_config_targets_taiwan_semiconductor_materials():
-    cfg = load_fin_config(ROOT / "config" / "fin_targets.yaml")
+def test_target_makers_config():
+    cfg = load_fin_config(ROOT / "config" / "target_makers.yaml")
     assert cfg.target.ticker == "1785" and cfg.target.name == "光洋科"
-    assert len(cfg.peers) >= 3 and cfg.industry_notes
+    by_ticker = {c.ticker: c for c in cfg.companies}
+    for t in ("1785", "3663", "5016.T", "4042.T", "SOLS", "300666.SZ", "600206.SS"):
+        assert t in by_ticker
+    assert by_ticker["5016.T"].market == "JP" and by_ticker["5016.T"].currency == "JPY"
+    assert by_ticker["SOLS"].currency == "USD" and by_ticker["600206.SS"].currency == "CNY"
+    assert by_ticker["1785"].par_value == 10 and by_ticker["SOLS"].par_value is None
+    assert cfg.fx_rates["USD"] > 0 and cfg.industry_notes
     assert cfg.thresholds["debt_ratio_max"] == 0.60
     assert cfg.finmind_ytd["cashflow"] is True
 
@@ -215,15 +221,15 @@ def test_demo_report_end_to_end(tmp_path, monkeypatch):
     for section in ("## 重點訊號", "## 關鍵指標速覽", "## 杜邦分析", "## 月營收", "## 綜合評分", "## 評價", "## 同業比較", "虛構"):
         assert section in md
     data = json.loads(next(tmp_path.glob("DEMO-A-*.json")).read_text(encoding="utf-8"))
-    assert data["target"]["ticker"] == "DEMO-A" and len(data["peers"]) == 2
+    assert data["target"]["ticker"] == "DEMO-A" and len(data["peers"]) == 4
     assert next(tmp_path.glob("*-quarterly.csv")).read_text(encoding="utf-8-sig").startswith("period,")
 
 
 def test_cli_fetch_writes_data(tmp_path, monkeypatch):
     monkeypatch.setattr("fin_analyzer.cli.http_fetch", lambda ds, params: FINMIND[ds])
     monkeypatch.setattr("fin_analyzer.sources.time.sleep", lambda s: None)
-    cfg = ROOT / "config" / "fin_targets.yaml"
-    assert main(["fetch", "-c", str(cfg), "--tickers", "1785", "--data-dir", str(tmp_path)]) == 0
+    cfg = ROOT / "config" / "target_makers.yaml"
+    assert main(["fetch", "-c", str(cfg), "--tickers", "1785", "--data-dir", str(tmp_path), "--no-fx"]) == 0
     assert load_company("1785", tmp_path).quarters["2025Q2"]["revenue"] == 1200
 
 

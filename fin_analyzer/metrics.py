@@ -69,6 +69,12 @@ METRIC_LABELS: dict[str, tuple[str, str]] = {
     "dio": ("存貨天數", "days"),
     "dpo": ("應付帳款天數", "days"),
     "ccc": ("現金轉換循環", "days"),
+    "revenue_ttm": ("近四季營收", "amt"),
+    "revenue_ttm_yoy": ("近四季營收年增", "pct"),
+    "gross_margin_ttm": ("毛利率(近四季)", "pct"),
+    "operating_margin_ttm": ("營業利益率(近四季)", "pct"),
+    "net_margin_ttm": ("淨利率(近四季)", "pct"),
+    "fcf_margin_ttm": ("自由現金流/營收", "pct"),
     "operating_cf_ttm": ("營業現金流(近四季)", "amt"),
     "fcf_ttm": ("自由現金流(近四季)", "amt"),
     "ocf_to_net_income_ttm": ("營業現金流/淨利", "x"),
@@ -117,6 +123,8 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["asset_turnover_ttm"] = div(rev_ttm, avg_assets)
         m["equity_multiplier"] = div(avg_assets, avg_equity)
         m["net_margin_ttm"] = div(ni_ttm, rev_ttm)
+        m["gross_margin_ttm"] = div(ttm_sum("gross_profit"), rev_ttm)
+        m["operating_margin_ttm"] = div(ttm_sum("operating_income"), rev_ttm)
 
         # Liquidity & leverage (period-end).
         ca, cl, inv = g(p, "current_assets"), g(p, "current_liabilities"), g(p, "inventory")
@@ -146,6 +154,7 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["fcf_ttm"] = _sub(ocf_ttm, capex_ttm)
         m["ocf_to_net_income_ttm"] = div(ocf_ttm, ni_ttm) if ni_ttm and ni_ttm > 0 else None
         m["capex_to_revenue_ttm"] = div(capex_ttm, rev_ttm)
+        m["fcf_margin_ttm"] = div(m["fcf_ttm"], rev_ttm)
         m["capex_to_depreciation_ttm"] = div(capex_ttm, ttm_sum("depreciation"))
         m["ebitda_ttm"] = _sum(ttm_sum("operating_income"), ttm_sum("depreciation"))
         m["revenue_ttm"] = rev_ttm
@@ -220,11 +229,14 @@ def altman_z2(data: CompanyData, qm: dict[str, dict[str, float | None]], period:
     return ScoreResult(score=None, max_score=0, details=[(f"{n} = {v:.3f}", True) for n, v in parts], zone=zone, value=z)
 
 
-def valuation(data: CompanyData, qm: dict[str, dict[str, float | None]], period: str, par_value: float = 10.0) -> dict[str, float | None]:
-    """Price-based multiples using the latest close (Taiwan par value NT$10 per share)."""
+def valuation(
+    data: CompanyData, qm: dict[str, dict[str, float | None]], period: str, par_value: float | None = 10.0
+) -> dict[str, float | None]:
+    """Price-based multiples using the latest close. Share count comes from the ``shares``
+    field, else share capital / par value (Taiwan: NT$10 per share)."""
     close = data.last_close
     m = qm.get(period, {})
-    shares = div(data.get(period, "share_capital"), par_value)
+    shares = data.get(period, "shares") or (div(data.get(period, "share_capital"), par_value) if par_value else None)
     bvps = div(data.get(period, "equity_parent"), shares)
     out: dict[str, float | None] = {"shares": shares, "bvps": bvps, "close": None, "close_date": None}
     if not close or shares is None:

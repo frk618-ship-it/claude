@@ -154,7 +154,7 @@ def fetch_company(
         raise RuntimeError(f"FinMind returned no statements for {ticker}")
 
     fmap = {**FIELD_MAP, **(field_map or {})}
-    data = CompanyData(ticker=ticker, name=name)
+    data = CompanyData(ticker=ticker, name=name, currency="TWD")
     data.quarters = statements_to_quarters(statements, fmap, {**DEFAULT_YTD, **(ytd or {})})
 
     try:
@@ -173,5 +173,5 @@ def fetch_company(
     except Exception as exc:  # monthly revenue / prices are optional extras
         log.warning("%s: optional dataset failed: %s", ticker, exc)
 
-    data.fill_derived()
+    data.fill_derived(par_value=10.0)  # Taiwan par value NT$10 -> share count
     return data

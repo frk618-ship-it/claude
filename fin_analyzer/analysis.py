@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from .config import FinConfig
+from .config import Company, FinConfig
 from .metrics import ScoreResult, altman_z2, piotroski, quarter_metrics, valuation
 from .models import CompanyData, shift_period
 from .monthly import monthly_metrics
@@ -29,7 +29,11 @@ class Analysis:
     zscore: ScoreResult
     valuation: dict[str, float | None]
     signals: list[Signal] = field(default_factory=list)
-    segment: str = ""
+    company: Company | None = None
+
+    @property
+    def segment(self) -> str:
+        return self.company.segment if self.company else ""
 
     @property
     def latest_metrics(self) -> dict[str, float | None]:
@@ -40,7 +44,7 @@ def _pct(v: float) -> str:
     return f"{v * 100:.1f}%"
 
 
-def analyze(data: CompanyData, cfg: FinConfig, segment: str = "") -> Analysis:
+def analyze(data: CompanyData, cfg: FinConfig, company: Company | None = None) -> Analysis:
     if not data.periods:
         raise ValueError(f"{data.label}: no quarterly data")
     qm = quarter_metrics(data)
@@ -53,8 +57,8 @@ def analyze(data: CompanyData, cfg: FinConfig, segment: str = "") -> Analysis:
         latest=latest,
         fscore=piotroski(data, qm, latest),
         zscore=altman_z2(data, qm, latest),
-        valuation=valuation(data, qm, latest, cfg.par_value),
-        segment=segment,
+        valuation=valuation(data, qm, latest, company.par_value if company else cfg.par_value),
+        company=company,
     )
     a.signals = signals(a, cfg.thresholds)
     return a
