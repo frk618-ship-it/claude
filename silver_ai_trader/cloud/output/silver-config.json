@@ -1,43 +1,44 @@
 {
   "params": {
-    "lookback": 15,
+    "lookback": 20,
     "epochs": 400,
-    "layers": 16,
-    "lr": 0.003,
+    "layers": 32,
+    "lr": 0.002,
     "futureDays": 3,
     "historyYears": 2,
-    "batchSize": 32,
-    "directionalLambda": 0.1,
-    "huberDelta": 1,
+    "batchSize": 64,
+    "directionalLambda": 0,
+    "huberDelta": 1.5,
     "algorithm": "Transformer",
     "validationMode": "K_FOLD",
     "kFolds": 4,
-    "predTarget": "logreturn"
+    "predTarget": "logreturn",
+    "horizon": 5
   },
   "selectedFactors": {
     "slvPrices": true,
     "slvVolume": true,
     "slvVolumeRoc": true,
     "tipsYield": false,
-    "rsiPrices": true,
+    "rsiPrices": false,
     "rsiPrices12": true,
-    "vixRoc": true,
+    "vixRoc": false,
     "socialSentiment": true,
-    "fearGreed": true,
+    "fearGreed": false,
     "goldPrices": true,
     "oilPrices": false,
     "dxyPrices": true,
-    "vixPrices": false,
+    "vixPrices": true,
     "tnxPrices": false,
     "copperPrices": true,
     "silverInventory": true,
     "goldSilverRatio": true,
     "cotNetPosition": true,
-    "priceROC": false,
+    "priceROC": true,
     "ma5Silver": true,
-    "ma20Silver": true,
-    "maCross": true,
-    "macdLine": true,
+    "ma20Silver": false,
+    "maCross": false,
+    "macdLine": false,
     "gtrend": false
   },
   "priceMinMax": {
@@ -82,39 +83,12 @@
       }
     },
     {
-      "key": "rsiPrices",
-      "name": "白銀 RSI 指標 (5)",
-      "isExternal": true,
-      "minMax": {
-        "min": 11.10021149649377,
-        "max": 97.69433557301483
-      }
-    },
-    {
       "key": "rsiPrices12",
       "name": "白銀 RSI 指標 (12)",
       "isExternal": true,
       "minMax": {
         "min": 25.285170074114802,
         "max": 88.72092661026082
-      }
-    },
-    {
-      "key": "vixRoc",
-      "name": "VIX 變動率 (ROC)",
-      "isExternal": true,
-      "minMax": {
-        "min": -0.35753873962348437,
-        "max": 0.7403907396600701
-      }
-    },
-    {
-      "key": "fearGreed",
-      "name": "CNN Fear & Greed (0-100)",
-      "isExternal": true,
-      "minMax": {
-        "min": 2.9,
-        "max": 82.97142857142858
       }
     },
     {
@@ -145,12 +119,21 @@
       }
     },
     {
+      "key": "vixPrices",
+      "name": "VIX 恐慌指數 (^VIX)",
+      "isExternal": true,
+      "minMax": {
+        "min": 11.859999656677246,
+        "max": 52.33000183105469
+      }
+    },
+    {
       "key": "copperPrices",
       "name": "銅期貨價格 (HG=F)",
       "isExternal": true,
       "minMax": {
         "min": 3.686000108718872,
-        "max": 6.635499954223633
+        "max": 6.485000133514404
       }
     },
     {
@@ -181,6 +164,15 @@
       }
     },
     {
+      "key": "priceROC",
+      "name": "白銀日報酬率 (ROC)",
+      "isExternal": true,
+      "minMax": {
+        "min": -0.31346844308759625,
+        "max": 0.1402526465323732
+      }
+    },
+    {
       "key": "ma5Silver",
       "name": "白銀 MA5",
       "isExternal": true,
@@ -188,39 +180,13 @@
         "min": 22.4197998046875,
         "max": 109.73520202636719
       }
-    },
-    {
-      "key": "ma20Silver",
-      "name": "白銀 MA20",
-      "isExternal": true,
-      "minMax": {
-        "min": 22.620749855041502,
-        "max": 91.49975090026855
-      }
-    },
-    {
-      "key": "maCross",
-      "name": "MA Cross (MA5-MA20)",
-      "isExternal": true,
-      "minMax": {
-        "min": -0.1301818431851798,
-        "max": 0.21893464075413002
-      }
-    },
-    {
-      "key": "macdLine",
-      "name": "MACD 線 (12-26 EMA)",
-      "isExternal": true,
-      "minMax": {
-        "min": -4.011960233366793,
-        "max": 11.408827188395222
-      }
     }
   ],
-  "finalNumFeatures": 19,
+  "finalNumFeatures": 15,
   "cloud": {
-    "trainedAt": "2026-10-16T17:41:29.070Z",
+    "trainedAt": "2026-10-16T17:56:13.817Z",
     "dataTo": "2026-10-16",
-    "refit": true
+    "refit": true,
+    "horizon": 5
   }
 }

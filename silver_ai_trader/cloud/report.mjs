@@ -265,6 +265,12 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   // 價格誤差差距在 2% 以內視為相當，不宣稱勝負
   const rwRel = (T.MAPE - B.randomWalkMAPE) / B.randomWalkMAPE;
   const rwVerdict = Math.abs(rwRel) <= 0.02 ? 'tie' : (rwRel < 0 ? 'better' : 'worse');
+  // 模型是否幾乎只猜同一個方向：以每筆樣本的基準價（目標日往前 H 筆的實際價）判定
+  const Fx = R.fitted, base0 = Fx.dates.indexOf(T.dates[0]);
+  let upPred = 0, nPred = 0;
+  T.pred.forEach((p, k) => { const b = Fx.actual[base0 + k - H]; if (Number.isFinite(b) && Number.isFinite(p)) { nPred++; if (p >= b) upPred++; } });
+  const upShare = nPred ? upPred / nPred : NaN;
+  const oneSided = Number.isFinite(upShare) && (upShare >= 0.9 || upShare <= 0.1);
   const v = $('verdict');
   v.className = 'verdict ' + (beatsUp && sig ? 'good' : (!beatsUp ? 'bad' : ''));
   v.innerHTML =
@@ -272,6 +278,8 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     '（95% 信賴區間 <span class="num">' + fx(lo, 0) + '–' + fx(hi, 0) + '%</span>），' +
     (beatsUp ? '高於' : '沒有高於') + '「永遠猜漲」的 <span class="num">' + fx(B.alwaysUpDA, 1) + '%</span>。' +
     (sig ? '區間下緣高於 50%，不太可能只是運氣。' : '區間仍包含 50%，樣本不足以確定模型比擲硬幣好。') + '</p>' +
+    (oneSided ? '<p><strong>注意：</strong>模型在測試期間有 <span class="num">' + fx(upShare * 100, 0) + '%</span> 的時間都預測' + (upShare >= 0.5 ? '上漲' : '下跌') +
+      '，等於沒有學到漲跌訊號，只是學到訓練期間的平均方向。</p>' : '') +
     '<p><strong>價格：</strong>平均誤差 <span class="num">' + fx(T.MAPE, 2) + '%</span>，' +
     ({ better: '優於', tie: '與', worse: '不如' })[rwVerdict] + '「' + (H > 1 ? H + ' 天後 = 今天' : '明天 = 今天') + '」的 <span class="num">' + fx(B.randomWalkMAPE, 2) + '%</span>' +
     ({ better: '。', tie: '相當，模型對價格水準沒有額外資訊。', worse: '，價格水準請以方向判讀為主。' })[rwVerdict] + '</p>';
@@ -372,10 +380,14 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   }
   if (R.search && R.search.trials && R.search.trials.length) {
     $('searchSection').hidden = false;
-    if (R.search.wallSec) $('searchNote').textContent = R.search.trials.length + ' 組試驗以 ' + R.search.workers + ' 個行程平行執行，耗時 ' + Math.round(R.search.wallSec) + ' 秒（逐一執行約需 ' + Math.round(R.search.cpuSec) + ' 秒）。依驗證期間的方向準確率排序；測試期間不參與挑選。';
-    const rows = R.search.trials.filter(t => Number.isFinite(t.valDA)).sort((a, b) => b.valDA - a.valDA);
+    const valEff = Math.max(1, Math.floor((R.split.val.n || 0) / H));
+    if (R.search.wallSec) $('searchNote').textContent = R.search.trials.length + ' 組試驗以 ' + R.search.workers + ' 個行程平行執行，耗時 ' + Math.round(R.search.wallSec) + ' 秒（逐一執行約需 ' + Math.round(R.search.cpuSec) + ' 秒）。' +
+      (R.search.gate ? '驗證期間價格誤差超過「不變」基準 ' + R.search.gate + ' 倍的組合不列入挑選（標示「價格失準」），其餘依驗證期間方向準確率排序。' : '依驗證期間的方向準確率排序。') + '測試期間不參與挑選。' +
+      '驗證期間約只有 ' + valEff + ' 個獨立樣本，每多猜對一個就差 ' + fx(100 / valEff, 0) + ' 個百分點，名次之間的差距大多是雜訊。';
+    // 先列通過價格合理性檢查的，再依驗證 DA 排序（與實際挑選方式一致）
+    const rows = R.search.trials.filter(t => Number.isFinite(t.valDA)).sort((a, b) => ((b.passed !== false) - (a.passed !== false)) || (b.valDA - a.valDA));
     $('searchTable').innerHTML = '<thead><tr><th>排名</th><th>演算法</th><th>預測目標</th><th class="n">lookback</th><th class="n">單元</th><th class="n">學習率</th><th class="n">λ</th><th class="n">因子數</th><th class="n">驗證 DA</th><th class="n">驗證 MAPE</th><th class="n">秒</th></tr></thead><tbody>' +
-      rows.map((t, i) => '<tr' + (i === 0 ? ' class="model"' : '') + '><td>' + (i + 1) + (i === 0 ? ' <span class="pill good">採用</span>' : '') + '</td><td>' + esc(ALG[t.params.algorithm] || t.params.algorithm) + '</td><td>' + esc(TARGET[t.params.predTarget] || t.params.predTarget || '') + '</td><td class="n">' + t.params.lookback + '</td><td class="n">' + t.params.layers + '</td><td class="n">' + t.params.lr + '</td><td class="n">' + t.params.directionalLambda + '</td><td class="n">' + (Object.values(t.factors).filter(Boolean).length + 1) + '</td><td class="n">' + fx(t.valDA, 1) + '%</td><td class="n">' + fx(t.valMAPE, 2) + '%</td><td class="n">' + fx(t.sec, 0) + '</td></tr>').join('') + '</tbody>';
+      rows.map((t, i) => '<tr' + (i === 0 ? ' class="model"' : '') + '><td>' + (i + 1) + (i === 0 ? ' <span class="pill good">採用</span>' : '') + '</td><td>' + esc(ALG[t.params.algorithm] || t.params.algorithm) + '</td><td>' + esc(TARGET[t.params.predTarget] || t.params.predTarget || '') + '</td><td class="n">' + t.params.lookback + '</td><td class="n">' + t.params.layers + '</td><td class="n">' + t.params.lr + '</td><td class="n">' + t.params.directionalLambda + '</td><td class="n">' + (Object.values(t.factors).filter(Boolean).length + 1) + '</td><td class="n">' + fx(t.valDA, 1) + '%</td><td class="n">' + fx(t.valMAPE, 2) + '%' + (t.passed === false ? ' <span class="pill bad">價格失準</span>' : '') + '</td><td class="n">' + fx(t.sec, 0) + '</td></tr>').join('') + '</tbody>';
   }
 
   // ── 執行細節 ──
