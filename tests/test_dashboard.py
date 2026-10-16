@@ -106,6 +106,9 @@ def test_dashboard_cli_demo(tmp_path):
     assert main(["dashboard", "-c", str(DEMO_CONFIG), "--data-dir", str(ROOT / "examples" / "demo_financials"), "-o", str(tmp_path)]) == 0
     html = (tmp_path / "index.html").read_text(encoding="utf-8")
     assert "/*__DATA__*/" not in html and "示範靶材" in html
+    # Data warnings and the methodology notes start collapsed.
+    assert '<details class="fold" id="banners-fold" hidden>' in html
+    assert '<details class="fold">\n        <summary><h2>資料與計算說明</h2>' in html
     data = json.loads((tmp_path / "dashboard.json").read_text(encoding="utf-8"))
     assert {c["currency"] for c in data["companies"]} == {"TWD", "JPY", "USD", "CNY"}
     assert all(c["latest"]["revenue_ttm"] for c in data["companies"])

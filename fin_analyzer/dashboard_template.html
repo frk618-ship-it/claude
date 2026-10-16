@@ -49,6 +49,14 @@ body { margin: 0; background: var(--page); color: var(--ink-1);
 .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
 header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
 header .sub { color: var(--ink-2); font-size: 13px; }
+.fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::before { content: "▸"; color: var(--ink-3); transition: transform .15s; }
+.fold[open] > summary::before { transform: rotate(90deg); }
+.fold > summary:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; border-radius: 4px; }
+.fold > summary h2 { margin: 0; }
+#banners-fold { margin-top: 12px; }
+.card.notes { align-self: start; }
 .banner { margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: var(--wash); border: 1px solid var(--border); color: var(--ink-2); font-size: 13px; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 20px 0 16px; }
 .fgroup { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
@@ -108,7 +116,10 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
   <header>
     <h1 id="title"></h1>
     <div class="sub" id="sub"></div>
-    <div id="banners"></div>
+    <details class="fold" id="banners-fold" hidden>
+      <summary>⚠️ 資料提醒 <span id="banner-count"></span>(點擊展開)</summary>
+      <div id="banners"></div>
+    </details>
   </header>
 
   <div class="filters" role="toolbar" aria-label="篩選">
@@ -159,8 +170,10 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
       <ul class="signals" id="signals"></ul>
     </section>
     <section class="card notes">
-      <h2>資料與計算說明</h2>
-      <ul id="notes"></ul>
+      <details class="fold">
+        <summary><h2>資料與計算說明</h2>(點擊展開)</summary>
+        <ul id="notes"></ul>
+      </details>
     </section>
   </div>
 </div>
@@ -311,6 +324,9 @@ function renderHeader() {
   const notes = [...new Set(D.companies.map(c => c.note).filter(Boolean))];
   for (const n of notes) $("banners").appendChild(el("div", {class: "banner"}, "⚠️ " + n));
   if (D.missing.length) $("banners").appendChild(el("div", {class: "banner"}, "尚無資料(請先執行 fetch):" + D.missing.join("、")));
+  const nBanners = $("banners").children.length;
+  $("banners-fold").hidden = nBanners === 0;
+  $("banner-count").textContent = `${nBanners} 則`;
   $("unit2").textContent = D.unit_label;
 }
 
