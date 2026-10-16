@@ -143,53 +143,60 @@ python -m pytest -q
 
 ---
 
-# 標的公司財報分析工具(`fin_analyzer`)
+# 靶材製造商財務指標儀表板(`fin_analyzer`)
 
-針對台股上市櫃公司做財報量化分析,預設以**半導體材料製造商「光洋科(1785,濺鍍靶材/貴金屬材料)」**為標的,並與鑫科、中砂、台特化、昇陽半導體、環球晶等半導體材料同業比較。標的與同業都可在 `config/fin_targets.yaml` 更換。
+比較全球主要**上市櫃濺鍍靶材製造商**的財務指標,產生可互動的 HTML 儀表板;也能針對單一公司產生深度財報報告。
 
-## 分析內容
+## 比較公司(預設,`config/target_makers.yaml`)
 
-| 面向 | 指標 |
-|---|---|
-| 成長 | 單季營收年增 / 季增、EPS 年增、近四季營收年增 |
-| 獲利能力 | 毛利率、營益率、淨利率、費用率、業外占稅前比重、有效稅率 |
-| 報酬率 | 近四季 ROE / ROA、杜邦分析(淨利率 × 資產週轉率 × 權益乘數) |
-| 營運效率 | 應收帳款天數、存貨天數、應付帳款天數、現金轉換循環 |
-| 財務結構 | 流動 / 速動比率、負債比率、淨負債/權益、利息保障倍數 |
-| 現金流量 | 近四季營業現金流、自由現金流、營業現金流/淨利、資本支出/營收、資本支出/折舊 |
-| 月營收 | 月增、年增、累計年增、近 3 月/近 12 月均值比、創新高 |
-| 綜合評分 | Piotroski F-score(9 項)、Altman Z''-score(新興市場版) |
-| 評價 | 本益比、股價淨值比、股價營收比、EV/EBITDA、自由現金流殖利率 |
-| 同業比較 | 關鍵指標並列與排名 |
-| 規則訊號 | 🟢優勢 / 🟡注意 / 🔴風險(毛利率連續下滑、存貨天數攀升、盈餘含金量低、負債比過高…,門檻可調) |
-| Claude 評論(選用) | 依計算結果撰寫摘要、優勢、風險、同業位置與追蹤重點 |
+| 市場 | 公司(代號) | 靶材比重 |
+|---|---|---|
+| 台灣 | 光洋科(1785)、鑫科(3663) | 主要事業 / 專業廠 |
+| 日本 | JX金屬(5016.T)、東曹(4042.T)、三井金屬(5706.T) | 主要事業 / 多角化 / 多角化 |
+| 美國 | Solstice Advanced Materials(SOLS,原 Honeywell 電子材料)、Materion(MTRN) | 多角化 |
+| 中國大陸 | 江豐電子(300666.SZ)、有研新材(600206.SS)、阿石創(300706.SZ)、歐萊新材(688530.SS) | 專業廠 / 主要事業 / 專業廠 / 專業廠 |
 
-`config/fin_targets.yaml` 的 `industry.notes` 列出半導體材料(靶材 / 貴金屬)的判讀重點,例如貴金屬營收隨金屬價格波動、存貨跌價風險、晶圓廠認證週期等,會附在報告中並提供給 Claude 作為背景。
+公司可在設定檔自由增刪;`target_focus` 標示靶材占營收的比重。多角化公司(化工、特用化學品集團)的指標反映整家公司,儀表板會以 ＊ 標示。
+
+## 儀表板內容
+
+- **焦點公司指標卡**:近四季營收、營收年增、毛利率、營益率、ROE、負債比,以及在篩選範圍內的排名。
+- **指標排名長條圖**:可選 25 項指標(規模與成長、獲利、效率、財務結構、現金流、評價、F-score / Z''-score)。
+- **獲利 × 成長散佈圖**:近四季營收年增 vs 營業利益率。
+- **季度趨勢折線**:最多 4 家公司比較毛利率、營益率、ROE、存貨天數、負債比等。
+- **台股月營收年增率**:光洋科、鑫科的月營收。
+- **完整比較表**:可排序,標示最佳值與各公司規則訊號數(🔴 風險 / 🟡 注意 / 🟢 優勢)。
+- 篩選列:市場(台/日/美/中)、靶材比重、焦點公司;支援深色模式與手機版面。
+- 金額依匯率換算為**億台幣**(匯率由 `fetch` 從 Yahoo Finance 取得,取不到則用設定檔 `fx_rates`);比率不受匯率影響。
 
 ## 使用方式
 
 ```bash
 pip install -r requirements.txt
 
-# 1) 從 FinMind 下載財報、月營收、股價(target + peers)到 data/financials/<代號>/
-python -m fin_analyzer fetch
-python -m fin_analyzer fetch --tickers 1785 --start 2020-01-01
+python -m fin_analyzer fetch        # 下載所有公司財報、股價與匯率 → data/financials/
+python -m fin_analyzer dashboard    # 產生 reports/dashboard/index.html、dashboard.json、comparison.csv
+python -m fin_analyzer analyze      # 焦點公司(預設光洋科)的深度報告 → reports/financials/
 
-# 2) 分析並產生報告 reports/financials/<代號>-<日期>.md / .json / -quarterly.csv
-python -m fin_analyzer analyze
-python -m fin_analyzer analyze --target 3663 --peers 1785 1560   # 換標的 / 同業
-python -m fin_analyzer analyze --no-llm                          # 不呼叫 Claude
-
-# 離線示範(虛構資料,不需網路)
-python -m fin_analyzer analyze -c examples/demo_config.yaml --no-llm
+python -m fin_analyzer dashboard --focus 300666.SZ            # 改以江豐電子為焦點
+python -m fin_analyzer fetch --tickers 5016.T SOLS            # 只更新部分公司
+python -m fin_analyzer dashboard -c examples/demo_config.yaml # 離線示範(虛構資料)
 ```
 
-- **資料來源**:[FinMind](https://finmindtrade.com) 開放資料(轉載公開資訊觀測站財報)。免 token 可用;設定環境變數 `FINMIND_TOKEN` 可提高額度。台灣現金流量表為年初累計數,程式會自動轉為單季。若某公司的會計科目名稱不同,在設定檔 `settings.finmind.field_map` 補上對應即可。
-- **手動資料**:也可以不用 FinMind,直接依 `data/financials/<代號>/quarterly.csv`(欄位見 `fin_analyzer/models.py`,損益與現金流為單季金額、資產負債為季末餘額,單位元)、`monthly_revenue.csv`、`prices.csv` 的格式自行填入,例如從公開資訊觀測站複製。
-- **Claude 評論**:設定 `ANTHROPIC_API_KEY` 後自動啟用,模型預設 `claude-opus-5-5`(`--model` 或 `FIN_ANALYZER_MODEL` 可更換);只傳入計算後的數字,並要求不得捏造數據。
-- **自動執行**:`.github/workflows/fin-report.yml` 於每月 12 日(月營收公布後)下載資料、產生報告並 commit;也可手動觸發並指定標的代號。可在 repo Secrets 設定 `FINMIND_TOKEN`、`ANTHROPIC_API_KEY`(皆選填)。
-- `examples/demo_financials/` 為**虛構**公司資料,只用於離線示範與測試,不代表任何真實公司。
-- 報告為財務資料的量化整理,不構成投資建議。
+- **資料來源**:台股走 [FinMind](https://finmindtrade.com)(公開資訊觀測站財報,含月營收;`FINMIND_TOKEN` 選填);日本、美國、中國大陸走 Yahoo Finance(`yfinance`,季報通常只有最近 4–6 季,因此部分近四季年增等指標可能缺值)。
+- **手動資料**:也可依 `data/financials/<代號>/quarterly.csv`、`monthly_revenue.csv`、`prices.csv`、`meta.json`(含 `currency`)格式自行填入。
+- **跨國比較注意**:各國會計準則不同,日本公司多為 3 月制財年;季度一律依季末日期對齊日曆季度。
+- **Yahoo Finance 資料缺口的處理**(`fetch` 會在 `meta.json` 的 `note` 記錄,儀表板以提示列顯示):
+  - 某一季缺損益/現金流量(常見於 A 股的 Q3、美股的較早季度),而同一財年其餘三季齊全時,以「年度合計 − 其餘三季」補回。
+  - 日本公司在 Yahoo 多半沒有季度損益與現金流量,資產負債表也只有半年度:此時改用 `annual.csv` 的年度財報計算近四季指標,最新季為財年結束季(3 月制 → Q1),單季年增等單季指標留空。
+  - 股票分割後,Yahoo 股價已還原,但財報股數未調整;`fetch` 依分割紀錄把股數與 EPS 換算為分割後基準。
+  - 營業利益一律採「毛利 − 營業費用」(Yahoo `Operating Income`),與台股的營業利益口徑一致;IFRS 日本公司(如 JX金屬)申報的營業利益、中國公司的「營業利潤」包含其他營業收支或投資收益,會比本工具的數字高,差額歸入業外。
+- **FinMind 限流**:未設定 `FINMIND_TOKEN` 時,短時間內連續請求會被回 402,程式會等待後自動重試;FinMind 的現金流量表不含發放現金股利,台股的 `dividends_paid` 會是空白。
+- **深度報告**(`analyze`):單一公司的損益、杜邦分析、營運效率、財務結構、現金流、月營收、F-score / Z''-score、評價與同業比較;設定 `ANTHROPIC_API_KEY` 後加上 Claude 評論(預設模型 `claude-opus-5-5`,可用 `--model` 或 `FIN_ANALYZER_MODEL` 更換)。
+- **網站**:儀表板與新聞網站一起發布到 GitHub Pages:`https://<帳號>.github.io/<repo>/financials/`(另有 `dashboard.json`、`comparison.csv`)。`main` 上的 `reports/dashboard/` 更新時,「發布網站」workflow 會自動重新發布。
+- **自動執行**:每月 12 日(月營收公布後)由 Claude 排程任務下載資料、產生儀表板與報告、commit 並更新儀表板 Artifact;`.github/workflows/fin-report.yml` 只保留手動觸發(可指定焦點公司)。
+- `examples/demo_financials/`、`examples/demo_dashboard/` 為**虛構**公司資料與其產出的示範,不代表任何真實公司。
+- 本工具僅為財務資料的量化整理,不構成投資建議。
 
 ---
 

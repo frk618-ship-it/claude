@@ -1,0 +1,86 @@
+# 濺鍍靶材製造商財務指標儀表板 — 比較公司與分析參數
+#
+#   python -m fin_analyzer fetch        # 下載所有公司財報:台股走 FinMind,日/美/中走 Yahoo Finance
+#   python -m fin_analyzer dashboard    # 產生 reports/dashboard/index.html(互動儀表板)+ JSON + CSV
+#   python -m fin_analyzer analyze      # 針對 focus 公司產生單一公司深度報告(Markdown)
+#
+# companies 欄位:
+#   ticker        台股填代號(1785);其他市場用 Yahoo Finance 代號(5016.T、SOLS、300666.SZ、600206.SS)
+#   market        TW / JP / US / CN(省略時依代號判斷)
+#   short         圖表上的簡稱(選填)
+#   currency      財報幣別(省略時依市場:TWD / JPY / USD / CNY)
+#   target_focus  pure = 靶材專業廠、major = 靶材為主要事業之一、diversified = 多角化(靶材占比較低)
+#                 多角化公司的財務指標反映整家公司,不等於其靶材事業的表現,儀表板會標示。
+
+title: 濺鍍靶材製造商財務指標儀表板
+focus: "1785"     # 儀表板預設強調、analyze 預設分析的公司
+
+companies:
+  # ---- 台灣 ----
+  - {ticker: "1785", name: 光洋科, market: TW, target_focus: major, segment: 濺鍍靶材、貴金屬材料與精煉回收}
+  - {ticker: "3663", name: 鑫科, market: TW, target_focus: pure, segment: 濺鍍靶材、特殊合金}
+  # ---- 日本 ----
+  - {ticker: "5016.T", name: JX金屬, market: JP, target_focus: major, segment: 半導體/資訊通信材料(靶材)、銅箔、金屬}
+  - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分}
+  - {ticker: "5706.T", name: 三井金屬, market: JP, target_focus: diversified, segment: 功能材料(含 ITO 等靶材)、金屬、汽車零件}
+  # ---- 美國 ----
+  - {ticker: "SOLS", name: Solstice Advanced Materials, short: Solstice, market: US, target_focus: diversified, segment: 冷媒與特用化學品、電子材料(原 Honeywell 電子材料,含靶材)}
+  - {ticker: "MTRN", name: Materion, market: US, target_focus: diversified, segment: 先進材料、精密光學、電子材料(含靶材)}
+  # ---- 中國大陸 ----
+  - {ticker: "300666.SZ", name: 江豐電子, market: CN, target_focus: pure, segment: 超高純金屬濺射靶材、半導體零部件}
+  - {ticker: "600206.SS", name: 有研新材, market: CN, target_focus: major, segment: 濺射靶材(有研億金)、稀土與光電材料}
+  - {ticker: "300706.SZ", name: 阿石創, market: CN, target_focus: pure, segment: PVD 鍍膜材料(濺射靶材、蒸鍍材料)}
+  - {ticker: "688530.SS", name: 歐萊新材, market: CN, target_focus: pure, segment: 濺射靶材(顯示面板為主)}
+
+settings:
+  data_dir: data/financials
+  report_dir: reports/financials
+  dashboard_dir: reports/dashboard
+  display_currency: TWD         # 儀表板金額換算幣別
+  # 參考匯率(1 單位外幣 = ? 台幣)。fetch 會從 Yahoo Finance 取得最新匯率存到 data/financials/fx.json 並優先使用;
+  # 取不到時才用這裡的數字,請定期更新。
+  fx_rates: {USD: 32.0, JPY: 0.21, CNY: 4.45}
+  start_date: "2019-01-01"      # FinMind 下載起始日(需至少多 5 季才能算年增與近四季比率)
+  par_value: 10                 # 台股每股面額,用來由股本推算股數
+  amount_unit: 100000000        # 報告金額單位(元 -> 億元)
+  amount_unit_label: 億元
+  quarters_in_table: 8          # 報告列出最近幾季
+  months_in_table: 12           # 報告列出最近幾個月營收
+
+  # 警示規則門檻(未列出的使用程式預設值,見 fin_analyzer/config.py)
+  thresholds:
+    gross_margin_drop_pp: 0.03
+    gross_margin_decline_quarters: 3
+    revenue_yoy_strong: 0.20
+    monthly_momentum_up: 1.10
+    monthly_momentum_down: 0.90
+    dio_increase: 0.20
+    dso_increase: 0.20
+    ocf_to_ni_min: 0.80
+    debt_ratio_max: 0.60
+    current_ratio_min: 1.20
+    interest_coverage_min: 3.0
+    non_operating_share_max: 0.30
+    roe_good: 0.15
+    fscore_good: 7
+    fscore_bad: 3
+
+  finmind:
+    # 台灣現金流量表為年初至今累計數,程式會自動轉為單季;若資料源已是單季可改 false
+    ytd: {income: false, balance: false, cashflow: true}
+    # 若某公司財報科目名稱不同,可在此補充對應(會覆蓋程式預設 FIELD_MAP 的同名欄位)
+    # field_map:
+    #   receivables: {statement: balance, candidates: [AccountsReceivableNet, NotesAndAccountsReceivableNet, 應收帳款淨額]}
+    #   capex: {statement: cashflow, candidates: [PropertyAndPlantAndEquipment, 取得不動產、廠房及設備], sign: -1}
+
+# 產業分析重點:會列在報告中,啟用 Claude 評論時也會作為背景提供給模型
+industry:
+  name: 濺鍍靶材 / 半導體材料
+  notes:
+    - 貴金屬(金、銀、鉑族)買賣與精煉回收占營收比重高的公司,營收會隨金屬價格大幅波動,應搭配毛利額與毛利率判讀,不宜只看營收成長。
+    - 存貨多為高價金屬,金屬價格下跌時可能提列存貨跌價損失、上漲時則有回升利益;留意存貨天數與毛利率的同步變化。
+    - 半導體靶材需通過晶圓廠長時間認證,先進製程(銅、鉭、鈷、鈦、鋁靶)出貨比重提升通常帶動產品組合與毛利改善。
+    - 面板、光碟/記錄媒體等傳統應用景氣循環明顯,需拆解營收來源判斷成長品質。
+    - 擴產期資本支出/折舊比偏高、自由現金流可能轉負,需評估新產能稼動與客戶認證進度。
+    - 業外收支(匯兌、金融資產評價、處分利益)占稅前比重過高時,本業獲利能力需另行評估。
+    - 跨國比較時注意會計準則與財年差異:日本公司多為 3 月制財年、採 IFRS 或日本會計準則;中國大陸 A 股採中國會計準則。本工具一律依季末日期對齊到日曆季度。

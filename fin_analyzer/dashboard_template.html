@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --wash: rgba(11,11,11,0.04);
+  --focus-wash: rgba(42,120,214,0.08);
+  --other-mark: #b9b7ae;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --good: #006300; --critical: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19;
+    --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grid: #2c2c2a; --axis: #383835;
+    --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
+    --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --good: #0ca30c; --critical: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19;
+  --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+  --grid: #2c2c2a; --axis: #383835;
+  --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
+  --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --good: #0ca30c; --critical: #e66767;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink-1);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
+header .sub { color: var(--ink-2); font-size: 13px; }
+.banner { margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: var(--wash); border: 1px solid var(--border); color: var(--ink-2); font-size: 13px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 20px 0 16px; }
+.fgroup { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.fgroup > span { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+.chip { border: 1px solid var(--border); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 4px 11px; font: inherit; font-size: 13px; cursor: pointer; }
+.chip:hover { background: var(--wash); }
+.chip[aria-pressed="true"] { color: var(--ink-1); border-color: var(--ink-2); font-weight: 600; }
+select { font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.tile .k { color: var(--ink-2); font-size: 12px; }
+.tile .v { font-size: 24px; font-weight: 650; margin: 2px 0; }
+.tile .r { color: var(--ink-3); font-size: 12px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+.card h2 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
+.card .hint { color: var(--ink-3); font-size: 12px; margin: 0 0 10px; }
+.card .ctl { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 4px 0 6px; }
+.legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; border-radius: 1px; }
+.legend i.dot { width: 9px; height: 9px; border-radius: 50%; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart { overflow-x: auto; }
+.chart svg { min-width: 480px; }
+svg text { fill: var(--ink-2); font-size: 11px; }
+svg .muted { fill: var(--ink-3); }
+svg .strong { fill: var(--ink-1); font-weight: 600; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
+th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 12px; cursor: pointer; user-select: none; }
+th.grp { cursor: default; color: var(--ink-3); font-weight: 500; text-align: center; border-bottom: none; }
+th:first-child, td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface); z-index: 1; }
+td.best { font-weight: 700; }
+tr.focus td { background: var(--focus-wash); }
+tr.focus td:first-child { background: linear-gradient(var(--focus-wash), var(--focus-wash)), var(--surface); }
+td .t { color: var(--ink-3); font-size: 11px; }
+.neg { color: var(--critical); }
+.signals { display: grid; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.signals li { padding: 6px 10px; border-radius: 6px; background: var(--wash); font-size: 13px; }
+.notes { color: var(--ink-2); font-size: 12.5px; }
+.notes li { margin: 3px 0; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink-1); border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 8px; padding: 8px 10px; font-size: 12px; display: none; min-width: 140px; max-width: 280px; }
+#tip .h { color: var(--ink-2); margin-bottom: 4px; }
+#tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+#tip .row b { font-variant-numeric: tabular-nums; }
+#tip .key { display: inline-block; width: 12px; height: 2px; margin-right: 6px; vertical-align: middle; }
+.empty { color: var(--ink-3); padding: 24px 0; text-align: center; }
+h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+    <div id="banners"></div>
+  </header>
+
+  <div class="filters" role="toolbar" aria-label="篩選">
+    <div class="fgroup" id="f-market"><span>市場</span></div>
+    <div class="fgroup" id="f-type"><span>靶材比重</span></div>
+    <div class="fgroup"><span>焦點公司</span><select id="f-focus" aria-label="焦點公司"></select></div>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>指標排名</h2>
+      <p class="hint" id="rank-hint"></p>
+      <div class="ctl"><select id="rank-metric" aria-label="排名指標"></select></div>
+      <div id="rank" class="chart"></div>
+    </section>
+    <section class="card">
+      <h2>獲利能力 × 成長</h2>
+      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。</p>
+      <div id="scatter" class="chart"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>季度趨勢</h2>
+      <p class="hint">最多選 4 家公司比較;金額以目前匯率換算(固定匯率)。</p>
+      <div class="ctl"><select id="trend-metric" aria-label="趨勢指標"></select></div>
+      <div class="ctl" id="trend-pick"></div>
+      <div id="trend" class="chart"></div>
+    </section>
+    <section class="card" id="monthly-card">
+      <h2>台股月營收年增率</h2>
+      <p class="hint">台灣上市櫃公司每月 10 日前公布前月營收,是最即時的營運指標。</p>
+      <div id="monthly" class="chart"></div>
+    </section>
+  </div>
+
+  <h3 class="section">完整比較表</h3>
+  <p class="hint" style="color:var(--ink-3);font-size:12px;margin:-6px 0 8px">點欄位標題排序;粗體為目前篩選範圍內的最佳值;金額單位 <span id="unit2"></span>。</p>
+  <div class="tablewrap"><table id="table"></table></div>
+
+  <div class="grid2" style="margin-top:16px">
+    <section class="card">
+      <h2 id="sig-title">重點訊號</h2>
+      <p class="hint">依規則門檻自動判斷(🔴 風險、🟡 注意、🟢 優勢)。</p>
+      <ul class="signals" id="signals"></ul>
+    </section>
+    <section class="card notes">
+      <h2>資料與計算說明</h2>
+      <ul id="notes"></ul>
+    </section>
+  </div>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const D = /*__DATA__*/null;
+const SLOTS = ["--s1", "--s2", "--s3", "--s4"];
+const SVGNS = "http://www.w3.org/2000/svg";
+const metricsByKey = Object.fromEntries(D.metrics.map(m => [m.key, m]));
+const trendByKey = Object.fromEntries(D.trend_metrics.map(m => [m.key, m]));
+const focusDefault = (D.companies.find(c => c.is_focus) || D.companies[0] || {}).ticker;
+const state = {
+  market: "all", type: "all", focus: focusDefault,
+  rank: "gross_margin_ttm", trendMetric: "gross_margin",
+  trendSel: {}, sortKey: null, sortDir: -1,
+};
+
+// ---------- helpers ----------
+const $ = id => document.getElementById(id);
+function el(tag, attrs = {}, text) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+function sv(tag, attrs = {}, text) {
+  const n = document.createElementNS(SVGNS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+function fmt(v, kind) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  switch (kind) {
+    case "pct": return (v * 100).toFixed(1) + "%";
+    case "days": return Math.round(v).toLocaleString() + " 天";
+    case "amt": return v.toLocaleString(undefined, {maximumFractionDigits: Math.abs(v) >= 100 ? 0 : 1});
+    case "score": return v.toFixed(0) + "/9";
+    case "x": return v.toFixed(2);
+    default: return v.toLocaleString(undefined, {maximumFractionDigits: 2});
+  }
+}
+function fmtAxis(v, kind) {
+  if (kind === "pct") return (v * 100).toFixed(Math.abs(v) < 0.1 && v !== 0 ? 1 : 0) + "%";
+  if (kind === "amt") return Math.abs(v) >= 1000 ? (v / 1000).toFixed(1) + "k" : v.toFixed(Math.abs(v) < 10 && v !== 0 ? 1 : 0);
+  if (kind === "days") return Math.round(v).toString();
+  return v.toFixed(Math.abs(v) < 10 ? 1 : 0);
+}
+function niceTicks(min, max, count = 5) {
+  if (min === max) { min -= 1; max += 1; }
+  const step0 = (max - min) / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= step0) || 10 * mag;
+  const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let t = lo; t <= hi + step / 2; t += step) ticks.push(+t.toPrecision(12));
+  return ticks;
+}
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function visible() {
+  return D.companies.filter(c => (state.market === "all" || c.market === state.market)
+    && (state.type === "all" || c.target_focus === state.type));
+}
+function val(c, key) { const v = c.latest[key]; return v === undefined ? null : v; }
+function shortName(c) { return c.short || (c.name.length > 12 ? c.name.slice(0, 11) + "…" : c.name); }
+function rankOf(list, c, key) {
+  const m = metricsByKey[key];
+  const vals = list.filter(x => val(x, key) !== null);
+  if (val(c, key) === null || !m.better) return null;
+  vals.sort((a, b) => m.better === "high" ? val(b, key) - val(a, key) : val(a, key) - val(b, key));
+  return [vals.indexOf(c) + 1, vals.length];
+}
+
+// ---------- tooltip ----------
+const tip = $("tip");
+function showTip(evt, header, rows) {
+  tip.replaceChildren();
+  tip.appendChild(el("div", {class: "h"}, header));
+  for (const r of rows) {
+    const row = el("div", {class: "row"});
+    const left = el("span");
+    if (r.color) { const k = el("span", {class: "key"}); k.style.background = r.color; left.appendChild(k); }
+    left.appendChild(document.createTextNode(r.label));
+    row.append(left, el("b", {}, r.value));
+    tip.appendChild(row);
+  }
+  tip.style.display = "block";
+  const x = evt.clientX + 14, y = evt.clientY + 14;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(x, window.innerWidth - w - 8) + "px";
+  tip.style.top = (y + h > window.innerHeight ? evt.clientY - h - 10 : y) + "px";
+}
+function hideTip() { tip.style.display = "none"; }
+
+// ---------- filters ----------
+function buildFilters() {
+  const markets = [["all", "全部"], ...[...new Map(D.companies.map(c => [c.market, c.region])).entries()]];
+  for (const [k, label] of markets) {
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(state.market === k)}, label);
+    b.onclick = () => { state.market = k; syncChips("f-market", k); renderAll(); };
+    b.dataset.k = k; $("f-market").appendChild(b);
+  }
+  const types = [["all", "全部"], ["pure", "靶材專業"], ["major", "主要事業"], ["diversified", "多角化"]]
+    .filter(([k]) => k === "all" || D.companies.some(c => c.target_focus === k));
+  for (const [k, label] of types) {
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(state.type === k)}, label);
+    b.onclick = () => { state.type = k; syncChips("f-type", k); renderAll(); };
+    b.dataset.k = k; $("f-type").appendChild(b);
+  }
+  for (const c of D.companies) $("f-focus").appendChild(el("option", {value: c.ticker}, `${c.name}(${c.ticker})`));
+  $("f-focus").value = state.focus;
+  $("f-focus").onchange = e => { state.focus = e.target.value; addTrend(state.focus, true); renderAll(); };
+
+  let group = null, og;
+  for (const m of D.metrics) {
+    if (m.group !== group) { group = m.group; og = el("optgroup", {label: group}); $("rank-metric").appendChild(og); }
+    og.appendChild(el("option", {value: m.key}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label));
+  }
+  $("rank-metric").value = state.rank;
+  $("rank-metric").onchange = e => { state.rank = e.target.value; renderRank(); };
+  for (const m of D.trend_metrics) $("trend-metric").appendChild(el("option", {value: m.key}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label));
+  $("trend-metric").value = state.trendMetric;
+  $("trend-metric").onchange = e => { state.trendMetric = e.target.value; renderTrend(); };
+}
+function syncChips(id, k) { for (const b of $(id).querySelectorAll(".chip")) b.setAttribute("aria-pressed", String(b.dataset.k === k)); }
+
+// Trend selection: colour follows the company while it stays selected (never repainted by rank).
+function addTrend(ticker, front) {
+  if (state.trendSel[ticker]) return;
+  const used = new Set(Object.values(state.trendSel));
+  let slot = SLOTS.find(s => !used.has(s));
+  if (!slot) {
+    if (!front) return;
+    const drop = Object.keys(state.trendSel).find(t => t !== state.focus) || Object.keys(state.trendSel)[0];
+    slot = state.trendSel[drop]; delete state.trendSel[drop];
+  }
+  state.trendSel[ticker] = slot;
+}
+
+// ---------- header, tiles ----------
+function renderHeader() {
+  $("title").textContent = D.title;
+  document.title = D.title;
+  const fx = D.fx;
+  const rates = Object.entries(fx.rates).filter(([k]) => k !== fx.base).map(([k, v]) => `1 ${k} = ${v.toFixed(k === "JPY" ? 4 : 3)} ${fx.base}`).join("、");
+  $("sub").textContent = `${D.companies.length} 家公司 · 金額換算 ${D.unit_label} · 匯率:${rates || "—"}(${fx.source}${fx.asof ? " " + fx.asof : ""})· 產生時間 ${D.generated}`;
+  const notes = [...new Set(D.companies.map(c => c.note).filter(Boolean))];
+  for (const n of notes) $("banners").appendChild(el("div", {class: "banner"}, "⚠️ " + n));
+  if (D.missing.length) $("banners").appendChild(el("div", {class: "banner"}, "尚無資料(請先執行 fetch):" + D.missing.join("、")));
+  $("unit2").textContent = D.unit_label;
+}
+
+const TILE_KEYS = ["revenue_ttm", "revenue_ttm_yoy", "gross_margin_ttm", "operating_margin_ttm", "roe_ttm", "debt_ratio"];
+function renderTiles() {
+  const list = visible();
+  const c = D.companies.find(x => x.ticker === state.focus);
+  $("tiles").replaceChildren();
+  if (!c) return;
+  const head = el("div", {class: "tile"});
+  head.append(el("div", {class: "k"}, `${c.region} · ${c.focus_label || "—"}`), el("div", {class: "v"}, c.name),
+    el("div", {class: "r"}, `${c.ticker} · 最新季 ${c.latest_quarter} · ${c.currency}`));
+  $("tiles").appendChild(head);
+  for (const key of TILE_KEYS) {
+    const m = metricsByKey[key];
+    const t = el("div", {class: "tile"});
+    const r = list.includes(c) ? rankOf(list, c, key) : null;
+    t.append(el("div", {class: "k"}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label),
+      el("div", {class: "v"}, fmt(val(c, key), m.kind)),
+      el("div", {class: "r"}, r ? `篩選範圍內第 ${r[0]} / ${r[1]} 名` : "—"));
+    $("tiles").appendChild(t);
+  }
+}
+
+// ---------- ranking bars ----------
+function renderRank() {
+  const m = metricsByKey[state.rank];
+  const box = $("rank"); box.replaceChildren();
+  const rows = visible().filter(c => val(c, m.key) !== null);
+  const missing = visible().filter(c => val(c, m.key) === null);
+  $("rank-hint").textContent = (m.better === "high" ? "數值越高越好" : m.better === "low" ? "數值越低越好" : "高低需搭配情境判讀")
+    + ";焦點公司以藍色標示,＊ = 多角化公司(指標反映全公司)。";
+  if (!rows.length) { box.appendChild(el("div", {class: "empty"}, "篩選範圍內沒有此指標的資料")); return; }
+  rows.sort((a, b) => m.better === "low" ? val(a, m.key) - val(b, m.key) : val(b, m.key) - val(a, m.key));
+  const W = 560, L = 150, R = 64, rowH = 28, top = 8;
+  const H = top + rows.length * rowH + 22;
+  const vals = rows.map(c => val(c, m.key));
+  const ticks = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals), 4);
+  const lo = ticks[0], hi = ticks[ticks.length - 1];
+  const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${m.label} 排名`});
+  for (const t of ticks) {
+    svg.appendChild(sv("line", {x1: x(t), x2: x(t), y1: top - 4, y2: H - 20, class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: x(t), y: H - 6, "text-anchor": "middle", class: "muted"}, fmtAxis(t, m.kind)));
+  }
+  rows.forEach((c, i) => {
+    const y = top + i * rowH, v = val(c, m.key);
+    const x0 = x(0), x1 = x(v), bw = Math.max(Math.abs(x1 - x0), 1.5);
+    const isF = c.ticker === state.focus;
+    const label = shortName(c) + (c.target_focus === "diversified" ? "＊" : "");
+    svg.appendChild(sv("text", {x: L - 8, y: y + rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, label));
+    const bar = sv("rect", {x: Math.min(x0, x1), y: y + 6, width: bw, height: rowH - 12, rx: 3,
+      fill: isF ? cssVar("--s1") : cssVar("--other-mark")});
+    svg.appendChild(bar);
+    const neg = v < 0;
+    svg.appendChild(sv("text", {x: neg ? Math.min(x0, x1) - 5 : Math.max(x0, x1) + 5, y: y + rowH / 2 + 4,
+      "text-anchor": neg ? "end" : "start", class: isF ? "strong" : ""}, fmt(v, m.kind)));
+    const hit = sv("rect", {x: 0, y, width: W, height: rowH, fill: "transparent", tabindex: 0});
+    const rows2 = [{label: m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label, value: fmt(v, m.kind)},
+      {label: "市場 / 幣別", value: `${c.region} / ${c.currency}`}, {label: "最新季", value: c.latest_quarter}];
+    hit.addEventListener("pointermove", e => { bar.setAttribute("opacity", "0.8"); showTip(e, `${c.name}(${c.ticker})`, rows2); });
+    hit.addEventListener("pointerleave", () => { bar.removeAttribute("opacity"); hideTip(); });
+    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.left + L, clientY: b.top}, `${c.name}(${c.ticker})`, rows2); });
+    hit.addEventListener("blur", hideTip);
+    svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+  if (missing.length) box.appendChild(el("div", {class: "hint", style: "margin-top:6px"}, "無資料:" + missing.map(c => c.name).join("、")));
+}
+
+// ---------- scatter ----------
+function renderScatter() {
+  const box = $("scatter"); box.replaceChildren();
+  const pts = visible().filter(c => val(c, "revenue_ttm_yoy") !== null && val(c, "operating_margin_ttm") !== null);
+  if (!pts.length) { box.appendChild(el("div", {class: "empty"}, "資料不足(需至少 8 季資料才能計算近四季年增)")); return; }
+  const W = 560, H = 330, L = 48, R = 16, T = 12, B = 34;
+  const xs = pts.map(c => val(c, "revenue_ttm_yoy")), ys = pts.map(c => val(c, "operating_margin_ttm"));
+  const xt = niceTicks(Math.min(0, ...xs), Math.max(0, ...xs), 5), yt = niceTicks(Math.min(0, ...ys), Math.max(0, ...ys), 5);
+  const X = v => L + (v - xt[0]) / (xt[xt.length - 1] - xt[0]) * (W - L - R);
+  const Y = v => H - B - (v - yt[0]) / (yt[yt.length - 1] - yt[0]) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "營業利益率與營收成長散佈圖"});
+  for (const t of xt) { svg.appendChild(sv("line", {x1: X(t), x2: X(t), y1: T, y2: H - B, class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: X(t), y: H - B + 16, "text-anchor": "middle", class: "muted"}, fmtAxis(t, "pct"))); }
+  for (const t of yt) { svg.appendChild(sv("line", {x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: L - 6, y: Y(t) + 4, "text-anchor": "end", class: "muted"}, fmtAxis(t, "pct"))); }
+  svg.appendChild(sv("text", {x: W - R, y: H - 4, "text-anchor": "end", class: "muted"}, "近四季營收年增 →"));
+  svg.appendChild(sv("text", {x: L, y: T - 2, class: "muted"}, "↑ 營業利益率"));
+  const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus));
+  for (const c of order) {
+    const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
+    const isF = c.ticker === state.focus;
+    const dot = sv("circle", {cx, cy, r: isF ? 6 : 5, fill: isF ? cssVar("--s1") : cssVar("--other-mark"), stroke: cssVar("--surface"), "stroke-width": 2});
+    svg.appendChild(dot);
+    const right = cx < W - 110;
+    svg.appendChild(sv("text", {x: right ? cx + 9 : cx - 9, y: cy + 4, "text-anchor": right ? "start" : "end", class: isF ? "strong" : ""}, shortName(c)));
+    const hit = sv("circle", {cx, cy, r: 14, fill: "transparent", tabindex: 0});
+    const rows = [{label: "近四季營收年增", value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
+      {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
+      {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
+    hit.addEventListener("pointermove", e => showTip(e, `${c.name}(${c.ticker})`, rows));
+    hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
+    hit.addEventListener("blur", hideTip);
+    svg.appendChild(hit);
+  }
+  box.appendChild(svg);
+}
+
+// ---------- line chart (trend & monthly) ----------
+function lineChart(box, series, xLabels, kind, ariaLabel) {
+  box.replaceChildren();
+  const all = series.flatMap(s => xLabels.map(x => s.values[x]).filter(v => v !== null && v !== undefined));
+  if (!all.length) { box.appendChild(el("div", {class: "empty"}, "沒有可顯示的資料")); return; }
+  const legend = el("div", {class: "legend"});
+  for (const s of series) { const item = el("span"); const k = el("i"); k.style.background = s.color; item.append(k, document.createTextNode(s.name)); legend.appendChild(item); }
+  box.appendChild(legend);
+  const W = 560, H = 280, L = 48, R = 76, T = 10, B = 28;
+  const yt = niceTicks(Math.min(kind === "amt" ? 0 : Math.min(0, ...all), ...all), Math.max(...all), 5);
+  const X = i => L + (xLabels.length === 1 ? (W - L - R) / 2 : i / (xLabels.length - 1) * (W - L - R));
+  const Y = v => H - B - (v - yt[0]) / (yt[yt.length - 1] - yt[0]) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": ariaLabel});
+  for (const t of yt) { svg.appendChild(sv("line", {x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: t === 0 && yt[0] < 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: L - 6, y: Y(t) + 4, "text-anchor": "end", class: "muted"}, fmtAxis(t, kind))); }
+  svg.appendChild(sv("line", {x1: L, x2: W - R, y1: H - B, y2: H - B, class: "baseline"}));
+  const every = Math.ceil(xLabels.length / 6);
+  const last = xLabels.length - 1;
+  xLabels.forEach((xl, i) => { if ((i % every === 0 && last - i >= every * 0.75) || i === last)
+    svg.appendChild(sv("text", {x: X(i), y: H - B + 16, "text-anchor": "middle", class: "muted"}, xl)); });
+  const ends = [];
+  for (const s of series) {
+    let d = "", pen = false;
+    xLabels.forEach((xl, i) => { const v = s.values[xl];
+      if (v === null || v === undefined) { pen = false; return; }
+      d += (pen ? "L" : "M") + X(i).toFixed(1) + " " + Y(v).toFixed(1); pen = true; });
+    svg.appendChild(sv("path", {d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round"}));
+    const lastI = xLabels.map(xl => s.values[xl]).map((v, i) => v === null || v === undefined ? -1 : i).filter(i => i >= 0).pop();
+    if (lastI !== undefined) {
+      svg.appendChild(sv("circle", {cx: X(lastI), cy: Y(s.values[xLabels[lastI]]), r: 3.5, fill: s.color, stroke: cssVar("--surface"), "stroke-width": 2}));
+      ends.push({y: Y(s.values[xLabels[lastI]]), x: X(lastI), name: s.short});
+    }
+  }
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 13) ends[i].y = ends[i - 1].y + 13;
+  for (const e of ends) svg.appendChild(sv("text", {x: W - R + 8, y: e.y + 4}, e.name));
+  const cross = sv("line", {y1: T, y2: H - B, stroke: cssVar("--axis"), "stroke-width": 1, visibility: "hidden"});
+  svg.appendChild(cross);
+  const hit = sv("rect", {x: L - 10, y: T, width: W - L - R + 20, height: H - T - B, fill: "transparent"});
+  hit.addEventListener("pointermove", e => {
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const p = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const i = Math.max(0, Math.min(xLabels.length - 1, Math.round((p.x - L) / ((W - L - R) / Math.max(1, xLabels.length - 1)))));
+    cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("visibility", "visible");
+    showTip(e, xLabels[i], series.map(s => ({label: s.name, value: fmt(s.values[xLabels[i]], kind), color: s.color})));
+  });
+  hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+  svg.appendChild(hit);
+  box.appendChild(svg);
+}
+
+function renderTrend() {
+  const pick = $("trend-pick"); pick.replaceChildren();
+  const list = visible();
+  for (const c of list) {
+    const on = !!state.trendSel[c.ticker];
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(on)});
+    if (on) { const k = el("i"); k.style.cssText = `display:inline-block;width:10px;height:2px;margin-right:5px;vertical-align:middle;background:${cssVar(state.trendSel[c.ticker])}`; b.appendChild(k); }
+    b.appendChild(document.createTextNode(shortName(c)));
+    b.onclick = () => { if (on) delete state.trendSel[c.ticker]; else addTrend(c.ticker, true); renderTrend(); };
+    pick.appendChild(b);
+  }
+  const m = trendByKey[state.trendMetric];
+  const sel = list.filter(c => state.trendSel[c.ticker]);
+  const periods = [...new Set(sel.flatMap(c => Object.keys(c.trend)))].sort();
+  const series = sel.map(c => ({name: `${c.name}(${c.ticker})`, short: shortName(c), color: cssVar(state.trendSel[c.ticker]),
+    values: Object.fromEntries(periods.map(p => [p, c.trend[p] ? c.trend[p][m.key] : null]))}));
+  if (!series.length) { $("trend").replaceChildren(el("div", {class: "empty"}, "請在上方選擇公司")); return; }
+  lineChart($("trend"), series, periods, m.kind, m.label + " 季度趨勢");
+}
+
+function renderMonthly() {
+  const tw = D.companies.filter(c => Object.keys(c.monthly).length).slice(0, 4);
+  $("monthly-card").style.display = tw.length ? "" : "none";
+  if (!tw.length) return;
+  const months = [...new Set(tw.flatMap(c => Object.keys(c.monthly)))].sort().slice(-24);
+  const series = tw.map((c, i) => ({name: `${c.name}(${c.ticker})`, short: shortName(c), color: cssVar(SLOTS[i]),
+    values: Object.fromEntries(months.map(mo => [mo, c.monthly[mo] ? c.monthly[mo].yoy : null]))}));
+  lineChart($("monthly"), series, months, "pct", "台股月營收年增率");
+}
+
+// ---------- table ----------
+function renderTable() {
+  const tbl = $("table"); tbl.replaceChildren();
+  const list = visible();
+  const thead = el("thead"), g = el("tr"), h = el("tr");
+  g.appendChild(el("th", {class: "grp"}, ""));
+  h.appendChild(el("th", {}, "公司"));
+  g.appendChild(el("th", {class: "grp"}, "")); h.appendChild(el("th", {}, "最新季"));
+  g.appendChild(el("th", {class: "grp"}, "")); h.appendChild(el("th", {}, "訊號"));
+  let group = null, span = null;
+  for (const m of D.metrics) {
+    if (m.group !== group) { group = m.group; span = el("th", {class: "grp", colspan: 0}, group); g.appendChild(span); }
+    span.setAttribute("colspan", String(+span.getAttribute("colspan") + 1));
+    const th = el("th", {scope: "col", tabindex: 0, title: m.better === "low" ? "越低越好" : m.better === "high" ? "越高越好" : ""},
+      (m.kind === "amt" ? m.label + "(" + D.unit_label + ")" : m.label) + (state.sortKey === m.key ? (state.sortDir < 0 ? " ▼" : " ▲") : ""));
+    const sort = () => { if (state.sortKey === m.key) state.sortDir *= -1; else { state.sortKey = m.key; state.sortDir = m.better === "low" ? 1 : -1; } renderTable(); };
+    th.onclick = sort; th.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sort(); } };
+    h.appendChild(th);
+  }
+  thead.append(g, h); tbl.appendChild(thead);
+  const rows = [...list];
+  if (state.sortKey) rows.sort((a, b) => { const va = val(a, state.sortKey), vb = val(b, state.sortKey);
+    if (va === null) return 1; if (vb === null) return -1; return (va - vb) * state.sortDir; });
+  const best = {};
+  for (const m of D.metrics) { if (!m.better) continue; const vs = list.map(c => val(c, m.key)).filter(v => v !== null);
+    if (vs.length > 1) best[m.key] = m.better === "high" ? Math.max(...vs) : Math.min(...vs); }
+  const tbody = el("tbody");
+  for (const c of rows) {
+    const tr = el("tr", {class: c.ticker === state.focus ? "focus" : ""});
+    const name = el("td");
+    name.append(document.createTextNode(c.name + (c.target_focus === "diversified" ? "＊" : "")), el("br"),
+      el("span", {class: "t"}, `${c.ticker} · ${c.region} · ${c.focus_label || "—"}`));
+    tr.appendChild(name);
+    tr.appendChild(el("td", {}, c.latest_quarter));
+    const sc = c.signal_counts;
+    tr.appendChild(el("td", {title: "風險 / 注意 / 優勢"}, `🔴${sc["風險"] || 0} 🟡${sc["注意"] || 0} 🟢${sc["優勢"] || 0}`));
+    for (const m of D.metrics) {
+      const v = val(c, m.key);
+      const td = el("td", {}, fmt(v, m.kind));
+      if (v !== null && best[m.key] === v) td.classList.add("best");
+      if (v !== null && v < 0 && ["pct", "amt"].includes(m.kind)) td.classList.add("neg");
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  tbl.appendChild(tbody);
+}
+
+// ---------- signals & notes ----------
+function renderSignals() {
+  const c = D.companies.find(x => x.ticker === state.focus);
+  $("sig-title").textContent = `重點訊號 — ${c ? c.name : ""}`;
+  const ul = $("signals"); ul.replaceChildren();
+  if (!c || !c.signals.length) { ul.appendChild(el("li", {}, "未觸發任何規則門檻。")); return; }
+  const icon = {"風險": "🔴", "注意": "🟡", "優勢": "🟢"};
+  for (const s of c.signals) ul.appendChild(el("li", {}, `${icon[s.level] || ""} ${s.level}|${s.topic}:${s.message}`));
+}
+function renderNotes() {
+  const ul = $("notes");
+  const items = [
+    "資料來源:台股為 FinMind(公開資訊觀測站財報),日本/美國/中國大陸為 Yahoo Finance;各公司最新季度可能不同,請對照「最新季」欄位。",
+    "近四季(TTM)= 最近四季加總;ROE/ROA 以期初(去年同季)與期末平均權益/資產計算;天數指標以單季營收或營業成本 × 91.25 計算。",
+    "金額依標示匯率換算為 " + D.unit_label + ",趨勢圖使用同一匯率(固定匯率),因此反映營運變化而非匯率變動。",
+    "＊ 多角化公司(如化工、特用化學品集團)的指標反映整家公司,不等於其靶材事業的表現。",
+    "各國會計準則、財年(日本多為 3 月制)不同,季度一律依季末日期對齊日曆季度。",
+    ...D.industry_notes,
+    "本儀表板僅為財務資料的量化整理,不構成投資建議。",
+  ];
+  for (const t of items) ul.appendChild(el("li", {}, t));
+}
+
+function renderAll() {
+  renderTiles(); renderRank(); renderScatter(); renderTrend(); renderTable(); renderSignals();
+}
+
+renderHeader();
+buildFilters();
+addTrend(state.focus, true);
+for (const c of D.companies) if (Object.keys(state.trendSel).length < 3) addTrend(c.ticker, false);
+renderAll();
+renderMonthly();
+renderNotes();
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+if (mq.addEventListener) mq.addEventListener("change", () => { renderAll(); renderMonthly(); });
+</script>
+</body>
+</html>

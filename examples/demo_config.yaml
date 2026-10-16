@@ -1,17 +1,25 @@
-# 離線示範設定:使用 examples/demo_financials 中的「虛構」公司資料,
-# 不需網路即可體驗完整報告。真實分析請用 config/fin_targets.yaml。
-#   python -m fin_analyzer analyze -c examples/demo_config.yaml --no-llm -o reports/demo
+# 離線示範設定:使用 examples/demo_financials 中的「虛構」公司資料(由 examples/make_demo_data.py 產生),
+# 不需網路即可體驗儀表板與報告。真實比較請用 config/target_makers.yaml。
+#   python -m fin_analyzer dashboard -c examples/demo_config.yaml
+#   python -m fin_analyzer analyze   -c examples/demo_config.yaml --no-llm
 
-target: {ticker: DEMO-A, name: 示範靶材(虛構), segment: 濺鍍靶材、貴金屬材料}
-peers:
-  - {ticker: DEMO-B, name: 示範特氣(虛構), segment: 半導體特殊氣體}
-  - {ticker: DEMO-C, name: 示範再生晶圓(虛構), segment: 再生晶圓}
+title: 靶材製造商財務指標儀表板(示範・虛構資料)
+focus: DEMO-A
+
+companies:
+  - {ticker: DEMO-A, name: 示範靶材(虛構), market: TW, target_focus: major, segment: 濺鍍靶材、貴金屬材料}
+  - {ticker: DEMO-B, name: 示範合金靶(虛構), market: TW, target_focus: pure, segment: 合金靶材}
+  - {ticker: DEMO-J, name: 示範金屬(虛構), market: JP, target_focus: major, segment: 半導體材料、金屬}
+  - {ticker: DEMO-U, name: 示範電子材料(虛構), market: US, target_focus: diversified, segment: 特用化學品、電子材料}
+  - {ticker: DEMO-C, name: 示範濺射靶材(虛構), market: CN, target_focus: pure, segment: 濺射靶材}
 
 settings:
   data_dir: examples/demo_financials
   report_dir: reports/demo
+  dashboard_dir: reports/demo/dashboard
+  fx_rates: {USD: 32.0, JPY: 0.21, CNY: 4.45}
 
 industry:
-  name: 半導體材料(示範)
+  name: 濺鍍靶材(示範)
   notes:
-    - 示範資料為虛構數字,僅用於展示報告格式與計算邏輯。
+    - 示範資料為虛構數字,僅用於展示儀表板與報告的格式與計算邏輯。

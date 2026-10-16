@@ -1,12 +1,17 @@
 """Financial data containers, field definitions and CSV storage.
 
-Storage layout (one folder per company, all amounts in NT$ 元):
+Storage layout (one folder per company):
 
     data/financials/<ticker>/quarterly.csv         period,revenue,cogs,...   (one row per quarter)
     data/financials/<ticker>/monthly_revenue.csv   month,revenue             (2025-09,...)
     data/financials/<ticker>/prices.csv            date,close
-    data/financials/<ticker>/meta.json             {"ticker": ..., "name": ...}
+    data/financials/<ticker>/annual.csv            period,revenue,...        (fiscal-year totals, optional)
+    data/financials/<ticker>/meta.json             {"ticker": ..., "name": ..., "currency": "TWD"}
 
+Amounts are in the company's reporting currency (``meta.json`` → ``currency``).
+``annual.csv`` holds fiscal-year flow totals keyed by the quarter the fiscal year ends in
+(a March year-end FY2025 → ``2026Q1``); metrics fall back to them when a company's
+quarterly statements are incomplete (e.g. Japanese filers on Yahoo Finance).
 Quarterly conventions: income-statement and cash-flow fields are *single-quarter*
 amounts; balance-sheet fields are period-end balances. Blank cells mean "unknown".
 """
@@ -46,6 +51,7 @@ BALANCE_FIELDS = {
     "current_liabilities": "流動負債",
     "total_liabilities": "負債總額",
     "share_capital": "普通股股本",
+    "shares": "流通在外股數(股)",
     "retained_earnings": "保留盈餘",
     "equity": "權益總額",
     "equity_parent": "歸屬母公司權益",
@@ -113,6 +119,8 @@ class CompanyData:
     monthly_revenue: dict[str, float] = field(default_factory=dict)  # "2025-09" -> 元
     prices: list[tuple[str, float]] = field(default_factory=list)  # (date, close), ascending
     note: str = ""
+    currency: str = "TWD"
+    annual: dict[str, dict[str, float | None]] = field(default_factory=dict)  # FY-end quarter -> flow totals
 
     @property
     def periods(self) -> list[str]:
@@ -133,9 +141,12 @@ class CompanyData:
     def last_close(self) -> tuple[str, float] | None:
         return self.prices[-1] if self.prices else None
 
-    def fill_derived(self) -> None:
-        """Fill fields that can be derived from others when the source omitted them."""
-        for row in self.quarters.values():
+    def fill_derived(self, par_value: float | None = None) -> None:
+        """Fill fields that can be derived from others when the source omitted them.
+
+        ``par_value``: derive share count from share capital (Taiwan: NT$10 per share).
+        """
+        for row in [*self.quarters.values(), *self.annual.values()]:
             rev, cogs, gp = row.get("revenue"), row.get("cogs"), row.get("gross_profit")
             if gp is None and rev is not None and cogs is not None:
                 row["gross_profit"] = rev - cogs
@@ -147,18 +158,38 @@ class CompanyData:
                 row["equity_parent"] = row["equity"]
             if row.get("equity") is None and row.get("total_assets") is not None and row.get("total_liabilities") is not None:
                 row["equity"] = row["total_assets"] - row["total_liabilities"]
+            if row.get("non_operating") is None and row.get("pretax_income") is not None and row.get("operating_income") is not None:
+                row["non_operating"] = row["pretax_income"] - row["operating_income"]
+            if row.get("shares") is None and par_value and row.get("share_capital"):
+                row["shares"] = row["share_capital"] / par_value
+            if row.get("eps") is None and row.get("net_income_parent") is not None and row.get("shares"):
+                row["eps"] = row["net_income_parent"] / row["shares"]
+
+
+def _write_periods(path: Path, rows: dict[str, dict[str, float | None]], fields) -> None:
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["period", *fields])
+        for p in sorted(rows, key=parse_period):
+            row = rows[p]
+            w.writerow([p, *("" if row.get(c) is None else _fmt_num(row[c]) for c in fields)])
+
+
+def _read_periods(path: Path, fields) -> dict[str, dict[str, float | None]]:
+    out = {}
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            y, q = parse_period(row["period"])
+            out[fmt_period(y, q)] = {k: _num(row.get(k)) for k in fields}
+    return out
 
 
 def save_company(data: CompanyData, folder: str | Path) -> Path:
     folder = Path(folder) / data.ticker
     folder.mkdir(parents=True, exist_ok=True)
-    cols = ["period", *FIELDS]
-    with open(folder / "quarterly.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(cols)
-        for p in data.periods:
-            row = data.quarters[p]
-            w.writerow([p, *("" if row.get(c) is None else _fmt_num(row[c]) for c in FIELDS)])
+    _write_periods(folder / "quarterly.csv", data.quarters, FIELDS)
+    if data.annual:
+        _write_periods(folder / "annual.csv", data.annual, [*INCOME_FIELDS, *CASHFLOW_FIELDS])
     if data.monthly_revenue:
         with open(folder / "monthly_revenue.csv", "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
@@ -170,7 +201,7 @@ def save_company(data: CompanyData, folder: str | Path) -> Path:
             w = csv.writer(f)
             w.writerow(["date", "close"])
             w.writerows((d, _fmt_num(c)) for d, c in data.prices)
-    meta = {"ticker": data.ticker, "name": data.name}
+    meta = {"ticker": data.ticker, "name": data.name, "currency": data.currency}
     if data.note:
         meta["note"] = data.note
     (folder / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -181,19 +212,20 @@ def _fmt_num(v: float) -> str:
     return str(int(v)) if float(v).is_integer() else f"{v:.6g}"
 
 
-def load_company(ticker: str, folder: str | Path, name: str = "") -> CompanyData:
+def load_company(ticker: str, folder: str | Path, name: str = "", par_value: float | None = None) -> CompanyData:
     folder = Path(folder) / ticker
     if not (folder / "quarterly.csv").exists():
         raise FileNotFoundError(f"no financial data for {ticker} in {folder}; run `fetch` first")
     meta = {}
     if (folder / "meta.json").exists():
         meta = json.loads((folder / "meta.json").read_text(encoding="utf-8"))
-    data = CompanyData(ticker=ticker, name=name or meta.get("name", ""), note=meta.get("note", ""))
+    data = CompanyData(
+        ticker=ticker, name=name or meta.get("name", ""), note=meta.get("note", ""), currency=meta.get("currency", "TWD")
+    )
 
-    with open(folder / "quarterly.csv", newline="", encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
-            y, q = parse_period(row["period"])
-            data.quarters[fmt_period(y, q)] = {k: _num(row.get(k)) for k in FIELDS}
+    data.quarters = _read_periods(folder / "quarterly.csv", FIELDS)
+    if (folder / "annual.csv").exists():
+        data.annual = _read_periods(folder / "annual.csv", [*INCOME_FIELDS, *CASHFLOW_FIELDS])
     if (folder / "monthly_revenue.csv").exists():
         with open(folder / "monthly_revenue.csv", newline="", encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
@@ -205,5 +237,5 @@ def load_company(ticker: str, folder: str | Path, name: str = "") -> CompanyData
             data.prices = sorted(
                 (row["date"].strip(), c) for row in csv.DictReader(f) if (c := _num(row.get("close"))) is not None
             )
-    data.fill_derived()
+    data.fill_derived(par_value)
     return data

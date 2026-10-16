@@ -69,6 +69,12 @@ METRIC_LABELS: dict[str, tuple[str, str]] = {
     "dio": ("存貨天數", "days"),
     "dpo": ("應付帳款天數", "days"),
     "ccc": ("現金轉換循環", "days"),
+    "revenue_ttm": ("近四季營收", "amt"),
+    "revenue_ttm_yoy": ("近四季營收年增", "pct"),
+    "gross_margin_ttm": ("毛利率(近四季)", "pct"),
+    "operating_margin_ttm": ("營業利益率(近四季)", "pct"),
+    "net_margin_ttm": ("淨利率(近四季)", "pct"),
+    "fcf_margin_ttm": ("自由現金流/營收", "pct"),
     "operating_cf_ttm": ("營業現金流(近四季)", "amt"),
     "fcf_ttm": ("自由現金流(近四季)", "amt"),
     "ocf_to_net_income_ttm": ("營業現金流/淨利", "x"),
@@ -88,7 +94,19 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         ttm_prev = [shift_period(p, -4 - i) for i in range(4)]
 
         def ttm_sum(name: str, periods=ttm) -> float | None:
-            return _sum(*(g(q, name) for q in periods))
+            v = _sum(*(g(q, name) for q in periods))
+            if v is None:  # incomplete quarters: use the fiscal year ending in periods[0], if any
+                v = data.annual.get(periods[0], {}).get(name)
+            return v
+
+        def turnover_days(balance: str, flow: str) -> float | None:
+            d = _days(avg(g(p, balance), g(prev_q, balance)), g(p, flow))
+            fy = data.annual.get(p, {}).get(flow)
+            if d is None and g(p, flow) is None and fy is not None:
+                bal = avg(g(p, balance), g(prev_y, balance)) or g(p, balance)
+                d = _days(bal, fy)
+                d = None if d is None else d * 4  # annual flow: 365 days instead of a quarter
+            return d
 
         rev, cogs = g(p, "revenue"), g(p, "cogs")
         pretax = g(p, "pretax_income")
@@ -107,6 +125,8 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
             "eps_yoy": growth(g(p, "eps"), g(prev_y, "eps")),
             "eps_ttm": ttm_sum("eps"),
         }
+        if m["eps_ttm"] is None:  # a quarter without EPS: TTM parent net income / period-end shares
+            m["eps_ttm"] = div(ttm_sum("net_income_parent"), g(p, "shares"))
 
         # TTM returns & DuPont (average of balances 4 quarters apart).
         rev_ttm, ni_ttm = ttm_sum("revenue"), ttm_sum("net_income_parent")
@@ -117,6 +137,8 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["asset_turnover_ttm"] = div(rev_ttm, avg_assets)
         m["equity_multiplier"] = div(avg_assets, avg_equity)
         m["net_margin_ttm"] = div(ni_ttm, rev_ttm)
+        m["gross_margin_ttm"] = div(ttm_sum("gross_profit"), rev_ttm)
+        m["operating_margin_ttm"] = div(ttm_sum("operating_income"), rev_ttm)
 
         # Liquidity & leverage (period-end).
         ca, cl, inv = g(p, "current_assets"), g(p, "current_liabilities"), g(p, "inventory")
@@ -132,9 +154,9 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["interest_coverage_ttm"] = div(ebit_ttm, int_ttm) if int_ttm and int_ttm > 0 else None
 
         # Working-capital efficiency (quarter flows, average balances).
-        m["dso"] = _days(avg(g(p, "receivables"), g(prev_q, "receivables")), rev)
-        m["dio"] = _days(avg(inv, g(prev_q, "inventory")), cogs)
-        m["dpo"] = _days(avg(g(p, "payables"), g(prev_q, "payables")), cogs)
+        m["dso"] = turnover_days("receivables", "revenue")
+        m["dio"] = turnover_days("inventory", "cogs")
+        m["dpo"] = turnover_days("payables", "cogs")
         m["ccc"] = _sum(m["dso"], m["dio"], -m["dpo"] if m["dpo"] is not None else None)
         if m["ccc"] is None and m["dso"] is not None and m["dio"] is not None and g(p, "payables") is None:
             m["ccc"] = m["dso"] + m["dio"]  # no payables data: DSO + DIO
@@ -146,6 +168,7 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["fcf_ttm"] = _sub(ocf_ttm, capex_ttm)
         m["ocf_to_net_income_ttm"] = div(ocf_ttm, ni_ttm) if ni_ttm and ni_ttm > 0 else None
         m["capex_to_revenue_ttm"] = div(capex_ttm, rev_ttm)
+        m["fcf_margin_ttm"] = div(m["fcf_ttm"], rev_ttm)
         m["capex_to_depreciation_ttm"] = div(capex_ttm, ttm_sum("depreciation"))
         m["ebitda_ttm"] = _sum(ttm_sum("operating_income"), ttm_sum("depreciation"))
         m["revenue_ttm"] = rev_ttm
@@ -220,11 +243,14 @@ def altman_z2(data: CompanyData, qm: dict[str, dict[str, float | None]], period:
     return ScoreResult(score=None, max_score=0, details=[(f"{n} = {v:.3f}", True) for n, v in parts], zone=zone, value=z)
 
 
-def valuation(data: CompanyData, qm: dict[str, dict[str, float | None]], period: str, par_value: float = 10.0) -> dict[str, float | None]:
-    """Price-based multiples using the latest close (Taiwan par value NT$10 per share)."""
+def valuation(
+    data: CompanyData, qm: dict[str, dict[str, float | None]], period: str, par_value: float | None = 10.0
+) -> dict[str, float | None]:
+    """Price-based multiples using the latest close. Share count comes from the ``shares``
+    field, else share capital / par value (Taiwan: NT$10 per share)."""
     close = data.last_close
     m = qm.get(period, {})
-    shares = div(data.get(period, "share_capital"), par_value)
+    shares = data.get(period, "shares") or (div(data.get(period, "share_capital"), par_value) if par_value else None)
     bvps = div(data.get(period, "equity_parent"), shares)
     out: dict[str, float | None] = {"shares": shares, "bvps": bvps, "close": None, "close_date": None}
     if not close or shares is None:

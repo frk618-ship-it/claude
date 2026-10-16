@@ -1,12 +1,11 @@
-name: 標的公司財報分析
+name: 靶材製造商財務儀表板
 
 on:
-  schedule:
-    - cron: "17 1 12 * *"   # 每月 12 日 09:17(台北時間),月營收於每月 10 日前公布
+  # 每月自動更新改由 Claude 排程任務執行(同時更新儀表板 Artifact),此處僅保留手動觸發,避免兩邊同日各自 commit。
   workflow_dispatch:
     inputs:
-      target:
-        description: "標的股票代號(留空 = 使用 config/fin_targets.yaml 的 target)"
+      focus:
+        description: "儀表板強調 / 深度報告的公司代號(留空 = 設定檔的 focus)"
         required: false
         default: ""
 
@@ -30,33 +29,29 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Fetch financials from FinMind
+      - name: Fetch financials (TW via FinMind, JP/US/CN via Yahoo Finance)
         env:
-          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}   # 選填,提高 API 額度
-          TARGET: ${{ github.event.inputs.target }}
-        run: |
-          if [ -n "$TARGET" ]; then
-            python -m fin_analyzer -v fetch --tickers "$TARGET"
-          else
-            python -m fin_analyzer -v fetch
-          fi
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}   # 選填,提高 FinMind API 額度
+        run: python -m fin_analyzer -v fetch
 
-      - name: Analyze and build report
+      - name: Build dashboard and focus-company report
         env:
-          # 選填:設定後會用 Claude 撰寫分析評論
+          # 選填:設定後深度報告會加上 Claude 分析評論
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TARGET: ${{ github.event.inputs.target }}
+          FOCUS: ${{ github.event.inputs.focus }}
         run: |
-          if [ -n "$TARGET" ]; then
-            python -m fin_analyzer -v analyze --target "$TARGET"
+          if [ -n "$FOCUS" ]; then
+            python -m fin_analyzer -v dashboard --focus "$FOCUS"
+            python -m fin_analyzer -v analyze --target "$FOCUS"
           else
+            python -m fin_analyzer -v dashboard
             python -m fin_analyzer -v analyze
           fi
 
-      - name: Commit data and report
+      - name: Commit data and reports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/financials reports/financials
-          git diff --cached --quiet || git commit -m "fin: 財報分析報告 $(TZ=Asia/Taipei date +%F)"
+          git add data/financials reports/financials reports/dashboard
+          git diff --cached --quiet || git commit -m "fin: 靶材製造商財務儀表板 $(TZ=Asia/Taipei date +%F)"
           git push

@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>靶材製造商財務指標儀表板(示範・虛構資料)</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --wash: rgba(11,11,11,0.04);
+  --focus-wash: rgba(42,120,214,0.08);
+  --other-mark: #b9b7ae;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --good: #006300; --critical: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19;
+    --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grid: #2c2c2a; --axis: #383835;
+    --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
+    --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --good: #0ca30c; --critical: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19;
+  --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+  --grid: #2c2c2a; --axis: #383835;
+  --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
+  --focus-wash: rgba(57,135,229,0.14); --other-mark: #5c5b56;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --good: #0ca30c; --critical: #e66767;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink-1);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
+header .sub { color: var(--ink-2); font-size: 13px; }
+.banner { margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: var(--wash); border: 1px solid var(--border); color: var(--ink-2); font-size: 13px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 20px 0 16px; }
+.fgroup { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.fgroup > span { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+.chip { border: 1px solid var(--border); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 4px 11px; font: inherit; font-size: 13px; cursor: pointer; }
+.chip:hover { background: var(--wash); }
+.chip[aria-pressed="true"] { color: var(--ink-1); border-color: var(--ink-2); font-weight: 600; }
+select { font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.tile .k { color: var(--ink-2); font-size: 12px; }
+.tile .v { font-size: 24px; font-weight: 650; margin: 2px 0; }
+.tile .r { color: var(--ink-3); font-size: 12px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+.card h2 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
+.card .hint { color: var(--ink-3); font-size: 12px; margin: 0 0 10px; }
+.card .ctl { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 4px 0 6px; }
+.legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; border-radius: 1px; }
+.legend i.dot { width: 9px; height: 9px; border-radius: 50%; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart { overflow-x: auto; }
+.chart svg { min-width: 480px; }
+svg text { fill: var(--ink-2); font-size: 11px; }
+svg .muted { fill: var(--ink-3); }
+svg .strong { fill: var(--ink-1); font-weight: 600; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
+th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 12px; cursor: pointer; user-select: none; }
+th.grp { cursor: default; color: var(--ink-3); font-weight: 500; text-align: center; border-bottom: none; }
+th:first-child, td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface); z-index: 1; }
+td.best { font-weight: 700; }
+tr.focus td { background: var(--focus-wash); }
+tr.focus td:first-child { background: linear-gradient(var(--focus-wash), var(--focus-wash)), var(--surface); }
+td .t { color: var(--ink-3); font-size: 11px; }
+.neg { color: var(--critical); }
+.signals { display: grid; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.signals li { padding: 6px 10px; border-radius: 6px; background: var(--wash); font-size: 13px; }
+.notes { color: var(--ink-2); font-size: 12.5px; }
+.notes li { margin: 3px 0; }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink-1); border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 8px; padding: 8px 10px; font-size: 12px; display: none; min-width: 140px; max-width: 280px; }
+#tip .h { color: var(--ink-2); margin-bottom: 4px; }
+#tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+#tip .row b { font-variant-numeric: tabular-nums; }
+#tip .key { display: inline-block; width: 12px; height: 2px; margin-right: 6px; vertical-align: middle; }
+.empty { color: var(--ink-3); padding: 24px 0; text-align: center; }
+h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title"></h1>
+    <div class="sub" id="sub"></div>
+    <div id="banners"></div>
+  </header>
+
+  <div class="filters" role="toolbar" aria-label="篩選">
+    <div class="fgroup" id="f-market"><span>市場</span></div>
+    <div class="fgroup" id="f-type"><span>靶材比重</span></div>
+    <div class="fgroup"><span>焦點公司</span><select id="f-focus" aria-label="焦點公司"></select></div>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>指標排名</h2>
+      <p class="hint" id="rank-hint"></p>
+      <div class="ctl"><select id="rank-metric" aria-label="排名指標"></select></div>
+      <div id="rank" class="chart"></div>
+    </section>
+    <section class="card">
+      <h2>獲利能力 × 成長</h2>
+      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。</p>
+      <div id="scatter" class="chart"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>季度趨勢</h2>
+      <p class="hint">最多選 4 家公司比較;金額以目前匯率換算(固定匯率)。</p>
+      <div class="ctl"><select id="trend-metric" aria-label="趨勢指標"></select></div>
+      <div class="ctl" id="trend-pick"></div>
+      <div id="trend" class="chart"></div>
+    </section>
+    <section class="card" id="monthly-card">
+      <h2>台股月營收年增率</h2>
+      <p class="hint">台灣上市櫃公司每月 10 日前公布前月營收,是最即時的營運指標。</p>
+      <div id="monthly" class="chart"></div>
+    </section>
+  </div>
+
+  <h3 class="section">完整比較表</h3>
+  <p class="hint" style="color:var(--ink-3);font-size:12px;margin:-6px 0 8px">點欄位標題排序;粗體為目前篩選範圍內的最佳值;金額單位 <span id="unit2"></span>。</p>
+  <div class="tablewrap"><table id="table"></table></div>
+
+  <div class="grid2" style="margin-top:16px">
+    <section class="card">
+      <h2 id="sig-title">重點訊號</h2>
+      <p class="hint">依規則門檻自動判斷(🔴 風險、🟡 注意、🟢 優勢)。</p>
+      <ul class="signals" id="signals"></ul>
+    </section>
+    <section class="card notes">
+      <h2>資料與計算說明</h2>
+      <ul id="notes"></ul>
+    </section>
+  </div>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const D = {"title": "靶材製造商財務指標儀表板(示範・虛構資料)", "generated": "2026-10-16 09:50", "display_currency": "TWD", "unit_label": "億台幣", "fx": {"base": "TWD", "rates": {"USD": 32.0, "JPY": 0.21, "CNY": 4.45, "TWD": 1.0}, "source": "設定檔參考匯率", "asof": ""}, "metrics": [{"key": "revenue_ttm", "label": "近四季營收", "kind": "amt", "better": "high", "group": "規模與成長"}, {"key": "revenue_ttm_yoy", "label": "近四季營收年增", "kind": "pct", "better": "high", "group": "規模與成長"}, {"key": "revenue_yoy", "label": "單季營收年增", "kind": "pct", "better": "high", "group": "規模與成長"}, {"key": "market_cap", "label": "市值", "kind": "amt", "better": "high", "group": "規模與成長"}, {"key": "gross_margin_ttm", "label": "毛利率", "kind": "pct", "better": "high", "group": "獲利能力"}, {"key": "operating_margin_ttm", "label": "營業利益率", "kind": "pct", "better": "high", "group": "獲利能力"}, {"key": "net_margin_ttm", "label": "淨利率", "kind": "pct", "better": "high", "group": "獲利能力"}, {"key": "roe_ttm", "label": "ROE", "kind": "pct", "better": "high", "group": "獲利能力"}, {"key": "roa_ttm", "label": "ROA", "kind": "pct", "better": "high", "group": "獲利能力"}, {"key": "asset_turnover_ttm", "label": "總資產週轉率", "kind": "x", "better": "high", "group": "營運效率"}, {"key": "dso", "label": "應收帳款天數", "kind": "days", "better": "low", "group": "營運效率"}, {"key": "dio", "label": "存貨天數", "kind": "days", "better": "low", "group": "營運效率"}, {"key": "ccc", "label": "現金轉換循環", "kind": "days", "better": "low", "group": "營運效率"}, {"key": "current_ratio", "label": "流動比率", "kind": "x", "better": "high", "group": "財務結構"}, {"key": "debt_ratio", "label": "負債比率", "kind": "pct", "better": "low", "group": "財務結構"}, {"key": "net_debt_to_equity", "label": "淨負債/權益", "kind": "pct", "better": "low", "group": "財務結構"}, {"key": "interest_coverage_ttm", "label": "利息保障倍數", "kind": "x", "better": "high", "group": "財務結構"}, {"key": "ocf_to_net_income_ttm", "label": "營業現金流/淨利", "kind": "x", "better": "high", "group": "現金流量"}, {"key": "fcf_margin_ttm", "label": "自由現金流/營收", "kind": "pct", "better": "high", "group": "現金流量"}, {"key": "capex_to_revenue_ttm", "label": "資本支出/營收", "kind": "pct", "better": null, "group": "現金流量"}, {"key": "pe_ttm", "label": "本益比", "kind": "x", "better": "low", "group": "評價"}, {"key": "pb", "label": "股價淨值比", "kind": "x", "better": "low", "group": "評價"}, {"key": "ev_ebitda_ttm", "label": "EV/EBITDA", "kind": "x", "better": "low", "group": "評價"}, {"key": "fscore", "label": "Piotroski F-score", "kind": "score", "better": "high", "group": "綜合評分"}, {"key": "zscore", "label": "Altman Z''", "kind": "x", "better": "high", "group": "綜合評分"}], "trend_metrics": [{"key": "revenue", "label": "單季營收", "kind": "amt"}, {"key": "revenue_yoy", "label": "單季營收年增", "kind": "pct"}, {"key": "gross_margin", "label": "單季毛利率", "kind": "pct"}, {"key": "operating_margin", "label": "單季營業利益率", "kind": "pct"}, {"key": "net_margin", "label": "單季淨利率", "kind": "pct"}, {"key": "roe_ttm", "label": "ROE(近四季)", "kind": "pct"}, {"key": "dio", "label": "存貨天數", "kind": "days"}, {"key": "debt_ratio", "label": "負債比率", "kind": "pct"}], "companies": [{"ticker": "DEMO-A", "name": "示範靶材(虛構)", "short": "", "market": "TW", "region": "台灣", "currency": "TWD", "fx_rate": 1.0, "target_focus": "major", "focus_label": "靶材為主要事業之一", "segment": "濺鍍靶材、貴金屬材料", "latest_quarter": "2026Q2", "close": 91.2, "close_date": "2026-10-12", "is_focus": true, "note": "示意資料:虛構公司與數字,僅供展示工具功能,非任何真實公司財報。", "latest": {"revenue_ttm": 341.36666912, "revenue_ttm_yoy": 0.15102660694551728, "revenue_yoy": 0.1979554246767914, "market_cap": 510.72, "gross_margin_ttm": 0.10267495121991246, "operating_margin_ttm": 0.06308066319278031, "net_margin_ttm": 0.05332887421882578, "roe_ttm": 0.10815068955754341, "roa_ttm": 0.06489230709273804, "asset_turnover_ttm": 1.2168324954032164, "dso": 61.86734864902136, "dio": 81.73318806100055, "ccc": 109.94569456537357, "current_ratio": 1.9199532509316937, "debt_ratio": 0.390267973039338, "net_debt_to_equity": 0.11538776835087186, "interest_coverage_ttm": 56.28638288095238, "ocf_to_net_income_ttm": 0.03223342130563275, "fcf_margin_ttm": -0.017327275200147697, "capex_to_revenue_ttm": 0.019046247270598202, "pe_ttm": 28.06153846153846, "pb": 2.9678648750843055, "ev_ebitda_ttm": 20.187552904945573, "fscore": 7.0, "zscore": 5.074236951152336}, "trend": {"2023Q3": {"revenue": 68.72880243, "revenue_yoy": 0.010829077793655273, "gross_margin": 0.0885442251987163, "operating_margin": 0.04820638164580922, "net_margin": 0.04566635295583165, "roe_ttm": 0.08303425417785563, "dio": 58.13348924077621, "debt_ratio": 0.3347508232136193}, "2023Q4": {"revenue": 71.57434, "revenue_yoy": 0.08992168923823307, "gross_margin": 0.075291199471766, "operating_margin": 0.03426885235686421, "net_margin": 0.027534897143305828, "roe_ttm": 0.07585042943907881, "dio": 63.39443878565888, "debt_ratio": 0.33247420709868997}, "2024Q1": {"revenue": 66.70935301, "revenue_yoy": 0.05241052450276862, "gross_margin": 0.08923179856215488, "operating_margin": 0.049412992050842854, "net_margin": 0.04054508023177124, "roe_ttm": 0.06855588126590915, "dio": 73.1272778530041, "debt_ratio": 0.33786311921154033}, "2024Q2": {"revenue": 64.38370784, "revenue_yoy": -0.0015664396334381658, "gross_margin": 0.07918181992048502, "operating_margin": 0.03875922533386049, "net_margin": 0.036316143298403734, "roe_ttm": 0.06505865546050608, "dio": 70.86846267227591, "debt_ratio": 0.35190100999423995}, "2024Q3": {"revenue": 65.46343193, "revenue_yoy": -0.04751094715095272, "gross_margin": 0.07941199501362592, "operating_margin": 0.0375096168594655, "net_margin": 0.03497565896710542, "roe_ttm": 0.06119856793974404, "dio": 69.43133264977402, "debt_ratio": 0.3367941450744675}, "2024Q4": {"revenue": 73.43726004, "revenue_yoy": 0.026027764140053478, "gross_margin": 0.08097211901371477, "operating_margin": 0.0391005057709939, "net_margin": 0.03717385396068761, "roe_ttm": 0.0651946956651403, "dio": 66.25265904194822, "debt_ratio": 0.3918706268755686}, "2025Q1": {"revenue": 78.28371134, "revenue_yoy": 0.1735042810003713, "gross_margin": 0.09257435801075806, "operating_margin": 0.05442269186109847, "net_margin": 0.05102269937934192, "roe_ttm": 0.07200280885235529, "dio": 68.25299308482198, "debt_ratio": 0.38305646886385747}, "2025Q2": {"revenue": 79.39142479, "revenue_yoy": 0.23309805311765652, "gross_margin": 0.09693861774564583, "operating_margin": 0.05811557069550358, "net_margin": 0.05249932774257243, "roe_ttm": 0.08193558687994124, "dio": 77.17844631984963, "debt_ratio": 0.37190034166139013}, "2025Q3": {"revenue": 76.66964425, "revenue_yoy": 0.17118278082308303, "gross_margin": 0.1079935653933858, "operating_margin": 0.06992119348460392, "net_margin": 0.0553804260021723, "roe_ttm": 0.09702191737744827, "dio": 87.05417041914849, "debt_ratio": 0.3519985674429145}, "2025Q4": {"revenue": 81.38472859, "revenue_yoy": 0.1082212019575779, "gross_margin": 0.09687699629398003, "operating_margin": 0.0553474235036458, "net_margin": 0.05016736482059945, "roe_ttm": 0.10345721927544876, "dio": 82.044905446741, "debt_ratio": 0.3785596529898907}, "2026Q1": {"revenue": 88.20490828, "revenue_yoy": 0.1267338603417829, "gross_margin": 0.10518232364744318, "operating_margin": 0.06478148837093264, "net_margin": 0.06106525243359167, "roe_ttm": 0.10901504461073526, "dio": 82.07778151300575, "debt_ratio": 0.3795108485814393}, "2026Q2": {"revenue": 95.107388, "revenue_yoy": 0.1979554246767914, "gross_margin": 0.10102340945374297, "operating_margin": 0.06260630951193823, "net_margin": 0.04720548355297067, "roe_ttm": 0.10815068955754341, "dio": 81.73318806100055, "debt_ratio": 0.390267973039338}}, "monthly": {"2024-10": {"yoy": -0.059440873822147355, "revenue": 24.39939355}, "2024-11": {"yoy": 0.1298073458295741, "revenue": 25.9667358}, "2024-12": {"yoy": 0.0186092453057225, "revenue": 23.07113069}, "2025-01": {"yoy": 0.17113526621817865, "revenue": 27.14649939}, "2025-02": {"yoy": 0.21923252701252505, "revenue": 26.24193771}, "2025-03": {"yoy": 0.13127512632587957, "revenue": 24.89527424}, "2025-04": {"yoy": 0.38570459065233065, "revenue": 27.37780718}, "2025-05": {"yoy": 0.13835209557881734, "revenue": 26.35114715}, "2025-06": {"yoy": 0.19483223440806108, "revenue": 25.66247046}, "2025-07": {"yoy": 0.14217687422809933, "revenue": 25.22463358}, "2025-08": {"yoy": 0.10795010460112597, "revenue": 24.34448937}, "2025-09": {"yoy": 0.26601379416769766, "revenue": 27.1005213}, "2025-10": {"yoy": 0.08248493905702015, "revenue": 26.41197604}, "2025-11": {"yoy": 0.0492359520983765, "revenue": 27.24523276}, "2025-12": {"yoy": 0.20182752040056173, "revenue": 27.72751979}, "2026-01": {"yoy": 0.02563305971805452, "revenue": 27.84234723}, "2026-02": {"yoy": 0.2294137405754859, "revenue": 32.2621988}, "2026-03": {"yoy": 0.1287428280203593, "revenue": 28.10036225}, "2026-04": {"yoy": 0.2242516911465806, "revenue": 33.51732674}, "2026-05": {"yoy": 0.25631509822144505, "revenue": 33.10534402}, "2026-06": {"yoy": 0.10997564651458736, "revenue": 28.48471724}, "2026-07": {"yoy": 0.17441174461650988, "revenue": 29.62410593}, "2026-08": {"yoy": 0.25197316677174575, "revenue": 30.47864745}, "2026-09": {"yoy": 0.15618399414331563, "revenue": 31.33318896}}, "signals": [{"level": "風險", "topic": "現金流", "message": "近四季營業現金流僅為淨利的 0.03 倍,盈餘含金量偏低"}, {"level": "注意", "topic": "現金流", "message": "近四季自由現金流為負(營業現金流不足以支應資本支出)"}, {"level": "優勢", "topic": "綜合評分", "message": "Piotroski F-score 7/9,基本面改善"}], "signal_counts": {"風險": 1, "注意": 1, "優勢": 1}, "fscore_details": [["ROA 為正", true], ["營業現金流為正", true], ["ROA 較去年提升", true], ["營業現金流 > 淨利(盈餘品質)", false], ["長期負債比重下降", true], ["流動比率提升", false], ["未增發股本", true], ["毛利率提升", true], ["資產週轉率提升", true]], "zone": "安全區"}, {"ticker": "DEMO-B", "name": "示範合金靶(虛構)", "short": "", "market": "TW", "region": "台灣", "currency": "TWD", "fx_rate": 1.0, "target_focus": "pure", "focus_label": "靶材專業廠", "segment": "合金靶材", "latest_quarter": "2026Q2", "close": 43.8, "close_date": "2026-10-12", "is_focus": false, "note": "示意資料:虛構公司與數字,僅供展示工具功能,非任何真實公司財報。", "latest": {"revenue_ttm": 23.98122778, "revenue_ttm_yoy": 0.059698068273126736, "revenue_yoy": 0.10774397407654224, "market_cap": 43.8, "gross_margin_ttm": 0.19909900376251713, "operating_margin_ttm": 0.07991624105244206, "net_margin_ttm": 0.06930575095017091, "roe_ttm": 0.07166663109322671, "roa_ttm": 0.04906645303565308, "asset_turnover_ttm": 0.7079708734550849, "dso": 57.89678481237943, "dio": 106.14278716597084, "ccc": 130.26686693915383, "current_ratio": 2.1848559812533432, "debt_ratio": 0.2927240589185595, "net_debt_to_equity": 0.02500460639783273, "interest_coverage_ttm": 36.332419, "ocf_to_net_income_ttm": 0.3676620135412148, "fcf_margin_ttm": -0.02632689893077693, "capex_to_revenue_ttm": 0.051807990875102725, "pe_ttm": 26.3855421686747, "pb": 1.8607542945291484, "ev_ebitda_ttm": 16.11374499150901, "fscore": 6.0, "zscore": 5.630103972370621}, "trend": {"2023Q3": {"revenue": 5.38539722, "revenue_yoy": 0.06957088737840333, "gross_margin": 0.2177113167522302, "operating_margin": 0.10319338524113547, "net_margin": 0.10088684414628936, "roe_ttm": 0.0949854089409757, "dio": 86.35328053370532, "debt_ratio": 0.30338509678452785}, "2023Q4": {"revenue": 5.56289787, "revenue_yoy": 0.15512396316947852, "gross_margin": 0.2189730655616009, "operating_margin": 0.0957814258775885, "net_margin": 0.08800736979915111, "roe_ttm": 0.0935447458889547, "dio": 98.63452017270721, "debt_ratio": 0.32672805339517474}, "2024Q1": {"revenue": 5.36661915, "revenue_yoy": 0.10959691028750362, "gross_margin": 0.21204098300882782, "operating_margin": 0.09266711985701463, "net_margin": 0.08808419915544034, "roe_ttm": 0.0940664353041101, "dio": 111.51000970971776, "debt_ratio": 0.31160155056417965}, "2024Q2": {"revenue": 5.11728474, "revenue_yoy": 0.026416898258691424, "gross_margin": 0.21839511123236813, "operating_margin": 0.10417871138435028, "net_margin": 0.09126366300265715, "roe_ttm": 0.08938712389495931, "dio": 113.14873153276893, "debt_ratio": 0.2826799774240936}, "2024Q3": {"revenue": 5.24685571, "revenue_yoy": -0.025725402294466182, "gross_margin": 0.22868260655866215, "operating_margin": 0.10274830294504135, "net_margin": 0.08214499193841944, "roe_ttm": 0.08715426039292805, "dio": 109.35722705338215, "debt_ratio": 0.30977547542377226}, "2024Q4": {"revenue": 5.83000898, "revenue_yoy": 0.04801654034320779, "gross_margin": 0.20052379919318752, "operating_margin": 0.08646590112113343, "net_margin": 0.06512174703374128, "roe_ttm": 0.08038474921214005, "dio": 102.75514547594398, "debt_ratio": 0.2975811569092707}, "2025Q1": {"revenue": 5.74294639, "revenue_yoy": 0.0701237090766913, "gross_margin": 0.20041472649024675, "operating_margin": 0.0808418899414452, "net_margin": 0.0661001747571598, "roe_ttm": 0.07466273857381406, "dio": 110.8261790751965, "debt_ratio": 0.33153030651678805}, "2025Q2": {"revenue": 5.81043474, "revenue_yoy": 0.1354526932187088, "gross_margin": 0.19102469430712513, "operating_margin": 0.07200849828321108, "net_margin": 0.06252463133249131, "roe_ttm": 0.06871761275779961, "dio": 108.73018615221389, "debt_ratio": 0.29566748730919956}, "2025Q3": {"revenue": 5.61706975, "revenue_yoy": 0.07055921878972349, "gross_margin": 0.2096704211301631, "operating_margin": 0.09120370100442494, "net_margin": 0.06833726962354349, "roe_ttm": 0.06846401600834386, "dio": 113.23559648116955, "debt_ratio": 0.3099503782941844}, "2025Q4": {"revenue": 5.88782551, "revenue_yoy": 0.009917056765837096, "gross_margin": 0.19971725860469666, "operating_margin": 0.08321829666450152, "net_margin": 0.07350446090240878, "roe_ttm": 0.06960631214169728, "dio": 106.81820436614576, "debt_ratio": 0.317100761358494}, "2026Q1": {"revenue": 6.03985845, "revenue_yoy": 0.051700301524145065, "gross_margin": 0.19783561980661982, "operating_margin": 0.07827692716871536, "net_margin": 0.07217462521824497, "roe_ttm": 0.07084360822410259, "dio": 108.48979549918036, "debt_ratio": 0.2679091762802139}, "2026Q2": {"revenue": 6.43647407, "revenue_yoy": 0.10774397407654224, "gross_margin": 0.19049337520286164, "operating_margin": 0.06858345970156297, "net_margin": 0.06361803458644245, "roe_ttm": 0.07166663109322671, "dio": 106.14278716597084, "debt_ratio": 0.2927240589185595}}, "monthly": {"2024-10": {"yoy": 0.11133034736755554, "revenue": 2.03983934}, "2024-11": {"yoy": -0.03229330997182711, "revenue": 1.8625054}, "2024-12": {"yoy": 0.06929353682190609, "revenue": 1.92766424}, "2025-01": {"yoy": 0.10313078534413744, "revenue": 1.90275166}, "2025-02": {"yoy": 0.020821729510375864, "revenue": 1.9229772}, "2025-03": {"yoy": 0.0905674294116463, "revenue": 1.91721753}, "2025-04": {"yoy": 0.0464510577797117, "revenue": 1.90779611}, "2025-05": {"yoy": 0.21943262453655565, "revenue": 1.93786755}, "2025-06": {"yoy": 0.15234558358022254, "revenue": 1.96477108}, "2025-07": {"yoy": 0.15278137527616087, "revenue": 1.98757187}, "2025-08": {"yoy": 0.11418110953382521, "revenue": 1.87357735}, "2025-09": {"yoy": -0.04628051768215924, "revenue": 1.75592053}, "2025-10": {"yoy": -0.09344713883202194, "revenue": 1.84922219}, "2025-11": {"yoy": 0.08866540199024397, "revenue": 2.02764519}, "2025-12": {"yoy": 0.043209750054812535, "revenue": 2.01095813}, "2026-01": {"yoy": 0.11065211736564717, "revenue": 2.11329516}, "2026-02": {"yoy": -0.01869082483141249, "revenue": 1.88703517}, "2026-03": {"yoy": 0.06379588548827853, "revenue": 2.03952812}, "2026-04": {"yoy": 0.09822095192342117, "revenue": 2.09518166}, "2026-05": {"yoy": 0.14819850820041847, "revenue": 2.22505663}, "2026-06": {"yoy": 0.07709025318104734, "revenue": 2.11623578}, "2026-07": {"yoy": 0.10732358573780787, "revenue": 2.20088521}, "2026-08": {"yoy": 0.20858222373365054, "revenue": 2.26437228}, "2026-09": {"yoy": 0.32572022493523667, "revenue": 2.32785936}}, "signals": [{"level": "風險", "topic": "獲利", "message": "毛利率已連續 3 季下滑"}, {"level": "風險", "topic": "現金流", "message": "近四季營業現金流僅為淨利的 0.37 倍,盈餘含金量偏低"}, {"level": "注意", "topic": "現金流", "message": "近四季自由現金流為負(營業現金流不足以支應資本支出)"}, {"level": "優勢", "topic": "月營收", "message": "2026-09 單月營收創資料期間新高"}], "signal_counts": {"風險": 2, "注意": 1, "優勢": 1}, "fscore_details": [["ROA 為正", true], ["營業現金流為正", true], ["ROA 較去年提升", true], ["營業現金流 > 淨利(盈餘品質)", false], ["長期負債比重下降", true], ["流動比率提升", false], ["未增發股本", true], ["毛利率提升", false], ["資產週轉率提升", true]], "zone": "安全區"}, {"ticker": "DEMO-J", "name": "示範金屬(虛構)", "short": "", "market": "JP", "region": "日本", "currency": "JPY", "fx_rate": 0.21, "target_focus": "major", "focus_label": "靶材為主要事業之一", "segment": "半導體材料、金屬", "latest_quarter": "2026Q2", "close": 165.0, "close_date": "2026-10-12", "is_focus": false, "note": "示意資料:虛構公司與數字,僅供展示工具功能,非任何真實公司財報。", "latest": {"revenue_ttm": 1839.2718327984, "revenue_ttm_yoy": 0.06900898708606218, "revenue_yoy": 0.1190613500522586, "market_cap": 3118.5, "gross_margin_ttm": 0.2316486778391829, "operating_margin_ttm": 0.14402323980423565, "net_margin_ttm": 0.12574185454301445, "roe_ttm": 0.14615073115068442, "roa_ttm": 0.10000624962724804, "asset_turnover_ttm": 0.7953298445509833, "dso": 58.63857792380984, "dio": 102.74449152221872, "ccc": 127.1349056054568, "current_ratio": 2.1720573405308516, "debt_ratio": 0.29290800939070766, "net_debt_to_equity": 0.024555621518189134, "interest_coverage_ttm": 79.04011825944444, "ocf_to_net_income_ttm": 0.8288725823592892, "fcf_margin_ttm": 0.03997622199663143, "capex_to_revenue_ttm": 0.06424775368908307, "pe_ttm": 13.491414554374488, "pb": 1.9225122286264582, "ev_ebitda_ttm": 9.234512268912047, "fscore": 7.0, "zscore": 6.197496170495825}, "trend": {"2023Q3": {"revenue": 391.4664195813, "revenue_yoy": 0.02426312061056346, "gross_margin": 0.19830420687636496, "operating_margin": 0.10758451995025688, "net_margin": 0.0806363663722739, "roe_ttm": 0.10418315223187567, "dio": 95.71430171687219, "debt_ratio": 0.3196084233530643}, "2023Q4": {"revenue": 396.7067453475, "revenue_yoy": 0.10809778475657161, "gross_margin": 0.23476068578698014, "operating_margin": 0.14906104356254715, "net_margin": 0.11314443694064821, "roe_ttm": 0.10304437403939394, "dio": 104.19008709059852, "debt_ratio": 0.3132014277299315}, "2024Q1": {"revenue": 394.6119055578, "revenue_yoy": 0.1326301282450848, "gross_margin": 0.22738307950786665, "operating_margin": 0.13652248595096936, "net_margin": 0.11132794576864394, "roe_ttm": 0.11210470021927187, "dio": 104.77472577693094, "debt_ratio": 0.3160292413040372}, "2024Q2": {"revenue": 389.8413957753, "revenue_yoy": 0.08364123011386604, "gross_margin": 0.22477390353744447, "operating_margin": 0.13758735447124215, "net_margin": 0.11655948176163138, "roe_ttm": 0.11729795486678138, "dio": 105.46358392067916, "debt_ratio": 0.29393554687531454}, "2024Q3": {"revenue": 406.0473415404, "revenue_yoy": 0.03724692905893501, "gross_margin": 0.2267342047029261, "operating_margin": 0.1353821133157956, "net_margin": 0.12900941643374364, "roe_ttm": 0.13811209542549047, "dio": 103.03242839296448, "debt_ratio": 0.3071035949186146}, "2024Q4": {"revenue": 419.0109828639, "revenue_yoy": 0.056223489461623144, "gross_margin": 0.2255718428406931, "operating_margin": 0.13280680507884207, "net_margin": 0.11896616362891685, "roe_ttm": 0.13703061195433974, "dio": 103.2993591199825, "debt_ratio": 0.29605885160670603}, "2025Q1": {"revenue": 449.5248144303, "revenue_yoy": 0.13915674641108033, "gross_margin": 0.22839542367670376, "operating_margin": 0.13920972462778897, "net_margin": 0.13382621067702524, "roe_ttm": 0.1433543416317513, "dio": 101.61536544318533, "debt_ratio": 0.32729985265139455}, "2025Q2": {"revenue": 445.9560287658, "revenue_yoy": 0.1439422123935854, "gross_margin": 0.22444181472309296, "operating_margin": 0.13223210764119697, "net_margin": 0.12450863246600467, "roe_ttm": 0.1453031026931486, "dio": 105.15035979921247, "debt_ratio": 0.29630742458135273}, "2025Q3": {"revenue": 420.1279744599, "revenue_yoy": 0.03467731832963872, "gross_margin": 0.23620383758204555, "operating_margin": 0.1502981462902489, "net_margin": 0.14388475952122007, "roe_ttm": 0.15959504184617784, "dio": 109.08569525803559, "debt_ratio": 0.3171122842338599}, "2025Q4": {"revenue": 448.7912216508, "revenue_yoy": 0.07107269261381854, "gross_margin": 0.22599776137470537, "operating_margin": 0.13453169643651913, "net_margin": 0.11681004655810774, "roe_ttm": 0.1558430982951653, "dio": 100.99889071043472, "debt_ratio": 0.2904320138079026}, "2026Q1": {"revenue": 471.3004810731, "revenue_yoy": 0.04844152301224369, "gross_margin": 0.22703683260340998, "operating_margin": 0.13976082955744634, "net_margin": 0.12166831944842858, "roe_ttm": 0.1480527162797075, "dio": 102.55980930492558, "debt_ratio": 0.3121746030098936}, "2026Q2": {"revenue": 499.0521556146, "revenue_yoy": 0.1190613500522586, "gross_margin": 0.2372510913629568, "operating_margin": 0.1513017046909856, "net_margin": 0.12234748817587059, "roe_ttm": 0.14615073115068442, "dio": 102.74449152221872, "debt_ratio": 0.29290800939070766}}, "monthly": {}, "signals": [{"level": "優勢", "topic": "綜合評分", "message": "Piotroski F-score 7/9,基本面改善"}], "signal_counts": {"風險": 0, "注意": 0, "優勢": 1}, "fscore_details": [["ROA 為正", true], ["營業現金流為正", true], ["ROA 較去年提升", true], ["營業現金流 > 淨利(盈餘品質)", false], ["長期負債比重下降", true], ["流動比率提升", false], ["未增發股本", true], ["毛利率提升", true], ["資產週轉率提升", true]], "zone": "安全區"}, {"ticker": "DEMO-U", "name": "示範電子材料(虛構)", "short": "", "market": "US", "region": "美國", "currency": "USD", "fx_rate": 32.0, "target_focus": "diversified", "focus_label": "多角化(靶材占比較低)", "segment": "特用化學品、電子材料", "latest_quarter": "2026Q2", "close": 52.0, "close_date": "2026-10-12", "is_focus": false, "note": "示意資料:虛構公司與數字,僅供展示工具功能,非任何真實公司財報。", "latest": {"revenue_ttm": 1499.8247328, "revenue_ttm_yoy": 0.05408406802957355, "revenue_yoy": 0.12344934451192491, "market_cap": 2662.4, "gross_margin_ttm": 0.3123064182076409, "operating_margin_ttm": 0.16154064798470563, "net_margin_ttm": 0.13316400688175128, "roe_ttm": 0.13306184161559492, "roa_ttm": 0.0921613608396218, "asset_turnover_ttm": 0.6920891237634539, "dso": 57.052033622244345, "dio": 60.3622375483247, "ccc": 83.33881448920914, "current_ratio": 2.1157696669953614, "debt_ratio": 0.2854755068022684, "net_debt_to_equity": -0.15501447136848562, "interest_coverage_ttm": 76.817948, "ocf_to_net_income_ttm": 1.0053621137471445, "fcf_margin_ttm": 0.07813240403178928, "capex_to_revenue_ttm": 0.0557456434018875, "pe_ttm": 13.367609254498715, "pb": 1.7231621022934127, "ev_ebitda_ttm": 8.194291878699833, "fscore": 6.0, "zscore": 6.208790078236587}, "trend": {"2023Q3": {"revenue": 334.26497376, "revenue_yoy": 0.035095574877466174, "gross_margin": 0.29244546546533146, "operating_margin": 0.1420068409383558, "net_margin": 0.1316113591715617, "roe_ttm": 0.13460392364438167, "dio": 58.50581282323417, "debt_ratio": 0.28205706074694337}, "2023Q4": {"revenue": 352.95475936, "revenue_yoy": 0.04837333095548968, "gross_margin": 0.3177860085054046, "operating_margin": 0.16282030145791204, "net_margin": 0.1403618383552373, "roe_ttm": 0.13463110333357278, "dio": 60.46675958156041, "debt_ratio": 0.27665211539623674}, "2024Q1": {"revenue": 340.65424128, "revenue_yoy": 0.08648643989694738, "gross_margin": 0.31856066395134947, "operating_margin": 0.1675805007021106, "net_margin": 0.16385723597705032, "roe_ttm": 0.1450405664675202, "dio": 63.155877017358854, "debt_ratio": 0.311859842677677}, "2024Q2": {"revenue": 340.12702432, "revenue_yoy": 0.061741567012002285, "gross_margin": 0.3174761247386436, "operating_margin": 0.1614796964451919, "net_margin": 0.15538554969474178, "roe_ttm": 0.15198181615173376, "dio": 61.998716122777246, "debt_ratio": 0.30250145191516664}, "2024Q3": {"revenue": 349.54883808, "revenue_yoy": 0.04572379854245123, "gross_margin": 0.3053659809779448, "operating_margin": 0.1490239817878556, "net_margin": 0.14451106322498808, "roe_ttm": 0.16561609395618107, "dio": 60.638537519515275, "debt_ratio": 0.30837985311301525}, "2024Q4": {"revenue": 353.70069952, "revenue_yoy": 0.002113415785503392, "gross_margin": 0.31334379827465714, "operating_margin": 0.16993655144468062, "net_margin": 0.1332541961719669, "roe_ttm": 0.15771711400447017, "dio": 61.992052532754656, "debt_ratio": 0.31830880880455925}, "2025Q1": {"revenue": 365.57725568, "revenue_yoy": 0.07316220196276557, "gross_margin": 0.31752847146926755, "operating_margin": 0.1732901223358732, "net_margin": 0.16207512792279408, "roe_ttm": 0.15365192881591536, "dio": 61.17680471114733, "debt_ratio": 0.31873499876978784}, "2025Q2": {"revenue": 354.04333472, "revenue_yoy": 0.04091503880887504, "gross_margin": 0.3154714770956838, "operating_margin": 0.1658988255956059, "net_margin": 0.14410159694249985, "roe_ttm": 0.14678209872556747, "dio": 62.91371982973426, "debt_ratio": 0.2864694694634517}, "2025Q3": {"revenue": 358.88845696, "revenue_yoy": 0.026719067158971654, "gross_margin": 0.3153515897353424, "operating_margin": 0.16500679554204853, "net_margin": 0.12330655127459912, "roe_ttm": 0.14980240010721882, "dio": 61.57613384771358, "debt_ratio": 0.29210864759159494}, "2025Q4": {"revenue": 360.4574064, "revenue_yoy": 0.019102893743691673, "gross_margin": 0.309733040125431, "operating_margin": 0.15273886118712304, "net_margin": 0.11717699980654357, "roe_ttm": 0.1415165552591834, "dio": 61.61383578650664, "debt_ratio": 0.28779198894855396}, "2026Q1": {"revenue": 382.72911712, "revenue_yoy": 0.04691720060126903, "gross_margin": 0.3176264987486824, "operating_margin": 0.1721887083373836, "net_margin": 0.1404891541166472, "roe_ttm": 0.13225346208634053, "dio": 60.53378275085387, "debt_ratio": 0.26826595329691966}, "2026Q2": {"revenue": 397.74975232, "revenue_yoy": 0.12344934451192491, "gross_margin": 0.30677169835628976, "operating_margin": 0.15614375249197893, "net_margin": 0.14949793284135263, "roe_ttm": 0.13306184161559492, "dio": 60.3622375483247, "debt_ratio": 0.2854755068022684}}, "monthly": {}, "signals": [{"level": "優勢", "topic": "財務結構", "message": "淨現金部位(現金大於有息負債)"}], "signal_counts": {"風險": 0, "注意": 0, "優勢": 1}, "fscore_details": [["ROA 為正", true], ["營業現金流為正", true], ["ROA 較去年提升", false], ["營業現金流 > 淨利(盈餘品質)", true], ["長期負債比重下降", true], ["流動比率提升", false], ["未增發股本", true], ["毛利率提升", false], ["資產週轉率提升", true]], "zone": "安全區"}, {"ticker": "DEMO-C", "name": "示範濺射靶材(虛構)", "short": "", "market": "CN", "region": "中國大陸", "currency": "CNY", "fx_rate": 4.45, "target_focus": "pure", "focus_label": "靶材專業廠", "segment": "濺射靶材", "latest_quarter": "2026Q2", "close": 69.9, "close_date": "2026-10-12", "is_focus": false, "note": "示意資料:虛構公司與數字,僅供展示工具功能,非任何真實公司財報。", "latest": {"revenue_ttm": 457.8022189285, "revenue_ttm_yoy": 0.17963758394630225, "revenue_yoy": 0.3050578919998195, "market_cap": 808.743, "gross_margin_ttm": 0.2601727881153026, "operating_margin_ttm": 0.13320178906128002, "net_margin_ttm": 0.11301232556843588, "roe_ttm": 0.14984057672747922, "roa_ttm": 0.0992353468836075, "asset_turnover_ttm": 0.8780931317399925, "dso": 60.63983639239034, "dio": 163.35986825572468, "ccc": 190.3667906029636, "current_ratio": 1.8363467055438398, "debt_ratio": 0.335855346982859, "net_debt_to_equity": 0.22113492274890428, "interest_coverage_ttm": 83.38632427777777, "ocf_to_net_income_ttm": 1.1341145482198278, "fcf_margin_ttm": -0.04279538395937716, "capex_to_revenue_ttm": 0.1709643065146959, "pe_ttm": 15.637583892617451, "pb": 2.272209753809114, "ev_ebitda_ttm": 7.499256034228799, "fscore": 7.0, "zscore": 5.474761010999636}, "trend": {"2023Q3": {"revenue": 73.112780791, "revenue_yoy": 0.22397827177761886, "gross_margin": 0.2746332882673189, "operating_margin": 0.1387859069128591, "net_margin": 0.12394551808123143, "roe_ttm": 0.12626506445010732, "dio": 143.62083326674446, "debt_ratio": 0.2859253668637407}, "2023Q4": {"revenue": 82.14932810650001, "revenue_yoy": 0.2751180725181783, "gross_margin": 0.2770450535395092, "operating_margin": 0.1408569549223669, "net_margin": 0.11993583874145426, "roe_ttm": 0.1184850412924762, "dio": 151.9725658107502, "debt_ratio": 0.3162788929418022}, "2024Q1": {"revenue": 80.91876422200001, "revenue_yoy": 0.2770677297257329, "gross_margin": 0.27919631790246346, "operating_margin": 0.14754577300198057, "net_margin": 0.1272199616612677, "roe_ttm": 0.1269397605818513, "dio": 171.55017232885277, "debt_ratio": 0.3334448987547765}, "2024Q2": {"revenue": 83.4664868105, "revenue_yoy": 0.26474639428463687, "gross_margin": 0.2738919348301136, "operating_margin": 0.14175969509011996, "net_margin": 0.13091040501450027, "roe_ttm": 0.1316792753399285, "dio": 166.8034781035003, "debt_ratio": 0.32310988834571813}, "2024Q3": {"revenue": 88.028399816, "revenue_yoy": 0.20400836712308545, "gross_margin": 0.2729938429726187, "operating_margin": 0.1419452523801174, "net_margin": 0.10610745025496057, "roe_ttm": 0.13881450936301956, "dio": 165.49546696838544, "debt_ratio": 0.3203350773691956}, "2024Q4": {"revenue": 96.972827459, "revenue_yoy": 0.18044577714966237, "gross_margin": 0.26288126133352285, "operating_margin": 0.12978950601209777, "net_margin": 0.12194891860815243, "roe_ttm": 0.14041720036037286, "dio": 161.101341327512, "debt_ratio": 0.3501537910255339}, "2025Q1": {"revenue": 103.7413705085, "revenue_yoy": 0.2820434358573045, "gross_margin": 0.2533234522561735, "operating_margin": 0.1189473888576491, "net_margin": 0.1148166046015756, "roe_ttm": 0.1406525358106916, "dio": 163.43717506342617, "debt_ratio": 0.34963853945226603}, "2025Q2": {"revenue": 99.3445784465, "revenue_yoy": 0.1902331371877335, "gross_margin": 0.2584158404811718, "operating_margin": 0.1268072583476127, "net_margin": 0.11755166700706284, "roe_ttm": 0.138115848717823, "dio": 174.3714494831316, "debt_ratio": 0.29626961938358265}, "2025Q3": {"revenue": 101.9617184985, "revenue_yoy": 0.15828208523185583, "gross_margin": 0.26261730309002124, "operating_margin": 0.138573101077223, "net_margin": 0.11857934583730921, "roe_ttm": 0.15417184984492324, "dio": 168.29011317863774, "debt_ratio": 0.29155493081580974}, "2025Q4": {"revenue": 107.531965103, "revenue_yoy": 0.10888759171701357, "gross_margin": 0.25760597684108705, "operating_margin": 0.12615265567318776, "net_margin": 0.11146932774843889, "roe_ttm": 0.14899530691714918, "dio": 165.05288083123816, "debt_ratio": 0.3033144612067296}, "2026Q1": {"revenue": 118.658109198, "revenue_yoy": 0.1437877542621997, "gross_margin": 0.25747759298540174, "operating_margin": 0.13350878553580572, "net_margin": 0.11870403303828651, "roe_ttm": 0.14976773848287253, "dio": 162.0165370793886, "debt_ratio": 0.31385775989875253}, "2026Q2": {"revenue": 129.650426129, "revenue_yoy": 0.3050578919998195, "gross_margin": 0.26284593066507067, "operating_margin": 0.1345431756324806, "net_margin": 0.10470484332996388, "roe_ttm": 0.14984057672747922, "dio": 163.35986825572468, "debt_ratio": 0.335855346982859}}, "monthly": {}, "signals": [{"level": "優勢", "topic": "成長", "message": "2026Q2 營收年增 30.5%,成長動能強"}, {"level": "注意", "topic": "現金流", "message": "近四季自由現金流為負(營業現金流不足以支應資本支出)"}, {"level": "優勢", "topic": "綜合評分", "message": "Piotroski F-score 7/9,基本面改善"}], "signal_counts": {"風險": 0, "注意": 1, "優勢": 2}, "fscore_details": [["ROA 為正", true], ["營業現金流為正", true], ["ROA 較去年提升", true], ["營業現金流 > 淨利(盈餘品質)", true], ["長期負債比重下降", true], ["流動比率提升", false], ["未增發股本", true], ["毛利率提升", false], ["資產週轉率提升", true]], "zone": "安全區"}], "missing": [], "industry_notes": ["示範資料為虛構數字,僅用於展示儀表板與報告的格式與計算邏輯。"]};
+const SLOTS = ["--s1", "--s2", "--s3", "--s4"];
+const SVGNS = "http://www.w3.org/2000/svg";
+const metricsByKey = Object.fromEntries(D.metrics.map(m => [m.key, m]));
+const trendByKey = Object.fromEntries(D.trend_metrics.map(m => [m.key, m]));
+const focusDefault = (D.companies.find(c => c.is_focus) || D.companies[0] || {}).ticker;
+const state = {
+  market: "all", type: "all", focus: focusDefault,
+  rank: "gross_margin_ttm", trendMetric: "gross_margin",
+  trendSel: {}, sortKey: null, sortDir: -1,
+};
+
+// ---------- helpers ----------
+const $ = id => document.getElementById(id);
+function el(tag, attrs = {}, text) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+function sv(tag, attrs = {}, text) {
+  const n = document.createElementNS(SVGNS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+function fmt(v, kind) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  switch (kind) {
+    case "pct": return (v * 100).toFixed(1) + "%";
+    case "days": return Math.round(v).toLocaleString() + " 天";
+    case "amt": return v.toLocaleString(undefined, {maximumFractionDigits: Math.abs(v) >= 100 ? 0 : 1});
+    case "score": return v.toFixed(0) + "/9";
+    case "x": return v.toFixed(2);
+    default: return v.toLocaleString(undefined, {maximumFractionDigits: 2});
+  }
+}
+function fmtAxis(v, kind) {
+  if (kind === "pct") return (v * 100).toFixed(Math.abs(v) < 0.1 && v !== 0 ? 1 : 0) + "%";
+  if (kind === "amt") return Math.abs(v) >= 1000 ? (v / 1000).toFixed(1) + "k" : v.toFixed(Math.abs(v) < 10 && v !== 0 ? 1 : 0);
+  if (kind === "days") return Math.round(v).toString();
+  return v.toFixed(Math.abs(v) < 10 ? 1 : 0);
+}
+function niceTicks(min, max, count = 5) {
+  if (min === max) { min -= 1; max += 1; }
+  const step0 = (max - min) / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= step0) || 10 * mag;
+  const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let t = lo; t <= hi + step / 2; t += step) ticks.push(+t.toPrecision(12));
+  return ticks;
+}
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function visible() {
+  return D.companies.filter(c => (state.market === "all" || c.market === state.market)
+    && (state.type === "all" || c.target_focus === state.type));
+}
+function val(c, key) { const v = c.latest[key]; return v === undefined ? null : v; }
+function shortName(c) { return c.short || (c.name.length > 12 ? c.name.slice(0, 11) + "…" : c.name); }
+function rankOf(list, c, key) {
+  const m = metricsByKey[key];
+  const vals = list.filter(x => val(x, key) !== null);
+  if (val(c, key) === null || !m.better) return null;
+  vals.sort((a, b) => m.better === "high" ? val(b, key) - val(a, key) : val(a, key) - val(b, key));
+  return [vals.indexOf(c) + 1, vals.length];
+}
+
+// ---------- tooltip ----------
+const tip = $("tip");
+function showTip(evt, header, rows) {
+  tip.replaceChildren();
+  tip.appendChild(el("div", {class: "h"}, header));
+  for (const r of rows) {
+    const row = el("div", {class: "row"});
+    const left = el("span");
+    if (r.color) { const k = el("span", {class: "key"}); k.style.background = r.color; left.appendChild(k); }
+    left.appendChild(document.createTextNode(r.label));
+    row.append(left, el("b", {}, r.value));
+    tip.appendChild(row);
+  }
+  tip.style.display = "block";
+  const x = evt.clientX + 14, y = evt.clientY + 14;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(x, window.innerWidth - w - 8) + "px";
+  tip.style.top = (y + h > window.innerHeight ? evt.clientY - h - 10 : y) + "px";
+}
+function hideTip() { tip.style.display = "none"; }
+
+// ---------- filters ----------
+function buildFilters() {
+  const markets = [["all", "全部"], ...[...new Map(D.companies.map(c => [c.market, c.region])).entries()]];
+  for (const [k, label] of markets) {
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(state.market === k)}, label);
+    b.onclick = () => { state.market = k; syncChips("f-market", k); renderAll(); };
+    b.dataset.k = k; $("f-market").appendChild(b);
+  }
+  const types = [["all", "全部"], ["pure", "靶材專業"], ["major", "主要事業"], ["diversified", "多角化"]]
+    .filter(([k]) => k === "all" || D.companies.some(c => c.target_focus === k));
+  for (const [k, label] of types) {
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(state.type === k)}, label);
+    b.onclick = () => { state.type = k; syncChips("f-type", k); renderAll(); };
+    b.dataset.k = k; $("f-type").appendChild(b);
+  }
+  for (const c of D.companies) $("f-focus").appendChild(el("option", {value: c.ticker}, `${c.name}(${c.ticker})`));
+  $("f-focus").value = state.focus;
+  $("f-focus").onchange = e => { state.focus = e.target.value; addTrend(state.focus, true); renderAll(); };
+
+  let group = null, og;
+  for (const m of D.metrics) {
+    if (m.group !== group) { group = m.group; og = el("optgroup", {label: group}); $("rank-metric").appendChild(og); }
+    og.appendChild(el("option", {value: m.key}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label));
+  }
+  $("rank-metric").value = state.rank;
+  $("rank-metric").onchange = e => { state.rank = e.target.value; renderRank(); };
+  for (const m of D.trend_metrics) $("trend-metric").appendChild(el("option", {value: m.key}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label));
+  $("trend-metric").value = state.trendMetric;
+  $("trend-metric").onchange = e => { state.trendMetric = e.target.value; renderTrend(); };
+}
+function syncChips(id, k) { for (const b of $(id).querySelectorAll(".chip")) b.setAttribute("aria-pressed", String(b.dataset.k === k)); }
+
+// Trend selection: colour follows the company while it stays selected (never repainted by rank).
+function addTrend(ticker, front) {
+  if (state.trendSel[ticker]) return;
+  const used = new Set(Object.values(state.trendSel));
+  let slot = SLOTS.find(s => !used.has(s));
+  if (!slot) {
+    if (!front) return;
+    const drop = Object.keys(state.trendSel).find(t => t !== state.focus) || Object.keys(state.trendSel)[0];
+    slot = state.trendSel[drop]; delete state.trendSel[drop];
+  }
+  state.trendSel[ticker] = slot;
+}
+
+// ---------- header, tiles ----------
+function renderHeader() {
+  $("title").textContent = D.title;
+  document.title = D.title;
+  const fx = D.fx;
+  const rates = Object.entries(fx.rates).filter(([k]) => k !== fx.base).map(([k, v]) => `1 ${k} = ${v.toFixed(k === "JPY" ? 4 : 3)} ${fx.base}`).join("、");
+  $("sub").textContent = `${D.companies.length} 家公司 · 金額換算 ${D.unit_label} · 匯率:${rates || "—"}(${fx.source}${fx.asof ? " " + fx.asof : ""})· 產生時間 ${D.generated}`;
+  const notes = [...new Set(D.companies.map(c => c.note).filter(Boolean))];
+  for (const n of notes) $("banners").appendChild(el("div", {class: "banner"}, "⚠️ " + n));
+  if (D.missing.length) $("banners").appendChild(el("div", {class: "banner"}, "尚無資料(請先執行 fetch):" + D.missing.join("、")));
+  $("unit2").textContent = D.unit_label;
+}
+
+const TILE_KEYS = ["revenue_ttm", "revenue_ttm_yoy", "gross_margin_ttm", "operating_margin_ttm", "roe_ttm", "debt_ratio"];
+function renderTiles() {
+  const list = visible();
+  const c = D.companies.find(x => x.ticker === state.focus);
+  $("tiles").replaceChildren();
+  if (!c) return;
+  const head = el("div", {class: "tile"});
+  head.append(el("div", {class: "k"}, `${c.region} · ${c.focus_label || "—"}`), el("div", {class: "v"}, c.name),
+    el("div", {class: "r"}, `${c.ticker} · 最新季 ${c.latest_quarter} · ${c.currency}`));
+  $("tiles").appendChild(head);
+  for (const key of TILE_KEYS) {
+    const m = metricsByKey[key];
+    const t = el("div", {class: "tile"});
+    const r = list.includes(c) ? rankOf(list, c, key) : null;
+    t.append(el("div", {class: "k"}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label),
+      el("div", {class: "v"}, fmt(val(c, key), m.kind)),
+      el("div", {class: "r"}, r ? `篩選範圍內第 ${r[0]} / ${r[1]} 名` : "—"));
+    $("tiles").appendChild(t);
+  }
+}
+
+// ---------- ranking bars ----------
+function renderRank() {
+  const m = metricsByKey[state.rank];
+  const box = $("rank"); box.replaceChildren();
+  const rows = visible().filter(c => val(c, m.key) !== null);
+  const missing = visible().filter(c => val(c, m.key) === null);
+  $("rank-hint").textContent = (m.better === "high" ? "數值越高越好" : m.better === "low" ? "數值越低越好" : "高低需搭配情境判讀")
+    + ";焦點公司以藍色標示,＊ = 多角化公司(指標反映全公司)。";
+  if (!rows.length) { box.appendChild(el("div", {class: "empty"}, "篩選範圍內沒有此指標的資料")); return; }
+  rows.sort((a, b) => m.better === "low" ? val(a, m.key) - val(b, m.key) : val(b, m.key) - val(a, m.key));
+  const W = 560, L = 150, R = 64, rowH = 28, top = 8;
+  const H = top + rows.length * rowH + 22;
+  const vals = rows.map(c => val(c, m.key));
+  const ticks = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals), 4);
+  const lo = ticks[0], hi = ticks[ticks.length - 1];
+  const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${m.label} 排名`});
+  for (const t of ticks) {
+    svg.appendChild(sv("line", {x1: x(t), x2: x(t), y1: top - 4, y2: H - 20, class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: x(t), y: H - 6, "text-anchor": "middle", class: "muted"}, fmtAxis(t, m.kind)));
+  }
+  rows.forEach((c, i) => {
+    const y = top + i * rowH, v = val(c, m.key);
+    const x0 = x(0), x1 = x(v), bw = Math.max(Math.abs(x1 - x0), 1.5);
+    const isF = c.ticker === state.focus;
+    const label = shortName(c) + (c.target_focus === "diversified" ? "＊" : "");
+    svg.appendChild(sv("text", {x: L - 8, y: y + rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, label));
+    const bar = sv("rect", {x: Math.min(x0, x1), y: y + 6, width: bw, height: rowH - 12, rx: 3,
+      fill: isF ? cssVar("--s1") : cssVar("--other-mark")});
+    svg.appendChild(bar);
+    const neg = v < 0;
+    svg.appendChild(sv("text", {x: neg ? Math.min(x0, x1) - 5 : Math.max(x0, x1) + 5, y: y + rowH / 2 + 4,
+      "text-anchor": neg ? "end" : "start", class: isF ? "strong" : ""}, fmt(v, m.kind)));
+    const hit = sv("rect", {x: 0, y, width: W, height: rowH, fill: "transparent", tabindex: 0});
+    const rows2 = [{label: m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label, value: fmt(v, m.kind)},
+      {label: "市場 / 幣別", value: `${c.region} / ${c.currency}`}, {label: "最新季", value: c.latest_quarter}];
+    hit.addEventListener("pointermove", e => { bar.setAttribute("opacity", "0.8"); showTip(e, `${c.name}(${c.ticker})`, rows2); });
+    hit.addEventListener("pointerleave", () => { bar.removeAttribute("opacity"); hideTip(); });
+    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.left + L, clientY: b.top}, `${c.name}(${c.ticker})`, rows2); });
+    hit.addEventListener("blur", hideTip);
+    svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+  if (missing.length) box.appendChild(el("div", {class: "hint", style: "margin-top:6px"}, "無資料:" + missing.map(c => c.name).join("、")));
+}
+
+// ---------- scatter ----------
+function renderScatter() {
+  const box = $("scatter"); box.replaceChildren();
+  const pts = visible().filter(c => val(c, "revenue_ttm_yoy") !== null && val(c, "operating_margin_ttm") !== null);
+  if (!pts.length) { box.appendChild(el("div", {class: "empty"}, "資料不足(需至少 8 季資料才能計算近四季年增)")); return; }
+  const W = 560, H = 330, L = 48, R = 16, T = 12, B = 34;
+  const xs = pts.map(c => val(c, "revenue_ttm_yoy")), ys = pts.map(c => val(c, "operating_margin_ttm"));
+  const xt = niceTicks(Math.min(0, ...xs), Math.max(0, ...xs), 5), yt = niceTicks(Math.min(0, ...ys), Math.max(0, ...ys), 5);
+  const X = v => L + (v - xt[0]) / (xt[xt.length - 1] - xt[0]) * (W - L - R);
+  const Y = v => H - B - (v - yt[0]) / (yt[yt.length - 1] - yt[0]) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "營業利益率與營收成長散佈圖"});
+  for (const t of xt) { svg.appendChild(sv("line", {x1: X(t), x2: X(t), y1: T, y2: H - B, class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: X(t), y: H - B + 16, "text-anchor": "middle", class: "muted"}, fmtAxis(t, "pct"))); }
+  for (const t of yt) { svg.appendChild(sv("line", {x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: L - 6, y: Y(t) + 4, "text-anchor": "end", class: "muted"}, fmtAxis(t, "pct"))); }
+  svg.appendChild(sv("text", {x: W - R, y: H - 4, "text-anchor": "end", class: "muted"}, "近四季營收年增 →"));
+  svg.appendChild(sv("text", {x: L, y: T - 2, class: "muted"}, "↑ 營業利益率"));
+  const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus));
+  for (const c of order) {
+    const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
+    const isF = c.ticker === state.focus;
+    const dot = sv("circle", {cx, cy, r: isF ? 6 : 5, fill: isF ? cssVar("--s1") : cssVar("--other-mark"), stroke: cssVar("--surface"), "stroke-width": 2});
+    svg.appendChild(dot);
+    const right = cx < W - 110;
+    svg.appendChild(sv("text", {x: right ? cx + 9 : cx - 9, y: cy + 4, "text-anchor": right ? "start" : "end", class: isF ? "strong" : ""}, shortName(c)));
+    const hit = sv("circle", {cx, cy, r: 14, fill: "transparent", tabindex: 0});
+    const rows = [{label: "近四季營收年增", value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
+      {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
+      {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
+    hit.addEventListener("pointermove", e => showTip(e, `${c.name}(${c.ticker})`, rows));
+    hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
+    hit.addEventListener("blur", hideTip);
+    svg.appendChild(hit);
+  }
+  box.appendChild(svg);
+}
+
+// ---------- line chart (trend & monthly) ----------
+function lineChart(box, series, xLabels, kind, ariaLabel) {
+  box.replaceChildren();
+  const all = series.flatMap(s => xLabels.map(x => s.values[x]).filter(v => v !== null && v !== undefined));
+  if (!all.length) { box.appendChild(el("div", {class: "empty"}, "沒有可顯示的資料")); return; }
+  const legend = el("div", {class: "legend"});
+  for (const s of series) { const item = el("span"); const k = el("i"); k.style.background = s.color; item.append(k, document.createTextNode(s.name)); legend.appendChild(item); }
+  box.appendChild(legend);
+  const W = 560, H = 280, L = 48, R = 76, T = 10, B = 28;
+  const yt = niceTicks(Math.min(kind === "amt" ? 0 : Math.min(0, ...all), ...all), Math.max(...all), 5);
+  const X = i => L + (xLabels.length === 1 ? (W - L - R) / 2 : i / (xLabels.length - 1) * (W - L - R));
+  const Y = v => H - B - (v - yt[0]) / (yt[yt.length - 1] - yt[0]) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": ariaLabel});
+  for (const t of yt) { svg.appendChild(sv("line", {x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: t === 0 && yt[0] < 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: L - 6, y: Y(t) + 4, "text-anchor": "end", class: "muted"}, fmtAxis(t, kind))); }
+  svg.appendChild(sv("line", {x1: L, x2: W - R, y1: H - B, y2: H - B, class: "baseline"}));
+  const every = Math.ceil(xLabels.length / 6);
+  const last = xLabels.length - 1;
+  xLabels.forEach((xl, i) => { if ((i % every === 0 && last - i >= every * 0.75) || i === last)
+    svg.appendChild(sv("text", {x: X(i), y: H - B + 16, "text-anchor": "middle", class: "muted"}, xl)); });
+  const ends = [];
+  for (const s of series) {
+    let d = "", pen = false;
+    xLabels.forEach((xl, i) => { const v = s.values[xl];
+      if (v === null || v === undefined) { pen = false; return; }
+      d += (pen ? "L" : "M") + X(i).toFixed(1) + " " + Y(v).toFixed(1); pen = true; });
+    svg.appendChild(sv("path", {d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round"}));
+    const lastI = xLabels.map(xl => s.values[xl]).map((v, i) => v === null || v === undefined ? -1 : i).filter(i => i >= 0).pop();
+    if (lastI !== undefined) {
+      svg.appendChild(sv("circle", {cx: X(lastI), cy: Y(s.values[xLabels[lastI]]), r: 3.5, fill: s.color, stroke: cssVar("--surface"), "stroke-width": 2}));
+      ends.push({y: Y(s.values[xLabels[lastI]]), x: X(lastI), name: s.short});
+    }
+  }
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 13) ends[i].y = ends[i - 1].y + 13;
+  for (const e of ends) svg.appendChild(sv("text", {x: W - R + 8, y: e.y + 4}, e.name));
+  const cross = sv("line", {y1: T, y2: H - B, stroke: cssVar("--axis"), "stroke-width": 1, visibility: "hidden"});
+  svg.appendChild(cross);
+  const hit = sv("rect", {x: L - 10, y: T, width: W - L - R + 20, height: H - T - B, fill: "transparent"});
+  hit.addEventListener("pointermove", e => {
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const p = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const i = Math.max(0, Math.min(xLabels.length - 1, Math.round((p.x - L) / ((W - L - R) / Math.max(1, xLabels.length - 1)))));
+    cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("visibility", "visible");
+    showTip(e, xLabels[i], series.map(s => ({label: s.name, value: fmt(s.values[xLabels[i]], kind), color: s.color})));
+  });
+  hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+  svg.appendChild(hit);
+  box.appendChild(svg);
+}
+
+function renderTrend() {
+  const pick = $("trend-pick"); pick.replaceChildren();
+  const list = visible();
+  for (const c of list) {
+    const on = !!state.trendSel[c.ticker];
+    const b = el("button", {class: "chip", type: "button", "aria-pressed": String(on)});
+    if (on) { const k = el("i"); k.style.cssText = `display:inline-block;width:10px;height:2px;margin-right:5px;vertical-align:middle;background:${cssVar(state.trendSel[c.ticker])}`; b.appendChild(k); }
+    b.appendChild(document.createTextNode(shortName(c)));
+    b.onclick = () => { if (on) delete state.trendSel[c.ticker]; else addTrend(c.ticker, true); renderTrend(); };
+    pick.appendChild(b);
+  }
+  const m = trendByKey[state.trendMetric];
+  const sel = list.filter(c => state.trendSel[c.ticker]);
+  const periods = [...new Set(sel.flatMap(c => Object.keys(c.trend)))].sort();
+  const series = sel.map(c => ({name: `${c.name}(${c.ticker})`, short: shortName(c), color: cssVar(state.trendSel[c.ticker]),
+    values: Object.fromEntries(periods.map(p => [p, c.trend[p] ? c.trend[p][m.key] : null]))}));
+  if (!series.length) { $("trend").replaceChildren(el("div", {class: "empty"}, "請在上方選擇公司")); return; }
+  lineChart($("trend"), series, periods, m.kind, m.label + " 季度趨勢");
+}
+
+function renderMonthly() {
+  const tw = D.companies.filter(c => Object.keys(c.monthly).length).slice(0, 4);
+  $("monthly-card").style.display = tw.length ? "" : "none";
+  if (!tw.length) return;
+  const months = [...new Set(tw.flatMap(c => Object.keys(c.monthly)))].sort().slice(-24);
+  const series = tw.map((c, i) => ({name: `${c.name}(${c.ticker})`, short: shortName(c), color: cssVar(SLOTS[i]),
+    values: Object.fromEntries(months.map(mo => [mo, c.monthly[mo] ? c.monthly[mo].yoy : null]))}));
+  lineChart($("monthly"), series, months, "pct", "台股月營收年增率");
+}
+
+// ---------- table ----------
+function renderTable() {
+  const tbl = $("table"); tbl.replaceChildren();
+  const list = visible();
+  const thead = el("thead"), g = el("tr"), h = el("tr");
+  g.appendChild(el("th", {class: "grp"}, ""));
+  h.appendChild(el("th", {}, "公司"));
+  g.appendChild(el("th", {class: "grp"}, "")); h.appendChild(el("th", {}, "最新季"));
+  g.appendChild(el("th", {class: "grp"}, "")); h.appendChild(el("th", {}, "訊號"));
+  let group = null, span = null;
+  for (const m of D.metrics) {
+    if (m.group !== group) { group = m.group; span = el("th", {class: "grp", colspan: 0}, group); g.appendChild(span); }
+    span.setAttribute("colspan", String(+span.getAttribute("colspan") + 1));
+    const th = el("th", {scope: "col", tabindex: 0, title: m.better === "low" ? "越低越好" : m.better === "high" ? "越高越好" : ""},
+      (m.kind === "amt" ? m.label + "(" + D.unit_label + ")" : m.label) + (state.sortKey === m.key ? (state.sortDir < 0 ? " ▼" : " ▲") : ""));
+    const sort = () => { if (state.sortKey === m.key) state.sortDir *= -1; else { state.sortKey = m.key; state.sortDir = m.better === "low" ? 1 : -1; } renderTable(); };
+    th.onclick = sort; th.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sort(); } };
+    h.appendChild(th);
+  }
+  thead.append(g, h); tbl.appendChild(thead);
+  const rows = [...list];
+  if (state.sortKey) rows.sort((a, b) => { const va = val(a, state.sortKey), vb = val(b, state.sortKey);
+    if (va === null) return 1; if (vb === null) return -1; return (va - vb) * state.sortDir; });
+  const best = {};
+  for (const m of D.metrics) { if (!m.better) continue; const vs = list.map(c => val(c, m.key)).filter(v => v !== null);
+    if (vs.length > 1) best[m.key] = m.better === "high" ? Math.max(...vs) : Math.min(...vs); }
+  const tbody = el("tbody");
+  for (const c of rows) {
+    const tr = el("tr", {class: c.ticker === state.focus ? "focus" : ""});
+    const name = el("td");
+    name.append(document.createTextNode(c.name + (c.target_focus === "diversified" ? "＊" : "")), el("br"),
+      el("span", {class: "t"}, `${c.ticker} · ${c.region} · ${c.focus_label || "—"}`));
+    tr.appendChild(name);
+    tr.appendChild(el("td", {}, c.latest_quarter));
+    const sc = c.signal_counts;
+    tr.appendChild(el("td", {title: "風險 / 注意 / 優勢"}, `🔴${sc["風險"] || 0} 🟡${sc["注意"] || 0} 🟢${sc["優勢"] || 0}`));
+    for (const m of D.metrics) {
+      const v = val(c, m.key);
+      const td = el("td", {}, fmt(v, m.kind));
+      if (v !== null && best[m.key] === v) td.classList.add("best");
+      if (v !== null && v < 0 && ["pct", "amt"].includes(m.kind)) td.classList.add("neg");
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  tbl.appendChild(tbody);
+}
+
+// ---------- signals & notes ----------
+function renderSignals() {
+  const c = D.companies.find(x => x.ticker === state.focus);
+  $("sig-title").textContent = `重點訊號 — ${c ? c.name : ""}`;
+  const ul = $("signals"); ul.replaceChildren();
+  if (!c || !c.signals.length) { ul.appendChild(el("li", {}, "未觸發任何規則門檻。")); return; }
+  const icon = {"風險": "🔴", "注意": "🟡", "優勢": "🟢"};
+  for (const s of c.signals) ul.appendChild(el("li", {}, `${icon[s.level] || ""} ${s.level}|${s.topic}:${s.message}`));
+}
+function renderNotes() {
+  const ul = $("notes");
+  const items = [
+    "資料來源:台股為 FinMind(公開資訊觀測站財報),日本/美國/中國大陸為 Yahoo Finance;各公司最新季度可能不同,請對照「最新季」欄位。",
+    "近四季(TTM)= 最近四季加總;ROE/ROA 以期初(去年同季)與期末平均權益/資產計算;天數指標以單季營收或營業成本 × 91.25 計算。",
+    "金額依標示匯率換算為 " + D.unit_label + ",趨勢圖使用同一匯率(固定匯率),因此反映營運變化而非匯率變動。",
+    "＊ 多角化公司(如化工、特用化學品集團)的指標反映整家公司,不等於其靶材事業的表現。",
+    "各國會計準則、財年(日本多為 3 月制)不同,季度一律依季末日期對齊日曆季度。",
+    ...D.industry_notes,
+    "本儀表板僅為財務資料的量化整理,不構成投資建議。",
+  ];
+  for (const t of items) ul.appendChild(el("li", {}, t));
+}
+
+function renderAll() {
+  renderTiles(); renderRank(); renderScatter(); renderTrend(); renderTable(); renderSignals();
+}
+
+renderHeader();
+buildFilters();
+addTrend(state.focus, true);
+for (const c of D.companies) if (Object.keys(state.trendSel).length < 3) addTrend(c.ticker, false);
+renderAll();
+renderMonthly();
+renderNotes();
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+if (mq.addEventListener) mq.addEventListener("change", () => { renderAll(); renderMonthly(); });
+</script>
+</body>
+</html>
