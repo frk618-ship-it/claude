@@ -249,7 +249,10 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   // ── 結論 ──
   const T = R.test, B = T.baselines;
   const [lo, hi] = wilson(T.DA, T.n);
-  const beatsUp = T.DA > B.alwaysUpDA, beatsRW = T.MAPE < B.randomWalkMAPE, sig = lo > 50;
+  const beatsUp = T.DA > B.alwaysUpDA, sig = lo > 50;
+  // 價格誤差差距在 2% 以內視為相當，不宣稱勝負
+  const rwRel = (T.MAPE - B.randomWalkMAPE) / B.randomWalkMAPE;
+  const rwVerdict = Math.abs(rwRel) <= 0.02 ? 'tie' : (rwRel < 0 ? 'better' : 'worse');
   const v = $('verdict');
   v.className = 'verdict ' + (beatsUp && sig ? 'good' : (!beatsUp ? 'bad' : ''));
   v.innerHTML =
@@ -258,8 +261,8 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     (beatsUp ? '高於' : '沒有高於') + '「永遠猜漲」的 <span class="num">' + fx(B.alwaysUpDA, 1) + '%</span>。' +
     (sig ? '區間下緣高於 50%，不太可能只是運氣。' : '區間仍包含 50%，樣本不足以確定模型比擲硬幣好。') + '</p>' +
     '<p><strong>價格：</strong>平均誤差 <span class="num">' + fx(T.MAPE, 2) + '%</span>，' +
-    (beatsRW ? '優於' : '不如') + '「明天 = 今天」的 <span class="num">' + fx(B.randomWalkMAPE, 2) + '%</span>' +
-    (beatsRW ? '。' : '，價格水準請以方向判讀為主。') + '</p>';
+    ({ better: '優於', tie: '與', worse: '不如' })[rwVerdict] + '「明天 = 今天」的 <span class="num">' + fx(B.randomWalkMAPE, 2) + '%</span>' +
+    ({ better: '。', tie: '相當，模型對價格水準沒有額外資訊。', worse: '，價格水準請以方向判讀為主。' })[rwVerdict] + '</p>';
 
   // ── 圖表共用 ──
   const css = getComputedStyle(document.documentElement);
@@ -318,12 +321,16 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
 
   // ── 訓練過程 ──
   const H = R.training.history;
+  // loss 跨越一個數量級以上才用對數刻度，否則線性刻度比較好讀
+  const lossVals = H.flatMap(h => [h.loss, h.val_loss]).filter(v => Number.isFinite(v) && v > 0);
+  const logScale = lossVals.length && Math.max(...lossVals) / Math.min(...lossVals) > 30;
   draw('lossChart', [
     { x: H.map(h => h.epoch), y: H.map(h => h.loss), type: 'scatter', mode: 'lines', line: { color: tok('--s1'), width: 2 }, name: '訓練', hovertemplate: '%{y:.5f}' },
     { x: H.map(h => h.epoch), y: H.map(h => h.val_loss), type: 'scatter', mode: 'lines', line: { color: tok('--s2'), width: 2 }, name: '驗證', hovertemplate: '%{y:.5f}' },
   ], layout({
     xaxis: axis({ title: { text: 'epoch', font: { size: 11, color: tok('--ink-3') } } }),
-    yaxis: axis({ type: 'log', dtick: 1, exponentformat: 'power', title: { text: 'loss（對數刻度）', font: { size: 11, color: tok('--ink-3') } } }),
+    yaxis: axis(logScale ? { type: 'log', dtick: 1, exponentformat: 'power', title: { text: 'loss（對數刻度）', font: { size: 11, color: tok('--ink-3') } } }
+                         : { title: { text: 'loss', font: { size: 11, color: tok('--ink-3') } } }),
     shapes: [{ type: 'line', x0: R.training.bestEpoch, x1: R.training.bestEpoch, yref: 'paper', y0: 0, y1: 1, line: { color: tok('--ink-3'), width: 1, dash: 'dot' } }],
     annotations: [{ x: R.training.bestEpoch, y: 1, yref: 'paper', text: '採用的 epoch', showarrow: false, xanchor: 'left', yanchor: 'top', font: { size: 11, color: tok('--ink-3') } }],
   }));

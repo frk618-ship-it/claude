@@ -1,0 +1,163 @@
+{
+  "params": {
+    "lookback": 10,
+    "epochs": 400,
+    "layers": 48,
+    "lr": 0.003,
+    "futureDays": 3,
+    "historyYears": 2,
+    "batchSize": 32,
+    "directionalLambda": 0.7,
+    "huberDelta": 1.5,
+    "algorithm": "LSTM",
+    "validationMode": "K_FOLD",
+    "kFolds": 4,
+    "predTarget": "logreturn"
+  },
+  "selectedFactors": {
+    "slvPrices": false,
+    "slvVolume": true,
+    "slvVolumeRoc": true,
+    "tipsYield": false,
+    "rsiPrices": true,
+    "rsiPrices12": false,
+    "vixRoc": false,
+    "socialSentiment": false,
+    "fearGreed": false,
+    "goldPrices": true,
+    "oilPrices": true,
+    "dxyPrices": false,
+    "vixPrices": false,
+    "tnxPrices": true,
+    "copperPrices": true,
+    "silverInventory": true,
+    "goldSilverRatio": true,
+    "cotNetPosition": false,
+    "priceROC": false,
+    "ma5Silver": false,
+    "ma20Silver": true,
+    "maCross": false,
+    "macdLine": true,
+    "gtrend": false
+  },
+  "priceMinMax": {
+    "min": 22.09600067138672,
+    "max": 115.08000183105469
+  },
+  "activeFeaturesConfig": [
+    {
+      "key": "price",
+      "name": "白銀期貨價格 (Lag)",
+      "isExternal": false,
+      "minMax": {
+        "min": 22.09600067138672,
+        "max": 115.08000183105469
+      }
+    },
+    {
+      "key": "slvVolume",
+      "name": "SLV ETF 成交量",
+      "isExternal": true,
+      "minMax": {
+        "min": 3967700,
+        "max": 510687700
+      }
+    },
+    {
+      "key": "slvVolumeRoc",
+      "name": "SLV ETF 成交量 ROC",
+      "isExternal": true,
+      "minMax": {
+        "min": -0.7258720869979757,
+        "max": 3.115316556624888
+      }
+    },
+    {
+      "key": "rsiPrices",
+      "name": "白銀 RSI 指標 (5)",
+      "isExternal": true,
+      "minMax": {
+        "min": 11.10021149649377,
+        "max": 97.69433557301483
+      }
+    },
+    {
+      "key": "goldPrices",
+      "name": "黃金價格 (GC=F)",
+      "isExternal": true,
+      "minMax": {
+        "min": 1992.800048828125,
+        "max": 5318.39990234375
+      }
+    },
+    {
+      "key": "oilPrices",
+      "name": "原油價格 (CL=F)",
+      "isExternal": true,
+      "minMax": {
+        "min": 55.27000045776367,
+        "max": 112.94999694824219
+      }
+    },
+    {
+      "key": "tnxPrices",
+      "name": "10年期利率 (^TNX)",
+      "isExternal": true,
+      "minMax": {
+        "min": 3.621000051498413,
+        "max": 4.802999973297119
+      }
+    },
+    {
+      "key": "copperPrices",
+      "name": "銅期貨價格 (HG=F)",
+      "isExternal": true,
+      "minMax": {
+        "min": 3.686000108718872,
+        "max": 6.635499954223633
+      }
+    },
+    {
+      "key": "silverInventory",
+      "name": "白銀庫存代理 (SLV oz/share×1k)",
+      "isExternal": true,
+      "minMax": {
+        "min": 854.5359295549931,
+        "max": 967.8725248414911
+      }
+    },
+    {
+      "key": "goldSilverRatio",
+      "name": "黃金/白銀比",
+      "isExternal": true,
+      "minMax": {
+        "min": 44.1649280425061,
+        "max": 105.40682604986647
+      }
+    },
+    {
+      "key": "ma20Silver",
+      "name": "白銀 MA20",
+      "isExternal": true,
+      "minMax": {
+        "min": 22.620749855041502,
+        "max": 91.49975090026855
+      }
+    },
+    {
+      "key": "macdLine",
+      "name": "MACD 線 (12-26 EMA)",
+      "isExternal": true,
+      "minMax": {
+        "min": -4.011960233366793,
+        "max": 11.408827188395222
+      }
+    }
+  ],
+  "finalNumFeatures": 12,
+  "cloud": {
+    "trainedAt": "2026-10-16T16:56:13.247Z",
+    "dataTo": "2026-10-16",
+    "refit": true
+  }
+}
