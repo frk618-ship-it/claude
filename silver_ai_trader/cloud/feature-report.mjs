@@ -242,7 +242,10 @@ a { color: var(--s1); }
   });
   const helped = cmp.filter(c => c.meaningful && c.gain > 0);
   const best = [...S].sort((x, y) => y.avgEdge - x.avgEdge)[0];
-  const head = helped.length ? '「' + helped.map(c => c.o.name).join('、') + '」有幫助' : '加入新變數沒有帶來可靠的改善';
+  const usable = helped.filter(c => c.o.avgEdge > 0);
+  const head = usable.length ? '「' + usable.map(c => c.o.name).join('、') + '」有幫助，而且贏過簡單基準'
+    : helped.length ? '「' + helped.map(c => c.o.name).join('、') + '」比原有變數好，但仍輸給「一直猜多數方向」，還不能用'
+    : '加入新變數沒有帶來可靠的改善';
   $('verdict').innerHTML =
     '<p><strong>結論：' + head + '。</strong>原有變數平均方向準確率 <span class="num">' + fx(b.avgDA) + '%</span>；' +
     cmp.map(c => esc(c.o.name) + ' <span class="num">' + fx(c.o.avgDA) + '%</span>（' + sgn(c.gain) + ' 點，' + P.length + ' 個期間中 ' + c.wins + ' 個變好）').join('；') +
@@ -325,8 +328,9 @@ a { color: var(--s1); }
 
   // ── 建議（依結果）──
   const recs = [];
-  if (helped.length) recs.push('<strong>採用「' + esc(helped[0].o.name) + '」。</strong>它在多數期間都比原有變數好，幅度也超過重訓雜訊。');
-  else recs.push('<strong>這些變數也不足以讓模型可用。</strong>差距在重訓雜訊範圍內。不確定性與信用風險指標在文獻中描述的多半是「同期」的避險關係，或因市場狀態而異的反應；它們能解釋白銀「為什麼漲」，卻不能事先預測接下來 5 天的方向。');
+  if (usable.length) recs.push('<strong>採用「' + esc(usable[0].o.name) + '」。</strong>它在多數期間都比原有變數好，幅度超過重訓雜訊，平均也贏過多數方向基準。');
+  else if (helped.length) recs.push('<strong>保留「' + esc(helped[0].o.name) + '」，但模型仍不能用來交易。</strong>它在 ' + helped[0].wins + '/' + P.length + ' 個期間比原有變數好（平均 ' + sgn(helped[0].gain) + ' 點），價格誤差也較低，是目前最好的一組；但平均仍比「一直猜多數方向」低 ' + fx(-helped[0].o.avgEdge) + ' 點。改善幅度和重訓雜訊（約 ' + fx(avgSeed) + ' 點）同一量級，需要更多次重訓或更長的資料才能確認。加入第一批變數反而把效果稀釋掉，表示變數多不等於好。');
+  if (!helped.length) recs.push('<strong>這些變數也不足以讓模型可用。</strong>差距在重訓雜訊範圍內。不確定性與信用風險指標在文獻中描述的多半是「同期」的避險關係，或因市場狀態而異的反應；它們能解釋白銀「為什麼漲」，卻不能事先預測接下來 5 天的方向。');
   if (R.literature.some(l => l.batch === 2 && !l.used)) recs.push('<strong>未使用的變數：</strong>' + R.literature.filter(l => l.batch === 2 && !l.used).map(l => esc(l.name) + '（' + esc(l.excluded || '') + '）').join('、') + '。');
   recs.push('<strong>剩下值得試的方向：</strong>期貨期限結構（展期報酬）需要付費資料；或把目標改成預測波動率——HAR 類模型與不確定性指數在文獻中對「波動」有穩定的預測力，對「方向」則沒有。');
   recs.push('<strong>評估一律看多個期間、多次重訓。</strong>單一期間、單次訓練的成績差距可以超過 10 個百分點。');
