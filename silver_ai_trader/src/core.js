@@ -105,6 +105,10 @@ const resolveTargetSpec = (predTarget, params) => {
     if (predTarget === 'dual') {
         return { units: 2, activation: 'linear', loss: getDualHeadLoss(lambda, delta), outputDim: 2 };
     }
+    if (predTarget === 'dual_lr') {
+        // 雙頭（報酬率版）：單元 0 = 標準化對數報酬率（Huber），單元 1 = 方向 logit（BCE）
+        return { units: 2, activation: 'linear', loss: getDualHeadLoss(lambda, delta), outputDim: 2 };
+    }
     if (predTarget === 'logreturn') {
         // 目標本身已是報酬率 → 用純 Huber。
         // 不加方向懲罰項是刻意的：λ 的作用是拿價格精度換方向精度，
@@ -131,6 +135,11 @@ const buildTargetTensor = (yArr, yDirArr, predTarget, yLogRetArr) => {
     if (predTarget === 'dual') {
         const flat = new Float32Array(n * 2);
         for (let i = 0; i < n; i++) { flat[i*2] = yArr[i]; flat[i*2+1] = yDirArr[i]; }
+        return tf.tensor(flat, [n, 2]);
+    }
+    if (predTarget === 'dual_lr') {
+        const flat = new Float32Array(n * 2);
+        for (let i = 0; i < n; i++) { flat[i*2] = yLogRetArr[i]; flat[i*2+1] = yDirArr[i]; }
         return tf.tensor(flat, [n, 2]);
     }
     return tf.tensor(Float32Array.from(yArr.slice(0, n)), [n, 1]);
@@ -1467,7 +1476,7 @@ const simulateBacktest = ({ prices, dates, priceIndices, predPrices, config = {}
 // 與瀏覽器保留集評分、回測的解讀方式一致
 // ══════════════════════════════════════════════════════════════
 const decodePredictedPrices = (raw, predTarget, minMax, prevPrices) => {
-    const n = predTarget === 'dual' ? raw.length / 2 : raw.length;
+    const n = (predTarget === 'dual' || predTarget === 'dual_lr') ? raw.length / 2 : raw.length;
     const lrS = (minMax && minMax.logRet) ? minMax.logRet : { mean: 0, std: 1 };
     const out = new Array(n);
     for (let i = 0; i < n; i++) {
@@ -1476,6 +1485,7 @@ const decodePredictedPrices = (raw, predTarget, minMax, prevPrices) => {
         // 純方向：沒有價格，以機率偏離 0.5 的程度換成 ±1% 的預期變動，只用於判定方向
         else if (predTarget === 'direction') out[i] = prev * (1 + (raw[i] - 0.5) * 0.02);
         else if (predTarget === 'dual') out[i] = denormalizePrice(raw[i * 2], minMax);
+        else if (predTarget === 'dual_lr') out[i] = prev * Math.exp(raw[i * 2] * lrS.std + lrS.mean);
         else out[i] = denormalizePrice(raw[i], minMax);
     }
     return out;

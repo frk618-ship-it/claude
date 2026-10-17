@@ -332,12 +332,56 @@ const runFoldJob = async (raw, job) => {
     return { fold: fold + 1, trainN: trEnd, testFrom: at(trEnd), testTo: at(teEnd - 1), DA: ev.DA, MAPE: ev.MAPE, bestEpoch: r.bestEpoch };
 };
 
+// loss 比較：同一模型結構、同一資料，只換訓練目標與 loss，在指定期間評估
+//   job.period = { end: 訓練+驗證的結尾樣本索引, testFrom, testTo }
+const runLossExpJob = async (raw, job) => {
+    const { params, factors: f, period, epochs, patience } = job;
+    const ts = Date.now();
+    const ds = createMultivariateDataset(raw, params.lookback, f, null, { horizon: params.horizon });
+    const H = ds.horizon;
+    const sg = segmentsFor(ds, period.end);
+    if (!sg.valid) throw new Error('資料不足');
+    const r = await trainModel(ds, params, { to: sg.trainTo, valFrom: sg.valFrom, valEnd: sg.valTo, epochs, patience, quiet: true });
+    const x = windowsToTensor(ds.X, period.testFrom, period.testTo);
+    const p = r.model.predict(x);
+    const out = Array.from(p.dataSync());
+    disposeAll([x, p]); r.model.dispose();
+    const n = period.testTo - period.testFrom;
+    const prev = ds.prevPrices.slice(period.testFrom, period.testTo);
+    const actual = prev.map((_, i) => raw.prices[ds.startIdx + period.testFrom + i + H - 1]);
+    // 方向判斷：方向模型看機率，雙頭模型看方向頭，報酬模型看預測報酬的正負號
+    const sig = (z) => 1 / (1 + Math.exp(-z));
+    const predUp = prev.map((_, i) =>
+        params.predTarget === 'direction' ? out[i] > 0.5
+        : params.predTarget === 'dual_lr' ? sig(out[i * 2 + 1]) > 0.5
+        : decodePredictedPrices([out[i]], params.predTarget, ds.minMax, [prev[i]])[0] >= prev[i]);
+    const actualUp = actual.map((a, i) => a >= prev[i]);
+    const DA = (predUp.filter((u, i) => u === actualUp[i]).length / n) * 100;
+    // 價格誤差：只有能輸出報酬幅度的模型才有
+    const pred = params.predTarget === 'direction' ? null : decodePredictedPrices(out, params.predTarget, ds.minMax, prev);
+    const MAPE = pred ? calculateMAPE(actual, pred) : null;
+    // 策略：每 H 天依預測方向做多或放空，持有 H 天（交易不重疊），不計成本
+    let eq = 1;
+    for (let t = 0; t < n; t += H) eq *= 1 + (predUp[t] ? 1 : -1) * (actual[t] / prev[t] - 1);
+    let bh = 1;
+    for (let t = 0; t < n; t += H) bh *= actual[t] / prev[t];
+    return {
+        DA, MAPE, naiveMAPE: calculateMAPE(actual, prev),
+        alwaysUpDA: (actualUp.filter(Boolean).length / n) * 100,
+        upShare: predUp.filter(Boolean).length / n,
+        strategyReturn: eq - 1, buyHoldReturn: bh - 1,
+        bestEpoch: r.bestEpoch, n, sec: (Date.now() - ts) / 1000,
+    };
+};
+
 // 子行程模式：node train.mjs --worker 工作檔.json → 最後一行輸出 RESULT <json>
 if (arg('--worker')) {
     const job = JSON.parse(readFileSync(arg('--worker'), 'utf8'));
     const raw = JSON.parse(readFileSync(job.dataPath, 'utf8'));
     try {
-        const out = job.type === 'fold' ? await runFoldJob(raw, job) : await runTrialJob(raw, job);
+        const out = job.type === 'fold' ? await runFoldJob(raw, job)
+                  : job.type === 'lossexp' ? await runLossExpJob(raw, job)
+                  : await runTrialJob(raw, job);
         process.stdout.write('RESULT ' + JSON.stringify(out) + '\n');
         process.exit(0);
     } catch (e) {
@@ -372,6 +416,85 @@ const runPool = async (jobs, workers, onDone) => {
     await Promise.all(Array.from({ length: Math.min(workers, jobs.length) }, lane));
     rmSync(dir, { recursive: true, force: true });
     return results;
+};
+
+// ── loss 比較實驗 ─────────────────────────────────────────────
+// node train.mjs --compare-loss [--config ...] [--repeats 3]
+// 三種訓練目標 × 每種重複 N 次 × 5 個評估期間（4 段 walk-forward + 最終測試段）
+const LOSS_VARIANTS = [
+    { key: 'error',     name: '誤差導向',  desc: '對數報酬率 + Huber loss（讓預測報酬與實際報酬的差距最小）', predTarget: 'logreturn' },
+    { key: 'direction', name: '方向導向',  desc: '漲跌方向 + 二元交叉熵（讓猜對漲跌的機率最大）',            predTarget: 'direction' },
+    { key: 'hybrid',    name: '混合',      desc: '雙頭：報酬率 Huber + 0.5 × 方向交叉熵',                    predTarget: 'dual_lr', directionalLambda: 0.5 },
+];
+const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS, dataPath) => {
+    const repeats = parseInt(arg('--repeats', '3'), 10);
+    const base = { ...config.params, ...(config.compare || {}) };
+    const H = Math.max(1, base.horizon || 1);
+    const ds = createMultivariateDataset(raw, base.lookback, factors, null, { horizon: H });
+    const P = H - 1, k = 4;
+    const blk = Math.floor(ds.split.trainEnd / (k + 1));
+    const at = (i) => raw.dates[ds.startIdx + i + P];
+    const periods = [];
+    for (let fold = 0; fold < k; fold++) {
+        const end = (fold + 1) * blk, testTo = fold === k - 1 ? ds.split.trainEnd - P : end + blk;
+        periods.push({ label: `第 ${fold + 1} 段`, end, testFrom: end, testTo });
+    }
+    periods.push({ label: '最終測試段', end: ds.split.trainEnd, testFrom: ds.split.holdStart, testTo: ds.X.length });
+    periods.forEach(p => { p.from = at(p.testFrom); p.to = at(p.testTo - 1); });
+    log(`loss 比較：${LOSS_VARIANTS.length} 種目標 × ${repeats} 次 × ${periods.length} 個期間 = ${LOSS_VARIANTS.length * repeats * periods.length} 次訓練（${WORKERS} 個行程平行）`);
+    log(`共同設定：${base.algorithm} LB=${base.lookback} L=${base.layers}，預測 ${H} 日，特徵 ${ds.numFeatures} 個`);
+    periods.forEach(p => log(`  ${p.label}：${p.from} ~ ${p.to}（${p.testTo - p.testFrom} 筆）`));
+
+    const jobs = [];
+    for (const v of LOSS_VARIANTS) for (let rep = 0; rep < repeats; rep++) periods.forEach((p, pi) => jobs.push({
+        type: 'lossexp', dataPath, variant: v.key, rep, periodIdx: pi,
+        params: { ...base, horizon: H, predTarget: v.predTarget, ...(v.directionalLambda != null ? { directionalLambda: v.directionalLambda } : {}) },
+        factors, period: p, epochs: base.epochs, patience: config.patience,
+    }));
+    let done = 0;
+    const res = await runPool(jobs, WORKERS, (i, r) => {
+        done++;
+        const j = jobs[i];
+        if (r.error) log(`  [${done}/${jobs.length}] ${j.variant} #${j.rep + 1} ${periods[j.periodIdx].label} 失敗：${r.error}`);
+        else log(`  [${done}/${jobs.length}] ${j.variant} #${j.rep + 1} ${periods[j.periodIdx].label}：DA ${r.DA.toFixed(1)}%${r.MAPE != null ? `  MAPE ${r.MAPE.toFixed(2)}%` : ''}  猜漲 ${(r.upShare * 100).toFixed(0)}%  策略 ${(r.strategyReturn * 100).toFixed(1)}%`);
+    });
+
+    // 彙總：每個目標在每個期間取重複的平均
+    const mean = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+    const sd = (a) => { if (a.length < 2) return 0; const m = mean(a); return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / (a.length - 1)); };
+    const summary = LOSS_VARIANTS.map(v => {
+        const perPeriod = periods.map((p, pi) => {
+            const rs = res.filter((r, i) => r && !r.error && jobs[i].variant === v.key && jobs[i].periodIdx === pi);
+            const pick = (f) => rs.map(f).filter(Number.isFinite);
+            return {
+                label: p.label, from: p.from, to: p.to, runs: rs.length,
+                DA: mean(pick(r => r.DA)), DAsd: sd(pick(r => r.DA)),
+                MAPE: mean(pick(r => r.MAPE)), naiveMAPE: mean(pick(r => r.naiveMAPE)),
+                alwaysUpDA: mean(pick(r => r.alwaysUpDA)), upShare: mean(pick(r => r.upShare)),
+                strategyReturn: mean(pick(r => r.strategyReturn)), buyHoldReturn: mean(pick(r => r.buyHoldReturn)),
+                bestEpoch: mean(pick(r => r.bestEpoch)),
+            };
+        });
+        const cols = (f) => perPeriod.map(f).filter(Number.isFinite);
+        return { ...v, perPeriod,
+            avgDA: mean(cols(p => p.DA)), avgEdge: mean(cols(p => p.DA - Math.max(p.alwaysUpDA, 100 - p.alwaysUpDA))),
+            avgMAPE: mean(cols(p => p.MAPE)), avgNaiveMAPE: mean(cols(p => p.naiveMAPE)),
+            avgUpShare: mean(cols(p => p.upShare)), avgStrategy: mean(cols(p => p.strategyReturn)),
+            periodsBeatingMajority: perPeriod.filter(p => p.DA > Math.max(p.alwaysUpDA, 100 - p.alwaysUpDA)).length };
+    });
+    log('── 彙總（各期間平均）──');
+    for (const s of summary) log(`  ${s.name}：DA ${s.avgDA.toFixed(1)}%（比多數方向 ${s.avgEdge >= 0 ? '+' : ''}${s.avgEdge.toFixed(1)}）  MAPE ${s.avgMAPE != null ? s.avgMAPE.toFixed(2) + '%' : '—'}（不變 ${s.avgNaiveMAPE.toFixed(2)}%）  猜漲 ${(s.avgUpShare * 100).toFixed(0)}%  策略 ${(s.avgStrategy * 100).toFixed(1)}%  勝過多數方向 ${s.periodsBeatingMajority}/${periods.length} 期`);
+
+    mkdirSync(OUT, { recursive: true });
+    writeFileSync(path.join(OUT, 'loss-compare.json'), JSON.stringify({
+        createdAt: new Date().toISOString(), durationSec: (Date.now() - t0) / 1000,
+        dataSource: source, dataRange: { from: raw.dates[0], to: raw.dates[raw.dates.length - 1], days: raw.dates.length },
+        excludedFactors: excluded, sources: sourceStatus,
+        setup: { algorithm: base.algorithm, lookback: base.lookback, layers: base.layers, lr: base.lr, batchSize: base.batchSize, horizon: H, repeats, features: ds.activeFeatures.map(f => f.name) },
+        periods, summary,
+        runs: res.map((r, i) => ({ variant: jobs[i].variant, rep: jobs[i].rep, period: jobs[i].periodIdx, ...r })),
+    }, null, 1));
+    log(`輸出到 ${path.join(path.relative(process.cwd(), OUT) || '.', 'loss-compare.json')}`);
 };
 
 // ── 主流程 ────────────────────────────────────────────────────
@@ -411,6 +534,8 @@ const main = async () => {
     const dataPath = path.join(dataDir, 'data.json');
     writeFileSync(dataPath, JSON.stringify(raw));
     process.on('exit', () => { try { rmSync(dataDir, { recursive: true, force: true }); } catch (_) {} });
+
+    if (flag('--compare-loss')) return compareLoss(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
 
     // ── 超參數搜尋（只看驗證段，不碰測試段）──
     let params = { ...config.params };
