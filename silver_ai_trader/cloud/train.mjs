@@ -47,7 +47,7 @@ globalThis.tf = tf;
 const core = await import('../src/core.js');
 const sources = await import('./sources.mjs');
 const {
-    MARKET_SYMBOLS, alignSymbolSeries, deriveFeatures, filterDataByYears, checkDataQuality,
+    MARKET_SYMBOLS, alignSymbolSeries, addDaysISO, deriveFeatures, filterDataByYears, checkDataQuality,
     createMultivariateDataset, createModel, resolveTargetSpec, buildTargetTensor, windowsToTensor,
     splitHoldout, scoreHoldout, calculateMAPE, decodePredictedPrices, simulateBacktest,
     runMultiStepPrediction, VALIDATION_MODE,
@@ -236,6 +236,23 @@ const loadData = async () => {
         const ts = lf.needs.map(n => extra[n]?.timestamps?.[0]).filter(Boolean);
         if (ts.length) sourceStatus.push({ name: `Yahoo ${lf.needs.join('+')}（${lf.name}）`, ok: true, detail: '日線', factor: lf.key, firstDate: new Date(Math.max(...ts) * 1000).toISOString().slice(0, 10), literature: true });
     }
+
+    // 第二批：不確定性與信用風險
+    log('抓取不確定性與信用風險資料（EPU、GPR、FRED）…');
+    const fredStart = addDaysISO(base.dates[0], -60);
+    const [epu, gpr, baa, stl] = await Promise.allSettled([
+        sources.fetchEPU(core), sources.fetchGPR(core),
+        sources.fetchFred(core, 'BAA10Y', fredStart), sources.fetchFred(core, 'STLFSI4', fredStart),
+    ]);
+    const maps = {};
+    const range = (v) => `${v.firstDate} ~ ${v.lastDate}`;
+    note('經濟政策不確定性 EPU（policyuncertainty.com）', epu, v => `每日，${range(v)}`, 'epu', v => { maps.epu = v.map; });
+    note('地緣政治風險 GPR（matteoiacoviello.com）', gpr, v => `每日，${range(v)}`, 'gpr', v => { maps.gpr = v.gpr; maps.gprThreat = v.threat; });
+    if (gpr.status === 'fulfilled') sourceStatus.push({ name: '地緣政治威脅 GPR Threats', ok: true, detail: '同上', factor: 'gprThreat', firstDate: gpr.value.firstDate });
+    else unavailable.gprThreat = unavailable.gpr;
+    note('FRED BAA10Y 信用利差', baa, v => `每日，${range(v)}`, 'creditSpread', v => { maps.creditSpread = v.map; });
+    note('FRED STLFSI4 金融壓力指數', stl, v => `每週，${range(v)}`, 'finStress', v => { maps.finStress = v.map; });
+    Object.assign(raw, core.deriveUncertaintyFeatures(raw.dates, maps));
     return { raw, source: 'yahoo', unavailable, sourceStatus };
 };
 
@@ -457,12 +474,13 @@ const LOSS_VARIANTS = [
 ];
 // 特徵比較：同一模型與訓練目標（誤差導向），只換輸入變數
 const featureVariants = (factors) => {
-    const lit = new Set(core.LITERATURE_FEATURES.map(f => f.key));
+    const batch = Object.fromEntries(core.LITERATURE_FEATURES.map(f => [f.key, f.batch || 1]));
     const on = (pred) => Object.fromEntries(Object.keys(factors).map(k => [k, !!factors[k] && pred(k)]));
+    const n = (b) => core.LITERATURE_FEATURES.filter(f => (f.batch || 1) === b && factors[f.key]).length;
     return [
-        { key: 'base', name: '原有變數',       desc: '目前模型使用的變數（不含文獻新增）', factors: on(k => !lit.has(k)) },
-        { key: 'plus', name: '原有 + 文獻新增', desc: '原有變數再加上文獻建議的新變數',     factors: on(() => true) },
-        { key: 'lit',  name: '只用文獻新增',   desc: '白銀價格 + 文獻建議的新變數',         factors: on(k => lit.has(k)) },
+        { key: 'base', name: '原有變數',             desc: '目前模型使用的變數（不含文獻新增）', factors: on(k => !batch[k]) },
+        { key: 'unc',  name: '原有 + 不確定性',       desc: `原有變數再加上 ${n(2)} 個不確定性與信用風險變數（EPU、GPR、信用利差、金融壓力）`, factors: on(k => batch[k] !== 1) },
+        { key: 'all',  name: '原有 + 全部文獻變數',   desc: `原有變數 + 第一批 ${n(1)} 個（市場、利率、匯率、波動率、動能）+ 不確定性 ${n(2)} 個`, factors: on(() => true) },
     ];
 };
 const compareLoss = (...a) => compareVariants(LOSS_VARIANTS, 'loss-compare.json', ...a);
@@ -533,7 +551,7 @@ const compareVariants = async (VARIANTS, outName, raw, factors, excluded, source
         dataSource: source, dataRange: { from: raw.dates[0], to: raw.dates[raw.dates.length - 1], days: raw.dates.length },
         excludedFactors: excluded, sources: sourceStatus,
         setup: { algorithm: base.algorithm, lookback: base.lookback, layers: base.layers, lr: base.lr, batchSize: base.batchSize, horizon: H, repeats, predTarget: base.predTarget, features: ds.activeFeatures.map(f => f.name) },
-        literature: core.LITERATURE_FEATURES.map(f => ({ key: f.key, name: f.name, group: f.group, ref: f.ref, used: !!factors[f.key], excluded: excluded.find(e => e.key === f.key)?.reason || null })),
+        literature: core.LITERATURE_FEATURES.map(f => ({ key: f.key, name: f.name, group: f.group, ref: f.ref, batch: f.batch || 1, used: !!factors[f.key], excluded: excluded.find(e => e.key === f.key)?.reason || null })),
         periods, summary,
         runs: res.map((r, i) => ({ variant: jobs[i].variant, rep: jobs[i].rep, period: jobs[i].periodIdx, ...r })),
     }, null, 1));

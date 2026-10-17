@@ -1404,7 +1404,89 @@ const LITERATURE_FEATURES = [
     { key: 'rv22',        name: '白銀已實現波動率 (22 日)',    group: '波動率',   needs: [],         ref: 'Corsi (2009) HAR' },
     { key: 'tsMom63',     name: '白銀 3 個月動能',             group: '動能',     needs: [],         ref: 'Moskowitz, Ooi & Pedersen (2012)' },
     { key: 'tsMom252',    name: '白銀 12 個月動能',            group: '動能',     needs: [],         ref: 'Moskowitz, Ooi & Pedersen (2012)' },
+    // 第二批：不確定性與信用風險（policyuncertainty.com、matteoiacoviello.com、FRED）
+    { key: 'epu',          name: '美國經濟政策不確定性 EPU',   group: '不確定性', needs: ['EPU'],     ref: 'Baker, Bloom & Davis (2016)', batch: 2 },
+    { key: 'gpr',          name: '地緣政治風險 GPR',           group: '不確定性', needs: ['GPR'],     ref: 'Caldara & Iacoviello (2022)', batch: 2 },
+    { key: 'gprThreat',    name: '地緣政治威脅 GPR Threats',   group: '不確定性', needs: ['GPR'],     ref: 'Baur & Smales (2020)', batch: 2 },
+    { key: 'creditSpread', name: '信用利差 Baa − 10Y',         group: '信用風險', needs: ['BAA10Y'],  ref: 'Goyal & Welch (2008)', batch: 2 },
+    { key: 'finStress',    name: '聖路易聯準會金融壓力指數',   group: '信用風險', needs: ['STLFSI4'], ref: 'Kliesen, Owyang & Vermann (2012)', batch: 2 },
 ];
+
+// ── 不確定性與信用風險資料的解析與對齊 ──
+// 每日新聞指數（EPU、GPR）以當天的新聞計算，收盤後才完整，隔天才能用；
+// FRED 的週資料（金融壓力指數）以週五為基準日，下週四才公布。
+const UNCERTAINTY_LAG_DAYS = { epu: 1, gpr: 1, gprThreat: 1, creditSpread: 1, finStress: 7 };
+
+// policyuncertainty.com All_Daily_Policy_Data.csv：day,month,year,daily_policy_index
+const parseEpuDailyCSV = (text) => {
+    const map = new Map();
+    for (const line of String(text).split(/\r?\n/).slice(1)) {
+        const [d, m, y, v] = line.split(',');
+        const val = parseFloat(v);
+        if (!y || !Number.isFinite(val)) continue;
+        map.set(`${y.trim()}-${String(m).trim().padStart(2, '0')}-${String(d).trim().padStart(2, '0')}`, val);
+    }
+    return map;
+};
+// FRED fredgraph.csv：observation_date,值（缺值為 "."）
+const parseFredCSV = (text) => {
+    const map = new Map();
+    for (const line of String(text).split(/\r?\n/).slice(1)) {
+        const [d, v] = line.split(',');
+        const val = parseFloat(v);
+        if (/^\d{4}-\d{2}-\d{2}$/.test(d || '') && Number.isFinite(val)) map.set(d, val);
+    }
+    return map;
+};
+const fredCsvUrl = (id, start) => `https://fred.stlouisfed.org/graph/fredgraph.csv?id=${encodeURIComponent(id)}${start ? '&cosd=' + start : ''}`;
+// GPR 每日資料（data_gpr_daily_recent.xls）轉成列物件後解析：日期欄 DAY（yyyymmdd）或 date
+const parseGprRows = (rows) => {
+    const gpr = new Map(), threat = new Map();
+    const toISO = (r) => {
+        const day = r.DAY ?? r.day;
+        if (day != null && /^\d{8}$/.test(String(day))) { const s = String(day); return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`; }
+        const d = r.date ?? r.DATE;
+        if (d instanceof Date && !isNaN(d)) return d.toISOString().slice(0, 10);
+        if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}/.test(d)) return d.slice(0, 10);
+        return null;
+    };
+    for (const r of rows || []) {
+        const iso = toISO(r);
+        if (!iso) continue;
+        const g = parseFloat(r.GPRD), t = parseFloat(r.GPRD_THREAT);
+        if (Number.isFinite(g)) gpr.set(iso, g);
+        if (Number.isFinite(t)) threat.set(iso, t);
+    }
+    return { gpr, threat };
+};
+// 依公布時間對齊：基準日 k 的值從 k + lagDays 起才能用，之後前向填補
+const alignLaggedMap = (map, dates, lagDays, fallback = NaN) => {
+    const obs = [...map.entries()].map(([k, v]) => [addDaysISO(k, lagDays), v]).sort((a, b) => a[0].localeCompare(b[0]));
+    let k = 0, last = fallback;
+    return dates.map(d => { while (k < obs.length && obs[k][0] <= d) last = obs[k++][1]; return last; });
+};
+// 每日新聞指數雜訊很大：取最近 7 筆的對數平均（只用過去的觀測值）
+const smoothLogMap = (map, win = 7) => {
+    const keys = [...map.keys()].sort();
+    const out = new Map();
+    keys.forEach((k, i) => {
+        const vals = keys.slice(Math.max(0, i - win + 1), i + 1).map(x => Math.log(Math.max(map.get(x), 1e-6)));
+        out.set(k, vals.reduce((a, b) => a + b, 0) / vals.length);
+    });
+    return out;
+};
+// maps：{ epu, gpr, gprThreat, creditSpread, finStress } 各為 Map(日期 → 值)，缺的就不產生
+const deriveUncertaintyFeatures = (dates, maps = {}) => {
+    const features = {};
+    for (const [key, map] of Object.entries(maps)) {
+        if (!map || map.size === 0) continue;
+        const src = ['epu', 'gpr', 'gprThreat'].includes(key) ? smoothLogMap(map) : map;
+        const arr = alignLaggedMap(src, dates, UNCERTAINTY_LAG_DAYS[key] ?? 1);
+        const first = arr.find(Number.isFinite);
+        features[key] = arr.map(v => Number.isFinite(v) ? v : (first ?? 0));
+    }
+    return features;
+};
 
 // 以白銀交易日為主軸前向填補；品種開始交易前用第一筆值（報酬為 0），不會用到未來的變動
 const alignExtraSymbol = (data, dates) => {
@@ -1737,6 +1819,13 @@ export {
     LITERATURE_SYMBOLS,
     LITERATURE_FEATURES,
     deriveLiteratureFeatures,
+    UNCERTAINTY_LAG_DAYS,
+    parseEpuDailyCSV,
+    parseFredCSV,
+    fredCsvUrl,
+    parseGprRows,
+    alignLaggedMap,
+    deriveUncertaintyFeatures,
     parseTreasuryRealYieldXML,
     FEAR_GREED_URL,
     parseFearGreed,

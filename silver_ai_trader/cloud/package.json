@@ -7,6 +7,7 @@
     "train": "node train.mjs"
   },
   "dependencies": {
-    "@tensorflow/tfjs-node": "4.22.0"
+    "@tensorflow/tfjs-node": "4.22.0",
+    "xlsx": "0.18.5"
   }
 }

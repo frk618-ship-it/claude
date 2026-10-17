@@ -61,6 +61,17 @@ node report.mjs                      # 產生 output/report.html
 | 匯率 | 歐元、人民幣、印度盧比對美元日報酬 | Sari 等 (2010)；Pierdzioch & Risse (2020) |
 | 動能 | 白銀 3 個月、12 個月累積報酬 | Moskowitz, Ooi & Pedersen (2012) |
 
+第二批是不確定性與信用風險變數（需要網路允許 `policyuncertainty.com`、`www.matteoiacoviello.com`、`fred.stlouisfed.org`）：
+
+| 變數 | 來源 | 使用時點 | 依據 |
+| --- | --- | --- | --- |
+| 經濟政策不確定性 EPU | policyuncertainty.com 每日 | 7 日對數平均，延後 1 天 | Baker, Bloom & Davis (2016) |
+| 地緣政治風險 GPR、GPR Threats | matteoiacoviello.com 每日（Excel） | 同上 | Caldara & Iacoviello (2022)；Baur & Smales (2020) |
+| 信用利差 Baa − 10Y | FRED `BAA10Y` 每日 | 延後 1 天 | Goyal & Welch (2008) |
+| 金融壓力指數 | FRED `STLFSI4` 每週 | 延後 7 天（週五基準、下週四公布） | Kliesen, Owyang & Vermann (2012) |
+
+`--compare-features` 比較三組：原有變數、原有 + 不確定性、原有 + 全部文獻變數。
+
 用瀏覽器匯出的資料（`--data`）訓練時沒有這些變數，會自動略過。用了這些變數的模型無法載入瀏覽器版。
 
 ## 評估方式

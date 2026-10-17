@@ -24,6 +24,12 @@ R.refs = {
   'CBOE 貴金屬波動率指數文獻': { cite: '以 GVZ 與 VXSLV 解釋中國白銀期貨波動率的研究（E3S Web of Conferences, 253, 02023, 2021）。白銀波動率指數 VXSLV 已停止發布，改用黃金的 GVZ。', url: 'https://www.e3s-conferences.org/10.1051/e3sconf/202125302023' },
   'Corsi (2009) HAR': { cite: 'Corsi, F. (2009). A simple approximate long-memory model of realized volatility. Journal of Financial Econometrics, 7(2), 174–196.', url: null },
   'Moskowitz, Ooi & Pedersen (2012)': { cite: 'Moskowitz, T. J., Ooi, Y. H., & Pedersen, L. H. (2012). Time series momentum. Journal of Financial Economics, 104(2), 228–250.', url: null },
+  'Baker, Bloom & Davis (2016)': { cite: 'Baker, S. R., Bloom, N., & Davis, S. J. (2016). Measuring economic policy uncertainty. Quarterly Journal of Economics, 131(4), 1593–1636.', url: 'https://www.policyuncertainty.com/' },
+  'Caldara & Iacoviello (2022)': { cite: 'Caldara, D., & Iacoviello, M. (2022). Measuring geopolitical risk. American Economic Review, 112(4), 1194–1225.', url: 'https://www.matteoiacoviello.com/gpr.htm' },
+  'Baur & Smales (2020)': { cite: 'Baur, D. G., & Smales, L. A. (2020). Hedging geopolitical risk with precious metals. Journal of Banking & Finance, 117, 105823.（只有黃金與白銀在極端地緣政治風險下持續具備避險性；對「威脅」的反應大於對「實際事件」）', url: 'https://ideas.repec.org/a/eee/jbfina/v117y2020ics037842662030090x.html' },
+  'Goyal & Welch (2008)': { cite: 'Goyal, A., & Welch, I. (2008). A comprehensive look at the empirical performance of equity premium prediction. Review of Financial Studies, 21(4), 1455–1508.（違約利差是經典的報酬預測變數之一）', url: null },
+  'Kliesen, Owyang & Vermann (2012)': { cite: 'Kliesen, K. L., Owyang, M. T., & Vermann, E. K. (2012). Disentangling diverse measures: A survey of financial stress indexes. Federal Reserve Bank of St. Louis Review, 94(5), 369–397.', url: 'https://fred.stlouisfed.org/series/STLFSI4' },
+  'Adeosun 等 (2023)': { cite: 'Adeosun 等 (2023). EPU、GPR 與貴金屬的報酬與波動傳遞（Studies in Economics and Finance；Journal of Economic Studies）。發現貴金屬對 EPU 的反應因市場狀態而異，白銀的反應最弱。', url: 'https://ideas.repec.org/a/eme/jespps/jes-11-2021-0558.html' },
 };
 R.why = {
   spxRet: '股市的風險偏好。黃金在股災時是避險資產，白銀同時有工業金屬的一面，和股市的關係可能隨景氣改變。',
@@ -39,12 +45,15 @@ R.why = {
   rv22: '白銀近一個月的實際波動（HAR 的月尺度）。',
   tsMom63: '時間序列動能：過去 3 個月漲的商品期貨，接下來傾向繼續漲；文獻樣本包含白銀。',
   tsMom252: '時間序列動能的 12 個月版本，是該文主要的訊號。',
+  epu: '依美國報紙報導計算的經濟政策不確定性（每日）。取最近 7 天的對數平均，並延後 1 天使用（當天新聞收盤後才完整）。',
+  gpr: '依報紙報導計算的地緣政治風險（每日）。處理方式同 EPU。',
+  gprThreat: 'GPR 中「威脅」的部分（戰爭威脅、軍事集結等），文獻發現貴金屬對威脅的反應大於實際事件。',
+  creditSpread: 'Moody\'s Baa 公司債殖利率減 10 年期公債，反映違約風險與景氣恐慌。延後 1 天使用。',
+  finStress: '聖路易聯準會以 18 個金融市場指標合成的壓力指數（每週）。週五為基準日、下週四公布，延後 7 天使用。',
 };
 R.notAdded = [
-  { name: '經濟政策不確定性指數 EPU', ref: 'Baker, Bloom & Davis (2016), Quarterly Journal of Economics', why: '雲端網路無法連到 policyuncertainty.com' },
-  { name: '地緣政治風險指數 GPR', ref: 'Caldara & Iacoviello (2022), American Economic Review；Baur & Smales (2020), Journal of Banking & Finance', why: '雲端網路無法連到 matteoiacoviello.com' },
   { name: '期貨期限結構（近遠月價差、展期報酬）', ref: 'Gorton & Rouwenhorst (2006)；Szymanowska et al. (2014)', why: 'Yahoo 只有連續近月合約，沒有歷史的次月合約' },
-  { name: '信用利差（高收益債利差）', ref: 'Pierdzioch 等人的金銀報酬預測研究', why: '雲端網路無法連到 FRED' },
+  { name: '高收益債利差（ICE BofA OAS）', ref: 'Pierdzioch 等人的金銀報酬預測研究', why: 'FRED 只提供最近 3 年，改用 Baa − 10Y 信用利差' },
   { name: 'ETF 持有量 / 資金流', ref: '貴金屬 ETF 文獻', why: '沒有免費的每日歷史資料（目前只用 SLV 每股含銀量當代理）' },
 ];
 const dataJson = JSON.stringify(R).replace(/<\//g, '<\\/');
@@ -122,15 +131,15 @@ a { color: var(--s1); }
 <div class="page">
   <header>
     <div class="eyebrow">Silver AI Trader · 輸入變數比較實驗</div>
-    <h1>加入文獻建議的變數，模型會變好嗎？</h1>
+    <h1>加入不確定性與信用風險變數，模型會變好嗎？</h1>
     <p class="muted" id="sub"></p>
   </header>
 
   <div class="verdict" id="verdict"></div>
 
   <section aria-labelledby="lit-h">
-    <h2 id="lit-h">新增的 13 個變數與文獻依據</h2>
-    <p class="muted">都是目前模型沒有的變數。價格類一律轉成日對數報酬率，比價格水準平穩。</p>
+    <h2 id="lit-h">新增的變數與文獻依據</h2>
+    <p class="muted" id="litNote"></p>
     <div class="panel table-wrap"><table id="litTable"></table></div>
   </section>
 
@@ -212,9 +221,8 @@ a { color: var(--s1); }
   const sgn = (v, d = 1) => Number.isFinite(v) ? (v >= 0 ? '+' : '') + v.toFixed(d) : '—';
   const css = getComputedStyle(document.documentElement);
   const tok = (n) => css.getPropertyValue(n).trim();
-  const COLORS = { base: '--s1', plus: '--s2', lit: '--s3' };
   const S = R.summary, P = R.periods, U = R.setup;
-  const byKey = Object.fromEntries(S.map(s => [s.key, s]));
+  const COLORS = Object.fromEntries(S.map((s, i) => [s.key, ['--s1', '--s2', '--s3'][i % 3]]));
   const majority = (pi) => { const up = S[0].perPeriod[pi].alwaysUpDA; return Math.max(up, 100 - up); };
   const runs = R.runs.filter(r => !r.error);
   const nLit = R.literature.filter(l => l.used).length;
@@ -226,24 +234,28 @@ a { color: var(--s1); }
   const seedRange = (k, pi) => { const d = runs.filter(r => r.variant === k && r.period === pi).map(r => r.DA); return d.length > 1 ? Math.max(...d) - Math.min(...d) : 0; };
   const seedRanges = S.flatMap(s => P.map((_, pi) => seedRange(s.key, pi)));
   const avgSeed = seedRanges.reduce((a, b) => a + b, 0) / seedRanges.length;
-  const b = byKey.base, pl = byKey.plus, li = byKey.lit;
-  const gain = pl.avgDA - b.avgDA;
-  const wins = P.filter((_, i) => pl.perPeriod[i].DA > b.perPeriod[i].DA).length;
+  const b = S[0], others = S.slice(1);
+  const cmp = others.map(o => {
+    const gain = o.avgDA - b.avgDA;
+    const wins = P.filter((_, i) => o.perPeriod[i].DA > b.perPeriod[i].DA).length;
+    return { o, gain, wins, meaningful: Math.abs(gain) > avgSeed / 2 && wins >= Math.ceil(P.length * 0.8) };
+  });
+  const helped = cmp.filter(c => c.meaningful && c.gain > 0);
   const best = [...S].sort((x, y) => y.avgEdge - x.avgEdge)[0];
-  const mapeGain = (pl.avgMAPE ?? NaN) - (b.avgMAPE ?? NaN);
-  const meaningful = Math.abs(gain) > avgSeed / 2 && wins >= Math.ceil(P.length * 0.8);
-  const head = meaningful
-    ? (gain > 0 ? '加入新變數有幫助' : '加入新變數反而變差')
-    : '加入新變數沒有帶來可靠的改善';
+  const head = helped.length ? '「' + helped.map(c => c.o.name).join('、') + '」有幫助' : '加入新變數沒有帶來可靠的改善';
   $('verdict').innerHTML =
-    '<p><strong>結論：' + head + '。</strong>原有變數平均方向準確率 <span class="num">' + fx(b.avgDA) + '%</span>，加入 ' + nLit + ' 個文獻變數後 <span class="num">' + fx(pl.avgDA) + '%</span>（' + sgn(gain) + ' 點），' +
-    P.length + ' 個期間中有 ' + wins + ' 個變好；只用文獻變數 <span class="num">' + fx(li.avgDA) + '%</span>。同一組變數只是重訓，平均就會相差 <span class="num">' + fx(avgSeed) + '</span> 點。</p>' +
+    '<p><strong>結論：' + head + '。</strong>原有變數平均方向準確率 <span class="num">' + fx(b.avgDA) + '%</span>；' +
+    cmp.map(c => esc(c.o.name) + ' <span class="num">' + fx(c.o.avgDA) + '%</span>（' + sgn(c.gain) + ' 點，' + P.length + ' 個期間中 ' + c.wins + ' 個變好）').join('；') +
+    '。同一組變數只是重訓，平均就會相差 <span class="num">' + fx(avgSeed) + '</span> 點。</p>' +
     '<p>' + (S.some(s => s.avgEdge > 0) ? '只有「' + esc(best.name) + '」平均高於多數方向基準（' + sgn(best.avgEdge) + ' 點）。' : '三組變數平均都<strong>沒有</strong>贏過「一直猜多數方向」的基準（' + S.map(s => esc(s.name) + ' ' + sgn(s.avgEdge) + ' 點').join('、') + '）。') +
-    '價格誤差：原有 ' + fx(b.avgMAPE, 2) + '%、加入後 ' + fx(pl.avgMAPE, 2) + '%，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
+    '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
 
   // ── 文獻變數表 ──
+  const L = [...R.literature].sort((x, y) => (y.batch || 1) - (x.batch || 1));
+  const n2 = L.filter(l => l.batch === 2 && l.used).length, n1 = L.filter(l => (l.batch || 1) === 1 && l.used).length;
+  $('litNote').textContent = '都是原本模型沒有的變數。這次新增的是前 ' + L.filter(l => l.batch === 2).length + ' 個不確定性與信用風險變數（實際使用 ' + n2 + ' 個）；其餘 ' + n1 + ' 個是上一輪加入的第一批。價格類一律轉成日對數報酬率。';
   $('litTable').innerHTML = '<thead><tr><th>變數</th><th>類別</th><th>代表什麼</th><th>文獻依據</th><th>本次</th></tr></thead><tbody>' +
-    R.literature.map(l => '<tr><td>' + esc(l.name) + '</td><td>' + esc(l.group) + '</td><td class="wrap">' + esc(R.why[l.key] || '') + '</td><td class="wrap">' + esc(l.ref) + '</td><td>' +
+    L.map(l => '<tr><td>' + (l.batch === 2 ? '<span class="pill">新</span> ' : '') + esc(l.name) + '</td><td>' + esc(l.group) + '</td><td class="wrap">' + esc(R.why[l.key] || '') + '</td><td class="wrap">' + esc(l.ref) + '</td><td>' +
       (l.used ? '<span class="pill">使用</span>' : '<span class="pill off" title="' + esc(l.excluded || '') + '">未使用</span>') + '</td></tr>').join('') + '</tbody>';
 
   // ── 總表 ──
@@ -264,7 +276,7 @@ a { color: var(--s1); }
   // ── 各期間散點 ──
   $('dotLegend').innerHTML = S.map(s => '<span class="key"><i style="background:var(' + COLORS[s.key] + ')"></i>' + esc(s.name) + '</span>').join('') +
     '<span class="key"><i class="line"></i>多數方向基準</span>';
-  const off = { base: -0.2, plus: 0, lit: 0.2 };
+  const off = Object.fromEntries(S.map((s, i) => [s.key, (i - (S.length - 1) / 2) * 0.2]));
   const traces = [];
   S.forEach(s => {
     const c = tok(COLORS[s.key]);
@@ -313,10 +325,10 @@ a { color: var(--s1); }
 
   // ── 建議（依結果）──
   const recs = [];
-  if (meaningful && gain > 0) recs.push('<strong>採用新變數。</strong>加入文獻變數在多數期間都變好，幅度也超過重訓雜訊。');
-  else recs.push('<strong>新變數不足以讓模型可用。</strong>差距在重訓雜訊範圍內；這些變數在文獻中多半解釋的是「同期」或「月度」的關係，對白銀未來 5 日的方向幾乎沒有預測力，這和效率市場的預期一致。');
-  if (li.avgDA >= b.avgDA) recs.push('<strong>可以考慮精簡變數。</strong>只用白銀價格加文獻變數（' + li.features.length + ' 個）表現不比原有的 ' + b.features.length + ' 個差，變數少、過擬合風險也低。');
-  recs.push('<strong>剩下值得試的方向：</strong>文獻中預測力較強的是期貨期限結構（展期報酬）與地緣政治/政策不確定性指數，需要付費資料或開放網路；另一條路是改預測波動率（HAR 類模型在文獻中有穩定的預測力），而不是方向。');
+  if (helped.length) recs.push('<strong>採用「' + esc(helped[0].o.name) + '」。</strong>它在多數期間都比原有變數好，幅度也超過重訓雜訊。');
+  else recs.push('<strong>這些變數也不足以讓模型可用。</strong>差距在重訓雜訊範圍內。不確定性與信用風險指標在文獻中描述的多半是「同期」的避險關係，或因市場狀態而異的反應；它們能解釋白銀「為什麼漲」，卻不能事先預測接下來 5 天的方向。');
+  if (R.literature.some(l => l.batch === 2 && !l.used)) recs.push('<strong>未使用的變數：</strong>' + R.literature.filter(l => l.batch === 2 && !l.used).map(l => esc(l.name) + '（' + esc(l.excluded || '') + '）').join('、') + '。');
+  recs.push('<strong>剩下值得試的方向：</strong>期貨期限結構（展期報酬）需要付費資料；或把目標改成預測波動率——HAR 類模型與不確定性指數在文獻中對「波動」有穩定的預測力，對「方向」則沒有。');
   recs.push('<strong>評估一律看多個期間、多次重訓。</strong>單一期間、單次訓練的成績差距可以超過 10 個百分點。');
   $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
 
@@ -334,7 +346,7 @@ a { color: var(--s1); }
   $('variants').innerHTML = dl(S.map(s => [sw(s.key) + esc(s.name), esc(s.desc) + '（' + s.features.length + ' 個）']));
 
   // ── 參考文獻 ──
-  $('refs').innerHTML = Object.values(R.refs).map(r => '<li>' + esc(r.cite) + (r.url ? ' <a href="' + esc(r.url) + '" target="_blank" rel="noopener">連結</a>' : '') + '</li>').join('') +
+  $('refs').innerHTML = Object.entries(R.refs).filter(([k]) => R.literature.some(l => l.ref === k) || k.startsWith('Adeosun')).map(([, v]) => v).map(r => '<li>' + esc(r.cite) + (r.url ? ' <a href="' + esc(r.url) + '" target="_blank" rel="noopener">連結</a>' : '') + '</li>').join('') +
     '<li>Sadorsky, P. (2021). Predicting gold and silver price direction using tree-based classifiers. Journal of Risk and Financial Management, 14(5), 198.（技術指標是最重要的預測變數，目前模型已包含 RSI、均線、MACD）</li>';
 })();
 </script>`;

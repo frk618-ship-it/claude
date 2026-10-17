@@ -5,6 +5,8 @@
 // 每個函式成功時回傳資料，失敗時丟出說明原因的錯誤，由呼叫端決定是否排除該因子。
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36';
+// FRED（Akamai）會把「像瀏覽器但缺少其他瀏覽器標頭」的請求掛到逾時；用工具型 UA 反而正常
+const TOOL_UA = 'silver-ai-trader/1.0 (+https://github.com)';
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 const fetchWithRetry = async (url, { headers = {}, timeoutMs = 20000, retries = 2, as = 'json' } = {}) => {
@@ -61,6 +63,40 @@ export const fetchTreasuryNominal5y = async (core, dates) => {
     if (all.size === 0) throw new Error('財政部 XML 沒有資料');
     const covered = years.filter((_, i) => maps[i]?.size > 0).length;
     return { values: core.alignMapToDates(all, dates, NaN), points: all.size, coverage: `${covered}/${years.length} 年`, firstDate: [...all.keys()].sort()[0] };
+};
+
+// 經濟政策不確定性 EPU（每日，新聞計算）
+export const fetchEPU = async (core) => {
+    const map = core.parseEpuDailyCSV(await fetchWithRetry('https://policyuncertainty.com/media/All_Daily_Policy_Data.csv', { as: 'text', timeoutMs: 60000, headers: { 'User-Agent': TOOL_UA } }));
+    if (map.size === 0) throw new Error('EPU 檔案沒有資料');
+    return { map, firstDate: [...map.keys()].sort()[0], lastDate: [...map.keys()].sort().pop() };
+};
+
+// FRED 單一序列（CSV）
+export const fetchFred = async (core, id, start) => {
+    const map = core.parseFredCSV(await fetchWithRetry(core.fredCsvUrl(id, start), { as: 'text', timeoutMs: 60000, retries: 3, headers: { 'User-Agent': TOOL_UA } }));
+    if (map.size === 0) throw new Error(`FRED ${id} 沒有資料`);
+    return { map, firstDate: [...map.keys()].sort()[0], lastDate: [...map.keys()].sort().pop() };
+};
+
+// 地緣政治風險 GPR（每日，Excel 檔）。網址會轉到 www.matteoiacoviello.com
+export const fetchGPR = async (core) => {
+    const XLSX = (await import('xlsx')).default;
+    const ctrl = new AbortController();
+    const tid = setTimeout(() => ctrl.abort(), 60000);
+    let buf;
+    try {
+        const r = await fetch('https://www.matteoiacoviello.com/gpr_files/data_gpr_daily_recent.xls', { headers: { 'User-Agent': UA }, signal: ctrl.signal });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        buf = Buffer.from(await r.arrayBuffer());
+    } catch (e) {
+        throw new Error(e.cause?.code || e.message);
+    } finally { clearTimeout(tid); }
+    const wb = XLSX.read(buf, { type: 'buffer', cellDates: true });
+    const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+    const { gpr, threat } = core.parseGprRows(rows);
+    if (gpr.size === 0) throw new Error('GPR 檔案沒有可辨識的 GPRD 欄位');
+    return { gpr, threat, firstDate: [...gpr.keys()].sort()[0], lastDate: [...gpr.keys()].sort().pop() };
 };
 
 // CNN Fear & Greed：網址加上起始日可取得較長的歷史
