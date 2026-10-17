@@ -823,6 +823,13 @@ const createMultivariateDataset = (data, lookback, selectedFactors, maxSamples =
         { key: 'gtrend',     scaled: gtrendObj.scaled,   name: 'Google Trends「silver」(0-100)', isExternal: true, minMax: gtrendObj, isSelected: selectedFactors.gtrend },
     ];
 
+    // 文獻建議的額外輸入：只有資料裡有這個序列時才加入
+    for (const lf of LITERATURE_FEATURES) {
+        if (!Array.isArray(data[lf.key])) continue;
+        const o = scale(data[lf.key]);
+        allFeatures.push({ key: lf.key, scaled: o.scaled, name: lf.name, isExternal: true, minMax: o, isSelected: !!selectedFactors[lf.key] });
+    }
+
     const activeFeatures = allFeatures.filter(f => f.isSelected);
     const numFeatures = activeFeatures.length; 
 
@@ -1378,6 +1385,86 @@ const deriveFeatures = (base, aux = {}) => {
 
 
 // ══════════════════════════════════════════════════════════════
+// 文獻建議的額外輸入（雲端訓練用；瀏覽器版沒有抓這些品種，資料不存在時自動略過）
+//   LITERATURE_SYMBOLS：額外抓取的 Yahoo 品種
+//   LITERATURE_FEATURES：特徵定義與出處。價格類一律轉成對數報酬率（較平穩）
+// ══════════════════════════════════════════════════════════════
+const LITERATURE_SYMBOLS = ['^GSPC', 'PL=F', 'PA=F', '^IRX', '^GVZ', 'EURUSD=X', 'CNY=X', 'INR=X'];
+const LITERATURE_FEATURES = [
+    { key: 'spxRet',      name: '標普 500 日報酬',            group: '股市',     needs: ['^GSPC'],  ref: 'Baur & Lucey (2010)' },
+    { key: 'platRet',     name: '鉑金日報酬 (PL=F)',          group: '貴金屬',   needs: ['PL=F'],   ref: 'Sari, Hammoudeh & Soytas (2010)' },
+    { key: 'pallRet',     name: '鈀金日報酬 (PA=F)',          group: '貴金屬',   needs: ['PA=F'],   ref: 'Sari, Hammoudeh & Soytas (2010)' },
+    { key: 'termSpread',  name: '期限利差 10Y−3M',             group: '利率',     needs: ['^IRX'],   ref: 'Pierdzioch, Risse & Rohloff (2016)' },
+    { key: 'breakeven5y', name: '5 年期損益兩平通膨率',        group: '通膨預期', needs: ['treasuryNominal', 'tipsYield'], ref: 'Batten, Ciner & Lucey (2010)' },
+    { key: 'gvz',         name: '黃金隱含波動率 (^GVZ)',       group: '波動率',   needs: ['^GVZ'],   ref: 'CBOE 貴金屬波動率指數文獻' },
+    { key: 'eurusdRet',   name: '歐元/美元日報酬',             group: '匯率',     needs: ['EURUSD=X'], ref: 'Sari, Hammoudeh & Soytas (2010)' },
+    { key: 'usdcnyRet',   name: '美元/人民幣日報酬',           group: '匯率',     needs: ['CNY=X'],  ref: 'Pierdzioch & Risse (2020)' },
+    { key: 'usdinrRet',   name: '美元/印度盧比日報酬',         group: '匯率',     needs: ['INR=X'],  ref: 'Pierdzioch & Risse (2020)' },
+    { key: 'rv5',         name: '白銀已實現波動率 (5 日)',     group: '波動率',   needs: [],         ref: 'Corsi (2009) HAR' },
+    { key: 'rv22',        name: '白銀已實現波動率 (22 日)',    group: '波動率',   needs: [],         ref: 'Corsi (2009) HAR' },
+    { key: 'tsMom63',     name: '白銀 3 個月動能',             group: '動能',     needs: [],         ref: 'Moskowitz, Ooi & Pedersen (2012)' },
+    { key: 'tsMom252',    name: '白銀 12 個月動能',            group: '動能',     needs: [],         ref: 'Moskowitz, Ooi & Pedersen (2012)' },
+];
+
+// 以白銀交易日為主軸前向填補；品種開始交易前用第一筆值（報酬為 0），不會用到未來的變動
+const alignExtraSymbol = (data, dates) => {
+    if (!data || data.isMock) return null;
+    const map = new Map();
+    data.timestamps.forEach((t, i) => {
+        if (data.close[i] !== null && Number.isFinite(data.close[i])) map.set(new Date(t * 1000).toISOString().split('T')[0], data.close[i]);
+    });
+    if (map.size === 0) return null;
+    const first = [...map.keys()].sort()[0];
+    return alignMapToDates(map, dates, map.get(first));
+};
+
+// series：{ 品種: Yahoo 格式 }；treasuryNominal5y：與 dates 對齊的名目 5 年期殖利率（可為 null）
+// 回傳 { features: { key: number[] }, missing: { key: 原因 } }
+const deriveLiteratureFeatures = (raw, series = {}, treasuryNominal5y = null) => {
+    const { dates, prices, tnxPrices, tipsYield } = raw;
+    const n = dates.length;
+    const logRet = (arr) => arr.map((v, i) => (i === 0 || !(arr[i - 1] > 0) || !(v > 0)) ? 0 : Math.log(v / arr[i - 1]));
+    const features = {}, missing = {};
+    const aligned = {};
+    for (const s of LITERATURE_SYMBOLS) aligned[s] = alignExtraSymbol(series[s], dates);
+    const need = (key, sym) => { if (!aligned[sym]) { missing[key] = `${sym} 抓取失敗`; return null; } return aligned[sym]; };
+    let a;
+    if ((a = need('spxRet', '^GSPC'))) features.spxRet = logRet(a);
+    if ((a = need('platRet', 'PL=F'))) features.platRet = logRet(a);
+    if ((a = need('pallRet', 'PA=F'))) features.pallRet = logRet(a);
+    if ((a = need('termSpread', '^IRX'))) features.termSpread = a.map((v, i) => tnxPrices[i] - v);
+    if ((a = need('gvz', '^GVZ'))) features.gvz = a;
+    if ((a = need('eurusdRet', 'EURUSD=X'))) features.eurusdRet = logRet(a);
+    if ((a = need('usdcnyRet', 'CNY=X'))) features.usdcnyRet = logRet(a);
+    if ((a = need('usdinrRet', 'INR=X'))) features.usdinrRet = logRet(a);
+    if (treasuryNominal5y && tipsYield) features.breakeven5y = treasuryNominal5y.map((v, i) => v - tipsYield[i]);
+    else missing.breakeven5y = '財政部名目殖利率或 TIPS 抓取失敗';
+
+    // 已實現波動率（年化）：只用到當天以前的報酬
+    const r = logRet(prices);
+    const rv = (w) => r.map((_, i) => {
+        const lo = Math.max(1, i - w + 1);
+        if (i < 1) return 0;
+        let ss = 0; for (let j = lo; j <= i; j++) ss += r[j] * r[j];
+        return Math.sqrt((ss / (i - lo + 1)) * 252);
+    });
+    features.rv5 = rv(5);
+    features.rv22 = rv(22);
+    // 時間序列動能：過去 k 日累積對數報酬（資料不足 k 日時用現有長度）
+    const mom = (k) => prices.map((p, i) => Math.log(p / prices[Math.max(0, i - k)]));
+    features.tsMom63 = mom(63);
+    features.tsMom252 = mom(252);
+    // 開頭若有缺值（例如元旦前沒有殖利率），用第一筆有效值補上
+    for (const k of Object.keys(features)) {
+        const arr = features[k];
+        const first = arr.find(Number.isFinite);
+        for (let i = 0; i < arr.length; i++) if (!Number.isFinite(arr[i])) arr[i] = i > 0 && Number.isFinite(arr[i - 1]) ? arr[i - 1] : (first ?? 0);
+    }
+    for (const k of Object.keys(features)) if (features[k].length !== n) throw new Error(`${k} 長度不符`);
+    return { features, missing };
+};
+
+// ══════════════════════════════════════════════════════════════
 // 回測：逐日 1-step 預測 → 依預測報酬決定多/空/空手，扣手續費與滑價
 //   priceIndices[t]：第 t 筆預測對應的價格索引 i（以 prices[i-1] 進場、prices[i] 出場）
 //   predPrices[t]  ：模型對 prices[i] 的預測價格
@@ -1564,6 +1651,9 @@ const parseCotLegacy = (records) => {
 // ── 美國財政部 5 年期 TIPS 實質殖利率（每年一份 XML）──
 const treasuryRealYieldUrl = (year) =>
     'https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_real_yield_curve&field_tdr_date_value=' + year;
+// 名目殖利率曲線（同一種 XML 格式，5 年期欄位同樣是 BC_5YEAR）
+const treasuryNominalYieldUrl = (year) =>
+    'https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value=' + year;
 const parseTreasuryRealYieldXML = (xml) => {
     const map = new Map();
     const blocks = String(xml).match(/<m:properties>[\s\S]*?<\/m:properties>/g) || [];
@@ -1643,6 +1733,10 @@ export {
     parseCotDisagg,
     parseCotLegacy,
     treasuryRealYieldUrl,
+    treasuryNominalYieldUrl,
+    LITERATURE_SYMBOLS,
+    LITERATURE_FEATURES,
+    deriveLiteratureFeatures,
     parseTreasuryRealYieldXML,
     FEAR_GREED_URL,
     parseFearGreed,

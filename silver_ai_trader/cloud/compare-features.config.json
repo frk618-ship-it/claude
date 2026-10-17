@@ -1,0 +1,4 @@
+{
+  "params": { "horizon": 5, "historyYears": 10, "epochs": 400 },
+  "compare": { "algorithm": "LSTM", "lookback": 20, "layers": 32, "lr": 0.001, "batchSize": 32 }
+}

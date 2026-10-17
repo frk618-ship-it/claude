@@ -51,6 +51,18 @@ export const fetchTIPS = async (core, dates) => {
     return { values: core.alignMapToDates(all, dates, 0.5), points: all.size, coverage: `${covered}/${years.length} 年`, firstDate: [...all.keys()].sort()[0] };
 };
 
+// 美國財政部名目 5 年期殖利率（與 TIPS 相減得到損益兩平通膨率）
+export const fetchTreasuryNominal5y = async (core, dates) => {
+    const years = [...new Set(dates.map(d => d.slice(0, 4)))].sort();
+    const maps = await Promise.all(years.map(y =>
+        fetchWithRetry(core.treasuryNominalYieldUrl(y), { as: 'text' }).then(core.parseTreasuryRealYieldXML).catch(() => null)));
+    const all = new Map();
+    maps.forEach(m => m && m.forEach((v, k) => all.set(k, v)));
+    if (all.size === 0) throw new Error('財政部 XML 沒有資料');
+    const covered = years.filter((_, i) => maps[i]?.size > 0).length;
+    return { values: core.alignMapToDates(all, dates, NaN), points: all.size, coverage: `${covered}/${years.length} 年`, firstDate: [...all.keys()].sort()[0] };
+};
+
 // CNN Fear & Greed：網址加上起始日可取得較長的歷史
 // CNN 的歷史大約從 2021 年開始；要求更早的起始日會回 HTTP 500，此時改用最早可用的日期
 export const fetchFearGreed = async (core, dates) => {

@@ -32,6 +32,9 @@ node report.mjs                      # 產生 output/report.html
 | `--workers 4` | 平行行程數（預設 = CPU 核心數） |
 | `--no-refit` | 不用全部資料重訓，直接輸出評估用的模型 |
 | `--out 目錄` | 輸出目錄（預設 `output/`） |
+| `--compare-loss` | 比較三種訓練目標（誤差／方向／混合），輸出 `loss-compare.json`；`node compare-report.mjs` 產生網頁 |
+| `--compare-features` | 比較三組輸入變數（原有／原有 + 文獻新增／只用文獻新增），輸出 `feature-compare.json`；`node feature-report.mjs` 產生網頁 |
+| `--repeats 3` | 比較實驗中每個設定在每個期間重訓幾次 |
 
 ## 資料來源
 
@@ -42,6 +45,23 @@ node report.mjs                      # 產生 output/report.html
 
 在 Claude 雲端工作階段裡，Stooq、CFTC、美國財政部、CNN、Google Trends、StockTwits 預設被網路政策擋住。
 要讓雲端直接抓這些資料，請在環境設定的 Network access 加入這些網域；不然就用 `--data`。
+
+### 文獻建議的額外變數
+
+不帶 `--data` 時，另外從 Yahoo 抓 8 個品種、從財政部抓名目 5 年期殖利率，產生 13 個文獻建議的變數
+（定義與出處見 `src/core.js` 的 `LITERATURE_FEATURES`）：
+
+| 類別 | 變數 | 依據 |
+| --- | --- | --- |
+| 股市 | 標普 500 日報酬 | Baur & Lucey (2010) |
+| 貴金屬 | 鉑金、鈀金日報酬 | Sari, Hammoudeh & Soytas (2010) |
+| 利率 | 期限利差 10Y−3M | Pierdzioch, Risse & Rohloff (2016) |
+| 通膨預期 | 5 年期損益兩平通膨率（名目 − TIPS） | Batten, Ciner & Lucey (2010) |
+| 波動率 | 黃金隱含波動率 GVZ；白銀 5 日、22 日已實現波動率 | GVZ/VXSLV 文獻；Corsi (2009) |
+| 匯率 | 歐元、人民幣、印度盧比對美元日報酬 | Sari 等 (2010)；Pierdzioch & Risse (2020) |
+| 動能 | 白銀 3 個月、12 個月累積報酬 | Moskowitz, Ooi & Pedersen (2012) |
+
+用瀏覽器匯出的資料（`--data`）訓練時沒有這些變數，會自動略過。用了這些變數的模型無法載入瀏覽器版。
 
 ## 評估方式
 

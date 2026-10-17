@@ -82,6 +82,8 @@ const DEFAULT_CONFIG = {
         priceROC: true, ma5Silver: true, ma20Silver: true,
         maCross: true, macdLine: true,
         gtrend: true,
+        // 文獻建議的額外輸入（見 core.js LITERATURE_FEATURES）
+        ...Object.fromEntries(core.LITERATURE_FEATURES.map(f => [f.key, true])),
     },
     backtest: { initialCapital: 100000, leverage: 1.0, positionPct: 1.0, feeBps: 2, slippageBps: 1, threshold: 0.0, allowShort: true },
     search: {
@@ -207,6 +209,33 @@ const loadData = async () => {
     note('StockTwits', st, v => `多方 ${v.bullishPct.toFixed(0)}%（${v.totalTagged} 則）`, null, v => { aux.stockTwitsResult = v; });
 
     const raw = deriveFeatures(base, aux);
+
+    // 文獻建議的額外輸入：Yahoo 另外 8 個品種 + 財政部名目 5 年期殖利率
+    log(`抓取文獻建議的額外品種：${core.LITERATURE_SYMBOLS.join(', ')}、財政部名目殖利率…`);
+    const extra = {};
+    for (const s of core.LITERATURE_SYMBOLS) {
+        extra[s] = await fetchYahoo(s, config.params.historyYears);
+        log(`  ${extra[s] ? '✓' : '✗'} ${s}${extra[s] ? `：${extra[s].timestamps.length} 筆，${new Date(extra[s].timestamps[0] * 1000).toISOString().slice(0, 10)} 起` : ' 抓取失敗'}`);
+        await new Promise(r => setTimeout(r, 400));
+    }
+    let nominal = null;
+    try {
+        const v = await sources.fetchTreasuryNominal5y(core, base.dates);
+        nominal = v.values;
+        sourceStatus.push({ name: '美國財政部名目殖利率', ok: true, detail: `${v.points} 天（${v.coverage}）`, factor: 'breakeven5y', firstDate: v.firstDate });
+    } catch (e) {
+        sourceStatus.push({ name: '美國財政部名目殖利率', ok: false, detail: e.message });
+    }
+    log(`  ${nominal ? '✓' : '✗'} 美國財政部名目殖利率：${sourceStatus[sourceStatus.length - 1].detail}`);
+    // TIPS 失敗時 tipsYield 是填補值，損益兩平通膨率也不能用
+    const { features, missing: litMissing } = core.deriveLiteratureFeatures(raw, extra, nominal && !unavailable.tipsYield ? nominal : null);
+    Object.assign(raw, features);
+    for (const [k, why] of Object.entries(litMissing)) unavailable[k] = why;
+    // 晚於訓練期間開始才有資料的品種，交給主流程的涵蓋率檢查排除
+    for (const lf of core.LITERATURE_FEATURES) {
+        const ts = lf.needs.map(n => extra[n]?.timestamps?.[0]).filter(Boolean);
+        if (ts.length) sourceStatus.push({ name: `Yahoo ${lf.needs.join('+')}（${lf.name}）`, ok: true, detail: '日線', factor: lf.key, firstDate: new Date(Math.max(...ts) * 1000).toISOString().slice(0, 10), literature: true });
+    }
     return { raw, source: 'yahoo', unavailable, sourceStatus };
 };
 
@@ -426,7 +455,19 @@ const LOSS_VARIANTS = [
     { key: 'direction', name: '方向導向',  desc: '漲跌方向 + 二元交叉熵（讓猜對漲跌的機率最大）',            predTarget: 'direction' },
     { key: 'hybrid',    name: '混合',      desc: '雙頭：報酬率 Huber + 0.5 × 方向交叉熵',                    predTarget: 'dual_lr', directionalLambda: 0.5 },
 ];
-const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS, dataPath) => {
+// 特徵比較：同一模型與訓練目標（誤差導向），只換輸入變數
+const featureVariants = (factors) => {
+    const lit = new Set(core.LITERATURE_FEATURES.map(f => f.key));
+    const on = (pred) => Object.fromEntries(Object.keys(factors).map(k => [k, !!factors[k] && pred(k)]));
+    return [
+        { key: 'base', name: '原有變數',       desc: '目前模型使用的變數（不含文獻新增）', factors: on(k => !lit.has(k)) },
+        { key: 'plus', name: '原有 + 文獻新增', desc: '原有變數再加上文獻建議的新變數',     factors: on(() => true) },
+        { key: 'lit',  name: '只用文獻新增',   desc: '白銀價格 + 文獻建議的新變數',         factors: on(k => lit.has(k)) },
+    ];
+};
+const compareLoss = (...a) => compareVariants(LOSS_VARIANTS, 'loss-compare.json', ...a);
+const compareFeatures = (raw, factors, ...a) => compareVariants(featureVariants(factors), 'feature-compare.json', raw, factors, ...a);
+const compareVariants = async (VARIANTS, outName, raw, factors, excluded, sourceStatus, source, WORKERS, dataPath) => {
     const repeats = parseInt(arg('--repeats', '3'), 10);
     const base = { ...config.params, ...(config.compare || {}) };
     const H = Math.max(1, base.horizon || 1);
@@ -441,15 +482,15 @@ const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS
     }
     periods.push({ label: '最終測試段', end: ds.split.trainEnd, testFrom: ds.split.holdStart, testTo: ds.X.length });
     periods.forEach(p => { p.from = at(p.testFrom); p.to = at(p.testTo - 1); });
-    log(`loss 比較：${LOSS_VARIANTS.length} 種目標 × ${repeats} 次 × ${periods.length} 個期間 = ${LOSS_VARIANTS.length * repeats * periods.length} 次訓練（${WORKERS} 個行程平行）`);
+    log(`比較：${VARIANTS.length} 種設定 × ${repeats} 次 × ${periods.length} 個期間 = ${VARIANTS.length * repeats * periods.length} 次訓練（${WORKERS} 個行程平行）`);
     log(`共同設定：${base.algorithm} LB=${base.lookback} L=${base.layers}，預測 ${H} 日，特徵 ${ds.numFeatures} 個`);
     periods.forEach(p => log(`  ${p.label}：${p.from} ~ ${p.to}（${p.testTo - p.testFrom} 筆）`));
 
     const jobs = [];
-    for (const v of LOSS_VARIANTS) for (let rep = 0; rep < repeats; rep++) periods.forEach((p, pi) => jobs.push({
+    for (const v of VARIANTS) for (let rep = 0; rep < repeats; rep++) periods.forEach((p, pi) => jobs.push({
         type: 'lossexp', dataPath, variant: v.key, rep, periodIdx: pi,
-        params: { ...base, horizon: H, predTarget: v.predTarget, ...(v.directionalLambda != null ? { directionalLambda: v.directionalLambda } : {}) },
-        factors, period: p, epochs: base.epochs, patience: config.patience,
+        params: { ...base, horizon: H, predTarget: v.predTarget || base.predTarget, ...(v.directionalLambda != null ? { directionalLambda: v.directionalLambda } : {}) },
+        factors: v.factors || factors, period: p, epochs: base.epochs, patience: config.patience,
     }));
     let done = 0;
     const res = await runPool(jobs, WORKERS, (i, r) => {
@@ -462,7 +503,7 @@ const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS
     // 彙總：每個目標在每個期間取重複的平均
     const mean = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
     const sd = (a) => { if (a.length < 2) return 0; const m = mean(a); return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / (a.length - 1)); };
-    const summary = LOSS_VARIANTS.map(v => {
+    const summary = VARIANTS.map(v => {
         const perPeriod = periods.map((p, pi) => {
             const rs = res.filter((r, i) => r && !r.error && jobs[i].variant === v.key && jobs[i].periodIdx === pi);
             const pick = (f) => rs.map(f).filter(Number.isFinite);
@@ -476,7 +517,8 @@ const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS
             };
         });
         const cols = (f) => perPeriod.map(f).filter(Number.isFinite);
-        return { ...v, perPeriod,
+        const vds = v.factors ? createMultivariateDataset(raw, base.lookback, v.factors, null, { horizon: H }) : ds;
+        return { ...v, factors: undefined, features: vds.activeFeatures.map(f => f.name), perPeriod,
             avgDA: mean(cols(p => p.DA)), avgEdge: mean(cols(p => p.DA - Math.max(p.alwaysUpDA, 100 - p.alwaysUpDA))),
             avgMAPE: mean(cols(p => p.MAPE)), avgNaiveMAPE: mean(cols(p => p.naiveMAPE)),
             avgUpShare: mean(cols(p => p.upShare)), avgStrategy: mean(cols(p => p.strategyReturn)),
@@ -486,15 +528,16 @@ const compareLoss = async (raw, factors, excluded, sourceStatus, source, WORKERS
     for (const s of summary) log(`  ${s.name}：DA ${s.avgDA.toFixed(1)}%（比多數方向 ${s.avgEdge >= 0 ? '+' : ''}${s.avgEdge.toFixed(1)}）  MAPE ${s.avgMAPE != null ? s.avgMAPE.toFixed(2) + '%' : '—'}（不變 ${s.avgNaiveMAPE.toFixed(2)}%）  猜漲 ${(s.avgUpShare * 100).toFixed(0)}%  策略 ${(s.avgStrategy * 100).toFixed(1)}%  勝過多數方向 ${s.periodsBeatingMajority}/${periods.length} 期`);
 
     mkdirSync(OUT, { recursive: true });
-    writeFileSync(path.join(OUT, 'loss-compare.json'), JSON.stringify({
+    writeFileSync(path.join(OUT, outName), JSON.stringify({
         createdAt: new Date().toISOString(), durationSec: (Date.now() - t0) / 1000,
         dataSource: source, dataRange: { from: raw.dates[0], to: raw.dates[raw.dates.length - 1], days: raw.dates.length },
         excludedFactors: excluded, sources: sourceStatus,
-        setup: { algorithm: base.algorithm, lookback: base.lookback, layers: base.layers, lr: base.lr, batchSize: base.batchSize, horizon: H, repeats, features: ds.activeFeatures.map(f => f.name) },
+        setup: { algorithm: base.algorithm, lookback: base.lookback, layers: base.layers, lr: base.lr, batchSize: base.batchSize, horizon: H, repeats, predTarget: base.predTarget, features: ds.activeFeatures.map(f => f.name) },
+        literature: core.LITERATURE_FEATURES.map(f => ({ key: f.key, name: f.name, group: f.group, ref: f.ref, used: !!factors[f.key], excluded: excluded.find(e => e.key === f.key)?.reason || null })),
         periods, summary,
         runs: res.map((r, i) => ({ variant: jobs[i].variant, rep: jobs[i].rep, period: jobs[i].periodIdx, ...r })),
     }, null, 1));
-    log(`輸出到 ${path.join(path.relative(process.cwd(), OUT) || '.', 'loss-compare.json')}`);
+    log(`輸出到 ${path.join(path.relative(process.cwd(), OUT) || '.', outName)}`);
 };
 
 // ── 主流程 ────────────────────────────────────────────────────
@@ -536,6 +579,7 @@ const main = async () => {
     process.on('exit', () => { try { rmSync(dataDir, { recursive: true, force: true }); } catch (_) {} });
 
     if (flag('--compare-loss')) return compareLoss(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
+    if (flag('--compare-features')) return compareFeatures(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
 
     // ── 超參數搜尋（只看驗證段，不碰測試段）──
     let params = { ...config.params };
