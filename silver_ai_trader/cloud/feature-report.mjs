@@ -19,6 +19,14 @@ const dir = path.resolve(HERE, args.find((a, i) => !a.startsWith('--') && !skip.
 const R = JSON.parse(readFileSync(path.join(dir, INPUT), 'utf8'));
 // 確認實驗：只有兩組、每組重訓多次 → 加上統計檢定
 R.confirm = R.summary.length === 2;
+// 上一輪（每組重訓較少次）同樣兩組的差距，用來說明估計縮水
+if (R.confirm) {
+  try {
+    const prev = JSON.parse(readFileSync(path.join(dir, 'feature-compare.json'), 'utf8'));
+    const [b0, o0] = R.summary.map(s => prev.summary.find(p => p.key === s.key));
+    if (b0 && o0) R.prior = { repeats: prev.setup.repeats, gain: o0.avgDA - b0.avgDA };
+  } catch (_) { /* 沒有上一輪 */ }
+}
 
 // 文獻出處與每個變數代表的經濟意義（報告用）
 R.refs = {
@@ -330,14 +338,20 @@ a { color: var(--s1); }
     // 兩種檢定都要過：重訓次數少時拔靴區間偏窄，置換檢定較保守
     const real = stat.lo > 0 && stat.pAll < 0.05, beatsBase = stat.edgeLo > 0;
     $('verdict').innerHTML =
-      '<p><strong>結論：' + (real ? '改善是真的' : '改善無法確認') + (real ? (beatsBase ? '，而且贏過「一直猜多數方向」。' : '，但模型仍輸給「一直猜多數方向」，還不能用。') : '。') + '</strong>' +
+      '<p><strong>結論：' + (real ? (stat.obsAll < 2 ? '方向準確率有小幅、但統計上成立的改善' : '改善是真的') : '改善無法確認') + (real ? (beatsBase ? '，而且贏過「一直猜多數方向」。' : '，但模型仍輸給「一直猜多數方向」，還不能用。') : '。') + '</strong>' +
       '每期重訓 ' + U.repeats + ' 次後，' + esc(stat.o.name) + ' 比' + esc(b.name) + '平均 <span class="num">' + sgn(stat.obsAll) + '</span> 點（95% 信賴區間 ' + sgn(stat.lo) + ' ~ ' + sgn(stat.hi) + '，p = ' + pf(stat.pAll) + '），' +
       P.length + ' 個期間中有 ' + cmp[0].wins + ' 個變好。</p>' +
       '<p>' + esc(stat.o.name) + ' 平均方向準確率 <span class="num">' + fx(stat.o.avgDA) + '%</span>，比「一直猜多數方向」' + sgn(stat.edge) + ' 點（' + sgn(stat.edgeLo) + ' ~ ' + sgn(stat.edgeHi) + '）。' +
       '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
     const recs2 = [];
     if (real && beatsBase) recs2.push('<strong>採用「' + esc(stat.o.name) + '」重訓主模型。</strong>改善超出重訓雜訊，平均也贏過簡單基準。下一步以這組變數做超參數搜尋與完整的 walk-forward 回測（含交易成本）。');
-    else if (real) recs2.push('<strong>保留不確定性變數，但不要拿這個模型交易。</strong>它確實比原有變數好，但仍贏不了「一直猜多數方向」，代表模型主要是把原本的錯誤減少，還沒有產生可用的預測力。');
+    else if (real) {
+      const mapeWorse = stat.o.avgMAPE > b.avgMAPE;
+      recs2.push('<strong>保留不確定性變數，但不要拿這個模型交易。</strong>它的方向準確率比原有變數高 ' + sgn(stat.obsAll) + ' 點，統計上成立' +
+        (mapeWorse ? '；但價格誤差反而從 ' + fx(b.avgMAPE, 2) + '% 升到 ' + fx(stat.o.avgMAPE, 2) + '%' : '') +
+        '。平均仍比「一直猜多數方向」低 ' + fx(-stat.edge) + ' 點，代表它只是把原本的錯誤減少一點，還沒有產生可用的預測力。');
+      if (R.prior && R.prior.gain > stat.obsAll) recs2.push('<strong>多次重訓讓估計縮水：</strong>每期 ' + R.prior.repeats + ' 次時差距是 ' + sgn(R.prior.gain) + ' 點，' + U.repeats + ' 次後只剩 ' + sgn(stat.obsAll) + ' 點，且只有 ' + stat.per.filter(x => x.lo > 0 && x.p < 0.05).length + ' 個期間單獨顯著。少量重訓的結果容易高估效果。');
+    }
     else recs2.push('<strong>上一輪的 +2.5 點很可能是重訓的運氣。</strong>多次重訓後差距落在雜訊範圍內，不確定性變數對 5 日方向沒有可靠的幫助。');
     recs2.push('<strong>剩下值得試的方向：</strong>把目標改成預測波動率（HAR 類模型與不確定性指數在文獻中對波動有穩定的預測力），或取得期貨期限結構資料。');
     $('recs').innerHTML = recs2.map(r => '<li>' + r + '</li>').join('');

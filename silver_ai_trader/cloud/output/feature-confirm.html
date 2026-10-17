@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} [hidden]{display:none!important}</style>
+</head>
+<body>
+<title>白銀 輸入變數比較</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* 版面：單欄閱讀流。先回答問題（結論 + 三種目標的總表），再給證據（各期間散點、雜訊對比、單邊預測），最後是實驗設定。
+   色彩沿用 Silver AI Trader 的冷調金屬語彙；三組輸入變數用已驗證的類別色（藍、橘、綠），基準線用中性灰。 */
+:root {
+  --ground: #EEF2F4; --surface: #FFFFFF; --surface-2: #E4EAEE; --edge: #CDD6DC;
+  --ink: #0F1A21; --ink-2: #3A4A55; --ink-3: #66767F;
+  --up: #1F8A3A; --down: #C8461F;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --base: #8497A3; --grid: rgba(15,26,33,.08);
+  --font-body: "IBM Plex Sans TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ground: #0B1014; --surface: #131C22; --surface-2: #1A252C; --edge: #26343D;
+  --ink: #EDF4F8; --ink-2: #C4D2DA; --ink-3: #8497A3;
+  --up: #3FB950; --down: #F0603A;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --base: #5B6C77; --grid: rgba(237,244,248,.08);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --ground: #0B1014; --surface: #131C22; --surface-2: #1A252C; --edge: #26343D;
+  --ink: #EDF4F8; --ink-2: #C4D2DA; --ink-3: #8497A3;
+  --up: #3FB950; --down: #F0603A;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --base: #5B6C77; --grid: rgba(237,244,248,.08);
+  color-scheme: dark; }
+
+body { background: var(--ground); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+.page { max-width: 1040px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+h1, h2 { text-wrap: balance; margin: 0; }
+h1 { font-size: 1.75rem; font-weight: 700; }
+h2 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; max-width: 70ch; }
+.eyebrow { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-3); font-size: .875rem; }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 8px; }
+.verdict { border-left: 3px solid var(--ink-3); padding: 4px 0 4px 16px; display: grid; gap: 8px; }
+section { display: grid; gap: 12px; }
+.panel { background: var(--surface); border: 1px solid var(--edge); border-radius: 10px; padding: 16px; min-width: 0; }
+.chart { width: 100%; height: 380px; }
+.chart.short { height: 300px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .85rem; color: var(--ink-2); }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.key i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.key i.line { width: 16px; height: 0; border-radius: 0; border-top: 2px dashed var(--base); }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--edge); white-space: nowrap; }
+th { font-weight: 500; color: var(--ink-3); font-size: .8rem; }
+td.n, th.n { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+td .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: 0; }
+.good { color: var(--up); } .bad { color: var(--down); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.cols > * { min-width: 0; }
+ul.recs { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 72ch; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: .9rem; }
+dt { color: var(--ink-3); } dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge); padding-top: 16px; }
+.pill { display:inline-block; font-size:.75rem; padding:1px 8px; border-radius:999px; background: var(--surface-2); color: var(--ink-2); }
+.pill.off { color: var(--down); }
+td.wrap { white-space: normal; min-width: 14em; }
+a { color: var(--s1); }
+@media (max-width: 480px) { .chart { height: 320px; } h1 { font-size: 1.45rem; } }
+</style>
+<div class="page">
+  <header>
+    <div class="eyebrow">Silver AI Trader · 輸入變數比較實驗</div>
+    <h1 id="h1">加入不確定性與信用風險變數，模型會變好嗎？</h1>
+    <p class="muted" id="sub"></p>
+  </header>
+
+  <div class="verdict" id="verdict"></div>
+
+  <section aria-labelledby="stat-h" id="statSec" hidden>
+    <h2 id="stat-h">統計檢定：改善是否超出重訓雜訊</h2>
+    <div class="panel table-wrap"><table id="statTable"></table></div>
+    <p class="muted" id="statNote"></p>
+  </section>
+
+  <section aria-labelledby="lit-h">
+    <h2 id="lit-h">新增的變數與文獻依據</h2>
+    <p class="muted" id="litNote"></p>
+    <div class="panel table-wrap"><table id="litTable"></table></div>
+  </section>
+
+  <section aria-labelledby="sum-h">
+    <h2 id="sum-h">三組輸入變數的總成績</h2>
+    <div class="panel table-wrap"><table id="sumTable"></table></div>
+    <p class="muted">「比多數方向」是方向準確率減去該期間「一直猜比較常出現的方向」的準確率，正值才代表模型有用。「不變基準」是預測 5 天後價格等於今天。</p>
+  </section>
+
+  <section aria-labelledby="dot-h">
+    <h2 id="dot-h">各期間的方向準確率</h2>
+    <p class="muted">小點是每一次訓練，大點是同一組變數三次的平均，虛線是「一直猜多數方向」的基準。</p>
+    <div class="panel" style="display:grid;gap:10px">
+      <div class="legend" id="dotLegend"></div>
+      <div id="dotChart" class="chart" role="img" aria-label="各期間三組輸入變數的方向準確率"></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <section aria-labelledby="noise-h">
+      <h2 id="noise-h">換變數的差距 vs. 重訓的差距</h2>
+      <div class="panel" style="display:grid;gap:10px">
+        <div class="legend">
+          <span class="key"><i style="background:var(--s1)"></i>三組變數平均值的最大差距</span>
+          <span class="key"><i style="background:var(--s2)"></i>同一組變數重訓三次的最大差距</span>
+        </div>
+        <div id="noiseChart" class="chart short" role="img" aria-label="換變數的差距與重訓差距的比較"></div>
+        <p class="muted" id="noiseNote"></p>
+      </div>
+    </section>
+    <section aria-labelledby="mape-h">
+      <h2 id="mape-h">價格誤差（5 日後）</h2>
+      <div class="panel" style="display:grid;gap:10px">
+        <div id="mapeChart" class="chart short" role="img" aria-label="各期間的價格誤差與不變基準"></div>
+        <p class="muted" id="mapeNote"></p>
+      </div>
+    </section>
+  </div>
+
+  <section aria-labelledby="per-h">
+    <h2 id="per-h">各期間明細</h2>
+    <div class="panel table-wrap"><table id="perTable"></table></div>
+  </section>
+
+  <section aria-labelledby="na-h">
+    <h2 id="na-h">文獻有建議、但這次抓不到的變數</h2>
+    <div class="panel table-wrap"><table id="naTable"></table></div>
+  </section>
+
+  <section aria-labelledby="rec-h">
+    <h2 id="rec-h">建議</h2>
+    <ul class="recs" id="recs"></ul>
+  </section>
+
+  <section aria-labelledby="set-h">
+    <h2 id="set-h">實驗設定</h2>
+    <div class="panel cols">
+      <dl id="setup"></dl>
+      <dl id="variants"></dl>
+    </div>
+  </section>
+
+  <section aria-labelledby="ref-h">
+    <h2 id="ref-h">參考文獻</h2>
+    <ul class="recs" id="refs" style="font-size:.875rem"></ul>
+  </section>
+
+  <footer>本頁由 cloud/feature-report.mjs 依 feature-compare.json 產生，僅供研究參考，不構成投資建議。</footer>
+</div>
+
+<script type="application/json" id="data">{"createdAt":"2026-10-17T19:59:14.558Z","durationSec":12620.929,"dataSource":"yahoo","dataRange":{"from":"2016-10-17","to":"2026-10-16","days":2514},"excludedFactors":[{"key":"gtrend","reason":"Google Trends：HTTP 401"},{"key":"fearGreed","reason":"CNN Fear & Greed：只有 2021-01-04 之後的資料，未涵蓋整個期間（從 2016-10-17 起）"}],"sources":[{"name":"CFTC COT","ok":true,"detail":"Disagg，694 週","factor":"cotNetPosition","firstDate":"2013-07-02"},{"name":"美國財政部 TIPS","ok":true,"detail":"2698 天（11/11 年）","factor":"tipsYield","firstDate":"2016-01-04"},{"name":"CNN Fear & Greed","ok":true,"detail":"1453 天，目前 17.9（extreme fear）；2021-01-04 起，未涵蓋整個期間，不使用","factor":"fearGreed","firstDate":"2021-01-04"},{"name":"Google Trends","ok":false,"detail":"HTTP 401"},{"name":"StockTwits","ok":true,"detail":"多方 79%（29 則）","factor":null,"firstDate":null},{"name":"美國財政部名目殖利率","ok":true,"detail":"2698 天（11/11 年）","factor":"breakeven5y","firstDate":"2016-01-04"},{"name":"Yahoo ^GSPC（標普 500 日報酬）","ok":true,"detail":"日線","factor":"spxRet","firstDate":"2016-04-18","literature":true},{"name":"Yahoo PL=F（鉑金日報酬 (PL=F)）","ok":true,"detail":"日線","factor":"platRet","firstDate":"2016-04-18","literature":true},{"name":"Yahoo PA=F（鈀金日報酬 (PA=F)）","ok":true,"detail":"日線","factor":"pallRet","firstDate":"2016-04-18","literature":true},{"name":"Yahoo ^IRX（期限利差 10Y−3M）","ok":true,"detail":"日線","factor":"termSpread","firstDate":"2016-04-18","literature":true},{"name":"Yahoo ^GVZ（黃金隱含波動率 (^GVZ)）","ok":true,"detail":"日線","factor":"gvz","firstDate":"2016-04-18","literature":true},{"name":"Yahoo EURUSD=X（歐元/美元日報酬）","ok":true,"detail":"日線","factor":"eurusdRet","firstDate":"2016-04-17","literature":true},{"name":"Yahoo CNY=X（美元/人民幣日報酬）","ok":true,"detail":"日線","factor":"usdcnyRet","firstDate":"2016-04-17","literature":true},{"name":"Yahoo INR=X（美元/印度盧比日報酬）","ok":true,"detail":"日線","factor":"usdinrRet","firstDate":"2016-04-17","literature":true},{"name":"經濟政策不確定性 EPU（policyuncertainty.com）","ok":true,"detail":"每日，1985-01-01 ~ 2026-10-16","factor":"epu","firstDate":"1985-01-01"},{"name":"地緣政治風險 GPR（matteoiacoviello.com）","ok":true,"detail":"每日，1985-01-01 ~ 2026-10-13","factor":"gpr","firstDate":"1985-01-01"},{"name":"地緣政治威脅 GPR Threats","ok":true,"detail":"同上","factor":"gprThreat","firstDate":"1985-01-01"},{"name":"FRED BAA10Y 信用利差","ok":true,"detail":"每日，2016-02-18 ~ 2026-10-15","factor":"creditSpread","firstDate":"2016-02-18"},{"name":"FRED STLFSI4 金融壓力指數","ok":true,"detail":"每週，2016-02-19 ~ 2026-10-09","factor":"finStress","firstDate":"2016-02-19"}],"setup":{"algorithm":"LSTM","lookback":20,"layers":32,"lr":0.001,"batchSize":32,"horizon":5,"repeats":10,"predTarget":"logreturn","features":["白銀期貨價格 (Lag)","SLV ETF 收盤價","SLV ETF 成交量","SLV ETF 成交量 ROC","實質利率 TIPS 5Y Real Yield (%)","白銀 RSI 指標 (5)","白銀 RSI 指標 (12)","VIX 變動率 (ROC)","StockTwits 白銀情緒","黃金價格 (GC=F)","原油價格 (CL=F)","美元指數 (DXY)","VIX 恐慌指數 (^VIX)","10年期利率 (^TNX)","銅期貨價格 (HG=F)","白銀庫存代理 (SLV oz/share×1k)","黃金/白銀比","COT Managed Money Net","白銀日報酬率 (ROC)","白銀 MA5","白銀 MA20","MA Cross (MA5-MA20)","MACD 線 (12-26 EMA)","標普 500 日報酬","鉑金日報酬 (PL=F)","鈀金日報酬 (PA=F)","期限利差 10Y−3M","5 年期損益兩平通膨率","黃金隱含波動率 (^GVZ)","歐元/美元日報酬","美元/人民幣日報酬","美元/印度盧比日報酬","白銀已實現波動率 (5 日)","白銀已實現波動率 (22 日)","白銀 3 個月動能","白銀 12 個月動能","美國經濟政策不確定性 EPU","地緣政治風險 GPR","地緣政治威脅 GPR Threats","信用利差 Baa − 10Y","聖路易聯準會金融壓力指數"]},"literature":[{"key":"spxRet","name":"標普 500 日報酬","group":"股市","ref":"Baur & Lucey (2010)","batch":1,"used":true,"excluded":null},{"key":"platRet","name":"鉑金日報酬 (PL=F)","group":"貴金屬","ref":"Sari, Hammoudeh & Soytas (2010)","batch":1,"used":true,"excluded":null},{"key":"pallRet","name":"鈀金日報酬 (PA=F)","group":"貴金屬","ref":"Sari, Hammoudeh & Soytas (2010)","batch":1,"used":true,"excluded":null},{"key":"termSpread","name":"期限利差 10Y−3M","group":"利率","ref":"Pierdzioch, Risse & Rohloff (2016)","batch":1,"used":true,"excluded":null},{"key":"breakeven5y","name":"5 年期損益兩平通膨率","group":"通膨預期","ref":"Batten, Ciner & Lucey (2010)","batch":1,"used":true,"excluded":null},{"key":"gvz","name":"黃金隱含波動率 (^GVZ)","group":"波動率","ref":"CBOE 貴金屬波動率指數文獻","batch":1,"used":true,"excluded":null},{"key":"eurusdRet","name":"歐元/美元日報酬","group":"匯率","ref":"Sari, Hammoudeh & Soytas (2010)","batch":1,"used":true,"excluded":null},{"key":"usdcnyRet","name":"美元/人民幣日報酬","group":"匯率","ref":"Pierdzioch & Risse (2020)","batch":1,"used":true,"excluded":null},{"key":"usdinrRet","name":"美元/印度盧比日報酬","group":"匯率","ref":"Pierdzioch & Risse (2020)","batch":1,"used":true,"excluded":null},{"key":"rv5","name":"白銀已實現波動率 (5 日)","group":"波動率","ref":"Corsi (2009) HAR","batch":1,"used":true,"excluded":null},{"key":"rv22","name":"白銀已實現波動率 (22 日)","group":"波動率","ref":"Corsi (2009) HAR","batch":1,"used":true,"excluded":null},{"key":"tsMom63","name":"白銀 3 個月動能","group":"動能","ref":"Moskowitz, Ooi & Pedersen (2012)","batch":1,"used":true,"excluded":null},{"key":"tsMom252","name":"白銀 12 個月動能","group":"動能","ref":"Moskowitz, Ooi & Pedersen (2012)","batch":1,"used":true,"excluded":null},{"key":"epu","name":"美國經濟政策不確定性 EPU","group":"不確定性","ref":"Baker, Bloom & Davis (2016)","batch":2,"used":true,"excluded":null},{"key":"gpr","name":"地緣政治風險 GPR","group":"不確定性","ref":"Caldara & Iacoviello (2022)","batch":2,"used":true,"excluded":null},{"key":"gprThreat","name":"地緣政治威脅 GPR Threats","group":"不確定性","ref":"Baur & Smales (2020)","batch":2,"used":true,"excluded":null},{"key":"creditSpread","name":"信用利差 Baa − 10Y","group":"信用風險","ref":"Goyal & Welch (2008)","batch":2,"used":true,"excluded":null},{"key":"finStress","name":"聖路易聯準會金融壓力指數","group":"信用風險","ref":"Kliesen, Owyang & Vermann (2012)","batch":2,"used":true,"excluded":null}],"periods":[{"label":"第 1 段","end":423,"testFrom":423,"testTo":846,"from":"2018-07-31","to":"2020-04-03"},{"label":"第 2 段","end":846,"testFrom":846,"testTo":1269,"from":"2020-04-06","to":"2021-12-07"},{"label":"第 3 段","end":1269,"testFrom":1269,"testTo":1692,"from":"2021-12-08","to":"2023-08-15"},{"label":"第 4 段","end":1692,"testFrom":1692,"testTo":2113,"from":"2023-08-16","to":"2025-04-17"},{"label":"最終測試段","end":2117,"testFrom":2117,"testTo":2490,"from":"2025-04-25","to":"2026-10-16"}],"summary":[{"key":"base","name":"原有變數","desc":"目前模型使用的變數（不含文獻新增）","features":["白銀期貨價格 (Lag)","SLV ETF 收盤價","SLV ETF 成交量","SLV ETF 成交量 ROC","實質利率 TIPS 5Y Real Yield (%)","白銀 RSI 指標 (5)","白銀 RSI 指標 (12)","VIX 變動率 (ROC)","StockTwits 白銀情緒","黃金價格 (GC=F)","原油價格 (CL=F)","美元指數 (DXY)","VIX 恐慌指數 (^VIX)","10年期利率 (^TNX)","銅期貨價格 (HG=F)","白銀庫存代理 (SLV oz/share×1k)","黃金/白銀比","COT Managed Money Net","白銀日報酬率 (ROC)","白銀 MA5","白銀 MA20","MA Cross (MA5-MA20)","MACD 線 (12-26 EMA)"],"perPeriod":[{"label":"第 1 段","from":"2018-07-31","to":"2020-04-03","runs":10,"DA":51.087470449172564,"DAsd":0.5944215024632364,"MAPE":2.47251690758042,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.827423167848686,"upShare":0.993144208037825,"strategyReturn":-0.08471032757912822,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1},{"label":"第 2 段","from":"2020-04-06","to":"2021-12-07","runs":10,"DA":50.2127659574468,"DAsd":0.8279858494287583,"MAPE":3.6612663014291393,"naiveMAPE":3.395963307808521,"alwaysUpDA":56.501182033096924,"upShare":0.17446808510638298,"strategyReturn":0.13745762550060442,"buyHoldReturn":0.5947846470771552,"bestEpoch":13.1},{"label":"第 3 段","from":"2021-12-08","to":"2023-08-15","runs":10,"DA":53.56973995271867,"DAsd":0.9728163506389905,"MAPE":3.3189040589144847,"naiveMAPE":3.330919579625898,"alwaysUpDA":50.11820330969267,"upShare":0.6033096926713949,"strategyReturn":0.32236147505757573,"buyHoldReturn":0.01681689777983264,"bestEpoch":17.3},{"label":"第 4 段","from":"2023-08-16","to":"2025-04-17","runs":10,"DA":49.45368171021378,"DAsd":4.932896905130652,"MAPE":3.4038065992878055,"naiveMAPE":3.4087058221347037,"alwaysUpDA":55.58194774346792,"upShare":0.1648456057007126,"strategyReturn":0.041649796366349946,"buyHoldReturn":0.43134652163181997,"bestEpoch":5.4},{"label":"最終測試段","from":"2025-04-25","to":"2026-10-16","runs":10,"DA":44.343163538873995,"DAsd":2.240206235093262,"MAPE":5.835270584421314,"naiveMAPE":5.282061846429776,"alwaysUpDA":57.640750670241275,"upShare":0.09651474530831099,"strategyReturn":-0.527557940550053,"buyHoldReturn":0.7134485618284564,"bestEpoch":23.7}],"avgDA":49.73336432168516,"avgEdge":-4.400537063184333,"avgMAPE":3.7383528903266323,"avgNaiveMAPE":3.5778732655323653,"avgUpShare":0.40645646736492524,"avgStrategy":-0.022159874240930223,"periodsBeatingMajority":2},{"key":"unc","name":"原有 + 不確定性","desc":"原有變數再加上 5 個不確定性與信用風險變數（EPU、GPR、信用利差、金融壓力）","features":["白銀期貨價格 (Lag)","SLV ETF 收盤價","SLV ETF 成交量","SLV ETF 成交量 ROC","實質利率 TIPS 5Y Real Yield (%)","白銀 RSI 指標 (5)","白銀 RSI 指標 (12)","VIX 變動率 (ROC)","StockTwits 白銀情緒","黃金價格 (GC=F)","原油價格 (CL=F)","美元指數 (DXY)","VIX 恐慌指數 (^VIX)","10年期利率 (^TNX)","銅期貨價格 (HG=F)","白銀庫存代理 (SLV oz/share×1k)","黃金/白銀比","COT Managed Money Net","白銀日報酬率 (ROC)","白銀 MA5","白銀 MA20","MA Cross (MA5-MA20)","MACD 線 (12-26 EMA)","美國經濟政策不確定性 EPU","地緣政治風險 GPR","地緣政治威脅 GPR Threats","信用利差 Baa − 10Y","聖路易聯準會金融壓力指數"],"perPeriod":[{"label":"第 1 段","from":"2018-07-31","to":"2020-04-03","runs":10,"DA":51.48936170212765,"DAsd":0.9829765881489496,"MAPE":2.471961318303272,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.827423167848686,"upShare":0.9891252955082741,"strategyReturn":-0.057185847358506306,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1},{"label":"第 2 段","from":"2020-04-06","to":"2021-12-07","runs":10,"DA":52.316784869976345,"DAsd":1.7409759899200097,"MAPE":4.74598166892014,"naiveMAPE":3.395963307808521,"alwaysUpDA":56.501182033096924,"upShare":0.24420803782505915,"strategyReturn":0.532183534875239,"buyHoldReturn":0.5947846470771552,"bestEpoch":29.6},{"label":"第 3 段","from":"2021-12-08","to":"2023-08-15","runs":10,"DA":53.78250591016549,"DAsd":2.009842512979805,"MAPE":3.3083861937227574,"naiveMAPE":3.330919579625898,"alwaysUpDA":50.11820330969267,"upShare":0.560047281323877,"strategyReturn":0.29954852779575675,"buyHoldReturn":0.01681689777983264,"bestEpoch":14.1},{"label":"第 4 段","from":"2023-08-16","to":"2025-04-17","runs":10,"DA":49.71496437054632,"DAsd":3.952568289089232,"MAPE":3.409214675461743,"naiveMAPE":3.4087058221347037,"alwaysUpDA":55.58194774346792,"upShare":0.1180522565320665,"strategyReturn":0.012717998312663337,"buyHoldReturn":0.43134652163181997,"bestEpoch":8.1},{"label":"最終測試段","from":"2025-04-25","to":"2026-10-16","runs":10,"DA":46.97050938337802,"DAsd":3.4048140094886685,"MAPE":5.7683169838605135,"naiveMAPE":5.282061846429776,"alwaysUpDA":57.640750670241275,"upShare":0.14155495978552277,"strategyReturn":-0.3690761076989525,"buyHoldReturn":0.7134485618284564,"bestEpoch":21.8}],"avgDA":50.854825247238765,"avgEdge":-3.279076137630729,"avgMAPE":3.940772168053685,"avgNaiveMAPE":3.5778732655323653,"avgUpShare":0.4105975661949599,"avgStrategy":0.08363762118524003,"periodsBeatingMajority":2}],"runs":[{"variant":"base","rep":0,"period":0,"DA":51.30023640661938,"MAPE":2.4677009629654787,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9716312056737588,"strategyReturn":-0.08977072433013089,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":148.683},{"variant":"base","rep":0,"period":1,"DA":51.77304964539007,"MAPE":3.452318923210133,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.20567375886524822,"strategyReturn":0.694798213152811,"buyHoldReturn":0.5947846470771552,"bestEpoch":8,"n":423,"sec":318.38},{"variant":"base","rep":0,"period":2,"DA":52.00945626477541,"MAPE":3.2811839376587453,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.508274231678487,"strategyReturn":0.1310533117347168,"buyHoldReturn":0.01681689777983264,"bestEpoch":28,"n":423,"sec":662.895},{"variant":"base","rep":0,"period":3,"DA":50.3562945368171,"MAPE":3.3986897549106616,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.19714964370546317,"strategyReturn":0.038489595949102284,"buyHoldReturn":0.43134652163181997,"bestEpoch":5,"n":421,"sec":541.661},{"variant":"base","rep":0,"period":4,"DA":45.57640750670242,"MAPE":6.1079631556204586,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.09115281501340483,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":22,"n":373,"sec":966.896},{"variant":"base","rep":1,"period":0,"DA":50.82742316784869,"MAPE":2.4745792573235037,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":117.225},{"variant":"base","rep":1,"period":1,"DA":50.11820330969267,"MAPE":3.5696499021129418,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.17494089834515367,"strategyReturn":-0.004497295449597316,"buyHoldReturn":0.5947846470771552,"bestEpoch":10,"n":423,"sec":292.225},{"variant":"base","rep":1,"period":2,"DA":52.24586288416076,"MAPE":3.3135654681105646,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6146572104018913,"strategyReturn":0.0806395866449634,"buyHoldReturn":0.01681689777983264,"bestEpoch":30,"n":423,"sec":665.725},{"variant":"base","rep":1,"period":3,"DA":57.71971496437055,"MAPE":3.3751371117570566,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.3087885985748218,"strategyReturn":0.49628026600981623,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":538.905},{"variant":"base","rep":1,"period":4,"DA":42.89544235924933,"MAPE":5.691950738924865,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.03753351206434316,"strategyReturn":-0.5475774921567671,"buyHoldReturn":0.7134485618284565,"bestEpoch":30,"n":373,"sec":1090.552},{"variant":"base","rep":2,"period":0,"DA":50.82742316784869,"MAPE":2.4706200522917237,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":122.932},{"variant":"base","rep":2,"period":1,"DA":50.11820330969267,"MAPE":3.5631469178848927,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.17494089834515367,"strategyReturn":-0.004497295449597316,"buyHoldReturn":0.5947846470771552,"bestEpoch":7,"n":423,"sec":258.348},{"variant":"base","rep":2,"period":2,"DA":54.60992907801418,"MAPE":3.3135159400187684,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6004728132387707,"strategyReturn":0.46394219112971213,"buyHoldReturn":0.01681689777983264,"bestEpoch":16,"n":423,"sec":471.198},{"variant":"base","rep":2,"period":3,"DA":44.89311163895487,"MAPE":3.413552037005415,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.004750593824228029,"strategyReturn":-0.3198399572047277,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":491.336},{"variant":"base","rep":2,"period":4,"DA":41.55495978552279,"MAPE":5.692771065512774,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.040214477211796246,"strategyReturn":-0.606896259757573,"buyHoldReturn":0.7134485618284565,"bestEpoch":26,"n":373,"sec":981.368},{"variant":"base","rep":3,"period":0,"DA":50.82742316784869,"MAPE":2.4757132748101514,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":116.995},{"variant":"base","rep":3,"period":1,"DA":50.11820330969267,"MAPE":4.026408838452304,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.17494089834515367,"strategyReturn":-0.004497295449597316,"buyHoldReturn":0.5947846470771552,"bestEpoch":42,"n":423,"sec":508.547},{"variant":"base","rep":3,"period":2,"DA":53.42789598108747,"MAPE":3.3215063687144593,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.541371158392435,"strategyReturn":0.4118034154229404,"buyHoldReturn":0.01681689777983264,"bestEpoch":15,"n":423,"sec":473.193},{"variant":"base","rep":3,"period":3,"DA":45.36817102137768,"MAPE":3.416910567028074,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.009501187648456057,"strategyReturn":-0.3525460091961158,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":468.844},{"variant":"base","rep":3,"period":4,"DA":48.793565683646115,"MAPE":5.4331898650510295,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.3914209115281501,"strategyReturn":-0.5584145191687442,"buyHoldReturn":0.7134485618284565,"bestEpoch":30,"n":373,"sec":1072.606},{"variant":"base","rep":4,"period":0,"DA":50.82742316784869,"MAPE":2.4730354500899887,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":114.696},{"variant":"base","rep":4,"period":1,"DA":49.40898345153664,"MAPE":3.8276657428248444,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.16784869976359337,"strategyReturn":-0.004497295449597316,"buyHoldReturn":0.5947846470771552,"bestEpoch":12,"n":423,"sec":306.666},{"variant":"base","rep":4,"period":2,"DA":53.90070921985816,"MAPE":3.3082705254918854,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5366430260047281,"strategyReturn":0.43234900942488275,"buyHoldReturn":0.01681689777983264,"bestEpoch":26,"n":423,"sec":599.457},{"variant":"base","rep":4,"period":3,"DA":44.418052256532064,"MAPE":3.4194599103156422,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0,"strategyReturn":-0.393226697387161,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":488.642},{"variant":"base","rep":4,"period":4,"DA":45.84450402144772,"MAPE":5.686000424593384,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.0938337801608579,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":21,"n":373,"sec":900.682},{"variant":"base","rep":5,"period":0,"DA":51.06382978723404,"MAPE":2.471987292280682,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9976359338061466,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":113.166},{"variant":"base","rep":5,"period":1,"DA":50.82742316784869,"MAPE":3.576263400306264,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.18203309692671396,"strategyReturn":0.4232543807181517,"buyHoldReturn":0.5947846470771552,"bestEpoch":9,"n":423,"sec":268.992},{"variant":"base","rep":5,"period":2,"DA":54.37352245862884,"MAPE":3.2916641270940676,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.47044917257683216,"strategyReturn":0.3990027970113217,"buyHoldReturn":0.01681689777983264,"bestEpoch":6,"n":423,"sec":375.967},{"variant":"base","rep":5,"period":3,"DA":44.418052256532064,"MAPE":3.448264801031421,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0,"strategyReturn":-0.393226697387161,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":499.967},{"variant":"base","rep":5,"period":4,"DA":42.35924932975871,"MAPE":5.513302809216407,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.05361930294906166,"strategyReturn":-0.574199145716878,"buyHoldReturn":0.7134485618284565,"bestEpoch":19,"n":373,"sec":846.733},{"variant":"base","rep":6,"period":0,"DA":50.82742316784869,"MAPE":2.4741675864050254,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":117.343},{"variant":"base","rep":6,"period":1,"DA":49.645390070921984,"MAPE":3.5762963866261384,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.14184397163120568,"strategyReturn":-0.07694405991912967,"buyHoldReturn":0.5947846470771552,"bestEpoch":10,"n":423,"sec":284.951},{"variant":"base","rep":6,"period":2,"DA":53.191489361702125,"MAPE":3.3437793479855142,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6997635933806147,"strategyReturn":0.2533417755848575,"buyHoldReturn":0.01681689777983264,"bestEpoch":15,"n":423,"sec":466.164},{"variant":"base","rep":6,"period":3,"DA":56.057007125890735,"MAPE":3.380373263842978,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.37292161520190026,"strategyReturn":0.6562224499680642,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":497.536},{"variant":"base","rep":6,"period":4,"DA":45.57640750670242,"MAPE":5.913978447624048,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.09115281501340483,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":27,"n":373,"sec":985.82},{"variant":"base","rep":7,"period":0,"DA":50.82742316784869,"MAPE":2.472065083672202,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":114.521},{"variant":"base","rep":7,"period":1,"DA":50.11820330969267,"MAPE":3.557760480548889,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.17494089834515367,"strategyReturn":-0.004497295449597316,"buyHoldReturn":0.5947846470771552,"bestEpoch":9,"n":423,"sec":277.122},{"variant":"base","rep":7,"period":2,"DA":54.1371158392435,"MAPE":3.316536497912887,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5910165484633569,"strategyReturn":0.24178227877032765,"buyHoldReturn":0.01681689777983264,"bestEpoch":15,"n":423,"sec":464.265},{"variant":"base","rep":7,"period":3,"DA":47.26840855106889,"MAPE":3.410278375101647,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.11401425178147269,"strategyReturn":-0.2784724882405236,"buyHoldReturn":0.43134652163181997,"bestEpoch":5,"n":421,"sec":489.298},{"variant":"base","rep":7,"period":4,"DA":42.35924932975871,"MAPE":6.222476614971413,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.0160857908847185,"strategyReturn":-0.594232111258993,"buyHoldReturn":0.7134485618284565,"bestEpoch":23,"n":373,"sec":950.552},{"variant":"base","rep":8,"period":0,"DA":52.71867612293144,"MAPE":2.468251984530014,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9621749408983451,"strategyReturn":0.03785628721296419,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":114.669},{"variant":"base","rep":8,"period":1,"DA":48.93617021276596,"MAPE":3.9015720667993485,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.16312056737588654,"strategyReturn":-0.06730018241595392,"buyHoldReturn":0.5947846470771552,"bestEpoch":13,"n":423,"sec":312.934},{"variant":"base","rep":8,"period":2,"DA":54.84633569739953,"MAPE":3.3565908728887357,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.7730496453900709,"strategyReturn":0.6083591782498521,"buyHoldReturn":0.01681689777983264,"bestEpoch":7,"n":423,"sec":397.622},{"variant":"base","rep":8,"period":3,"DA":51.78147268408551,"MAPE":3.39184695886214,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.35391923990498814,"strategyReturn":0.33296605050105543,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":510.276},{"variant":"base","rep":8,"period":4,"DA":43.16353887399464,"MAPE":6.19573524926859,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.06166219839142091,"strategyReturn":-0.5446628055522301,"buyHoldReturn":0.7134485618284565,"bestEpoch":20,"n":373,"sec":903.888},{"variant":"base","rep":9,"period":0,"DA":50.82742316784869,"MAPE":2.4770481314354327,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":116.551},{"variant":"base","rep":9,"period":1,"DA":51.06382978723404,"MAPE":3.5615803555256336,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.18439716312056736,"strategyReturn":0.4232543807181517,"buyHoldReturn":0.5947846470771552,"bestEpoch":11,"n":423,"sec":309.212},{"variant":"base","rep":9,"period":2,"DA":52.95508274231678,"MAPE":3.3424275032692186,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6973995271867612,"strategyReturn":0.20134120660218224,"buyHoldReturn":0.01681689777983264,"bestEpoch":15,"n":423,"sec":498.924},{"variant":"base","rep":9,"period":3,"DA":52.25653206650831,"MAPE":3.3835532130230175,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.28741092636579574,"strategyReturn":0.6298514506511503,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":518.278},{"variant":"base","rep":9,"period":4,"DA":45.30831099195711,"MAPE":5.895337473430179,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.08847184986595175,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":19,"n":373,"sec":882.386},{"variant":"unc","rep":0,"period":0,"DA":50.82742316784869,"MAPE":2.4727392708802474,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":120.219},{"variant":"unc","rep":0,"period":1,"DA":51.536643026004725,"MAPE":9.244620786577013,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.18912529550827423,"strategyReturn":0.4232543807181517,"buyHoldReturn":0.5947846470771552,"bestEpoch":26,"n":423,"sec":399.114},{"variant":"unc","rep":0,"period":2,"DA":53.191489361702125,"MAPE":3.2897599295793527,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.4444444444444444,"strategyReturn":0.33393799844206895,"buyHoldReturn":0.01681689777983264,"bestEpoch":6,"n":423,"sec":375.505},{"variant":"unc","rep":0,"period":3,"DA":45.36817102137768,"MAPE":3.4547344496139205,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.009501187648456057,"strategyReturn":-0.3198399572047277,"buyHoldReturn":0.43134652163181997,"bestEpoch":20,"n":421,"sec":692.318},{"variant":"unc","rep":0,"period":4,"DA":45.57640750670242,"MAPE":5.6842833137858495,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.10723860589812333,"strategyReturn":-0.47137932682772576,"buyHoldReturn":0.7134485618284565,"bestEpoch":23,"n":373,"sec":935.5},{"variant":"unc","rep":1,"period":0,"DA":50.82742316784869,"MAPE":2.4720312684504124,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":116.255},{"variant":"unc","rep":1,"period":1,"DA":53.42789598108747,"MAPE":3.557949805019371,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.2364066193853428,"strategyReturn":0.5268305188913713,"buyHoldReturn":0.5947846470771552,"bestEpoch":12,"n":423,"sec":302.861},{"variant":"unc","rep":1,"period":2,"DA":56.73758865248227,"MAPE":3.3208907778266266,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6737588652482269,"strategyReturn":0.9043336831831035,"buyHoldReturn":0.01681689777983264,"bestEpoch":23,"n":423,"sec":564.071},{"variant":"unc","rep":1,"period":3,"DA":44.418052256532064,"MAPE":3.465778935859253,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0,"strategyReturn":-0.393226697387161,"buyHoldReturn":0.43134652163181997,"bestEpoch":5,"n":421,"sec":499.384},{"variant":"unc","rep":1,"period":4,"DA":46.64879356568365,"MAPE":5.543586783555117,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.13404825737265416,"strategyReturn":-0.3747484680057953,"buyHoldReturn":0.7134485618284565,"bestEpoch":15,"n":373,"sec":787.27},{"variant":"unc","rep":2,"period":0,"DA":51.30023640661938,"MAPE":2.471013500543255,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9952718676122931,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":119.312},{"variant":"unc","rep":2,"period":1,"DA":51.06382978723404,"MAPE":3.3835421426300227,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.3971631205673759,"strategyReturn":0.7236302103463148,"buyHoldReturn":0.5947846470771552,"bestEpoch":11,"n":423,"sec":278.919},{"variant":"unc","rep":2,"period":2,"DA":52.4822695035461,"MAPE":3.292296459712487,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.3900709219858156,"strategyReturn":-0.12151576448623336,"buyHoldReturn":0.01681689777983264,"bestEpoch":33,"n":423,"sec":652.82},{"variant":"unc","rep":2,"period":3,"DA":47.03087885985748,"MAPE":3.404744426269556,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.10688836104513064,"strategyReturn":-0.223982413607282,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":502.998},{"variant":"unc","rep":2,"period":4,"DA":45.84450402144772,"MAPE":5.948603372388969,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.0938337801608579,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":20,"n":373,"sec":892.447},{"variant":"unc","rep":3,"period":0,"DA":52.4822695035461,"MAPE":2.4715822444894044,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9739952718676123,"strategyReturn":-0.08607132517379035,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":119.767},{"variant":"unc","rep":3,"period":1,"DA":49.1725768321513,"MAPE":4.256701999168124,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.15602836879432624,"strategyReturn":-0.0866870321884442,"buyHoldReturn":0.5947846470771552,"bestEpoch":46,"n":423,"sec":536.72},{"variant":"unc","rep":3,"period":2,"DA":54.1371158392435,"MAPE":3.3146270525469244,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.6004728132387707,"strategyReturn":0.22285057436263522,"buyHoldReturn":0.01681689777983264,"bestEpoch":8,"n":423,"sec":396.623},{"variant":"unc","rep":3,"period":3,"DA":48.45605700712589,"MAPE":3.414799776917421,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.07838479809976247,"strategyReturn":-0.18344738902164415,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":483.951},{"variant":"unc","rep":3,"period":4,"DA":45.84450402144772,"MAPE":5.358547094811866,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.10455764075067024,"strategyReturn":-0.47137932682772576,"buyHoldReturn":0.7134485618284565,"bestEpoch":18,"n":373,"sec":877.726},{"variant":"unc","rep":4,"period":0,"DA":50.82742316784869,"MAPE":2.4710922276748626,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":126.459},{"variant":"unc","rep":4,"period":1,"DA":53.42789598108747,"MAPE":3.8486516731190203,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.2364066193853428,"strategyReturn":0.970696015589444,"buyHoldReturn":0.5947846470771552,"bestEpoch":38,"n":423,"sec":491.395},{"variant":"unc","rep":4,"period":2,"DA":52.4822695035461,"MAPE":3.3151462363917403,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5602836879432624,"strategyReturn":0.2720726829070286,"buyHoldReturn":0.01681689777983264,"bestEpoch":6,"n":423,"sec":387.003},{"variant":"unc","rep":4,"period":3,"DA":52.96912114014252,"MAPE":3.3916531947578608,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.2660332541567696,"strategyReturn":0.1863253317560416,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":484.697},{"variant":"unc","rep":4,"period":4,"DA":45.0402144772118,"MAPE":5.701345198205631,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.08579088471849866,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":19,"n":373,"sec":888.77},{"variant":"unc","rep":5,"period":0,"DA":50.82742316784869,"MAPE":2.4734366705118083,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":118.731},{"variant":"unc","rep":5,"period":1,"DA":52.71867612293144,"MAPE":3.5169441735586506,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.2198581560283688,"strategyReturn":0.602721687414818,"buyHoldReturn":0.5947846470771552,"bestEpoch":11,"n":423,"sec":297.615},{"variant":"unc","rep":5,"period":2,"DA":56.26477541371159,"MAPE":3.3084074597567263,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.706855791962175,"strategyReturn":0.6469753776367067,"buyHoldReturn":0.01681689777983264,"bestEpoch":5,"n":423,"sec":383.902},{"variant":"unc","rep":5,"period":3,"DA":49.8812351543943,"MAPE":3.4089099173839297,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.0831353919239905,"strategyReturn":0.03116831823197619,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":491.11},{"variant":"unc","rep":5,"period":4,"DA":45.84450402144772,"MAPE":5.580179634666611,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.0938337801608579,"strategyReturn":-0.46239926797233644,"buyHoldReturn":0.7134485618284565,"bestEpoch":21,"n":373,"sec":910.771},{"variant":"unc","rep":6,"period":0,"DA":52.95508274231678,"MAPE":2.46861128913155,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9739952718676123,"strategyReturn":0.07705838274512522,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":118.053},{"variant":"unc","rep":6,"period":1,"DA":53.191489361702125,"MAPE":3.723913190467015,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.3049645390070922,"strategyReturn":1.1424332768072332,"buyHoldReturn":0.5947846470771552,"bestEpoch":34,"n":423,"sec":472.234},{"variant":"unc","rep":6,"period":2,"DA":53.664302600472816,"MAPE":3.3257284536464247,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5910165484633569,"strategyReturn":0.29474834504155467,"buyHoldReturn":0.01681689777983264,"bestEpoch":5,"n":423,"sec":378.677},{"variant":"unc","rep":6,"period":3,"DA":55.10688836104512,"MAPE":3.3772962043682386,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.21140142517814728,"strategyReturn":0.5712776115382092,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":484.142},{"variant":"unc","rep":6,"period":4,"DA":45.57640750670242,"MAPE":6.080830258877338,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.09651474530831099,"strategyReturn":-0.47137932682772576,"buyHoldReturn":0.7134485618284565,"bestEpoch":23,"n":373,"sec":914.846},{"variant":"unc","rep":7,"period":0,"DA":53.191489361702125,"MAPE":2.4712186683499495,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":0.9479905437352246,"strategyReturn":0.13294470268345315,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":114.719},{"variant":"unc","rep":7,"period":1,"DA":55.55555555555556,"MAPE":3.9579810751589015,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.3144208037825059,"strategyReturn":0.19279720659869737,"buyHoldReturn":0.5947846470771552,"bestEpoch":43,"n":423,"sec":506.44},{"variant":"unc","rep":7,"period":2,"DA":50.59101654846335,"MAPE":3.3055697488729114,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5224586288416075,"strategyReturn":-0.21131048766817573,"buyHoldReturn":0.01681689777983264,"bestEpoch":23,"n":423,"sec":549.21},{"variant":"unc","rep":7,"period":3,"DA":53.44418052256532,"MAPE":3.3937962001891315,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.22327790973871733,"strategyReturn":0.40115091780274525,"buyHoldReturn":0.43134652163181997,"bestEpoch":4,"n":421,"sec":460.659},{"variant":"unc","rep":7,"period":4,"DA":46.38069705093834,"MAPE":6.615135760062802,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.12064343163538874,"strategyReturn":-0.43816688375068025,"buyHoldReturn":0.7134485618284565,"bestEpoch":24,"n":373,"sec":906.888},{"variant":"unc","rep":8,"period":0,"DA":50.82742316784869,"MAPE":2.4712303011547374,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":114.893},{"variant":"unc","rep":8,"period":1,"DA":51.30023640661938,"MAPE":5.30586553904503,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.1867612293144208,"strategyReturn":0.4232543807181517,"buyHoldReturn":0.5947846470771552,"bestEpoch":28,"n":423,"sec":405.749},{"variant":"unc","rep":8,"period":2,"DA":52.24586288416076,"MAPE":3.307547642947368,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5626477541371159,"strategyReturn":0.15915458847556607,"buyHoldReturn":0.01681689777983264,"bestEpoch":27,"n":423,"sec":582.027},{"variant":"unc","rep":8,"period":3,"DA":46.318289786223275,"MAPE":3.410804285467331,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.019002375296912115,"strategyReturn":-0.29287832067086406,"buyHoldReturn":0.43134652163181997,"bestEpoch":6,"n":421,"sec":479.475},{"variant":"unc","rep":8,"period":4,"DA":56.56836461126006,"MAPE":5.201104114292781,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.4745308310991957,"strategyReturn":0.3741408148970915,"buyHoldReturn":0.7134485618284565,"bestEpoch":22,"n":373,"sec":850.502},{"variant":"unc","rep":9,"period":0,"DA":50.82742316784869,"MAPE":2.4766577418464903,"naiveMAPE":2.4717157716629257,"alwaysUpDA":50.82742316784869,"upShare":1,"strategyReturn":-0.09939860483426444,"buyHoldReturn":-0.09939860483426444,"bestEpoch":1,"n":423,"sec":104.902},{"variant":"unc","rep":9,"period":1,"DA":51.77304964539007,"MAPE":6.663646304458252,"naiveMAPE":3.3959633078085214,"alwaysUpDA":56.50118203309693,"upShare":0.20094562647754138,"strategyReturn":0.40290470385665156,"buyHoldReturn":0.5947846470771552,"bestEpoch":47,"n":423,"sec":509.267},{"variant":"unc","rep":9,"period":2,"DA":56.02836879432624,"MAPE":3.303888175947018,"naiveMAPE":3.3309195796258977,"alwaysUpDA":50.11820330969267,"upShare":0.5484633569739953,"strategyReturn":0.49423828006331294,"buyHoldReturn":0.01681689777983264,"bestEpoch":5,"n":423,"sec":338.452},{"variant":"unc","rep":9,"period":3,"DA":54.156769596199524,"MAPE":3.3696293637907884,"naiveMAPE":3.408705822134704,"alwaysUpDA":55.58194774346793,"upShare":0.1828978622327791,"strategyReturn":0.35063258168933986,"buyHoldReturn":0.43134652163181997,"bestEpoch":24,"n":421,"sec":672.862},{"variant":"unc","rep":9,"period":4,"DA":46.38069705093834,"MAPE":5.9695543079581705,"naiveMAPE":5.282061846429775,"alwaysUpDA":57.64075067024129,"upShare":0.10455764075067024,"strategyReturn":-0.45065075572995406,"buyHoldReturn":0.7134485618284565,"bestEpoch":33,"n":373,"sec":937.578}],"confirm":true,"prior":{"repeats":3,"gain":2.495086623488419},"refs":{"Baur & Lucey (2010)":{"cite":"Baur, D. G., & Lucey, B. M. (2010). Is gold a hedge or a safe haven? An analysis of stocks, bonds and gold. Financial Review, 45(2), 217–229.","url":"https://www.tcd.ie/triss/assets/PDFs/iiis/iiisdp198.pdf"},"Sari, Hammoudeh & Soytas (2010)":{"cite":"Sari, R., Hammoudeh, S., & Soytas, U. (2010). Dynamics of oil price, precious metal prices, and exchange rate. Energy Economics, 32(2), 351–362.","url":"https://open.metu.edu.tr/handle/11511/36543"},"Batten, Ciner & Lucey (2010)":{"cite":"Batten, J. A., Ciner, C., & Lucey, B. M. (2010). The macroeconomic determinants of volatility in precious metals markets. Resources Policy, 35(2), 65–71.","url":"https://researchers.mq.edu.au/en/publications/the-macroeconomic-determinants-of-volatility-in-precious-metals-m/"},"Pierdzioch, Risse & Rohloff (2016)":{"cite":"Pierdzioch, C., Risse, M., & Rohloff, S. (2016). A boosting approach to forecasting gold and silver returns: economic and statistical forecast evaluation. Applied Economics Letters, 23(5), 347–352.","url":"https://ideas.repec.org/a/taf/apeclt/v23y2016i5p347-352.html"},"Pierdzioch & Risse (2020)":{"cite":"Pierdzioch, C., & Risse, M. (2020). Forecasting precious metal returns with multivariate random forests. Empirical Economics, 58(3), 1167–1184.","url":"https://authors.repec.org/pro/pri316"},"CBOE 貴金屬波動率指數文獻":{"cite":"以 GVZ 與 VXSLV 解釋中國白銀期貨波動率的研究（E3S Web of Conferences, 253, 02023, 2021）。白銀波動率指數 VXSLV 已停止發布，改用黃金的 GVZ。","url":"https://www.e3s-conferences.org/10.1051/e3sconf/202125302023"},"Corsi (2009) HAR":{"cite":"Corsi, F. (2009). A simple approximate long-memory model of realized volatility. Journal of Financial Econometrics, 7(2), 174–196.","url":null},"Moskowitz, Ooi & Pedersen (2012)":{"cite":"Moskowitz, T. J., Ooi, Y. H., & Pedersen, L. H. (2012). Time series momentum. Journal of Financial Economics, 104(2), 228–250.","url":null},"Baker, Bloom & Davis (2016)":{"cite":"Baker, S. R., Bloom, N., & Davis, S. J. (2016). Measuring economic policy uncertainty. Quarterly Journal of Economics, 131(4), 1593–1636.","url":"https://www.policyuncertainty.com/"},"Caldara & Iacoviello (2022)":{"cite":"Caldara, D., & Iacoviello, M. (2022). Measuring geopolitical risk. American Economic Review, 112(4), 1194–1225.","url":"https://www.matteoiacoviello.com/gpr.htm"},"Baur & Smales (2020)":{"cite":"Baur, D. G., & Smales, L. A. (2020). Hedging geopolitical risk with precious metals. Journal of Banking & Finance, 117, 105823.（只有黃金與白銀在極端地緣政治風險下持續具備避險性；對「威脅」的反應大於對「實際事件」）","url":"https://ideas.repec.org/a/eee/jbfina/v117y2020ics037842662030090x.html"},"Goyal & Welch (2008)":{"cite":"Goyal, A., & Welch, I. (2008). A comprehensive look at the empirical performance of equity premium prediction. Review of Financial Studies, 21(4), 1455–1508.（違約利差是經典的報酬預測變數之一）","url":null},"Kliesen, Owyang & Vermann (2012)":{"cite":"Kliesen, K. L., Owyang, M. T., & Vermann, E. K. (2012). Disentangling diverse measures: A survey of financial stress indexes. Federal Reserve Bank of St. Louis Review, 94(5), 369–397.","url":"https://fred.stlouisfed.org/series/STLFSI4"},"Adeosun 等 (2023)":{"cite":"Adeosun 等 (2023). EPU、GPR 與貴金屬的報酬與波動傳遞（Studies in Economics and Finance；Journal of Economic Studies）。發現貴金屬對 EPU 的反應因市場狀態而異，白銀的反應最弱。","url":"https://ideas.repec.org/a/eme/jespps/jes-11-2021-0558.html"}},"why":{"spxRet":"股市的風險偏好。黃金在股災時是避險資產，白銀同時有工業金屬的一面，和股市的關係可能隨景氣改變。","platRet":"貴金屬之間有強烈的短期回饋：一個金屬的衝擊會暫時傳到其他金屬。","pallRet":"同上；鈀金和白銀一樣有大量工業（汽車觸媒）需求。","termSpread":"長短期利差反映景氣循環預期，是預測資產報酬的經典總體變數之一。","breakeven5y":"名目殖利率減實質殖利率＝市場的通膨預期。該文發現貨幣變數對黃金有解釋力、對白銀較弱，正好可以檢驗。","gvz":"選擇權隱含的貴金屬波動預期，反映市場的避險需求與不確定性。","eurusdRet":"美元以外的主要匯率；文獻發現匯率衝擊會短暫傳到貴金屬。","usdcnyRet":"中國是白銀最大的工業需求國，人民幣走勢反映當地購買力。","usdinrRet":"印度是白銀最大的實物（首飾、投資）需求國。","rv5":"白銀近一週的實際波動。HAR 模型用日、週、月三種尺度的過去波動預測未來波動。","rv22":"白銀近一個月的實際波動（HAR 的月尺度）。","tsMom63":"時間序列動能：過去 3 個月漲的商品期貨，接下來傾向繼續漲；文獻樣本包含白銀。","tsMom252":"時間序列動能的 12 個月版本，是該文主要的訊號。","epu":"依美國報紙報導計算的經濟政策不確定性（每日）。取最近 7 天的對數平均，並延後 1 天使用（當天新聞收盤後才完整）。","gpr":"依報紙報導計算的地緣政治風險（每日）。處理方式同 EPU。","gprThreat":"GPR 中「威脅」的部分（戰爭威脅、軍事集結等），文獻發現貴金屬對威脅的反應大於實際事件。","creditSpread":"Moody's Baa 公司債殖利率減 10 年期公債，反映違約風險與景氣恐慌。延後 1 天使用。","finStress":"聖路易聯準會以 18 個金融市場指標合成的壓力指數（每週）。週五為基準日、下週四公布，延後 7 天使用。"},"notAdded":[{"name":"期貨期限結構（近遠月價差、展期報酬）","ref":"Gorton & Rouwenhorst (2006)；Szymanowska et al. (2014)","why":"Yahoo 只有連續近月合約，沒有歷史的次月合約"},{"name":"高收益債利差（ICE BofA OAS）","ref":"Pierdzioch 等人的金銀報酬預測研究","why":"FRED 只提供最近 3 年，改用 Baa − 10Y 信用利差"},{"name":"ETF 持有量 / 資金流","ref":"貴金屬 ETF 文獻","why":"沒有免費的每日歷史資料（目前只用 SLV 每股含銀量當代理）"}]}</script>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.24.1/plotly.min.js" crossorigin="anonymous"></script>
+<script>
+(() => {
+  const R = JSON.parse(document.getElementById('data').textContent);
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fx = (v, d = 1) => Number.isFinite(v) ? v.toFixed(d) : '—';
+  const sgn = (v, d = 1) => Number.isFinite(v) ? (v >= 0 ? '+' : '') + v.toFixed(d) : '—';
+  const css = getComputedStyle(document.documentElement);
+  const tok = (n) => css.getPropertyValue(n).trim();
+  const S = R.summary, P = R.periods, U = R.setup;
+  const COLORS = Object.fromEntries(S.map((s, i) => [s.key, ['--s1', '--s2', '--s3'][i % 3]]));
+  const majority = (pi) => { const up = S[0].perPeriod[pi].alwaysUpDA; return Math.max(up, 100 - up); };
+  const runs = R.runs.filter(r => !r.error);
+  const nLit = R.literature.filter(l => l.used).length;
+
+  $('sub').innerHTML = '同樣的資料、模型（' + esc(U.algorithm) + '）與訓練目標（對數報酬率 + Huber），只換輸入變數。' + esc(R.dataRange.from) + ' ~ ' + esc(R.dataRange.to) +
+    '，預測 ' + U.horizon + ' 個交易日後的漲跌，' + P.length + ' 個評估期間 × 每組重訓 ' + U.repeats + ' 次，共 ' + R.runs.length + ' 次訓練。';
+
+  // ── 結論（由數據計算）──
+  const seedRange = (k, pi) => { const d = runs.filter(r => r.variant === k && r.period === pi).map(r => r.DA); return d.length > 1 ? Math.max(...d) - Math.min(...d) : 0; };
+  const seedRanges = S.flatMap(s => P.map((_, pi) => seedRange(s.key, pi)));
+  const avgSeed = seedRanges.reduce((a, b) => a + b, 0) / seedRanges.length;
+  const b = S[0], others = S.slice(1);
+  const cmp = others.map(o => {
+    const gain = o.avgDA - b.avgDA;
+    const wins = P.filter((_, i) => o.perPeriod[i].DA > b.perPeriod[i].DA).length;
+    return { o, gain, wins, meaningful: Math.abs(gain) > avgSeed / 2 && wins >= Math.ceil(P.length * 0.8) };
+  });
+  const helped = cmp.filter(c => c.meaningful && c.gain > 0);
+  const best = [...S].sort((x, y) => y.avgEdge - x.avgEdge)[0];
+  const usable = helped.filter(c => c.o.avgEdge > 0);
+  const head = usable.length ? '「' + usable.map(c => c.o.name).join('、') + '」有幫助，而且贏過簡單基準'
+    : helped.length ? '「' + helped.map(c => c.o.name).join('、') + '」比原有變數好，但仍輸給「一直猜多數方向」，還不能用'
+    : '加入新變數沒有帶來可靠的改善';
+  $('verdict').innerHTML =
+    '<p><strong>結論：' + head + '。</strong>原有變數平均方向準確率 <span class="num">' + fx(b.avgDA) + '%</span>；' +
+    cmp.map(c => esc(c.o.name) + ' <span class="num">' + fx(c.o.avgDA) + '%</span>（' + sgn(c.gain) + ' 點，' + P.length + ' 個期間中 ' + c.wins + ' 個變好）').join('；') +
+    '。同一組變數只是重訓，平均就會相差 <span class="num">' + fx(avgSeed) + '</span> 點。</p>' +
+    '<p>' + (S.some(s => s.avgEdge > 0) ? '只有「' + esc(best.name) + '」平均高於多數方向基準（' + sgn(best.avgEdge) + ' 點）。' : '三組變數平均都<strong>沒有</strong>贏過「一直猜多數方向」的基準（' + S.map(s => esc(s.name) + ' ' + sgn(s.avgEdge) + ' 點').join('、') + '）。') +
+    '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
+
+  // ── 統計檢定（確認實驗）──
+  // 置換檢定：在每個期間內把兩組的訓練結果打散重新分組，看「平均差距」有多常大於實際觀察到的差距。
+  // 拔靴法信賴區間：在每個期間內對訓練結果重抽樣。兩者都只反映「重訓的隨機性」，
+  // 測試期間本身是固定的，所以不能推論到未來的市場。
+  let rngState = 20261017;
+  const rnd = () => { rngState = (rngState * 1664525 + 1013904223) >>> 0; return rngState / 4294967296; };
+  const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const runsOf = (k, pi) => runs.filter(r => r.variant === k && r.period === pi).map(r => r.DA);
+  const stat = R.confirm ? (() => {
+    const B = 4000, o = S[1];
+    const per = P.map((_, pi) => {
+      const a = runsOf(o.key, pi), c = runsOf(b.key, pi);
+      const obs = mean(a) - mean(c);
+      const pool = [...a, ...c];
+      let ext = 0;
+      for (let t = 0; t < B; t++) {
+        const sh = [...pool];
+        for (let i = sh.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [sh[i], sh[j]] = [sh[j], sh[i]]; }
+        if (Math.abs(mean(sh.slice(0, a.length)) - mean(sh.slice(a.length))) >= Math.abs(obs) - 1e-12) ext++;
+      }
+      const bs = [];
+      for (let t = 0; t < B; t++) {
+        const ra = a.map(() => a[Math.floor(rnd() * a.length)]), rc = c.map(() => c[Math.floor(rnd() * c.length)]);
+        bs.push(mean(ra) - mean(rc));
+      }
+      bs.sort((x, y) => x - y);
+      return { pi, nA: a.length, nC: c.length, obs, p: (ext + 1) / (B + 1), lo: bs[Math.floor(B * 0.025)], hi: bs[Math.floor(B * 0.975)] };
+    });
+    // 整體：五個期間平均差距的拔靴區間，以及與多數方向基準的差距
+    const all = [], edge = [];
+    for (let t = 0; t < B; t++) {
+      let g = 0, e = 0;
+      P.forEach((_, pi) => {
+        const a = runsOf(o.key, pi), c = runsOf(b.key, pi);
+        const ma = mean(a.map(() => a[Math.floor(rnd() * a.length)])), mc = mean(c.map(() => c[Math.floor(rnd() * c.length)]));
+        g += ma - mc; e += ma - majority(pi);
+      });
+      all.push(g / P.length); edge.push(e / P.length);
+    }
+    all.sort((x, y) => x - y); edge.sort((x, y) => x - y);
+    let ext = 0; const obsAll = mean(per.map(x => x.obs));
+    for (let t = 0; t < B; t++) {
+      let g = 0;
+      P.forEach((_, pi) => {
+        const a = runsOf(o.key, pi), c = runsOf(b.key, pi), pool = [...a, ...c];
+        for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+        g += mean(pool.slice(0, a.length)) - mean(pool.slice(a.length));
+      });
+      if (Math.abs(g / P.length) >= Math.abs(obsAll) - 1e-12) ext++;
+    }
+    return { o, per, obsAll, pAll: (ext + 1) / (B + 1), lo: all[Math.floor(B * 0.025)], hi: all[Math.floor(B * 0.975)],
+      edge: o.avgEdge, edgeLo: edge[Math.floor(B * 0.025)], edgeHi: edge[Math.floor(B * 0.975)] };
+  })() : null;
+  if (stat) {
+    $('statSec').hidden = false;
+    const pf = (p) => p < 0.001 ? '< 0.001' : p.toFixed(3);
+    $('statTable').innerHTML = '<thead><tr><th>期間</th><th class="n">各組次數</th><th class="n">差距（' + esc(stat.o.name) + ' − ' + esc(b.name) + '）</th><th class="n">95% 信賴區間</th><th class="n">p 值（置換檢定）</th></tr></thead><tbody>' +
+      stat.per.map(x => '<tr><td>' + esc(P[x.pi].label) + ' <span class="muted num">' + esc(P[x.pi].from) + ' ~ ' + esc(P[x.pi].to) + '</span></td><td class="n">' + x.nA + ' / ' + x.nC + '</td><td class="n ' + (x.lo > 0 ? 'good' : x.hi < 0 ? 'bad' : '') + '">' + sgn(x.obs) + ' 點</td><td class="n">' + sgn(x.lo) + ' ~ ' + sgn(x.hi) + '</td><td class="n">' + pf(x.p) + '</td></tr>').join('') +
+      '<tr><td><strong>五個期間平均</strong></td><td class="n">—</td><td class="n ' + (stat.lo > 0 ? 'good' : stat.hi < 0 ? 'bad' : '') + '"><strong>' + sgn(stat.obsAll) + ' 點</strong></td><td class="n">' + sgn(stat.lo) + ' ~ ' + sgn(stat.hi) + '</td><td class="n">' + pf(stat.pAll) + '</td></tr>' +
+      '<tr><td>' + esc(stat.o.name) + ' 比「一直猜多數方向」</td><td class="n">—</td><td class="n ' + (stat.edgeLo > 0 ? 'good' : stat.edgeHi < 0 ? 'bad' : '') + '">' + sgn(stat.edge) + ' 點</td><td class="n">' + sgn(stat.edgeLo) + ' ~ ' + sgn(stat.edgeHi) + '</td><td class="n">—</td></tr></tbody>';
+    $('statNote').textContent = '綠色 = 信賴區間整個大於 0，紅色 = 整個小於 0。p 值是在同一期間內把兩組結果隨機重新分組（' + 4000 + ' 次），差距至少一樣大的比例。這些檢定只反映「重訓的隨機性」：測試期間是固定的歷史，所以即使顯著，也只代表在這 5 段歷史上的改善不是運氣，不保證未來。';
+    $('h1').textContent = '不確定性變數的改善是真的嗎？';
+    // 兩種檢定都要過：重訓次數少時拔靴區間偏窄，置換檢定較保守
+    const real = stat.lo > 0 && stat.pAll < 0.05, beatsBase = stat.edgeLo > 0;
+    $('verdict').innerHTML =
+      '<p><strong>結論：' + (real ? (stat.obsAll < 2 ? '方向準確率有小幅、但統計上成立的改善' : '改善是真的') : '改善無法確認') + (real ? (beatsBase ? '，而且贏過「一直猜多數方向」。' : '，但模型仍輸給「一直猜多數方向」，還不能用。') : '。') + '</strong>' +
+      '每期重訓 ' + U.repeats + ' 次後，' + esc(stat.o.name) + ' 比' + esc(b.name) + '平均 <span class="num">' + sgn(stat.obsAll) + '</span> 點（95% 信賴區間 ' + sgn(stat.lo) + ' ~ ' + sgn(stat.hi) + '，p = ' + pf(stat.pAll) + '），' +
+      P.length + ' 個期間中有 ' + cmp[0].wins + ' 個變好。</p>' +
+      '<p>' + esc(stat.o.name) + ' 平均方向準確率 <span class="num">' + fx(stat.o.avgDA) + '%</span>，比「一直猜多數方向」' + sgn(stat.edge) + ' 點（' + sgn(stat.edgeLo) + ' ~ ' + sgn(stat.edgeHi) + '）。' +
+      '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
+    const recs2 = [];
+    if (real && beatsBase) recs2.push('<strong>採用「' + esc(stat.o.name) + '」重訓主模型。</strong>改善超出重訓雜訊，平均也贏過簡單基準。下一步以這組變數做超參數搜尋與完整的 walk-forward 回測（含交易成本）。');
+    else if (real) {
+      const mapeWorse = stat.o.avgMAPE > b.avgMAPE;
+      recs2.push('<strong>保留不確定性變數，但不要拿這個模型交易。</strong>它的方向準確率比原有變數高 ' + sgn(stat.obsAll) + ' 點，統計上成立' +
+        (mapeWorse ? '；但價格誤差反而從 ' + fx(b.avgMAPE, 2) + '% 升到 ' + fx(stat.o.avgMAPE, 2) + '%' : '') +
+        '。平均仍比「一直猜多數方向」低 ' + fx(-stat.edge) + ' 點，代表它只是把原本的錯誤減少一點，還沒有產生可用的預測力。');
+      if (R.prior && R.prior.gain > stat.obsAll) recs2.push('<strong>多次重訓讓估計縮水：</strong>每期 ' + R.prior.repeats + ' 次時差距是 ' + sgn(R.prior.gain) + ' 點，' + U.repeats + ' 次後只剩 ' + sgn(stat.obsAll) + ' 點，且只有 ' + stat.per.filter(x => x.lo > 0 && x.p < 0.05).length + ' 個期間單獨顯著。少量重訓的結果容易高估效果。');
+    }
+    else recs2.push('<strong>上一輪的 +2.5 點很可能是重訓的運氣。</strong>多次重訓後差距落在雜訊範圍內，不確定性變數對 5 日方向沒有可靠的幫助。');
+    recs2.push('<strong>剩下值得試的方向：</strong>把目標改成預測波動率（HAR 類模型與不確定性指數在文獻中對波動有穩定的預測力），或取得期貨期限結構資料。');
+    $('recs').innerHTML = recs2.map(r => '<li>' + r + '</li>').join('');
+  }
+
+  // ── 文獻變數表 ──
+  const L = [...R.literature].sort((x, y) => (y.batch || 1) - (x.batch || 1));
+  const n2 = L.filter(l => l.batch === 2 && l.used).length, n1 = L.filter(l => (l.batch || 1) === 1 && l.used).length;
+  $('litNote').textContent = '都是原本模型沒有的變數。這次新增的是前 ' + L.filter(l => l.batch === 2).length + ' 個不確定性與信用風險變數（實際使用 ' + n2 + ' 個）；其餘 ' + n1 + ' 個是上一輪加入的第一批。價格類一律轉成日對數報酬率。';
+  $('litTable').innerHTML = '<thead><tr><th>變數</th><th>類別</th><th>代表什麼</th><th>文獻依據</th><th>本次</th></tr></thead><tbody>' +
+    L.map(l => '<tr><td>' + (l.batch === 2 ? '<span class="pill">新</span> ' : '') + esc(l.name) + '</td><td>' + esc(l.group) + '</td><td class="wrap">' + esc(R.why[l.key] || '') + '</td><td class="wrap">' + esc(l.ref) + '</td><td>' +
+      (l.used ? '<span class="pill">使用</span>' : '<span class="pill off" title="' + esc(l.excluded || '') + '">未使用</span>') + '</td></tr>').join('') + '</tbody>';
+
+  // ── 總表 ──
+  const sw = (k) => '<span class="sw" style="background:var(' + COLORS[k] + ')"></span>';
+  $('sumTable').innerHTML = '<thead><tr><th>輸入變數</th><th class="n">變數數</th><th class="n">平均方向準確率</th><th class="n">比多數方向</th><th class="n">勝過多數方向</th><th class="n">價格誤差</th><th class="n">不變基準</th><th class="n">平均猜漲比例</th><th class="n">策略報酬（平均）</th></tr></thead><tbody>' +
+    S.map(s => '<tr><td>' + sw(s.key) + esc(s.name) + '</td><td class="n">' + s.features.length + '</td><td class="n">' + fx(s.avgDA) + '%</td><td class="n ' + (s.avgEdge > 0 ? 'good' : 'bad') + '">' + sgn(s.avgEdge) + '</td><td class="n">' + s.periodsBeatingMajority + ' / ' + P.length + ' 期</td><td class="n ' + (s.avgMAPE < s.avgNaiveMAPE ? 'good' : 'bad') + '">' + fx(s.avgMAPE, 2) + '%</td><td class="n">' + fx(s.avgNaiveMAPE, 2) + '%</td><td class="n">' + fx(s.avgUpShare * 100, 0) + '%</td><td class="n">' + sgn(s.avgStrategy * 100) + '%</td></tr>').join('') + '</tbody>';
+
+  // ── 圖表共用 ──
+  const font = { family: tok('--font-body'), size: 12, color: tok('--ink-2') };
+  const axis = (extra = {}) => ({ gridcolor: tok('--grid'), zeroline: false, linecolor: tok('--edge'), tickfont: { family: tok('--font-mono'), size: 11, color: tok('--ink-3') }, ...extra });
+  const layout = (extra = {}) => ({ paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', font, showlegend: false,
+    margin: { l: 52, r: 12, t: 8, b: 56 }, hoverlabel: { bgcolor: tok('--surface'), bordercolor: tok('--edge'), font: { family: tok('--font-mono'), color: tok('--ink') } },
+    xaxis: axis(), yaxis: axis(), ...extra });
+  const cfg = { displayModeBar: false, responsive: true };
+  const draw = (id, d, l) => window.Plotly ? Plotly.newPlot(id, d, l, cfg) : ($(id).innerHTML = '<p class="muted" style="padding:24px">圖表函式庫載入失敗（需連線到 cdn.jsdelivr.net）。</p>');
+  const pLabel = (p) => p.label + '<br>' + p.from.slice(0, 7) + '~' + p.to.slice(0, 7);
+
+  // ── 各期間散點 ──
+  $('dotLegend').innerHTML = S.map(s => '<span class="key"><i style="background:var(' + COLORS[s.key] + ')"></i>' + esc(s.name) + '</span>').join('') +
+    '<span class="key"><i class="line"></i>多數方向基準</span>';
+  const off = Object.fromEntries(S.map((s, i) => [s.key, (i - (S.length - 1) / 2) * 0.2]));
+  const traces = [];
+  S.forEach(s => {
+    const c = tok(COLORS[s.key]);
+    const rs = runs.filter(r => r.variant === s.key);
+    traces.push({ x: rs.map(r => r.period + off[s.key] + (r.rep - 1) * 0.05), y: rs.map(r => r.DA), type: 'scatter', mode: 'markers',
+      marker: { size: 7, color: c, opacity: 0.45 }, hovertemplate: esc(s.name) + ' 單次：%{y:.1f}%<extra></extra>' });
+    traces.push({ x: P.map((_, i) => i + off[s.key]), y: s.perPeriod.map(p => p.DA), type: 'scatter', mode: 'markers',
+      marker: { size: 13, color: c, line: { color: tok('--surface'), width: 2 } }, hovertemplate: esc(s.name) + ' 平均：%{y:.1f}%<extra></extra>' });
+  });
+  P.forEach((_, i) => traces.push({ x: [i - 0.38, i + 0.38], y: [majority(i), majority(i)], type: 'scatter', mode: 'lines',
+    line: { color: tok('--base'), width: 2, dash: 'dash' }, hovertemplate: '多數方向基準：%{y:.1f}%<extra></extra>' }));
+  draw('dotChart', traces, layout({
+    hovermode: 'closest',
+    xaxis: axis({ tickvals: P.map((_, i) => i), ticktext: P.map(pLabel), range: [-0.6, P.length - 0.4] }),
+    yaxis: axis({ title: { text: '方向準確率 (%)', font: { size: 11, color: tok('--ink-3') } }, ticksuffix: '%' }),
+    shapes: [{ type: 'line', xref: 'paper', x0: 0, x1: 1, y0: 50, y1: 50, line: { color: tok('--ink-3'), width: 1, dash: 'dot' } }],
+  }));
+
+  // ── 雜訊對比 ──
+  const featSpread = P.map((_, i) => { const d = S.map(s => s.perPeriod[i].DA); return Math.max(...d) - Math.min(...d); });
+  const seedSpread = P.map((_, i) => Math.max(...S.map(s => seedRange(s.key, i))));
+  draw('noiseChart', [
+    { x: P.map(pLabel), y: featSpread, type: 'bar', marker: { color: tok('--s1') }, hovertemplate: '換變數：%{y:.1f} 點<extra></extra>' },
+    { x: P.map(pLabel), y: seedSpread, type: 'bar', marker: { color: tok('--s2') }, hovertemplate: '重訓：%{y:.1f} 點<extra></extra>' },
+  ], layout({ barmode: 'group', bargap: 0.3, bargroupgap: 0.08, hovermode: 'x unified', yaxis: axis({ title: { text: '百分點', font: { size: 11, color: tok('--ink-3') } } }) }));
+  const bigger = featSpread.filter((v, i) => seedSpread[i] > v).length;
+  $('noiseNote').textContent = P.length + ' 個期間中有 ' + bigger + ' 個，重訓的差距大於換變數的差距。';
+
+  // ── 價格誤差 ──
+  const mt = S.map(s => ({ x: P.map(pLabel), y: s.perPeriod.map(p => p.MAPE), type: 'scatter', mode: 'lines+markers',
+    line: { color: tok(COLORS[s.key]), width: 2 }, marker: { size: 7, color: tok(COLORS[s.key]) }, hovertemplate: esc(s.name) + '：%{y:.2f}%<extra></extra>' }));
+  mt.push({ x: P.map(pLabel), y: S[0].perPeriod.map(p => p.naiveMAPE), type: 'scatter', mode: 'lines', line: { color: tok('--base'), width: 2, dash: 'dash' }, hovertemplate: '不變基準：%{y:.2f}%<extra></extra>' });
+  draw('mapeChart', mt, layout({ hovermode: 'x unified', yaxis: axis({ ticksuffix: '%', title: { text: 'MAPE', font: { size: 11, color: tok('--ink-3') } } }) }));
+  const beatNaive = S.map(s => s.perPeriod.filter(p => p.MAPE < p.naiveMAPE).length);
+  $('mapeNote').textContent = '虛線是「' + U.horizon + ' 天後 = 今天」。各組低於虛線的期間數：' + S.map((s, i) => s.name + ' ' + beatNaive[i] + '/' + P.length).join('、') + '。';
+
+  // ── 各期間明細 ──
+  $('perTable').innerHTML = '<thead><tr><th>期間</th><th class="n">多數方向基準</th>' + S.map(s => '<th class="n">' + esc(s.name) + '（平均 ± 標準差）</th>').join('') + '<th class="n">不變基準 MAPE</th></tr></thead><tbody>' +
+    P.map((p, i) => '<tr><td>' + esc(p.label) + ' <span class="muted num">' + esc(p.from) + ' ~ ' + esc(p.to) + '</span></td><td class="n">' + fx(majority(i)) + '%</td>' +
+      S.map(s => { const pp = s.perPeriod[i]; return '<td class="n ' + (pp.DA > majority(i) ? 'good' : '') + '">' + fx(pp.DA) + '% ± ' + fx(pp.DAsd) + '<br><span class="muted">MAPE ' + fx(pp.MAPE, 2) + '%　猜漲 ' + fx(pp.upShare * 100, 0) + '%</span></td>'; }).join('') +
+      '<td class="n">' + fx(S[0].perPeriod[i].naiveMAPE, 2) + '%</td></tr>').join('') + '</tbody>';
+
+  // ── 抓不到的變數 ──
+  $('naTable').innerHTML = '<thead><tr><th>變數</th><th>文獻</th><th>原因</th></tr></thead><tbody>' +
+    R.notAdded.map(n => '<tr><td>' + esc(n.name) + '</td><td class="wrap">' + esc(n.ref) + '</td><td class="wrap">' + esc(n.why) + '</td></tr>').join('') + '</tbody>';
+
+  // ── 建議（依結果；確認實驗的建議在統計檢定段落）──
+  const recs = [];
+  if (usable.length) recs.push('<strong>採用「' + esc(usable[0].o.name) + '」。</strong>它在多數期間都比原有變數好，幅度超過重訓雜訊，平均也贏過多數方向基準。');
+  else if (helped.length) recs.push('<strong>保留「' + esc(helped[0].o.name) + '」，但模型仍不能用來交易。</strong>它在 ' + helped[0].wins + '/' + P.length + ' 個期間比原有變數好（平均 ' + sgn(helped[0].gain) + ' 點），價格誤差也較低，是目前最好的一組；但平均仍比「一直猜多數方向」低 ' + fx(-helped[0].o.avgEdge) + ' 點。改善幅度和重訓雜訊（約 ' + fx(avgSeed) + ' 點）同一量級，需要更多次重訓或更長的資料才能確認。加入第一批變數反而把效果稀釋掉，表示變數多不等於好。');
+  if (!helped.length) recs.push('<strong>這些變數也不足以讓模型可用。</strong>差距在重訓雜訊範圍內。不確定性與信用風險指標在文獻中描述的多半是「同期」的避險關係，或因市場狀態而異的反應；它們能解釋白銀「為什麼漲」，卻不能事先預測接下來 5 天的方向。');
+  if (R.literature.some(l => l.batch === 2 && !l.used)) recs.push('<strong>未使用的變數：</strong>' + R.literature.filter(l => l.batch === 2 && !l.used).map(l => esc(l.name) + '（' + esc(l.excluded || '') + '）').join('、') + '。');
+  recs.push('<strong>剩下值得試的方向：</strong>期貨期限結構（展期報酬）需要付費資料；或把目標改成預測波動率——HAR 類模型與不確定性指數在文獻中對「波動」有穩定的預測力，對「方向」則沒有。');
+  recs.push('<strong>評估一律看多個期間、多次重訓。</strong>單一期間、單次訓練的成績差距可以超過 10 個百分點。');
+  if (!stat) $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
+
+  // ── 設定 ──
+  const dl = (pairs) => pairs.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
+  $('setup').innerHTML = dl([
+    ['資料', esc(R.dataRange.from) + ' ~ ' + esc(R.dataRange.to) + '（' + R.dataRange.days + ' 個交易日）'],
+    ['模型', esc(U.algorithm) + '，回看 ' + U.lookback + ' 天，' + U.layers + ' 個單元'],
+    ['訓練目標', U.horizon + ' 日對數報酬率 + Huber loss'],
+    ['評估', P.length - 1 + ' 段 walk-forward + 最終測試段，每段之前的資料訓練、驗證段早停'],
+    ['重複', '每組變數每個期間重訓 ' + U.repeats + ' 次'],
+    ['排除', R.excludedFactors.length ? R.excludedFactors.map(e => esc(e.key) + '（' + esc(e.reason) + '）').join('；') : '無'],
+    ['耗時', fx(R.durationSec / 60, 0) + ' 分鐘（4 核心平行）'],
+  ]);
+  $('variants').innerHTML = dl(S.map(s => [sw(s.key) + esc(s.name), esc(s.desc) + '（' + s.features.length + ' 個）']));
+
+  // ── 參考文獻 ──
+  $('refs').innerHTML = Object.entries(R.refs).filter(([k]) => R.literature.some(l => l.ref === k) || k.startsWith('Adeosun')).map(([, v]) => v).map(r => '<li>' + esc(r.cite) + (r.url ? ' <a href="' + esc(r.url) + '" target="_blank" rel="noopener">連結</a>' : '') + '</li>').join('') +
+    '<li>Sadorsky, P. (2021). Predicting gold and silver price direction using tree-based classifiers. Journal of Risk and Financial Management, 14(5), 198.（技術指標是最重要的預測變數，目前模型已包含 RSI、均線、MACD）</li>';
+})();
+</script>
+</body>
+</html>
