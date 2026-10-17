@@ -17,6 +17,7 @@ from pathlib import Path
 from .config import Config
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
+from .thumbs import pick as pick_thumb
 from .translate import to_traditional
 
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
@@ -136,6 +137,12 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
 .kind{display:inline-flex;gap:4px;align-items:center}.kind .ic{width:13px;height:13px}
 .card.low{background:transparent;box-shadow:none}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
+.card.has-thumb{grid-template-columns:76px minmax(0,1fr);column-gap:14px}.card.has-thumb>*{grid-column:2}
+.card.has-thumb>.thumb{grid-column:1;grid-row:1/span 4;align-self:start}
+.thumb{position:relative;width:76px;height:76px;border-radius:12px;display:grid;place-items:center;align-content:center;gap:3px;color:var(--k);background:linear-gradient(140deg,color-mix(in srgb,var(--k) 24%,var(--surface)),color-mix(in srgb,var(--k) 7%,var(--surface)));border:1px solid color-mix(in srgb,var(--k) 28%,transparent)}
+.thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
+.thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 5px;border-radius:7px;background:var(--k);color:var(--surface);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;box-shadow:0 0 0 2px var(--surface)}
+.card.low .thumb{filter:saturate(.55);opacity:.85}
 .ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .region{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
@@ -153,7 +160,7 @@ h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
 .note p{display:flex;gap:10px;align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
 footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
 .sub{font-size:.88rem;color:var(--muted)}
-@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:12px 14px}.brand .logo{width:46px;height:46px}}
+@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:12px 14px}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:12px}.thumb{width:56px;height:56px;border-radius:10px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
@@ -196,13 +203,22 @@ def _news_summary(item: dict) -> str:
     return snippet if snippet and not any(snippet in t for t in titles) else ""
 
 
+def _thumb(motif: str, caption: str, symbol: str = "") -> str:
+    """Content thumbnail: a picture of what the story is about, plus the material when named."""
+    sym = f'<span class="sym">{esc(symbol)}</span>' if symbol else ""
+    return (
+        f'<div class="thumb" role="img" aria-label="{esc(caption + (" · " + symbol if symbol else ""))}">'
+        f'{icon(motif)}<span class="cap">{esc(caption)}</span>{sym}</div>'
+    )
+
+
 def _card(kind_class: str, label: str, label_icon: str, published: str | None, title: str, summary: str,
-          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False) -> str:
-    """One card: label + date, title, summary, then source details."""
+          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "") -> str:
+    """One card: thumbnail, then label + date, title, summary and source details."""
     date = esc((published or "")[:10])
     sum_html = f'<p class="sum">{esc(summary)}</p>' if summary else ""
     return (
-        f'<article class="card {kind_class}{extra_class}"{attrs}>'
+        f'<article class="card {kind_class}{extra_class}{" has-thumb" if thumb else ""}"{attrs}>{thumb}'
         f'<div class="head"><span class="kind {kind_class}">{icon(label_icon)}{esc(label)}</span>'
         f'<time datetime="{date}">{_date(published, full=full_date)}</time></div>'
         f"<h3>{title}</h3>{sum_html}<div class=\"co\">{meta}</div></article>"
@@ -237,7 +253,7 @@ def _item_html(item: dict, extra_class: str = "") -> str:
     low = "" if kind in SIGNAL_KINDS else " low"
     attrs = f' data-kind="{kind}" data-ent="{esc("|".join(ents))}"'
     return _card(f"k-{kind}", KINDS[kind], KIND_ICONS[kind], item.get("published"), _title_link(item) + stars,
-                 _news_summary(item), _news_meta(item), attrs, low + extra_class)
+                 _news_summary(item), _news_meta(item), attrs, low + extra_class, thumb=_thumb(*pick_thumb(item)))
 
 
 def _card_html(item: dict) -> str:
@@ -268,8 +284,11 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
     attrs = ""
     if filterable:
         attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'
+    from .thumbs import material
+
+    thumb = _thumb(topic_icon(topic), "技術文獻", material(f"{p.get('title', '')} {p.get('title_zh', '')}"))
     return _card("k-research", topic, topic_icon(topic), p.get("published"), _title_link(p) + stars,
-                 summary, meta, attrs, full_date=filterable)
+                 summary, meta, attrs, full_date=filterable, thumb=thumb)
 
 
 def _metals_section(metals: list[dict], kinds: Counter) -> str:
@@ -472,8 +491,10 @@ def render_page(
 ) -> str:
     library = library or []
     items = report.get("items", [])
+    role_of = {e.name: e.role for e in config.entities}
     for it in items:
         it["kind"] = item_kind(it)
+        it["roles"] = [role_of.get(e, "") for e in it.get("entities", [])]
     digest = report.get("digest") or {}
     kinds = Counter(it["kind"] for it in items)
     ent_counts = Counter(short_name(e) for it in items for e in it.get("entities", []))

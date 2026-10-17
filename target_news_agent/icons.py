@@ -35,6 +35,17 @@ ICONS = {
     "store": '<path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18M10 20v-6h4v6"/>',
     "database": '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
     "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.3-3.6 4.3-5.5 8-5.5s6.7 1.9 8 5.5"/>',
+    # news thumbnails (what the story is about)
+    "factory": '<path d="M3 21V11l5 3V11l5 3V7l4-3v17"/><path d="M17 4h3v17"/><path d="M3 21h18M7 18h2M12 18h2"/>',
+    "bars": '<path d="M3 21h18"/><rect x="5" y="12" width="3" height="7" rx=".5"/><rect x="10.5" y="8" width="3" height="11" rx=".5"/><rect x="16" y="4" width="3" height="15" rx=".5"/>',
+    "handshake": '<path d="M2 11l4-4 4 2 3-2 4 1 5 4"/><path d="M6 7l-3 7 6 6 2-1 2 1 4-4"/><path d="M9 13l3 3M11 11l3 3M13 9.5l3 3"/>',
+    "tag": '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+    "flask": '<path d="M9 3h6M10 3v6l-5.5 9.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/>',
+    "truck": '<path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3.5V16h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+    "wafer": '<circle cx="12" cy="12" r="9"/><path d="M8 4.5v15M12 3v18M16 4.5v15M4.5 8h15M3 12h18M4.5 16h15"/>',
+    "chip": '<rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+    "chamber": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M7 6h10M8 6v2h8V6"/><path d="M9 11l-1 4M12 11v4M15 11l1 4" stroke-dasharray="1.5 1.5"/><path d="M7 17h10v2H7z"/>',
+    "coin": '<ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/>',
     # research topics (manufacturing steps)
     "flame": '<path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.6 4-8.8.6 2 1.8 3.1 3 3.6.2-2.2 1.3-4.3 3-5.6.6 3.4 3 5.4 3 9.3 0 4.1-2.8 7.7-6.5 7.7z"/>',
     "droplet": '<path d="M12 3c3.5 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.5-6.4 6-11z"/>',

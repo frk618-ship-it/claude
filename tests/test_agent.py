@@ -732,7 +732,7 @@ def test_cards_show_title_and_summary():
     news = {"title": "Materion expands target plant", "title_zh": "Materion 擴建靶材廠", "link": "https://x.test/a",
             "summary": "Materion 宣布擴產。", "entities": ["Materion"], "kind": "news", "published": "2026-10-13T00:00:00+00:00"}
     card = _item_html(news)
-    assert card.startswith('<article class="card k-news"') and 'data-kind="news"' in card
+    assert card.startswith('<article class="card k-news has-thumb"') and 'data-kind="news"' in card
     assert "Materion 擴建靶材廠" in card and '<p class="sum">Materion 宣布擴產。</p>' in card
     assert 'title="原文:Materion expands target plant"' in card
 
@@ -1082,3 +1082,22 @@ def test_target_recycling_topic(config, tmp_path):
     assert "靶材回收循環" in section and "Indium recycling" in section and "光洋科擴大廢靶回收" in section
     assert "江豐電子擴產" not in section
     assert 'data-value="recycling"' in home and "k-recycling" in home
+
+
+def test_news_thumbnails_follow_the_story():
+    from target_news_agent.site import _item_html
+    from target_news_agent.thumbs import pick
+
+    base = {"title": "", "entities": [], "categories": [], "kind": "news"}
+    assert pick({**base, "title": "光洋科鉭靶擴產", "categories": ["擴產與投資"]}) == ("factory", "擴產", "Ta")
+    assert pick({**base, "title": "有研新材前三季淨利增長", "categories": ["營收與財報"]})[:2] == ("bars", "財報")
+    # A fab story without a stronger category shows a wafer; supply-chain news about a fab too.
+    assert pick({**base, "title": "TSMC qualifies supplier", "categories": ["客戶與供應鏈"], "roles": ["process"]})[0] == "wafer"
+    assert pick({**base, "title": "Evatec ships tool", "roles": ["equipment"]})[0] == "chamber"
+    assert pick({**base, "title": "日月光 CoWoS", "roles": ["packaging"]})[0] == "chip"
+    assert pick({**base, "kind": "metals", "title": "金價創新高"}) == ("coin", "貴金屬", "Au")
+    assert pick({**base, "title": "ITO target price"})[2] == "ITO"
+    assert pick(base) == ("target", "靶材", "")
+
+    card = _item_html({**base, "title": "光洋科鉭靶擴產", "categories": ["擴產與投資"], "link": "https://x"})
+    assert '<div class="thumb" role="img" aria-label="擴產 · Ta">' in card and '#i-factory' in card and '<span class="sym">Ta</span>' in card
