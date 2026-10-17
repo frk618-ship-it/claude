@@ -410,7 +410,7 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
 </script>
 <script>
 (() => {
-  // src/core.js
+  // silver_ai_trader/src/core.js
   var tf = globalThis.tf;
   if (!tf) throw new Error("core.js：載入前必須先設定 globalThis.tf");
   var VALIDATION_MODE = {
@@ -1573,7 +1573,13 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     { key: "rv5", name: "白銀已實現波動率 (5 日)", group: "波動率", needs: [], ref: "Corsi (2009) HAR" },
     { key: "rv22", name: "白銀已實現波動率 (22 日)", group: "波動率", needs: [], ref: "Corsi (2009) HAR" },
     { key: "tsMom63", name: "白銀 3 個月動能", group: "動能", needs: [], ref: "Moskowitz, Ooi & Pedersen (2012)" },
-    { key: "tsMom252", name: "白銀 12 個月動能", group: "動能", needs: [], ref: "Moskowitz, Ooi & Pedersen (2012)" }
+    { key: "tsMom252", name: "白銀 12 個月動能", group: "動能", needs: [], ref: "Moskowitz, Ooi & Pedersen (2012)" },
+    // 第二批：不確定性與信用風險（policyuncertainty.com、matteoiacoviello.com、FRED）
+    { key: "epu", name: "美國經濟政策不確定性 EPU", group: "不確定性", needs: ["EPU"], ref: "Baker, Bloom & Davis (2016)", batch: 2 },
+    { key: "gpr", name: "地緣政治風險 GPR", group: "不確定性", needs: ["GPR"], ref: "Caldara & Iacoviello (2022)", batch: 2 },
+    { key: "gprThreat", name: "地緣政治威脅 GPR Threats", group: "不確定性", needs: ["GPR"], ref: "Baur & Smales (2020)", batch: 2 },
+    { key: "creditSpread", name: "信用利差 Baa − 10Y", group: "信用風險", needs: ["BAA10Y"], ref: "Goyal & Welch (2008)", batch: 2 },
+    { key: "finStress", name: "聖路易聯準會金融壓力指數", group: "信用風險", needs: ["STLFSI4"], ref: "Kliesen, Owyang & Vermann (2012)", batch: 2 }
   ];
   var calcMaxDrawdown = (equity) => {
     let peak = equity[0] ?? 0;
@@ -1781,7 +1787,7 @@ window.LUCIDE_ICONS={"activity":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l
     return JSON.parse(i >= 0 ? text.slice(i) : text);
   };
 
-  // src/app.jsx
+  // silver_ai_trader/src/app.jsx
   var { useState, useEffect, useRef, useMemo, useCallback } = React;
   var tf2 = window.tf;
   var toReactAttrs = (attrs) => {
