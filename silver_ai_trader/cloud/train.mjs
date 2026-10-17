@@ -484,7 +484,12 @@ const featureVariants = (factors) => {
     ];
 };
 const compareLoss = (...a) => compareVariants(LOSS_VARIANTS, 'loss-compare.json', ...a);
-const compareFeatures = (raw, factors, ...a) => compareVariants(featureVariants(factors), 'feature-compare.json', raw, factors, ...a);
+// --variants base,unc 只跑指定的組別（確認實驗用），輸出到 feature-confirm.json
+const compareFeatures = (raw, factors, ...a) => {
+    const pick = arg('--variants') ? arg('--variants').split(',') : null;
+    const vs = featureVariants(factors).filter(v => !pick || pick.includes(v.key));
+    return compareVariants(vs, pick ? 'feature-confirm.json' : 'feature-compare.json', raw, factors, ...a);
+};
 const compareVariants = async (VARIANTS, outName, raw, factors, excluded, sourceStatus, source, WORKERS, dataPath) => {
     const repeats = parseInt(arg('--repeats', '3'), 10);
     const base = { ...config.params, ...(config.compare || {}) };

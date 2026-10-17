@@ -11,8 +11,14 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const fragIdx = args.indexOf('--fragment');
 const fragmentOut = fragIdx >= 0 ? args[fragIdx + 1] : null;
-const dir = path.resolve(HERE, args.find((a, i) => !a.startsWith('--') && !(fragIdx >= 0 && i === fragIdx + 1)) || 'output');
-const R = JSON.parse(readFileSync(path.join(dir, 'feature-compare.json'), 'utf8'));
+const inIdx = args.indexOf('--input');
+const INPUT = inIdx >= 0 ? args[inIdx + 1] : 'feature-compare.json';
+const OUTPUT = INPUT.replace(/\.json$/, '.html');
+const skip = new Set([fragIdx + 1, inIdx + 1].filter(i => i > 0));
+const dir = path.resolve(HERE, args.find((a, i) => !a.startsWith('--') && !skip.has(i)) || 'output');
+const R = JSON.parse(readFileSync(path.join(dir, INPUT), 'utf8'));
+// 確認實驗：只有兩組、每組重訓多次 → 加上統計檢定
+R.confirm = R.summary.length === 2;
 
 // 文獻出處與每個變數代表的經濟意義（報告用）
 R.refs = {
@@ -131,11 +137,17 @@ a { color: var(--s1); }
 <div class="page">
   <header>
     <div class="eyebrow">Silver AI Trader · 輸入變數比較實驗</div>
-    <h1>加入不確定性與信用風險變數，模型會變好嗎？</h1>
+    <h1 id="h1">加入不確定性與信用風險變數，模型會變好嗎？</h1>
     <p class="muted" id="sub"></p>
   </header>
 
   <div class="verdict" id="verdict"></div>
+
+  <section aria-labelledby="stat-h" id="statSec" hidden>
+    <h2 id="stat-h">統計檢定：改善是否超出重訓雜訊</h2>
+    <div class="panel table-wrap"><table id="statTable"></table></div>
+    <p class="muted" id="statNote"></p>
+  </section>
 
   <section aria-labelledby="lit-h">
     <h2 id="lit-h">新增的變數與文獻依據</h2>
@@ -253,6 +265,84 @@ a { color: var(--s1); }
     '<p>' + (S.some(s => s.avgEdge > 0) ? '只有「' + esc(best.name) + '」平均高於多數方向基準（' + sgn(best.avgEdge) + ' 點）。' : '三組變數平均都<strong>沒有</strong>贏過「一直猜多數方向」的基準（' + S.map(s => esc(s.name) + ' ' + sgn(s.avgEdge) + ' 點').join('、') + '）。') +
     '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
 
+  // ── 統計檢定（確認實驗）──
+  // 置換檢定：在每個期間內把兩組的訓練結果打散重新分組，看「平均差距」有多常大於實際觀察到的差距。
+  // 拔靴法信賴區間：在每個期間內對訓練結果重抽樣。兩者都只反映「重訓的隨機性」，
+  // 測試期間本身是固定的，所以不能推論到未來的市場。
+  let rngState = 20261017;
+  const rnd = () => { rngState = (rngState * 1664525 + 1013904223) >>> 0; return rngState / 4294967296; };
+  const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const runsOf = (k, pi) => runs.filter(r => r.variant === k && r.period === pi).map(r => r.DA);
+  const stat = R.confirm ? (() => {
+    const B = 4000, o = S[1];
+    const per = P.map((_, pi) => {
+      const a = runsOf(o.key, pi), c = runsOf(b.key, pi);
+      const obs = mean(a) - mean(c);
+      const pool = [...a, ...c];
+      let ext = 0;
+      for (let t = 0; t < B; t++) {
+        const sh = [...pool];
+        for (let i = sh.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [sh[i], sh[j]] = [sh[j], sh[i]]; }
+        if (Math.abs(mean(sh.slice(0, a.length)) - mean(sh.slice(a.length))) >= Math.abs(obs) - 1e-12) ext++;
+      }
+      const bs = [];
+      for (let t = 0; t < B; t++) {
+        const ra = a.map(() => a[Math.floor(rnd() * a.length)]), rc = c.map(() => c[Math.floor(rnd() * c.length)]);
+        bs.push(mean(ra) - mean(rc));
+      }
+      bs.sort((x, y) => x - y);
+      return { pi, nA: a.length, nC: c.length, obs, p: (ext + 1) / (B + 1), lo: bs[Math.floor(B * 0.025)], hi: bs[Math.floor(B * 0.975)] };
+    });
+    // 整體：五個期間平均差距的拔靴區間，以及與多數方向基準的差距
+    const all = [], edge = [];
+    for (let t = 0; t < B; t++) {
+      let g = 0, e = 0;
+      P.forEach((_, pi) => {
+        const a = runsOf(o.key, pi), c = runsOf(b.key, pi);
+        const ma = mean(a.map(() => a[Math.floor(rnd() * a.length)])), mc = mean(c.map(() => c[Math.floor(rnd() * c.length)]));
+        g += ma - mc; e += ma - majority(pi);
+      });
+      all.push(g / P.length); edge.push(e / P.length);
+    }
+    all.sort((x, y) => x - y); edge.sort((x, y) => x - y);
+    let ext = 0; const obsAll = mean(per.map(x => x.obs));
+    for (let t = 0; t < B; t++) {
+      let g = 0;
+      P.forEach((_, pi) => {
+        const a = runsOf(o.key, pi), c = runsOf(b.key, pi), pool = [...a, ...c];
+        for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+        g += mean(pool.slice(0, a.length)) - mean(pool.slice(a.length));
+      });
+      if (Math.abs(g / P.length) >= Math.abs(obsAll) - 1e-12) ext++;
+    }
+    return { o, per, obsAll, pAll: (ext + 1) / (B + 1), lo: all[Math.floor(B * 0.025)], hi: all[Math.floor(B * 0.975)],
+      edge: o.avgEdge, edgeLo: edge[Math.floor(B * 0.025)], edgeHi: edge[Math.floor(B * 0.975)] };
+  })() : null;
+  if (stat) {
+    $('statSec').hidden = false;
+    const pf = (p) => p < 0.001 ? '< 0.001' : p.toFixed(3);
+    $('statTable').innerHTML = '<thead><tr><th>期間</th><th class="n">各組次數</th><th class="n">差距（' + esc(stat.o.name) + ' − ' + esc(b.name) + '）</th><th class="n">95% 信賴區間</th><th class="n">p 值（置換檢定）</th></tr></thead><tbody>' +
+      stat.per.map(x => '<tr><td>' + esc(P[x.pi].label) + ' <span class="muted num">' + esc(P[x.pi].from) + ' ~ ' + esc(P[x.pi].to) + '</span></td><td class="n">' + x.nA + ' / ' + x.nC + '</td><td class="n ' + (x.lo > 0 ? 'good' : x.hi < 0 ? 'bad' : '') + '">' + sgn(x.obs) + ' 點</td><td class="n">' + sgn(x.lo) + ' ~ ' + sgn(x.hi) + '</td><td class="n">' + pf(x.p) + '</td></tr>').join('') +
+      '<tr><td><strong>五個期間平均</strong></td><td class="n">—</td><td class="n ' + (stat.lo > 0 ? 'good' : stat.hi < 0 ? 'bad' : '') + '"><strong>' + sgn(stat.obsAll) + ' 點</strong></td><td class="n">' + sgn(stat.lo) + ' ~ ' + sgn(stat.hi) + '</td><td class="n">' + pf(stat.pAll) + '</td></tr>' +
+      '<tr><td>' + esc(stat.o.name) + ' 比「一直猜多數方向」</td><td class="n">—</td><td class="n ' + (stat.edgeLo > 0 ? 'good' : stat.edgeHi < 0 ? 'bad' : '') + '">' + sgn(stat.edge) + ' 點</td><td class="n">' + sgn(stat.edgeLo) + ' ~ ' + sgn(stat.edgeHi) + '</td><td class="n">—</td></tr></tbody>';
+    $('statNote').textContent = '綠色 = 信賴區間整個大於 0，紅色 = 整個小於 0。p 值是在同一期間內把兩組結果隨機重新分組（' + 4000 + ' 次），差距至少一樣大的比例。這些檢定只反映「重訓的隨機性」：測試期間是固定的歷史，所以即使顯著，也只代表在這 5 段歷史上的改善不是運氣，不保證未來。';
+    $('h1').textContent = '不確定性變數的改善是真的嗎？';
+    // 兩種檢定都要過：重訓次數少時拔靴區間偏窄，置換檢定較保守
+    const real = stat.lo > 0 && stat.pAll < 0.05, beatsBase = stat.edgeLo > 0;
+    $('verdict').innerHTML =
+      '<p><strong>結論：' + (real ? '改善是真的' : '改善無法確認') + (real ? (beatsBase ? '，而且贏過「一直猜多數方向」。' : '，但模型仍輸給「一直猜多數方向」，還不能用。') : '。') + '</strong>' +
+      '每期重訓 ' + U.repeats + ' 次後，' + esc(stat.o.name) + ' 比' + esc(b.name) + '平均 <span class="num">' + sgn(stat.obsAll) + '</span> 點（95% 信賴區間 ' + sgn(stat.lo) + ' ~ ' + sgn(stat.hi) + '，p = ' + pf(stat.pAll) + '），' +
+      P.length + ' 個期間中有 ' + cmp[0].wins + ' 個變好。</p>' +
+      '<p>' + esc(stat.o.name) + ' 平均方向準確率 <span class="num">' + fx(stat.o.avgDA) + '%</span>，比「一直猜多數方向」' + sgn(stat.edge) + ' 點（' + sgn(stat.edgeLo) + ' ~ ' + sgn(stat.edgeHi) + '）。' +
+      '價格誤差：' + S.map(s => esc(s.name) + ' ' + fx(s.avgMAPE, 2) + '%').join('、') + '，「' + U.horizon + ' 天後 = 今天」是 ' + fx(b.avgNaiveMAPE, 2) + '%。</p>';
+    const recs2 = [];
+    if (real && beatsBase) recs2.push('<strong>採用「' + esc(stat.o.name) + '」重訓主模型。</strong>改善超出重訓雜訊，平均也贏過簡單基準。下一步以這組變數做超參數搜尋與完整的 walk-forward 回測（含交易成本）。');
+    else if (real) recs2.push('<strong>保留不確定性變數，但不要拿這個模型交易。</strong>它確實比原有變數好，但仍贏不了「一直猜多數方向」，代表模型主要是把原本的錯誤減少，還沒有產生可用的預測力。');
+    else recs2.push('<strong>上一輪的 +2.5 點很可能是重訓的運氣。</strong>多次重訓後差距落在雜訊範圍內，不確定性變數對 5 日方向沒有可靠的幫助。');
+    recs2.push('<strong>剩下值得試的方向：</strong>把目標改成預測波動率（HAR 類模型與不確定性指數在文獻中對波動有穩定的預測力），或取得期貨期限結構資料。');
+    $('recs').innerHTML = recs2.map(r => '<li>' + r + '</li>').join('');
+  }
+
   // ── 文獻變數表 ──
   const L = [...R.literature].sort((x, y) => (y.batch || 1) - (x.batch || 1));
   const n2 = L.filter(l => l.batch === 2 && l.used).length, n1 = L.filter(l => (l.batch || 1) === 1 && l.used).length;
@@ -326,7 +416,7 @@ a { color: var(--s1); }
   $('naTable').innerHTML = '<thead><tr><th>變數</th><th>文獻</th><th>原因</th></tr></thead><tbody>' +
     R.notAdded.map(n => '<tr><td>' + esc(n.name) + '</td><td class="wrap">' + esc(n.ref) + '</td><td class="wrap">' + esc(n.why) + '</td></tr>').join('') + '</tbody>';
 
-  // ── 建議（依結果）──
+  // ── 建議（依結果；確認實驗的建議在統計檢定段落）──
   const recs = [];
   if (usable.length) recs.push('<strong>採用「' + esc(usable[0].o.name) + '」。</strong>它在多數期間都比原有變數好，幅度超過重訓雜訊，平均也贏過多數方向基準。');
   else if (helped.length) recs.push('<strong>保留「' + esc(helped[0].o.name) + '」，但模型仍不能用來交易。</strong>它在 ' + helped[0].wins + '/' + P.length + ' 個期間比原有變數好（平均 ' + sgn(helped[0].gain) + ' 點），價格誤差也較低，是目前最好的一組；但平均仍比「一直猜多數方向」低 ' + fx(-helped[0].o.avgEdge) + ' 點。改善幅度和重訓雜訊（約 ' + fx(avgSeed) + ' 點）同一量級，需要更多次重訓或更長的資料才能確認。加入第一批變數反而把效果稀釋掉，表示變數多不等於好。');
@@ -334,7 +424,7 @@ a { color: var(--s1); }
   if (R.literature.some(l => l.batch === 2 && !l.used)) recs.push('<strong>未使用的變數：</strong>' + R.literature.filter(l => l.batch === 2 && !l.used).map(l => esc(l.name) + '（' + esc(l.excluded || '') + '）').join('、') + '。');
   recs.push('<strong>剩下值得試的方向：</strong>期貨期限結構（展期報酬）需要付費資料；或把目標改成預測波動率——HAR 類模型與不確定性指數在文獻中對「波動」有穩定的預測力，對「方向」則沒有。');
   recs.push('<strong>評估一律看多個期間、多次重訓。</strong>單一期間、單次訓練的成績差距可以超過 10 個百分點。');
-  $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
+  if (!stat) $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
 
   // ── 設定 ──
   const dl = (pairs) => pairs.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
@@ -367,6 +457,6 @@ ${body}
 </body>
 </html>
 `;
-writeFileSync(path.join(dir, 'feature-compare.html'), full);
+writeFileSync(path.join(dir, OUTPUT), full);
 if (fragmentOut) writeFileSync(path.resolve(fragmentOut), body);
-console.log('已產生 ' + path.join(path.relative(process.cwd(), dir) || '.', 'feature-compare.html') + (fragmentOut ? '，以及 ' + fragmentOut : ''));
+console.log('已產生 ' + path.join(path.relative(process.cwd(), dir) || '.', OUTPUT) + (fragmentOut ? '，以及 ' + fragmentOut : ''));
