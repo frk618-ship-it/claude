@@ -1,25 +1,108 @@
 {
-  "generated": "2026-10-17T08:28:38.172927+08:00",
+  "generated": "2026-10-17T09:33:05.975556+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期焦點在記憶體與先進封裝擴產。美光台中新廠與封測二廠啟用,標題指出明年產能已被訂光,並將持續擴大 HBM 製造與封測投資,可望帶動台灣 PVD 機台與前段、封裝用靶材需求。設備端,VON ARDENNE 推出鎖定面板級封裝(PLP)的 HiPIMS 沉積方案,顯示濺鍍技術正往大尺寸封裝延伸。靶材廠方面,江豐電子由控股股東提議回購 5,000 萬至 1 億元股份並參加 CIIF 展會,有研新材股價跌停但表示與長江存儲合作穩定,JX 金屬則獲 UBS 以中立評等首評。貴金屬價格在通膨數據與聯準會政策預期之間震盪,金價在 4,200 美元附近遇壓,對含貴金屬靶材的成本報價仍有影響。",
+    "overview": "本期焦點集中在記憶體與先進封裝擴產:美光台中新廠啟用、封測二廠投產,並傳出明年產能已被訂光,將加速在台投資打造 HBM 製造與封測基地,直接帶動前段金屬化與後段凸塊、RDL 所需的 PVD 機台與銅、鈦、鉭等靶材需求。設備端,VON ARDENNE 推出鎖定面板級封裝(PLP)的 HiPIMS 濺鍍方案,顯示大尺寸方形基板濺鍍成為設備商新戰場;日月光也攜三校發表 18 項先進封裝技研成果,並朝加速導入量產推進。靶材供應商方面,江豐電子擬發行 H 股赴港上市,同時控股股東提議以人民幣 5,000 萬至 1 億元回購股份;有研新材表示與長江存儲合作穩定,但股價曾跌停;JX 金屬獲 UBS 以中立評級、目標價 3,700 日圓首評。貴金屬方面,金價在 4,000 至 4,200 美元/盎司區間震盪,對金、銀等貴金屬靶材的成本與報價仍有壓力。",
     "key_trends": [
-      "HBM 帶動記憶體與封測擴產:美光台中新廠及封測二廠啟用,定位為全球 HBM 製造與封測基地;南亞科也說明新廠選址由雲林改為屏東。DRAM 與 HBM 的 TSV、凸塊、RDL 等 PVD 製程將推升銅、鈦、鉭、鋁等靶材用量,台灣在地供應鏈有機會受惠。",
-      "先進封裝成為 PVD 新戰場:VON ARDENNE 以 HiPIMS 技術切入半導體面板級封裝;日月光與三所大學發表 18 項先進封裝技研成果,並強調加速導入量產。大尺寸方形或面板靶材,以及封裝用銅、鈦靶的規格與需求值得留意。",
-      "晶圓廠投資持續但伴隨不確定性:日本投資 210 億美元在紐約州興建兩座晶圓廠,由格羅方德營運,屬中長期 PVD 需求來源;英特爾以色列 Kiryat Gat 廠爆炸造成 2 人死亡,Fab 38 擴產進度再添變數,加上英特爾股價受資本支出與利率壓力拖累,對英特爾相關供應鏈的拉貨節奏不利。",
-      "中國靶材廠深耕本土客戶與資本市場:江豐電子提議回購並參展獲獎,展現擴張企圖;有研新材股價跌停後,強調與長江存儲合作穩定。中國記憶體廠的在地化採購持續強化本土靶材廠的地位。",
-      "國際靶材大廠估值受關注:JX 金屬股價漲停後獲 UBS 中立評等、目標價 3,700 日圓,Materion 則被評為材料經濟效益改善但股價已偏高。市場對高純金屬與靶材業者的評價分歧,可能影響其擴產與定價策略。",
-      "貴金屬價格高檔震盪:CPI 超預期與 PPI 大漲壓抑金價,但避險買盤與中國逢低承接提供支撐,金價在 4,200 美元附近受壓,金銀走勢分歧。含金、銀等貴金屬的靶材報價與回收料價值仍處高檔。"
+      "HBM 擴產帶動記憶體 PVD 需求:美光台中新廠與封測二廠啟用,南亞科在法說會說明新廠選址由雲林改為屏東,記憶體廠資本支出回溫,DRAM 前段金屬化(鎢、鈦、鉭、銅)與 HBM 堆疊、TSV、凸塊用靶材需求可望同步成長。",
+      "面板級封裝帶動新型濺鍍設備:VON ARDENNE 以 HiPIMS 技術切入 PLP 市場,大面積方形基板將推升大尺寸、長條或旋轉靶的需求,靶材廠需提前布局相應的尺寸、均勻性與綁定技術。",
+      "先進封裝研發加速走向量產:日月光發表 18 項封裝技研成果並朝量產推進,封裝廠在 RDL、扇出型與凸塊製程的 PVD 用量持續增加,銅、鈦、鈦鎢等封裝用靶材是成長動能。",
+      "晶圓廠地緣化投資持續:日本出資 210 億美元在紐約州投資兩座晶圓廠、由格羅方德營運;英特爾以色列 Kiryat Gat 廠發生爆炸、釀 2 死,Fab 38 擴產進度增添變數,加上英特爾股價受 AI 資本支出與利率壓力影響重挫逾 5%,美系客戶的擴產節奏出現分化。",
+      "中國靶材廠強化資本與客戶綁定:江豐電子推動 H 股上市、提議回購並參加 CIIF 國芯展獲獎;有研新材則強調與長江存儲合作穩定,本土替代與國際化擴張並進,將加劇價格競爭。",
+      "貴金屬價格高檔震盪:金價測試 4,000 美元支撐區,並曾觸及 4,200 美元,受通膨數據與聯準會政策預期影響波動大,中國逢低大舉購金、ETF 持倉創新高,金、銀靶材的成本轉嫁與報價機制需緊盯。"
     ],
     "watch_points": [
-      "追蹤美光台中 HBM 產能爬坡與後續投資計畫,以及南亞科屏東新廠時程,評估 PVD 機台採購與靶材認證、拉貨時點,並留意台廠供應鏈的分潤機會。",
-      "觀察 HiPIMS 面板級封裝方案的客戶導入情況,以及日月光技研成果的量產進度,提早準備大尺寸靶材與封裝製程所需規格。",
-      "留意英特爾 Kiryat Gat 爆炸事故的調查結果及 Fab 38 時程調整,同時追蹤日本在紐約州投資、格羅方德營運兩座晶圓廠的設備招標進度。",
-      "關注江豐電子、有研新材的財報與中國記憶體客戶訂單變化,評估中國本土靶材廠在價格與客戶上的競爭壓力。",
-      "持續監控金、銀價格與聯準會政策走向,適時調整貴金屬靶材的報價機制、避險策略與回收料定價。"
+      "美光台中新廠與封測二廠的設備進機及材料認證時程,以及台灣供應鏈(含靶材、PVD 零組件)切入的機會。",
+      "VON ARDENNE HiPIMS PLP 方案的客戶導入情況,以及日月光等封裝廠在面板級封裝的量產規劃,評估大尺寸靶材的規格需求。",
+      "江豐電子 H 股上市進度與募資用途(是否用於海外擴產),以及回購對其報價策略的影響;有研新材業績波動與長江存儲訂單的持續性。",
+      "英特爾 Fab 38 事故後的擴產調整,以及格羅方德紐約新廠的建廠時程,對美系 PVD 機台與靶材採購的影響。",
+      "金、銀價格走勢與聯準會政策,建議檢視貴金屬靶材合約的計價與避險條款;同時追蹤 JX 金屬、Materion、古屋金屬等同業的財報與價格動向。"
     ]
   },
   "items": [
+    {
+      "id": "5d2353c98ffdac5f",
+      "title": "Gold Weekly Price Forecast – Gold Tests $4,000 Demand Zone as Lower Real Yields Offer Support",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOaEktbnA4NmY1Z2VJMzFxeVlLLWFpZkdNTnYyei1oUmFMQV9mZFUwcVVLanVSNTJxQVZyT25oRTR2ajBlc2hscFlnWVJEQWp0OG9jT2wwRnhDRmh3bTljZ3N3VWNfdmdVeDVPMFdGMy1yX1VLT2t2YXFfc1pFODNfR2NIOTFnbW1kaFRUdnc3eEZJVUcya1EwUDNhMmFVTDRuc1NlMkFJQTFyOEJLT0I3TVFGZ2NXN3EwMDhyZmgyLUplNHh6M29BaVVDMXNDbTdSVDNlTzUwOA?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-10-16T16:25:05+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.25,
+      "summary": "在實質利率走低支撐下,金價回測每盎司4,000美元需求區。金價高檔震盪會直接影響金靶與含金合金靶的原料成本與報價。",
+      "importance": 2,
+      "title_zh": "黃金每週價格預測—黃金測試 $4,000 需求區,實質殖利率走低提供支撐",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cd6ea3af91213ccb",
+      "title": "江丰电子拟发行H股申请港交所上市",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9CZFU5NWRoak1LSWNYREhMdFE2dFJyaEx6a0lGeVdGU1dPZzJ3bDZmd2NrSEhXeVlWYUd2cGlyWHk2VjJkTkNJRldUOEZPWk96ZTZSZVBR?oc=5",
+      "source": "QQ News",
+      "published": "2026-10-15T20:19:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.83,
+      "summary": "中國靶材龍頭江豐電子擬發行H股,申請在港交所上市。新增募資管道可能用於擴產與海外布局,進一步加劇與日美靶材廠的競爭。",
+      "importance": 4,
+      "title_zh": "江豐電子擬發行H股申請港交所上市",
+      "snippet_zh": ""
+    },
+    {
+      "id": "30b94de6e17d1bbe",
+      "title": "Gold Makes Longest Losing Streak in 3 Decades",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRHdJc2tBYVczQ2JPeVdwZWxxclFfRVdkMVQ3M0F0YmtJbDdUdndGZUVBLW4xY2NpdkYyOXhuV1l1LUZqZjVmWFl2dXVEVmZ0T2ZHX1BHQ19BSXdzWVhnTTh1VXMyeXY3TnIwa29leG5TSHgzTGhxeWE0Mmg5bkp4czdUOEZxemYtWlo2Sk5lMmxmS29Nc1NSQzNUWDZrdEU?oc=5",
+      "source": "BullionVault",
+      "published": "2026-10-16T15:10:23+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.44,
+      "summary": "金價出現近30年來最長的連跌走勢。短期有助減輕金靶原料成本壓力,採購端可留意進貨時點。",
+      "importance": 2,
+      "title_zh": "黃金創下 30 年來最長連跌紀錄",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7790999f02ca711e",
+      "title": "世界黃金協會：中國逢金價回調大舉購金，ETF持倉創歷史新高",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOLVNzdUw5cEN4RDVNY3ZHQVRTdmRHd3NPaURkWVVlbnBzMzRpNmFHRWl0TWMtd3M0TVVERWkxQ0FKX0pYWkprMnNFNE0tYmU0cTV5U0hScVNHaWJWRE15enJSSUNGbURxY2x4RmY2ZXVLaXM0U2ZKTkM3eGVMNVZfV3JlR2JCSnJZc004Ql9vOHFCYjB5QlBfQWYzNzRvUkJvZnYxekljVQ?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-16T13:59:56+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.43,
+      "summary": "世界黃金協會指出,中國趁金價回調大舉購金,ETF持倉創歷史新高。實體需求強勁,可能限制金價下跌空間,金靶成本仍將維持高檔。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "82af545ae6f193c8",
       "title": "President Lai attends Micron Technology’s new plant in Taichung",
@@ -37,7 +120,7 @@
         "客戶與供應鏈"
       ],
       "score": 6.2,
-      "summary": "賴清德總統出席美光台中新廠啟用典禮。美光在台擴產將帶動記憶體前段與封測的 PVD 機台與靶材需求。",
+      "summary": "總統賴清德出席美光台中新廠啟用典禮。新廠投產將帶動台灣記憶體前段與封裝的PVD機台及靶材需求。",
       "importance": 4,
       "title_zh": "賴總統出席 Micron Technology(美光)臺中新廠活動",
       "snippet_zh": ""
@@ -58,7 +141,7 @@
         "擴產與投資"
       ],
       "score": 5.4,
-      "summary": "財經媒體分析美光新廠啟用後七家台廠的受惠商機與差異。可作為觀察在地供應鏈(含材料)切入美光的參考。",
+      "summary": "文章分析美光新廠啟用後,七家台灣供應鏈廠商可望受惠的商機與彼此差異。靶材與材料供應商可藉此觀察在地化採購機會。",
       "importance": 3,
       "title_zh": "美光新廠啟用，臺股怎麼賺？七家臺廠的商機與差別",
       "snippet_zh": ""
@@ -79,7 +162,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "美光台灣新廠啟用,賴清德致詞強調世界需要 AI、台灣值得信賴。這屬於擴產事件的政治面報導,對靶材需求的意涵與其他美光新廠新聞相同。",
+      "summary": "美光台灣新廠啟用,賴清德致詞表示世界需要AI、台灣值得信賴。顯示AI記憶體投資持續在台落地,有利PVD與靶材需求。",
       "importance": 3,
       "title_zh": "臺美光新廠啟用 賴清德：世界需要AI、臺灣值得信賴(圖)",
       "snippet_zh": ""
@@ -100,7 +183,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.32,
-      "summary": "據報美光台中新廠明年產能已被訂光,美光將加速投資台灣,打造全球 HBM 製造與封測基地。HBM 擴產將推升 TSV、凸塊等製程的 PVD 機台與銅、鈦等靶材需求,是靶材業者的重點客戶動向。",
+      "summary": "美光台中新廠明年產能已被訂滿,將加速在台投資,打造全球HBM製造與封測基地。HBM擴產將直接帶動PVD機台與靶材的中長期需求。",
       "importance": 5,
       "title_zh": "美光臺中新廠明年產能被訂光 將加速投資臺灣 打造全球 HBM 製造與封測基地 | 產業熱點 | 產業",
       "snippet_zh": ""
@@ -121,7 +204,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.32,
-      "summary": "英特爾以色列 Kiryat Gat 廠發生爆炸,造成 2 人死亡,Fab 38 擴產進度再添變數。若擴產延後,可能遞延當地 PVD 設備與靶材的拉貨。",
+      "summary": "英特爾以色列Kiryat Gat廠發生爆炸,造成2人死亡,Fab 38擴產進度再添變數。若擴產延後,相關設備與靶材拉貨可能隨之遞延。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -142,7 +225,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.24,
-      "summary": "美光封測二廠啟用,HBM 持續擴產。先進封裝產能增加將直接帶動凸塊、RDL 製程的 PVD 設備與靶材需求。",
+      "summary": "美光封測二廠啟用,HBM持續擴產。先進封裝產能增加將提升凸塊、RDL等製程的PVD機台與靶材用量。",
       "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
@@ -163,7 +246,7 @@
         "擴產與投資"
       ],
       "score": 4.29,
-      "summary": "日本投資類影片探討 JX 金屬股價突然漲停的原因及投資人看重的「真正價值」。JX 金屬是全球主要靶材廠,但此則以股市評論為主,產業資訊有限。",
+      "summary": "日本影音內容討論JX金屬股價突然漲停,以及投資人重新評估其價值。屬市場評論,與靶材供需的直接關聯有限。",
       "importance": 2,
       "title_zh": "【JX金屬】為何突然漲停?投資人察覺到的「真正價值」| #08 Alaskaair (xstXvXnk4P)",
       "snippet_zh": ""
@@ -183,8 +266,8 @@
         "擴產與投資"
       ],
       "score": 4.18,
-      "summary": "日本將投資 210 億美元在紐約州興建兩座晶圓廠,由格羅方德負責營運。新晶圓廠建置將帶來 PVD 設備與靶材的中長期需求。",
-      "importance": 4,
+      "summary": "日本將砸210億美元在美國紐約州投資兩座晶圓廠,由格羅方德負責營運。新廠建置將帶動PVD設備與靶材的新增需求。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -204,7 +287,7 @@
         "客戶與供應鏈"
       ],
       "score": 3.96,
-      "summary": "英特爾股價重挫逾 5%,主因 AI 資本支出與利率壓力擴大。屬於股價短線波動,對靶材需求影響間接。",
+      "summary": "英特爾股價重挫逾5%,主因是AI資本支出與利率壓力擴大。需留意其資本支出是否調整,進而影響設備與材料採購。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -224,7 +307,7 @@
         "客戶與供應鏈"
       ],
       "score": 3.92,
-      "summary": "中國靶材大廠江豐電子首次參加 CIIF 2026 國芯展,強化客戶導向的市場推廣。顯示陸系靶材廠持續擴大能見度,與既有供應商的競爭加劇。",
+      "summary": "江豐電子首次參加CIIF 2026國芯展,強調以客戶為核心。顯示其積極擴大半導體客戶曝光度。",
       "importance": 2,
       "title_zh": "一切為了客戶，一切為了發展，一切為了勝利！江豐電子首次亮相CIIF 2026 國芯展",
       "snippet_zh": ""
@@ -244,8 +327,8 @@
         "擴產與投資"
       ],
       "score": 3.83,
-      "summary": "南亞科於法說會說明新廠選址由雲林改為屏東的原因。DRAM 新廠規劃未來將帶動 PVD 機台與靶材需求。",
-      "importance": 3,
+      "summary": "南亞科於法說會說明新廠選址從雲林改為屏東的原因。DRAM新廠規劃將帶動未來PVD機台與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -265,8 +348,8 @@
         "技術與新產品"
       ],
       "score": 3.75,
-      "summary": "江豐電子公告收到控股股東、實際控制人暨技術長提議回購公司股份。屬於資本市場動作,對靶材供需無直接影響。",
-      "importance": 2,
+      "summary": "江豐電子公告,控股股東、實際控制人兼技術長提議回購公司股份。此舉屬資本市場動作,反映經營層對公司前景的信心。",
+      "importance": 3,
       "title_zh": "江豐電子: 關於收到控股股東、實際控制人、首席技術官提議回購公司股份的公告_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -286,8 +369,8 @@
         "原物料與價格"
       ],
       "score": 3.73,
-      "summary": "Seeking Alpha 分析指出 Materion 材料經濟效益改善,但目前股價評價偏高。Materion 為主要靶材供應商之一,可留意其獲利結構變化。",
-      "importance": 2,
+      "summary": "Seeking Alpha分析指出,Materion的材料業務經濟效益改善,但股價評價偏高。可作為觀察美系靶材廠獲利動能的參考。",
+      "importance": 3,
       "title_zh": "Materion:材料經濟效益改善,但股價要求嚴苛",
       "snippet_zh": ""
     },
@@ -306,7 +389,7 @@
         "技術與新產品"
       ],
       "score": 3.72,
-      "summary": "日月光攜手三所大學發表 18 項先進封裝技術研發成果。先進封裝技術深化有助擴大 RDL、凸塊等 PVD 製程應用。",
+      "summary": "日月光攜手三所大學發表18項先進封裝技術研發成果。先進封裝技術深化,有助擴大PVD製程的應用。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -327,8 +410,8 @@
         "原物料與價格"
       ],
       "score": 3.71,
-      "summary": "UBS 首次給予 JX 金屬「中立」評等,目標價 3,700 日圓。屬於分析師評價,對靶材市場影響有限。",
-      "importance": 2,
+      "summary": "UBS首次給予JX金屬「中立」評等,目標價3,700日圓。反映市場對這家靶材龍頭評價看法趨於持平。",
+      "importance": 3,
       "title_zh": "UBS 首次給予 JX Advanced Metals「中立」評等,目標價 3,700 日圓",
       "snippet_zh": ""
     },
@@ -347,7 +430,7 @@
         "技術與新產品"
       ],
       "score": 3.71,
-      "summary": "日月光與三所大學合作的 18 項先進封裝技研成果將加速導入量產。量產導入可能增加封裝端 PVD 機台與靶材用量。",
+      "summary": "日月光與三所大學合作的18項先進封裝技研成果將加速導入量產。量產後可望增加封裝端的PVD與靶材用量。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -367,7 +450,7 @@
         "技術與新產品"
       ],
       "score": 3.71,
-      "summary": "VON ARDENNE 推出新型 HiPIMS 沉積技術,鎖定面板級封裝(PLP)市場。濺鍍設備商切入大尺寸封裝,可能帶動新規格大面積靶材需求。",
+      "summary": "VON ARDENNE推出新型HiPIMS濺鍍技術,鎖定面板級封裝(PLP)市場。濺鍍設備進軍PLP,將開啟大尺寸靶材的新需求。",
       "importance": 5,
       "title_zh": "VON ARDENNE 以全新 HiPIMS 沉積技術進軍面板級封裝市場",
       "snippet_zh": ""
@@ -387,7 +470,7 @@
         "營收與財報"
       ],
       "score": 3.69,
-      "summary": "市場早評探討陸系靶材廠有研新材跌停背後的業績實情。需留意其營運表現對陸系靶材競爭格局的影響。",
+      "summary": "評論文章分析有研新材股價跌停背後的業績實況。需留意這家中國靶材廠的獲利是否承壓。",
       "importance": 3,
       "title_zh": "週四早評：有研新材跌停背後的業績實情及今日計劃",
       "snippet_zh": ""
@@ -408,7 +491,7 @@
         "原物料與價格"
       ],
       "score": 3.46,
-      "summary": "Materion 股價資訊頁面,僅提供行情與歷史資料,無具體產業訊息。",
+      "summary": "Materion股價與新聞資訊頁面,未提供具體事件。",
       "importance": 1,
       "title_zh": "Materion Corporation(MTRN)股價、新聞、報價與歷史",
       "snippet_zh": ""
@@ -428,8 +511,8 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "Fed 暫停升息預期與油價上漲交錯影響,金銀價格走勢分歧。貴金屬價格波動會影響金、銀靶材的成本與報價。",
-      "importance": 3,
+      "summary": "Fed暫停升息的預期與油價上漲相互拉扯,金價與銀價走勢分歧。貴金屬靶材的成本走向仍不明朗。",
+      "importance": 2,
       "title_zh": "Fed 暫停升息預期與油價上漲交織,金銀走勢分歧 - Kitco PM Report",
       "snippet_zh": ""
     },
@@ -448,8 +531,8 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "分析指出聯準會仍在升息,但金價仍守住 4000 美元。金價高檔將維持金靶材的成本壓力。",
-      "importance": 3,
+      "summary": "文章分析在聯準會仍升息的情況下,金價為何能守住4,000美元。金價維持高檔,金靶成本壓力延續。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -468,8 +551,8 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "世界黃金協會指出中國趁金價回檔大量買進,黃金 ETF 持有量創新高。需求強勁支撐金價,金靶材原料成本恐居高不下。",
-      "importance": 3,
+      "summary": "世界黃金協會指出,中國逢金價下跌大量買進,ETF持倉創新高(英文版)。金價有實體需求支撐。",
+      "importance": 2,
       "title_zh": "世界黃金協會:中國趁金價回落大舉買進;ETF 持有量創歷史新高",
       "snippet_zh": ""
     },
@@ -488,7 +571,7 @@
         "原物料與價格"
       ],
       "score": 3.24,
-      "summary": "美國 CPI 超出預期壓抑金價,市場關注 PPI 能否推動金價重返 4200 美元。金價波動影響金靶材的報價與採購時機。",
+      "summary": "CPI高於預期打壓金價,市場關注PPI能否推動金價重返4,200美元。貴金屬原料價格短期波動加大。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -508,7 +591,7 @@
         "原物料與價格"
       ],
       "score": 3.21,
-      "summary": "聯準會主席 Warsh 鷹派程度不如預期,美元下跌,金價反彈。貴金屬靶材成本隨之波動。",
+      "summary": "聯準會主席Warsh的鷹派立場不如預期,美元走弱,金價反彈。可留意貴金屬靶材報價的變動。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -528,7 +611,7 @@
         "原物料與價格"
       ],
       "score": 3.21,
-      "summary": "美國 9 月 PPI 創近四年最大漲幅,金價反而反彈。可作為貴金屬靶材成本趨勢的參考。",
+      "summary": "美國9月PPI創近四年最大漲幅,金價隨之反彈。通膨壓力可能使金價維持高檔。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -549,7 +632,7 @@
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "日月光攜手三所大學發表 18 項封裝技研成果,深化先進封裝與關鍵製程創新。有助提升封裝端 PVD 製程需求。",
+      "summary": "日月光與三所大學發表18項封裝技研成果,深化先進封裝與關鍵製程創新。中長期有利封裝端PVD需求。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -570,7 +653,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "Materion 董事 Patrick M. Prevost 申報 Form 4 持股變動。屬於例行內部人申報,與靶材業務關聯薄弱。",
+      "summary": "Materion董事Patrick M. Prevost申報Form 4持股變動。屬例行揭露,與靶材供需無直接關聯。",
       "importance": 1,
       "title_zh": "Form 4 Materion Corp:Patrick M. Prevost(董事),日期:10 月 14 日",
       "snippet_zh": ""
@@ -591,7 +674,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "江豐電子控股股東、實際控制人部分股份解除質押。屬於股權事務,對營運影響有限。",
+      "summary": "江豐電子公告,控股股東暨實際控制人部分股份解除質押。屬例行公告,對營運影響有限。",
       "importance": 1,
       "title_zh": "江豐電子：關於控股股東、實際控制人部分股份解除質押的公告",
       "snippet_zh": ""
@@ -612,7 +695,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "江豐電子參加第 26 屆工博會,並獲得 CIIF 國芯展創新成果獎。顯示陸系靶材廠技術能見度提升。",
+      "summary": "江豐電子參加第26屆工博會,獲頒CIIF國芯展創新成果獎。有助提升其在半導體材料領域的品牌能見度。",
       "importance": 2,
       "title_zh": "江豐電子亮相第26屆工博會 斬獲CIIF國芯展創新成果獎",
       "snippet_zh": ""
@@ -633,8 +716,8 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "江豐電子實際控制人提議回購公司股份,屬於資本市場動作,對靶材供需無直接影響。",
-      "importance": 1,
+      "summary": "江豐電子實際控制人提議回購公司股份。顯示經營層支撐股價的意圖。",
+      "importance": 3,
       "title_zh": "江豐電子(300666.SZ)：實際控制人提議回購公司股份",
       "snippet_zh": ""
     },
@@ -654,7 +737,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "Materion 董事獲授 89 股遞延薪酬股份,屬於例行公告,與產業關聯薄弱。",
+      "summary": "Materion董事遞延薪酬計畫新增89股獎勵。屬例行揭露,影響極小。",
       "importance": 1,
       "title_zh": "Materion(MTRN)董事遞延薪酬新增 89 股獎勵股份。",
       "snippet_zh": ""
@@ -675,7 +758,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "Materion 董事獲授 75 股後,遞延薪酬計畫持股達 18,491 股。屬於例行公告,與產業關聯薄弱。",
+      "summary": "Materion董事獲75股獎勵,遞延薪酬計畫持股達18,491股。屬例行揭露,影響極小。",
       "importance": 1,
       "title_zh": "獲授 75 股後,Materion(MTRN)董事於遞延薪酬計畫中持有 18,491 股。",
       "snippet_zh": ""
@@ -696,7 +779,7 @@
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "Pristine Surgical 更名為 Singulus Surgical Innovations,專注於手術影像領域。與濺鍍設備商 Singulus Technologies 的關聯不明,與靶材產業關聯薄弱。",
+      "summary": "醫療器材公司Pristine Surgical更名為Singulus Surgical Innovations,看似與濺鍍設備商Singulus Technologies無關。與靶材產業關聯薄弱。",
       "importance": 1,
       "title_zh": "Pristine Surgical 更名為 Singulus Surgical Innovations,宣告手術視覺化邁入大膽新時代",
       "snippet_zh": ""
@@ -717,7 +800,7 @@
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "江豐電子實際控制人姚力軍解除質押 1.72 萬股,屬於股權事務,影響有限。",
+      "summary": "江豐電子實際控制人姚力軍解除質押1.72萬股。屬例行股權公告。",
       "importance": 1,
       "title_zh": "江豐電子：實控人姚力軍解除質押1.72萬股",
       "snippet_zh": ""
@@ -738,7 +821,7 @@
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "新浪快訊報導江豐電子實際控制人姚力軍解除質押 1.72 萬股,與前則為同一事件,影響有限。",
+      "summary": "新浪快訊:江豐電子實際控制人姚力軍解除質押1.72萬股。屬例行股權公告。",
       "importance": 1,
       "title_zh": "江豐電子：實控人姚力軍解除質押1.72萬股_7x24快訊_新浪財經",
       "snippet_zh": ""
@@ -759,8 +842,8 @@
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "Yahoo! 財經以 AI 解說古屋金屬近期股價走勢的背景。古屋金屬為貴金屬靶材廠,但此則以股價評論為主。",
-      "importance": 1,
+      "summary": "Yahoo日本以AI解說古屋金屬近期股價走勢的背景。屬股價評論,未提供具體營運事件。",
+      "importance": 2,
       "title_zh": "Furuya Metal(フルヤ金屬)【7826】:目前股價的原因為何?AI 解析股價走勢背景",
       "snippet_zh": ""
     },
@@ -780,7 +863,7 @@
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "日股當沖直播監看 JX 金屬、鎧俠等個股,屬於投資娛樂內容,與產業關聯薄弱。",
+      "summary": "日本當沖直播影片,監看標的包含JX金屬等個股。與靶材產業基本面無關。",
       "importance": 1,
       "title_zh": "【當沖直播第 70 回】100 萬日圓能增加多少?一邊監看 Kioxia、Fujikura、JX金屬、太陽誘電、村田製作所、Tier IV、Terra Drone 等一邊交易。日經平均期貨今天看來強勢 Damiano David (ermktflyRI)",
       "snippet_zh": ""
@@ -801,7 +884,7 @@
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "經濟日報報導日月光攜手三校發表 18 項封裝技研成果,強化先進封裝與關鍵製程。有助帶動封裝端 PVD 製程與靶材需求。",
+      "summary": "經濟日報報導日月光攜手三所大學發表18項封裝技研成果,深化先進封裝與關鍵製程。有利封裝端濺鍍製程的應用。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -822,8 +905,8 @@
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "江豐電子控股股東提議以 5000 萬至 1 億元人民幣回購公司股份,屬於股價維護動作,對靶材供需影響有限。",
-      "importance": 2,
+      "summary": "江豐電子控股股東提議以5,000萬至1億元人民幣回購公司股份。反映對公司價值的信心。",
+      "importance": 3,
       "title_zh": "江豐電子：控股股東提議5000萬元—1億元回購公司股份",
       "snippet_zh": ""
     },
@@ -843,7 +926,7 @@
         "產業動態"
       ],
       "score": 2.79,
-      "summary": "VON ARDENNE 推出針對半導體面板級封裝的新 HiPIMS 沉積解決方案。面板級封裝導入 PVD 將帶動大面積靶材的新需求。",
+      "summary": "VON ARDENNE推出新型HiPIMS沉積方案,切入半導體面板級封裝市場。可能帶動PLP用大面積濺鍍靶材的需求。",
       "importance": 5,
       "title_zh": "VON ARDENNE 推出全新 HiPIMS 沉積解決方案,瞄準半導體面板級封裝市場",
       "snippet_zh": ""
@@ -864,7 +947,7 @@
         "產業動態"
       ],
       "score": 2.63,
-      "summary": "有研新材表示已與長江存儲建立穩定的合作關係。陸系靶材在本土記憶體大廠的供應地位穩固,國產替代趨勢持續。",
+      "summary": "有研新材表示已與長江存儲建立穩定合作關係。顯示中國記憶體廠的靶材國產化持續推進,外資靶材廠在當地的市占面臨壓力。",
       "importance": 4,
       "title_zh": "有研新材(600206.SH)：與長江存儲建立了穩定的合作關係",
       "snippet_zh": ""
@@ -885,7 +968,7 @@
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "金價觸及每盎司 4,200 美元後,華爾街對短期走勢看法分歧,散戶則偏空。金價高檔震盪,影響金靶材成本與採購規劃。",
+      "summary": "金價觸及每盎司4,200美元關卡後,華爾街對短期走勢看法分歧,散戶偏向看空。金靶成本後續仍有波動風險。",
       "importance": 2,
       "title_zh": "金價觸及每盎司 $4,200 天花板後,華爾街對短期走勢看法分歧,散戶則傾向看空",
       "snippet_zh": ""
@@ -906,7 +989,7 @@
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "通膨升溫壓抑金價,但避險買盤反擊支撐。貴金屬靶材成本仍處高檔波動。",
+      "summary": "通膨升溫打壓金價,但避險買盤進場抵抗。金價維持高檔震盪。",
       "importance": 2,
       "title_zh": "通膨升溫衝擊金價,但避險買盤奮力反擊",
       "snippet_zh": ""
@@ -927,7 +1010,7 @@
         "產業動態"
       ],
       "score": 2.24,
-      "summary": "IndexBox 發布全球濺鍍設備市場規模、趨勢及至 2035 年的預測報告。可作為評估 PVD 設備與靶材中長期需求的參考。",
+      "summary": "IndexBox發布全球濺射設備市場報告,涵蓋規模、趨勢及至2035年的預測。可作為評估靶材長期需求的參考。",
       "importance": 3,
       "title_zh": "全球濺射設備市場：規模、趨勢及至2035年的預測",
       "snippet_zh": ""
