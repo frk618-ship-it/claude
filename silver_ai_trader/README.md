@@ -33,6 +33,17 @@ npm run check    # 檢查 silver-ai-trader.html 是否與 src/ 同步
 - 要升級 TF.js 或 Plotly，改 `package.json` 的版本、`npm install`，再 `npm run build`，SRI 會自動重算。
 - 版本號只在 `package.json` 的 `version` 維護，建置時寫入頁面標題與右上角標記。
 
+## 波動目標化部位
+
+「波動目標化部位」面板不需要訓練模型，載入資料後就會計算：
+
+- 每天收盤後用 EWMA（λ = 0.94）估計年化波動，建議下個交易日的部位 = min(目標波動 ÷ 預測波動, 槓桿上限)。
+- 可調整目標波動（10–40%）、槓桿上限、調整門檻（變化小於此值不換倉）與換倉成本；設定會記在瀏覽器裡。
+- 顯示今天的建議部位，以及在「歷史資料年數」期間和買進持有的回測比較。
+
+計算在 `src/core.js` 的 `simulateVolTarget`，和雲端 `cloud/voltarget.mjs` 的研究版本規則相同。
+雲端 10 年回測顯示它能大幅降低回撤與極端單日損失，但夏普值和買進持有差不多（見 `cloud/output/voltarget.html`）。
+
 ## 自架資料代理
 
 Yahoo、CFTC、美國財政部等資料源不允許瀏覽器跨網域讀取，需經過 CORS 代理。程式內建幾個公共代理當備援，但它們常限流。建議自架：

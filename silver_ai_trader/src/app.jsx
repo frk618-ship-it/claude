@@ -57,6 +57,7 @@ import {
     calculateKFoldDirectionalAccuracy,
     runMultiStepPrediction,
     simulateBacktest,
+    simulateVolTarget,
 } from './core.js';
 
         const { useState, useEffect, useRef, useMemo, useCallback } = React;
@@ -1697,6 +1698,139 @@ import {
                     </div>
                 </div>
                 </>
+            );
+        });
+
+        // 波動目標化：依 EWMA 預測波動決定白銀部位大小（不需要模型，載入資料即可）
+        const VT_DEFAULTS = { target: 20, maxLev: 1, band: 10, costBps: 3 };
+        const VolTargetPanel = React.memo(({ marketData }) => {
+            const [cfg, setCfg] = useState(() => {
+                try { return { ...VT_DEFAULTS, ...JSON.parse(localStorage.getItem('silver-voltarget') || '{}') }; } catch (_) { return VT_DEFAULTS; }
+            });
+            const set = (k, v) => setCfg(p => {
+                const next = { ...p, [k]: v };
+                try { localStorage.setItem('silver-voltarget', JSON.stringify(next)); } catch (_) {}
+                return next;
+            });
+            const isMock = !!(marketData?.dataQuality?.allMock || marketData?.dataQuality?.mockSymbols?.includes('SI=F'));
+            const res = useMemo(() => marketData?.prices ? simulateVolTarget({
+                prices: marketData.prices, dates: marketData.dates,
+                target: cfg.target / 100, maxLev: cfg.maxLev, band: cfg.band / 100, costBps: cfg.costBps,
+            }) : null, [marketData, cfg]);
+            const eqRef = useRef(null), wRef = useRef(null);
+
+            useEffect(() => {
+                if (!res || !eqRef.current || !wRef.current || typeof Plotly === 'undefined') return;
+                const base = {
+                    paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', hovermode: 'x unified', showlegend: false,
+                    font: { color: '#C4D2DA', size: 11 },
+                    xaxis: { type: 'date', gridcolor: 'rgba(237,244,248,.06)', linecolor: '#26343D', tickfont: { color: '#8497A3' } },
+                };
+                Plotly.react(eqRef.current, [
+                    { x: res.dates, y: res.bhEquity, type: 'scatter', mode: 'lines', line: { color: '#d95926', width: 1.5 }, hovertemplate: '買進持有：%{y:.2f}<extra></extra>' },
+                    { x: res.dates, y: res.equity, type: 'scatter', mode: 'lines', line: { color: '#3987e5', width: 2 }, hovertemplate: '波動目標：%{y:.2f}<extra></extra>' },
+                ], { ...base, margin: { t: 8, r: 12, b: 28, l: 48 }, yaxis: { type: 'log', gridcolor: 'rgba(237,244,248,.06)', tickfont: { color: '#8497A3' }, title: { text: '淨值', font: { size: 11, color: '#8497A3' } } } },
+                { displayModeBar: false, responsive: true });
+                Plotly.react(wRef.current, [
+                    { x: res.dates, y: res.weight, type: 'scatter', mode: 'lines', fill: 'tozeroy', line: { color: '#3987e5', width: 1.5 }, fillcolor: 'rgba(57,135,229,.18)', hovertemplate: '持有比例：%{y:.0%}<extra></extra>' },
+                ], { ...base, margin: { t: 4, r: 12, b: 28, l: 48 }, yaxis: { tickformat: '.0%', rangemode: 'tozero', gridcolor: 'rgba(237,244,248,.06)', tickfont: { color: '#8497A3' }, title: { text: '部位', font: { size: 11, color: '#8497A3' } } } },
+                { displayModeBar: false, responsive: true });
+            }, [res]);
+
+            const pct = (v, d = 1) => Number.isFinite(v) ? (v * 100).toFixed(d) + '%' : '—';
+            const field = 'w-full mt-1 px-3 py-2 rounded-lg bg-zinc-900/60 border border-zinc-700 text-zinc-100';
+            const vt = res?.stats.vt, bh = res?.stats.bh, cur = res?.current;
+            const rows = res ? [
+                ['年化報酬', pct(vt.cagr), pct(bh.cagr)],
+                ['年化波動', pct(vt.vol), pct(bh.vol)],
+                ['夏普值', vt.sharpe.toFixed(2), bh.sharpe.toFixed(2)],
+                ['最大回撤', pct(vt.maxDD), pct(bh.maxDD)],
+                ['最慘單日', pct(vt.worstDay), pct(bh.worstDay)],
+                ['平均部位', pct(vt.avgWeight, 0), '100%'],
+            ] : [];
+            return (
+                <div className="glass-panel p-4 rounded-xl shadow-accent-900/20 flex flex-col space-y-4">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                        <h2 className="text-lg font-bold text-accent flex items-center">
+                            <Icon name="activity" className="w-5 h-5 mr-2" />
+                            波動目標化部位
+                        </h2>
+                        <span className="text-xs px-2 py-1 rounded-full border border-zinc-600 text-zinc-300 bg-zinc-800/30">EWMA λ = 0.94，不需要模型</span>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="col-span-2 md:col-span-1">
+                            <label className="text-xs text-zinc-400 flex justify-between"><span>目標波動</span><span className="font-mono text-zinc-200">{cfg.target}%</span></label>
+                            <input type="range" min="10" max="40" step="5" value={cfg.target} onChange={e => set('target', parseInt(e.target.value, 10))} className="custom-range w-full mt-3" />
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">槓桿上限</label>
+                            <select value={cfg.maxLev} onChange={e => set('maxLev', parseFloat(e.target.value))} className={field}>
+                                {[1, 1.5, 2].map(v => <option key={v} value={v}>{v} 倍</option>)}
+                            </select>
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400" title="理論部位和目前部位相差小於此值時不調整，降低交易成本">調整門檻</label>
+                            <select value={cfg.band} onChange={e => set('band', parseInt(e.target.value, 10))} className={field}>
+                                {[0, 5, 10, 20].map(v => <option key={v} value={v}>{v === 0 ? '每天調整' : v + '%'}</option>)}
+                            </select>
+                        </div>
+                        <div>
+                            <label className="text-xs text-zinc-400">換倉成本 (bps)</label>
+                            <input type="number" min="0" step="1" value={cfg.costBps} onChange={e => set('costBps', Math.max(0, parseFloat(e.target.value) || 0))} className={field} />
+                        </div>
+                    </div>
+
+                    {!res && <div className="text-sm text-zinc-400">載入資料後即可計算（至少需要約 90 個交易日）。</div>}
+                    {isMock && res && <div className="text-xs px-3 py-2 rounded-lg border" style={{ borderColor: 'var(--down)', color: 'var(--down)' }}>白銀價格目前是模擬資料，以下數字沒有意義。</div>}
+
+                    {res && (
+                        <>
+                        <div className="p-3 rounded-lg bg-zinc-900/40 border border-zinc-800 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <div className="text-xs text-zinc-400">{cur.date} 收盤的預測波動</div>
+                                <div className="text-xl font-bold font-mono text-white">{pct(cur.sigma)}</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-zinc-400">建議部位（下個交易日）</div>
+                                <div className="text-xl font-bold font-mono" style={{ color: 'var(--metal-bright)' }}>{pct(cur.weight, 0)}</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-zinc-400">動作</div>
+                                <div className="text-sm text-zinc-200 mt-1">
+                                    {cur.adjust
+                                        ? <>調整到 <span className="font-mono">{pct(cur.target, 0)}</span>（目前 {pct(cur.held, 0)}）</>
+                                        : <>維持 <span className="font-mono">{pct(cur.held, 0)}</span>{Math.abs(cur.target - cur.held) > 1e-6 && <>（理論值 {pct(cur.target, 0)}，變化未超過 {cfg.band}%）</>}</>}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                                <thead><tr className="text-xs text-zinc-400"><th className="text-left py-1 font-normal">{res.dates[0]} ~ {res.dates[res.dates.length - 1]}</th><th className="text-right font-normal" style={{ color: '#3987e5' }}>波動目標</th><th className="text-right font-normal" style={{ color: '#d95926' }}>買進持有</th></tr></thead>
+                                <tbody>
+                                    {rows.map(([k, a, b]) => <tr key={k} className="border-t border-zinc-800"><td className="py-1 text-zinc-400">{k}</td><td className="text-right font-mono text-zinc-100">{a}</td><td className="text-right font-mono text-zinc-300">{b}</td></tr>)}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/30 p-2">
+                            <div className="flex gap-4 text-xs text-zinc-400 px-1">
+                                <span className="inline-flex items-center gap-1"><i style={{ width: 10, height: 10, borderRadius: 5, background: '#3987e5', display: 'inline-block' }}></i>波動目標</span>
+                                <span className="inline-flex items-center gap-1"><i style={{ width: 10, height: 10, borderRadius: 5, background: '#d95926', display: 'inline-block' }}></i>買進持有</span>
+                            </div>
+                            <div ref={eqRef} style={{ width: '100%', height: '220px' }}></div>
+                            <div ref={wRef} style={{ width: '100%', height: '140px' }}></div>
+                        </div>
+
+                        <div className="text-xs text-zinc-400 leading-relaxed">
+                            部位 = min(目標波動 ÷ 預測波動, 槓桿上限)，今天收盤決定、下個交易日生效；未投入部分視為現金。
+                            雲端 10 年回測顯示：它能把最大回撤從約 52% 降到 33%、避開極端單日，但夏普值和買進持有差不多——用途是控制風險，不是多賺。
+                            回測期間跟著「歷史資料年數」設定。
+                        </div>
+                        </>
+                    )}
+                </div>
             );
         });
 
@@ -4671,6 +4805,8 @@ import {
                             {/* 模式切換與執行 */}
                             
                             <BacktestPanel backtestConfig={backtestConfig} setBacktestConfig={setBacktestConfig} backtestResult={backtestResult} runBacktest={runBacktest} />
+
+                            <VolTargetPanel marketData={marketData} />
 
 <div className="glass-panel rounded-xl shadow-accent-900/20 flex flex-col overflow-hidden">
 

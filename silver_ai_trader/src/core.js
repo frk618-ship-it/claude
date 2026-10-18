@@ -1547,6 +1547,65 @@ const deriveLiteratureFeatures = (raw, series = {}, treasuryNominal5y = null) =>
 };
 
 // ══════════════════════════════════════════════════════════════
+// 波動目標化：依 EWMA 預測波動調整部位大小（不需要模型）
+//   部位 = min(目標波動 ÷ 預測波動, 槓桿上限)；t 日收盤決定、t+1 日生效
+//   權重變化小於 band 時不調整（從空手進場一律執行）；換倉成本 = |Δ部位| × costBps
+//   雲端 cloud/voltarget.mjs 的研究版本使用相同規則
+// ══════════════════════════════════════════════════════════════
+const ewmaVolSeries = (prices, lambda = 0.94) => {
+    const r = prices.map((p, i) => i === 0 ? 0 : Math.log(p / prices[i - 1]));
+    const init = r.slice(1, 21);
+    let h = init.length ? init.reduce((a, x) => a + x * x, 0) / init.length : 0;
+    return r.map((x, i) => { if (i > 0) h = lambda * h + (1 - lambda) * x * x; return Math.sqrt(h * 252); });
+};
+
+const simulateVolTarget = ({ prices, dates, target = 0.20, maxLev = 1, band = 0.10, costBps = 3, lambda = 0.94, warmup = 60 }) => {
+    const n = prices?.length ?? 0;
+    if (n < warmup + 30) return null;
+    const ret = prices.map((p, i) => i === 0 ? 0 : p / prices[i - 1] - 1);
+    const sigma = ewmaVolSeries(prices, lambda);
+    const cost = costBps / 1e4;
+    const wantAt = (t) => sigma[t] > 0 ? Math.min(target / sigma[t], maxLev) : maxLev;
+    const daily = new Array(n).fill(0), weight = new Array(n).fill(0);
+    let w = 0, turnover = 0;
+    for (let t = warmup; t < n - 1; t++) {
+        const want = wantAt(t);
+        const next = (Math.abs(want - w) > band || w === 0) ? want : w;
+        const dw = Math.abs(next - w);
+        turnover += dw; w = next; weight[t] = w;
+        daily[t + 1] = w * ret[t + 1] - dw * cost;
+    }
+    const statsOf = (dl, wts) => {
+        const r = dl.slice(warmup + 1);
+        const m = r.reduce((a, x) => a + x, 0) / r.length;
+        const sd = Math.sqrt(r.reduce((a, x) => a + (x - m) ** 2, 0) / (r.length - 1));
+        let eq = 1, peak = 1, mdd = 0;
+        const curve = r.map(x => { eq *= 1 + x; peak = Math.max(peak, eq); mdd = Math.max(mdd, 1 - eq / peak); return eq; });
+        const years = r.length / 252;
+        const ws = wts.slice(warmup, n - 1);
+        return {
+            curve, totalReturn: eq - 1, cagr: Math.pow(eq, 1 / years) - 1, vol: sd * Math.sqrt(252),
+            sharpe: sd > 0 ? m / sd * Math.sqrt(252) : 0, maxDD: mdd, worstDay: Math.min(...r),
+            avgWeight: ws.reduce((a, x) => a + x, 0) / ws.length,
+        };
+    };
+    const bhDaily = ret.map((x, i) => i > warmup ? x : 0);
+    const vt = statsOf(daily, weight), bh = statsOf(bhDaily, new Array(n).fill(1));
+    vt.turnoverPerYear = turnover / ((n - warmup - 1) / 252);
+    // 今天收盤後的建議：依同樣的調整門檻，從目前持有的部位決定
+    const wantNow = wantAt(n - 1);
+    const adjust = Math.abs(wantNow - w) > band || w === 0;
+    return {
+        dates: dates.slice(warmup + 1),
+        equity: vt.curve, bhEquity: bh.curve,
+        weight: weight.slice(warmup, n - 1), sigma: sigma.slice(warmup, n - 1),
+        stats: { vt: { ...vt, curve: undefined }, bh: { ...bh, curve: undefined } },
+        current: { date: dates[n - 1], sigma: sigma[n - 1], held: w, target: wantNow, adjust, weight: adjust ? wantNow : w },
+        settings: { target, maxLev, band, costBps, lambda, warmup },
+    };
+};
+
+// ══════════════════════════════════════════════════════════════
 // 回測：逐日 1-step 預測 → 依預測報酬決定多/空/空手，扣手續費與滑價
 //   priceIndices[t]：第 t 筆預測對應的價格索引 i（以 prices[i-1] 進場、prices[i] 出場）
 //   predPrices[t]  ：模型對 prices[i] 的預測價格
@@ -1842,6 +1901,8 @@ export {
     calcMaxDrawdown,
     calcSharpe,
     simulateBacktest,
+    ewmaVolSeries,
+    simulateVolTarget,
     MARKET_SYMBOLS,
     alignSymbolSeries,
     deriveFeatures,
