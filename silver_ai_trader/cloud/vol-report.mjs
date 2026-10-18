@@ -251,10 +251,12 @@ tr.hl td { background: var(--surface-2); }
 
   // ── 建議 ──
   const recs = [];
-  recs.push('<strong>改用波動率當預測目標是對的方向。</strong>' + esc(best.name) + ' 的 R² 為 ' + fx(best.R2, 2) + '，代表未來 5 日波動有相當部分可以事先預測；漲跌方向的實驗則一直贏不了最簡單的猜法。');
+  recs.push('<strong>改用波動率當預測目標是對的方向。</strong>' + esc(best.name) + ' 的 R² 為 ' + fx(best.R2, 2) + '，代表未來 5 日波動約有 ' + fx(best.R2 * 100, 0) + '% 的變化可以事先預測（只用日報酬算的已實現波動雜訊很大，這已是不錯的水準）；漲跌方向的實驗則一直贏不了最簡單的猜法。');
   if (lstmBest.QLIKE < Math.min(har.QLIKE, harx.QLIKE)) recs.push('<strong>LSTM 有加分。</strong>' + esc(lstmBest.name) + ' 勝過 HAR 與 HAR-X，可以作為主模型；建議再以更多次重訓確認。');
   else recs.push('<strong>LSTM 沒有贏過線性模型。</strong>' + esc(lstmBest.name) + ' 的 QLIKE 比 ' + (harx.QLIKE < har.QLIKE ? 'HAR-X' : 'HAR') + ' 差，這和文獻一致：波動率的結構很簡單，線性 HAR 類模型很難被打敗。實務上用 ' + esc(best.name) + ' 即可，運算快、可解釋。');
-  if (uncGainLin < 0) recs.push('<strong>隱含波動率與不確定性指數有幫助。</strong>HAR-X 的 QLIKE 比 HAR ' + pct(uncGainLin) + '，和方向實驗不同，這些變數對「波動」確實有預測力。');
+  const xWins = P.map((p, pi) => ({ p, w: row('harx', pi).QLIKE < row('har', pi).QLIKE }));
+  if (uncGainLin < 0) recs.push('<strong>隱含波動率與不確定性指數有幫助，但集中在危機期間。</strong>HAR-X 的平均 QLIKE 比 HAR ' + pct(uncGainLin) + '，但只在 ' +
+    xWins.filter(x => x.w).map(x => esc(x.p.label) + '（' + esc(x.p.from.slice(0, 7)) + '~' + esc(x.p.to.slice(0, 7)) + '）').join('、') + ' 較好，其餘 ' + xWins.filter(x => !x.w).length + ' 期反而稍差。它的價值在於波動突然暴增時（例如 2020 年疫情）較早拉高預測，平時則和 HAR 差不多。');
   else recs.push('<strong>不確定性指數對波動的幫助不明顯。</strong>HAR-X 沒有比 HAR 好（' + pct(uncGainLin) + '）。');
   recs.push('<strong>可以怎麼用：</strong>依預測波動調整部位大小（波動目標化：預測波動高時減碼），或作為選擇權、停損距離的參考。這些用途不需要猜對方向。');
   $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
