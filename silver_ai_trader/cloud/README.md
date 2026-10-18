@@ -85,6 +85,16 @@ node vol-report.mjs                                                             
 預測未來 5 個交易日的已實現波動率，比較計量基準（隨機漫步、EWMA、HAR、HAR-X）與四組 LSTM，
 以 QLIKE、RMSE、R² 和「波動升降」準確率評估。
 
+### 波動目標化回測（`voltarget.mjs`）
+
+```bash
+node voltarget.mjs --data runs/vol-data.json --target 20 --max-lev 1   # 幾秒
+node voltarget-report.mjs                                              # output/voltarget.html
+```
+
+每天收盤後依 EWMA 預測波動設定隔天部位 = min(目標波動 ÷ 預測波動, 槓桿上限)，扣換倉成本；
+和買進持有、同風險固定部位比較，含目標波動與成本敏感度、逐年報酬、夏普差的區塊拔靴檢定（SI=F 與 SLV）。
+
 ## 評估方式
 
 資料依時間切成**訓練 | 驗證 | 測試**三段：
