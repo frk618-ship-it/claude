@@ -79,6 +79,7 @@ section { display: grid; gap: 12px; }
 .panel { background: var(--surface); border: 1px solid var(--edge); border-radius: 10px; padding: 16px; min-width: 0; }
 .chart { width: 100%; height: 360px; }
 .chart.short { height: 300px; }
+.chart.mini { height: 200px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .85rem; color: var(--ink-2); }
 .key { display: inline-flex; align-items: center; gap: 6px; }
 .key i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
@@ -125,6 +126,19 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
     <h2 id="fc-h">未來走勢預測</h2>
     <div class="forecast" id="forecast"></div>
     <p class="muted" id="fcNote"></p>
+  </section>
+
+  <section aria-labelledby="vt-h" id="vtSec" hidden>
+    <h2 id="vt-h">今日部位建議（波動目標化）</h2>
+    <div class="forecast" id="vtCells" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr))"></div>
+    <div class="cols">
+      <div class="panel" style="display:grid;gap:8px">
+        <div class="legend"><span class="key"><i style="background:var(--s1)"></i>建議持有比例（最近兩年）</span></div>
+        <div id="vtChart" class="chart mini" role="img" aria-label="最近兩年的建議持有比例"></div>
+      </div>
+      <div class="panel table-wrap"><table id="vtTable"></table></div>
+    </div>
+    <p class="muted" id="vtNote"></p>
   </section>
 
   <div class="verdict" id="verdict"></div>
@@ -307,6 +321,28 @@ footer { color: var(--ink-3); font-size: .8rem; border-top: 1px solid var(--edge
   });
   const cfg = { displayModeBar: false, responsive: true };
   const draw = (id, data, lay) => { if (window.Plotly) Plotly.newPlot(id, data, lay, cfg); else $(id).innerHTML = '<p class="muted" style="padding:24px">圖表函式庫載入失敗（需連線到 cdn.jsdelivr.net）。</p>'; };
+
+  // ── 今日部位建議（波動目標化）──
+  const V = R.volTarget;
+  if (V) {
+    $('vtSec').hidden = false;
+    const C = V.current, S = V.settings, vs = V.stats.vt, bs = V.stats.bh;
+    const pc = (v, d = 1) => Number.isFinite(v) ? (v * 100).toFixed(d) + '%' : '—';
+    const moved = Math.abs(C.target - C.held) > 1e-6;
+    $('vtCells').innerHTML = [
+      '<div class="fc"><span class="label">EWMA 預測年化波動 · ' + esc(C.date) + '</span><span class="price">' + pc(C.sigma) + '</span><span class="muted">λ = ' + S.lambda + '</span></div>',
+      '<div class="fc"><span class="label">建議白銀部位（下個交易日）</span><span class="price">' + pc(C.weight, 0) + '</span><span class="muted">目標波動 ' + pc(S.target, 0) + ' ÷ 預測波動，上限 ' + S.maxLev + ' 倍</span></div>',
+      '<div class="fc"><span class="label">動作</span><span class="price" style="font-size:1.15rem">' + (C.adjust ? '調整到 ' + pc(C.target, 0) : '維持 ' + pc(C.held, 0)) + '</span><span class="muted">' +
+        (C.adjust ? '目前 ' + pc(C.held, 0) + '，變化超過 ' + pc(S.band, 0) : moved ? '理論值 ' + pc(C.target, 0) + '，變化未超過 ' + pc(S.band, 0) + ' 不調整' : '已在目標部位') + '</span></div>',
+    ].join('');
+    draw('vtChart', [{ x: V.recent.dates, y: V.recent.weight, type: 'scatter', mode: 'lines', fill: 'tozeroy', line: { color: tok('--s1'), width: 1.5 }, fillcolor: tok('--band'), hovertemplate: '持有比例：%{y:.0%}<extra></extra>' }],
+      layout({ margin: { l: 48, r: 12, t: 6, b: 30 }, yaxis: axis({ tickformat: '.0%', rangemode: 'tozero' }) }));
+    const rows = [['年化報酬', pc(vs.cagr), pc(bs.cagr)], ['年化波動', pc(vs.vol), pc(bs.vol)], ['夏普值', fx(vs.sharpe, 2), fx(bs.sharpe, 2)], ['最大回撤', pc(vs.maxDD), pc(bs.maxDD)], ['最慘單日', pc(vs.worstDay), pc(bs.worstDay)], ['平均部位', pc(vs.avgWeight, 0), '100%']];
+    $('vtTable').innerHTML = '<thead><tr><th>回測 ' + esc(V.range.from) + ' ~ ' + esc(V.range.to) + '</th><th class="n">波動目標</th><th class="n">買進持有</th></tr></thead><tbody>' +
+      rows.map(([k, a, b]) => '<tr><td>' + k + '</td><td class="n">' + a + '</td><td class="n">' + b + '</td></tr>').join('') + '</tbody>';
+    $('vtNote').textContent = '部位只依預測波動決定、只做多，和上面的漲跌預測無關：預測波動越高，持有越少（未投入部分為現金）。權重變化小於 ' + pc(S.band, 0) + ' 不調整，換倉成本 ' + S.costBps + ' bps。' +
+      '回測中它把最大回撤從 ' + pc(bs.maxDD, 0) + ' 降到 ' + pc(vs.maxDD, 0) + '，但夏普值和買進持有差不多——用途是控制風險，不是多賺。';
+  }
 
   // ── 價格圖 ──
   if (H > 1) $('predLegend').textContent = '模型預測（' + H + ' 天前的資料 → 預測當天）';

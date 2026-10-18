@@ -85,6 +85,16 @@ node vol-report.mjs                                                             
 預測未來 5 個交易日的已實現波動率，比較計量基準（隨機漫步、EWMA、HAR、HAR-X）與四組 LSTM，
 以 QLIKE、RMSE、R² 和「波動升降」準確率評估。
 
+### 報告中的「今日部位建議」
+
+`train.mjs` 每次訓練都會在 `results.json` 加上 `volTarget`（設定在 config 的 `volTarget`，預設目標 20%、上限 1 倍、
+調整門檻 10%、成本 3 bps），`report.mjs` 會在預測下方顯示 EWMA 預測波動、建議部位與回測比較。
+不想重新訓練、只更新部位建議時：
+
+```bash
+node train.mjs --config compare-features.config.json --vol-target-only && node report.mjs
+```
+
 ### 波動目標化回測（`voltarget.mjs`）
 
 ```bash

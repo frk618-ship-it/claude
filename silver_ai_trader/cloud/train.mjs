@@ -105,6 +105,8 @@ const DEFAULT_CONFIG = {
         maxMapeVsNaive: 1.5,
     },
     refit: true,
+    // 波動目標化部位建議（報告「今日部位」）：部位 = min(target ÷ EWMA 預測波動, maxLev)
+    volTarget: { target: 0.20, maxLev: 1, band: 0.10, costBps: 3 },
     workers: null,   // null = CPU 核心數
 };
 
@@ -254,6 +256,21 @@ const loadData = async () => {
     note('FRED STLFSI4 金融壓力指數', stl, v => `每週，${range(v)}`, 'finStress', v => { maps.finStress = v.map; });
     Object.assign(raw, core.deriveUncertaintyFeatures(raw.dates, maps));
     return { raw, source: 'yahoo', unavailable, sourceStatus };
+};
+
+// ── 波動目標化部位建議 ────────────────────────────────────────
+// 整段期間的回測統計 + 最近兩年的序列（報告圖表用）+ 今天收盤後的建議部位
+const volTargetSummary = (raw) => {
+    const r = core.simulateVolTarget({ prices: raw.prices, dates: raw.dates, ...config.volTarget });
+    if (!r) return null;
+    const keep = Math.min(504, r.dates.length);
+    const tail = (a) => a.slice(-keep);
+    const rebase = (a) => { const t = tail(a), b = t[0]; return t.map(v => +(v / b).toFixed(4)); };
+    return {
+        settings: r.settings, current: r.current, stats: r.stats,
+        range: { from: r.dates[0], to: r.dates[r.dates.length - 1] },
+        recent: { dates: tail(r.dates), weight: tail(r.weight).map(v => +v.toFixed(3)), sigma: tail(r.sigma).map(v => +v.toFixed(4)), equity: rebase(r.equity), bhEquity: rebase(r.bhEquity) },
+    };
 };
 
 // ── 切分 ──────────────────────────────────────────────────────
@@ -608,6 +625,16 @@ const main = async () => {
         log(`資料輸出到 ${arg('--dump-data')}`);
         return;
     }
+    // 只更新既有 results.json 的波動目標化部位（不重新訓練）
+    if (flag('--vol-target-only')) {
+        const file = path.join(OUT, 'results.json');
+        const res = JSON.parse(readFileSync(file, 'utf8'));
+        if (res.meta?.dataRange?.to !== raw.dates[raw.dates.length - 1]) log(`⚠️ results.json 的資料截至 ${res.meta?.dataRange?.to}，最新資料是 ${raw.dates[raw.dates.length - 1]}；部位建議會用最新資料`);
+        res.volTarget = volTargetSummary(raw);
+        writeFileSync(file, JSON.stringify(res));
+        log(`已更新 ${path.relative(process.cwd(), file)} 的波動目標化部位：預測波動 ${(res.volTarget.current.sigma * 100).toFixed(1)}%，建議部位 ${(res.volTarget.current.weight * 100).toFixed(0)}%`);
+        return;
+    }
     if (flag('--compare-loss')) return compareLoss(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
     if (flag('--compare-features')) return compareFeatures(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
 
@@ -785,6 +812,7 @@ const main = async () => {
             testFrom: split.test.from,
         },
         influence: mp.influenceScores || null,
+        volTarget: volTargetSummary(raw),
     };
     writeFileSync(path.join(OUT, 'results.json'), JSON.stringify(results));
     finalModel.dispose();
