@@ -74,6 +74,17 @@ node report.mjs                      # 產生 output/report.html
 
 用瀏覽器匯出的資料（`--data`）訓練時沒有這些變數，會自動略過。用了這些變數的模型無法載入瀏覽器版。
 
+### 波動率預測（`vol.mjs`）
+
+```bash
+node train.mjs --config compare-features.config.json --dump-data runs/vol-data.json   # 抓好資料
+node vol.mjs --data runs/vol-data.json --repeats 3                                    # 約 2 小時
+node vol-report.mjs                                                                   # output/vol-compare.html
+```
+
+預測未來 5 個交易日的已實現波動率，比較計量基準（隨機漫步、EWMA、HAR、HAR-X）與四組 LSTM，
+以 QLIKE、RMSE、R² 和「波動升降」準確率評估。
+
 ## 評估方式
 
 資料依時間切成**訓練 | 驗證 | 測試**三段：

@@ -601,6 +601,13 @@ const main = async () => {
     writeFileSync(dataPath, JSON.stringify(raw));
     process.on('exit', () => { try { rmSync(dataDir, { recursive: true, force: true }); } catch (_) {} });
 
+    // 只輸出整理好的資料（給 vol.mjs 等其他實驗使用）
+    if (arg('--dump-data')) {
+        writeFileSync(path.resolve(arg('--dump-data')), JSON.stringify({ raw, factors, excluded, sourceStatus, source,
+            literature: core.LITERATURE_FEATURES.map(f => ({ key: f.key, name: f.name, group: f.group, ref: f.ref, batch: f.batch || 1 })) }));
+        log(`資料輸出到 ${arg('--dump-data')}`);
+        return;
+    }
     if (flag('--compare-loss')) return compareLoss(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
     if (flag('--compare-features')) return compareFeatures(raw, factors, excluded, sourceStatus, source, WORKERS, dataPath);
 
