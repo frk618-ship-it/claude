@@ -115,6 +115,19 @@ node combo-report.mjs                      # output/combo.html
 把波動目標化和報酬訊號結合：12 個月趨勢、下跌波動目標、半 Kelly、趨勢 × 波動目標（含槓桿版），
 和買進持有、單純波動目標化、同風險固定部位比較，含趨勢回看／目標波動／成本的穩健性。
 
+### 每日（隔日）預測報告（`daily.mjs`）
+
+```bash
+node train.mjs --config compare-features.config.json --dump-data runs/vol-data.json
+node daily.mjs --data runs/vol-data.json --repeats 5      # 約 3.5 小時（130 次訓練）
+node daily-report.mjs                                     # output/daily.html
+```
+
+2024 年起每季只用當時以前的資料重訓，預測該季每個交易日的隔日報酬（每日一個樣本），
+比較「全部歷史」與「近 3 年」兩種訓練視窗；最後用全部資料訓練產生下一個交易日的預測。
+報告含 2024 年起的準確度與簡單規則比較、各季與滾動準確率、信心與波動環境分組、交易回測、
+優勢來源分析，以及 `results.json` 中的波動目標化今日部位。
+
 ## 評估方式
 
 資料依時間切成**訓練 | 驗證 | 測試**三段：

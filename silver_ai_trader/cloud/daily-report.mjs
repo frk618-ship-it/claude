@@ -167,6 +167,16 @@ tr.hl td { background: var(--surface-2); }
     <p class="muted">每天收盤依隔日預測決定部位，扣 3 bps 換倉成本；「波動縮放」是部位再乘上波動目標化的比例（目標 20%、上限 1 倍）。夏普差區間為 20 日區塊拔靴法的 95% 信賴區間。</p>
   </section>
 
+  <section aria-labelledby="src-h">
+    <h2 id="src-h">優勢從哪裡來？</h2>
+    <div class="cols">
+      <div class="panel table-wrap"><table id="sepTable"></table></div>
+      <div class="panel table-wrap"><table id="exTable"></table></div>
+    </div>
+    <div class="panel table-wrap"><table id="yrTable"></table></div>
+    <p class="muted" id="srcNote"></p>
+  </section>
+
   <section aria-labelledby="vt-h" id="vtSec" hidden>
     <h2 id="vt-h">今日部位建議（波動目標化）</h2>
     <div class="fcgrid" id="vtCells"></div>
@@ -231,7 +241,7 @@ tr.hl td { background: var(--surface-2); }
     V.map(v => { const r = F.byVariant[v.key].mean, p = F.lastPrice * Math.exp(r), u = r >= 0; const runsUp = F.byVariant[v.key].runs.filter(x => x > 0).length;
       return cell(esc(v.name) + ' · ' + nextDay, fx(p, 3), '<span class="chg ' + (u ? 'up' : 'down') + '">' + (u ? '▲ 漲 ' : '▼ 跌 ') + sp(r) + '</span>　' + runsUp + '/' + F.byVariant[v.key].runs.length + ' 次重訓猜漲'); }).join('');
   const agree = V.every(v => (F.byVariant[v.key].mean > 0) === (F.byVariant[V[0].key].mean > 0));
-  $('fcNote').textContent = (agree ? '兩種訓練視窗的方向一致。' : '兩種訓練視窗的方向不一致，訊號不明確。') + '2024 年以來，「' + best.name + '」的方向準確率較高（' + pc(best.acc) + '），但這是事後比較；預測幅度通常只有零點幾個百分點，遠小於白銀一天的正常波動（約 ' + pc(F.sigma / Math.sqrt(252)) + '）。';
+  $('fcNote').textContent = (agree ? '兩種訓練視窗的方向一致。' : '兩種訓練視窗的方向不一致，訊號不明確。') + (F.byVariant[best.key].runs.every(x => x > 0) || F.byVariant[best.key].runs.every(x => x <= 0) ? '「' + best.name + '」' + F.byVariant[best.key].runs.length + ' 次重訓方向一致。' : '') + '2024 年以來，「' + best.name + '」的方向準確率較高（' + pc(best.acc) + '），但這是事後比較；預測幅度通常只有零點幾個百分點，遠小於白銀一天的正常波動（約 ' + pc(F.sigma / Math.sqrt(252)) + '）。';
 
   // ── 結論 ──
   const sig = best.lo > bestRule;
@@ -239,7 +249,7 @@ tr.hl td { background: var(--surface-2); }
     S.map(s => esc(s.name) + ' <span class="num">' + pc(s.acc) + '</span>（95% 信賴區間 ' + pc(s.lo) + '–' + pc(s.hi) + '）').join('；') +
     '；最強的簡單規則「' + bestRuleName + '」是 <span class="num">' + pc(bestRule) + '</span>。</p>' +
     '<p>價格誤差：' + S.map(s => esc(s.name) + ' ' + pc(s.mape, 2)).join('、') + '，「明天 = 今天」' + pc(rwMAPE, 2) + '。' +
-    (S.some(s => s.mape < rwMAPE) ? '' : '模型沒有比「明天不變」更準。') + '</p>';
+    (S.some(s => s.mape < rwMAPE) ? '' : '模型沒有比「明天不變」更準。') + '不過方向準確率不看漲跌幅度，照預測進出的回測結果見下方「照預測交易」與「優勢從哪裡來」。</p>';
 
   // ── 重點數字 ──
   $('stats').innerHTML = [
@@ -324,17 +334,32 @@ tr.hl td { background: var(--surface-2); }
     $('vtNote').textContent = '部位只依預測波動決定、和漲跌預測無關。用途是控制風險（10 年回測最大回撤由 ' + pc(R.volTarget.stats.bh.maxDD, 0) + ' 降到 ' + pc(R.volTarget.stats.vt.maxDD, 0) + '），不是多賺。';
   }
 
+  // ── 優勢從哪裡來 ──
+  const bh = strat[0];
+  const lfOf = (sv) => strat.find(x => x.key === sv.key + '_lf');
+  $('sepTable').innerHTML = '<thead><tr><th>隔日實際報酬（平均）</th>' + S.map(sv => '<th class="n">' + esc(sv.name) + '</th>').join('') + '</tr></thead><tbody>' +
+    ['猜漲的日子', '猜跌的日子'].map((lab, k) => '<tr><td>' + lab + '</td>' + S.map(sv => { const ii = D.dates.map((_, i) => i).filter(i => k === 0 ? sv.p[i] > 0 : !(sv.p[i] > 0)); const m = mean(ii.map(i => ret[i])); return '<td class="n ' + (m >= 0 ? 'good' : 'bad') + '">' + sp(m) + '<span class="muted"> · ' + ii.length + ' 天</span></td>'; }).join('') + '</tr>').join('') + '</tbody>';
+  // 拿掉「模型避開的最慘 k 天」後，猜漲持有和買進持有的夏普值
+  const shp = (d) => mean(d) / sd(d) * Math.sqrt(252);
+  const bestLf = lfOf(best);
+  const avoided = D.dates.map((_, i) => i).filter(i => !(best.p[i] > 0)).sort((a, b) => ret[a] - ret[b]);
+  const exRows = [0, 1, 3, 5, 10].map(k => { const ex = new Set(avoided.slice(0, k)); const ii = D.dates.map((_, i) => i).filter(i => !ex.has(i)); return [k, shp(ii.map(i => bestLf.d[i])), shp(ii.map(i => bh.d[i]))]; });
+  $('exTable').innerHTML = '<thead><tr><th>拿掉模型避開的最慘 k 天</th><th class="n">猜漲持有</th><th class="n">買進持有</th></tr></thead><tbody>' +
+    exRows.map(([k, a, c]) => '<tr><td>' + (k ? 'k = ' + k : '全部日子') + '</td><td class="n">' + fx(a, 2) + '</td><td class="n">' + fx(c, 2) + '</td></tr>').join('') + '</tbody>';
+  const yrs = [...new Set(D.dates.map(d => d.slice(0, 4)))];
+  $('yrTable').innerHTML = '<thead><tr><th>年（' + esc(best.name) + '）</th><th class="n">天數</th><th class="n">方向準確率</th><th class="n">上漲日比例</th><th class="n">猜漲持有 夏普</th><th class="n">買進持有 夏普</th><th class="n">猜漲持有 報酬</th><th class="n">買進持有 報酬</th></tr></thead><tbody>' +
+    yrs.map(y => { const ii = D.dates.map((_, i) => i).filter(i => D.dates[i].startsWith(y)); const comp = (d) => ii.reduce((a, i) => a * (1 + d[i]), 1) - 1;
+      return '<tr><td class="num">' + y + '</td><td class="n">' + ii.length + '</td><td class="n">' + pc(da(best.p, ii)) + '</td><td class="n">' + pc(ii.filter(i => up[i]).length / ii.length) + '</td><td class="n">' + fx(shp(ii.map(i => bestLf.d[i])), 2) + '</td><td class="n">' + fx(shp(ii.map(i => bh.d[i])), 2) + '</td><td class="n">' + pc(comp(bestLf.d)) + '</td><td class="n">' + pc(comp(bh.d)) + '</td></tr>'; }).join('') + '</tbody>';
+  const ex10 = exRows[exRows.length - 1];
+  $('srcNote').textContent = '方向準確率只計算「猜對幾次」，不看幅度。模型猜跌的日子平均真的下跌、猜漲的日子平均上漲，而且它避開了不少大跌日；拿掉它避開的最慘 10 天後，夏普值優勢從 ' + fx(exRows[0][1] - exRows[0][2], 2) + ' 縮小到 ' + fx(ex10[1] - ex10[2], 2) + '——優勢有相當部分集中在少數大跌日。';
+
   // ── 建議 ──
-  const lf = strat.find(s => s.key === best.key + '_lf'), bh = strat[0], vt = strat[1];
-  const recentBetter = S.find(s => s.key === 'recent').acc > S.find(s => s.key === 'all').acc;
+  const lf = bestLf, bh2 = bh, other = S.find(sv => sv.key !== best.key), otherLf = lfOf(other), lfvt = strat.find(x => x.key === best.key + '_vt');
   const recs = [
-    sig ? '<strong>「' + esc(best.name) + '」在 2024 年後有顯著的隔日方向預測力。</strong>建議持續追蹤，並以更多季度確認。'
-        : '<strong>隔日方向仍然不可靠。</strong>2024 年以來最好的做法準確率 ' + pc(best.acc) + '，信賴區間下緣 ' + pc(best.lo) + ' 沒有超過「' + bestRuleName + '」的 ' + pc(bestRule) + '。在這段多頭行情中，「永遠猜漲」就有 ' + pc(alwaysUp) + '。',
-    '<strong>訓練視窗：</strong>' + (recentBetter ? '只用近 3 年訓練的準確率較高（' : '用全部歷史訓練的準確率較高（') + S.map(s => s.name + ' ' + pc(s.acc)).join(' vs ') + '）' +
-      (Math.abs(S[0].acc - S[1].acc) < 0.02 ? '，但差距不到 2 個百分點，在雜訊範圍內——丟掉 2023 年以前的資料並沒有明顯幫助。' : '。'),
-    '<strong>照預測交易：</strong>「' + esc(lf.name) + '」夏普值 ' + fx(lf.st.sharpe, 2) + '，買進持有 ' + fx(bh.st.sharpe, 2) + '、波動目標化 ' + fx(vt.st.sharpe, 2) + '。' +
-      (lf.ci && lf.ci[0] > 0 ? '差距顯著。' : '差距不顯著（信賴區間 ' + sg(lf.ci[0]) + ' ~ ' + sg(lf.ci[1]) + '）。'),
-    '<strong>每日使用方式：</strong>把隔日預測當作參考訊號，部位大小則依「今日部位建議」的波動目標化決定；不要只因模型猜跌就清倉，因為它的準確率和擲硬幣差不多。',
+    '<strong>方向準確率沒有勝過「永遠猜漲」，但漲跌幅度有分辨力。</strong>' + esc(best.name) + ' 的準確率 ' + pc(best.acc) + '（信賴區間 ' + pc(best.lo) + '–' + pc(best.hi) + '），和永遠猜漲的 ' + pc(alwaysUp) + ' 一樣；但它猜跌的日子平均報酬為負、猜漲的日子為正，所以照它進出的回測夏普值 ' + fx(lf.st.sharpe, 2) + '，高於買進持有的 ' + fx(bh2.st.sharpe, 2) + '（差距信賴區間 ' + sg(lf.ci[0]) + ' ~ ' + sg(lf.ci[1]) + (lf.ci[0] > 0 ? '，顯著' : '') + '）。',
+    '<strong>近 3 年訓練反而比較差。</strong>' + esc(other.name) + ' 準確率 ' + pc(other.acc) + '、猜漲持有夏普值 ' + fx(otherLf.st.sharpe, 2) + '。2024 年後行情雖然不同，丟掉 2023 年以前的資料讓模型少了經歷過的大跌與高波動樣本，沒有幫助。',
+    '<strong>要保守看待。</strong>優勢有相當部分來自避開少數大跌日（拿掉最慘 10 天後夏普差剩 ' + fx(ex10[1] - ex10[2], 2) + '）；評估只有約 2.8 年；而且是在 2 種訓練視窗、多種交易方式中挑出最好的，有選擇偏誤。' + (() => { const y = yrs[yrs.length - 1], ii = D.dates.map((_, i) => i).filter(i => D.dates[i].startsWith(y)); return y + ' 年至今猜漲持有的夏普值只有 ' + fx(shp(ii.map(i => bestLf.d[i])), 2) + '（買進持有 ' + fx(shp(ii.map(i => bh.d[i])), 2) + '），表現比前兩年弱。'; })(),
+    '<strong>建議用法：</strong>以「' + esc(lfvt.name) + '」作為候選規則（回測夏普 ' + fx(lfvt.st.sharpe, 2) + '、最大回撤 ' + pc(lfvt.st.mdd) + '），先模擬追蹤一段時間（例如 3 個月）確認樣本外仍有效，再考慮實際使用；部位大小仍以下方的波動目標化為上限。',
   ];
   $('recs').innerHTML = recs.map(r => '<li>' + r + '</li>').join('');
 
