@@ -1,24 +1,169 @@
 {
-  "generated": "2026-10-18T08:29:00.720333+08:00",
+  "generated": "2026-10-18T09:32:05.216831+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期最直接的靶材供給面消息,是 JX金屬宣布擴充韓國京畿道平澤市的半導體用濺鍍靶材加工能力。此舉貼近韓系記憶體與晶圓代工客戶,可能加劇在韓靶材的在地供應競爭。需求端方面,台積電傳出將在南部縣市興建新廠;日月光投控股東會聚焦先進封裝擴產與 PLP(面板級封裝)量產;格羅方德宣布砸 11 億歐元擴建德國晶圓廠,預計 2028 年啟動生產。三者都將中長期帶動 PVD 機台與靶材需求。業績與資本市場面,光洋科 9 月營收月增、季增、年增,但股價隨半導體題材降溫而走弱;JX金屬獲納入日經 225;Argus 將 Materion 目標價調升至 354 美元;江豐電子 10 月 13 日主力資金淨賣出約 5,537 萬元人民幣。貴金屬方面,金價受通膨數據影響回落,但仍在 4,226 美元關卡附近整理,銀價則有測試 55 美元的空方壓力,與貴金屬靶材成本與回收價值相關。",
+    "overview": "本期最直接的靶材供給面消息,是 JX金屬宣布擴充韓國京畿道平澤市的半導體用濺鍍靶材加工能力,顯示日系龍頭正貼近韓系記憶體與晶圓客戶就近供貨。需求端,台積電傳出將在南部再建新廠,日月光投控股東會聚焦先進封裝擴產與 PLP(面板級封裝)量產,格羅方德也宣布砸 11 億歐元擴建德國晶圓廠、2028 年啟動生產。三者都將帶動 PVD 機台與靶材的中長期需求。原物料面,報導指黃金暴跌 27%、白銀價格腰斬,貴金屬靶材的成本與報價基準可能出現明顯變動。資本市場方面,光洋科九月營收月增、季增、年增,JX金屬獲選納入日經 225,Materion 獲 Argus 上調目標價,中國業者歐萊新材持續推進定增審核,江豐電子則有回購提議。本期多則社群影片與個股行情類訊息關聯度低,已不列入重點。",
     "key_trends": [
-      "靶材大廠就近客戶布局:JX金屬擴充韓國平澤靶材加工產能,顯示日系龍頭持續強化在韓供應鏈,在地化交貨與技術支援將成競爭關鍵,其他供應商在韓市場可能面臨更大價格與份額壓力。",
-      "晶圓廠擴產延續:台積電南部新廠傳聞與格羅方德德國 11 億歐元擴建,意味 2027-2028 年前後新增 PVD 機台與鋁、銅、鈦、鉭、鈷等金屬靶材需求,歐洲在地供應需求也可能浮現。",
-      "先進封裝成為 PVD 需求新動能:日月光擴充先進封裝並推進 PLP 量產,凸塊、RDL、扇出製程的晶種層與阻障層濺鍍需求上升,大尺寸方形面板基板也可能帶動對應的靶材規格與濺鍍設備需求。",
-      "靶材廠營運回溫但股價波動加劇:光洋科 9 月營收三增;JX金屬納入日經 225、Materion 獲調升目標價,顯示市場以 AI 材料題材評價靶材股。但半導體話題降溫、江豐電子主力資金賣超,反映短線資金情緒轉弱。",
-      "貴金屬價格高檔震盪:金價在 4,226 美元附近整理、銀價面臨 55 美元支撐測試,貴金屬靶材(金、銀、鉑族)報價與回收料價值仍處高檔,採購端需留意計價與避險時點。"
+      "日系靶材大廠深化在地化供應:JX金屬擴充韓國平澤的濺鍍靶材加工能力,強化對韓國半導體客戶的就近交付與服務。台灣與中國供應商在韓國市場將面臨更直接的競爭。",
+      "先進封裝持續擴產,PVD 需求外溢至封測端:日月光推進先進封裝擴產與 PLP 量產,面板級封裝的凸塊、RDL 需要大面積 PVD 製程,可望帶動銅、鈦等封裝用靶材與大尺寸靶材需求。",
+      "晶圓廠全球擴建延續:台積電南部新廠傳聞,加上格羅方德德國廠 11 億歐元擴建(2028 年投產),顯示前段晶圓產能投資在台灣與歐洲同步進行,靶材供應商需提前布局認證與在地供應。",
+      "貴金屬價格劇烈修正:報導指金價暴跌 27%、銀價腰斬,技術分析報導點出銀價空方目標 55 美元、金價壓力位 4,226 美元。金、銀靶材與貴金屬回收業務的庫存評價、報價及營收認列將受衝擊。",
+      "中國靶材業者持續資本化擴張:歐萊新材回覆定增審核問詢並更新申請文件,江豐電子出現控股股東與 CTO 提議回購。中國業者在融資擴產與市值管理上動作頻繁,國產替代的競爭壓力持續。",
+      "靶材相關個股評價分歧:JX金屬納入日經 225,但瑞銀給予中性評級(目標價 3,700 日元);Materion 獲上調目標價至 354 美元;光洋科營收亮眼,股價卻因半導體話題降溫而走弱。市場對材料股估值仍趨謹慎。"
     ],
     "watch_points": [
-      "JX金屬平澤擴產的規模、投產時程與對應產品(銅、鉭、鈷等),以及是否綁定三星、SK海力士等特定客戶,評估對其他供應商在韓業務的衝擊。",
-      "台積電南部新廠的確切地點、製程節點與時程,以及日月光 PLP 量產進度與後續資本支出,作為 PVD 機台與靶材需求預測依據。",
-      "格羅方德德國擴建的設備採購規劃與 2028 年投產節奏,留意歐洲在地靶材供應與認證機會。",
-      "光洋科、江豐電子、Materion、JX金屬後續月營收與財報,觀察靶材需求是否延續成長,以及股價題材降溫是否反映訂單放緩。",
-      "金、銀價格在關鍵價位的突破或跌破方向,及其對貴金屬靶材報價、合約調價機制與回收業務的影響。"
+      "追蹤 JX金屬平澤擴產的具體規模、時程與目標客戶,評估對韓國市場靶材報價與交期的影響。",
+      "確認台積電南部新廠的地點、製程節點與時程,以及日月光 PLP 量產進度,提前規劃靶材認證與產能配置。",
+      "密切關注金、銀價格走勢,檢視貴金屬靶材的計價機制、庫存跌價風險,以及回收料價差對採購成本的影響。",
+      "持續關注歐萊新材定增審核結果與募資擴產項目,以及江豐電子回購落實情況,評估中國業者在顯示器與半導體靶材的價格競爭力。",
+      "觀察光洋科十月以後營收能否延續成長,以及貴金屬價格下跌對其營收與毛利結構的影響。"
     ]
   },
   "items": [
+    {
+      "id": "d35c59d99e7a63ab",
+      "title": "#其它# 欧莱新材：回复定增审核问询函并更新申请文件",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2bmczUmVURVdqWkxnWjJiNlBUUG9fUTV1dVNsdDA2TEZzUk5JbDJEQUFibW9xY001WGcyTFl5MEdPV1FRelE1YjBIaGJCS2licmpxaHJYdzBIMnE2T2VvSXRGNkdlQ28?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T15:15:33+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.15,
+      "summary": "歐萊新材已回覆定增(定向增發)審核問詢函,並更新申請文件,募資案持續推進。若順利完成,可望挹注其靶材擴產資金,加劇中國靶材廠的競爭。",
+      "importance": 3,
+      "title_zh": "#其它# 歐萊新材：回覆定增審核問詢函並更新申請文件",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0112adf2e90db92b",
+      "title": "欧莱新材回复定增审核问询函 更新后申请文件已披露",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE15V2VIV1Rkd2x4eUs2cXRUcTdsbFc4R25qbXBnaU9DLVRpQjV3UEJxMTl2OEY4Z19VQVQ4ZnlTMDlhc2VINVNrMzBvbWd4Zw?oc=5",
+      "source": "观点网",
+      "published": "2026-10-12T11:51:11+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.7,
+      "summary": "歐萊新材回覆定增審核問詢函,更新後的申請文件已公開揭露,屬同一募資案的進度更新。後續可留意募資用途中與靶材產能相關的規劃。",
+      "importance": 3,
+      "title_zh": "歐萊新材回覆定增審核問詢函 更新後申請文件已披露",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b44f4ed045c72268",
+      "title": "江丰电子：关于收到控股股东、实际控制人、首席技术官提议回购公司股份的公告",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE50YS1PQUt1WHNzTUhLV2VtMDBGaDc0T25mVUR4bjFOVUJsRkcwcHJYd3AyUW9JeXdYN3RHYW1sYTAzSUU5bzc5UG1pSXk1Y2ZTRTFGUnBLT1NnWEUzSVJWc3B6U1U?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "技術與新產品"
+      ],
+      "score": 3.55,
+      "summary": "江豐電子公告,控股股東暨實際控制人與首席技術官提議回購公司股份,屬資本市場與股價維護動作。對靶材產能或供需無直接影響。",
+      "importance": 2,
+      "title_zh": "江豐電子：關於收到控股股東、實際控制人、首席技術官提議回購公司股份的公告",
+      "snippet_zh": ""
+    },
+    {
+      "id": "de70d96e0970d5b4",
+      "title": "黃金暴跌27%，白銀價格腰斬！一場更大的貴金屬危機正在醞釀？",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNendjYU5sb3NPQVg5RWJUemdqeTNXRUZCdnFfTV94ZTNLOGFjOENmZWlHY3Zjb0lLMWgxb205bkNvaEhPbFhremVteEViOTBEU0k5eEVFWktxUkF6eGVWQUlRS0hCNWcybExuQm9yVlZVSUtSQkFTU2o5ZWVnQWlfcERwMGRxeTg5TXlqc1JBYUVmcnY5ZWI3NkUyUEsxdFN3OEE?oc=5",
+      "source": "富途牛牛",
+      "published": "2026-10-17T03:00:33+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.17,
+      "summary": "市場報導指出黃金大跌27%、白銀價格腰斬,並討論貴金屬是否醞釀更大危機。若貴金屬價格持續下跌,可能壓低金、銀靶材的原料成本與售價。",
+      "importance": 3,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "be870bc29f0db17b",
+      "title": "瑞銀給予JX金屬中性評級，目標價爲3,700日元",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNSXAyOVdPYnRFdGU1TDhNT21uYzVja1I2VlFtdlh5dFhXeDVCWFdPX2x5OVFDU0lGLTVjNHN5cGpUMHFsNjJXcXF3ZTNKTWhvUldsT2pPY016ZlhiTWRRV3hhLXFxa1k3YjJhY1RhM1o2WkVPaVpwYTNTT2QxeUlFY1c2Sk5qRWZtQWFJVHJsOWFZZTFlWHdrT1V0d2FSdw?oc=5",
+      "source": "富途牛牛",
+      "published": "2026-10-17T16:19:19+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "瑞銀給予JX金屬中性評級,目標價3,700日圓。此為券商觀點,對靶材供需沒有直接影響,僅反映市場對靶材龍頭評價趨於中性。",
+      "importance": 2,
+      "title_zh": "瑞銀給予JX金屬中性評級，目標價為3,700日元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4b36a2c1f7976273",
+      "title": "JX金属の空売り急増！踏み上げ前夜 Man Utd Mateus Fernandes Transfer (qmfpe6fldC)",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPdW05dHRsWlpVN3RSeG9KeTBIVnF6RnRYczFQMDlUeThjcFVrbkgwZ0IwTnN0R1UxYVRGSTVRMUJ2R2g4OG10QlhYRUktWUJFcUFyNVc0Q0dQaWJWdHpiTWxxZjhzeTN4VjFwRXdYWlRpRVZQbE4zLWNjbktGOURYdA?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-17T16:10:33+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "影音標題稱JX金屬空單急增、可能出現軋空,內容屬股市投機性話題,來源可信度低。與靶材本業關聯薄弱。",
+      "importance": 1,
+      "title_zh": "JX金屬遭放空部位急增!軋空行情前夕 Man Utd Mateus Fernandes 轉會 (qmfpe6fldC)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0cc2589696d69c4c",
+      "title": "首版狂人：有研新材44的位置；大港股份12.6的位置，盯到起！",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0yVTFObHRlWjhiamwzZ2t5OHRYUG5oOVNtb21fU2FtQWtMNUJxd0V3cWNIYTRiVmxIWXB2R2RBcml6TWJxSUhQX3UyeHoyWEdFSG1WcnZ5R0E5bFgtTWRFb3l2QTdYYjJWYzhF?oc=5",
+      "source": "财富号",
+      "published": "2026-10-13T22:17:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.41,
+      "summary": "股市網紅貼文點評有研新材等個股的價位,屬短線交易觀點。與靶材產業基本面關聯薄弱。",
+      "importance": 1,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "4c67183f4f5466b8",
       "title": "台積電再拋震撼彈！將在南部「這縣市」建新廠 市政府下指示了",
@@ -35,7 +180,7 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "台積電傳將在南部某縣市興建新廠,當地市政府已下達配合指示。新廠將帶動 PVD 機台與高純度靶材的中長期需求,在地靶材供應商可提前卡位。",
+      "summary": "報導指台積電將在南部某縣市興建新廠,地方政府已指示配合。新晶圓廠中長期將帶動PVD機台與靶材需求,供應商宜及早卡位。",
       "importance": 4,
       "title_zh": "臺積電再拋震撼彈！將在南部「這縣市」建新廠 市政府下指示了",
       "snippet_zh": ""
@@ -56,7 +201,7 @@
         "技術與新產品"
       ],
       "score": 5.05,
-      "summary": "日月光投控股東會聚焦先進封裝擴產、面板級封裝(PLP)量產與 AI 展望。凸塊、RDL 與扇出型製程擴大,將推升封裝用 PVD 設備及銅、鈦等靶材需求。",
+      "summary": "日月光投控股東會聚焦先進封裝擴產、面板級封裝(PLP)量產與AI展望。凸塊、RDL等製程擴產將帶動封裝端PVD設備與銅、鈦等靶材需求。",
       "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
@@ -76,7 +221,7 @@
         "原物料與價格"
       ],
       "score": 3.22,
-      "summary": "通膨數據偏熱,金價走跌,但 Schiff 認為回檔是買點。金價波動會影響金靶材成本與報價。",
+      "summary": "通膨數據偏熱導致金價下滑,但Peter Schiff認為這是逢低布局的機會。金價走弱可能使金靶材原料成本下降。",
       "importance": 2,
       "title_zh": "通膨升溫致金價下滑,但 Schiff 稱這是天賜良機",
       "snippet_zh": ""
@@ -96,7 +241,7 @@
         "原物料與價格"
       ],
       "score": 3.18,
-      "summary": "分析指金價多頭面臨 4,226 美元關鍵壓力。貴金屬價格走勢牽動金靶材的採購成本。",
+      "summary": "技術分析指出金價多頭面臨4,226美元的關鍵壓力位。屬行情預測,僅能作為貴金屬靶材成本走勢的參考。",
       "importance": 2,
       "title_zh": "黃金(XAU/USD)價格預測:多頭面臨 $4,226 關鍵阻力",
       "snippet_zh": ""
@@ -116,7 +261,7 @@
         "原物料與價格"
       ],
       "score": 3.16,
-      "summary": "技術分析指銀價空方瞄準 55 美元,RSI 接近超賣。銀價變化會影響銀靶材及含銀合金靶材的成本。",
+      "summary": "技術分析指出銀價空方目標看向55美元,RSI已接近超賣。銀價走勢會影響銀靶材的原料成本。",
       "importance": 2,
       "title_zh": "白銀價格預測:RSI 接近超賣,空頭瞄準 $55",
       "snippet_zh": ""
@@ -137,7 +282,7 @@
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "Argus 將靶材與先進材料廠 Materion 的目標價調升至 354 美元,反映市場看好其營運前景。此屬資本市場評價,對靶材供需沒有直接影響。",
+      "summary": "Argus將靶材與先進材料廠Materion的目標價上調至354美元,反映市場看好其營運前景。對靶材供需沒有直接影響。",
       "importance": 2,
       "title_zh": "Argus 將 Materion 股票目標價上調至 USD 354.00",
       "snippet_zh": ""
@@ -158,7 +303,7 @@
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "JX 金屬在南韓京畿道平澤市擴增半導體用濺鍍靶材的加工產能,貼近當地大型記憶體客戶。此舉可望強化其在韓國市場的供貨能力,加劇當地靶材競爭。",
+      "summary": "JX金屬擴充南韓京畿道平澤市的半導體濺鍍靶材加工產能,就近供應南韓記憶體與晶圓廠客戶。此舉將強化其在南韓的供應地位,加劇當地靶材市場競爭。",
       "importance": 5,
       "title_zh": "JX金屬於韓國京畿道平澤市擴充半導體用濺鍍靶材加工產能",
       "snippet_zh": ""
@@ -179,7 +324,7 @@
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "半導體話題降溫,靶材廠光洋科股價開低走弱。屬短線股價波動,對基本面影響有限。",
+      "summary": "半導體題材降溫,光洋科股價開低走弱。屬短線股價波動,對靶材供需影響有限。",
       "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
@@ -200,7 +345,7 @@
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "股票當沖相關影片標題提及 JX 金屬等多檔日股,內容與靶材業務關聯薄弱。",
+      "summary": "影音內容談論包含JX金屬在內多檔日股的當沖交易,屬投機性股市內容。與靶材產業關聯薄弱。",
       "importance": 1,
       "title_zh": "靠三菱電機、瑞穗金融集團、第一三共、日本郵政銀行、豐田汽車、JX金屬獲利💰股票當沖 Saudi Arabia (lGyYZcJTjd)",
       "snippet_zh": ""
@@ -221,7 +366,7 @@
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "JX 金屬獲納入日經 225 指數成分股,內容探討納入後的股價表現。反映市場關注度提升,對靶材供需沒有直接影響。",
+      "summary": "影音內容稱JX金屬獲納入日經225指數,並討論納入後的股價表現。可提升其市場能見度,但對靶材本業沒有直接影響。",
       "importance": 2,
       "title_zh": "【快訊・JX金屬】確定納入日經225!股價真的會上漲嗎!?從過去納入個股徹底檢驗「之後」的走勢! Haiden Deegan (oVZGmkRPri)",
       "snippet_zh": ""
@@ -242,7 +387,7 @@
         "產業動態"
       ],
       "score": 2.82,
-      "summary": "投資內容將 JX 金屬視為 AI 材料首選標的,反映市場看好其半導體靶材等業務受惠 AI 需求。屬投資觀點,缺乏具體營運資訊。",
+      "summary": "影音內容主張JX金屬是AI材料首選標的,屬投資觀點,反映市場看好其靶材業務受惠AI需求。內容可信度有限。",
       "importance": 1,
       "title_zh": "AI材料首選是JX金屬,唯此一選的理由 Saguenéens Chicoutimi (aMzFE0hU0C)",
       "snippet_zh": ""
@@ -263,7 +408,7 @@
         "產業動態"
       ],
       "score": 2.78,
-      "summary": "日經平均指數大跌 1,889 點,影片分析鎧俠、JX 金屬、藤倉等個股走勢。屬市場行情評論,與靶材業務關聯薄弱。",
+      "summary": "日經平均大跌1,889點,影音內容針對鎧俠、JX金屬、藤倉等個股進行技術分析。屬大盤行情內容,與靶材本業關聯薄弱。",
       "importance": 1,
       "title_zh": "【DJ Löyly 線圖分析】日經平均下跌1,889日圓!油價走高、利率上升恐再下探!?徹底分析鎧俠、JX金屬、藤倉等! Dunkin Donuts Canada (g8u2inVnOt)",
       "snippet_zh": ""
@@ -284,7 +429,7 @@
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "學術研究以 RF 磁控濺鍍在泡沫鎳上製備 NiCu 薄膜,作為鹼性電解水的雙功能電極。顯示濺鍍技術在能源催化領域的應用,短期與靶材商業需求關聯低。",
+      "summary": "學術研究以RF磁控濺鍍製備NiCu薄膜/泡沫鎳電極,用於鹼性全解水。屬濺鍍技術在能源領域的研究應用,與半導體靶材市場關聯低。",
       "importance": 1,
       "title_zh": "RF磁控濺射NiCu薄膜/泡沫鎳自支撐雙功能電極用於鹼性全解水：Cu選擇性脫合金驅動的HER動態表面重構與活化",
       "snippet_zh": ""
@@ -305,7 +450,7 @@
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "光洋科 9 月營收月增、季增、年增俱佳,顯示靶材與貴金屬業務動能回升。",
+      "summary": "論壇貼文指出光洋科9月營收呈月增、季增、年增。顯示其靶材與貴金屬業務動能回溫,但未提供具體數字。",
       "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
@@ -326,7 +471,7 @@
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "分析文章看好銀礦商 Aya Gold & Silver 的前景。與銀原料供給相關,但對靶材的影響間接。",
+      "summary": "Seeking Alpha分析看好銀礦商Aya Gold & Silver的前景。與靶材產業僅透過白銀供給間接相關。",
       "importance": 1,
       "title_zh": "Aya Gold & Silver 股票:前景更加看好(NASDAQ:AYA)",
       "snippet_zh": ""
@@ -347,8 +492,8 @@
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "中國靶材廠江豐電子 10 月 13 日主力資金淨賣出 5,537.07 萬元人民幣。屬短線資金動向,對營運基本面影響有限。",
-      "importance": 2,
+      "summary": "江豐電子10月13日主力資金淨賣出5,537.07萬元。屬個股資金流向數據,與靶材基本面關聯薄弱。",
+      "importance": 1,
       "title_zh": "股票行情快報：江豐電子（300666）10月13日主力資金淨賣出5537.07萬元",
       "snippet_zh": ""
     },
@@ -368,7 +513,7 @@
         "產業動態"
       ],
       "score": 2.09,
-      "summary": "格羅方德將投資 11 億歐元擴建德國晶圓廠,預計 2028 年啟動生產,布局物理 AI 應用。可望帶動歐洲 PVD 機台與靶材需求。",
+      "summary": "格羅方德砸11億歐元擴建德國晶圓廠,預計2028年啟動生產,鎖定物理AI應用。歐洲晶圓產能擴充將帶動當地PVD設備與靶材需求。",
       "importance": 4,
       "title_zh": "討論牆 | 歐洲最大晶圓廠佈局物理AI！格羅方德砸11億歐元擴建德國晶圓廠、2028年啟動生產",
       "snippet_zh": ""
