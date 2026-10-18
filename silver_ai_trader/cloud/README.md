@@ -95,6 +95,16 @@ node voltarget-report.mjs                                              # output/
 每天收盤後依 EWMA 預測波動設定隔天部位 = min(目標波動 ÷ 預測波動, 槓桿上限)，扣換倉成本；
 和買進持有、同風險固定部位比較，含目標波動與成本敏感度、逐年報酬、夏普差的區塊拔靴檢定（SI=F 與 SLV）。
 
+### 部位規則比較（`combo.mjs`）
+
+```bash
+node combo.mjs --data runs/vol-data.json   # 幾秒
+node combo-report.mjs                      # output/combo.html
+```
+
+把波動目標化和報酬訊號結合：12 個月趨勢、下跌波動目標、半 Kelly、趨勢 × 波動目標（含槓桿版），
+和買進持有、單純波動目標化、同風險固定部位比較，含趨勢回看／目標波動／成本的穩健性。
+
 ## 評估方式
 
 資料依時間切成**訓練 | 驗證 | 測試**三段：
