@@ -748,10 +748,19 @@ research:
     - tungsten sputtering target
     - molybdenum sputtering target
     - sputtering target recycling
+    # 靶材循環回收:廢靶 / 殘靶回收、銦錫與貴金屬精煉再生
+    - spent sputtering target recovery
+    - spent ITO target indium recovery
+    - ITO target scrap recycling
+    - tantalum target scrap recycling
+    - precious metal recovery sputtering target
+    - ruthenium target recycling
     - 濺射靶材
+    - 废靶材 回收
   arxiv_queries:              # 合併成一次 arXiv 查詢(OR),避免連續請求被限流
     - sputtering target
     - target microstructure sputtering
+    - spent target recycling
 
   # 依製程/技術分類(關鍵字比對標題與摘要,可多選)
   topics:
@@ -764,4 +773,4 @@ research:
     合金與複合靶: [alloy target, alloy, composite target, high-entropy, 合金]
     旋轉靶: [rotary, rotatable, cylindrical target, tubular target, 旋轉靶, 旋转靶]
     濺鍍行為與靶材利用率: [erosion, utilization, target utilization, arcing, nodule, nodules, sputtering yield, deposition rate, poisoning, 利用率, 刻蝕]
-    回收與再利用: [recycling, recycle, recycled, spent target, reclaim, recovery, 回收]
+    回收與再利用: [recycling, recycle, recycled, spent target, spent, scrap, waste target, reclaim, recovery, recover, leaching, regeneration, reuse, urban mining, 回收, 再生, 廢靶, 废靶, 殘靶, 残靶, 浸出, 精煉, 精炼]

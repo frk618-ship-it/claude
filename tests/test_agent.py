@@ -1101,3 +1101,24 @@ def test_news_thumbnails_follow_the_story():
 
     card = _item_html({**base, "title": "光洋科鉭靶擴產", "categories": ["擴產與投資"], "link": "https://x"})
     assert '<div class="thumb" role="img" aria-label="擴產 · Ta">' in card and '#i-factory' in card and '<span class="sym">Ta</span>' in card
+
+
+def test_target_recycling_papers_are_kept(config):
+    from target_news_agent.research import Paper, classify_topics, is_relevant
+
+    def P(title, abstract=""):
+        return Paper(title, "https://x", None, abstract=abstract)
+
+    # Titles about recovering metals from spent / scrap targets.
+    assert is_relevant(P("Recovery of indium from spent ITO targets by sulfuric acid leaching"))
+    assert is_relevant(P("Leaching behaviour of tantalum scrap targets in HF media"))
+    assert is_relevant(P("廢靶材中釕的回收與精煉"))
+    # Only the abstract names the spent target.
+    assert is_relevant(P("A low-temperature route to In-Sn alloy",
+                         "Indium and tin were reclaimed from waste ITO sputtering targets by hydrogen reduction."))
+    assert is_relevant(P("Hydrometallurgical route for ruthenium",
+                         "We report the recovery of ruthenium from end-of-life magnetron targets."))
+    # Using a target to deposit films is still not about the target itself.
+    assert not is_relevant(P("Optical properties of ZnO films",
+                             "The ceramic disc was used as sputtering target to deposit films on glass."))
+    assert classify_topics(P("Recovery of indium from spent ITO targets"), config.research.topics)[-1] == "回收與再利用"

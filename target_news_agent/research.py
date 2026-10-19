@@ -36,14 +36,17 @@ STRONG_TERMS = [
     "sputtering target", "sputter target", "target material", "targets for sputtering",
     "magnetron target", "rotary target", "rotatable target", "planar target", "cylindrical target",
     "靶材", "濺鍍靶", "溅射靶", "スパッタリングターゲット", "스퍼터링 타겟",
+    # target recycling: spent targets are always sputtering targets
+    "spent target", "spent sputtering target", "廢靶", "废靶", "殘靶", "残靶",
 ]
 # Words that, next to "target" in a title, mean the paper is about making the target.
 MANUFACTURING_WORDS = [
     "fabricat", "prepar", "manufactur", "produc", "synthes", "sinter", "densif", "hot press", "hot-press",
     "hot isostatic", "spark plasma", "powder", "cast", "melt", "ingot", "roll", "forg", "anneal",
     "microstructur", "grain", "texture", "recrystalliz", "purity", "purif", "impurit", "bond", "backing plate",
-    "recycl", "reclaim", "relative density", "crack", "erosion", "utilization", "nodule",
-    "燒結", "烧结", "製備", "制备", "晶粒", "純度", "纯度", "綁定", "绑定", "回收",
+    "recycl", "reclaim", "recover", "leach", "regenerat", "reuse", "refurbish", "scrap", "spent",
+    "relative density", "crack", "erosion", "utilization", "nodule",
+    "燒結", "烧结", "製備", "制备", "晶粒", "純度", "纯度", "綁定", "绑定", "回收", "再生", "浸出",
 ]
 # Abstract sentences where the target itself is processed or characterised (not just used to sputter films).
 _T = r"(?:sputtering |sputter )?targets?"
@@ -59,6 +62,10 @@ TARGET_PROCESS_PATTERNS = [
                rf"impurit\w*|homogeneity|composition uniformity)"),
     re.compile(rf"\b(?:relative density|grain size|purity|microstructure|texture|impurity content)\s+of\s+(?:the\s+)?"
                rf"(?:[\w-]+\s+){{0,3}}{_T}\b"),
+    # Recycling: metals recovered from spent / scrap targets.
+    re.compile(rf"\b(?:spent|waste|scrap|discarded|end-of-life|residual)\s+(?:[\w-]+\s+){{0,3}}{_T}\b"),
+    re.compile(rf"\b(?:recovery|recovering|recycling|reclamation|leaching|regeneration)\s+of\s+(?:[\w-]+\s+){{0,4}}from\s+"
+               rf"(?:the\s+)?(?:[\w-]+\s+){{0,3}}{_T}\b"),
 ]
 SPUTTER_WORDS = ["sputter", "magnetron", "PVD", "physical vapor deposition", "HiPIMS", "濺鍍", "溅射", "スパッタ"]
 # "Target" in other fields: nuclear / accelerator targets, laser-plasma targets, drug targets.
