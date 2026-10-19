@@ -93,7 +93,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 ### 新聞網站(GitHub Pages)
 
-每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁是最新一期(本期總結、重點新聞、可依類型與公司篩選的全部新聞、追蹤清單),並保留歷次報告。網站不提供原始 MD / JSON 下載(報告檔仍保存在 repo 的 `reports/`)。
+每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁合併最近 3 天的報告(重點新聞、技術文獻、可依類型與公司篩選的全部新聞;本期總結為最新一期的 AI 整理),各日完整內容保留在「歷次報告」的日期頁。網站不提供原始 MD / JSON 下載(報告檔仍保存在 repo 的 `reports/`)。
 
 - 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
 - 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。

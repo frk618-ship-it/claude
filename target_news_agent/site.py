@@ -20,6 +20,7 @@ from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
 from .translate import to_traditional
 
+HOME_PAGE = "home"  # `current` value for the combined homepage
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 
 KINDS = OrderedDict([
@@ -364,7 +365,9 @@ def _papers_section(report: dict, library: list[dict], is_latest: bool, home: st
     )
     if papers:
         days = report.get("research_days") or 30
-        count = f"本期新收錄 {len(papers)} 篇 · 最近 {esc(days)} 天 · 依製程分類"
+        span = report.get("span") or []
+        when = f"最近 {len(span)} 天新收錄" if len(span) > 1 else "本期新收錄"
+        count = f"{when} {len(papers)} 篇 · 依製程分類"
         inner = _grouped_papers(papers)
     elif is_latest and library:
         # Homepage: no new papers today, so show the most recently collected ones.
@@ -491,6 +494,11 @@ def render_page(
 ) -> str:
     library = library or []
     items = report.get("items", [])
+    span = report.get("span") or []
+    if current == HOME_PAGE and span:
+        label = f"最近 {len(span)} 天 · {span[-1]} ~ {span[0]}" if len(span) > 1 else span[0]
+    else:
+        label = current
     role_of = {e.name: e.role for e in config.entities}
     for it in items:
         it["kind"] = item_kind(it)
@@ -529,6 +537,10 @@ def render_page(
             per_company[key] += 1
         if len(top) == 8:
             break
+    span_note = (
+        f'<p class="sub">總結為最新一期({esc(span[0])})的 AI 整理;以下重點新聞、技術文獻與全部新聞為最近 {len(span)} 天合併,'
+        f'各日完整內容請見「歷次報告」。</p>' if len(span) > 1 else ""
+    )
     top_html = "".join(_card_html(it) for it in top) or "<p>本期沒有新聞或公司公告。</p>"
     kind_chips = "".join(
         f'<button type="button" class="f" data-filter="kind" data-value="{k}" aria-pressed="false">{icon(KIND_ICONS[k])}{v}<span class="mono">{kinds[k]}</span></button>'
@@ -539,19 +551,22 @@ def render_page(
         for e, n in ent_counts.most_common()
     )
     paper_stat = _stat("book", str(len(report["papers"])), "技術文獻(篇)") if "papers" in report else ""
-    archive_html = "".join(
-        f'<a href="{home}{"index.html" if i == 0 else d + ".html"}"{" aria-current=page" if d == current else ""}>{icon("calendar")}{d} · {n}</a>'
-        for i, (d, n) in enumerate(archive)
+    archive_html = (
+        f'<a href="{home}index.html"{" aria-current=page" if current == HOME_PAGE else ""}>{icon("star")}最近 {HOME_DAYS} 天</a>'
+        if archive else ""
+    ) + "".join(
+        f'<a href="{home}{d}.html"{" aria-current=page" if d == current else ""}>{icon("calendar")}{d} · {n}</a>'
+        for d, n in archive
     )
 
     return (
-        _head(f"靶材產業新聞摘要 {current}")
+        _head(f"靶材產業新聞摘要 {label}")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
-<div class="meta"><span>{icon("calendar")}{esc(current)} · 最近 {esc(report.get("days", ""))} 天 · 產生於 <span class="mono">{esc(generated)}</span></span></div>
+<div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
 <nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a><a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
-<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結")}{summary}</section>
+<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_recycling_section(items, config)}
@@ -571,6 +586,38 @@ def render_page(
     )
 
 
+HOME_DAYS = 3  # the homepage combines this many of the latest daily reports
+
+
+def merge_recent(reports: list[tuple[str, dict]], n: int = HOME_DAYS) -> dict:
+    """One report out of the latest n daily reports (newest first): items and papers
+    de-duplicated by ID, the newest day's digest and metal quotes."""
+    recent = reports[:n]
+    items, papers, seen_items, seen_papers = [], [], set(), set()
+    for date, r in recent:
+        for it in r.get("items", []):
+            if it.get("id") not in seen_items:
+                seen_items.add(it.get("id"))
+                items.append(it)
+        for p in r.get("papers") or []:
+            if p.get("id") not in seen_papers:
+                seen_papers.add(p.get("id"))
+                papers.append(p)
+    latest = recent[0][1] if recent else {}
+    merged = {
+        "generated": latest.get("generated"),
+        "days": latest.get("days"),
+        "digest": latest.get("digest") or {},
+        "items": items,
+        "metals": next((r["metals"] for _, r in recent if r.get("metals")), []),
+        "span": [d for d, _ in recent],
+    }
+    if any("papers" in r for _, r in recent):
+        merged["papers"] = papers
+        merged["research_days"] = latest.get("research_days")
+    return merged
+
+
 def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> list[Path]:
     reports_dir, out = Path(reports_dir), Path(out_dir)
     paths = sorted((p for p in reports_dir.iterdir() if REPORT_RE.match(p.name)), reverse=True)
@@ -582,12 +629,15 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
     (out / "papers.html").write_text(render_library(library, config, generated), encoding="utf-8")
     written.append(out / "papers.html")
-    for i, (date, report) in enumerate(reports):
-        page = render_page(report, config, archive, date, library=library, is_latest=(i == 0))
-        targets = [out / f"{date}.html"] + ([out / "index.html"] if i == 0 else [])
-        for t in targets:
-            t.write_text(page, encoding="utf-8")
-            written.append(t)
+    for date, report in reports:
+        page = render_page(report, config, archive, date, library=library)
+        (out / f"{date}.html").write_text(page, encoding="utf-8")
+        written.append(out / f"{date}.html")
+    if reports:
+        home = merge_recent(reports)
+        page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True)
+        (out / "index.html").write_text(page, encoding="utf-8")
+        written.append(out / "index.html")
     if not reports:
         empty = {"items": [], "days": config.settings.days}
         (out / "index.html").write_text(render_page(empty, config, [], "尚無報告", is_latest=True), encoding="utf-8")

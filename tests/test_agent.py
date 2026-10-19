@@ -259,7 +259,10 @@ def test_build_site_from_reports(tmp_path, config):
     build_site(reports, out, config)
 
     index = (out / "index.html").read_text(encoding="utf-8")
-    assert index == (out / "2026-10-13.html").read_text(encoding="utf-8")
+    # The homepage combines the latest days; duplicates across days appear once.
+    assert "最近 2 天 · 2026-10-12 ~ 2026-10-13" in index and index != (out / "2026-10-13.html").read_text(encoding="utf-8")
+    assert index.split('id="list"')[1].count('<article class="card') == len(items)
+    assert 'href="index.html" aria-current=page' in index and 'href="2026-10-13.html"' in index
     assert (out / "2026-10-12.html").exists()
     assert not (out / "data").exists()  # raw MD/JSON are no longer published
     assert index.count('<article class="card') >= len(items)
@@ -525,9 +528,9 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
 
     papers = sample_papers(config.research)
     reports = tmp_path / "reports"
-    yesterday = NOW.replace(day=12)
-    write_reports([], config, Digest(), reports, yesterday, papers)       # papers collected yesterday
-    write_reports([], config, Digest(), reports, NOW, [])                 # nothing new today
+    write_reports([], config, Digest(), reports, NOW.replace(day=9), papers)   # papers collected 4 days ago
+    for day in (11, 12, 13):                                                   # nothing new in the last 3 days
+        write_reports([], config, Digest(), reports, NOW.replace(day=day), [])
     out = tmp_path / "site"
     build_site(reports, out, config)
 
@@ -539,7 +542,7 @@ def test_site_library_and_homepage_fallback(tmp_path, config):
     home = (out / "index.html").read_text(encoding="utf-8")
     assert "本期無新收錄" in home and "Densification" in home and 'href="papers.html"' in home
     assert 'href="../financials/"' in home and "財務儀表板" in home  # dashboard published next to /news/
-    old = (out / "2026-10-12.html").read_text(encoding="utf-8")
+    old = (out / "2026-10-09.html").read_text(encoding="utf-8")
     assert "本期新收錄 4 篇" in old
 
 
@@ -1133,3 +1136,20 @@ def test_fusion_target_plates_and_metallurgical_recovery_are_not_recycling(confi
     cu = Paper("Microstructure and texture of cryo-rolled 6N copper for advanced sputtering targets", "https://x", None,
                abstract="Static recovery and recrystallization during annealing were studied.")
     assert is_relevant(cu) and "回收與再利用" not in classify_topics(cu, config.research.topics)
+
+
+def test_homepage_merges_last_three_days(config):
+    from target_news_agent.site import merge_recent
+
+    reports = [
+        ("2026-10-19", {"items": [{"id": "c"}, {"id": "b"}], "digest": {"overview": "新"}, "metals": [],
+                        "papers": [{"id": "p2"}], "generated": "2026-10-19T08:00"}),
+        ("2026-10-18", {"items": [{"id": "b"}, {"id": "a"}], "metals": [{"code": "Au"}], "papers": [{"id": "p1"}]}),
+        ("2026-10-17", {"items": [{"id": "z"}]}),
+        ("2026-10-16", {"items": [{"id": "old"}]}),
+    ]
+    m = merge_recent(reports)
+    assert [i["id"] for i in m["items"]] == ["c", "b", "a", "z"]       # newest day first, no duplicates, 3 days only
+    assert [p["id"] for p in m["papers"]] == ["p2", "p1"]
+    assert m["digest"]["overview"] == "新" and m["metals"] == [{"code": "Au"}]  # latest quotes available
+    assert m["span"] == ["2026-10-19", "2026-10-18", "2026-10-17"]
