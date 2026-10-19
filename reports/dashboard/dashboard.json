@@ -2,19 +2,19 @@
   "title": "濺鍍靶材製造商財務指標儀表板",
   "news_url": "https://frk618-ship-it.github.io/claude/news/",
   "site_url": "https://frk618-ship-it.github.io/claude/financials/",
-  "generated": "2026-10-20 00:59",
+  "generated": "2026-10-20 01:01",
   "display_currency": "TWD",
   "unit_label": "億台幣",
   "fx": {
     "base": "TWD",
     "rates": {
-      "USD": 32.51599884033203,
-      "JPY": 0.20360000431537628,
-      "CNY": 4.865600109100342,
+      "USD": 32.46699905395508,
+      "JPY": 0.20260000228881836,
+      "CNY": 4.8649001121521,
       "TWD": 1.0
     },
     "source": "Yahoo Finance",
-    "asof": "2026-10-16"
+    "asof": "2026-10-20"
   },
   "metrics": [
     {
@@ -248,15 +248,15 @@
       "focus_label": "靶材專業廠",
       "segment": "濺鍍靶材、特殊合金",
       "latest_quarter": "2026Q2",
-      "close": 68.5,
-      "close_date": "2026-10-15",
+      "close": 67.5,
+      "close_date": "2026-10-19",
       "is_focus": true,
       "note": "",
       "latest": {
         "revenue_ttm": 70.57236,
         "revenue_ttm_yoy": 0.2934096047434307,
         "revenue_yoy": 0.026394510161300566,
-        "market_cap": 74.31839,
+        "market_cap": 73.23345,
         "gross_margin_ttm": 0.037389992342611186,
         "operating_margin_ttm": 0.004361622595588414,
         "net_margin_ttm": 0.0035264514322604487,
@@ -273,9 +273,9 @@
         "ocf_to_net_income_ttm": -1.5281874070800017,
         "fcf_margin_ttm": -0.01875791032069779,
         "capex_to_revenue_ttm": 0.013368831650238139,
-        "pe_ttm": 311.3636363636364,
-        "pb": 2.29821572091536,
-        "ev_ebitda_ttm": 61.97650294148362,
+        "pe_ttm": 306.8181818181818,
+        "pb": 2.2646651264494424,
+        "ev_ebitda_ttm": 61.03232150938142,
         "fscore": 5.0,
         "zscore": 6.742006296886398
       },
@@ -593,15 +593,15 @@
       "focus_label": "靶材為主要事業之一",
       "segment": "濺鍍靶材、貴金屬材料與精煉回收",
       "latest_quarter": "2026Q2",
-      "close": 98.6,
-      "close_date": "2026-10-15",
+      "close": 97.2,
+      "close_date": "2026-10-19",
       "is_focus": false,
       "note": "",
       "latest": {
         "revenue_ttm": 518.86568,
         "revenue_ttm_yoy": 0.5430678378262557,
         "revenue_yoy": 0.6467576392266854,
-        "market_cap": 587.6364772,
+        "market_cap": 579.2927544,
         "gross_margin_ttm": 0.14528241682895657,
         "operating_margin_ttm": 0.10440944947447671,
         "net_margin_ttm": 0.0768002616785138,
@@ -618,9 +618,9 @@
         "ocf_to_net_income_ttm": 0.0854623275553577,
         "fcf_margin_ttm": -0.0003794045503260112,
         "capex_to_revenue_ttm": 0.006942933670232342,
-        "pe_ttm": 14.738415545590431,
-        "pb": 3.6238338571614808,
-        "ev_ebitda_ttm": 11.039001598078368,
+        "pe_ttm": 14.52914798206278,
+        "pb": 3.572379826735253,
+        "ev_ebitda_ttm": 10.902103005503033,
         "fscore": 7.0,
         "zscore": 4.355940385881716
       },
@@ -923,20 +923,20 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20360000431537628,
+      "fx_rate": 0.20260000228881836,
       "target_focus": "major",
       "focus_label": "靶材為主要事業之一",
       "segment": "半導體/資訊通信材料(靶材)、銅箔、金屬",
       "latest_quarter": "2026Q1",
-      "close": 3137.0,
+      "close": 3114.0,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "JX金屬(5016.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
       "latest": {
-        "revenue_ttm": 1801.1230061754584,
+        "revenue_ttm": 1792.276608247757,
         "revenue_ttm_yoy": 0.2373597784429462,
         "revenue_yoy": null,
-        "market_cap": 5915.103406237144,
+        "market_cap": 5842.895161064362,
         "gross_margin_ttm": 0.22794747682102737,
         "operating_margin_ttm": 0.06836242621275596,
         "net_margin_ttm": 0.1182913236826815,
@@ -953,15 +953,15 @@
         "ocf_to_net_income_ttm": null,
         "fcf_margin_ttm": null,
         "capex_to_revenue_ttm": null,
-        "pe_ttm": 27.775810164689215,
-        "pb": 3.9990433622812764,
+        "pe_ttm": 27.57216221002302,
+        "pb": 3.9697229933515765,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 4.416568719853287
       },
       "trend": {
         "2025Q1": {
-          "revenue": 403.166692545265,
+          "revenue": 401.1864985322952,
           "revenue_yoy": null,
           "gross_margin": 0.22048389295976648,
           "operating_margin": 0.027961963245951148,
@@ -1071,20 +1071,20 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20360000431537628,
+      "fx_rate": 0.20260000228881836,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "化工為主",
       "latest_quarter": "2026Q1",
-      "close": 2603.0,
+      "close": 2616.5,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "東曹(4042.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
       "latest": {
-        "revenue_ttm": 2076.551056013256,
+        "revenue_ttm": 2066.3518653440474,
         "revenue_ttm_yoy": -0.040874304812381634,
         "revenue_yoy": null,
-        "market_cap": 1631.7300243456805,
+        "market_cap": 1632.1367316104545,
         "gross_margin_ttm": 0.2559276882334543,
         "operating_margin_ttm": 0.09366644540683212,
         "net_margin_ttm": 0.04080233979823848,
@@ -1101,9 +1101,9 @@
         "ocf_to_net_income_ttm": 2.7527574191998077,
         "fcf_margin_ttm": null,
         "capex_to_revenue_ttm": null,
-        "pe_ttm": 19.660120845921448,
-        "pb": 0.9635101741158537,
-        "ev_ebitda_ttm": 5.923788871745594,
+        "pe_ttm": 19.762084592145015,
+        "pb": 0.968507249548264,
+        "ev_ebitda_ttm": 5.952731393460202,
         "fscore": null,
         "zscore": 6.080348892679525
       },
@@ -1213,20 +1213,20 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20360000431537628,
+      "fx_rate": 0.20260000228881836,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "功能材料(含 ITO 等靶材)、金屬、汽車零件",
       "latest_quarter": "2026Q1",
-      "close": 2319.0,
+      "close": 2340.0,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "三井金屬(5706.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
       "latest": {
-        "revenue_ttm": 1544.37118473351,
+        "revenue_ttm": 1536.7858493614197,
         "revenue_ttm_yoy": 0.06483945958694104,
         "revenue_yoy": null,
-        "market_cap": 2701.2698366457585,
+        "market_cap": 2712.343823595566,
         "gross_margin_ttm": 0.26715682397051144,
         "operating_margin_ttm": 0.17258599505360353,
         "net_margin_ttm": 0.12031529322428058,
@@ -1243,9 +1243,9 @@
         "ocf_to_net_income_ttm": 0.9592167691178243,
         "fcf_margin_ttm": 0.06798790294938117,
         "capex_to_revenue_ttm": 0.04742054389267691,
-        "pe_ttm": 14.535084145538878,
-        "pb": 3.219907752659284,
-        "ev_ebitda_ttm": 8.605140407035364,
+        "pe_ttm": 14.666708452160833,
+        "pb": 3.2490660376122142,
+        "ev_ebitda_ttm": 8.679916561484745,
         "fscore": null,
         "zscore": 6.669127443974298
       },
@@ -1355,26 +1355,292 @@
       "zone": "安全區"
     },
     {
+      "ticker": "4005.T",
+      "name": "住友化學",
+      "short": "",
+      "market": "JP",
+      "region": "日本",
+      "currency": "JPY",
+      "fx_rate": 0.20260000228881836,
+      "target_focus": "diversified",
+      "focus_label": "多角化(靶材占比較低)",
+      "segment": "化學品為主;資訊電子化學事業含濺鍍靶材",
+      "latest_quarter": "2026Q1",
+      "close": 600.5,
+      "close_date": "2026-10-16",
+      "is_focus": false,
+      "note": "住友化學(4005.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
+      "latest": {
+        "revenue_ttm": 4717.571443295478,
+        "revenue_ttm_yoy": -0.10657561483201539,
+        "revenue_yoy": null,
+        "market_cap": 2009.131136923917,
+        "gross_margin_ttm": 0.2869932124122026,
+        "operating_margin_ttm": 0.08375080255012314,
+        "net_margin_ttm": 0.02617419256478915,
+        "roe_ttm": 0.06383776553680305,
+        "roa_ttm": 0.01780819816430661,
+        "asset_turnover_ttm": 0.6803723981255912,
+        "dso": 94.24776950116275,
+        "dio": 134.18503692522862,
+        "ccc": 123.7248292398643,
+        "current_ratio": 1.5056833502106166,
+        "debt_ratio": 0.6368111279717337,
+        "net_debt_to_equity": 0.7624214323430689,
+        "interest_coverage_ttm": 2.819932262920221,
+        "ocf_to_net_income_ttm": 3.8518548903145358,
+        "fcf_margin_ttm": 0.04861166881037915,
+        "capex_to_revenue_ttm": 0.05220752282033828,
+        "pe_ttm": 16.15984930032293,
+        "pb": 0.983175231045344,
+        "ev_ebitda_ttm": 6.1203344609107075,
+        "fscore": null,
+        "zscore": 2.556776241201441
+      },
+      "trend": {
+        "2025Q1": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": null,
+          "dio": 121.3383072673669,
+          "debt_ratio": 0.6876504454930891
+        },
+        "2025Q2": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": null
+        },
+        "2025Q3": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": 0.649385435806471
+        },
+        "2026Q1": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": 0.06383776553680305,
+          "dio": 134.18503692522862,
+          "debt_ratio": 0.6368111279717337
+        },
+        "2026Q2": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": null
+        }
+      },
+      "monthly": {},
+      "signals": [
+        {
+          "level": "風險",
+          "topic": "財務結構",
+          "message": "負債比率 63.7%,高於 60.0%"
+        },
+        {
+          "level": "風險",
+          "topic": "財務結構",
+          "message": "利息保障倍數 2.8 倍,低於 3 倍"
+        },
+        {
+          "level": "注意",
+          "topic": "綜合評分",
+          "message": "Altman Z'' = 2.56(灰色地帶)"
+        }
+      ],
+      "signal_counts": {
+        "風險": 2,
+        "注意": 1,
+        "優勢": 0
+      },
+      "fscore_details": [
+        [
+          "ROA 為正",
+          true
+        ],
+        [
+          "營業現金流為正",
+          true
+        ],
+        [
+          "ROA 較去年提升",
+          null
+        ],
+        [
+          "營業現金流 > 淨利(盈餘品質)",
+          true
+        ],
+        [
+          "長期負債比重下降",
+          true
+        ],
+        [
+          "流動比率提升",
+          false
+        ],
+        [
+          "未增發股本",
+          false
+        ],
+        [
+          "毛利率提升",
+          null
+        ],
+        [
+          "資產週轉率提升",
+          null
+        ]
+      ],
+      "zone": "灰色地帶"
+    },
+    {
+      "ticker": "6728.T",
+      "name": "ULVAC",
+      "short": "ULVAC",
+      "market": "JP",
+      "region": "日本",
+      "currency": "JPY",
+      "fx_rate": 0.20260000228881836,
+      "target_focus": "diversified",
+      "focus_label": "多角化(靶材占比較低)",
+      "segment": "真空與濺鍍設備為主;材料事業含濺鍍靶材",
+      "latest_quarter": "2025Q2",
+      "close": 8219.0,
+      "close_date": "2026-10-16",
+      "is_focus": false,
+      "note": "ULVAC(6728.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2025Q2 的年度財報",
+      "latest": {
+        "revenue_ttm": 508.8987897491455,
+        "revenue_ttm_yoy": -0.038033050571587235,
+        "revenue_yoy": null,
+        "market_cap": 819.9842058968084,
+        "gross_margin_ttm": 0.3179422256194662,
+        "operating_margin_ttm": 0.10559191668259124,
+        "net_margin_ttm": 0.06643337155232817,
+        "roe_ttm": null,
+        "roa_ttm": null,
+        "asset_turnover_ttm": null,
+        "dso": 123.13431587999236,
+        "dio": 151.51626761303277,
+        "ccc": 191.83200210826425,
+        "current_ratio": 2.6831950722765883,
+        "debt_ratio": 0.38388586420378495,
+        "net_debt_to_equity": -0.24590078803536422,
+        "interest_coverage_ttm": 44.7536,
+        "ocf_to_net_income_ttm": 2.086114939773476,
+        "fcf_margin_ttm": 0.09340961207720237,
+        "capex_to_revenue_ttm": 0.045178036817631696,
+        "pe_ttm": 24.263446891421147,
+        "pb": 1.811150691872589,
+        "ev_ebitda_ttm": 9.320285054382769,
+        "fscore": null,
+        "zscore": 6.759593594462415
+      },
+      "trend": {
+        "2025Q2": {
+          "revenue": null,
+          "revenue_yoy": null,
+          "gross_margin": null,
+          "operating_margin": null,
+          "net_margin": null,
+          "roe_ttm": null,
+          "dio": 151.51626761303277,
+          "debt_ratio": 0.38388586420378495
+        }
+      },
+      "monthly": {},
+      "signals": [
+        {
+          "level": "優勢",
+          "topic": "財務結構",
+          "message": "淨現金部位(現金大於有息負債)"
+        }
+      ],
+      "signal_counts": {
+        "風險": 0,
+        "注意": 0,
+        "優勢": 1
+      },
+      "fscore_details": [
+        [
+          "ROA 為正",
+          null
+        ],
+        [
+          "營業現金流為正",
+          true
+        ],
+        [
+          "ROA 較去年提升",
+          null
+        ],
+        [
+          "營業現金流 > 淨利(盈餘品質)",
+          true
+        ],
+        [
+          "長期負債比重下降",
+          null
+        ],
+        [
+          "流動比率提升",
+          null
+        ],
+        [
+          "未增發股本",
+          null
+        ],
+        [
+          "毛利率提升",
+          null
+        ],
+        [
+          "資產週轉率提升",
+          null
+        ]
+      ],
+      "zone": "安全區"
+    },
+    {
       "ticker": "SOLS",
       "name": "Solstice Advanced Materials",
       "short": "Solstice",
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.51599884033203,
+      "fx_rate": 32.46699905395508,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "冷媒與特用化學品、電子材料(原 Honeywell 電子材料",
       "latest_quarter": "2026Q2",
-      "close": 59.92,
-      "close_date": "2026-10-15",
+      "close": 60.245,
+      "close_date": "2026-10-19",
       "is_focus": false,
       "note": "Solstice Advanced Materials(SOLS):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 1331.8553125,
+        "revenue_ttm": 1329.84828125,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.11132623426911903,
-        "market_cap": 3094.8162119707526,
+        "market_cap": 3106.913171125696,
         "gross_margin_ttm": 0.306396484375,
         "operating_margin_ttm": 0.169189453125,
         "net_margin_ttm": 0.05126953125,
@@ -1391,15 +1657,15 @@
         "ocf_to_net_income_ttm": 2.8857142857142857,
         "fcf_margin_ttm": 0.043701171875,
         "capex_to_revenue_ttm": 0.104248046875,
-        "pe_ttm": 45.411691236877445,
-        "pb": 6.001151363228247,
-        "ev_ebitda_ttm": 12.127818448665208,
+        "pe_ttm": 45.6579996422844,
+        "pb": 6.033700999293821,
+        "ev_ebitda_ttm": 12.184299545820569,
         "fscore": null,
         "zscore": 2.137740513733886
       },
       "trend": {
         "2025Q1": {
-          "revenue": 291.6685095977783,
+          "revenue": 291.22898151397703,
           "revenue_yoy": null,
           "gross_margin": 0.35785953177257523,
           "operating_margin": 0.2329988851727982,
@@ -1409,7 +1675,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 335.8902680206299,
+          "revenue": 335.38410022735593,
           "revenue_yoy": null,
           "gross_margin": 0.3494675701839303,
           "operating_margin": 0.22555663117134558,
@@ -1419,7 +1685,7 @@
           "debt_ratio": 0.772189349112426
         },
         "2025Q3": {
-          "revenue": 315.0800287628174,
+          "revenue": 314.6052208328247,
           "revenue_yoy": null,
           "gross_margin": 0.31991744066047473,
           "operating_margin": 0.17647058823529413,
@@ -1429,7 +1695,7 @@
           "debt_ratio": 0.39374880884314845
         },
         "2025Q4": {
-          "revenue": 320.93290855407713,
+          "revenue": 320.44928066253664,
           "revenue_yoy": null,
           "gross_margin": 0.2613981762917933,
           "operating_margin": 0.12056737588652482,
@@ -1439,7 +1705,7 @@
           "debt_ratio": 0.7572712850343734
         },
         "2026Q1": {
-          "revenue": 322.55870849609374,
+          "revenue": 322.0726306152344,
           "revenue_yoy": 0.10590858416945381,
           "gross_margin": 0.31955645161290325,
           "operating_margin": 0.18245967741935484,
@@ -1449,7 +1715,7 @@
           "debt_ratio": 0.743910925539318
         },
         "2026Q2": {
-          "revenue": 373.2836666870117,
+          "revenue": 372.7211491394043,
           "revenue_yoy": 0.11132623426911903,
           "gross_margin": 0.32229965156794427,
           "operating_margin": 0.19337979094076654,
@@ -1524,20 +1790,20 @@
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.51599884033203,
+      "fx_rate": 32.46699905395508,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "先進材料、精密光學、電子材料(含靶材)",
       "latest_quarter": "2026Q2",
-      "close": 252.16,
-      "close_date": "2026-10-15",
+      "close": 246.645,
+      "close_date": "2026-10-19",
       "is_focus": false,
       "note": "Materion(MTRN):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 682.2806023867798,
+        "revenue_ttm": 681.2524437892151,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.4222046156911259,
-        "market_cap": 1708.2059194129906,
+        "market_cap": 1668.3278184864178,
         "gross_margin_ttm": 0.1601140356061025,
         "operating_margin_ttm": 0.06350117142895269,
         "net_margin_ttm": 0.042947311432345925,
@@ -1554,15 +1820,15 @@
         "ocf_to_net_income_ttm": 1.2018620444760086,
         "fcf_margin_ttm": 0.015459716760107744,
         "capex_to_revenue_ttm": 0.03615702676271939,
-        "pe_ttm": 58.10138248847927,
-        "pb": 5.280537092897845,
-        "ev_ebitda_ttm": 27.559720698448164,
+        "pe_ttm": 56.83064516129033,
+        "pb": 5.165046285206968,
+        "ev_ebitda_ttm": 27.001651905796926,
         "fscore": null,
         "zscore": 5.344889388735204
       },
       "trend": {
         "2025Q1": {
-          "revenue": 136.67449792556764,
+          "revenue": 136.46853712348937,
           "revenue_yoy": null,
           "gross_margin": 0.18123617157947328,
           "operating_margin": 0.0745604643970214,
@@ -1572,7 +1838,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 140.35791027420044,
+          "revenue": 140.1463987763214,
           "revenue_yoy": null,
           "gross_margin": 0.1914895588637301,
           "operating_margin": 0.08895931501327439,
@@ -1582,7 +1848,7 @@
           "debt_ratio": 0.47700359578154694
         },
         "2025Q3": {
-          "revenue": 144.6337641217041,
+          "revenue": 144.4158091519165,
           "revenue_yoy": null,
           "gross_margin": 0.19361837017319833,
           "operating_margin": 0.08682397798600744,
@@ -1592,7 +1858,7 @@
           "debt_ratio": 0.4788126968228944
         },
         "2025Q4": {
-          "revenue": 159.24840496047975,
+          "revenue": 159.00842654670714,
           "revenue_yoy": null,
           "gross_margin": 0.1299958754803432,
           "operating_margin": 0.009988688198564993,
@@ -1602,7 +1868,7 @@
           "debt_ratio": 0.476771424022951
         },
         "2026Q1": {
-          "revenue": 178.7807654638672,
+          "revenue": 178.51135287841797,
           "revenue_yoy": 0.30807698712916043,
           "gross_margin": 0.14883853742288441,
           "operating_margin": 0.06706327843091607,
@@ -1612,7 +1878,7 @@
           "debt_ratio": 0.4902719134291645
         },
         "2026Q2": {
-          "revenue": 199.61766784072876,
+          "revenue": 199.31685521217346,
           "revenue_yoy": 0.4222046156911259,
           "gross_margin": 0.16996413131652077,
           "operating_margin": 0.08610275840275221,
@@ -1682,20 +1948,20 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.865600109100342,
+      "fx_rate": 4.8649001121521,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "超高純金屬濺射靶材、半導體零部件",
       "latest_quarter": "2026Q2",
-      "close": 180.1,
+      "close": 176.4,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "江豐電子(300666.SZ):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 255.28392748417855,
+        "revenue_ttm": 255.2472006742954,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.30848808305307784,
-        "market_cap": 2418.319641727564,
+        "market_cap": 2368.296571652438,
         "gross_margin_ttm": 0.27735742970356664,
         "operating_margin_ttm": 0.1416842173476331,
         "net_margin_ttm": 0.14991263096302254,
@@ -1712,15 +1978,15 @@
         "ocf_to_net_income_ttm": 0.6611402405015027,
         "fcf_margin_ttm": -0.15399791488380338,
         "capex_to_revenue_ttm": 0.25311118777290914,
-        "pe_ttm": 63.19053093930301,
-        "pb": 6.816932616876651,
+        "pe_ttm": 61.892335689578296,
+        "pb": 6.676884584214554,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 2.892648240625543
       },
       "trend": {
         "2025Q1": {
-          "revenue": 48.67789629149437,
+          "revenue": 48.67089317202568,
           "revenue_yoy": null,
           "gross_margin": 0.3238582637812984,
           "operating_margin": 0.19676345644459994,
@@ -1730,7 +1996,7 @@
           "debt_ratio": 0.5024642173643494
         },
         "2025Q2": {
-          "revenue": 53.24134263381958,
+          "revenue": 53.233682987213136,
           "revenue_yoy": null,
           "gross_margin": 0.2728935151337915,
           "operating_margin": 0.1274427913437637,
@@ -1740,7 +2006,7 @@
           "debt_ratio": 0.5103330113075445
         },
         "2025Q3": {
-          "revenue": 58.21495906534195,
+          "revenue": 58.20658388185501,
           "revenue_yoy": null,
           "gross_margin": 0.27547431589856747,
           "operating_margin": 0.15075472644300686,
@@ -1750,7 +2016,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 63.882410072422026,
+          "revenue": 63.87321953248978,
           "revenue_yoy": null,
           "gross_margin": 0.22758084908678233,
           "operating_margin": 0.08704586652855424,
@@ -1760,7 +2026,7 @@
           "debt_ratio": 0.5439826888914087
         },
         "2026Q1": {
-          "revenue": 63.52089598431587,
+          "revenue": 63.51175745415688,
           "revenue_yoy": 0.30492278474686385,
           "gross_margin": 0.32855895397201096,
           "operating_margin": 0.19209963922145368,
@@ -1770,7 +2036,7 @@
           "debt_ratio": 0.5768619444538183
         },
         "2026Q2": {
-          "revenue": 69.6656623620987,
+          "revenue": 69.65563980579377,
           "revenue_yoy": 0.30848808305307784,
           "gross_margin": 0.2778900684453136,
           "operating_margin": 0.13823858080737533,
@@ -1860,20 +2126,20 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.865600109100342,
+      "fx_rate": 4.8649001121521,
       "target_focus": "major",
       "focus_label": "靶材為主要事業之一",
       "segment": "濺射靶材(有研億金)、稀土與光電材料",
       "latest_quarter": "2026Q2",
-      "close": 38.89,
+      "close": 37.51,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "有研新材(600206.SS):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 564.6246721804619,
+        "revenue_ttm": 564.5434415946007,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.41900434435676925,
-        "market_cap": 1601.8752049870063,
+        "market_cap": 1544.810864661054,
         "gross_margin_ttm": 0.08544003060902657,
         "operating_margin_ttm": 0.04456680299403158,
         "net_margin_ttm": 0.027403032637563964,
@@ -1890,15 +2156,15 @@
         "ocf_to_net_income_ttm": -2.5288344549920865,
         "fcf_margin_ttm": -0.08490034831555562,
         "capex_to_revenue_ttm": 0.015602615210411206,
-        "pe_ttm": 103.53095014464004,
-        "pb": 7.551351797780178,
+        "pe_ttm": 99.85718539278601,
+        "pb": 7.283394341340562,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 6.004471238390483
       },
       "trend": {
         "2025Q1": {
-          "revenue": 89.51731080722809,
+          "revenue": 89.50443226337433,
           "revenue_yoy": null,
           "gross_margin": 0.06673279704315686,
           "operating_margin": 0.034857267094249376,
@@ -1908,7 +2174,7 @@
           "debt_ratio": 0.33021224306420255
         },
         "2025Q2": {
-          "revenue": 109.75820726108552,
+          "revenue": 109.74241672992706,
           "revenue_yoy": null,
           "gross_margin": 0.08958329639152407,
           "operating_margin": 0.04096506782516181,
@@ -1918,7 +2184,7 @@
           "debt_ratio": 0.34284759663291636
         },
         "2025Q3": {
-          "revenue": 130.12901523785592,
+          "revenue": 130.11029402947426,
           "revenue_yoy": null,
           "gross_margin": 0.1192554038744125,
           "operating_margin": 0.07327769614166545,
@@ -1928,7 +2194,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 134.87686782431604,
+          "revenue": 134.8574635589123,
           "revenue_yoy": null,
           "gross_margin": 0.07778250753052794,
           "operating_margin": 0.02005479699139626,
@@ -1938,7 +2204,7 @@
           "debt_ratio": 0.34861565473448836
         },
         "2026Q1": {
-          "revenue": 143.87141618599892,
+          "revenue": 143.85071790623664,
           "revenue_yoy": 0.6071909990216329,
           "gross_margin": 0.06418727658264878,
           "operating_margin": 0.043386170022083864,
@@ -1948,7 +2214,7 @@
           "debt_ratio": 0.35219504191134715
         },
         "2026Q2": {
-          "revenue": 155.74737293229103,
+          "revenue": 155.7249660999775,
           "revenue_yoy": 0.41900434435676925,
           "gross_margin": 0.08345043252243838,
           "operating_margin": 0.0428964164211697,
@@ -2043,20 +2309,20 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.865600109100342,
+      "fx_rate": 4.8649001121521,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "PVD 鍍膜材料(濺射靶材、蒸鍍材料)",
       "latest_quarter": "2026Q2",
-      "close": 39.38,
+      "close": 38.73,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "阿石創(300706.SZ):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 74.79415084509372,
+        "revenue_ttm": 74.78339047100543,
         "revenue_ttm_yoy": null,
         "revenue_yoy": -0.040245938440113704,
-        "market_cap": 294.1868066204805,
+        "market_cap": 289.28938106035594,
         "gross_margin_ttm": 0.11042237102061342,
         "operating_margin_ttm": 0.04313438758576454,
         "net_margin_ttm": 0.007341821477059308,
@@ -2073,15 +2339,15 @@
         "ocf_to_net_income_ttm": -9.457755582866008,
         "fcf_margin_ttm": -0.10785023188219123,
         "capex_to_revenue_ttm": 0.03841307881912799,
-        "pe_ttm": 535.7371168212997,
-        "pb": 8.504598777140124,
+        "pe_ttm": 526.8943254060165,
+        "pb": 8.364223225968434,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 1.2158461970016465
       },
       "trend": {
         "2025Q1": {
-          "revenue": 14.648035096449853,
+          "revenue": 14.64592773463726,
           "revenue_yoy": null,
           "gross_margin": 0.05752973728878304,
           "operating_margin": 0.0030073641518270867,
@@ -2091,7 +2357,7 @@
           "debt_ratio": 0.6095140987950809
         },
         "2025Q2": {
-          "revenue": 18.098232133812903,
+          "revenue": 18.095628404164316,
           "revenue_yoy": null,
           "gross_margin": 0.024187701464930652,
           "operating_margin": -0.041487459774224855,
@@ -2101,7 +2367,7 @@
           "debt_ratio": 0.6125607097485871
         },
         "2025Q3": {
-          "revenue": 20.422967209939955,
+          "revenue": 20.420029028749465,
           "revenue_yoy": null,
           "gross_margin": 0.06557599668367711,
           "operating_margin": 0.018539793492192824,
@@ -2111,7 +2377,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 16.257964860548974,
+          "revenue": 16.25562588374615,
           "revenue_yoy": null,
           "gross_margin": 0.11669504789894086,
           "operating_margin": 0.012717625194154564,
@@ -2121,7 +2387,7 @@
           "debt_ratio": 0.6406310353940922
         },
         "2026Q1": {
-          "revenue": 20.743366977124214,
+          "revenue": 20.74038270113468,
           "revenue_yoy": 0.4161194208328767,
           "gross_margin": 0.12468902978230326,
           "operating_margin": 0.07052755279398208,
@@ -2131,7 +2397,7 @@
           "debt_ratio": 0.6464390962671905
         },
         "2026Q2": {
-          "revenue": 17.36985179748058,
+          "revenue": 17.367352857375145,
           "revenue_yoy": -0.040245938440113704,
           "gross_margin": 0.14024280588134783,
           "operating_margin": 0.06780833237626509,
@@ -2251,20 +2517,20 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.865600109100342,
+      "fx_rate": 4.8649001121521,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "濺射靶材(顯示面板為主)",
       "latest_quarter": "2026Q2",
-      "close": 46.81,
+      "close": 45.65,
       "close_date": "2026-10-16",
       "is_focus": false,
       "note": "歐萊新材(688530.SS):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 40.68955403237343,
+        "revenue_ttm": 40.683700167894365,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.7812130154777823,
-        "market_cap": 364.516076349293,
+        "market_cap": 355.4318505366086,
         "gross_margin_ttm": 0.18435744436605403,
         "operating_margin_ttm": 0.07769825534815311,
         "net_margin_ttm": 0.04348440097097827,
@@ -2281,15 +2547,15 @@
         "ocf_to_net_income_ttm": -0.1650941709954984,
         "fcf_margin_ttm": -0.08108820117904504,
         "capex_to_revenue_ttm": 0.07390918004950554,
-        "pe_ttm": 206.01567485611048,
-        "pb": 8.553651103205123,
+        "pe_ttm": 200.91039429996673,
+        "pb": 8.34168282122012,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 4.726631534687667
       },
       "trend": {
         "2025Q1": {
-          "revenue": 4.248671208867073,
+          "revenue": 4.248059967331886,
           "revenue_yoy": null,
           "gross_margin": 0.14478026948967368,
           "operating_margin": -0.051181050061497514,
@@ -2299,7 +2565,7 @@
           "debt_ratio": 0.2567091819003267
         },
         "2025Q2": {
-          "revenue": 6.331216173963547,
+          "revenue": 6.330305323934555,
           "revenue_yoy": null,
           "gross_margin": 0.10816003442922796,
           "operating_margin": -0.03979834309340465,
@@ -2309,7 +2575,7 @@
           "debt_ratio": 0.3266931344241258
         },
         "2025Q3": {
-          "revenue": 7.37732019742012,
+          "revenue": 7.376258848047256,
           "revenue_yoy": null,
           "gross_margin": 0.03902402026091201,
           "operating_margin": -0.09809328461568902,
@@ -2319,7 +2585,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 8.615128865175247,
+          "revenue": 8.61388943657875,
           "revenue_yoy": null,
           "gross_margin": 0.10576690650732512,
           "operating_margin": -0.054341304175938375,
@@ -2329,7 +2595,7 @@
           "debt_ratio": 0.41509599553205534
         },
         "2026Q1": {
-          "revenue": 13.419860316910743,
+          "revenue": 13.417929648327828,
           "revenue_yoy": 2.158601750331537,
           "gross_margin": 0.2800254522118407,
           "operating_margin": 0.20314672003654677,
@@ -2339,7 +2605,7 @@
           "debt_ratio": 0.3863980761151434
         },
         "2026Q2": {
-          "revenue": 11.277244652867317,
+          "revenue": 11.27562223494053,
           "revenue_yoy": 0.7812130154777823,
           "gross_margin": 0.22562528314097724,
           "operating_margin": 0.14428432747276454,
@@ -2433,10 +2699,7 @@
       "zone": "安全區"
     }
   ],
-  "missing": [
-    "住友化學(4005.T)",
-    "ULVAC(6728.T)"
-  ],
+  "missing": [],
   "industry_notes": [
     "貴金屬(金、銀、鉑族)買賣與精煉回收占營收比重高的公司,營收會隨金屬價格大幅波動,應搭配毛利額與毛利率判讀,不宜只看營收成長。",
     "存貨多為高價金屬,金屬價格下跌時可能提列存貨跌價損失、上漲時則有回升利益;留意存貨天數與毛利率的同步變化。",
