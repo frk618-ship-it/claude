@@ -8,22 +8,23 @@
 <style>
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink-1: #0b0b0b;
-  --ink-2: #52514e;
-  --ink-3: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --border: rgba(11,11,11,0.10);
-  --wash: rgba(11,11,11,0.04);
-  --focus-wash: rgba(42,120,214,0.08);
-  --other-mark: #b9b7ae;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
-  --good: #006300; --critical: #d03b3b;
+  --page: #f4f6fb;
+  --surface: #ffffff;
+  --ink-1: #162033;
+  --ink-2: #55607a;
+  --ink-3: #8a93a8;
+  --grid: #e3e7f0;
+  --axis: #c5ccdb;
+  --border: rgba(22,32,51,0.10);
+  --wash: rgba(59,91,219,0.06);
+  --focus-wash: rgba(59,91,219,0.10);
+  --other-mark: #b4bccd;
+  --accent: #3b5bdb; --accent-2: #f76707; --hero: #e4e9ff;
+  --s1: #3b5bdb; --s2: #f76707; --s3: #0c8f6a; --s4: #d6336c;
+  --good: #2b8a3e; --critical: #e03131;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--page); color: var(--ink-1);
+body { margin: 0; background: linear-gradient(180deg, var(--hero) 0, var(--page) 360px) no-repeat, var(--page); color: var(--ink-1);
   font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
 header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
@@ -46,10 +47,14 @@ header .sub { color: var(--ink-2); font-size: 13px; }
 .fgroup > span { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
 .chip { border: 1px solid var(--border); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 4px 11px; font: inherit; font-size: 13px; cursor: pointer; }
 .chip:hover { background: var(--wash); }
-.chip[aria-pressed="true"] { color: var(--ink-1); border-color: var(--ink-2); font-weight: 600; }
+.chip[aria-pressed="true"] { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); border-color: var(--accent); font-weight: 600; }
 select { font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--tc, var(--accent)); border-radius: 10px; padding: 12px 14px; box-shadow: 0 1px 2px rgba(22,32,51,.05), 0 2px 8px rgba(22,32,51,.05); }
+.tile:nth-child(4n+1) { --tc: var(--s1); } .tile:nth-child(4n+2) { --tc: var(--s2); } .tile:nth-child(4n+3) { --tc: var(--s3); } .tile:nth-child(4n+4) { --tc: var(--s4); }
+.card { box-shadow: 0 1px 2px rgba(22,32,51,.05), 0 2px 8px rgba(22,32,51,.05); }
+header h1::before { content: ""; display: inline-block; width: 12px; height: 22px; margin-right: 10px; vertical-align: -3px; border-radius: 4px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+.navlink { border-color: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--accent); font-weight: 500; }
 .tile .k { color: var(--ink-2); font-size: 12px; }
 .tile .v { font-size: 24px; font-weight: 650; margin: 2px 0; }
 .tile .r { color: var(--ink-3); font-size: 12px; }
