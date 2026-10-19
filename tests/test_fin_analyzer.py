@@ -200,7 +200,7 @@ def test_fetch_company_with_fake_api():
 
 def test_target_makers_config():
     cfg = load_fin_config(ROOT / "config" / "target_makers.yaml")
-    assert cfg.target.ticker == "1785" and cfg.target.name == "光洋科"
+    assert cfg.target.ticker == "3663" and cfg.target.name == "鑫科"  # default focus
     by_ticker = {c.ticker: c for c in cfg.companies}
     for t in ("1785", "3663", "5016.T", "4042.T", "SOLS", "300666.SZ", "600206.SS"):
         assert t in by_ticker

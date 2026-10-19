@@ -177,7 +177,7 @@ pip install -r requirements.txt
 
 python -m fin_analyzer fetch        # 下載所有公司財報、股價與匯率 → data/financials/
 python -m fin_analyzer dashboard    # 產生 reports/dashboard/index.html、dashboard.json、comparison.csv
-python -m fin_analyzer analyze      # 焦點公司(預設光洋科)的深度報告 → reports/financials/
+python -m fin_analyzer analyze      # 焦點公司(預設鑫科)的深度報告 → reports/financials/
 
 python -m fin_analyzer dashboard --focus 300666.SZ            # 改以江豐電子為焦點
 python -m fin_analyzer fetch --tickers 5016.T SOLS            # 只更新部分公司
