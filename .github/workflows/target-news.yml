@@ -16,6 +16,10 @@ on:
         type: boolean
         required: false
         default: false
+      papers_days:
+        description: "技術文獻回溯天數(空白 = 預設 30 天;例如 365 可一次補齊一年)"
+        required: false
+        default: ""
       resummarize:
         description: "為之前沒有 AI 摘要的報告補上摘要與翻譯(需 ANTHROPIC_API_KEY)"
         type: boolean
@@ -59,11 +63,14 @@ jobs:
           # 選填:技術文獻搜尋(OpenAlex)用的聯絡 email / API key
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          PAPERS_DAYS_INPUT: ${{ github.event.inputs.papers_days }}
         run: |
+          PAPERS_DAYS=""
+          if [[ "$PAPERS_DAYS_INPUT" =~ ^[0-9]+$ ]]; then PAPERS_DAYS="--papers-days $PAPERS_DAYS_INPUT"; fi
           if [ "${{ github.event.inputs.papers_only }}" = "true" ]; then
-            python -m target_news_agent -v run --papers-only
+            python -m target_news_agent -v run --papers-only $PAPERS_DAYS
           else
-            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '7' }}"
+            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '7' }}" $PAPERS_DAYS
           fi
           if [ "${{ github.event.inputs.resummarize }}" = "true" ]; then
             python -m target_news_agent -v resummarize

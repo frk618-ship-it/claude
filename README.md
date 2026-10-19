@@ -62,7 +62,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **來源**:[OpenAlex](https://openalex.org/)(免費學術文獻索引)、arXiv、期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum、Journal of Alloys and Compounds、Ceramics International、Int. J. Refractory Metals and Hard Materials)。
 - **篩選**:標題或摘要必須明確談到濺鍍靶材("target" 單字太廣,醫學、雷射等論文會被排除);同一篇論文來自多個來源只留一筆。
 - **分類**:粉末冶金與燒結、熔煉與鑄造、塑性加工與晶粒織構、高純化與雜質控制、綁定與背板、陶瓷與氧化物靶、合金與複合靶、旋轉靶、濺鍍行為與靶材利用率、回收與再利用。
-- **靶材循環回收**:另以「spent sputtering target recovery」「spent ITO target indium recovery」「ITO / 鉭靶 scrap recycling」「貴金屬 / 釕靶回收」「废靶材 回收」等字詞搜尋;標題或摘要提到廢靶、殘靶、scrap / spent target 的回收、浸出、精煉再生研究都會收錄,歸入「回收與再利用」。
+- **靶材循環回收**:另以「spent sputtering target recovery」「spent ITO target indium recovery」「ITO / 鉭靶 scrap recycling」「貴金屬 / 釕靶回收」「废靶材 回收」等字詞搜尋;標題或摘要提到廢靶、殘靶、scrap / spent target 的回收、浸出、精煉再生研究都會收錄,歸入「回收與再利用」。手動執行時可填「papers_days」(例如 365)一次回溯較長期間的文獻。
 - **範圍**:預設最近 30 天,已報告過的論文不會重複出現。設定 `ANTHROPIC_API_KEY` 後,Claude 會為每篇寫中文摘要並評 1–5 分(對靶材製造的參考價值)。
 - 搜尋字、期刊 RSS、分類關鍵字都在 `config/watchlist.yaml` 的 `research:` 區段。
 - **網站**:新聞首頁有「技術文獻」區塊(本期新收錄;沒有新文獻時顯示最近收錄的 10 篇),另有累積全部文獻的「技術文獻庫」頁(`/news/papers.html`),可依製程主題與來源篩選。
