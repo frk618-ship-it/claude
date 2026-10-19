@@ -90,7 +90,7 @@ def topic_icon(topic: str) -> str:
     return TOPIC_ICONS.get(topic, "book")
 
 
-def favicon_href(color: str = "#8a4f24") -> str:
+def favicon_href(color: str = "#3b5bdb") -> str:
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="{color}" '
         f'stroke-width="2" stroke-linecap="round">{ICONS["target"]}</svg>'
