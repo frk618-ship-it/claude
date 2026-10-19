@@ -17,23 +17,8 @@ from pathlib import Path
 from .config import Config
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
-from .highlight import Highlighter
 from .thumbs import pick as pick_thumb
 from .translate import to_traditional
-
-_hl = Highlighter()  # rebuilt with the watchlist's company names in render_page / render_library
-
-
-KW_LEGEND = (
-    '<p class="kwlegend">關鍵字標示:<b class="kw-co">公司</b> · <b class="kw-num">數字</b> · '
-    '<mark class="kw-term">靶材 / 製程 / 材料</mark></p>'
-)
-
-
-def _use_config(config: Config) -> None:
-    global _hl
-    _hl = Highlighter(config)
-
 
 HOME_PAGE = "home"  # `current` value for the combined homepage
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
@@ -103,12 +88,12 @@ def esc(v) -> str:
 STYLE = """
 :root{--bg:#f3f4f5;--surface:#fff;--fg:#1c2126;--muted:#5b6570;--line:#dde1e6;--accent:#8a4f24;--accent-soft:#f5e9df;
 --ok:#2f6b4f;--ok-soft:#e1efe7;--none:#6b7480;--none-soft:#eceef1;
---k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;--k-metals:#a07d12;--k-recycling:#2f7a4a;--up:#c0392b;--down:#1e8449;--kw-num:#1f5fa8;
+--k-news:#8a4f24;--k-filing:#2f5d8a;--k-market:#2c7468;--k-forum:#7a5c99;--k-research:#9a6f12;--k-profile:#6b7480;--k-metals:#a07d12;--k-recycling:#2f7a4a;--up:#c0392b;--down:#1e8449;
 --shadow:0 1px 2px rgba(20,24,28,.06),0 2px 8px rgba(20,24,28,.05);
 --font-display:"Noto Serif TC","Songti TC",serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 @media (prefers-color-scheme:dark){:root{--bg:#14181c;--surface:#1b2026;--fg:#e6e9ec;--muted:#9aa4ae;--line:#2c333b;--accent:#e0a070;--accent-soft:#3a2a1e;
 --ok:#7fc8a2;--ok-soft:#1d3329;--none:#8d96a0;--none-soft:#232930;
---k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;--k-metals:#e6c55a;--k-recycling:#7fcf9c;--up:#f08070;--down:#6fcf97;--kw-num:#8ab8f0;
+--k-news:#e0a070;--k-filing:#86b4e6;--k-market:#72c7b6;--k-forum:#bba1db;--k-research:#e2bb5c;--k-profile:#9aa4ae;--k-metals:#e6c55a;--k-recycling:#7fcf9c;--up:#f08070;--down:#6fcf97;
 --shadow:none;color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
 .wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
@@ -159,9 +144,6 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
 .thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 5px;border-radius:7px;background:var(--k);color:var(--surface);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;box-shadow:0 0 0 2px var(--surface)}
 .card.low .thumb{filter:saturate(.55);opacity:.85}
-.kw-co{font-weight:700;color:var(--fg)}.kw-num{font-weight:700;color:var(--kw-num);font-variant-numeric:tabular-nums}
-mark.kw-term{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:500;border-radius:3px;padding:0 2px}
-.kwlegend{font-size:.78rem;color:var(--muted);margin-top:4px}
 .ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .region{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
@@ -235,7 +217,7 @@ def _card(kind_class: str, label: str, label_icon: str, published: str | None, t
           meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "") -> str:
     """One card: thumbnail, then label + date, title, summary and source details."""
     date = esc((published or "")[:10])
-    sum_html = f'<p class="sum">{_hl(summary)}</p>' if summary else ""
+    sum_html = f'<p class="sum">{esc(summary)}</p>' if summary else ""
     return (
         f'<article class="card {kind_class}{extra_class}{" has-thumb" if thumb else ""}"{attrs}>{thumb}'
         f'<div class="head"><span class="kind {kind_class}">{icon(label_icon)}{esc(label)}</span>'
@@ -435,7 +417,6 @@ def _stat(icon_name: str, value: str, label: str) -> str:
 
 
 def render_library(library: list[dict], config: Config, generated: str) -> str:
-    _use_config(config)
     topics = Counter(t for p in library for t in (p.get("topics") or [GENERAL_TOPIC]))
     sources = Counter(p.get("source", "") for p in library)
     order = list(config.research.topics) + [GENERAL_TOPIC] if config.research else list(topics)
@@ -511,7 +492,6 @@ def render_page(
     library: list[dict] | None = None,
     is_latest: bool = False,
 ) -> str:
-    _use_config(config)
     library = library or []
     items = report.get("items", [])
     span = report.get("span") or []
@@ -533,11 +513,11 @@ def render_page(
     generated = (report.get("generated") or "")[:16].replace("T", " ")
 
     if digest.get("overview"):
-        summary = f'<p class="lead">{_hl(digest["overview"])}</p>'
+        summary = f'<p class="lead">{esc(digest["overview"])}</p>'
         if digest.get("key_trends"):
-            summary += "<p><strong>產業趨勢</strong></p><ul class='plain'>" + "".join(f"<li>{_hl(t)}</li>" for t in digest["key_trends"]) + "</ul>"
+            summary += "<p><strong>產業趨勢</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ul>"
         if digest.get("watch_points"):
-            summary += "<p><strong>後續追蹤</strong></p><ul class='plain'>" + "".join(f"<li>{_hl(t)}</li>" for t in digest["watch_points"]) + "</ul>"
+            summary += "<p><strong>後續追蹤</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["watch_points"]) + "</ul>"
     elif items:
         top_names = "、".join(f"{n}({c})" for n, c in ent_counts.most_common(4) if not n.startswith("產業綜合"))
         summary = (
@@ -586,7 +566,7 @@ def render_page(
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
 <nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a><a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
-<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}{KW_LEGEND}</section>
+<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_recycling_section(items, config)}
