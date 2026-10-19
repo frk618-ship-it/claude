@@ -1,0 +1,529 @@
+{
+  "generated": "2026-10-19T08:28:39.325119+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期最關鍵的訊號來自晶圓端資本支出。台積電法說重申今年資本支出 600–640 億美元不變,並預估未來三年投資高於過去,同時評估在德州建廠、與馬斯克合作,對 PVD 機台與各類靶材的中長期需求是明確支撐。美國先進封裝在地化也在加速:台積電與格羅方德合作,使格芯成為全美首座具備矽中介層量產能力的晶圓廠;美國政府將取得格芯 4% 股權,紐約州新廠並獲日本 210 億美元資金,可望帶動 RDL、TSV 與凸塊相關的 PVD 需求。記憶體端則出現雜音,SK 海力士傳出 HBM4 設備訂單延期,股價盤前跌逾 3%,市場擔憂擴產節奏放緩。靶材供應商方面,JX 金屬獲利創新高,但宣布 TOB 與可轉債後股價急落;有研新材前三季歸母淨利 2.63 億元人民幣、年增 7.3%;江豐電子控股股東提議回購 0.5–1 億元人民幣,並同步準備 H 股上市;光洋科股價大漲。其餘多為股價、討論區類的資訊,參考價值有限。",
+    "key_trends": [
+      "晶圓龍頭高資本支出延續:台積電維持 600–640 億美元的年度資本支出,並預估三年投資高於過去,邏輯製程的 PVD 機台與鉭、銅、鈦、鈷等靶材需求具能見度。",
+      "美國先進封裝與在地供應鏈成形:台積電與格芯在矽中介層上合作,美國政府入股格芯、日本資金挹注紐約新廠,北美的中介層、RDL 與凸塊 PVD 需求可望增加,在地供料與認證將成為競爭重點。",
+      "HBM 擴產節奏出現分歧:SK 海力士 HBM4 設備訂單延期,記憶體端的 PVD 機台拉貨與相關靶材備貨可能遞延,與台積電的樂觀展望形成對比。",
+      "靶材大廠資本運作活躍:JX 金屬推出 TOB 與可轉債、江豐電子推動 H 股上市並由控股股東提議回購,顯示業者積極籌資或調整資本結構,以支應 AI 材料擴產與國際化布局。",
+      "中國靶材與高純材料廠獲利穩健成長:有研新材前三季淨利年增 7.3%,國產替代需求持續,但成長幅度屬溫和。",
+      "貴金屬價格仍值得關注:COMEX 黃金行情受市場留意,貴金屬靶材(如古屋金屬的鉑族金屬產品)的成本與報價可能受到牽動。"
+    ],
+    "watch_points": [
+      "台積電德州建廠評估與「與馬斯克合作」的具體內容,以及新廠與先進封裝產能時程,據此預判美國當地靶材供應與認證需求。",
+      "SK 海力士 HBM4 設備訂單延期的幅度與期間,以及三星、美光是否跟進調整,評估對記憶體用靶材與 PVD 機台訂單的影響。",
+      "格芯矽中介層量產進度,以及紐約新廠的資金到位與擴產規模,掌握北美封裝用銅、鈦等靶材的新客戶機會。",
+      "JX 金屬 TOB 與可轉債的資金用途,是否投入靶材擴產或併購;以及江豐電子 H 股上市進度與募資規劃,對價格競爭與海外產能布局的影響。",
+      "古屋金屬、光洋科後續財報與營收細節,以及黃金等貴金屬價格走勢對貴金屬靶材報價與回收業務的影響。"
+    ]
+  },
+  "items": [
+    {
+      "id": "f5b09433a02b1203",
+      "title": "台積電獲利沒有天花板！魏哲家認評估德州建廠「和馬斯克合作」，法說丟出哪些重磅訊號？",
+      "link": "https://news.google.com/rss/articles/CBMihwRBVV95cUxPbTdLWGQ2ekhadExNMDZhTWFsWHVSU3RObHFJOUZmSllHY3g5ZWt2TUk3STRDTF92aTVuV3o2RHVMVEVxUFVUcl9WWFVaRzZObF9YSTVPRkdJOWtHb1hOSGkwS1VGVFlJcTdHbGJZRlVWOXlMZkRfRDdUWWxtM2dNNTMzLTdUa3I3QzY2VkZsVDVLMU9tZ3M2V2hsQ2t3eTZjUVp6alN5Zm5PVkZWYl83QnpOT3lET1dhek9IMWNVNDUyQ2FVNlJycEVGbWpMMUpsWUZha3QxU1ExeEFtWFRUVkhGYVo4Skx0cmNmbEw5YzNseGl3cXRReVFvXzRubVF5WHRQNHJBdFI5XzZEcXhWOWpHVUtxS1JvUTF1NGU2dmtpbVY4cWZMbjhyQnBWS3R5LWIySW9KVDkwTnh6c2xtT3Y4Ym5aYkRicUVXZHFXT21CYU12cjhyUDRKU3RxR2d3SzhYNE43VzlWcEJjUVpuTWM2ZDJqN2VuOXE0LUtSN0VFdl9IOVhvR0t6eEt5NXdVclpxWE0zV2FDVzJjdFVwbUtpLVNMNUgxUEZDTllyMXd2cTd3dTlEQnNKMFhEWHc2VFRTTklXc1dQd2g0YlNZVnhwY3lrUGsyeEtXSV9maWMwYWIycTl5MzhkQ3psdW9TZjVhTnFlQ2ZWM2VGanViZGN4elJTN1U?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-10-18T09:20:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 6.41,
+      "summary": "台積電法說會釋出多項訊號,魏哲家證實正評估德州建廠並與馬斯克合作,獲利展望強勁。若美國新廠落地,將帶動當地PVD機台與高純度靶材的在地供應需求。",
+      "importance": 5,
+      "title_zh": "臺積電獲利沒有天花板！魏哲家認評估德州建廠「和馬斯克合作」，法說丟出哪些重磅訊號？",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6b1689c2ca731a6a",
+      "title": "SK海力士盤前跌超3%，HBM4設備訂單延期引發擴產擔憂",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNSXRTRU9WTzNQM2lqUEdCRUdsdkk0QThLcjFCV3F0RjNXNFRjbFlqVmFhX0JXSVE3SEZMczhIcnhmVFA2ay1qRzZldlh0SVVhV21SQTU1M0JJUmNuNWJCRFo3SW9RRUEwTjBTZXdKeW45cjFUYVlnVVNtcW5RY1BMUzU2RUE1S2hQNFl5WEFlV0g2S2tPd1hYWFJ4MzQwaERmdzJ1T2hrNGVJVFdDNDNYRkI1c1VldFd5aWE3ZjVjSm9vOE45WmVhSnN0TWZ5UGs?oc=5",
+      "source": "TradingKey",
+      "published": "2026-10-17T16:14:34+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.31,
+      "summary": "SK海力士HBM4相關設備訂單傳出延期,市場擔憂擴產步調放緩,股價盤前跌逾3%。HBM擴產延後可能使記憶體端PVD機台與靶材需求成長遞延。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9821a0d34da2832c",
+      "title": "台積電法說會／重申今年資本支出600-640億美元不變 續估三年投資高於過去",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBtMTFjanBvRThBeGxFYXkxY3VmNkpDc0loMjJuZTR3VDlzLXctN2NSVVkzQjZJcmsxX2RsV0c0QmdKSVVCV3FDSDRVZXhON0tVRWVmaXdpdG5VQdIBX0FVX3lxTFBGdUNHNkxCa0hPd3BYdUxOeFo0cXhjUEFOdV80VjJzRGppdXF2b3JoOXhELTVWVEJ3V3EwaFc4Mnp5X3NGdVpXWVJFWWVzRzJCRXVGQWlIYk92M1lGdlpn?oc=5",
+      "source": "經濟日報",
+      "published": "2026-10-15T06:23:43+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 4.96,
+      "summary": "台積電重申今年資本支出600至640億美元不變,並預估未來三年投資高於過去水準。持續高檔的資本支出支撐先進製程與先進封裝的PVD設備及靶材中長期需求。",
+      "importance": 5,
+      "title_zh": "臺積電法說會／重申今年資本支出600-640億美元不變 續估三年投資高於過去",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c21c8068ae3d40e8",
+      "title": "討論牆 | 台積電攜手昔日競爭對手 格羅方德因此成為全美第一座具備量產土矽中介層能力晶圓廠",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBQREowQXl1NDNINEJLSVI5cXp0TE84bktDTEdINUk5SHlkLUhxZ2ZIaTZRUG1xa09ublRoVlJsS1dQbXBqVjZ4eHNsX2pRVV92TW1qb1JMRHZNMzdmRHlXRHV0MXk?oc=5",
+      "source": "LINE TODAY",
+      "published": "2026-10-12T02:37:27+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)",
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "併購與合作",
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 4.81,
+      "summary": "台積電與格羅方德合作,格羅方德成為全美第一座具量產矽中介層能力的晶圓廠。矽中介層屬先進封裝關鍵製程,將增加美國本土封裝端PVD與靶材需求。",
+      "importance": 4,
+      "title_zh": "討論牆 | 臺積電攜手昔日競爭對手 格羅方德因此成為全美第一座具備量產土矽中介層能力晶圓廠",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0b64a6838652a581",
+      "title": "【JX金属(5016)】最高益なのに急落。TOB・CB発表で投資家は何を見たのか？銅山からAI素材へ向かう120年企業の試練 Below Deck Mediterranean Season 11 (oIARBWYEVA)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE83MGpxYWp6TE15WVczdW9TUzJGaW0yZzU0X1k1QlpOOTNDNERhcGM3VTQ5SzhZMUVfdnpqV0o1NkpXdmlQcEJRLTdKbnlDRDc2OHBTRjNfbG9mNEh4RFNrMnk5UFJtdw?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-17T22:10:43+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.34,
+      "summary": "靶材大廠JX金屬雖創最高獲利,但發布公開收購(TOB)與可轉債(CB)後股價急跌,市場關注其由銅礦轉型AI材料的資金運用與股權稀釋。後續資金用途可能影響其靶材擴產布局。",
+      "importance": 4,
+      "title_zh": "【JX金屬(5016)】創下最高獲利卻股價急跌。TOB・CB公告後投資人看到了什麼？從銅礦走向AI材料的120年企業之考驗 Below Deck Mediterranean Season 11 (oIARBWYEVA)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "655e7722d81540b5",
+      "title": "美政府將取得格芯4%股權 紐約州新廠將獲日本210億美元",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5ZRVlaZVgzdlo1NU1GQ20wZVc1VmFab0hRTGRkakJISGhMT2NTV3hVelJnTkJmLWx0aTRZb0pKLWMxbk5HQmVnblJNV3c?oc=5",
+      "source": "聚財網",
+      "published": "2026-10-14T02:12:52+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.8,
+      "summary": "美國政府將取得格羅方德4%股權,紐約州新廠並將獲日本210億美元資金。格羅方德美國擴產有望帶動PVD機台與靶材的新增需求。",
+      "importance": 4,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "379b5398fd240109",
+      "title": "(株)フルヤ金属【7826】：決算情報",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1fSDFZMlNoSXhfMUE5d0dqbG04Tk93TjBqb1NDS21rQzZWajJVWkJEYzVJaGotNFpUVTNkajJ6RTd1cHMyaWs3OXkxMWdZSGlWTjdaSUJLN3Q2NEdNNVFLMQ?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.61,
+      "summary": "古屋金屬(銥、釕等貴金屬靶材廠)公布決算資訊,片段未提供具體數字。可留意其貴金屬靶材出貨與獲利趨勢。",
+      "importance": 3,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：財報資訊",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5609990c68ccadd6",
+      "title": "有研新材前三季度归母净利润2.63亿元，同比增长7.3%",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE51VXZpZXZVdnRCYWgzWUd5YVVRaWNjYjhKNUNfbXBTZkdFUUpuSkR5cmktWWk5bl9ScU1sdlB3S1A0VnFTVGphSXR1M2FaODRjYWZEb1pSaGdROHpQWGJrN3RycHNDUQ?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-12T10:07:51+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.06,
+      "summary": "中國靶材廠有研新材前三季歸母淨利2.63億元人民幣,年增7.3%。顯示中國本土靶材業者營運穩健成長,持續強化在地供應競爭力。",
+      "importance": 3,
+      "title_zh": "有研新材前三季度歸母淨利潤2.63億元，同比增長7.3%",
+      "snippet_zh": ""
+    },
+    {
+      "id": "55b51cac1b9abf08",
+      "title": "江丰电子：控股股东提议公司约0.5亿至1亿元回购公司股份",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBxZ2Q5SEl0NVJZQk03NVdjYzMwczJGWmdGMWVkckhPUXMtOGVmRkZ2YTFVQVVWQWxHTUsyWktDdWF3cjRRcEJVTnZlOVU4WXRPV2tfb2NLbXpuNGd4R2Y1Qmoyaw?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-18T17:20:23+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.96,
+      "summary": "江豐電子控股股東提議公司以約0.5億至1億元人民幣回購股份。屬資本市場操作,對靶材供需影響有限。",
+      "importance": 2,
+      "title_zh": "江豐電子：控股股東提議公司約0.5億至1億元回購公司股份",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c7838bb651990b3d",
+      "title": "フジクラ、キオクシア、JX金属、ユニチカ、リガク、SBG、フェローテック Justin Crawford (hy3dynNcl0)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5YeE00UTdjcG85OVFsS2t1VFZyMC1lam96UmpsaUlqN1ZoOTlqWGFZQ2gzTTNKcVEtbWdtQUN5b3RRYTd1WE9kdzBlN1VPRDZwcHFhcGc4SlJOQmwzY2ZZdUlSTW5MQQ?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-18T13:11:48+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "日本股市個股評論影片,提及JX金屬等多家材料與半導體相關公司,無具體營運資訊。與靶材產業關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Fujikura、Kioxia、JX金屬、Unitika、Rigaku、SBG、Ferrotec Justin Crawford (hy3dynNcl0)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0a3063093d4c8962",
+      "title": "【デイトレ配信80回目】100万円どれだけ増やせるか？キオクシア、フジクラ、JX金属、太陽誘電、村田製作所、東京エレクトロン、イビデン、テラドローンなどを監視しながら取引。日経平均先物弱くなる Tbnewswatch (RfXB2TuNU2)",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMVhHcFJwZHFJcGd1QUg5UnY3TUZKclZvUm0xRmRDdEdGajRCVmJpc2R4QUFYZ19YYUQ4amNDTTBSZG9rQzhVemZZdlNpYzgyNmdfTkJqMi1zX2MwSVVMRTlZZFd1OHBYSG1GbWttc2N5R2l5Mlo5LUF3YXpDcTFNTThn?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-18T05:24:39+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.89,
+      "summary": "日股當沖直播內容,監看標的包含JX金屬、東京威力科創等,無實質產業消息。與靶材供需關聯薄弱。",
+      "importance": 1,
+      "title_zh": "【當沖直播第80回】100萬日圓能增加多少？一邊監看Kioxia、Fujikura、JX金屬、太陽誘電、村田製作所、東京威力科創、Ibiden、Terra Drone等一邊交易。日經平均期貨走弱 Tbnewswatch (RfXB2TuNU2)",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e5e05807fcbeccdc",
+      "title": "아바코, 캐나다 이차전지 장비 계약 1년 연장",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBCeHN1X1RGN3o0UFpoSk1ETHA1ckRSbDNJY2pHd3ZMN0NPQ1Zad0lCM196cmtIQW1ad2dLcDFwSVo4OWIyRGwwaXhDdS1qTE1JSVg5Y0dPbG53aHJQLWI1MWdJU19HUQ?oc=5",
+      "source": "비건뉴스",
+      "published": "2026-10-18T04:07:51+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "客戶與供應鏈",
+        "產業動態"
+      ],
+      "score": 2.88,
+      "summary": "韓國設備商AVACO(亦生產濺鍍設備)與加拿大客戶的二次電池設備合約延長一年。屬電池設備業務,與靶材需求關聯有限。",
+      "importance": 2,
+      "title_zh": "AVACO 加拿大二次電池設備合約延長1年",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0a03adfc618787f3",
+      "title": "(株)フルヤ金属【7826】：株価・株式情報（夜間PTS含む）",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9VSmVlNzYtcXVZb0ZiQzBBelNFZVRvTEtCNzlUVE52dlFJMHRsaVB2TVFLTDN3WUZTcThJTjhpNElEZVlzbEFLbHJnemMtUjFHdEE?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "古屋金屬股價與股票資訊頁面,無實質新聞內容。與靶材供需無直接關聯。",
+      "importance": 1,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：股價・股票資訊（含夜間PTS）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "56298251ee369e6c",
+      "title": "(株)フルヤ金属【7826】：掲示板",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBfbzI4UGdIdncyODlkZlpNZUhsUEMtaGV4a0Q0dk15V0VtSWwteEI5V3Z0eUhhVnJxcE55bWdMallrY29fZFBaVlBfYXJsblNrUDZDeV81R2ZOUQ?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "古屋金屬Yahoo財經留言板頁面,無實質新聞內容。",
+      "importance": 1,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：討論區",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f4616561078b00a8",
+      "title": "(株)フルヤ金属【7826】：現物信用売買内訳時系列",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBGWGRrSEllemJwSmNjTGRmUUFQamNBeGFaVFI5SmNVMnNtZU0ydmtkRGJCMGZTRmxjSE1kUFVnZGVFSkcyeko3TFMxamdxS2Ezd19qZ1AyZWx2bDlIUllz?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "古屋金屬現股與信用交易明細資料頁,屬交易資訊,與產業動態無關。",
+      "importance": 1,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：現股與信用交易明細時間序列",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1b9e4c6d45f48d62",
+      "title": "(株)フルヤ金属【7826】：板気配",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA1TjZDWjlDVFZNeWJKWURQSDJmbnhHNElHSXNwWEFaYVduZXlkSGJsbERQRU1Kb2tSVXF3aU5xQ3ZVQmNteUNzRE1HYWQ3cjB1Z2FUT2JIQk5OV01Jc2NF?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "古屋金屬即時買賣報價頁面,無產業資訊。",
+      "importance": 1,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：委買委賣掛單",
+      "snippet_zh": ""
+    },
+    {
+      "id": "271400edc2fe27cc",
+      "title": "(株)フルヤ金属【7826】：株主優待",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE12QW1YN3c4cTJkdHVRYk5EM3A2dFFJZGFfYTcyUldtLWRxMEMxemo2R29zX0x1Q2wwMUpSUmU0YnFXdUNPM1FBTFZRQTV2U0kwdEQ1cVlKWnBZZ2hHaFBV?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-10-16T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "古屋金屬股東優惠資訊頁面,與靶材業務無關。",
+      "importance": 1,
+      "title_zh": "Furuya Metal（フルヤ金屬）【7826】：股東優惠",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cbcff3a463792af5",
+      "title": "10.16实盘炒股第35天：易点天下 有研新材",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE52SHFTaXNsaGFSTnU1YWtNMjE1aFFUdGZORWhsNkpCcXhYLVNHUUhHSERVUmQ1R29WamRfY3FJSFBhSldXZVBNWnExYUJnQ2NsczVaNjdGRUJKdW9sWS1qZGc1T1d6MGJhcjdv?oc=5",
+      "source": "财富号",
+      "published": "2026-10-15T23:36:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.57,
+      "summary": "個人實盤炒股紀錄提及有研新材,無實質營運資訊。",
+      "importance": 1,
+      "title_zh": "10.16實盤炒股第35天：易點天下 有研新材",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5dddf2cc7df796db",
+      "title": "光洋科股價飆升挖掘新契機",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4zTUFfWDVhSmluYXBMLWdTWjFfR3Z2MjV5TlhlMzVQT0ZUV1JGN1o0SFFndmVCWXc5RG1tYTNVRVVkemVjTXlscC1OMHpqZVJqOEF6MGVSUFA?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-15T22:49:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.56,
+      "summary": "台灣靶材廠光洋科股價飆升,文章探討其新契機,片段未說明具體原因。可留意其貴金屬靶材或回收業務是否有新進展。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "511d144bb33e8d5b",
+      "title": "江丰电子（300666）10月14日主力资金净卖出8586.83万元",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5EQzVvb1lPZV9EUjdvMkdOXzhXWTY0WnBhcnVvR3hLZEFOajd1OWtMck1hOU1LQThNV19EUGhJem5uSENleXNHYmNnYV9aaXJ4VmhUdWFyWmp1RHQ4WlhRdDFFTHJTQkE?oc=5",
+      "source": "搜狐",
+      "published": "2026-10-15T01:18:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報",
+        "產業動態"
+      ],
+      "score": 2.43,
+      "summary": "江豐電子10月14日主力資金淨賣出約8,587萬元人民幣,屬股市資金流向資訊,對靶材供需無直接影響。",
+      "importance": 1,
+      "title_zh": "江豐電子（300666）10月14日主力資金淨賣出8586.83萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f6b4501dd87f4d78",
+      "title": "江丰电子(300666):宁波江丰电子材料股份有限公司会计师事务所选聘制度（草案）（H股发行并上市后适用）",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1QV1ZEVlNmRWxOUVZoMjh0dlp0c0RzUTBDUF9DbDNKWEQ3RHAyVGQ3ZWR2WXF6eVhpVUFsUjBOeXZCTHo0NEU2TGgxbDM2VmtiZGpaTzNn?oc=5",
+      "source": "中财网",
+      "published": "2026-10-14T13:36:46+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "產業動態"
+      ],
+      "score": 2.36,
+      "summary": "江豐電子公告H股發行上市後適用的會計師事務所選聘制度草案,顯示其推進赴港上市,未來可能強化擴產募資能力。",
+      "importance": 2,
+      "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司會計師事務所選聘制度（草案）（H股發行並上市後適用）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ed4cb3ba81ec0ef1",
+      "title": "COMEX黃金 概述",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB6c3F1TnFFME9XUnZlZ0JzLTc0amhvSnFDZ3QtMkUydFFEUmotSzlkeEdoODVYOFUwMlpZVkd6eGJxSTVna3ZKb1dfUEJ2SjZDOW9zY3FuWnZGRUVEdW9DVjdvYVdfSzliSUtUd3hfeFE?oc=5",
+      "source": "CME Group",
+      "published": "2026-10-16T10:03:45+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格",
+        "產業動態"
+      ],
+      "score": 2.13,
+      "summary": "COMEX黃金期貨概述頁面,未提供具體價格變動。金價走勢影響貴金屬靶材成本,但本則無實質資訊。",
+      "importance": 2,
+      "title_zh": "",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 4200.8,
+      "prev": 4181.1,
+      "date": "2026-10-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.47
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 57.45,
+      "prev": 56.99,
+      "date": "2026-10-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.81
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1647.5,
+      "prev": 1623.3,
+      "date": "2026-10-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 1.49
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 1127.0,
+      "prev": 1113.3,
+      "date": "2026-10-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 1.23
+    }
+  ],
+  "papers": [],
+  "research_days": 30
+}
