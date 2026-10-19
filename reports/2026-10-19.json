@@ -975,27 +975,6 @@
       "abstract_zh": ""
     },
     {
-      "id": "p-872c81b8a9ecc070",
-      "title": "A molecular dynamics study on the characteristics of molecules released from tungsten plasma facing components - Input data for MD simulations",
-      "link": "https://doi.org/10.23729/fd-4afcff4e-acb0-313d-bc31-ecb8fa4f3b2a",
-      "published": "2026-04-06T00:00:00+00:00",
-      "venue": "Ministry of Culture and Education",
-      "authors": [
-        "Nima Fakhrayi Mofrad"
-      ],
-      "abstract": "This repository contains input files and data used for molecular dynamics (MD) simulations performed with LAMMPS to study irradiation-induced sputtering processes on W–D surfaces. The files support: 1. Preparation of the tungsten target surface 2. Execution of irradiation simulations under defined projectile conditions --- File overview: 1. LAMMPS input scripts (.lmp) * surface_gen.lmp: Script used to equilibrate the target surface. This includes initialization of the simulation box, thermal equilibration, and inserting D atoms in the surface. * irrad.lmp: Script used to perform irradiation simulations. It generates incident particles with prescribed initial conditions and simulates their interaction with the surface. 2. Data file * W.data: Atomic structure file defining the initial configuration of the tungsten target. 3. Potential file * WD.tersoff.zbl: Interatomic potential describing W–W, W–D, and D–D interactions. The potential includes short-range ZBL corrections for high-energy collisions. 4. Irradiation parameter files * Input_*eV_0deg.tsv: Tab-separated files containing parameters for individual irradiation events. Each row corresponds to one projectile and includes: • Initial velocity components (vx, vy, vz) • Random values used for shifting of the simulation cell 5. Electronic stopping file * elstop-DW.txt: Tabulated electronic stopping data (taken from SRIM) used to account for energy loss due to electronic interactions during irradiation.",
-      "doi": "10.23729/fd-4afcff4e-acb0-313d-bc31-ecb8fa4f3b2a",
-      "source": "OpenAlex",
-      "topics": [
-        "濺鍍行為與靶材利用率",
-        "其他靶材研究"
-      ],
-      "summary": "提供核融合鎢面對電漿元件 W–D 表面濺射的 LAMMPS 分子動力學輸入資料,與靶材製造無關。",
-      "importance": 1,
-      "title_zh": "鎢電漿面對元件釋出分子特性之分子動力學研究——MD 模擬輸入資料",
-      "abstract_zh": "本資料庫包含以 LAMMPS 進行分子動力學(MD)模擬所使用的輸入檔與資料,用以研究 W–D 表面上照射誘發的濺射過程。這些檔案支援:1. 鎢靶材表面的製備 2. 在設定的入射粒子條件下執行照射模擬 --- 檔案概覽:1. LAMMPS 輸入腳本(.lmp)* surface_gen.lmp:用於使靶材表面達到平衡的腳本,包括模擬盒初始化、熱平衡,以及在表面中插入 D 原子。* irrad.lmp:用於執行照射模擬的腳本,依指定初始條件產生入射粒子並模擬其與表面的交互作用。2. 資料檔 * W.data:定義鎢靶材初始構型的原子結構檔。3. 勢能檔 * WD.tersoff.zbl:描述 W–W、W–D 與 D–D 交互作用的原子間勢能,包含針對高能碰撞的短程 ZBL 修正。4. 照射參數檔 * Input_*eV_0deg.tsv:以 Tab 分隔的檔案,包含個別照射事件的參數。每一列對應一個入射粒子,包含:• 初始速度分量(vx, vy, vz)• 用於平移模擬晶胞的隨機值 5. 電子阻止本領檔 * elstop-DW.txt:表列的電子阻止本領資料(取自 SRIM),用於計入照射過程中電子交互作用造成的能量損失。"
-    },
-    {
       "id": "p-75054c061ed6d619",
       "title": "Current Application Status and Development Direction of High-end Magnetron Sputtering Target in China",
       "link": "https://doi.org/10.15302/j-sscae-2025.09.019",
@@ -1459,8 +1438,7 @@
       "source": "OpenAlex",
       "topics": [
         "塑性加工與晶粒織構",
-        "高純化與雜質控制",
-        "回收與再利用"
+        "高純化與雜質控制"
       ],
       "summary": "比較 6N 超高純銅的室溫軋延與深冷軋延。深冷軋延抑制動態再結晶,形成超細纖維組織,織構轉向 Brass 與 S;90% 壓下量時硬度 164.60 HV、降伏強度 385.61 MPa,明顯高於室溫軋延。",
       "importance": 5,
@@ -1543,37 +1521,6 @@
       "importance": 4,
       "title_zh": "Tb 摻雜 IZO 靶材:緻密化、微結構與電性的協同控制",
       "abstract_zh": ""
-    },
-    {
-      "id": "p-5e7dbb07834b2b88",
-      "title": "Gyrokinetic Simulations of a Low Recycling Scrape-off Layer without a Lithium Target",
-      "link": "https://doi.org/10.48550/arxiv.2511.09437",
-      "published": "2025-11-12T00:00:00+00:00",
-      "venue": "arXiv (Cornell University)",
-      "authors": [
-        "Akash Shukla",
-        "Jonathan Roeltgen",
-        "Kotschenreuther, Michael",
-        "David R. Hatch",
-        "Manaure Francisquez",
-        "James Juno",
-        "T. N. Bernard",
-        "Ammar H. Hakim",
-        "Gregory  W. Hammett",
-        "S. M. Mahajan"
-      ],
-      "abstract": "Low-recycling regimes are appealing because they entail a high edge temperature and low edge density which are good for core confinement. However, due to considerably enhanced heat flux, the exhaust problems become severe. In addition, in the low-recycling regime, the conventional fluid simulations may not capture the physics of the Scrape-Off Layer (SOL) plasma that lies in the long mean free path regime; kinetic calculations become necessary. In this paper, by performing both Kinetic and fluid simulations, we explore the feasibility of a low-recycling regime in the magnetic geometry of the Spherical Tokamak for Energy Production (STEP); kinetic effects come out to be crucial determinants of the SOL dynamics. The simulation results indicate that a high SOL temperature and low SOL density could be achieved even when the divertor target is not made of a low recycling material. This can be done by using a low recycling material as a wall material. This is an important step towards demonstrating the feasibility of a low-recycling scenario. Lithium, a commonly used low recycling material, tends to evaporate at high heat fluxes which counteracts the desired high temperature, low density regime, and materials that can handle high heat fluxes are generally high recycling. Comparisons of gyrokinetic and fluid simulation results indicate that one can take advantage of kinetic effects to address some of the issues associated with a low-recycling SOL. Specifically, kinetic simulations show better confinement of impurities to the divertor region and greater broadening of the heat flux width due to drifts when compared with fluid simulations. Impurity confinement would help prevent core contamination from sputtering, and a broader heat flux width would help reduce the peak heat load at the target in the absence of detachment.",
-      "doi": "10.48550/arxiv.2511.09437",
-      "source": "OpenAlex",
-      "topics": [
-        "濺鍍行為與靶材利用率",
-        "高純化與雜質控制",
-        "回收與再利用"
-      ],
-      "summary": "以迴旋動力學模擬托卡馬克低再循環刮削層,此處「target」指偏濾器靶板、「recycling」指電漿再循環,與濺鍍靶材及回收無關。",
-      "importance": 1,
-      "title_zh": "無鋰靶板之低再循環刮削層的迴旋動力學模擬",
-      "abstract_zh": "低再循環運轉模式具吸引力,因其伴隨高邊緣溫度與低邊緣密度,有利於核心侷限。然而,由於熱通量大幅提升,排熱問題變得嚴峻。此外,在低再循環模式下,傳統流體模擬可能無法掌握處於長平均自由徑區域的刮削層(SOL)電漿物理,因此必須進行動力學計算。本文同時進行動力學與流體模擬,探討在能源生產球形託卡馬克(STEP)磁場幾何中實現低再循環模式的可行性;結果顯示動力學效應是 SOL 動態的關鍵決定因素。模擬結果指出,即使偏濾器靶板並非由低再循環材料製成,仍可達成高 SOL 溫度與低 SOL 密度,方法是以低再循環材料作為壁面材料。這是證明低再循環情境可行性的重要一步。鋰是常用的低再循環材料,但在高熱通量下易蒸發,反而抵銷所期望的高溫、低密度狀態,而能承受高熱通量的材料通常屬於高再循環材料。迴旋動力學與流體模擬結果的比較顯示,可利用動力學效應解決低再循環 SOL 的部分相關問題。具體而言,相較於流體模擬,動力學模擬顯示雜質更能侷限於偏濾器區域,且漂移造成的熱通量寬度展寬更大。雜質侷限有助於防止濺射造成的核心汙染,而較寬的熱通量寬度則有助於在無脫靶的情況下降低靶板上的峰值熱負載。"
     },
     {
       "id": "p-6754096f59f5394b",

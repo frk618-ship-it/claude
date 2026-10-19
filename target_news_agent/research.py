@@ -73,6 +73,9 @@ OTHER_TARGET_CONTEXT = [
     "nuclear", "accelerator", "cyclotron", "isotope", "neutron", "proton beam", "ion beam", "radioisotope",
     "laser-produced plasma", "laser produced plasma", "euv source", "extreme ultraviolet", "fusion", "spallation",
     "x-ray source", "tumor", "cancer", "drug", "protein", "receptor", "bnct", "neutron capture",
+    # fusion devices: divertor "target plates", plasma "recycling"
+    "tokamak", "divertor", "scrape-off layer", "gyrokinetic", "edge plasma", "plasma-wall", "plasma wall", "stellarator",
+    "plasma-facing", "plasma facing",
 ]
 # Isotope-labelled targets ("120 Sn target", "48Ca targets") are nuclear-physics targets.
 ISOTOPE_TARGET = re.compile(r"\b\d{2,3}\s?[A-Z][a-z]?\s+targets?\b")

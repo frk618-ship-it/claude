@@ -1122,3 +1122,14 @@ def test_target_recycling_papers_are_kept(config):
     assert not is_relevant(P("Optical properties of ZnO films",
                              "The ceramic disc was used as sputtering target to deposit films on glass."))
     assert classify_topics(P("Recovery of indium from spent ITO targets"), config.research.topics)[-1] == "回收與再利用"
+
+
+def test_fusion_target_plates_and_metallurgical_recovery_are_not_recycling(config):
+    from target_news_agent.research import Paper, classify_topics, is_relevant
+
+    fusion = Paper("Gyrokinetic simulation of a low-recycling scrape-off layer with a lithium-free target plate",
+                   "https://x", None, abstract="Edge plasma turbulence in a tokamak divertor ...")
+    assert not is_relevant(fusion)
+    cu = Paper("Microstructure and texture of cryo-rolled 6N copper for advanced sputtering targets", "https://x", None,
+               abstract="Static recovery and recrystallization during annealing were studied.")
+    assert is_relevant(cu) and "回收與再利用" not in classify_topics(cu, config.research.topics)
