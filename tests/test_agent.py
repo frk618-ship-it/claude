@@ -736,17 +736,17 @@ def test_cards_show_title_and_summary():
             "summary": "Materion 宣布擴產。", "entities": ["Materion"], "kind": "news", "published": "2026-10-13T00:00:00+00:00"}
     card = _item_html(news)
     assert card.startswith('<article class="card k-news has-thumb"') and 'data-kind="news"' in card
-    assert "Materion 擴建靶材廠" in card and '<p class="sum">Materion 宣布擴產。</p>' in card
+    assert "Materion 擴建靶材廠" in card and '宣布<mark class="kw-term">擴產</mark>。</p>' in card
     assert 'title="原文:Materion expands target plant"' in card
 
     # No summary: fall back to the feed snippet, but never repeat the title as the summary.
     assert '<p class="sum">' not in _item_html({**news, "summary": "", "snippet": "Materion expands"})
-    assert '<p class="sum">新廠明年投產</p>' in _item_html({**news, "summary": "", "snippet_zh": "新廠明年投產"})
+    assert '<p class="sum"><mark class="kw-term">新廠</mark>明年投產</p>' in _item_html({**news, "summary": "", "snippet_zh": "新廠明年投產"})
 
     paper = {"title": "Sintering of ITO targets", "title_zh": "ITO 靶材的燒結", "abstract": "Long English abstract.",
              "abstract_zh": "研究 ITO 靶材燒結。" * 40, "topics": ["粉末冶金與燒結"], "link": "https://x.test/p"}
     pc = _paper_html(paper)
-    assert "ITO 靶材的燒結" in pc and "研究 ITO 靶材燒結。" in pc and "…</p>" in pc and "粉末冶金與燒結" in pc
+    assert "ITO 靶材的燒結" in pc and '研究 <mark class="kw-term">ITO</mark> <mark class="kw-term">靶材</mark>燒結。' in pc and "…</p>" in pc and "粉末冶金與燒結" in pc
 
 
 def test_second_run_same_day_keeps_earlier_items(tmp_path, monkeypatch, config):
@@ -1153,3 +1153,15 @@ def test_homepage_merges_last_three_days(config):
     assert [p["id"] for p in m["papers"]] == ["p2", "p1"]
     assert m["digest"]["overview"] == "新" and m["metals"] == [{"code": "Au"}]  # latest quotes available
     assert m["span"] == ["2026-10-19", "2026-10-18", "2026-10-17"]
+
+
+def test_summary_keywords_are_marked(config):
+    from target_news_agent.highlight import Highlighter
+
+    hl = Highlighter(config)
+    out = hl("台積電資本支出600-640億美元,年增7.3%;光洋科鉭靶擴產<script>")
+    assert '<b class="kw-co">台積電</b>' in out and '<b class="kw-co">光洋科</b>' in out
+    assert '<b class="kw-num">600-640億美元</b>' in out and '<b class="kw-num">7.3%</b>' in out
+    assert '<mark class="kw-term">鉭靶</mark>' in out and '<mark class="kw-term">資本支出</mark>' in out
+    assert "&lt;script&gt;" in out and "<script>" not in out
+    assert hl("2026年第三季") == "2026年第三季"  # bare years / numbers without a unit stay plain
