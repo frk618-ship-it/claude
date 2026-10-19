@@ -95,6 +95,7 @@ class FinConfig:
     dashboard_dir: str = "reports/dashboard"
     title: str = ""
     news_url: str = ""  # link to the industry-news site shown in the dashboard header
+    site_url: str = ""  # public URL of the dashboard; used for absolute og:image / og:url links
 
     @property
     def companies(self) -> list[Company]:
@@ -157,4 +158,5 @@ def load_fin_config(path: str | Path) -> FinConfig:
         dashboard_dir=str(s.get("dashboard_dir", "reports/dashboard")),
         title=str(raw.get("title", "")),
         news_url=str(s.get("news_url", "") or ""),
+        site_url=str(s.get("site_url", "") or ""),
     )

@@ -91,7 +91,7 @@ jobs:
         run: |
           if [ -f reports/dashboard/index.html ]; then
             mkdir -p site/financials
-            cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv site/financials/
+            cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png site/financials/
           fi
 
       - uses: actions/configure-pages@v5

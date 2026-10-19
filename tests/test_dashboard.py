@@ -113,6 +113,7 @@ def test_dashboard_cli_demo(tmp_path):
     assert {c["currency"] for c in data["companies"]} == {"TWD", "JPY", "USD", "CNY"}
     assert all(c["latest"]["revenue_ttm"] for c in data["companies"])
     assert (tmp_path / "comparison.csv").read_text(encoding="utf-8-sig").startswith("代號,公司")
+    assert (tmp_path / "og.png").exists()
     # Companies without data are listed, not fatal.
     assert main(["dashboard", "-c", str(DEMO_CONFIG), "--data-dir", str(tmp_path / "empty"), "-o", str(tmp_path / "x")]) == 1
 
@@ -184,3 +185,10 @@ def test_dashboard_light_theme_and_news_link():
     html = render_html(data)
     assert 'id="news-link"' in html and cfg.news_url in html
     assert "prefers-color-scheme" not in html  # always the light palette, even in OS dark mode
+    # Static title and share-preview tags, readable by link crawlers that don't run JS.
+    assert f'<h1 id="title">{cfg.title}</h1>' in html and '<meta name="description" content="比較' in html
+    assert f'<meta property="og:title" content="{cfg.title}">' in html
+    assert f'<meta property="og:image" content="{cfg.site_url.rstrip("/")}/og.png">' in html
+    assert "__DESCRIPTION__" not in html and "__SHARE_META__" not in html
+    # Chart boxes are loading skeletons until filled; target share shows as bubble size / badge.
+    assert 'id="scatter" class="chart sk"' in html and ".sk:empty" in html and "tfBadge" in html

@@ -23,6 +23,8 @@ companies:
   - {ticker: "5016.T", name: JX金屬, market: JP, target_focus: major, segment: 半導體/資訊通信材料(靶材)、銅箔、金屬}
   - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分}
   - {ticker: "5706.T", name: 三井金屬, market: JP, target_focus: diversified, segment: 功能材料(含 ITO 等靶材)、金屬、汽車零件}
+  - {ticker: "4005.T", name: 住友化學, market: JP, target_focus: diversified, segment: 化學品為主;資訊電子化學事業含濺鍍靶材}
+  - {ticker: "6728.T", name: ULVAC, short: ULVAC, market: JP, target_focus: diversified, segment: 真空與濺鍍設備為主;材料事業含濺鍍靶材}
   # ---- 美國 ----
   - {ticker: "SOLS", name: Solstice Advanced Materials, short: Solstice, market: US, target_focus: diversified, segment: 冷媒與特用化學品、電子材料(原 Honeywell 電子材料,含靶材)}
   - {ticker: "MTRN", name: Materion, market: US, target_focus: diversified, segment: 先進材料、精密光學、電子材料(含靶材)}
@@ -38,6 +40,8 @@ settings:
   dashboard_dir: reports/dashboard
   # 儀表板標題列的新聞網站連結(用絕對網址,Artifact 版本也能用;留空則不顯示)
   news_url: https://frk618-ship-it.github.io/claude/news/
+  # 儀表板公開網址:分享到 LINE / Slack / Teams 時預覽卡片(og:image)需要絕對網址
+  site_url: https://frk618-ship-it.github.io/claude/financials/
   display_currency: TWD         # 儀表板金額換算幣別
   # 參考匯率(1 單位外幣 = ? 台幣)。fetch 會從 Yahoo Finance 取得最新匯率存到 data/financials/fx.json 並優先使用;
   # 取不到時才用這裡的數字,請定期更新。

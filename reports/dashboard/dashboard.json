@@ -1,7 +1,8 @@
 {
   "title": "濺鍍靶材製造商財務指標儀表板",
   "news_url": "https://frk618-ship-it.github.io/claude/news/",
-  "generated": "2026-10-19 22:10",
+  "site_url": "https://frk618-ship-it.github.io/claude/financials/",
+  "generated": "2026-10-20 00:59",
   "display_currency": "TWD",
   "unit_label": "億台幣",
   "fx": {
@@ -2432,7 +2433,10 @@
       "zone": "安全區"
     }
   ],
-  "missing": [],
+  "missing": [
+    "住友化學(4005.T)",
+    "ULVAC(6728.T)"
+  ],
   "industry_notes": [
     "貴金屬(金、銀、鉑族)買賣與精煉回收占營收比重高的公司,營收會隨金屬價格大幅波動,應搭配毛利額與毛利率判讀,不宜只看營收成長。",
     "存貨多為高價金屬,金屬價格下跌時可能提列存貨跌價損失、上漲時則有回升利益;留意存貨天數與毛利率的同步變化。",

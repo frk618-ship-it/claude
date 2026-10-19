@@ -10,6 +10,7 @@ from __future__ import annotations
 import csv
 import json
 import logging
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -20,6 +21,7 @@ from .metrics import AMOUNT_KEYS
 log = logging.getLogger(__name__)
 
 TEMPLATE = Path(__file__).with_name("dashboard_template.html")
+OG_IMAGE = Path(__file__).with_name("assets") / "og.png"  # 1200x630 share-preview image
 
 # key, label, kind (pct / x / days / amt / num / score), better (high / low / None), group
 DASHBOARD_METRICS: list[tuple[str, str, str, str | None, str]] = [
@@ -148,6 +150,7 @@ def build_dashboard_data(analyses: list[Analysis], cfg: FinConfig, generated: da
     return {
         "title": cfg.title or "靶材製造商財務指標儀表板",
         "news_url": cfg.news_url,
+        "site_url": cfg.site_url,
         "generated": generated.strftime("%Y-%m-%d %H:%M"),
         "display_currency": cfg.display_currency,
         "unit_label": f"億{_currency_label(cfg.display_currency)}" if cfg.amount_unit == 1e8 else cfg.amount_unit_label,
@@ -164,10 +167,31 @@ def _currency_label(cur: str) -> str:
     return {"TWD": "台幣", "USD": "美元", "JPY": "日圓", "CNY": "人民幣"}.get(cur, cur)
 
 
+def description(data: dict) -> str:
+    regions = "".join(r for r in ("台", "日", "美", "中") if any(c["region"].startswith(r) for c in data["companies"]))
+    who = f"{regions} {len(data['companies'])} 家" if regions else f"{len(data['companies'])} 家"
+    return f"比較{who}濺鍍靶材製造商的營收成長、毛利率、ROE、現金流與評價,附靶材營收比重標示與自動風險訊號。"
+
+
+def share_meta(data: dict) -> str:
+    """Absolute og:image / og:url tags (crawlers ignore relative URLs); empty without site_url."""
+    base = (data.get("site_url") or "").rstrip("/")
+    if not base:
+        return ""
+    image = _html_escape(f"{base}/{OG_IMAGE.name}")
+    return (f'<meta property="og:url" content="{_html_escape(base + "/")}">\n'
+            f'<meta property="og:image" content="{image}">\n'
+            '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+            f'<meta name="twitter:image" content="{image}">')
+
+
 def render_html(data: dict) -> str:
     payload = json.dumps(data, ensure_ascii=False, default=str).replace("</", "<\\/")  # safe inside <script>
     html = TEMPLATE.read_text(encoding="utf-8")
-    return html.replace("__TITLE__", _html_escape(data["title"])).replace("/*__DATA__*/null", payload)
+    return (html.replace("__TITLE__", _html_escape(data["title"]))
+            .replace("__DESCRIPTION__", _html_escape(description(data)))
+            .replace("<!--__SHARE_META__-->", share_meta(data))
+            .replace("/*__DATA__*/null", payload))
 
 
 def _html_escape(text: str) -> str:
@@ -179,6 +203,8 @@ def write_dashboard(data: dict, out_dir: str | Path) -> tuple[Path, Path, Path]:
     out.mkdir(parents=True, exist_ok=True)
     html_path, json_path, csv_path = out / "index.html", out / "dashboard.json", out / "comparison.csv"
     html_path.write_text(render_html(data), encoding="utf-8")
+    if OG_IMAGE.exists():
+        shutil.copyfile(OG_IMAGE, out / OG_IMAGE.name)
     json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     metrics = data["metrics"]
     with open(csv_path, "w", newline="", encoding="utf-8-sig") as f:

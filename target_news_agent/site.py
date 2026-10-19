@@ -11,6 +11,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import shutil
 from collections import Counter, OrderedDict
 from pathlib import Path
 
@@ -20,6 +21,7 @@ from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
 from .translate import to_traditional
 
+OG_IMAGE = Path(__file__).with_name("assets") / "og.png"  # 1200x630 share-preview image
 HOME_PAGE = "home"  # `current` value for the combined homepage
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 
@@ -399,10 +401,30 @@ def paper_library(reports: list[tuple[str, dict]]) -> list[dict]:
     return sorted(seen.values(), key=lambda p: (p.get("published") or "", p["collected"]), reverse=True)
 
 
-def _head(title: str) -> str:
+SITE_DESCRIPTION = "每日彙整全球濺鍍靶材產業新聞、公司公告、貴金屬行情與技術文獻,附 AI 繁體中文摘要。"
+
+
+def _share_meta(title: str, description: str, site_url: str, page: str) -> str:
+    """Description + Open Graph / Twitter tags so shared links get a preview card (LINE, Slack, Teams)."""
+    tags = [f'<meta name="description" content="{esc(description)}">',
+            '<meta property="og:type" content="website">', '<meta property="og:site_name" content="靶材產業新聞摘要">',
+            '<meta property="og:locale" content="zh_TW">',
+            f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(description)}">',
+            '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{esc(title)}">',
+            f'<meta name="twitter:description" content="{esc(description)}">']
+    if site_url:  # crawlers need absolute URLs
+        base = site_url.rstrip("/") + "/"
+        image = base + OG_IMAGE.name
+        tags += [f'<meta property="og:url" content="{esc(base + page)}">', f'<meta property="og:image" content="{esc(image)}">',
+                 '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+                 f'<meta name="twitter:image" content="{esc(image)}">']
+    return "".join(tags)
+
+
+def _head(title: str, description: str = SITE_DESCRIPTION, site_url: str = "", page: str = "") -> str:
     return (
         '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-        f'<title>{esc(title)}</title><link rel="icon" href="{favicon_href()}">'
+        f'<title>{esc(title)}</title>{_share_meta(title, description, site_url, page)}<link rel="icon" href="{favicon_href()}">'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
         f"<style>{STYLE}</style></head><body>{SPRITE}"
@@ -437,7 +459,8 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
         if library else "<p>尚未收錄任何文獻;每日執行後會累積在這裡。</p>"
     )
     return (
-        _head("靶材技術文獻庫")
+        _head("靶材技術文獻庫", "濺鍍靶材製造技術文獻庫:粉末冶金、熔煉、接合、純化、靶材回收等期刊與預印本,附繁體中文摘要。",
+              config.settings.site_url, "papers.html")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Research Library", "靶材技術文獻庫")}
 <nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></nav>
@@ -564,7 +587,8 @@ def render_page(
     )
 
     return (
-        _head(f"靶材產業新聞摘要 {label}")
+        _head(f"靶材產業新聞摘要 {label}", SITE_DESCRIPTION, config.settings.site_url,
+              "" if current == HOME_PAGE else f"{current}.html")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
@@ -626,6 +650,8 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     reports_dir, out = Path(reports_dir), Path(out_dir)
     paths = sorted((p for p in reports_dir.iterdir() if REPORT_RE.match(p.name)), reverse=True)
     out.mkdir(parents=True, exist_ok=True)
+    if OG_IMAGE.exists():
+        shutil.copyfile(OG_IMAGE, out / OG_IMAGE.name)
     reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     archive = [(d, len(r.get("items", []))) for d, r in reports]
     library = paper_library(reports)

@@ -61,6 +61,7 @@ class Settings:
     query_context_terms: list[str] = field(default_factory=list)
     categories: dict[str, list[str]] = field(default_factory=dict)
     hot_terms: list[str] = field(default_factory=list)
+    site_url: str = ""  # public URL of the site; used for absolute og:image / og:url links
 
 
 @dataclass
@@ -104,6 +105,7 @@ def load_config(path: str | Path) -> Config:
         query_context_terms=[str(t) for t in s.get("query_context_terms") or s.get("context_terms", [])],
         categories={k: [str(t) for t in v] for k, v in (s.get("categories", {}) or {}).items()},
         hot_terms=[str(t) for t in s.get("hot_terms", [])],
+        site_url=str(s.get("site_url", "") or ""),
     )
 
     entities = []

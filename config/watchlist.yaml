@@ -20,6 +20,8 @@
 #   editions        要搜尋的新聞版本(對應下方 editions),未填則用 default_editions
 
 settings:
+  # 網站公開網址:分享到 LINE / Slack / Teams 時預覽卡片的圖片與連結需要絕對網址
+  site_url: https://frk618-ship-it.github.io/claude/news/
   days: 7                     # 只保留最近 N 天的新聞
   request_delay: 0.6          # 每次抓取之間的間隔秒數,避免被來源限流
   default_editions: [zh-TW, en]

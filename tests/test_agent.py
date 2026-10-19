@@ -270,6 +270,14 @@ def test_build_site_from_reports(tmp_path, config):
     assert "Solstice" in index and "生產商 · 台灣" in index
     assert ".md\"" not in index and ".json\"" not in index and "Markdown" not in index
     assert "<script>alert" not in index
+    # Share-preview card: description + Open Graph with absolute image URL when site_url is set.
+    assert '<meta name="description"' in index and '<meta property="og:title" content="靶材產業新聞摘要' in index
+    assert (out / "og.png").exists()
+    config.settings.site_url = "https://example.org/news"
+    build_site(reports, out, config)
+    page = (out / "2026-10-12.html").read_text(encoding="utf-8")
+    assert '<meta property="og:image" content="https://example.org/news/og.png">' in page
+    assert '<meta property="og:url" content="https://example.org/news/2026-10-12.html">' in page
 
     assert item_kind({"title": "1785 光洋科 - 心得 - 股市爆料同學會", "source": "CMoney"}) == "forum"
     assert item_kind({"title": "欧莱新材(688530):募集说明书", "source": "中财网"}) == "filing"
