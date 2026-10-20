@@ -94,11 +94,12 @@ def _news_sections(items: list[NewsItem], config: Config, digest: Digest) -> lis
     lines: list[str] = []
 
     if digest.overview:
-        lines += ["## 本期總覽", "", digest.overview, ""]
+        auto = digest.source == "auto"
+        lines += ["## 本期總覽(自動整理,AI 摘要尚未產生)" if auto else "## 本期總覽", "", digest.overview, ""]
         if digest.key_trends:
-            lines += ["**產業趨勢**", ""] + [f"- {t}" for t in digest.key_trends] + [""]
+            lines += ["**主要主題**" if auto else "**產業趨勢**", ""] + [f"- {t}" for t in digest.key_trends] + [""]
         if digest.watch_points:
-            lines += ["**後續追蹤**", ""] + [f"- {t}" for t in digest.watch_points] + [""]
+            lines += ["**評分最高的新聞**" if auto else "**後續追蹤**", ""] + [f"- {t}" for t in digest.watch_points] + [""]
 
     top = sorted(items, key=lambda i: (i.importance, i.score), reverse=True)[:5]
     lines += ["## 重點新聞", ""] + [_item_line(i) for i in top] + [""]

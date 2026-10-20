@@ -69,6 +69,11 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數、`--papers-only` 只蒐集文獻並併入今天既有的報告(不重抓新聞;Actions 手動執行時勾選 papers_only)。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
 - 同一天再執行一次時,新抓到的新聞會併入當天既有的報告,不會覆蓋早上的內容。
 - 補摘要:設定 `ANTHROPIC_API_KEY` 之前產生的報告沒有 AI 摘要,可執行 `python -m target_news_agent resummarize` 補上(只處理還缺摘要的報告;`--force` 全部重做)。Actions 手動執行時勾選 resummarize 即可。
+- API 無法使用時(未設定金鑰、額度用完、服務中斷):報告仍會產生**自動整理**的本期總結(依類別統計與評分最高的新聞,網頁會標示「AI 摘要尚未產生」),新聞卡片顯示原文導言。
+- 不經 API 補摘要(每日排程任務的 Claude 使用):
+  1. `python -m target_news_agent pending -o pending.json`:列出最新報告中缺摘要 / 翻譯的新聞與文獻,並附上撰寫規則(與 API 摘要相同)。
+  2. 依規則寫成 JSON:`{"news": [{"id", "summary", "importance", "category", "title_zh"?, "snippet_zh"?}], "papers": [{"id", "summary", "importance", "category", "title_zh"?, "abstract_zh"?}], "overview", "key_trends": [], "watch_points": []}`。
+  3. `python -m target_news_agent apply-digest written.json`:併入報告(自動整理的總結會被取代),commit 並推送到 main 後,GitHub Pages 會自動重新發布。
 
 ### Claude 摘要(選用)
 

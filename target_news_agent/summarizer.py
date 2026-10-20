@@ -71,6 +71,7 @@ class Digest(BaseModel):
     overview: str = ""
     key_trends: list[str] = []
     watch_points: list[str] = []
+    source: str = ""  # "claude" (API or scheduled task), "auto" (rule-based fallback); "" = older reports
 
 
 def llm_available() -> bool:
@@ -153,7 +154,7 @@ class Summarizer:
         except self.anthropic.APIError as exc:
             log.warning("LLM overview failed: %s", exc)
             ov = None
-        return Digest(**ov.model_dump()) if ov else Digest()
+        return Digest(**ov.model_dump(), source="claude") if ov else Digest()
 
     def digest_papers(self, papers, topics: list[str]) -> None:
         """Fill summary / importance / topic on each paper in place."""

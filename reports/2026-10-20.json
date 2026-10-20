@@ -2,9 +2,22 @@
   "generated": "2026-10-20T10:04:50.108994+08:00",
   "days": 7,
   "digest": {
-    "overview": "",
-    "key_trends": [],
-    "watch_points": []
+    "overview": "本期最受矚目的是終端產能擴張：台積電法說提到台南擬新增 3 奈米廠、2028 年量產，格羅方德在美日協議與日本最高 210 億美元資金支持下將於紐約興建晶圓廠，封裝端則有日月光年度資本支出上看 105 億美元、矽品雲林擴廠與 Amkor 南韓光州廠動工，長期都會推升 PVD 機台與靶材需求。靶材同業方面，有研新材三季報顯示靶材放量帶動獲利修復，江豐電子持續公告 H 股上市配套制度，赴港上市進度推進。JX金屬與三菱商事子公司出資 Renet Japan，擴大小型家電回收管道，強化稀有與貴金屬回收料來源。貴金屬方面白銀較高點大幅回落，金價在通膨與聯準會預期間震盪。",
+    "key_trends": [
+      "先進製程與記憶體持續擴產：台積電 3 奈米擴充、長鑫科技兩地晶圓廠高稼動、NAND 大廠擴產潮，支撐銅、鉭、鈷、鎢等高純度靶材需求。",
+      "先進封裝投資升溫：日月光、矽品、Amkor 同步擴產，VON ARDENNE 瞄準面板級封裝，凸塊與 RDL 用 PVD 機台和靶材需求擴大。",
+      "美國在地化產能：格羅方德紐約新廠獲美日協議與日本資金支持，晶圓產能分散到美國，靶材廠需評估在地供應布局。",
+      "中國靶材同業加速成長：有研新材靶材放量改善獲利，江豐電子籌備 H 股上市，國產替代與資本實力同步提升。",
+      "金屬循環布局：JX金屬透過出資 Renet Japan 擴大家電與電腦回收料，回收管道成為稀有金屬原料保障的一環。"
+    ],
+    "watch_points": [
+      "台積電台南 3 奈米新廠與格羅方德紐約廠的建廠時程，及其濺鍍設備與靶材供應商的選定。",
+      "日月光、矽品、Amkor 先進封裝新產能的投產時點與 PVD 製程用靶材採購規模。",
+      "有研新材與江豐電子的靶材營收動能，以及江豐電子 H 股發行時程與募資用途。",
+      "JX金屬回收合作的實際回收量，與對其靶材原料成本的影響。",
+      "白銀、黃金價格走勢對貴金屬靶材報價的影響。"
+    ],
+    "source": "claude"
   },
   "items": [
     {
@@ -22,9 +35,9 @@
         "併購與合作"
       ],
       "score": 4.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 集團股價出現買盤，市場正面看待其與 JX金屬旗下 JX金屬循環解決方案等公司的資本合作；顯示 JX金屬在回收原料端的布局受到關注。",
+      "importance": 3,
+      "title_zh": "Renet Japan 集團買盤湧現，市場看好與 JX金屬 CS 等公司的資本合作",
       "snippet_zh": ""
     },
     {
@@ -39,11 +52,12 @@
         "長鑫存儲 (CXMT)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "長鑫科技股東會表示兩座晶圓廠維持高產能利用率，並對 DRAM 產業長期具信心；記憶體廠滿載有助支撐鋁、鈦、鉭、銅等半導體靶材的在地需求。",
+      "importance": 3,
       "title_zh": "直擊長鑫科技股東會：兩大晶圓廠保持高產能利用率 對DRAM行業保持長期信心",
       "snippet_zh": ""
     },
@@ -59,11 +73,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光 9 月營收年增 45%，年度資本支出上看 105 億美元；封測龍頭擴大投資先進封裝，將帶動凸塊、RDL 等 PVD 製程用的濺鍍機台與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -79,11 +94,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "評論認為金、銀長線看好，後市取決於投資信心；貴金屬價格走勢會影響金、銀靶材的原料成本與報價。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -102,9 +118,9 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "白銀技術分析指出反彈力道偏弱，55 美元關卡恐被下探；銀價波動關係銀靶材原料成本。",
+      "importance": 2,
+      "title_zh": "白銀價格預測：反彈疲弱，55 美元關卡岌岌可危",
       "snippet_zh": ""
     },
     {
@@ -122,9 +138,9 @@
         "回收與循環"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "小型家電回收再利用業者 Renet Japan 集團與 JX金屬循環解決方案公司（JX金屬子公司）的合作消息；JX金屬藉此擴大廢電子產品等回收料來源。",
+      "importance": 3,
+      "title_zh": "小型家電回收再利用業者 Renet Japan 集團與資源循環業者 JX金屬循環解決方案公司（合作消息）",
       "snippet_zh": ""
     },
     {
@@ -139,11 +155,12 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.35,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區轉述 Wedbush 讚揚格羅方德紐約晶圓廠交易，格羅方德成為市場焦點；屬投資人討論，資訊可信度有限。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -159,11 +176,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.19,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 14 日領跌所屬板塊，主力資金淨流出約 6.95 億元；屬短線股價資金動向，與靶材營運關聯有限。",
+      "importance": 1,
       "title_zh": "口腔板塊10月14日跌1.47%，有研新材領跌，主力資金淨流出6.95億元",
       "snippet_zh": ""
     },
@@ -179,12 +197,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "SK海力士加碼中國 NAND 布局，美國新廠計畫可能成為貿易談判籌碼；記憶體大廠產能配置變動將影響各地靶材供應鏈布局。",
+      "importance": 3,
       "title_zh": "SK海力士加碼中國NAND佈局 美國新廠計畫成談判籌碼？",
       "snippet_zh": ""
     },
@@ -204,8 +223,8 @@
         "技術與新產品"
       ],
       "score": 5.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "NAND 大廠掀起擴產潮，鎧俠不打規模戰、改以技術差異化競爭；NAND 層數與製程演進會影響鎢、鈦、鉭等靶材的規格需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -225,8 +244,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾股價勁揚 5.2%，受財報季與 AI 資本支出前景帶動；屬股價快訊，靶材相關性有限。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -242,12 +261,12 @@
         "美光 (Micron)"
       ],
       "categories": [
-        "技術與新產品",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "技術與新產品"
       ],
       "score": 4.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光股價勁揚 5%，受惠輝達 HBM 供應鏈與 AI 資本支出題材；HBM 擴產將帶動 TSV 與先進封裝的 PVD 製程需求。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -263,12 +282,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "併購與合作"
       ],
       "score": 4.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬與回收業者合作推動稀有金屬循環（茨城）；強化回收料來源，有助穩定靶材用稀有金屬原料。",
+      "importance": 3,
+      "title_zh": "推動稀有金屬循環 JX金屬與回收業者合作（茨城）",
       "snippet_zh": ""
     },
     {
@@ -286,8 +306,8 @@
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "美日貿易協定促成 210 億美元投資，格羅方德將在紐約興建晶圓廠；美國新增晶圓產能長期將帶動當地濺鍍設備與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -303,11 +323,12 @@
         "長鑫存儲 (CXMT)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "長鑫科技股東會稱合肥、北京兩地晶圓廠維持高產能利用率運轉；中國 DRAM 產能滿載，有利江豐電子等本土靶材供應商。",
+      "importance": 3,
       "title_zh": "長鑫科技股東會：合肥、北京兩地晶圓廠保持高產能利用率運轉",
       "snippet_zh": ""
     },
@@ -323,11 +344,12 @@
         "長鑫存儲 (CXMT)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "長鑫科技表示合肥、北京兩地晶圓廠高產能利用率運轉且訂單飽滿；顯示中國記憶體需求穩健，支撐在地靶材採購。",
+      "importance": 3,
       "title_zh": "長鑫科技：合肥北京兩地晶圓廠保持高產能利用率運轉 訂單飽滿",
       "snippet_zh": ""
     },
@@ -346,9 +368,9 @@
         "併購與合作"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬與三菱商事子公司對 Renet Japan 進行資本業務合作，出資 3.5 億日圓；JX金屬藉由小型家電回收管道擴大金屬回收原料。",
+      "importance": 3,
+      "title_zh": "JX金屬與三菱商事子公司與 Renet Japan 資本業務合作，出資 3.5 億日圓（時事通信）",
       "snippet_zh": ""
     },
     {
@@ -366,9 +388,9 @@
         "併購與合作"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 SGHD、JX金屬系等 3 家公司資本業務合作，擴大廢家電與電腦等回收基盤；有助 JX金屬取得貴金屬與稀有金屬回收料。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 SGHD、JX金屬系等 3 家公司資本業務合作，擴大廢家電、電腦等回收基盤",
       "snippet_zh": ""
     },
     {
@@ -383,13 +405,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "併購與合作",
-        "回收與循環"
+        "回收與循環",
+        "併購與合作"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 SGHD、JX金屬 CS 資本業務合作，共同建構小型家電等資源再生基盤；強化日本國內金屬循環供應鏈。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 SGHD、JX金屬 CS 資本業務合作，共同建構小型家電等資源再生基盤",
       "snippet_zh": ""
     },
     {
@@ -407,8 +429,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽品說明先進封裝產能吃緊原因，並解析雲林千億擴廠的三大優勢；封裝廠擴產直接帶動凸塊、RDL 等 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -424,12 +446,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 4.12,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電法說會提到 3 奈米全球擴充，台南擬新增一座 3 奈米廠、2028 年量產；先進製程擴產將持續拉動高純度銅、鉭、鈷等靶材需求。",
+      "importance": 5,
       "title_zh": "臺積電法說會／3奈米全球擴充 臺南擬新擴一座3奈米廠 2028年量產",
       "snippet_zh": ""
     },
@@ -445,12 +468,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Kali Metals 公布 Marble Bar 高品位鑽探結果，並與 JX金屬簽訂 70 萬美元資金合作；顯示 JX金屬向上游布局關鍵礦物來源。",
+      "importance": 2,
+      "title_zh": "Kali Metals 公布 Marble Bar 高品位鑽探結果及與 JX金屬 70 萬美元資金合作（2026 年 9 月季度）",
       "snippet_zh": ""
     },
     {
@@ -468,8 +492,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材三季報解讀指出靶材出貨放量帶動獲利品質修復，中期收入結構轉向靶材可望推動估值重構；為競爭對手靶材業務成長的直接訊號。",
+      "importance": 4,
       "title_zh": "有研新材三季報解讀：靶材放量驅動盈利質量修復，中期看收入結構切換驅動估值體系重構",
       "snippet_zh": ""
     },
@@ -485,11 +509,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾強調其晶圓代工在光互連（矽光子）的能力；屬客戶端技術布局，對靶材的直接影響有限。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -508,8 +533,8 @@
         "擴產與投資"
       ],
       "score": 3.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "美方宣布格羅方德在紐約建廠、投資 210 億美元，另有韓國投資阿拉斯加 LNG 案；美國晶圓產能擴張有利濺鍍設備與靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -528,9 +553,9 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Heraeus 報告指出通膨偏熱壓抑金、銀價格，但黃金 ETF 持有量逆勢創 2026 年新高；影響貴金屬靶材原料成本走勢。",
+      "importance": 2,
+      "title_zh": "通膨偏熱壓抑金銀價格，但黃金 ETF 持有量逆勢創 2026 年新高－Heraeus",
       "snippet_zh": ""
     },
     {
@@ -548,9 +573,9 @@
         "原物料與價格"
       ],
       "score": 3.24,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "黃金價格分析：金價仍在尋找方向；屬貴金屬行情評論。",
+      "importance": 1,
+      "title_zh": "黃金價格分析：金價持續尋找方向",
       "snippet_zh": ""
     },
     {
@@ -565,11 +590,12 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 南韓光州廠動工，投資 3 兆韓元瞄準 AI 與 HPC 先進封裝；封裝廠擴產將帶動 PVD 機台與凸塊、RDL 用靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -585,11 +611,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 19 日主力資金淨買入約 7,915 萬元；屬短線資金動向，與靶材營運關聯有限。",
+      "importance": 1,
       "title_zh": "股票行情快報：有研新材（600206）10月19日主力資金淨買入7914.81萬元",
       "snippet_zh": ""
     },
@@ -605,11 +632,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區對光洋科的情緒性發言；屬散戶討論，無實質營運資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -625,11 +653,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子參加第三屆灣芯展；國產靶材龍頭持續在半導體展會推廣產品。",
+      "importance": 2,
       "title_zh": "讓努力成為常態，把勝利變為習慣！江豐電子亮相第三屆灣芯展",
       "snippet_zh": ""
     },
@@ -645,12 +674,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 JX金屬等共同建構資源回收基盤；擴大日本國內金屬回收料來源。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 JX金屬等共同建構資源回收基盤",
       "snippet_zh": ""
     },
     {
@@ -665,12 +695,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬宣布與 Renet Japan 集團資本業務合作，加強推動日本國內資源循環；屬公司正式公告，強化其金屬回收原料來源。",
+      "importance": 3,
+      "title_zh": "JX金屬：宣布與 Renet Japan 集團資本業務合作，加強推動日本國內資源循環",
       "snippet_zh": ""
     },
     {
@@ -685,12 +716,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "古屋金屬公告完成限制性股票報酬的庫藏股處分繳款；屬例行公司治理公告，對營運影響小。",
+      "importance": 1,
+      "title_zh": "古屋金屬[7826]：限制性股票報酬之庫藏股處分繳款完成公告（2026 年 10 月 19 日，適時揭露）",
       "snippet_zh": ""
     },
     {
@@ -705,12 +737,13 @@
         "VON ARDENNE"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "VON ARDENNE 以彈性化設備搶攻尚未定型的面板級封裝（PLP）市場；PLP 若放量，將帶動大面積濺鍍設備與靶材需求。",
+      "importance": 4,
+      "title_zh": "VON ARDENNE 以彈性設備瞄準尚未定型的面板級封裝市場",
       "snippet_zh": ""
     },
     {
@@ -725,11 +758,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 10 月 16 日融資買入約 2,362 萬元，融資融券餘額 2.25 億元；屬股市資金數據。",
+      "importance": 1,
       "title_zh": "歐萊新材：10月16日融資買入2361.78萬元，融資融券餘額2.25億元",
       "snippet_zh": ""
     },
@@ -745,12 +779,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析文章認為以現金流衡量，古屋金屬股價偏貴；屬評價觀點。",
+      "importance": 1,
+      "title_zh": "以現金流看，古屋金屬（TSE:7826）股價偏貴",
       "snippet_zh": ""
     },
     {
@@ -765,11 +800,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "政策與貿易",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導江豐電子創辦人姚力軍擁有日本永久居留權但仍為中國國籍；屬經營者背景話題，與營運關聯有限。",
+      "importance": 1,
       "title_zh": "江豐電子創始人姚力軍擁有日本永久居留權？ 但仍是中國國籍",
       "snippet_zh": ""
     },
@@ -785,12 +821,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "社群網站個人投資者分享買進 JX金屬股票；屬個人貼文，無營運資訊。",
+      "importance": 1,
+      "title_zh": "個人投資者在 X 上分享買進約 10 萬日圓 JX金屬股票（3,005 日圓 × 33 股）",
       "snippet_zh": ""
     },
     {
@@ -805,11 +842,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "比較海光信息、江波龍、江豐電子等晶片概念股的長期經營能力；屬投資分析文章。",
+      "importance": 1,
       "title_zh": "芯片概念-長期經營能力對比：海光信息、江波龍、江豐電子、鼎龍股份、華海清科、長川科技",
       "snippet_zh": ""
     },
@@ -825,12 +863,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價小跌、銀價上漲，油價回落且市場維持聯準會暫停升息預期；屬貴金屬早盤行情。",
+      "importance": 1,
+      "title_zh": "金價小跌、銀價上漲，油價回落、聯準會暫停預期不變－Kitco 早盤報告",
       "snippet_zh": ""
     },
     {
@@ -845,12 +884,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "路透報導黃金熱潮導致迦納到亞馬遜的森林流失；屬金礦開採的環境議題，與靶材關聯低。",
+      "importance": 1,
+      "title_zh": "黃金熱潮如何造成從迦納到亞馬遜的森林流失",
       "snippet_zh": ""
     },
     {
@@ -865,11 +905,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "評論指出白銀較歷史高點腰斬逾五成，並示警全球經濟惡化；銀價大幅回落可降低銀靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -885,11 +926,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論央行搶購黃金與去美元化下黃金 ETF 的後市；屬貴金屬投資評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -905,11 +947,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "評論以白銀價格暴跌 50% 示警全球經濟風險；屬市場評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -925,11 +968,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "本週美國住房、就業與 PMI 數據陸續公布，聯準會會議前金價方向未定；屬貴金屬行情展望。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -945,11 +989,12 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.25,
-      "summary": "",
-      "importance": 0,
+      "summary": "格羅方德獲選營運兩座新晶圓廠，日本將提供至多 210 億美元資金；新增晶圓產能長期帶動濺鍍設備與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -965,11 +1010,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股發行上市後適用的關連交易決策制度草案；屬赴港上市的配套治理文件。",
+      "importance": 2,
       "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司關連交易決策制度（草案）（H股發行並上市後適用）_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -985,11 +1031,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的募集資金管理制度草案；顯示赴港 H 股發行籌備持續推進。",
+      "importance": 2,
       "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司募集資金管理制度（草案）（H股發行並上市後適用）_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -1005,11 +1052,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告股東會議事規則修訂對照表；屬公司治理文件。",
+      "importance": 1,
       "title_zh": "江豐電子: 寧波江豐電子材料股份有限公司股東會議事規則修訂對照表（2026年10月）_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -1025,11 +1073,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的高層人員持股變動管理辦法草案；屬赴港上市配套文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司高層人員持股變動管理辦法（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1045,11 +1094,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的利益衝突管理制度草案；屬赴港上市配套文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司利益衝突管理制度（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1065,11 +1115,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的資訊揭露暫緩與豁免管理制度草案；屬赴港上市配套文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司信息披露暫緩與豁免管理制度（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1085,11 +1136,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的累積投票制實施細則草案；屬赴港上市配套文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司累積投票制實施細則（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1105,11 +1157,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告股東會議事規則修訂對照表（2026 年 10 月）；屬公司治理文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司股東會議事規則修訂對照表（2026年10月）",
       "snippet_zh": ""
     },
@@ -1125,11 +1178,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的董事會秘書工作細則草案；屬赴港上市配套文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司董事會秘書工作細則（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1145,12 +1199,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.07,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市調機構發布 2026–2032 年 PVD AlN 濺鍍系統全球市場報告（依 150、200、300 mm 晶圓尺寸區分）；AlN 薄膜用於射頻濾波器等元件，關係鋁靶材需求。",
+      "importance": 2,
+      "title_zh": "PVD AlN 濺鍍系統全球市場報告（2026–2032 年）：市場規模（150mm、200mm、300mm 等）與分析",
       "snippet_zh": ""
     }
   ],

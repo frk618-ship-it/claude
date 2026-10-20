@@ -540,11 +540,14 @@ def render_page(
     generated = (report.get("generated") or "")[:16].replace("T", " ")
 
     if digest.get("overview"):
-        summary = f'<p class="lead">{esc(digest["overview"])}</p>'
+        auto = digest.get("source") == "auto"  # rule-based fallback; Claude's digest replaces it later
+        summary = (
+            '<p class="sub">AI 摘要尚未產生,以下為依類別與評分自動整理的重點;Claude 摘要完成後會自動更新。</p>' if auto else ""
+        ) + f'<p class="lead">{esc(digest["overview"])}</p>'
         if digest.get("key_trends"):
-            summary += "<p><strong>產業趨勢</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ul>"
+            summary += f"<p><strong>{'主要主題' if auto else '產業趨勢'}</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ul>"
         if digest.get("watch_points"):
-            summary += "<p><strong>後續追蹤</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["watch_points"]) + "</ul>"
+            summary += f"<p><strong>{'評分最高的新聞' if auto else '後續追蹤'}</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["watch_points"]) + "</ul>"
     elif items:
         top_names = "、".join(f"{n}({c})" for n, c in ent_counts.most_common(4) if not n.startswith("產業綜合"))
         summary = (

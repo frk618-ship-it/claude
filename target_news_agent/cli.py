@@ -21,8 +21,9 @@ from .site import build_site, write_redirect
 from .metals import fetch_quotes
 from .sources import collect, http_fetch, iter_feed_urls
 from .store import SeenStore
-from .summarizer import Digest, Summarizer, llm_available
-from .translate import llm_translator, translate_records
+from .fallback import finalize_digest
+from .summarizer import PAPER_PROMPT, SYSTEM_PROMPT, Digest, Summarizer, llm_available
+from .translate import TRANSLATE_PROMPT, llm_translator, needs_translation, translate_records
 
 log = logging.getLogger("target_news_agent")
 
@@ -52,6 +53,19 @@ def main(argv: list[str] | None = None) -> int:
     rs_.add_argument("--reports-dir", default="reports")
     rs_.add_argument("--model", help="Claude 模型 ID")
     rs_.add_argument("--force", action="store_true", help="已有摘要的報告也重新產生")
+
+    pe = sub.add_parser("pending", help="列出報告中尚缺 Claude 摘要 / 翻譯的新聞與文獻(給排程任務的 Claude 撰寫)")
+    pe.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
+    pe.add_argument("-c", "--config", default="config/watchlist.yaml")
+    pe.add_argument("--reports-dir", default="reports")
+    pe.add_argument("-o", "--out", default="pending.json")
+    pe.add_argument("--force", action="store_true", help="已有摘要的也列出")
+
+    ap = sub.add_parser("apply-digest", help="把排程任務的 Claude 寫好的摘要 JSON 併入報告")
+    ap.add_argument("file", help="摘要 JSON(格式見 README)")
+    ap.add_argument("report", nargs="?", help="報告 JSON 路徑(預設 reports/ 中最新一份)")
+    ap.add_argument("-c", "--config", default="config/watchlist.yaml")
+    ap.add_argument("--reports-dir", default="reports")
 
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
@@ -92,6 +106,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "resummarize":
         return _resummarize(args, config, p)
+    if args.command == "pending":
+        return _pending(args, config)
+    if args.command == "apply-digest":
+        return _apply(args, config)
 
     if args.command == "queries":
         for url in iter_feed_urls(config):
@@ -157,6 +175,8 @@ def main(argv: list[str] | None = None) -> int:
             digest = _keep(Summarizer(list(config.settings.categories), model=args.model).digest(items), digest)
         else:
             log.warning("ANTHROPIC_API_KEY not set; generating report without LLM summaries")
+    if not args.papers_only:
+        digest = finalize_digest(digest, items, config)  # rule-based overview when Claude produced none
 
     papers = existing_papers or None
     rs = config.research
@@ -195,6 +215,94 @@ def _keep(new: Digest, old: Digest) -> Digest:
     return new if new.overview else old
 
 
+def _report_path(arg: str | None, reports_dir: str) -> Path:
+    if arg:
+        return Path(arg)
+    paths = sorted(Path(reports_dir).glob("????-??-??.json"))
+    if not paths:
+        raise SystemExit(f"{reports_dir} 沒有報告")
+    return paths[-1]
+
+
+def _pending(args, config) -> int:
+    """Write what still needs a Claude summary / translation, for a scheduled Claude task to fill in."""
+    path = _report_path(args.report, args.reports_dir)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    digest = Digest(**(data.get("digest") or {}))
+    news = [
+        {"id": d["id"], "title": d["title"], "snippet": (d.get("snippet") or "")[:400], "source": d.get("source", ""),
+         "date": (d.get("published") or "")[:10], "companies": d.get("entities", []), "rule_categories": d.get("categories", []),
+         "needs_title_zh": needs_translation(d["title"]) and not d.get("title_zh"),
+         "needs_snippet_zh": needs_translation(d.get("snippet") or "") and not d.get("snippet_zh")}
+        for d in data.get("items", []) if args.force or not d.get("summary")
+    ]
+    papers = [
+        {"id": d["id"], "title": d["title"], "abstract": (d.get("abstract") or "")[:1500], "venue": d.get("venue", ""),
+         "needs_title_zh": needs_translation(d["title"]) and not d.get("title_zh")}
+        for d in data.get("papers") or [] if args.force or not d.get("summary")
+    ]
+    out = {
+        "report": str(path),
+        "need_overview": args.force or not (digest.overview and digest.source != "auto"),
+        "categories": list(config.settings.categories),
+        "topics": list(config.research.topics) if config.research else [],
+        "instructions": {"news": SYSTEM_PROMPT.format(categories="、".join(config.settings.categories)),
+                         "papers": PAPER_PROMPT.format(topics="、".join(config.research.topics if config.research else [])),
+                         "translation": TRANSLATE_PROMPT},
+        "news": news,
+        "papers": papers,
+    }
+    Path(args.out).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{path}: {len(news)} news, {len(papers)} papers pending, overview {'needed' if out['need_overview'] else 'done'} -> {args.out}")
+    return 0
+
+
+def _apply(args, config) -> int:
+    """Merge summaries written by a scheduled Claude task (JSON file) into a report, then rewrite it."""
+    path = _report_path(args.report, args.reports_dir)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    given = json.loads(Path(args.file).read_text(encoding="utf-8"))
+    items = [NewsItem.from_dict(d) for d in data.get("items", [])]
+    papers = [Paper.from_dict(d) for d in data["papers"]] if "papers" in data else None
+    cats = list(config.settings.categories)
+    topics = list(config.research.topics) if config.research else []
+
+    def fill(records, entries, valid, cat_attr):
+        by_id, n = {r.id: r for r in records}, 0
+        for e in entries:
+            r = by_id.get(str(e.get("id", "")))
+            if r is None:
+                continue
+            if (e.get("summary") or "").strip():
+                r.summary, n = e["summary"].strip(), n + 1
+            if e.get("importance"):
+                r.importance = min(max(int(e["importance"]), 1), 5)
+            for key in ("title_zh", "snippet_zh", "abstract_zh"):
+                if (e.get(key) or "").strip() and hasattr(r, key):
+                    setattr(r, key, e[key].strip())
+            cat = e.get("category")
+            if cat in valid:
+                setattr(r, cat_attr, [cat] + [c for c in getattr(r, cat_attr) if c != cat])
+        return n
+
+    n_news = fill(items, given.get("news") or [], cats, "categories")
+    n_papers = fill(papers or [], given.get("papers") or [], topics, "topics")
+    digest = Digest(**(data.get("digest") or {}))
+    if (given.get("overview") or "").strip():
+        digest = Digest(overview=given["overview"].strip(), key_trends=[str(t) for t in given.get("key_trends") or []],
+                        watch_points=[str(t) for t in given.get("watch_points") or []], source="claude")
+    digest = finalize_digest(digest, items, config)
+    translate_records(items, papers, None)  # Simplified -> Traditional for anything new
+    if data.get("days"):
+        config.settings.days = data["days"]
+    if config.research and data.get("research_days"):
+        config.research.days = data["research_days"]
+    write_reports(items, config, digest, path.parent, datetime.fromisoformat(data["generated"]), papers, data.get("metals"))
+    print(f"{path}: {n_news} news, {n_papers} papers summarized; overview: {digest.source or 'none'}; "
+          f"{sum(bool(i.summary) for i in items)}/{len(items)} news now have summaries")
+    return 0
+
+
 def _resummarize(args, config, p: argparse.ArgumentParser) -> int:
     """Add Claude summaries, importance and translations to reports written without them."""
     if not llm_available():
@@ -212,6 +320,7 @@ def _resummarize(args, config, p: argparse.ArgumentParser) -> int:
         digest = Digest(**(data.get("digest") or {}))
         if items and (args.force or not all(i.summary for i in items)):
             digest = _keep(summarizer.digest(items), digest)
+        digest = finalize_digest(digest, items, config)
         missing = [x for x in papers or [] if args.force or not x.summary]
         if missing:
             summarizer.digest_papers(missing, topics)

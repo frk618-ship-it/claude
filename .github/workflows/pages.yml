@@ -1,12 +1,12 @@
 name: 發布網站
 # 重新建置並發布 GitHub Pages:靶材新聞網站(/news/)與財務指標儀表板(/financials/),不蒐集新聞。
-# 手動執行,或 main 上的儀表板更新時自動發布;每日的「靶材產業新聞」workflow 執行後也會發布。
+# 手動執行,或 main 上的儀表板 / 報告 JSON 更新時自動發布(github-actions bot 的推送不會觸發);每日的「靶材產業新聞」workflow 執行後也會發布。
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["reports/dashboard/**"]
+    paths: ["reports/dashboard/**", "reports/*.json"]  # 也包含排程任務補寫 Claude 摘要後的報告
 
 permissions:
   contents: read

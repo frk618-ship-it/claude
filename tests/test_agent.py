@@ -171,6 +171,34 @@ def test_cli_end_to_end(tmp_path, monkeypatch):
     assert main(args) == 0
     assert "Spokane" in reports[0].read_text(encoding="utf-8")
 
+    # Without Claude the report still gets a rule-based overview, marked "auto".
+    report = reports[0].with_suffix(".json")
+    data = json.loads(report.read_text(encoding="utf-8"))
+    assert data["digest"]["source"] == "auto" and "本期蒐集" in data["digest"]["overview"]
+    assert "自動整理" in reports[0].read_text(encoding="utf-8")
+
+    # A scheduled Claude task fills the summaries: pending -> write JSON -> apply-digest.
+    pending = tmp_path / "pending.json"
+    assert main(["pending", str(report), "-c", str(CONFIG), "-o", str(pending)]) == 0
+    todo = json.loads(pending.read_text(encoding="utf-8"))
+    assert todo["need_overview"] and todo["news"] and "濺鍍靶材" in todo["instructions"]["news"]
+    first = todo["news"][0]["id"]
+    written = tmp_path / "written.json"
+    written.write_text(json.dumps({
+        "news": [{"id": first, "summary": "光洋科擴產。", "importance": 9, "category": "擴產與投資", "title_zh": "標題"},
+                 {"id": "unknown", "summary": "ignored"}],
+        "overview": "本期重點。", "key_trends": ["趨勢一"], "watch_points": ["追蹤一"],
+    }, ensure_ascii=False), encoding="utf-8")
+    assert main(["apply-digest", str(written), str(report), "-c", str(CONFIG)]) == 0
+    data = json.loads(report.read_text(encoding="utf-8"))
+    item = next(i for i in data["items"] if i["id"] == first)
+    assert item["summary"] == "光洋科擴產。" and item["importance"] == 5 and item["categories"][0] == "擴產與投資"
+    assert item["title_zh"] == "標題"
+    assert data["digest"] == {"overview": "本期重點。", "key_trends": ["趨勢一"], "watch_points": ["追蹤一"], "source": "claude"}
+    # A later run without Claude keeps the Claude overview instead of the fallback.
+    assert main(args) == 0
+    assert json.loads(report.read_text(encoding="utf-8"))["digest"]["source"] == "claude"
+
 
 def test_korean_category_keywords(config):
     item = NewsItem(title="JX금속, 스퍼터링 타겟 증설…3분기 매출 사상 최대", link="", source="", published=NOW)
