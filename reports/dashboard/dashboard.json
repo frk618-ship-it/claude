@@ -2,13 +2,13 @@
   "title": "濺鍍靶材製造商財務指標儀表板",
   "news_url": "https://frk618-ship-it.github.io/claude/news/",
   "site_url": "https://frk618-ship-it.github.io/claude/financials/",
-  "generated": "2026-10-22 00:40",
+  "generated": "2026-10-22 00:43",
   "display_currency": "TWD",
   "unit_label": "億台幣",
   "fx": {
     "base": "TWD",
     "rates": {
-      "USD": 32.39500045776367,
+      "USD": 32.393001556396484,
       "JPY": 0.20270000398159027,
       "CNY": 4.858099937438965,
       "TWD": 1.0
@@ -586,7 +586,7 @@
       "ticker": "1785",
       "name": "光洋科",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,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",
       "market": "TW",
       "region": "台灣",
       "currency": "TWD",
@@ -922,7 +922,7 @@
       "ticker": "5016.T",
       "name": "JX金屬",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,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",
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
@@ -1214,7 +1214,7 @@
       "ticker": "5706.T",
       "name": "三井金屬",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,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",
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
@@ -1363,7 +1363,7 @@
       "ticker": "4005.T",
       "name": "住友化學",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABqklEQVRYhe2WvXHCQBCFPzEuQDNKFcjpRdCB1QF0gCowqgBTAXQArgA6gA6QE8UESm9GJTi41UggGO6OwYl5CTfibvfN7tsfeOG/I/B5pGMVAnPgG6jlnEdVWT+dgI7VENgCiTgHCOU8iary4GJv4Oh8BhzFeeM47Jz3cscaVhGQkK+BsaXdHZDZpMSWwBEYWjpvcAJG90jYpiB3dA6WorxKQMcq1LFKmjNG5a6Yd2wkYqeHXgpE5WtMyBfAJ63QXFEDG2CKSUkWVWVxk4CO1RRYPuDQhlAeVeWmR0DHagk4ldAD2AiROpA8bXFXeWOoxo94AWRvnDcTW5yFUsfqB/fUJWCq4CRsXHD55iDfXFAAp0DHaoxRvVcU5Nf3fRZAr/T+AgVSkgMAqc0UI6pnYwekTT+41oimtIIqeDwqXRt5VJWr7p+9VizKTuXyCJjQzn0XNPvBCMgwg2l1ecl2Gg4xe4ALUpvlxHYa7h2dA2xvDSAfAiludd6E328cX0IUO8Io+B4OwLvtbuizlM4wVXINi6gqv1zs+a7lH5gBtqBdyzPXjfiFFwB+Aa1kmkPlRm6cAAAAAElFTkSuQmCC",
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
@@ -1522,7 +1522,7 @@
       "ticker": "6728.T",
       "name": "ULVAC",
       "short": "ULVAC",
-      "logo": "",
+      "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAY1BMVEX////6+/1IZrJDYq/19/vW3u5/lMns7/dZdLiSpNGuvN3Czebg5fJLaLJPa7Tm6/Q8XKy5xeHK1OmFm8xSb7WZq9NmgL66xuRfert+ksjb4PCUptGMoc90i8NthsKvvt6ks9nPX9M/AAAA0klEQVQ4jeWRSY6DMBBFcZUHBs+Awxzuf8o2IBMrvcwiavXb1a+nsuRfFP8FQhPkPbsC4ZsLL27DnBmj5yDbTmmtle7NLUges1CLa3LBIqINInv3MVioUsBGQEBsSSZMI5Z1Chg/BKhyQfI/KsyfCrjkAlszwVTqEDaaCc/BhiYN5Ph4QLW/yvAb2na6R9N3Nt7oFucnKSXze4jduddFMvUDWot62EbOxzUoC6vLyyXSLVupY+mgFIAu197n+wiVTb3P1cm8P7whxTuEigT9vf0qP0bLDRub60faAAAAAElFTkSuQmCC",
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
@@ -1635,20 +1635,20 @@
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.39500045776367,
+      "fx_rate": 32.393001556396484,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "冷媒與特用化學品、電子材料(原 Honeywell 電子材料",
       "latest_quarter": "2026Q2",
-      "close": 64.2,
+      "close": 64.245,
       "close_date": "2026-10-21",
       "is_focus": false,
       "note": "Solstice Advanced Materials(SOLS):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 1326.89921875,
+        "revenue_ttm": 1326.81734375,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.11132623426911903,
-        "market_cap": 3303.535496121393,
+        "market_cap": 3305.647074124898,
         "gross_margin_ttm": 0.306396484375,
         "operating_margin_ttm": 0.169189453125,
         "net_margin_ttm": 0.05126953125,
@@ -1665,15 +1665,15 @@
         "ocf_to_net_income_ttm": 2.8857142857142857,
         "fcf_margin_ttm": 0.043701171875,
         "capex_to_revenue_ttm": 0.104248046875,
-        "pe_ttm": 48.655383468082974,
-        "pb": 6.429805032030265,
-        "ev_ebitda_ttm": 12.871631051203503,
+        "pe_ttm": 48.689487708831635,
+        "pb": 6.434311904716267,
+        "ev_ebitda_ttm": 12.879451510809629,
         "fscore": null,
         "zscore": 2.137740513733886
       },
       "trend": {
         "2025Q1": {
-          "revenue": 290.5831541061401,
+          "revenue": 290.56522396087644,
           "revenue_yoy": null,
           "gross_margin": 0.35785953177257523,
           "operating_margin": 0.2329988851727982,
@@ -1683,7 +1683,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 334.64035472869875,
+          "revenue": 334.6197060775757,
           "revenue_yoy": null,
           "gross_margin": 0.3494675701839303,
           "operating_margin": 0.22555663117134558,
@@ -1693,7 +1693,7 @@
           "debt_ratio": 0.772189349112426
         },
         "2025Q3": {
-          "revenue": 313.90755443573,
+          "revenue": 313.88818508148194,
           "revenue_yoy": null,
           "gross_margin": 0.31991744066047473,
           "operating_margin": 0.17647058823529413,
@@ -1703,7 +1703,7 @@
           "debt_ratio": 0.39374880884314845
         },
         "2025Q4": {
-          "revenue": 319.7386545181274,
+          "revenue": 319.7189253616333,
           "revenue_yoy": null,
           "gross_margin": 0.2613981762917933,
           "operating_margin": 0.12056737588652482,
@@ -1713,7 +1713,7 @@
           "debt_ratio": 0.7572712850343734
         },
         "2026Q1": {
-          "revenue": 321.3584045410156,
+          "revenue": 321.3385754394531,
           "revenue_yoy": 0.10590858416945381,
           "gross_margin": 0.31955645161290325,
           "operating_margin": 0.18245967741935484,
@@ -1723,7 +1723,7 @@
           "debt_ratio": 0.743910925539318
         },
         "2026Q2": {
-          "revenue": 371.894605255127,
+          "revenue": 371.8716578674316,
           "revenue_yoy": 0.11132623426911903,
           "gross_margin": 0.32229965156794427,
           "operating_margin": 0.19337979094076654,
@@ -1799,20 +1799,20 @@
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.39500045776367,
+      "fx_rate": 32.393001556396484,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "先進材料、精密光學、電子材料(含靶材)",
       "latest_quarter": "2026Q2",
-      "close": 248.98,
+      "close": 251.965,
       "close_date": "2026-10-21",
       "is_focus": false,
       "note": "Materion(MTRN):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 679.7417030052185,
+        "revenue_ttm": 679.6997602177429,
         "revenue_ttm_yoy": null,
         "revenue_yoy": 0.4222046156911259,
-        "market_cap": 1680.3872602645044,
+        "market_cap": 1700.428350193129,
         "gross_margin_ttm": 0.1601140356061025,
         "operating_margin_ttm": 0.06350117142895269,
         "net_margin_ttm": 0.042947311432345925,
@@ -1829,15 +1829,15 @@
         "ocf_to_net_income_ttm": 1.2018620444760086,
         "fcf_margin_ttm": 0.015459716760107744,
         "capex_to_revenue_ttm": 0.03615702676271939,
-        "pe_ttm": 57.36866359447004,
-        "pb": 5.213944025181255,
-        "ev_ebitda_ttm": 27.237933071860503,
+        "pe_ttm": 58.05645161290323,
+        "pb": 5.276453555726545,
+        "ev_ebitda_ttm": 27.53998843832722,
         "fscore": null,
         "zscore": 5.344889388735204
       },
       "trend": {
         "2025Q1": {
-          "revenue": 136.16590542411805,
+          "revenue": 136.15750344200134,
           "revenue_yoy": null,
           "gross_margin": 0.18123617157947328,
           "operating_margin": 0.0745604643970214,
@@ -1847,7 +1847,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 139.8356110759735,
+          "revenue": 139.82698265830993,
           "revenue_yoy": null,
           "gross_margin": 0.1914895588637301,
           "operating_margin": 0.08895931501327439,
@@ -1857,7 +1857,7 @@
           "debt_ratio": 0.47700359578154694
         },
         "2025Q3": {
-          "revenue": 144.09555363616943,
+          "revenue": 144.08666236297609,
           "revenue_yoy": null,
           "gross_margin": 0.19361837017319833,
           "operating_margin": 0.08682397798600744,
@@ -1867,7 +1867,7 @@
           "debt_ratio": 0.4788126968228944
         },
         "2025Q4": {
-          "revenue": 158.65581054191588,
+          "revenue": 158.64602084251405,
           "revenue_yoy": null,
           "gross_margin": 0.1299958754803432,
           "operating_margin": 0.009988688198564993,
@@ -1877,7 +1877,7 @@
           "debt_ratio": 0.476771424022951
         },
         "2026Q1": {
-          "revenue": 178.11548731689453,
+          "revenue": 178.10449687744142,
           "revenue_yoy": 0.30807698712916043,
           "gross_margin": 0.14883853742288441,
           "operating_margin": 0.06706327843091607,
@@ -1887,7 +1887,7 @@
           "debt_ratio": 0.4902719134291645
         },
         "2026Q2": {
-          "revenue": 198.87485151023864,
+          "revenue": 198.8625801348114,
           "revenue_yoy": 0.4222046156911259,
           "gross_margin": 0.16996413131652077,
           "operating_margin": 0.08610275840275221,
@@ -2133,7 +2133,7 @@
       "ticker": "600206.SS",
       "name": "有研新材",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,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",
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
@@ -2526,7 +2526,7 @@
       "ticker": "688530.SS",
       "name": "歐萊新材",
       "short": "",
-      "logo": "",
+      "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA8FBMVEX+/v79/f3///78/P74+vzH1vRiieM0YtoyYNlgg97G0/GNr+0RU98GR9wMSNoNRdgHPtUPRdOPqeebv/IJW+YLTtyds+nc6vkdevAQbPENYuocZeRPg+UcXd0OTtocVNfc5PZ4t/YLevgug++Nue5ame2NsuoubeF1meXx+PwznfkVivyBufFBje4/h+uBrOnL5/sXlv1ApPpcq/RVpfRRlO6r3PtfuvqrzvWd2/skrv5sxfrE3/kMb+wsuP5yzPq16Pw2wv5ZrvbS8vxCy/5Yzvx51Ppe1f2W4PmH3PqByvnl+Pxd2/257vxDzv6Q5fvTIK9FAAABY0lEQVQ4jdWSW1eCQBDHZ0fsSlopRV6yVDIwS9G8oKGbIJqE3//btAur1QNyTm/N4ewD/9/cBxD+n2FS0ZK0h0BMHxweHZ9AHIOn8lkme35xGQfk8nlZUZRM9mr3ixD2RQZwrd4UiqVS+Vap3IUi1zmQCo3gfbVaq2vaQ0POPG79BUCIlALdaDafaq1n9aUsN/RQ5goQ9vAg2DY6ZreH+KrVCpX0zwgQEtg3jYHZRxi2tGIh911kiPEII8saW22ESav3VqwjlyIgCkBwZNtTu404MbrqGwdEF4IgOKN0SmeIfeu9qQ6ROTGFPyIHzh3qLlwiDcZWpzPBFHPijcB2VKB7QbB0XYcuTMPUgY9GdBHNEXDjBd5ytVpSy/zAUOc5OBDtBte+zxCPUtteRwAjeIrdMj85ETgOKzWcn1gI/CZ4JbE3g/ON72/me2+KSIlXCbEXtzOSBPzZklJjNFIC4hSEfQEndibM9AlH6wAAAABJRU5ErkJggg==",
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
