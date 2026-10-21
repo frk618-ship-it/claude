@@ -219,3 +219,8 @@ def test_fetch_logos_validates_and_keeps_existing(tmp_path):
     assert not any("b.example" in u for u in calls)
     assert logo_data_uri("A", tmp_path).startswith("data:image/png;base64,")
     assert logo_data_uri("B", tmp_path).startswith("data:image/svg+xml;base64,") and logo_data_uri("C", tmp_path) == ""
+
+
+def test_logos_cli(tmp_path, monkeypatch):
+    monkeypatch.setattr("fin_analyzer.cli.fetch_logos", lambda companies, force=False: {c.ticker: "kept" for c in companies})
+    assert main(["logos", "-c", str(DEMO_CONFIG)]) == 0

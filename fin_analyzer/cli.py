@@ -164,7 +164,7 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
     cfg = load_fin_config(args.config)
-    if args.data_dir:
+    if getattr(args, "data_dir", None):
         cfg.data_dir = args.data_dir
     return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos}[args.command](args, cfg)
 
