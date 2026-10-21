@@ -206,16 +206,23 @@ def test_fetch_logos_validates_and_keeps_existing(tmp_path):
 
     def fetch(url):
         calls.append(url)
-        if "apple-touch-icon" in url:
-            return png(16, 16) if "small" in url else b"<html>not found</html>"
+        if url == "https://www.small.example/":
+            raise OSError("no www host")
+        if url == "https://small.example/":
+            return b'<link rel="icon" href="/fav16.png" sizes="16x16"><link rel="apple-touch-icon" href="/touch.png">'
+        if url.endswith("/touch.png"):
+            return png(16, 16)  # too small
+        if url.endswith("/fav16.png") or "apple-touch-icon" in url:
+            return b"<html>not found</html>"
         return png(128, 128)
 
     assert png_size(png(180, 180)) == (180, 180) and png_size(b"GIF89a") is None
     companies = [Company("A", website="small.example"), Company("B", website="b.example"), Company("C")]
     (tmp_path / "B.svg").write_text("<svg/>")
     status = fetch_logos(companies, fetch=fetch, logo_dir=tmp_path)
-    # A: tiny touch icon rejected -> Google favicon; B: hand-placed SVG kept; C: no website.
-    assert status["A"].startswith("128x128") and status["B"] == "kept" and status["C"] == "no website"
+    # A: homepage icons tried first (touch icon too small) -> Google favicon; B: hand-placed SVG kept; C: no website.
+    assert status["A"].startswith("png 128x128 from https://www.google.com") and status["B"] == "kept" and status["C"] == "no website"
+    assert calls.index("https://small.example/touch.png") < calls.index("https://small.example/fav16.png")
     assert not any("b.example" in u for u in calls)
     assert logo_data_uri("A", tmp_path).startswith("data:image/png;base64,")
     assert logo_data_uri("B", tmp_path).startswith("data:image/svg+xml;base64,") and logo_data_uri("C", tmp_path) == ""
@@ -224,3 +231,13 @@ def test_fetch_logos_validates_and_keeps_existing(tmp_path):
 def test_logos_cli(tmp_path, monkeypatch):
     monkeypatch.setattr("fin_analyzer.cli.fetch_logos", lambda companies, force=False: {c.ticker: "kept" for c in companies})
     assert main(["logos", "-c", str(DEMO_CONFIG)]) == 0
+
+
+def test_page_icons_and_image_kind():
+    from fin_analyzer.logos import image_kind, page_icons
+
+    page = ('<link rel="shortcut icon" href="/favicon.ico"><link rel=icon sizes="192x192" href="img/i192.png">'
+            '<link rel="apple-touch-icon" href="https://cdn.example/t.png"><link rel="mask-icon" href="/m.svg">')
+    assert page_icons(page, "https://www.example.com/") == [
+        "https://cdn.example/t.png", "https://www.example.com/img/i192.png", "https://www.example.com/favicon.ico"]
+    assert image_kind(b'<?xml version="1.0"?><svg xmlns="x"/>') == ".svg" and image_kind(b"\x00\x00\x01\x00") is None
