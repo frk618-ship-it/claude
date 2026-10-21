@@ -2,19 +2,22 @@
   "generated": "2026-10-21T08:06:53.742036+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 31 則,其中新聞與公司公告 17 則;報導最多的是 光洋科(4 則)、JX金屬(3 則)、Materion(2 則)、日月光投控(1 則)。依主題:產業動態 7 則、擴產與投資 5 則、客戶與供應鏈 2 則、併購與合作 1 則、營收與財報 1 則。",
+    "overview": "本期焦點在先進封裝與晶圓產能擴張：矽品將投資 800 億元於中科二林園區建新廠，Amkor 把南韓光州投資擴大為三倍、達 23 億美元，日月光則率 18 家供應鏈廠商勘查屏科建廠條件，台積電也表態全球加速擴產，美光台灣新廠啟用，都會推升 PVD 機台與靶材需求。靶材同業方面，光洋科與創鉅取得彰銀統籌的百億元聯貸，其中光洋科簽約 70 億元，9 家銀行超額認參逾 170%，擴產資金到位。JX金屬持續推進與 Renet Japan 的回收合作，並將於 11 月 9 日公布財報。貴金屬方面，CIBC 下調第四季金價預測，金價走弱、銀價震盪。",
     "key_trends": [
-      "產業動態(7 則):Operating income of Materion Corporation Shs Thailand Depositary Receipts Repr 1 Sh – SET:MTRN03",
-      "擴產與投資(5 則):日月光率18家供應鏈廠商 勘查屏科建廠條件",
-      "客戶與供應鏈(2 則):彰銀統籌主辦光洋科及創鉅百億元聯貸案助攻AI半導體與資料儲存供應鏈| 金融",
-      "併購與合作(1 則):リネットジャパン JX金屬・佐川と資本業務提攜、リサイクル基盤を構築へ"
+      "先進封裝擴產潮：矽品 800 億元新廠、Amkor 光州投資增為三倍、日月光屏科勘點，凸塊與 RDL 用 PVD 機台和靶材需求擴大。",
+      "晶圓產能持續擴張：台積電全球加速擴產、美光台灣新廠啟用，支撐高純度銅、鉭、鈷等靶材需求。",
+      "台灣靶材廠充實資本：光洋科取得 70 億元聯合授信，銀行團超額認參，顯示金融業看好 AI 半導體材料供應鏈。",
+      "矽光子帶來新凸塊需求：外資看好南茂 SiPh 光學凸塊業務，光通訊封裝成為 PVD 製程新應用。",
+      "日本金屬循環布局：JX金屬與 Renet Japan、佐川合作建構回收基盤，強化稀有與貴金屬回收料來源。"
     ],
     "watch_points": [
-      "日月光率18家供應鏈廠商 勘查屏科建廠條件(東森電視)",
-      "【JX金屬】11/9決算の見方コアウィーブショックで「AI投資は終わり」?資金が向かう先はAIの最上流だった。PER20倍超えでも買われる本當の理由(YouTube)",
-      "【出席臺灣美光新廠啟用】賴總統:結合研製優勢 打造下一世代AI產品(Yahoo新聞)"
+      "矽品中科二林、日月光屏科新廠的建廠時程，與 PVD 設備及靶材供應商選定。",
+      "光洋科聯貸資金的用途（靶材產能、貴金屬精煉回收）與後續擴產計畫。",
+      "JX金屬 11 月 9 日財報中半導體材料（靶材）事業的表現。",
+      "Amkor 光州先進封裝基地的投產時程與材料採購在地化程度。",
+      "金價預測下修與銀價波動對貴金屬靶材報價的影響。"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,8 +36,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光率 18 家供應鏈廠商勘查屏東科學園區的建廠條件；封測龍頭持續擴點，後續新廠將帶動 PVD 機台與凸塊、RDL 用靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -50,13 +53,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.26,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "YouTube 投資節目解析 JX金屬 11 月 9 日財報看點，認為資金流向 AI 最上游材料，股價本益比逾 20 倍仍獲買盤；屬投資觀點，非公司資訊。",
+      "importance": 2,
+      "title_zh": "【JX金屬】11/9 財報怎麼看：CoreWeave 衝擊下「AI 投資結束了」？資金流向 AI 最上游，本益比逾 20 倍仍被買進的真正原因",
       "snippet_zh": ""
     },
     {
@@ -75,8 +78,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "賴總統出席台灣美光新廠啟用，強調結合研發與製造優勢打造下一世代 AI 產品；美光在台擴產有利在地靶材與濺鍍設備需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -96,8 +99,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.69,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電總裁魏哲家表示全球加速擴產、不留商機給對手；先進製程擴產將持續拉動高純度靶材與 PVD 設備需求。",
+      "importance": 4,
       "title_zh": "臺積電全球加速擴產魏哲家：不留任何商機給對手- 新聞",
       "snippet_zh": ""
     },
@@ -116,8 +119,8 @@
         "擴產與投資"
       ],
       "score": 4.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽品投資 800 億元建新廠，將進駐中科二林園區；先進封裝產能擴張直接帶動凸塊、RDL 等 PVD 製程用靶材需求。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -133,13 +136,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "併購與合作",
-        "回收與循環"
+        "回收與循環",
+        "併購與合作"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 JX金屬、佐川資本業務合作，建構回收基盤；JX金屬藉此擴大小型家電等金屬回收料來源。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 JX金屬、佐川資本業務合作，建構回收基盤",
       "snippet_zh": ""
     },
     {
@@ -154,11 +157,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀統籌主辦光洋科與創鉅的百億元聯貸案，標榜支援 AI 半導體與資料儲存供應鏈；光洋科取得長期資金，有利靶材與貴金屬業務擴充。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -174,11 +178,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "政策與貿易",
         "客戶與供應鏈"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾執行長陳立武稱中美晶片差距縮小，英特爾並呼籲 FCC 豁免晶圓廠 AGV 禁令；屬客戶端政策議題，對靶材影響間接。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -194,11 +199,12 @@
         "南茂 (ChipMOS)"
       ],
       "categories": [
+        "技術與新產品",
         "營收與財報"
       ],
       "score": 3.77,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐系外資調升南茂目標價，看好矽光子（SiPh）光學凸塊業務貢獻明年營收；凸塊製程使用 PVD，相關靶材需求可望增加。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -217,9 +223,9 @@
         "技術與新產品"
       ],
       "score": 3.68,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬技術開發中心發布 ISO 9001 符合性自我宣告；屬品質管理系統公告，對營運影響小。",
+      "importance": 2,
+      "title_zh": "JX金屬：技術開發中心發布 ISO 9001 符合性自我宣告",
       "snippet_zh": ""
     },
     {
@@ -237,9 +243,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "CIBC 將第四季金價預測下調至 4,500 美元，並預期 2027 年回升至 5,200 美元；影響金靶材原料成本預期。",
+      "importance": 2,
+      "title_zh": "CIBC 下調第四季金價預測至 4,500 美元，預期 2027 年回升至 5,200 美元",
       "snippet_zh": ""
     },
     {
@@ -257,9 +263,9 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "解析銀價遠低於金價的 6 個原因；屬貴金屬知識性文章。",
+      "importance": 1,
+      "title_zh": "為什麼白銀比黃金便宜？價差背後的 6 個原因",
       "snippet_zh": ""
     },
     {
@@ -274,12 +280,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "TradingView 頁面列出 Materion 泰國存託憑證（SET:MTRN03）的營業利益資料；屬財務資料頁，無新消息。",
+      "importance": 1,
+      "title_zh": "Materion 泰國存託憑證（SET:MTRN03）營業利益",
       "snippet_zh": ""
     },
     {
@@ -294,12 +301,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "五位分析師給予 Materion 股票 310 美元的共識目標價；反映市場對其電子材料（含靶材）業務的評價。",
+      "importance": 2,
+      "title_zh": "五位分析師給予 Materion 股票 310 美元共識目標價",
       "snippet_zh": ""
     },
     {
@@ -314,11 +322,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 10 月 20 日主力資金淨賣出約 282 萬元；屬短線資金動向。",
+      "importance": 1,
       "title_zh": "股票行情快報：阿石創（300706）10月20日主力資金淨賣出281.53萬元",
       "snippet_zh": ""
     },
@@ -334,11 +343,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 10 月 20 日主力資金淨賣出約 663 萬元；屬短線資金動向。",
+      "importance": 1,
       "title_zh": "股票行情快報：江豐電子（300666）10月20日主力資金淨賣出662.76萬元",
       "snippet_zh": ""
     },
@@ -354,11 +364,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀主辦光洋科與創鉅的百億元聯貸案，搶攻 AI 半導體商機；光洋科取得擴充營運所需資金。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -374,11 +385,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區轉述彰銀統籌光洋科及創鉅百億聯貸案，9 家銀行參與、超額認參逾 170%；顯示銀行團對光洋科營運的信心。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -394,11 +406,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀統籌主辦光洋科及創鉅百億聯貸案，9 家銀行相挺、超額認參逾 170%；光洋科取得充裕資金，有利靶材與精煉回收產能擴充。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -414,11 +427,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 20 日領漲所屬板塊，主力資金淨流出約 8,539 萬元；屬股價資金動向。",
+      "importance": 1,
       "title_zh": "口腔板塊10月20日漲0.78%，有研新材領漲，主力資金淨流出8538.94萬元",
       "snippet_zh": ""
     },
@@ -434,11 +448,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科簽訂 70 億元聯合授信案；為百億聯貸案中光洋科的部分，提供營運與擴產資金。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -454,12 +469,13 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Amkor 將南韓光州投資擴大為三倍、達 23 億美元，打造先進封裝基地；封裝產能擴張帶動 PVD 機台與靶材需求。",
+      "importance": 4,
+      "title_zh": "Amkor 光州投資增為三倍至 23 億美元，打造先進封裝基地",
       "snippet_zh": ""
     },
     {
@@ -474,12 +490,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Kitco 示警選舉後金、銀風險可能升高；屬貴金屬行情評論。",
+      "importance": 1,
+      "title_zh": "金銀警訊：為何選後風險可能升高",
       "snippet_zh": ""
     },
     {
@@ -494,12 +511,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "文章闡述白銀的長期投資論點；屬投資評論，與靶材關聯低。",
+      "importance": 1,
+      "title_zh": "白銀的長期投資論點",
       "snippet_zh": ""
     },
     {
@@ -514,11 +532,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價走弱、銀價震盪，疲弱的住房數據抵消油價上漲影響；屬貴金屬行情。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -534,11 +553,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "中國央行連續 21 個月增持黃金，文章分析其對金價的意涵；屬貴金屬市場評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -554,11 +574,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "歲末黃金需求旺季來臨，金價高檔震盪，金礦股成為市場新焦點；屬投資評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -574,11 +595,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價走跌但黃金 ETF 持倉逆勢走高，文章探討下一波行情；屬貴金屬市場評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -594,11 +616,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.18,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區的光洋科股價與討論頁面；無實質營運資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -614,11 +637,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.08,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股上市後適用的風險管理制度草案；屬赴港上市配套治理文件。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):寧波江豐電子材料股份有限公司風險管理制度（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -634,11 +658,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.06,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材截至 10 月 9 日股東戶數約 32.61 萬戶，較上期減少 2.26%；屬股東結構數據。",
+      "importance": 1,
       "title_zh": "有研新材(600206)10月9日股東戶數32.61萬戶，較上期減少2.26%",
       "snippet_zh": ""
     }
