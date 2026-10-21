@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-22T00:43:03.949920+08:00",
+  "generated": "2026-10-22T00:53:39.176216+08:00",
   "amount_unit": "TWD",
   "commentary": {
     "summary": "",
@@ -56,7 +56,8 @@
         "ebitda_ttm": null,
         "revenue_ttm": null,
         "net_income_ttm": null,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": null,
+        "revenue_yoy_quarters": null
       },
       "2019Q2": {
         "revenue": 508259000.0,
@@ -99,7 +100,8 @@
         "ebitda_ttm": null,
         "revenue_ttm": null,
         "net_income_ttm": null,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": null,
+        "revenue_yoy_quarters": null
       },
       "2019Q3": {
         "revenue": 547890000.0,
@@ -142,7 +144,8 @@
         "ebitda_ttm": null,
         "revenue_ttm": null,
         "net_income_ttm": null,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": null,
+        "revenue_yoy_quarters": null
       },
       "2019Q4": {
         "revenue": 599601000.0,
@@ -185,7 +188,8 @@
         "ebitda_ttm": 72310000.0,
         "revenue_ttm": 2141708000.0,
         "net_income_ttm": 118924000.0,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": null,
+        "revenue_yoy_quarters": null
       },
       "2020Q1": {
         "revenue": 578281000.0,
@@ -228,7 +232,8 @@
         "ebitda_ttm": 83910000.0,
         "revenue_ttm": 2234031000.0,
         "net_income_ttm": 93274000.0,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": null,
+        "revenue_yoy_quarters": null
       },
       "2020Q2": {
         "revenue": 464144000.0,
@@ -271,7 +276,8 @@
         "ebitda_ttm": 90178000.0,
         "revenue_ttm": 2189916000.0,
         "net_income_ttm": 42781000.0,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": 0.04848840846615987,
+        "revenue_yoy_quarters": 2.0
       },
       "2020Q3": {
         "revenue": 669419000.0,
@@ -314,7 +320,8 @@
         "ebitda_ttm": 95927000.0,
         "revenue_ttm": 2311445000.0,
         "net_income_ttm": 36312000.0,
-        "revenue_ttm_yoy": null
+        "revenue_ttm_yoy": 0.11006823780710429,
+        "revenue_yoy_quarters": 3.0
       },
       "2020Q4": {
         "revenue": 686567000.0,
@@ -357,7 +364,8 @@
         "ebitda_ttm": 112846000.0,
         "revenue_ttm": 2398411000.0,
         "net_income_ttm": 47325000.0,
-        "revenue_ttm_yoy": 0.11985900972494856
+        "revenue_ttm_yoy": 0.11985900972494856,
+        "revenue_yoy_quarters": 4.0
       },
       "2021Q1": {
         "revenue": 762996000.0,
@@ -400,7 +408,8 @@
         "ebitda_ttm": 124904000.0,
         "revenue_ttm": 2583126000.0,
         "net_income_ttm": 49866000.0,
-        "revenue_ttm_yoy": 0.15626237952830557
+        "revenue_ttm_yoy": 0.15626237952830557,
+        "revenue_yoy_quarters": 4.0
       },
       "2021Q2": {
         "revenue": 758940000.0,
@@ -443,7 +452,8 @@
         "ebitda_ttm": 122098000.0,
         "revenue_ttm": 2877922000.0,
         "net_income_ttm": 55525000.0,
-        "revenue_ttm_yoy": 0.31417004122532544
+        "revenue_ttm_yoy": 0.31417004122532544,
+        "revenue_yoy_quarters": 4.0
       },
       "2021Q3": {
         "revenue": 792545000.0,
@@ -486,7 +496,8 @@
         "ebitda_ttm": 124148000.0,
         "revenue_ttm": 3001048000.0,
         "net_income_ttm": 59286000.0,
-        "revenue_ttm_yoy": 0.2983428115313149
+        "revenue_ttm_yoy": 0.2983428115313149,
+        "revenue_yoy_quarters": 4.0
       },
       "2021Q4": {
         "revenue": 688711000.0,
@@ -529,7 +540,8 @@
         "ebitda_ttm": 131306000.0,
         "revenue_ttm": 3003192000.0,
         "net_income_ttm": 70311000.0,
-        "revenue_ttm_yoy": 0.2521590336268471
+        "revenue_ttm_yoy": 0.2521590336268471,
+        "revenue_yoy_quarters": 4.0
       },
       "2022Q1": {
         "revenue": 662750000.0,
@@ -572,7 +584,8 @@
         "ebitda_ttm": 139589000.0,
         "revenue_ttm": 2902946000.0,
         "net_income_ttm": 85996000.0,
-        "revenue_ttm_yoy": 0.12381122717203885
+        "revenue_ttm_yoy": 0.12381122717203885,
+        "revenue_yoy_quarters": 4.0
       },
       "2022Q2": {
         "revenue": 814518000.0,
@@ -615,7 +628,8 @@
         "ebitda_ttm": 158621000.0,
         "revenue_ttm": 2958524000.0,
         "net_income_ttm": 103146000.0,
-        "revenue_ttm_yoy": 0.028007013393691604
+        "revenue_ttm_yoy": 0.028007013393691604,
+        "revenue_yoy_quarters": 4.0
       },
       "2022Q3": {
         "revenue": 545096000.0,
@@ -658,7 +672,8 @@
         "ebitda_ttm": 139000000.0,
         "revenue_ttm": 2711075000.0,
         "net_income_ttm": 97991000.0,
-        "revenue_ttm_yoy": -0.09662391271315884
+        "revenue_ttm_yoy": -0.09662391271315884,
+        "revenue_yoy_quarters": 4.0
       },
       "2022Q4": {
         "revenue": 505003000.0,
@@ -701,7 +716,8 @@
         "ebitda_ttm": 123507000.0,
         "revenue_ttm": 2527367000.0,
         "net_income_ttm": 82003000.0,
-        "revenue_ttm_yoy": -0.15843975343567773
+        "revenue_ttm_yoy": -0.15843975343567773,
+        "revenue_yoy_quarters": 4.0
       },
       "2023Q1": {
         "revenue": 549032000.0,
@@ -744,7 +760,8 @@
         "ebitda_ttm": 102651000.0,
         "revenue_ttm": 2413649000.0,
         "net_income_ttm": 61526000.0,
-        "revenue_ttm_yoy": -0.16855187798877413
+        "revenue_ttm_yoy": -0.16855187798877413,
+        "revenue_yoy_quarters": 4.0
       },
       "2023Q2": {
         "revenue": 582852000.0,
@@ -787,7 +804,8 @@
         "ebitda_ttm": 101994000.0,
         "revenue_ttm": 2181983000.0,
         "net_income_ttm": 38701000.0,
-        "revenue_ttm_yoy": -0.2624758156432059
+        "revenue_ttm_yoy": -0.2624758156432059,
+        "revenue_yoy_quarters": 4.0
       },
       "2023Q3": {
         "revenue": 669709000.0,
@@ -830,7 +848,8 @@
         "ebitda_ttm": 128064000.0,
         "revenue_ttm": 2306596000.0,
         "net_income_ttm": 48858000.0,
-        "revenue_ttm_yoy": -0.14919506099978785
+        "revenue_ttm_yoy": -0.14919506099978785,
+        "revenue_yoy_quarters": 4.0
       },
       "2023Q4": {
         "revenue": 603526000.0,
@@ -873,7 +892,8 @@
         "ebitda_ttm": 139211000.0,
         "revenue_ttm": 2405119000.0,
         "net_income_ttm": 39568000.0,
-        "revenue_ttm_yoy": -0.04836970649691952
+        "revenue_ttm_yoy": -0.04836970649691952,
+        "revenue_yoy_quarters": 4.0
       },
       "2024Q1": {
         "revenue": 547895000.0,
@@ -916,7 +936,8 @@
         "ebitda_ttm": 132385000.0,
         "revenue_ttm": 2403982000.0,
         "net_income_ttm": 41839000.0,
-        "revenue_ttm_yoy": -0.004005139106804667
+        "revenue_ttm_yoy": -0.004005139106804667,
+        "revenue_yoy_quarters": 4.0
       },
       "2024Q2": {
         "revenue": 2015092000.0,
@@ -959,7 +980,8 @@
         "ebitda_ttm": 175160000.0,
         "revenue_ttm": 3836222000.0,
         "net_income_ttm": 45215000.0,
-        "revenue_ttm_yoy": 0.7581356041729015
+        "revenue_ttm_yoy": 0.7581356041729015,
+        "revenue_yoy_quarters": 4.0
       },
       "2024Q3": {
         "revenue": 1432784000.0,
@@ -1002,7 +1024,8 @@
         "ebitda_ttm": 174943000.0,
         "revenue_ttm": 4599297000.0,
         "net_income_ttm": 26966000.0,
-        "revenue_ttm_yoy": 0.9939759715182026
+        "revenue_ttm_yoy": 0.9939759715182026,
+        "revenue_yoy_quarters": 4.0
       },
       "2024Q4": {
         "revenue": 1270310000.0,
@@ -1045,7 +1068,8 @@
         "ebitda_ttm": 182065000.0,
         "revenue_ttm": 5266081000.0,
         "net_income_ttm": 49785000.0,
-        "revenue_ttm_yoy": 1.1895303309316505
+        "revenue_ttm_yoy": 1.1895303309316505,
+        "revenue_yoy_quarters": 4.0
       },
       "2025Q1": {
         "revenue": 1148937000.0,
@@ -1088,7 +1112,8 @@
         "ebitda_ttm": 208760000.0,
         "revenue_ttm": 5867123000.0,
         "net_income_ttm": 48419000.0,
-        "revenue_ttm_yoy": 1.4405852456465982
+        "revenue_ttm_yoy": 1.4405852456465982,
+        "revenue_yoy_quarters": 4.0
       },
       "2025Q2": {
         "revenue": 1604273000.0,
@@ -1131,7 +1156,8 @@
         "ebitda_ttm": 148008000.0,
         "revenue_ttm": 5456304000.0,
         "net_income_ttm": 23622000.0,
-        "revenue_ttm_yoy": 0.4223118474374006
+        "revenue_ttm_yoy": 0.4223118474374006,
+        "revenue_yoy_quarters": 4.0
       },
       "2025Q3": {
         "revenue": 1335076000.0,
@@ -1174,7 +1200,8 @@
         "ebitda_ttm": 109397000.0,
         "revenue_ttm": 5358596000.0,
         "net_income_ttm": 14930000.0,
-        "revenue_ttm_yoy": 0.16509023009385992
+        "revenue_ttm_yoy": 0.16509023009385992,
+        "revenue_yoy_quarters": 4.0
       },
       "2025Q4": {
         "revenue": 1626683000.0,
@@ -1217,7 +1244,8 @@
         "ebitda_ttm": 76896000.0,
         "revenue_ttm": 5714969000.0,
         "net_income_ttm": -8207000.0,
-        "revenue_ttm_yoy": 0.08524137779118846
+        "revenue_ttm_yoy": 0.08524137779118846,
+        "revenue_yoy_quarters": 4.0
       },
       "2026Q1": {
         "revenue": 2448860000.0,
@@ -1260,7 +1288,8 @@
         "ebitda_ttm": 125825000.0,
         "revenue_ttm": 7014892000.0,
         "net_income_ttm": 10677000.0,
-        "revenue_ttm_yoy": 0.19562722649584807
+        "revenue_ttm_yoy": 0.19562722649584807,
+        "revenue_yoy_quarters": 4.0
       },
       "2026Q2": {
         "revenue": 1646617000.0,
@@ -1303,7 +1332,8 @@
         "ebitda_ttm": 114908000.0,
         "revenue_ttm": 7057236000.0,
         "net_income_ttm": 24887000.0,
-        "revenue_ttm_yoy": 0.2934096047434307
+        "revenue_ttm_yoy": 0.2934096047434307,
+        "revenue_yoy_quarters": 4.0
       }
     },
     "monthly_metrics": {
@@ -2392,7 +2422,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2019Q2": {
           "revenue": 4991878000.0,
@@ -2435,7 +2466,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2019Q3": {
           "revenue": 6617638000.0,
@@ -2478,7 +2510,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2019Q4": {
           "revenue": 5623515000.0,
@@ -2521,7 +2554,8 @@
           "ebitda_ttm": 2031800000.0,
           "revenue_ttm": 21986662000.0,
           "net_income_ttm": 1038929000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2020Q1": {
           "revenue": 5416929000.0,
@@ -2564,7 +2598,8 @@
           "ebitda_ttm": 1432903000.0,
           "revenue_ttm": 22649960000.0,
           "net_income_ttm": 1016476000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2020Q2": {
           "revenue": 6424377000.0,
@@ -2607,7 +2642,8 @@
           "ebitda_ttm": 1764931000.0,
           "revenue_ttm": 24082459000.0,
           "net_income_ttm": 1115079000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.21505259499529483,
+          "revenue_yoy_quarters": 2.0
         },
         "2020Q3": {
           "revenue": 7513729000.0,
@@ -2650,7 +2686,8 @@
           "ebitda_ttm": 1771250000.0,
           "revenue_ttm": 24978550000.0,
           "net_income_ttm": 1180579000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.18284306802352868,
+          "revenue_yoy_quarters": 3.0
         },
         "2020Q4": {
           "revenue": 7310332000.0,
@@ -2693,7 +2730,8 @@
           "ebitda_ttm": 2102858000.0,
           "revenue_ttm": 26665367000.0,
           "net_income_ttm": 843371000.0,
-          "revenue_ttm_yoy": 0.2127974223645226
+          "revenue_ttm_yoy": 0.2127974223645226,
+          "revenue_yoy_quarters": 4.0
         },
         "2021Q1": {
           "revenue": 7367143000.0,
@@ -2736,7 +2774,8 @@
           "ebitda_ttm": 2669561000.0,
           "revenue_ttm": 28615581000.0,
           "net_income_ttm": 971972000.0,
-          "revenue_ttm_yoy": 0.2633832907431184
+          "revenue_ttm_yoy": 0.2633832907431184,
+          "revenue_yoy_quarters": 4.0
         },
         "2021Q2": {
           "revenue": 7661684000.0,
@@ -2779,7 +2818,8 @@
           "ebitda_ttm": 2470421000.0,
           "revenue_ttm": 29852888000.0,
           "net_income_ttm": 1100416000.0,
-          "revenue_ttm_yoy": 0.23961128720285574
+          "revenue_ttm_yoy": 0.23961128720285574,
+          "revenue_yoy_quarters": 4.0
         },
         "2021Q3": {
           "revenue": 8261386000.0,
@@ -2822,7 +2862,8 @@
           "ebitda_ttm": 2257502000.0,
           "revenue_ttm": 30600545000.0,
           "net_income_ttm": 1198699000.0,
-          "revenue_ttm_yoy": 0.22507291255897566
+          "revenue_ttm_yoy": 0.22507291255897566,
+          "revenue_yoy_quarters": 4.0
         },
         "2021Q4": {
           "revenue": 8064624000.0,
@@ -2865,7 +2906,8 @@
           "ebitda_ttm": 2066264000.0,
           "revenue_ttm": 31354837000.0,
           "net_income_ttm": 1256038000.0,
-          "revenue_ttm_yoy": 0.17586369615689135
+          "revenue_ttm_yoy": 0.17586369615689135,
+          "revenue_yoy_quarters": 4.0
         },
         "2022Q1": {
           "revenue": 7635245000.0,
@@ -2908,7 +2950,8 @@
           "ebitda_ttm": 2237408000.0,
           "revenue_ttm": 31622939000.0,
           "net_income_ttm": 1364145000.0,
-          "revenue_ttm_yoy": 0.10509512282836408
+          "revenue_ttm_yoy": 0.10509512282836408,
+          "revenue_yoy_quarters": 4.0
         },
         "2022Q2": {
           "revenue": 6960993000.0,
@@ -2951,7 +2994,8 @@
           "ebitda_ttm": 2252467000.0,
           "revenue_ttm": 30922248000.0,
           "net_income_ttm": 1417594000.0,
-          "revenue_ttm_yoy": 0.03582098991561544
+          "revenue_ttm_yoy": 0.03582098991561544,
+          "revenue_yoy_quarters": 4.0
         },
         "2022Q3": {
           "revenue": 6029317000.0,
@@ -2994,7 +3038,8 @@
           "ebitda_ttm": 2243661000.0,
           "revenue_ttm": 28690179000.0,
           "net_income_ttm": 1583331000.0,
-          "revenue_ttm_yoy": -0.06242914954619272
+          "revenue_ttm_yoy": -0.06242914954619272,
+          "revenue_yoy_quarters": 4.0
         },
         "2022Q4": {
           "revenue": 5165039000.0,
@@ -3037,7 +3082,8 @@
           "ebitda_ttm": 2116268000.0,
           "revenue_ttm": 25790594000.0,
           "net_income_ttm": 1389338000.0,
-          "revenue_ttm_yoy": -0.17746043457345995
+          "revenue_ttm_yoy": -0.17746043457345995,
+          "revenue_yoy_quarters": 4.0
         },
         "2023Q1": {
           "revenue": 4840591000.0,
@@ -3080,7 +3126,8 @@
           "ebitda_ttm": 1803495000.0,
           "revenue_ttm": 22995940000.0,
           "net_income_ttm": 1180084000.0,
-          "revenue_ttm_yoy": -0.2728082611170328
+          "revenue_ttm_yoy": -0.2728082611170328,
+          "revenue_yoy_quarters": 4.0
         },
         "2023Q2": {
           "revenue": 5755110000.0,
@@ -3123,7 +3170,8 @@
           "ebitda_ttm": 1686144000.0,
           "revenue_ttm": 21790057000.0,
           "net_income_ttm": 1269972000.0,
-          "revenue_ttm_yoy": -0.29532752599358236
+          "revenue_ttm_yoy": -0.29532752599358236,
+          "revenue_yoy_quarters": 4.0
         },
         "2023Q3": {
           "revenue": 5950822000.0,
@@ -3166,7 +3214,8 @@
           "ebitda_ttm": 1781115000.0,
           "revenue_ttm": 21711562000.0,
           "net_income_ttm": 1151050000.0,
-          "revenue_ttm_yoy": -0.24324062251406653
+          "revenue_ttm_yoy": -0.24324062251406653,
+          "revenue_yoy_quarters": 4.0
         },
         "2023Q4": {
           "revenue": 6082669000.0,
@@ -3209,7 +3258,8 @@
           "ebitda_ttm": 1936526000.0,
           "revenue_ttm": 22629192000.0,
           "net_income_ttm": 1084941000.0,
-          "revenue_ttm_yoy": -0.12257965055011921
+          "revenue_ttm_yoy": -0.12257965055011921,
+          "revenue_yoy_quarters": 4.0
         },
         "2024Q1": {
           "revenue": 6313036000.0,
@@ -3252,7 +3302,8 @@
           "ebitda_ttm": 2091394000.0,
           "revenue_ttm": 24101637000.0,
           "net_income_ttm": 1354416000.0,
-          "revenue_ttm_yoy": 0.04808227017464817
+          "revenue_ttm_yoy": 0.04808227017464817,
+          "revenue_yoy_quarters": 4.0
         },
         "2024Q2": {
           "revenue": 7598730000.0,
@@ -3295,7 +3346,8 @@
           "ebitda_ttm": 2614914000.0,
           "revenue_ttm": 25945257000.0,
           "net_income_ttm": 1266211000.0,
-          "revenue_ttm_yoy": 0.1906924796020497
+          "revenue_ttm_yoy": 0.1906924796020497,
+          "revenue_yoy_quarters": 4.0
         },
         "2024Q3": {
           "revenue": 7620878000.0,
@@ -3338,7 +3390,8 @@
           "ebitda_ttm": 2888992000.0,
           "revenue_ttm": 27615313000.0,
           "net_income_ttm": 1315812000.0,
-          "revenue_ttm_yoy": 0.2719173774784145
+          "revenue_ttm_yoy": 0.2719173774784145,
+          "revenue_yoy_quarters": 4.0
         },
         "2024Q4": {
           "revenue": 8237314000.0,
@@ -3381,7 +3434,8 @@
           "ebitda_ttm": 2839286000.0,
           "revenue_ttm": 29769958000.0,
           "net_income_ttm": 1903388000.0,
-          "revenue_ttm_yoy": 0.3155555001698691
+          "revenue_ttm_yoy": 0.3155555001698691,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q1": {
           "revenue": 8242842000.0,
@@ -3424,7 +3478,8 @@
           "ebitda_ttm": 3343598000.0,
           "revenue_ttm": 31699764000.0,
           "net_income_ttm": 1831227000.0,
-          "revenue_ttm_yoy": 0.3152535655565636
+          "revenue_ttm_yoy": 0.3152535655565636,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q2": {
           "revenue": 9524557000.0,
@@ -3467,7 +3522,8 @@
           "ebitda_ttm": 3570958000.0,
           "revenue_ttm": 33625591000.0,
           "net_income_ttm": 1164500000.0,
-          "revenue_ttm_yoy": 0.2960207331921978
+          "revenue_ttm_yoy": 0.2960207331921978,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q3": {
           "revenue": 10434845000.0,
@@ -3510,7 +3566,8 @@
           "ebitda_ttm": 3867980000.0,
           "revenue_ttm": 36439558000.0,
           "net_income_ttm": 1400780000.0,
-          "revenue_ttm_yoy": 0.31954173396477525
+          "revenue_ttm_yoy": 0.31954173396477525,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q4": {
           "revenue": 11209195000.0,
@@ -3553,7 +3610,8 @@
           "ebitda_ttm": 4801743000.0,
           "revenue_ttm": 39411439000.0,
           "net_income_ttm": 1867414000.0,
-          "revenue_ttm_yoy": 0.3238661270533201
+          "revenue_ttm_yoy": 0.3238661270533201,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 14557891000.0,
@@ -3596,7 +3654,8 @@
           "ebitda_ttm": 5993265000.0,
           "revenue_ttm": 45726488000.0,
           "net_income_ttm": 3023452000.0,
-          "revenue_ttm_yoy": 0.4424867011628226
+          "revenue_ttm_yoy": 0.4424867011628226,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q2": {
           "revenue": 15684637000.0,
@@ -3639,7 +3698,8 @@
           "ebitda_ttm": 6094820000.0,
           "revenue_ttm": 51886568000.0,
           "net_income_ttm": 3984902000.0,
-          "revenue_ttm_yoy": 0.5430678378262557
+          "revenue_ttm_yoy": 0.5430678378262557,
+          "revenue_yoy_quarters": 4.0
         }
       },
       "monthly_metrics": {
@@ -4717,7 +4777,8 @@
           "ebitda_ttm": 95564000000.0,
           "revenue_ttm": 714940000000.0,
           "net_income_ttm": 68271000000.0,
-          "revenue_ttm_yoy": -0.5272639510164678
+          "revenue_ttm_yoy": -0.5272639510164678,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q2": {
           "revenue": null,
@@ -4760,7 +4821,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": null,
@@ -4803,7 +4865,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q1": {
           "revenue": null,
@@ -4846,7 +4909,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 884638000000.0,
           "net_income_ttm": 104645000000.0,
-          "revenue_ttm_yoy": 0.2373597784429462
+          "revenue_ttm_yoy": 0.2373597784429462,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q2": {
           "revenue": null,
@@ -4889,7 +4953,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         }
       },
       "monthly_metrics": {},
@@ -5006,7 +5071,8 @@
           "ebitda_ttm": 146414000000.0,
           "revenue_ttm": 1063382000000.0,
           "net_income_ttm": 58002000000.0,
-          "revenue_ttm_yoy": 0.057418161568752346
+          "revenue_ttm_yoy": 0.057418161568752346,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q2": {
           "revenue": null,
@@ -5049,7 +5115,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": null,
@@ -5092,7 +5159,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q1": {
           "revenue": null,
@@ -5135,7 +5203,8 @@
           "ebitda_ttm": 143613000000.0,
           "revenue_ttm": 1019917000000.0,
           "net_income_ttm": 41615000000.0,
-          "revenue_ttm_yoy": -0.040874304812381634
+          "revenue_ttm_yoy": -0.040874304812381634,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q2": {
           "revenue": null,
@@ -5178,7 +5247,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         }
       },
       "monthly_metrics": {},
@@ -5289,7 +5359,8 @@
           "ebitda_ttm": 107934000000.0,
           "revenue_ttm": 712344000000.0,
           "net_income_ttm": 64662000000.0,
-          "revenue_ttm_yoy": 0.10151121777277461
+          "revenue_ttm_yoy": 0.10151121777277461,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q2": {
           "revenue": null,
@@ -5332,7 +5403,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": null,
@@ -5375,7 +5447,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q1": {
           "revenue": null,
@@ -5418,7 +5491,8 @@
           "ebitda_ttm": 160674000000.0,
           "revenue_ttm": 758532000000.0,
           "net_income_ttm": 91263000000.0,
-          "revenue_ttm_yoy": 0.06483945958694104
+          "revenue_ttm_yoy": 0.06483945958694104,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q2": {
           "revenue": null,
@@ -5461,7 +5535,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         }
       },
       "monthly_metrics": {},
@@ -5578,7 +5653,8 @@
           "ebitda_ttm": 303991000000.0,
           "revenue_ttm": 2606281000000.0,
           "net_income_ttm": 38591000000.0,
-          "revenue_ttm_yoy": 0.06513893333300635
+          "revenue_ttm_yoy": 0.06513893333300635,
+          "revenue_yoy_quarters": 4.0
         },
         "2025Q2": {
           "revenue": null,
@@ -5621,7 +5697,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": null,
@@ -5664,7 +5741,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q1": {
           "revenue": null,
@@ -5707,7 +5785,8 @@
           "ebitda_ttm": 316084000000.0,
           "revenue_ttm": 2328515000000.0,
           "net_income_ttm": 60947000000.0,
-          "revenue_ttm_yoy": -0.10657561483201539
+          "revenue_ttm_yoy": -0.10657561483201539,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q2": {
           "revenue": null,
@@ -5750,7 +5829,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         }
       },
       "monthly_metrics": {},
@@ -5877,7 +5957,8 @@
           "ebitda_ttm": 37328000000.0,
           "revenue_ttm": 251184000000.0,
           "net_income_ttm": 16687000000.0,
-          "revenue_ttm_yoy": -0.038033050571587235
+          "revenue_ttm_yoy": -0.038033050571587235,
+          "revenue_yoy_quarters": 4.0
         }
       },
       "monthly_metrics": {},
@@ -5994,7 +6075,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 1033000000.0,
@@ -6037,7 +6119,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 969000000.0,
@@ -6080,7 +6163,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 987000000.0,
@@ -6123,7 +6207,8 @@
           "ebitda_ttm": 952000000.0,
           "revenue_ttm": 3886000000.0,
           "net_income_ttm": 237000000.0,
-          "revenue_ttm_yoy": 0.03076923076923066
+          "revenue_ttm_yoy": 0.03076923076923066,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 992000000.0,
@@ -6166,7 +6251,8 @@
           "ebitda_ttm": 926000000.0,
           "revenue_ttm": 3981000000.0,
           "net_income_ttm": 188000000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 1148000000.0,
@@ -6209,7 +6295,8 @@
           "ebitda_ttm": 914000000.0,
           "revenue_ttm": 4096000000.0,
           "net_income_ttm": 210000000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.10880829015544036,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
@@ -6261,14 +6348,14 @@
       "valuation": {
         "shares": 158842224.0,
         "bvps": 9.984750654208922,
-        "close": 64.245,
+        "close": 64.38,
         "close_date": "2026-10-21",
-        "market_cap": 10204818680.880001,
-        "pe_ttm": 48.689487708831635,
-        "pb": 6.434311904716267,
-        "ps_ttm": 2.491410810761719,
-        "ev_ebitda_ttm": 12.879451510809629,
-        "fcf_yield": 0.017540733020115173
+        "market_cap": 10226262381.119999,
+        "pe_ttm": 48.7918004310776,
+        "pb": 6.4478325227742745,
+        "ps_ttm": 2.496646089140625,
+        "ev_ebitda_ttm": 12.902912889628007,
+        "fcf_yield": 0.017503951427109345
       },
       "signals": [
         {
@@ -6331,7 +6418,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 431658000.0,
@@ -6374,7 +6462,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 444808000.0,
@@ -6417,7 +6506,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 489754000.0,
@@ -6460,7 +6550,8 @@
           "ebitda_ttm": 182326000.0,
           "revenue_ttm": 1786550000.0,
           "net_income_ttm": 74823000.0,
-          "revenue_ttm_yoy": 0.06043131903517396
+          "revenue_ttm_yoy": 0.06043131903517396,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 549824000.0,
@@ -6503,7 +6594,8 @@
           "ebitda_ttm": 189747000.0,
           "revenue_ttm": 1916044000.0,
           "net_income_ttm": 76498000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 613906000.0,
@@ -6546,7 +6638,8 @@
           "ebitda_ttm": 205885000.0,
           "revenue_ttm": 2098292000.0,
           "net_income_ttm": 90116000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.36589951971154533,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
@@ -6598,14 +6691,14 @@
       "valuation": {
         "shares": 20833725.0,
         "bvps": 47.75271824889692,
-        "close": 251.965,
+        "close": 250.77,
         "close_date": "2026-10-21",
-        "market_cap": 5249369519.625,
-        "pe_ttm": 58.05645161290323,
-        "pb": 5.276453555726545,
-        "ps_ttm": 2.5017345153224624,
-        "ev_ebitda_ttm": 27.53998843832722,
-        "fcf_yield": 0.0061795992602017
+        "market_cap": 5224473218.25,
+        "pe_ttm": 57.781105990783416,
+        "pb": 5.251428802292166,
+        "ps_ttm": 2.4898694834894286,
+        "ev_ebitda_ttm": 27.41906510066299,
+        "fcf_yield": 0.006209047045486785
       },
       "signals": [
         {
@@ -6663,7 +6756,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 1094240000.0,
@@ -6706,7 +6800,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 1196460000.0,
@@ -6749,7 +6844,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 1312940000.0,
@@ -6792,7 +6888,8 @@
           "ebitda_ttm": 879280000.0,
           "revenue_ttm": 4604090000.0,
           "net_income_ttm": 499503000.0,
-          "revenue_ttm_yoy": 0.2771542541387422
+          "revenue_ttm_yoy": 0.2771542541387422,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 1305510000.0,
@@ -6835,7 +6932,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 4909150000.0,
           "net_income_ttm": 552037000.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 1431800000.0,
@@ -6878,7 +6976,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 5246710000.0,
           "net_income_ttm": 786548100.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.3067852522330272,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
@@ -7015,7 +7114,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 2255800000.0,
@@ -7058,7 +7158,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 2674470000.0,
@@ -7101,7 +7202,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 2772050000.0,
@@ -7144,7 +7246,8 @@
           "ebitda_ttm": 552643300.0,
           "revenue_ttm": 9542120000.0,
           "net_income_ttm": 264790000.0,
-          "revenue_ttm_yoy": 0.0433358335757037
+          "revenue_ttm_yoy": 0.0433358335757037,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 2956910000.0,
@@ -7187,7 +7290,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 10659230000.0,
           "net_income_ttm": 285676400.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 3200990000.0,
@@ -7230,7 +7334,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 11604420000.0,
           "net_income_ttm": 317996300.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.5035403848032034,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
@@ -7372,7 +7477,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 371963000.0,
@@ -7415,7 +7521,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 419742000.0,
@@ -7458,7 +7565,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 334141000.0,
@@ -7501,7 +7609,8 @@
           "ebitda_ttm": 74047486.0,
           "revenue_ttm": 1426899000.0,
           "net_income_ttm": -55093680.0,
-          "revenue_ttm_yoy": 0.2061597112450444
+          "revenue_ttm_yoy": 0.2061597112450444,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 426327000.0,
@@ -7544,7 +7653,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 1552173000.0,
           "net_income_ttm": -33855530.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 356993000.0,
@@ -7587,7 +7697,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 1537203000.0,
           "net_income_ttm": 11285870.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 0.16389506341602567,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
@@ -7754,7 +7865,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q2": {
           "revenue": 130122000.0,
@@ -7797,7 +7909,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q3": {
           "revenue": 151622000.0,
@@ -7840,7 +7953,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": null,
           "net_income_ttm": null,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2025Q4": {
           "revenue": 177062000.0,
@@ -7883,7 +7997,8 @@
           "ebitda_ttm": -4873580.0,
           "revenue_ttm": 546126600.0,
           "net_income_ttm": -40027920.0,
-          "revenue_ttm_yoy": 0.2504157927996409
+          "revenue_ttm_yoy": 0.2504157927996409,
+          "revenue_yoy_quarters": 4.0
         },
         "2026Q1": {
           "revenue": 275811000.0,
@@ -7926,7 +8041,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 734617000.0,
           "net_income_ttm": 1887050.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": null,
+          "revenue_yoy_quarters": null
         },
         "2026Q2": {
           "revenue": 231775000.0,
@@ -7969,7 +8085,8 @@
           "ebitda_ttm": null,
           "revenue_ttm": 836270000.0,
           "net_income_ttm": 36364700.0,
-          "revenue_ttm_yoy": null
+          "revenue_ttm_yoy": 1.3343447880038228,
+          "revenue_yoy_quarters": 2.0
         }
       },
       "monthly_metrics": {},
