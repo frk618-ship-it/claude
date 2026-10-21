@@ -457,7 +457,7 @@ function renderScatter() {
     if (c.logo) {
       const id = "lg-" + c.ticker.replace(/[^A-Za-z0-9]/g, "_");
       const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx, cy, r: inner})); defs.appendChild(clip);
-      svg.appendChild(sv("image", {href: c.logo, x: cx - inner * 0.82, y: cy - inner * 0.82, width: inner * 1.64, height: inner * 1.64,
+      svg.appendChild(sv("image", {href: c.logo, x: cx - inner * 0.94, y: cy - inner * 0.94, width: inner * 1.88, height: inner * 1.88,
         preserveAspectRatio: "xMidYMid meet", "clip-path": `url(#${id})`}));
     } else {
       svg.appendChild(sv("text", {x: cx, y: cy + r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
