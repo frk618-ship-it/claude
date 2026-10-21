@@ -34,6 +34,9 @@ jobs:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}   # 選填,提高 FinMind API 額度
         run: python -m fin_analyzer -v fetch
 
+      - name: Fetch company logos (only those not in fin_analyzer/assets/logos yet)
+        run: python -m fin_analyzer -v logos || echo "logo fetch failed; dashboard falls back to monograms"
+
       - name: Build dashboard and focus-company report
         env:
           # 選填:設定後深度報告會加上 Claude 分析評論
@@ -52,6 +55,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/financials reports/financials reports/dashboard
+          git add data/financials reports/financials reports/dashboard fin_analyzer/assets/logos
           git diff --cached --quiet || git commit -m "fin: 靶材製造商財務儀表板 $(TZ=Asia/Taipei date +%F)"
           git push

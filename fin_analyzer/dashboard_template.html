@@ -153,7 +153,7 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
     </section>
     <section class="card">
       <h2>獲利能力 × 成長</h2>
-      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。泡泡越大 = 靶材營收比重越高;小泡泡是多角化公司,利益率反映全公司(多為非靶材部門)。</p>
+      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。圖示為各公司 logo;泡泡越大 = 靶材營收比重越高,小泡泡是多角化公司,利益率反映全公司(多為非靶材部門);藍框為焦點公司。</p>
       <div id="scatter" class="chart sk"></div>
     </section>
   </div>
@@ -414,7 +414,7 @@ function renderRank() {
 
 // ---------- target-revenue share (pure / major / diversified) ----------
 const FOCUS_TEXT = {pure: "專業廠", major: "主要事業之一", diversified: "多角化(指標含非靶材部門)"};
-const TF = {pure: {short: "專業廠", r: 10}, major: {short: "主要事業", r: 7.5}, diversified: {short: "多角化", r: 5}};
+const TF = {pure: {short: "專業廠", r: 17}, major: {short: "主要事業", r: 13.5}, diversified: {short: "多角化", r: 10}};
 const tfBadge = c => TF[c.target_focus] ? el("span", {class: "tf " + c.target_focus, title: "靶材營收比重:" + c.focus_label}, TF[c.target_focus].short) : null;
 
 // ---------- scatter ----------
@@ -433,7 +433,7 @@ function renderScatter() {
     if (!pts.some(c => c.target_focus === k)) continue;
     const item = el("span", {class: "bub"}), d = 2 * t.r + 2;
     const ic = sv("svg", {width: d, height: d, viewBox: `0 0 ${d} ${d}`, "aria-hidden": "true"});
-    ic.appendChild(sv("circle", {cx: d / 2, cy: d / 2, r: t.r, fill: cssVar("--other-mark"), "fill-opacity": 0.75}));
+    ic.appendChild(sv("circle", {cx: d / 2, cy: d / 2, r: t.r, fill: cssVar("--surface"), stroke: cssVar("--axis"), "stroke-width": 1.5}));
     item.append(ic, document.createTextNode(FOCUS_TEXT[k])); legend.appendChild(item);
   }
   box.appendChild(legend);
@@ -445,14 +445,23 @@ function renderScatter() {
   svg.appendChild(sv("text", {x: W - R, y: H - 4, "text-anchor": "end", class: "muted"}, "近四季營收年增 →"));
   svg.appendChild(sv("text", {x: L, y: T - 2, class: "muted"}, "↑ 營業利益率"));
   // big bubbles first so small ones stay on top; the focus company last
-  const rOf = c => (TF[c.target_focus] || {r: 6}).r;
+  const rOf = c => (TF[c.target_focus] || {r: 12}).r;
+  const defs = sv("defs"); svg.appendChild(defs);
   const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus) || rOf(b) - rOf(a));
   for (const c of order) {
     const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
     const isF = c.ticker === state.focus, r = rOf(c);
-    const dot = sv("circle", {cx, cy, r, fill: isF ? cssVar("--s1") : cssVar("--other-mark"), "fill-opacity": isF ? 0.9 : 0.75,
-      stroke: cssVar("--surface"), "stroke-width": 1.5});
-    svg.appendChild(dot);
+    // bubble = the company's logo in a white disc (monogram when there is no logo); focus gets an accent ring
+    svg.appendChild(sv("circle", {cx, cy, r, fill: cssVar("--surface"), stroke: isF ? cssVar("--s1") : cssVar("--axis"), "stroke-width": isF ? 3 : 1.5}));
+    const inner = r - (isF ? 3 : 2);
+    if (c.logo) {
+      const id = "lg-" + c.ticker.replace(/[^A-Za-z0-9]/g, "_");
+      const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx, cy, r: inner})); defs.appendChild(clip);
+      svg.appendChild(sv("image", {href: c.logo, x: cx - inner * 0.82, y: cy - inner * 0.82, width: inner * 1.64, height: inner * 1.64,
+        preserveAspectRatio: "xMidYMid meet", "clip-path": `url(#${id})`}));
+    } else {
+      svg.appendChild(sv("text", {x: cx, y: cy + r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
+    }
     const right = cx < W - 110;
     svg.appendChild(sv("text", {x: right ? cx + r + 4 : cx - r - 4, y: cy + 4, "text-anchor": right ? "start" : "end", class: isF ? "strong" : ""},
       shortName(c) + (c.target_focus === "diversified" ? "＊" : "")));

@@ -9,6 +9,8 @@
 #   market        TW / JP / US / CN(省略時依代號判斷)
 #   short         圖表上的簡稱(選填)
 #   currency      財報幣別(省略時依市場:TWD / JPY / USD / CNY)
+#   website       公司網域,用來下載儀表板圖表上的 logo(python -m fin_analyzer logos);
+#                 也可直接把圖檔放到 fin_analyzer/assets/logos/<代號>.png(或 .svg / .jpg)
 #   target_focus  pure = 靶材專業廠、major = 靶材為主要事業之一、diversified = 多角化(靶材占比較低)
 #                 多角化公司的財務指標反映整家公司,不等於其靶材事業的表現,儀表板會標示。
 
@@ -17,22 +19,22 @@ focus: "3663"     # 儀表板預設強調、analyze 預設分析的公司(鑫科
 
 companies:
   # ---- 台灣 ----
-  - {ticker: "1785", name: 光洋科, market: TW, target_focus: major, segment: 濺鍍靶材、貴金屬材料與精煉回收}
-  - {ticker: "3663", name: 鑫科, market: TW, target_focus: pure, segment: 濺鍍靶材、特殊合金}
+  - {ticker: "1785", name: 光洋科, market: TW, target_focus: major, segment: 濺鍍靶材、貴金屬材料與精煉回收, website: solartech.com.tw}
+  - {ticker: "3663", name: 鑫科, market: TW, target_focus: pure, segment: 濺鍍靶材、特殊合金, website: thintech.com.tw}
   # ---- 日本 ----
-  - {ticker: "5016.T", name: JX金屬, market: JP, target_focus: major, segment: 半導體/資訊通信材料(靶材)、銅箔、金屬}
-  - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分}
-  - {ticker: "5706.T", name: 三井金屬, market: JP, target_focus: diversified, segment: 功能材料(含 ITO 等靶材)、金屬、汽車零件}
-  - {ticker: "4005.T", name: 住友化學, market: JP, target_focus: diversified, segment: 化學品為主;資訊電子化學事業含濺鍍靶材}
-  - {ticker: "6728.T", name: ULVAC, short: ULVAC, market: JP, target_focus: diversified, segment: 真空與濺鍍設備為主;材料事業含濺鍍靶材}
+  - {ticker: "5016.T", name: JX金屬, market: JP, target_focus: major, segment: 半導體/資訊通信材料(靶材)、銅箔、金屬, website: jx-nmm.com}
+  - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分, website: tosoh.com}
+  - {ticker: "5706.T", name: 三井金屬, market: JP, target_focus: diversified, segment: 功能材料(含 ITO 等靶材)、金屬、汽車零件, website: mitsui-kinzoku.com}
+  - {ticker: "4005.T", name: 住友化學, market: JP, target_focus: diversified, segment: 化學品為主;資訊電子化學事業含濺鍍靶材, website: sumitomo-chem.co.jp}
+  - {ticker: "6728.T", name: ULVAC, short: ULVAC, market: JP, target_focus: diversified, segment: 真空與濺鍍設備為主;材料事業含濺鍍靶材, website: ulvac.co.jp}
   # ---- 美國 ----
-  - {ticker: "SOLS", name: Solstice Advanced Materials, short: Solstice, market: US, target_focus: diversified, segment: 冷媒與特用化學品、電子材料(原 Honeywell 電子材料,含靶材)}
-  - {ticker: "MTRN", name: Materion, market: US, target_focus: diversified, segment: 先進材料、精密光學、電子材料(含靶材)}
+  - {ticker: "SOLS", name: Solstice Advanced Materials, short: Solstice, market: US, target_focus: diversified, segment: 冷媒與特用化學品、電子材料(原 Honeywell 電子材料,含靶材), website: solstice.com}
+  - {ticker: "MTRN", name: Materion, market: US, target_focus: diversified, segment: 先進材料、精密光學、電子材料(含靶材), website: materion.com}
   # ---- 中國大陸 ----
-  - {ticker: "300666.SZ", name: 江豐電子, market: CN, target_focus: pure, segment: 超高純金屬濺射靶材、半導體零部件}
-  - {ticker: "600206.SS", name: 有研新材, market: CN, target_focus: major, segment: 濺射靶材(有研億金)、稀土與光電材料}
-  - {ticker: "300706.SZ", name: 阿石創, market: CN, target_focus: pure, segment: PVD 鍍膜材料(濺射靶材、蒸鍍材料)}
-  - {ticker: "688530.SS", name: 歐萊新材, market: CN, target_focus: pure, segment: 濺射靶材(顯示面板為主)}
+  - {ticker: "300666.SZ", name: 江豐電子, market: CN, target_focus: pure, segment: 超高純金屬濺射靶材、半導體零部件, website: kfmic.com}
+  - {ticker: "600206.SS", name: 有研新材, market: CN, target_focus: major, segment: 濺射靶材(有研億金)、稀土與光電材料, website: grinm.com}
+  - {ticker: "300706.SZ", name: 阿石創, market: CN, target_focus: pure, segment: PVD 鍍膜材料(濺射靶材、蒸鍍材料), website: acetron.com.cn}
+  - {ticker: "688530.SS", name: 歐萊新材, market: CN, target_focus: pure, segment: 濺射靶材(顯示面板為主), website: omat.com.cn}
 
 settings:
   data_dir: data/financials

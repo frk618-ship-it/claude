@@ -55,6 +55,7 @@ class Company:
     currency: str = ""
     target_focus: str = ""  # pure / major / diversified
     short: str = ""  # short label for charts
+    website: str = ""  # company domain, used to fetch its logo (fin_analyzer/logos.py)
 
     def __post_init__(self) -> None:
         self.market = (self.market or guess_market(self.ticker)).upper()
@@ -113,6 +114,7 @@ def _company(raw) -> Company:
         currency=str(raw.get("currency", "")),
         target_focus=str(raw.get("target_focus", "")),
         short=str(raw.get("short", "")),
+        website=str(raw.get("website", "") or ""),
     )
 
 

@@ -16,6 +16,7 @@ from pathlib import Path
 
 from .analysis import POSITIVE, RISK, WATCH, Analysis
 from .config import FinConfig
+from .logos import logo_data_uri
 from .metrics import AMOUNT_KEYS
 
 log = logging.getLogger(__name__)
@@ -122,6 +123,7 @@ def company_entry(a: Analysis, fx: dict, unit: float, focus: bool) -> dict:
         "ticker": a.data.ticker,
         "name": a.data.name or (c.name if c else a.data.ticker),
         "short": c.short if c else "",
+        "logo": logo_data_uri(a.data.ticker),
         "market": c.market if c else "",
         "region": c.region if c else "",
         "currency": currency,

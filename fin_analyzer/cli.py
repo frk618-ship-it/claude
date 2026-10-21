@@ -14,6 +14,7 @@ from .analysis import analyze
 from .commentary import Commentary, Commentator, llm_available, llm_payload
 from .config import Company, FinConfig, load_fin_config
 from .dashboard import build_dashboard_data, write_dashboard
+from .logos import fetch_logos
 from .models import load_company, save_company
 from .report import write_reports
 from .sources import fetch_company, http_fetch
@@ -120,6 +121,13 @@ def cmd_analyze(args, cfg: FinConfig) -> int:
     return 0
 
 
+def cmd_logos(args, cfg: FinConfig) -> int:
+    status = fetch_logos(cfg.companies, force=args.force)
+    for ticker, st in status.items():
+        print(f"{ticker:<10} {st}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="fin_analyzer", description="靶材製造商財務指標儀表板與財報分析工具")
     p.add_argument("-v", "--verbose", action="store_true")
@@ -139,6 +147,10 @@ def main(argv: list[str] | None = None) -> int:
     dash.add_argument("-o", "--out", help="輸出資料夾(預設 settings.dashboard_dir)")
     dash.add_argument("--tz", default="Asia/Taipei")
 
+    lg = sub.add_parser("logos", help="下載各公司官網圖示到 fin_analyzer/assets/logos/(已有檔案的公司略過)")
+    lg.add_argument("-c", "--config", default=DEFAULT_CONFIG)
+    lg.add_argument("--force", action="store_true", help="已有圖示的公司也重新下載")
+
     an = sub.add_parser("analyze", help="針對單一公司產生深度財報分析報告(Markdown)")
     an.add_argument("-c", "--config", default=DEFAULT_CONFIG)
     an.add_argument("--target", help="覆寫分析對象代號(預設 focus)")
@@ -154,7 +166,7 @@ def main(argv: list[str] | None = None) -> int:
     cfg = load_fin_config(args.config)
     if args.data_dir:
         cfg.data_dir = args.data_dir
-    return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze}[args.command](args, cfg)
+    return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos}[args.command](args, cfg)
 
 
 if __name__ == "__main__":

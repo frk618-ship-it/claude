@@ -192,3 +192,30 @@ def test_dashboard_light_theme_and_news_link():
     assert "__DESCRIPTION__" not in html and "__SHARE_META__" not in html
     # Chart boxes are loading skeletons until filled; target share shows as bubble size / badge.
     assert 'id="scatter" class="chart sk"' in html and ".sk:empty" in html and "tfBadge" in html
+
+
+def test_fetch_logos_validates_and_keeps_existing(tmp_path):
+    import struct
+    from fin_analyzer.config import Company
+    from fin_analyzer.logos import fetch_logos, logo_data_uri, png_size
+
+    def png(w, h):
+        return b"\x89PNG\r\n\x1a\n" + struct.pack(">I", 13) + b"IHDR" + struct.pack(">II", w, h) + b"\x08\x06\x00\x00\x00"
+
+    calls = []
+
+    def fetch(url):
+        calls.append(url)
+        if "apple-touch-icon" in url:
+            return png(16, 16) if "small" in url else b"<html>not found</html>"
+        return png(128, 128)
+
+    assert png_size(png(180, 180)) == (180, 180) and png_size(b"GIF89a") is None
+    companies = [Company("A", website="small.example"), Company("B", website="b.example"), Company("C")]
+    (tmp_path / "B.svg").write_text("<svg/>")
+    status = fetch_logos(companies, fetch=fetch, logo_dir=tmp_path)
+    # A: tiny touch icon rejected -> Google favicon; B: hand-placed SVG kept; C: no website.
+    assert status["A"].startswith("128x128") and status["B"] == "kept" and status["C"] == "no website"
+    assert not any("b.example" in u for u in calls)
+    assert logo_data_uri("A", tmp_path).startswith("data:image/png;base64,")
+    assert logo_data_uri("B", tmp_path).startswith("data:image/svg+xml;base64,") and logo_data_uri("C", tmp_path) == ""
