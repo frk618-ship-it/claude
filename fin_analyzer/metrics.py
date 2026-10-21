@@ -174,6 +174,19 @@ def quarter_metrics(data: CompanyData) -> dict[str, dict[str, float | None]]:
         m["revenue_ttm"] = rev_ttm
         m["net_income_ttm"] = ni_ttm
         m["revenue_ttm_yoy"] = growth(rev_ttm, ttm_sum("revenue", ttm_prev))
+        m["revenue_yoy_quarters"] = 4.0 if m["revenue_ttm_yoy"] is not None else None
+        if m["revenue_ttm_yoy"] is None:
+            # Short history (e.g. Yahoo's 5-6 quarters): compare the recent quarters that have a
+            # same-quarter-last-year figure, if at least two do. The dashboard labels it "近 N 季".
+            pairs = []
+            for q in ttm:  # most recent first; stop at the first gap
+                cur, ago = g(q, "revenue"), g(shift_period(q, -4), "revenue")
+                if cur is None or ago is None:
+                    break
+                pairs.append((cur, ago))
+            if len(pairs) >= 2:
+                m["revenue_ttm_yoy"] = growth(sum(a for a, _ in pairs), sum(b for _, b in pairs))
+                m["revenue_yoy_quarters"] = float(len(pairs))
         out[p] = m
     return out
 

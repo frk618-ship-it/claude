@@ -9,7 +9,7 @@
 #   market        TW / JP / US / CN(省略時依代號判斷)
 #   short         圖表上的簡稱(選填)
 #   currency      財報幣別(省略時依市場:TWD / JPY / USD / CNY)
-#   website       公司網域,用來下載儀表板圖表上的 logo(python -m fin_analyzer logos);
+#   website       公司網域或首頁網址,用來下載儀表板圖表上的 logo(python -m fin_analyzer logos);
 #                 也可直接把圖檔放到 fin_analyzer/assets/logos/<代號>.png(或 .svg / .jpg)
 #   target_focus  pure = 靶材專業廠、major = 靶材為主要事業之一、diversified = 多角化(靶材占比較低)
 #                 多角化公司的財務指標反映整家公司,不等於其靶材事業的表現,儀表板會標示。
@@ -20,10 +20,10 @@ focus: "3663"     # 儀表板預設強調、analyze 預設分析的公司(鑫科
 companies:
   # ---- 台灣 ----
   - {ticker: "1785", name: 光洋科, market: TW, target_focus: major, segment: 濺鍍靶材、貴金屬材料與精煉回收, website: solartech.com.tw}
-  - {ticker: "3663", name: 鑫科, market: TW, target_focus: pure, segment: 濺鍍靶材、特殊合金, website: thintech.com.tw}
+  - {ticker: "3663", name: 鑫科, market: TW, target_focus: pure, segment: 濺鍍靶材、特殊合金, website: www.e-ttmc.com.tw/chinese/index.html}
   # ---- 日本 ----
   - {ticker: "5016.T", name: JX金屬, market: JP, target_focus: major, segment: 半導體/資訊通信材料(靶材)、銅箔、金屬, website: jx-nmm.com}
-  - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分, website: tosoh.com}
+  - {ticker: "4042.T", name: 東曹, market: JP, target_focus: diversified, segment: 化工為主,靶材(Tosoh SMD)為電子材料一部分, website: tosoh.co.jp}
   - {ticker: "5706.T", name: 三井金屬, market: JP, target_focus: diversified, segment: 功能材料(含 ITO 等靶材)、金屬、汽車零件, website: mitsui-kinzoku.com}
   - {ticker: "4005.T", name: 住友化學, market: JP, target_focus: diversified, segment: 化學品為主;資訊電子化學事業含濺鍍靶材, website: sumitomo-chem.co.jp}
   - {ticker: "6728.T", name: ULVAC, short: ULVAC, market: JP, target_focus: diversified, segment: 真空與濺鍍設備為主;材料事業含濺鍍靶材, website: ulvac.co.jp}

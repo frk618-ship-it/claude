@@ -241,3 +241,27 @@ def test_page_icons_and_image_kind():
     assert page_icons(page, "https://www.example.com/") == [
         "https://cdn.example/t.png", "https://www.example.com/img/i192.png", "https://www.example.com/favicon.ico"]
     assert image_kind(b'<?xml version="1.0"?><svg xmlns="x"/>') == ".svg" and image_kind(b"\x00\x00\x01\x00") is None
+
+
+def test_logo_candidates_use_page_url_and_header_logo():
+    from fin_analyzer.logos import candidate_urls, homepages
+
+    assert homepages("https://www.e-ttmc.com.tw/chinese/index.html") == [
+        "https://www.e-ttmc.com.tw/chinese/index.html", "https://e-ttmc.com.tw/chinese/index.html"]
+    page = b'<link rel="icon" href="/favicon.ico"><img class="site-logo" src="../images/logo.png"><img src="banner.jpg">'
+    urls = candidate_urls("www.e-ttmc.com.tw/chinese/index.html", lambda url: page)
+    assert urls == ["https://www.e-ttmc.com.tw/favicon.ico", "https://www.e-ttmc.com.tw/apple-touch-icon.png",
+                    "https://www.e-ttmc.com.tw/images/logo.png",
+                    "https://www.google.com/s2/favicons?domain=www.e-ttmc.com.tw&sz=128",
+                    "https://www.google.com/s2/favicons?domain=e-ttmc.com.tw&sz=128"]
+
+
+def test_revenue_yoy_falls_back_to_recent_quarters():
+    from fin_analyzer.metrics import quarter_metrics
+    from fin_analyzer.models import CompanyData
+
+    # Six quarters (Yahoo's usual history): no full prior-year TTM, but 2026Q1-Q2 have a year-ago match.
+    revs = {"2025Q1": 100.0, "2025Q2": 100.0, "2025Q3": 110.0, "2025Q4": 120.0, "2026Q1": 130.0, "2026Q2": 150.0}
+    m = quarter_metrics(CompanyData("X", quarters={p: {"revenue": v} for p, v in revs.items()}))
+    assert m["2026Q2"]["revenue_ttm_yoy"] == pytest.approx(280 / 200 - 1) and m["2026Q2"]["revenue_yoy_quarters"] == 2
+    assert m["2026Q1"]["revenue_ttm_yoy"] is None  # only one matched quarter

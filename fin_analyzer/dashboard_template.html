@@ -82,6 +82,7 @@ svg { display: block; width: 100%; height: auto; overflow: visible; }
 svg text { fill: var(--ink-2); font-size: 11px; }
 svg .muted { fill: var(--ink-3); }
 svg .strong { fill: var(--ink-1); font-weight: 600; }
+svg text.lbl { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
 .gridline { stroke: var(--grid); stroke-width: 1; }
 .baseline { stroke: var(--axis); stroke-width: 1; }
 .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
@@ -153,7 +154,7 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
     </section>
     <section class="card">
       <h2>獲利能力 × 成長</h2>
-      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。圖示為各公司 logo;泡泡越大 = 靶材營收比重越高,小泡泡是多角化公司,利益率反映全公司(多為非靶材部門);藍框為焦點公司。</p>
+      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。圖示為各公司 logo;泡泡越大 = 靶材營收比重越高,小泡泡是多角化公司,利益率反映全公司(多為非靶材部門);藍框為焦點公司;† = 季度資料不足 4 季(美、中公司),營收年增改以最近 2–3 季合計比較去年同期。</p>
       <div id="scatter" class="chart sk"></div>
     </section>
   </div>
@@ -174,7 +175,7 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
   </div>
 
   <h3 class="section">完整比較表</h3>
-  <p class="hint" style="color:var(--ink-3);font-size:12px;margin:-6px 0 8px">點欄位標題排序;粗體為目前篩選範圍內的最佳值;金額單位 <span id="unit2"></span>。</p>
+  <p class="hint" style="color:var(--ink-3);font-size:12px;margin:-6px 0 8px">點欄位標題排序;粗體為目前篩選範圍內的最佳值;金額單位 <span id="unit2"></span>;† = 季度資料不足 4 季,營收年增為最近 2–3 季合計比較去年同期(滑鼠移上可看說明)。</p>
   <div class="tablewrap"><table id="table" class="sk"></table></div>
 
   <div class="grid2" style="margin-top:16px">
@@ -359,7 +360,7 @@ function renderTiles() {
     const m = metricsByKey[key];
     const t = el("div", {class: "tile"});
     const r = list.includes(c) ? rankOf(list, c, key) : null;
-    t.append(el("div", {class: "k"}, m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label),
+    t.append(el("div", {class: "k"}, key === "revenue_ttm_yoy" ? yoyLabel(c).replace("(季度資料不足 4 季)", "") : m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label),
       el("div", {class: "v"}, fmt(val(c, key), m.kind)),
       el("div", {class: "r"}, r ? `篩選範圍內第 ${r[0]} / ${r[1]} 名` : "—"));
     $("tiles").appendChild(t);
@@ -415,6 +416,9 @@ function renderRank() {
 // ---------- target-revenue share (pure / major / diversified) ----------
 const FOCUS_TEXT = {pure: "專業廠", major: "主要事業之一", diversified: "多角化(指標含非靶材部門)"};
 const TF = {pure: {short: "專業廠", r: 17}, major: {short: "主要事業", r: 13.5}, diversified: {short: "多角化", r: 10}};
+// revenue YoY over fewer than 4 quarters (short Yahoo history): "近 N 季" instead of "近四季"
+const yoyShort = c => c.yoy_quarters && c.yoy_quarters < 4;
+const yoyLabel = c => yoyShort(c) ? `近 ${c.yoy_quarters} 季營收年增(季度資料不足 4 季)` : "近四季營收年增";
 const tfBadge = c => TF[c.target_focus] ? el("span", {class: "tf " + c.target_focus, title: "靶材營收比重:" + c.focus_label}, TF[c.target_focus].short) : null;
 
 // ---------- scatter ----------
@@ -447,6 +451,7 @@ function renderScatter() {
   // big bubbles first so small ones stay on top; the focus company last
   const rOf = c => (TF[c.target_focus] || {r: 12}).r;
   const defs = sv("defs"); svg.appendChild(defs);
+  const labels = [];
   const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus) || rOf(b) - rOf(a));
   for (const c of order) {
     const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
@@ -462,12 +467,10 @@ function renderScatter() {
     } else {
       svg.appendChild(sv("text", {x: cx, y: cy + r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
     }
-    const right = cx < W - 110;
-    svg.appendChild(sv("text", {x: right ? cx + r + 4 : cx - r - 4, y: cy + 4, "text-anchor": right ? "start" : "end", class: isF ? "strong" : ""},
-      shortName(c) + (c.target_focus === "diversified" ? "＊" : "")));
+    labels.push({c, cx, cy, r, isF, text: shortName(c) + (c.target_focus === "diversified" ? "＊" : "") + (yoyShort(c) ? "†" : "")});
     const hit = sv("circle", {cx, cy, r: Math.max(14, r + 4), fill: "transparent", tabindex: 0});
     const rows = [{label: "靶材比重", value: c.focus_label || "—"},
-      {label: "近四季營收年增", value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
+      {label: yoyLabel(c), value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
       {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
       {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
     hit.addEventListener("pointermove", e => showTip(e, `${c.name}(${c.ticker})`, rows));
@@ -476,7 +479,32 @@ function renderScatter() {
     hit.addEventListener("blur", hideTip);
     svg.appendChild(hit);
   }
+  placeLabels(svg, labels, W);
   box.appendChild(svg);
+}
+
+// Labels go on top of all bubbles; each takes the first spot (right, left, above, below)
+// that overlaps no bubble and no label already placed. Focus company first.
+function placeLabels(svg, labels, W) {
+  const textW = t => [...t].reduce((w, ch) => w + (ch.charCodeAt(0) > 0x2e80 ? 11 : 6.5), 0);
+  const hit = (a, b) => a.x1 < b.x2 && b.x1 < a.x2 && a.y1 < b.y2 && b.y1 < a.y2;
+  const discs = labels.map(l => ({x1: l.cx - l.r, x2: l.cx + l.r, y1: l.cy - l.r, y2: l.cy + l.r, own: l}));
+  const placed = [];
+  for (const l of [...labels].sort((a, b) => b.isF - a.isF)) {
+    const w = textW(l.text), h = 13;
+    const spots = [
+      {x: l.cx + l.r + 4, y: l.cy + 4, anchor: "start"}, {x: l.cx - l.r - 4, y: l.cy + 4, anchor: "end"},
+      {x: l.cx, y: l.cy - l.r - 4, anchor: "middle"}, {x: l.cx, y: l.cy + l.r + 13, anchor: "middle"},
+      {x: l.cx + l.r + 2, y: l.cy - l.r + 2, anchor: "start"}, {x: l.cx + l.r + 2, y: l.cy + l.r + 8, anchor: "start"},
+    ];
+    const boxOf = sp => { const x1 = sp.anchor === "start" ? sp.x : sp.anchor === "end" ? sp.x - w : sp.x - w / 2;
+      return {x1, x2: x1 + w, y1: sp.y - 10, y2: sp.y - 10 + h}; };
+    const ok = sp => { const b = boxOf(sp);
+      return b.x1 >= 0 && b.x2 <= W && !placed.some(p => hit(b, p)) && !discs.some(d => d.own !== l && hit(b, d)); };
+    const sp = spots.find(ok) || spots[l.cx < W - 110 ? 0 : 1];
+    placed.push(boxOf(sp));
+    svg.appendChild(sv("text", {x: sp.x, y: sp.y, "text-anchor": sp.anchor, class: "lbl" + (l.isF ? " strong" : "")}, l.text));
+  }
 }
 
 // ---------- line chart (trend & monthly) ----------
@@ -599,7 +627,8 @@ function renderTable() {
     tr.appendChild(el("td", {title: "風險 / 注意 / 優勢"}, `🔴${sc["風險"] || 0} 🟡${sc["注意"] || 0} 🟢${sc["優勢"] || 0}`));
     for (const m of D.metrics) {
       const v = val(c, m.key);
-      const td = el("td", {}, fmt(v, m.kind));
+      const short = m.key === "revenue_ttm_yoy" && v !== null && yoyShort(c);
+      const td = el("td", short ? {title: yoyLabel(c)} : {}, fmt(v, m.kind) + (short ? "†" : ""));
       if (v !== null && best[m.key] === v) td.classList.add("best");
       if (v !== null && v < 0 && ["pct", "amt"].includes(m.kind)) td.classList.add("neg");
       tr.appendChild(td);

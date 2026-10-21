@@ -44,11 +44,19 @@ def png_size(data: bytes) -> tuple[int, int] | None:
 
 
 def hosts(domain: str) -> list[str]:
-    bare = domain.removeprefix("www.")
+    bare = domain.split("/")[0].removeprefix("www.")
     return [f"www.{bare}", bare]
 
 
+def homepages(website: str) -> list[str]:
+    """`website` is a domain or a page URL (scheme optional), e.g. www.e-ttmc.com.tw/chinese/index.html."""
+    site = re.sub(r"^https?://", "", website.strip()).rstrip("/")
+    path = site.split("/", 1)[1] if "/" in site else ""
+    return [f"https://{h}/{path}" for h in hosts(site)]
+
+
 _LINK = re.compile(r"<link\b[^>]*>", re.I)
+_IMG = re.compile(r"<img\b[^>]*>", re.I)
 _ATTR = re.compile(r'([a-zA-Z-]+)\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)')
 
 
@@ -66,6 +74,17 @@ def page_icons(page: str, base: str) -> list[str]:
     return [u for _, u in sorted(found, key=lambda x: x[0], reverse=True)]
 
 
+def page_logo_images(page: str, base: str) -> list[str]:
+    """<img> tags that look like the site logo (src / alt / class / id mention "logo"), in page order."""
+    out = []
+    for tag in _IMG.findall(page):
+        attrs = {k.lower(): html.unescape(v.strip("\"'")) for k, v in _ATTR.findall(tag)}
+        src = attrs.get("src", "")
+        if src and not src.startswith("data:") and "logo" in " ".join(attrs.get(k, "") for k in ("src", "alt", "class", "id")).lower():
+            out.append(urllib.parse.urljoin(base, src))
+    return out
+
+
 def image_kind(data: bytes) -> str | None:
     """File extension for usable logo bytes (PNG at least MIN_SIZE px, SVG, JPEG), else None."""
     size = png_size(data)
@@ -79,18 +98,21 @@ def image_kind(data: bytes) -> str | None:
     return None
 
 
-def candidate_urls(domain: str, fetch: Fetcher) -> list[str]:
-    urls = []
-    for host in hosts(domain):
+def candidate_urls(website: str, fetch: Fetcher) -> list[str]:
+    """Square site icons first (they fit a round bubble), then the header logo image, then Google's favicon."""
+    urls, logos = [], []
+    for home in homepages(website):
         try:
-            page = fetch(f"https://{host}/").decode("utf-8", "replace")
+            page = fetch(home).decode("utf-8", "replace")
         except Exception as exc:
-            log.info("%s: homepage failed: %s", host, exc)
+            log.info("%s: homepage failed: %s", home, exc)
             continue
-        urls += page_icons(page, f"https://{host}/") + [f"https://{host}/apple-touch-icon.png"]
+        root = home.split("/", 3)
+        urls += page_icons(page, home) + [f"{root[0]}//{root[2]}/apple-touch-icon.png"]
+        logos = page_logo_images(page, home)
         break
-    urls += [f"https://www.google.com/s2/favicons?domain={urllib.parse.quote(h)}&sz=128" for h in hosts(domain)]
-    return list(dict.fromkeys(urls))
+    google = [f"https://www.google.com/s2/favicons?domain={urllib.parse.quote(h)}&sz=128" for h in hosts(website)]
+    return list(dict.fromkeys(urls + logos + google))
 
 
 def logo_file(ticker: str, logo_dir: Path = LOGO_DIR) -> Path | None:

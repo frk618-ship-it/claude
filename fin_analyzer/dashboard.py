@@ -132,6 +132,7 @@ def company_entry(a: Analysis, fx: dict, unit: float, focus: bool) -> dict:
         "focus_label": c.focus_label if c else "",
         "segment": a.segment,
         "latest_quarter": a.latest,
+        "yoy_quarters": int(m["revenue_yoy_quarters"]) if m.get("revenue_yoy_quarters") else None,
         "close": a.valuation.get("close"),
         "close_date": a.valuation.get("close_date"),
         "is_focus": focus,
