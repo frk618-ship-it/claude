@@ -2,19 +2,22 @@
   "generated": "2026-10-22T08:10:19.880048+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 80 則,其中新聞與公司公告 68 則;報導最多的是 Singulus Technologies(17 則)、矽品(11 則)、力積電(9 則)、Amkor 艾克爾(5 則)。依主題:擴產與投資 33 則、產業動態 26 則、客戶與供應鏈 4 則、併購與合作 3 則、營收與財報 2 則。",
+    "overview": "本期主軸是輝達帶動的封測擴產潮：輝達宣布攜手多家夥伴擴產，矽品 CPO 產能拚增 30 倍、光引擎產能拚增 15 倍，京元電獲 11 億美元預付款赴美設廠，Amkor 則計畫在 2028 年底前將先進封裝產能提升逾 300%，將明顯推升凸塊、RDL 等 PVD 製程用機台與靶材需求。晶圓端，力積電法說透露明年代工再漲 10–20%，並評估在台灣、日本、新加坡興建新廠；英特爾推進美國晶圓廠，但台積電 2 奈米新廠發生 4 死工安事故、全台新廠鋼構工程暫停，可能延後建廠時程。材料同業方面，光洋科百億聯貸完成簽約，江豐電子赴港上市受關注、但募投項目延期引發質疑，JX金屬與日本製鋼所將 AI 伺服器用銅合金增產五成。濺鍍設備商 Singulus 則借款償還 Triumph，中國股東退出。",
     "key_trends": [
-      "擴產與投資(33 則):力積電啟動擴產評估臺、日、星 全力衝3D AI Foundry業務、客戶需循美光模式",
-      "產業動態(26 則):Materion Corp (MTRN) Shares Surge 4.4% -- What GF Score of 81 Te",
-      "客戶與供應鏈(4 則):英特爾美國廠擴建傳進展，反映對AI晶片需求信心",
-      "併購與合作(3 則):馬斯克曾為了 Terafab 想併購臺積電晶圓廠，遭拒絕後選擇合作模式"
+      "輝達主導先進封裝擴產：矽品、日月光、Amkor、京元電同步擴產，CPO 光學引擎與先進封裝將大幅增加 PVD 製程與靶材用量。",
+      "成熟製程漲價與擴產：力積電明年代工價再漲 10–20% 並規劃台日星新廠，華虹 12 吋擴產，晶圓產能持續擴大。",
+      "建廠風險浮現：台積電 2 奈米新廠工安事故導致全台新廠鋼構停工，短期可能影響設備與材料導入時程。",
+      "靶材同業資本動作頻繁：光洋科完成百億聯貸、江豐電子赴港上市，資金到位有利擴產但募資運用受檢視。",
+      "AI 帶動金屬材料需求：JX金屬銅合金增產五成，PVD 設備市場估達 9,385 百萬美元，上游材料需求全面成長。"
     ],
     "watch_points": [
-      "力積電啟動擴產評估臺、日、星 全力衝3D AI Foundry業務、客戶需循美光模式(鏡報)",
-      "【力積電法說】Q4營收雙位數成長！攜客戶建新廠搶矽電容商機| 財經焦點(太報 TaiSounds)",
-      "臺積電、美光擴產熱！ 8科技廠砸130億掃進臺中地(ETtoday房產雲)"
+      "矽品、Amkor、日月光 CPO 與先進封裝新產能的投產時程，與 PVD 機台及靶材供應商的選定。",
+      "台積電新廠鋼構停工的持續時間，對 2 奈米產能建置與靶材出貨的影響。",
+      "力積電新廠選址（台灣、日本、新加坡）與代工漲價對成熟製程材料採購的影響。",
+      "江豐電子 H 股發行進度與募投項目執行狀況；Materion 11 月 4 日財報。",
+      "金價預測下修與鉑、鈀價格走弱對貴金屬靶材報價的影響。"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -35,8 +38,8 @@
         "客戶與供應鏈"
       ],
       "score": 7.35,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區指台積電產能供不應求，封測廠擴產帶動日月光獲利跳升；屬投資人討論，但與封測擴產趨勢一致。",
+      "importance": 2,
       "title_zh": "3711 日月光投控- 臺積電產能供不應求，封測廠擴產帶動獲利跳升- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -57,8 +60,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電啟動台灣、日本、新加坡的擴產評估，全力衝刺 3D AI Foundry 業務，客戶需比照美光模式合作；晶圓代工擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "力積電啟動擴產評估臺、日、星 全力衝3D AI Foundry業務、客戶需循美光模式",
       "snippet_zh": ""
     },
@@ -79,8 +82,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電法說預估第四季營收雙位數成長，並將與客戶合建新廠搶攻矽電容商機；新產能有利靶材在地需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -101,8 +104,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "受台積電、美光擴產帶動，8 家科技廠斥資 130 億元購入台中土地；顯示中部半導體聚落持續擴大，後續建廠可帶動材料需求。",
+      "importance": 3,
       "title_zh": "臺積電、美光擴產熱！ 8科技廠砸130億掃進臺中地",
       "snippet_zh": ""
     },
@@ -118,13 +121,13 @@
         "力積電 (PSMC)"
       ],
       "categories": [
-        "擴產與投資",
         "營收與財報",
+        "擴產與投資",
         "原物料與價格"
       ],
       "score": 6.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電第三季毛利率升至 48%，透露明年晶圓代工價格再漲 10–20%，並首度表示規劃建新廠；成熟製程漲價與擴產有利上游材料供應商議價。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -140,13 +143,14 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
         "併購與合作"
       ],
       "score": 5.94,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AI 代理需求外溢至先進封裝，輝達加碼 Amkor 產能、30 億美元合作打開成長空間；封裝擴產帶動凸塊與 RDL 用 PVD 製程與靶材需求。",
+      "importance": 4,
+      "title_zh": "AI 代理熱潮外溢至先進封裝！輝達加碼 Amkor 產能，30 億美元合作打開成長空間",
       "snippet_zh": ""
     },
     {
@@ -165,8 +169,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃仁勳在 GTC 點名欣興、京元電、矽品，輝達以預付款支持擴產；矽品先進封裝擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "黃仁勳GTC大會點名臺廠三強！輝達砸預付款擴產 欣興、京元電、矽品全面卡位AI供應鏈",
       "snippet_zh": ""
     },
@@ -186,8 +190,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達擴大全球供應鏈產能，攜手欣興、京元電、矽品擴產；封測端擴產有利濺鍍靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -207,8 +211,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達擴大全球供應鏈產能，攜手欣興、京元電、矽品擴產；與前則為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -228,8 +232,8 @@
         "擴產與投資"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達攜手日月光、矽品擴產，光引擎產能拚增至 15 倍；CPO 光學引擎封裝放量將帶動相關 PVD 製程與靶材需求。",
+      "importance": 4,
       "title_zh": "光引擎產能拚飆15倍 輝達攜手日月光矽品擴產重押臺廠",
       "snippet_zh": ""
     },
@@ -249,8 +253,8 @@
         "營收與財報"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電預估第四季營收雙位數成長，新廠規劃鎖定台灣、日本、新加坡。",
+      "importance": 3,
       "title_zh": "力積電：第4季營收估增2位數 新廠規劃鎖定臺日星",
       "snippet_zh": ""
     },
@@ -270,8 +274,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達點名四大供應鏈擴產配合出貨，京元電、欣興、矽品入列；封測產能擴張持續。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -287,12 +291,12 @@
         "力積電 (PSMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電法說：明年代工價格再漲 10–20%，第四季營收拚雙位數成長，新廠評估台灣、新加坡、日本。",
+      "importance": 3,
       "title_zh": "力積電法說會｜明年再漲10～20%！Q4營收拚雙位數增 新廠評估臺星日",
       "snippet_zh": ""
     },
@@ -312,8 +316,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指馬斯克曾為 Terafab 計畫想併購台積電晶圓廠，遭拒後改採合作模式；屬客戶端動態，對靶材影響間接。",
+      "importance": 2,
       "title_zh": "馬斯克曾為了 Terafab 想併購臺積電晶圓廠，遭拒絕後選擇合作模式",
       "snippet_zh": ""
     },
@@ -333,8 +337,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 2 奈米新廠發生重大工安事故造成 4 人死亡，全台新廠鋼構工程暫停；可能延後新廠建置進度與後續設備、材料導入時程。",
+      "importance": 4,
       "title_zh": "2奈米新廠重大工安釀4死 臺積電高層震怒：全臺新廠鋼構工程皆停工",
       "snippet_zh": ""
     },
@@ -350,12 +354,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
-        "擴產與投資",
-        "技術與新產品"
+        "技術與新產品",
+        "擴產與投資"
       ],
       "score": 5.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達支持京元電美國新廠明年 4 月量產，並攜手矽品發展 CPO 光學引擎；先進封裝新應用擴大 PVD 製程需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -371,13 +375,14 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
         "技術與新產品"
       ],
       "score": 5.23,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Amkor 股價因輝達先進封裝擴產消息上漲；反映市場看好封裝產能擴張。",
+      "importance": 2,
+      "title_zh": "Amkor 股價因輝達先進封裝擴產消息上漲",
       "snippet_zh": ""
     },
     {
@@ -395,9 +400,9 @@
         "擴產與投資"
       ],
       "score": 4.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日經股市題材整理：JX金屬與日本製鋼所將 AI 伺服器用銅合金增產五成；顯示 JX金屬 AI 相關材料需求強勁。",
+      "importance": 3,
+      "title_zh": "今日股價題材（報紙等，22 日）：JX金屬與日本製鋼所 AI 伺服器用銅合金增產五成",
       "snippet_zh": ""
     },
     {
@@ -412,11 +417,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "併購與合作"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀統籌主辦的光洋科、創鉅材料百億元聯貸案完成簽約；光洋科取得擴產與營運資金。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -432,12 +438,13 @@
         "Rapidus"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "北海道新聞系列報導：廣島也關注 Rapidus，日本政府以 5,000 億日圓支援新工廠；日本半導體國策擴產有利當地靶材需求。",
+      "importance": 3,
+      "title_zh": "〈國策受考驗 半導體新時代〉上：廣島也熱切關注 Rapidus，政府支援新工廠 5,000 億日圓",
       "snippet_zh": ""
     },
     {
@@ -455,8 +462,8 @@
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達斥資 360 億元助京元電赴美設廠，矽品 CPO 產能拚增 30 倍；先進封裝與光學引擎擴產帶動 PVD 需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -475,9 +482,9 @@
         "擴產與投資"
       ],
       "score": 4.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬與日本製鋼所因耐熱需求，將 AI 伺服器用銅合金增產五成；JX金屬 AI 材料業務擴張，與其靶材事業同屬半導體材料成長動能。",
+      "importance": 3,
+      "title_zh": "JX金屬與日本製鋼所 AI 伺服器用銅合金增產五成，耐熱性需求旺",
       "snippet_zh": ""
     },
     {
@@ -495,8 +502,8 @@
         "擴產與投資"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達全球擴產，欣興、京元電、矽品入列，測試產能兩年翻倍。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -512,11 +519,12 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 智慧代理熱潮帶動先進封裝，輝達加碼 Amkor 產能、30 億美元合作；與英文報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -535,8 +543,8 @@
         "擴產與投資"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達出資催促產能，欣興、京元電、矽品大舉擴產。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -555,8 +563,8 @@
         "擴產與投資"
       ],
       "score": 4.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃仁勳宣布攜手 6 家夥伴擴產，京元電獲 11 億美元預付款，欣興與矽品也入列。",
+      "importance": 3,
       "title_zh": "黃仁勳宣佈攜手6夥伴擴產 京元電獲11億美元預付款、欣興和矽品也入列",
       "snippet_zh": ""
     },
@@ -575,8 +583,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃仁勳稱產能吃緊，輝達宣布大規模擴產，矽品 CPO 產能拚增 30 倍，欣興、京元電入列。",
+      "importance": 3,
       "title_zh": "黃仁勳喊產能吃緊！輝達宣佈大規模擴產，點名矽品CPO產能拚30倍、欣興與京元電也入列",
       "snippet_zh": ""
     },
@@ -595,9 +603,9 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "輝達與 Amkor 規劃將先進封裝產能提升逾 300%；封裝產能大增將拉動 PVD 機台與靶材需求。",
+      "importance": 4,
+      "title_zh": "輝達與 Amkor 計畫將先進封裝產能提升逾 300%",
       "snippet_zh": ""
     },
     {
@@ -615,8 +623,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達表示 Amkor 計畫在 2028 年底前將先進封裝產能提高逾 300%。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -635,8 +643,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電矽電容嚴重缺貨，擬取得月產能 2–4 萬片的小廠擴產。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -652,11 +660,12 @@
         "力積電 (PSMC)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電法說：明年代工價格拚漲 1–2 成，新廠評估台灣、新加坡、日本。",
+      "importance": 3,
       "title_zh": "力積電法說會／明年代工價拚漲一至兩成 新廠評估臺灣、新加坡、日本",
       "snippet_zh": ""
     },
@@ -675,8 +684,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電啟動新廠規劃，鎖定 3D AI Foundry 業務。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -695,8 +704,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "力積電無塵室空間已滿，評估在台灣、新加坡、日本興建月產能 2–4 萬片新廠。",
+      "importance": 3,
       "title_zh": "評估臺星日蓋2萬至4萬片新廠力積電無塵室空間告罄- 上市櫃",
       "snippet_zh": ""
     },
@@ -712,11 +721,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "併購與合作"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀統籌主辦光洋科及創鉅材料百億元聯貸案完成簽約。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -732,12 +742,13 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析文章探討格羅方德公布紐約晶圓廠擴建計畫後股價是否便宜；屬評價觀點。",
+      "importance": 1,
+      "title_zh": "格羅方德公布紐約晶圓廠擴建計畫後，股價便宜嗎？",
       "snippet_zh": ""
     },
     {
@@ -755,8 +766,8 @@
         "擴產與投資"
       ],
       "score": 4.34,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區提及半導體廠搶攻 AI，力積電與亞昕擴產；屬投資人討論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -775,8 +786,8 @@
         "擴產與投資"
       ],
       "score": 4.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "券商報告指華虹半導體快閃記憶體與 PMIC 受惠 AI 支出，華力整合與 12 吋擴產支撐成長，給予買進評等；中國晶圓擴產帶動在地靶材需求。",
+      "importance": 3,
       "title_zh": "華虹半導體(1347.HK)：閃存與PMIC受益於AI支出；華力整合與12英寸擴產支撐增長；買入",
       "snippet_zh": ""
     },
@@ -792,11 +803,12 @@
         "長鑫存儲 (CXMT)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導長鑫存儲銷售額激增 8 倍，探討記憶體三巨頭 2028 年是否面臨擴產壓力；記憶體擴產競賽有利靶材需求。",
+      "importance": 3,
       "title_zh": "中國長鑫存儲銷售額激增8倍：存儲三巨頭2028年會否收到\"擴產賬單\"？",
       "snippet_zh": ""
     },
@@ -815,9 +827,9 @@
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 將於 11 月 4 日公布 2026 年第三季財報。",
+      "importance": 2,
+      "title_zh": "Materion 將於 11 月 4 日公布 2026 年第三季財報",
       "snippet_zh": ""
     },
     {
@@ -832,11 +844,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾美國廠擴建傳出進展，反映其對 AI 晶片需求的信心；美國晶圓產能擴張有利濺鍍設備與靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -852,11 +865,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾推進亞利桑那州與俄亥俄州晶圓廠計畫，晶片需求前景改善。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -872,11 +886,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾導入 AI 打造「自主晶圓廠」；屬製造技術動態，對靶材影響間接。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -892,11 +907,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰銀統籌主辦光洋科及創鉅百億元聯貸案，標榜助攻 AI 半導體與資料儲存供應鏈。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -915,9 +931,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "技術分析認為金價盤整後將出現方向性突破；屬貴金屬行情評論。",
+      "importance": 1,
+      "title_zh": "黃金（XAU/USD）價格預測：盤整醞釀決定性突破",
       "snippet_zh": ""
     },
     {
@@ -935,9 +951,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "白銀反彈失敗，57 美元關卡恐被下探；銀價波動關係銀靶材原料成本。",
+      "importance": 2,
+      "title_zh": "白銀價格預測：反彈失敗，57 美元關卡岌岌可危",
       "snippet_zh": ""
     },
     {
@@ -955,8 +971,8 @@
         "營收與財報"
       ],
       "score": 3.16,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子擬赴港上市加速國際化，外銷業務毛利率 33.21%；靶材龍頭海外布局與獲利能力受關注。",
+      "importance": 4,
       "title_zh": "江豐電子擬赴港上市加快國際化 雙輪驅動外銷業務毛利率33.21%",
       "snippet_zh": ""
     },
@@ -972,12 +988,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 股價上漲 4.4%，文章解讀其 GF Score 81 分；屬評價觀點。",
+      "importance": 1,
+      "title_zh": "Materion（MTRN）股價上漲 4.4%：GF Score 81 分代表什麼",
       "snippet_zh": ""
     },
     {
@@ -992,12 +1009,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "濺鍍設備商 Singulus 取得 2,275 萬歐元貸款以償還對 Triumph 的負債，中國股東退出；設備商股權結構與財務調整。",
+      "importance": 3,
+      "title_zh": "Singulus 取得 2,275 萬歐元貸款償還 Triumph，中國股東退出",
       "snippet_zh": ""
     },
     {
@@ -1012,12 +1030,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得約 2,275 萬歐元的次順位擔保貸款。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies 取得約 2,275 萬歐元次順位擔保貸款",
       "snippet_zh": ""
     },
     {
@@ -1032,12 +1051,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 宣布董事會（Vorstand）人事交接；屬公司治理公告。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies（SNG）宣布執行董事會交接",
       "snippet_zh": ""
     },
     {
@@ -1052,12 +1072,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 宣布執行董事會異動；屬公司治理公告。",
+      "importance": 1,
+      "title_zh": "SINGULUS TECHNOLOGIES 宣布執行董事會異動",
       "snippet_zh": ""
     },
     {
@@ -1072,12 +1093,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 執行董事 Markus Ehret 將於年底卸任。",
+      "importance": 1,
+      "title_zh": "SINGULUS TECHNOLOGIES 執行董事 Markus Ehret 將於年底卸任",
       "snippet_zh": ""
     },
     {
@@ -1092,12 +1114,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得 2,275 萬歐元貸款償還 Triumph，相關持股已出售。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies 取得 2,275 萬歐元貸款、償還 Triumph，持股已出售",
       "snippet_zh": ""
     },
     {
@@ -1112,12 +1135,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 借款償還對 Triumph 的負債，並完成將股份出售給德國投資人（德文公告）。",
+      "importance": 2,
+      "title_zh": "SINGULUS 借款償還對 Triumph 負債，完成股份出售予德國投資人",
       "snippet_zh": ""
     },
     {
@@ -1132,12 +1156,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 執行董事 Markus Ehret 將於年底離開董事會。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies：Markus Ehret 將於年底離開執行董事會",
       "snippet_zh": ""
     },
     {
@@ -1152,12 +1177,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 臨時公告執行董事會異動。",
+      "importance": 1,
+      "title_zh": "PTA 臨時公告：SINGULUS TECHNOLOGIES 宣布執行董事會異動",
       "snippet_zh": ""
     },
     {
@@ -1172,12 +1198,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 規劃執行董事會交接。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies（SNG）規劃執行董事會交接",
       "snippet_zh": ""
     },
     {
@@ -1192,12 +1219,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 執行董事會異動。",
+      "importance": 1,
+      "title_zh": "SINGULUS TECHNOLOGIES（SNG）執行董事會異動",
       "snippet_zh": ""
     },
     {
@@ -1212,12 +1240,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 臨時公告執行董事會異動（德文）。",
+      "importance": 1,
+      "title_zh": "PTA 臨時公告：SINGULUS TECHNOLOGIES 宣布執行董事會異動",
       "snippet_zh": ""
     },
     {
@@ -1232,12 +1261,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 宣布執行董事會異動（德文）。",
+      "importance": 1,
+      "title_zh": "SINGULUS TECHNOLOGIES 宣布執行董事會異動",
       "snippet_zh": ""
     },
     {
@@ -1252,12 +1282,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 臨時公告：借款償還對 Triumph 的負債，並完成 Triumph 持股出售給德國投資人。",
+      "importance": 2,
+      "title_zh": "PTA 臨時公告：SINGULUS 借款償還對 Triumph 負債，Triumph 持股出售予德國投資人完成",
       "snippet_zh": ""
     },
     {
@@ -1272,12 +1303,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 借款償還對 Triumph 的負債，Triumph 持股出售給德國投資人完成。",
+      "importance": 2,
+      "title_zh": "SINGULUS 借款償還對 Triumph 負債，Triumph 持股出售予德國投資人完成",
       "snippet_zh": ""
     },
     {
@@ -1292,12 +1324,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得 2,275 萬歐元貸款償還 Triumph，Triumph 出清 16.75% 持股。",
+      "importance": 2,
+      "title_zh": "SINGULUS TECHNOLOGIES 取得 2,275 萬歐元貸款償還 Triumph，Triumph 出清 16.75% 持股",
       "snippet_zh": ""
     },
     {
@@ -1312,12 +1345,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得 2,275 萬歐元貸款、償還 Triumph，相關持股已出售。",
+      "importance": 2,
+      "title_zh": "SINGULUS TECHNOLOGIES 取得 2,275 萬歐元貸款、償還 Triumph，持股已出售",
       "snippet_zh": ""
     },
     {
@@ -1332,12 +1366,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "TradingView 頁面列出 Materion 泰國存託憑證的長期負債對總資產比率；屬財務資料頁。",
+      "importance": 1,
+      "title_zh": "Materion 泰國存託憑證長期負債對總資產比率",
       "snippet_zh": ""
     },
     {
@@ -1352,11 +1387,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光先進封裝成長獲外資青睞，陸系與歐系券商目標價最高喊到 865 元。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1372,11 +1408,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "廣發證券看好日月光投控先進封裝與測試業務加速成長，給予 843 元目標價。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1392,12 +1429,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日經平均指數午盤上漲 833 點，藤倉、JX金屬等上漲；屬股價快訊。",
+      "importance": 1,
+      "title_zh": "日經平均午盤漲 833 點開出，藤倉、JX金屬等上漲（2026/10/21 13:33 FISCO）",
       "snippet_zh": ""
     },
     {
@@ -1412,11 +1450,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導質疑江豐電子在 A 股已募資 43 億元仍再籌資，前次募投項目多次變更延期；赴港上市與資金運用受關注。",
+      "importance": 3,
       "title_zh": "江豐電子A股“抽血”43億仍不解渴？前次募投項目屢屢變更延期 姚力軍“三連環”資本局浮現",
       "snippet_zh": ""
     },
@@ -1432,12 +1471,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "秋葉原活動報導提及 JX金屬與動畫《少女與戰車 最終章》合作貨櫃展示；屬品牌宣傳，與靶材業務無關。",
+      "importance": 1,
+      "title_zh": "「JX金屬 × 少女與戰車 最終章」合作貨櫃展示等——近期秋葉原活動與快閃店",
       "snippet_zh": ""
     },
     {
@@ -1452,12 +1492,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元回落，金價嘗試反彈，並提供白銀、鉑金預測；屬貴金屬行情評論。",
+      "importance": 1,
+      "title_zh": "黃金、白銀、鉑金預測：美元回落，金價嘗試反彈",
       "snippet_zh": ""
     },
     {
@@ -1472,12 +1513,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美債殖利率趨穩帶動金價上漲，那斯達克大漲；屬貴金屬行情。",
+      "importance": 1,
+      "title_zh": "美債殖利率趨穩金價上漲，那斯達克無懼聯準會緊縮疑慮大漲－Kitco 午盤報告",
       "snippet_zh": ""
     },
     {
@@ -1492,11 +1534,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "貝萊德策略師認為金、銀牛市尚未結束；屬貴金屬市場觀點。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1512,11 +1555,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "中國科學院研究人員研製 4 吋原子級磁控濺鍍外延設備；屬濺鍍設備技術進展，可能帶動對應靶材規格需求。",
+      "importance": 3,
       "title_zh": "研究人員研製4 英寸原子級磁控濺射外延設備",
       "snippet_zh": ""
     },
@@ -1532,12 +1576,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "QYResearch 估計 2026 年全球 PVD 鍍膜設備市場規模達 9,385 百萬美元；PVD 設備市場成長直接連動靶材需求。",
+      "importance": 3,
+      "title_zh": "PVD 鍍膜設備全球市場規模：2026 年預估達 9,385 百萬美元｜QYResearch",
       "snippet_zh": ""
     },
     {
@@ -1552,11 +1597,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "CIBC 大幅下修金價預測並公布最新目標價；影響金靶材原料成本預期。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1572,11 +1618,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價在 4,100 美元附近震盪，機構雖下調預期但仍長期看多。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1592,11 +1639,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "投行下修金價預測，但央行與實體需求仍是長線支撐。",
+      "importance": 1,
       "title_zh": "投行下脩金價預測央行與實體需求仍是長線支柱- 新聞",
       "snippet_zh": ""
     },
@@ -1612,12 +1660,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.2,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "UBS 給予 JX金屬「中立」評等，目標價 3,700 日圓。",
+      "importance": 2,
+      "title_zh": "UBS 給予 JX金屬「中立」評等，目標價 3,700 日圓",
       "snippet_zh": ""
     },
     {
@@ -1632,11 +1681,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 14 日主力資金淨賣出約 5.81 億元；屬短線資金動向。",
+      "importance": 1,
       "title_zh": "有研新材（600206）10月14日主力資金淨賣出5.81億元",
       "snippet_zh": ""
     }
