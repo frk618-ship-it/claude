@@ -87,6 +87,12 @@ class Config:
     entities: list[Entity]
     research: ResearchSettings | None = None
     metals: list = field(default_factory=list)  # list[metals.MetalSpec]
+    forecasts: list[dict] = field(default_factory=list)  # market forecasts (forecasts.yaml) for the site and the digest
+
+    @property
+    def market_context(self) -> str:
+        """Industry background for the digest prompt, from the forecasts' `context` lines."""
+        return "\n".join(f"- {f['context'].strip()}" for f in self.forecasts if f.get("context"))
 
 
 def load_config(path: str | Path) -> Config:
@@ -157,4 +163,9 @@ def load_config(path: str | Path) -> Config:
                   yahoo=str(x.get("yahoo", "") or ""), unit=str(x.get("unit", "USD/oz")))
         for x in (m.get("symbols") or [])
     ] if m.get("enabled", True) else []
-    return Config(settings=settings, entities=entities, research=research, metals=metals)
+    # Market forecasts: settings.forecasts_file (relative to this config), default forecasts.yaml next to it.
+    forecasts_path = Path(path).parent / str(s.get("forecasts_file", "forecasts.yaml"))
+    forecasts = []
+    if forecasts_path.exists():
+        forecasts = (yaml.safe_load(forecasts_path.read_text(encoding="utf-8")) or {}).get("forecasts") or []
+    return Config(settings=settings, entities=entities, research=research, metals=metals, forecasts=forecasts)

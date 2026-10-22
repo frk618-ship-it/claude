@@ -22,7 +22,7 @@ from .metals import fetch_quotes
 from .sources import collect, http_fetch, iter_feed_urls
 from .store import SeenStore
 from .fallback import finalize_digest
-from .summarizer import PAPER_PROMPT, SYSTEM_PROMPT, Digest, Summarizer, llm_available
+from .summarizer import PAPER_PROMPT, Digest, Summarizer, llm_available, news_system_prompt
 from .translate import TRANSLATE_PROMPT, llm_translator, needs_translation, translate_records
 
 log = logging.getLogger("target_news_agent")
@@ -172,7 +172,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if items and not args.no_llm and not args.papers_only:
         if llm_available():
-            digest = _keep(Summarizer(list(config.settings.categories), model=args.model).digest(items), digest)
+            digest = _keep(Summarizer(list(config.settings.categories), model=args.model, background=config.market_context).digest(items), digest)
         else:
             log.warning("ANTHROPIC_API_KEY not set; generating report without LLM summaries")
     if not args.papers_only:
@@ -188,7 +188,7 @@ def main(argv: list[str] | None = None) -> int:
         if not args.include_seen:
             papers = store.filter_new(papers)
         if papers and not args.no_llm and llm_available():
-            Summarizer(list(config.settings.categories), model=args.model).digest_papers(papers, list(rs.topics))
+            Summarizer(list(config.settings.categories), model=args.model, background=config.market_context).digest_papers(papers, list(rs.topics))
         known = {p.id for p in papers}
         papers = papers + [p for p in existing_papers if p.id not in known]
 
@@ -196,7 +196,7 @@ def main(argv: list[str] | None = None) -> int:
         # Simplified Chinese -> Traditional offline; English / Japanese / Korean via Claude when available.
         llm = None
         if not args.no_llm and llm_available():
-            llm = llm_translator(Summarizer(list(config.settings.categories), model=args.model))
+            llm = llm_translator(Summarizer(list(config.settings.categories), model=args.model, background=config.market_context))
         translate_records(items, papers, llm)
 
     md_path, json_path = write_reports(items, config, digest, args.out, generated, papers, metals)
@@ -246,7 +246,7 @@ def _pending(args, config) -> int:
         "need_overview": args.force or not (digest.overview and digest.source != "auto"),
         "categories": list(config.settings.categories),
         "topics": list(config.research.topics) if config.research else [],
-        "instructions": {"news": SYSTEM_PROMPT.format(categories="、".join(config.settings.categories)),
+        "instructions": {"news": news_system_prompt(list(config.settings.categories), config.market_context),
                          "papers": PAPER_PROMPT.format(topics="、".join(config.research.topics if config.research else [])),
                          "translation": TRANSLATE_PROMPT},
         "news": news,
@@ -308,7 +308,7 @@ def _resummarize(args, config, p: argparse.ArgumentParser) -> int:
     if not llm_available():
         p.error("resummarize 需要 ANTHROPIC_API_KEY")
     paths = [Path(r) for r in args.reports] or sorted(Path(args.reports_dir).glob("????-??-??.json"))
-    summarizer = Summarizer(list(config.settings.categories), model=args.model)
+    summarizer = Summarizer(list(config.settings.categories), model=args.model, background=config.market_context)
     topics = list(config.research.topics) if config.research else []
     done = 0
     for path in paths:

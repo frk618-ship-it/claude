@@ -117,6 +117,8 @@ header{display:grid;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--l
 .stat{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
 .stat .sic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;background:var(--accent-soft);color:var(--accent)}
 .stat .sic .ic{width:22px;height:22px}.stat b{display:block;font-family:var(--font-data);font-size:1.45rem;font-weight:500;line-height:1.15}.stat span{font-size:.8rem;color:var(--muted)}
+.fc-stats .stat>div:last-child{min-width:0}.fc-stats .stat b{font-size:1.15rem;white-space:normal;word-break:keep-all}.fc-stats .stat span{display:block}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px;margin-top:14px}.card.fc h3{display:flex;align-items:center;gap:8px;margin:0;font-size:1rem}.card.fc h3 .ic{width:20px;height:20px;color:var(--accent)}.card.fc li{line-height:1.6}
 .lead{font-size:1.04rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:4px}
 .filters{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
 .frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:4px;min-width:3.2em;display:inline-flex;gap:4px;align-items:center}
@@ -442,6 +444,46 @@ def _stat(icon_name: str, value: str, label: str) -> str:
     return f'<div class="stat"><div class="sic">{icon(icon_name)}</div><div><b>{value}</b><span>{label}</span></div></div>'
 
 
+FORECAST_ICONS = {"市場概況": "market", "用途與材料": "layers", "技術路線": "chip", "價格": "tag", "主要廠商": "building"}
+
+
+def _figure(x: dict) -> str:
+    note = f'<span>{esc(x["note"])}</span>' if x.get("note") else ""
+    return (f'<div class="stat"><div class="sic">{icon("bars")}</div><div><b>{esc(x.get("value", ""))}</b>'
+            f'<span>{esc(x.get("label", ""))}</span>{note}</div></div>')
+
+
+def render_forecasts(config: Config, generated: str) -> str:
+    """商情預測: summaries of market-forecast reports (config/forecasts.yaml), with attribution."""
+    sections = []
+    for n, f in enumerate(config.forecasts):
+        figures = "".join(_figure(x) for x in f.get("figures") or [])
+        groups = "".join(
+            f'<article class="card fc"><h3>{icon(FORECAST_ICONS.get(g.get("title", ""), "info"))}{esc(g.get("title", ""))}</h3>'
+            f'<ul class="plain">{"".join(f"<li>{esc(i)}</li>" for i in g.get("items") or [])}</ul></article>'
+            for g in f.get("points") or []
+        )
+        url = f.get("url", "") if str(f.get("url", "")).startswith(("https://", "http://")) else ""
+        source = f'<a href="{esc(url)}" rel="noopener" target="_blank">{esc(f.get("source", ""))}</a>' if url else esc(f.get("source", ""))
+        sections.append(
+            f'<section aria-labelledby="fc{n}">{_h2(f"fc{n}", "research", esc(f.get("section") or f.get("report", "")))}'
+            f'<p class="sub">{icon("book")}{source}《{esc(f.get("report", ""))}》· 發刊 <span class="mono">{esc(f.get("published", ""))}</span></p>'
+            f'<p class="sub">範圍:{esc(f.get("scope", ""))}</p>'
+            f'<div class="stats fc-stats">{figures}</div><div class="fc-grid">{groups}</div></section>'
+        )
+    body = "".join(sections) or "<p>尚未加入商情預測資料(config/forecasts.yaml)。</p>"
+    return (
+        _head("靶材商情預測", "濺鍍靶材市場規模預測、用途與材料趨勢、技術路線與主要廠商動向的重點摘要。",
+              config.settings.site_url, "forecast.html")
+        + f"""<div class="wrap">
+<header>{_brand("Sputtering Target · Market Outlook", "靶材商情預測")}
+<nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><a class="btn" href="papers.html">{icon("book")}技術文獻庫</a><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></nav></header>
+{body}
+<footer>本頁為市場調查報告的重點摘要,經改寫整理並註明出處;完整數據請參閱原報告。預測不構成投資建議。</footer>
+</div></body></html>"""
+    )
+
+
 def render_library(library: list[dict], config: Config, generated: str) -> str:
     topics = Counter(t for p in library for t in (p.get("topics") or [GENERAL_TOPIC]))
     sources = Counter(p.get("source", "") for p in library)
@@ -595,7 +637,7 @@ def render_page(
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
-<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a><a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
+<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{f'<a class="btn" href="{home}forecast.html">{icon("research")}商情預測{icon("arrow-right")}</a>' if config.forecasts else ""}<a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
@@ -662,6 +704,9 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
     (out / "papers.html").write_text(render_library(library, config, generated), encoding="utf-8")
     written.append(out / "papers.html")
+    if config.forecasts:
+        (out / "forecast.html").write_text(render_forecasts(config, generated), encoding="utf-8")
+        written.append(out / "forecast.html")
     for date, report in reports:
         page = render_page(report, config, archive, date, library=library)
         (out / f"{date}.html").write_text(page, encoding="utf-8")

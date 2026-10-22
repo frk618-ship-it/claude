@@ -813,7 +813,7 @@ def test_resummarize_fills_missing_summaries(tmp_path, monkeypatch, config):
     write_reports(items, config, Digest(), tmp_path, NOW, papers)
 
     class FakeSummarizer:
-        def __init__(self, categories, model=None):
+        def __init__(self, categories, model=None, background=""):
             pass
 
         def digest(self, its):
@@ -1189,3 +1189,24 @@ def test_homepage_merges_last_three_days(config):
     assert [p["id"] for p in m["papers"]] == ["p2", "p1"]
     assert m["digest"]["overview"] == "新" and m["metals"] == [{"code": "Au"}]  # latest quotes available
     assert m["span"] == ["2026-10-19", "2026-10-18", "2026-10-17"]
+
+
+def test_forecast_page_and_digest_background(tmp_path, config):
+    from target_news_agent.site import build_site
+    from target_news_agent.summarizer import news_system_prompt
+
+    assert config.forecasts and "CAGR" in config.market_context
+    assert "產業背景" in news_system_prompt(["擴產與投資"], config.market_context)
+    assert "產業背景" not in news_system_prompt(["擴產與投資"])
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    (reports / "2026-10-13.json").write_text(json.dumps({"generated": "2026-10-13T08:30:00+08:00", "items": []}), encoding="utf-8")
+    config.forecasts = [{"source": "<b>Inst</b>", "report": "R", "url": "javascript:alert(1)", "context": "x",
+                         "figures": [{"label": "2025", "value": "約 2,198 億", "note": "n"}],
+                         "points": [{"title": "市場概況", "items": ["<script>bad</script>"]}]}]
+    build_site(reports, tmp_path / "out", config)
+    page = (tmp_path / "out" / "forecast.html").read_text(encoding="utf-8")
+    assert "約 2,198 億" in page and "&lt;script&gt;bad" in page and "<script>bad" not in page
+    assert "javascript:" not in page and "&lt;b&gt;Inst" in page
+    assert 'href="forecast.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")

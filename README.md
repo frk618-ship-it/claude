@@ -66,6 +66,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **範圍**:預設最近 30 天,已報告過的論文不會重複出現。設定 `ANTHROPIC_API_KEY` 後,Claude 會為每篇寫中文摘要並評 1–5 分(對靶材製造的參考價值)。
 - 搜尋字、期刊 RSS、分類關鍵字都在 `config/watchlist.yaml` 的 `research:` 區段。
 - **網站**:新聞首頁有「技術文獻」區塊(本期新收錄;沒有新文獻時顯示最近收錄的 10 篇),另有累積全部文獻的「技術文獻庫」頁(`/news/papers.html`),可依製程主題與來源篩選。
+- **商情預測**(`/news/forecast.html`):市場調查報告的重點摘要,來源在 `config/forecasts.yaml`(關鍵數字、重點摘要、出處)。每份報告的 `context` 也會作為每日 AI 摘要的產業背景。付費報告只放改寫後的重點與少量關鍵數字並註明出處,完整數據表與原始檔不要放進 repo(repo 與網站都是公開的)。
 - 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數、`--papers-only` 只蒐集文獻並併入今天既有的報告(不重抓新聞;Actions 手動執行時勾選 papers_only)。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
 - 同一天再執行一次時,新抓到的新聞會併入當天既有的報告,不會覆蓋早上的內容。
 - 補摘要:設定 `ANTHROPIC_API_KEY` 之前產生的報告沒有 AI 摘要,可執行 `python -m target_news_agent resummarize` 補上(只處理還缺摘要的報告;`--force` 全部重做)。Actions 手動執行時勾選 resummarize 即可。

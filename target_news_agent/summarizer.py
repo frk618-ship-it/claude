@@ -41,6 +41,14 @@ PAPER_PROMPT = """你是濺鍍靶材(sputtering target)製造技術的研究顧�
 """
 
 
+def news_system_prompt(categories: list[str], background: str = "") -> str:
+    """The news digest prompt, plus market-forecast background when the config has some."""
+    prompt = SYSTEM_PROMPT.format(categories="、".join(categories))
+    if background:
+        prompt += "\n產業背景(商情預測報告重點,評估新聞重要度與撰寫總覽時可參考,但摘要只根據新聞本身):\n" + background + "\n"
+    return prompt
+
+
 class ItemDigest(BaseModel):
     id: str
     summary: str
@@ -95,13 +103,14 @@ def _news_block(items: list[NewsItem]) -> str:
 
 
 class Summarizer:
-    def __init__(self, categories: list[str], model: str | None = None, client=None):
+    def __init__(self, categories: list[str], model: str | None = None, client=None, background: str = ""):
         import anthropic
 
         self.anthropic = anthropic
         self.client = client or anthropic.Anthropic()
         self.model = model or os.environ.get("TARGET_NEWS_MODEL", DEFAULT_MODEL)
         self.categories = categories
+        self.background = background
 
     def _parse(self, system: str, user: str, schema, effort: str = "medium"):
         response = self.client.beta.messages.parse(
@@ -124,7 +133,7 @@ class Summarizer:
         return response.parsed_output
 
     def digest(self, items: list[NewsItem]) -> Digest:
-        system = SYSTEM_PROMPT.format(categories="、".join(self.categories))
+        system = news_system_prompt(self.categories, self.background)
         by_id = {i.id: i for i in items}
         for start in range(0, len(items), CHUNK_SIZE):
             chunk = items[start : start + CHUNK_SIZE]
