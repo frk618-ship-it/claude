@@ -2,19 +2,22 @@
   "generated": "2026-10-23T08:08:38.428741+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 41 則,其中新聞與公司公告 30 則;報導最多的是 JX金屬(8 則)、矽品(4 則)、英特爾(3 則)、Singulus Technologies(3 則)。依主題:擴產與投資 15 則、產業動態 10 則、客戶與供應鏈 2 則、營收與財報 2 則、技術與新產品 1 則。",
+    "overview": "本期延續輝達主導的封測擴產潮：輝達以約 357 億元預付款綁定欣興、京元電、日月光投控與矽品產能，CPO 產能大幅擴增，長電科技前三季也受惠先進封裝穩健成長，將持續推升 PVD 機台與靶材需求。晶圓端，英特爾 Fab 62 設備進場但俄亥俄廠量產延至 2030 年，格羅方德獲 210 億美元支持建廠，中芯國際擴產獲券商看好；記憶體方面 SK海力士加碼中國 NAND、韓廠擴產與長江存儲競爭，但台股記憶體股因長鑫擴產疑慮大跌。台積電 F22 廠工安事故後全台新建廠鋼構停工，需觀察建廠延宕。JX金屬宣布投資 100 億日圓、2029 年度前鈦銅增產五成，但股價反應有限。貴金屬全面重挫，白銀期貨跌至今年低點。",
     "key_trends": [
-      "擴產與投資(15 則):華邦電233➝156元、南亞科569➝424元，旺宏最慘跌破年線！長鑫存儲DRAM擴產會重演太陽能慘劇？記憶體股該買該賣？一文解析析",
-      "產業動態(10 則):JX金屬がチタン銅生産増強。熱処理設備導入・29年度に5割増へ、室蘭銅合金も能力2倍に（鉄鋼新聞）",
-      "客戶與供應鏈(2 則):Foundryecosystem Report: AI CapEx, AI fabs, TSMC, Intel",
-      "營收與財報(2 則):全面佈局先進封裝業務 長電科技2026年前三季度營收和盈利能力穩健增長"
+      "封測擴產持續加溫：輝達預付款綁定台灣封測產能、CPO 產能大增，長電科技先進封裝成長，凸塊與 RDL 用 PVD 靶材需求擴大。",
+      "美國晶圓產能進度分歧：英特爾 Fab 62 設備進場、俄亥俄廠延至 2030 年，格羅方德獲美日資金建廠，美國靶材需求時點不一。",
+      "記憶體擴產競賽：SK海力士加碼中國 NAND、韓廠擴產對抗長江存儲，長鑫 DRAM 擴產引發供過於求疑慮。",
+      "台灣建廠風險：台積電新廠工安事故導致鋼構停工，可能延後先進製程產能與材料導入。",
+      "金屬原料價格下跌：金、銀、鉑、鈀同步走弱，白銀創年內新低，有利貴金屬靶材原料成本。"
     ],
     "watch_points": [
-      "華邦電233➝156元、南亞科569➝424元，旺宏最慘跌破年線！長鑫存儲DRAM擴產會重演太陽能慘劇？記憶體股該買該賣？一文解析析(今周刊)",
-      "【券商聚焦】財通證券首予中芯國際增持評級 指擴產疊加高稼動率推動業績修復-證券之星(证券之星)",
-      "英特爾美國擴產新進展 Fab 62設備進場、俄亥俄廠仍落後5年(DIGITIMES)"
+      "台積電全台新建廠鋼構停工的復工時程，對 2 奈米等新產能與靶材出貨的影響。",
+      "輝達預付款帶動的封測新產能（矽品 CPO、日月光、京元電美國廠）投產時點與 PVD 設備採購。",
+      "記憶體擴產（長鑫、SK海力士、三星）與價格走勢，對鎢、鈦、鉭等靶材需求的影響。",
+      "JX金屬鈦銅增產與其靶材事業在 11 月財報中的表現。",
+      "白銀創年內新低後的價格走勢，對銀與貴金屬靶材報價的影響。"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -31,11 +34,12 @@
         "長鑫存儲 (CXMT)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 6.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電、南亞科股價大幅回落，旺宏跌破年線，文章探討長鑫存儲 DRAM 擴產是否重演太陽能產業殺價；記憶體供給擴張可能改變記憶體廠的材料採購節奏。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -56,8 +60,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "財通證券首次給予中芯國際「增持」評等，指擴產與高稼動率推動業績修復；中國晶圓擴產有利在地靶材需求。",
+      "importance": 3,
       "title_zh": "【券商聚焦】財通證券首予中芯國際增持評級 指擴產疊加高稼動率推動業績修復-證券之星",
       "snippet_zh": ""
     },
@@ -77,8 +81,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾美國擴產有新進展，Fab 62 設備進場，但俄亥俄廠進度落後約 5 年；設備進場代表 PVD 機台與靶材需求逐步啟動。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -98,8 +102,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.35,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達 AI 供應鏈大擴產，京元電赴美設廠、矽品 CPO 產能增至 15 倍；封裝擴產帶動 PVD 製程需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -119,8 +123,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 F22 廠工安事故造成 4 人死亡，全台新建廠鋼構作業停工；可能延後新廠建置與後續設備、材料導入時程。",
+      "importance": 4,
       "title_zh": "更新／臺積電F22廠工安事故釀4人身亡 臺積電嚴正看待、全臺新建廠鋼構作業停工",
       "snippet_zh": ""
     },
@@ -136,12 +140,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
-        "擴產與投資",
-        "技術與新產品"
+        "技術與新產品",
+        "擴產與投資"
       ],
       "score": 5.09,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達支持京元電美國新廠明年 4 月量產，並攜手矽品發展 CPO 光學引擎。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -157,12 +161,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.07,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區轉述 SK海力士加碼中國 NAND 布局、美國新廠計畫成談判籌碼；屬投資人討論。",
+      "importance": 1,
       "title_zh": "4923 力士 - SK海力士加碼中國NAND佈局美國新廠計畫成談判籌碼？ - 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -178,12 +183,13 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 4.66,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾俄亥俄州晶圓廠完成上樑，但量產要等到 2030 年；美國新產能帶動靶材需求的時點偏後。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -203,9 +209,9 @@
         "客戶與供應鏈"
       ],
       "score": 4.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "晶圓代工生態報告，聚焦 AI 資本支出、AI 晶圓廠、台積電與英特爾動向。",
+      "importance": 2,
+      "title_zh": "晶圓代工生態報告：AI 資本支出、AI 晶圓廠、台積電、英特爾",
       "snippet_zh": ""
     },
     {
@@ -220,12 +226,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬股價下跌 4%，市場對「AI 伺服器用增產」消息反應有限。",
+      "importance": 2,
+      "title_zh": "JX金屬股價跌 4%，「AI 伺服器用增產」題材效果有限（22 日股市）",
       "snippet_zh": ""
     },
     {
@@ -243,8 +250,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達宣布全球擴產：京元電獲 11 億美元、欣興新竹廠增產、矽品 CPO 產能衝 15 倍。",
+      "importance": 3,
       "title_zh": "輝達宣佈全球擴產！京元電獲 11 億美元、欣興新竹廠增產、矽品 CPO 產能衝 15 倍",
       "snippet_zh": ""
     },
@@ -263,9 +270,9 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬投資 100 億日圓擴增鈦銅產能，含神奈川等工廠；JX金屬持續擴大 AI 相關金屬材料供給。",
+      "importance": 3,
+      "title_zh": "JX金屬投資 100 億日圓增產鈦銅，含神奈川工廠等",
       "snippet_zh": ""
     },
     {
@@ -283,8 +290,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "韓國記憶體雙雄為與長江存儲搶市場而緊急擴產；記憶體擴產有利鎢、鈦等靶材需求。",
+      "importance": 3,
       "title_zh": "與長江存儲搶市場！韓國存儲雙雄緊急擴產！",
       "snippet_zh": ""
     },
@@ -303,8 +310,8 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬攜手日本製鋼所擴產，AI 伺服器用鈦銅產能增加五成。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -323,8 +330,8 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達預付 357 億元綁定產能，點名欣興、京元電、日月光投控擴產，CPO 產能大增；封測擴產拉動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -343,8 +350,8 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃仁勳投入重金與欣興、矽品、京元電全方位擴產。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -360,12 +367,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬股價回落，市場對 AI 伺服器用增產報導的反應有限。",
+      "importance": 2,
+      "title_zh": "JX金屬股價回落，「AI 伺服器用增產」報導題材效果有限",
       "snippet_zh": ""
     },
     {
@@ -383,8 +391,8 @@
         "擴產與投資"
       ],
       "score": 4.11,
-      "summary": "",
-      "importance": 0,
+      "summary": "日本承諾以 210 億美元協助格羅方德建廠；美國晶圓產能擴張長期有利靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -403,8 +411,8 @@
         "營收與財報"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技全面布局先進封裝，2026 年前三季營收與獲利穩健成長；中國封測擴張有利在地 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "全面佈局先進封裝業務 長電科技2026年前三季度營收和盈利能力穩健增長",
       "snippet_zh": ""
     },
@@ -423,9 +431,9 @@
         "營收與財報"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "長電科技新聞稿：擴大先進封裝產品組合，2026 年前三季營收穩健成長、獲利改善。",
+      "importance": 3,
+      "title_zh": "新聞稿：長電科技擴大先進封裝布局，2026 年前三季營收穩健成長、獲利改善",
       "snippet_zh": ""
     },
     {
@@ -440,11 +448,12 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.58,
-      "summary": "",
-      "importance": 0,
+      "summary": "路透報導 SK海力士重注擴建中國大陸 NAND 產能。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -460,11 +469,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.58,
-      "summary": "",
-      "importance": 0,
+      "summary": "評論認為金、銀長線看好，後市取決於投資信心。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -483,9 +493,9 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "油價推升通膨風險，白銀期貨跌至今年低點；銀價下跌可降低銀靶材原料成本。",
+      "importance": 2,
+      "title_zh": "油價推升通膨風險，白銀期貨跌至今年低點",
       "snippet_zh": ""
     },
     {
@@ -503,9 +513,9 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "倫敦黃金中心推出金價計算工具；屬消費資訊，與靶材無關。",
+      "importance": 1,
+      "title_zh": "London Gold Centre 推出金價計算工具，協助消費者查詢黃金價值",
       "snippet_zh": ""
     },
     {
@@ -523,9 +533,9 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "央行單月買進 79 噸黃金，但金價仍跌至 4,084 美元；屬貴金屬行情。",
+      "importance": 1,
+      "title_zh": "金價預測：央行單月買進 79 噸，金價仍跌至 4,084 美元",
       "snippet_zh": ""
     },
     {
@@ -540,12 +550,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬導入熱處理設備增強鈦銅生產，目標 2029 年度增產五成，室蘭銅合金產能也將倍增。",
+      "importance": 3,
+      "title_zh": "JX金屬增強鈦銅生產：導入熱處理設備、2029 年度增產五成，室蘭銅合金產能倍增（鐵鋼新聞）",
       "snippet_zh": ""
     },
     {
@@ -560,12 +571,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓媒報導 JX金屬投資 100 億日圓，AI 伺服器用鈦銅增產 1.5 倍。",
+      "importance": 2,
+      "title_zh": "JX金屬投入 100 億日圓，AI 伺服器用鈦銅增產 1.5 倍",
       "snippet_zh": ""
     },
     {
@@ -580,11 +592,12 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "美方宣布撥款 210 億美元與格羅方德合建兩座晶圓廠。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -600,11 +613,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 10 月 22 日主力資金淨買入約 1,927 萬元；屬短線資金動向。",
+      "importance": 1,
       "title_zh": "股票行情快報：江豐電子（300666）10月22日主力資金淨買入1927.47萬元",
       "snippet_zh": ""
     },
@@ -620,12 +634,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬鈦銅產品照片（公司提供）；無新資訊。",
+      "importance": 1,
+      "title_zh": "JX金屬的鈦銅（公司提供）",
       "snippet_zh": ""
     },
     {
@@ -640,12 +655,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "濺鍍設備商 Singulus 取得貸款並完成 Triumph 持股出售。",
+      "importance": 2,
+      "title_zh": "SINGULUS TECHNOLOGIES：取得貸款並完成 Triumph 持股出售",
       "snippet_zh": ""
     },
     {
@@ -661,12 +677,13 @@
         "設備綜合:スパッタ装置"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市調報告預估全球半導體用磁控濺鍍設備市場年均成長 7.7%；濺鍍設備成長直接連動靶材需求。",
+      "importance": 3,
+      "title_zh": "「全球半導體用磁控濺鍍設備市場」規模、動向與預測報告發布，預估年均成長 7.7%",
       "snippet_zh": ""
     },
     {
@@ -681,12 +698,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.82,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 執行董事會異動於年底生效。",
+      "importance": 1,
+      "title_zh": "SINGULUS TECHNOLOGIES（SNG）執行董事會異動年底生效",
       "snippet_zh": ""
     },
     {
@@ -701,12 +719,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.82,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 以 2,275 萬歐元貸款償還 Triumph，Triumph 持股已出售。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies（SNG）以 2,275 萬歐元貸款償還 Triumph，Triumph 持股已出售",
       "snippet_zh": ""
     },
     {
@@ -721,11 +740,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 20 日領漲大矽片板塊，主力資金淨流出約 1.97 億元；屬股價資金動向。",
+      "importance": 1,
       "title_zh": "大硅片板塊10月20日漲0.06%，有研新材領漲，主力資金淨流出1.97億元",
       "snippet_zh": ""
     },
@@ -741,11 +761,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.57,
-      "summary": "",
-      "importance": 0,
+      "summary": "中證 1000 ETF 份額增加，重倉股包括有研新材；屬基金持股資訊。",
+      "importance": 1,
       "title_zh": "10月19日中證1000ETF華夏基金份額增加3.75億份，重倉股普冉股份、有研新材、劍橋科技_基金提醒_雷達",
       "snippet_zh": ""
     },
@@ -761,12 +782,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "YouTube 當沖實況提及鎧俠、Advantest、JX金屬等個股；屬個人投資內容，無營運資訊。",
+      "importance": 1,
+      "title_zh": "【帳面虧損 89 萬】日經開低後鎧俠意外收紅，當沖標的為 Advantest、JX金屬",
       "snippet_zh": ""
     },
     {
@@ -781,12 +803,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Auspice Capital 認為金、銀並非最佳抗通膨工具，建議分散投資大宗商品超級循環；屬投資觀點。",
+      "importance": 1,
+      "title_zh": "金銀並非最佳通膨避險工具，投資人應分散至大宗商品超級循環－Auspice Capital",
       "snippet_zh": ""
     },
     {
@@ -801,12 +824,13 @@
         "產業綜合:Sputtering Target"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市調新聞稿談超高純度鋁濺鍍靶材市場成長；鋁靶為半導體導線用量最大的靶材。",
+      "importance": 2,
+      "title_zh": "超高純度鋁濺鍍靶材市場成長",
       "snippet_zh": ""
     },
     {
@@ -821,11 +845,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "研究探討熱調控下 Ag 網絡演變對磁控濺鍍 Ag/TiN 鍍層的微結構、導電性與耐蝕性影響，應用於燃料電池金屬雙極板；屬濺鍍應用研究。",
+      "importance": 2,
       "title_zh": "熱能調控驅動的Ag網絡演變對磁控濺射Ag/TiN塗層微觀結構、電導率與耐蝕性的影響：面向PEMFC金屬雙極板",
       "snippet_zh": ""
     },
@@ -841,12 +866,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市調機構發布 2026–2032 年全球鋁鉻濺鍍靶材市場報告（依純度 99%–99.999% 區分）。",
+      "importance": 2,
+      "title_zh": "鋁鉻濺鍍靶材全球市場（2026–2032 年）：依純度（99%～99.999%）區分的市場規模與分析報告",
       "snippet_zh": ""
     }
   ],
