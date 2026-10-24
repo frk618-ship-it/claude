@@ -67,7 +67,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - 搜尋字、期刊 RSS、分類關鍵字都在 `config/watchlist.yaml` 的 `research:` 區段。
 - **網站**:新聞首頁有「技術文獻」區塊(本期新收錄;沒有新文獻時顯示最近收錄的 10 篇),另有累積全部文獻的「技術文獻庫」頁(`/news/papers.html`),可依製程主題與來源篩選。
 - **商情預測**(`/news/forecast.html`):市場調查報告的重點摘要,來源在 `config/forecasts.yaml`(關鍵數字、重點摘要、出處)。每份報告的 `context` 也會作為每日 AI 摘要的產業背景。付費報告只放改寫後的重點與少量關鍵數字並註明出處,完整數據表與原始檔不要放進 repo(repo 與網站都是公開的)。
-- **知識小遊戲**(`/news/quiz.html`):「濺鍍問答」每回合隨機 10 題(可選材料與製程、市場與廠商、近期新聞),畫面左側是濺鍍腔體動畫,答對一題靶材原子就飛向晶圓、鍍上一層薄膜,答錯留下缺陷,最後顯示你的晶圓膜層剖面與答錯題目;題目配圖為元素週期表方塊、公司 logo(取自財務儀表板)或新聞主題圖示,可用鍵盤 1–4 / A–D 作答。「元素配對」是週期表方塊翻牌配對(元素符號配中文名)。題目來源:固定題庫 `config/quiz.yaml`、`config/target_makers.yaml` 的公司(上市市場、靶材比重)、元素符號,以及最近 3 天的重點新聞(公司名遮蔽成「○○」,每天隨新聞更新)。最佳成績只存在玩家自己的瀏覽器。
+- **靶材產業島**(`/news/quiz.html`,知識小遊戲):一張可探索的六角形島嶼地圖,每座島是一個主題(導線材料、製程工藝、元素、顯示與封裝、回收、市場預測、新聞港、台日中美廠商、配對遊樂島),島上每棟建築是一道題,答對點亮建築、全部點亮就征服該島並插旗。虛線連接有關聯的島(例如導線材料 ↔ 日本廠商:JX金屬 Cu 靶第一),點選島嶼時顯示關聯說明;配對遊樂島是元素符號翻牌遊戲;地圖上每天藏著一隻靶材小精靈。可用 `?island=<id>` 直接開啟某座島。題目來源:固定題庫 `config/quiz.yaml`(`island` 欄位決定所在島嶼)、`config/target_makers.yaml` 的公司、元素符號、最近 3 天的重點新聞(公司名遮蔽成「○○」)。島嶼與關聯線定義在 `target_news_agent/quiz.py` 的 `ISLANDS` / `LINKS`。進度只存在玩家自己的瀏覽器。
 - 選項:`--no-papers` 不蒐集文獻、`--papers-days 60` 改天數、`--papers-only` 只蒐集文獻並併入今天既有的報告(不重抓新聞;Actions 手動執行時勾選 papers_only)。選填 secrets:`OPENALEX_MAILTO`(聯絡 email,使用 OpenAlex 較穩定的服務)、`OPENALEX_API_KEY`。
 - 同一天再執行一次時,新抓到的新聞會併入當天既有的報告,不會覆蓋早上的內容。
 - 補摘要:設定 `ANTHROPIC_API_KEY` 之前產生的報告沒有 AI 摘要,可執行 `python -m target_news_agent resummarize` 補上(只處理還缺摘要的報告;`--force` 全部重做)。Actions 手動執行時勾選 resummarize 即可。

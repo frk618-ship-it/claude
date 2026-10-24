@@ -1,13 +1,19 @@
-"""Question bank for the site's knowledge game (quiz.html).
+"""靶材產業島: the site's knowledge game (quiz.html).
 
-Fixed questions come from config/quiz.yaml; the rest are generated from the site's own
-material, so the game follows the data: listed target makers (market, target share) from
-target_makers.yaml, element symbols, and the latest days' top news ("which company?").
+An explorable map of hexagonal islands, one per theme. Each building on an island is a
+question; answering it lights the building, and an island whose buildings are all lit is
+conquered. Dashed lines link islands that share a concept, one island hosts the element
+matching game, and a mascot hides on a different island every day.
+
+Questions: fixed ones from config/quiz.yaml; the rest are generated from the site's own
+material: listed target makers (market, target share) from target_makers.yaml, element
+symbols, and the latest days' top news ("which company?", name masked).
 """
 
 from __future__ import annotations
 
 import base64
+import hashlib
 import json
 import random
 import re
@@ -40,8 +46,35 @@ FOCUS_NOTE = {
 MAX_NEWS = 15
 
 
-def _q(topic: str, q: str, answer: str, wrong: list[str], explain: str = "", **extra) -> dict:
-    return {"topic": topic, "q": q, "answer": answer, "wrong": wrong[:3], "explain": explain, **extra}
+# id, name, icon, colour, axial hex position (q, r), description
+ISLANDS = [
+    ("wiring", "導線材料島", "layers", "#3b5bdb", (0, 0), "銅、鋁導線與阻障層、種子層:半導體靶材的核心用途。"),
+    ("process", "製程工藝島", "flame", "#e8590c", (1, -1), "PVD、純度、綁定、旋轉靶、熱均壓:靶材怎麼做、怎麼用。"),
+    ("elements", "元素島", "gem", "#7048e8", (0, -1), "靶材常見的金屬與化合物符號。"),
+    ("display", "顯示與封裝島", "chip", "#1098ad", (-1, 0), "ITO、IGZO 與先進封裝的濺鍍應用。"),
+    ("recycle", "回收島", "recycle", "#2f9e44", (-1, 1), "殘靶回收與稀有金屬再生。"),
+    ("market", "市場預測島", "market", "#d6336c", (0, 1), "市場規模、成長率與價格:取自商情預測頁。"),
+    ("news", "新聞港", "news", "#f08c00", (1, 0), "最近 3 天重點新聞的主角是誰?每天換題。"),
+    ("jp", "日本廠商島", "building", "#c92a2a", (1, -2), "JX金屬、東曹、三井金屬、住友化學、ULVAC 等。"),
+    ("tw", "台灣廠商島", "building", "#0c8f6a", (2, -1), "光洋科、鑫科。"),
+    ("cn", "中國廠商島", "building", "#e03131", (-2, 1), "江豐電子、有研新材、阿石創、歐萊新材。"),
+    ("us", "美國廠商島", "building", "#364fc7", (-1, 2), "Materion、Solstice Advanced Materials。"),
+    ("play", "配對遊樂島", "star", "#f76707", (2, 0), "元素符號配中文名的翻牌遊戲。"),
+]
+# Collaboration lines: islands that share a concept (label shown when either island is focused).
+LINKS = [
+    ("wiring", "elements", "Cu、Ta、Ti、Co、Ru"), ("wiring", "process", "6N 高純度"), ("wiring", "jp", "JX金屬:Cu 靶第一"),
+    ("wiring", "cn", "江豐電子:Al 靶第一"), ("display", "recycle", "ITO 的銦回收"), ("process", "recycle", "旋轉靶與殘靶"),
+    ("market", "cn", "前兩大廠合計約七成"), ("market", "jp", "前兩大廠合計約七成"), ("market", "us", "Solstice 分拆"),
+    ("elements", "play", "元素配對"), ("news", "market", "市場訊號"), ("display", "news", "封裝擴產"),
+]
+MARKET_ISLAND = {"TW": "tw", "JP": "jp", "US": "us", "CN": "cn"}
+PER_ISLAND = 9  # buildings drawn per island; larger pools are sampled (seeded by report date)
+
+
+def _q(topic: str, q: str, answer: str, wrong: list[str], explain: str = "", island: str = "", **extra) -> dict:
+    return {"id": hashlib.sha1(q.encode("utf-8")).hexdigest()[:10], "topic": topic, "island": island, "q": q,
+            "answer": answer, "wrong": wrong[:3], "explain": explain, **extra}
 
 
 def fixed_questions(config: Config) -> list[dict]:
@@ -50,7 +83,8 @@ def fixed_questions(config: Config) -> list[dict]:
         wrong = [str(w) for w in x.get("wrong") or []]
         if x.get("q") and x.get("answer") and len(wrong) >= 3:
             topic = str(x.get("topic", "materials"))
-            out.append(_q(topic, str(x["q"]), str(x["answer"]), wrong, str(x.get("explain", "")),
+            island = str(x.get("island") or ("wiring" if topic == "materials" else "market"))
+            out.append(_q(topic, str(x["q"]), str(x["answer"]), wrong, str(x.get("explain", "")), island,
                           visual={"kind": "icon", "icon": str(x.get("icon") or ("flask" if topic == "materials" else "market"))}))
     return out
 
@@ -62,7 +96,7 @@ def element_questions(rng: random.Random) -> list[dict]:
         wrong = rng.sample([n for n in names if n != name], 3)
         num = ELEMENT_INFO[sym][1]
         out.append(_q("materials", f"靶材上的「{sym}」指的是哪一種材料?", name, wrong,
-                      f"{sym} = {name}" + (f",原子序 {num}。" if num else "。"), visual={"kind": "element", "sym": sym}))
+                      f"{sym} = {name}" + (f",原子序 {num}。" if num else "。"), "elements", visual={"kind": "element", "sym": sym}))
     return out
 
 
@@ -85,11 +119,11 @@ def maker_questions(config: Config, rng: random.Random) -> list[dict]:
         if market in MARKETS:
             out.append(_q("market", f"{name}({ticker})在哪個市場上市?", MARKETS[market],
                           [v for k, v in MARKETS.items() if k != market],
-                          f"{name}在{MARKETS[market]}上市;主要業務:{segment}。", visual=visual))
+                          f"{name}在{MARKETS[market]}上市;主要業務:{segment}。", MARKET_ISLAND[market], visual=visual))
         if focus in FOCUS:
             out.append(_q("market", f"以靶材占營收的比重來看,{name}屬於哪一類?", FOCUS[focus],
                           [v for k, v in FOCUS.items() if k != focus] + ["不生產靶材"],
-                          f"{FOCUS_NOTE[focus]}主要業務:{segment}。", visual=visual))
+                          f"{FOCUS_NOTE[focus]}主要業務:{segment}。", MARKET_ISLAND.get(market, "market"), visual=visual))
     return out
 
 
@@ -122,7 +156,7 @@ def news_questions(items: list[dict], config: Config, rng: random.Random) -> lis
         seen.add(ents[0])
         motif, caption, sym = pick_thumb(it, roles)
         picked.append(_q("news", f"這則近期新聞的主角是哪家公司?「{masked}」", answer, rng.sample(pool, 3),
-                         it.get("summary") or "", link=it.get("link", ""), date=(it.get("published") or "")[:10],
+                         it.get("summary") or "", "news", link=it.get("link", ""), date=(it.get("published") or "")[:10],
                          visual={"kind": "icon", "icon": motif, "caption": caption, "sym": sym}))
         if len(picked) >= MAX_NEWS:
             break
@@ -130,292 +164,305 @@ def news_questions(items: list[dict], config: Config, rng: random.Random) -> lis
 
 
 def build_bank(config: Config, items: list[dict], seed: str = "") -> dict:
-    """All questions plus the element pairs for the matching game."""
+    """The island map: islands with their questions (buildings), links, element pairs and the mascot's island."""
     rng = random.Random(seed)
     questions = fixed_questions(config) + element_questions(rng) + maker_questions(config, rng) + news_questions(items, config, rng)
+    by_island: dict[str, list[dict]] = {}
+    for q in questions:
+        by_island.setdefault(q["island"], []).append(q)
+    islands = []
+    for iid, name, icon_name, color, (hq, hr), desc in ISLANDS:
+        qs = by_island.get(iid, [])
+        if len(qs) > PER_ISLAND:
+            qs = rng.sample(qs, PER_ISLAND)
+        if qs or iid == "play":
+            islands.append({"id": iid, "name": name, "icon": icon_name, "color": color, "hex": [hq, hr], "desc": desc, "questions": qs})
+    ids = {i["id"] for i in islands}
+    links = [[a, b, label] for a, b, label in LINKS if a in ids and b in ids]
     elements = [{"sym": s, "name": n, "num": z, "color": c} for s, (n, z, c) in ELEMENT_INFO.items()]
-    return {"questions": questions, "elements": elements}
+    mascot = rng.choice([i["id"] for i in islands if i["id"] != "play"]) if islands else ""
+    return {"islands": islands, "links": links, "elements": elements, "mascot": mascot}
 
 
 
 
-TOPICS = [("all", "全部", "sparkle"), ("materials", "材料與製程", "flask"), ("market", "市場與廠商", "market"), ("news", "近期新聞", "news")]
-ROUND = 10
+
+
 PAIRS = 6
 
 GAME_STYLE = """
-.g-btn{font:inherit;font-size:.95rem;border:0;border-radius:6px;padding:10px 18px;cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:8px;align-items:center}
-.g-btn:hover{background:var(--accent);color:#fff}.g-btn.primary{background:var(--accent);color:#fff}.g-btn.primary:hover{background:var(--accent-2)}
-.g-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{font:inherit;font-size:.95rem;border:0;border-radius:6px;padding:10px 18px;cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:8px;align-items:center}
-.tabs button[aria-selected=true]{background:var(--accent);color:#fff}
-.panel{background:var(--surface);border-top:4px solid var(--accent);border-radius:6px;padding:20px;display:grid;gap:18px}
-.game{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
-.chamber{position:sticky;top:16px;display:grid;gap:8px;justify-items:center}.chamber svg{width:200px;height:auto;display:block;overflow:visible}
-.chamber .cap{font-size:.78rem;color:var(--muted);text-align:center;line-height:1.5}
-.ch-wall{fill:var(--bg);stroke:var(--line);stroke-width:2}.ch-target{fill:#8a93a8}.ch-magnet{fill:var(--fg);opacity:.75}.ch-wafer{fill:var(--fg);opacity:.8}
-.ch-plasma{fill:var(--accent);opacity:.12;transform-box:fill-box;transform-origin:center;animation:glow 2.4s ease-in-out infinite alternate}
-.ch-label{font:600 9px var(--font-data);fill:var(--muted);letter-spacing:.06em}
-.chamber.hit .ch-plasma{opacity:.35}.chamber.miss .ch-target{fill:var(--up)}
-@keyframes glow{from{transform:scale(.92);opacity:.1}to{transform:scale(1.06);opacity:.2}}
-.hud{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-size:.85rem;color:var(--muted)}.hud b{font-family:var(--font-data);color:var(--fg);font-size:1rem}
-.dots{display:flex;gap:5px}.dots i{width:12px;height:12px;border-radius:3px;background:var(--line)}.dots i.ok{background:var(--ok)}.dots i.no{background:var(--up)}.dots i.now{background:var(--accent)}
-.streak{color:var(--accent-2);font-weight:700}
-.qcard{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:center}
-.g-q{font-size:1.15rem;font-weight:700;line-height:1.6;margin:0}
-.vis{width:96px;height:96px;border-radius:8px;display:grid;place-items:center;position:relative;align-content:center;gap:2px;text-align:center}
-.vis.icon{background:color-mix(in srgb,var(--accent) 14%,var(--surface));color:var(--accent)}.vis.icon .ic{width:44px;height:44px;stroke-width:1.5}
-.vis .vcap{font-size:.7rem;color:var(--muted)}.vis .vsym{position:absolute;right:-6px;bottom:-6px;background:var(--accent);color:#fff;border-radius:4px;font:600 .72rem var(--font-data);padding:2px 6px}
-.ptile{background:color-mix(in srgb,var(--c) 22%,var(--surface));border:3px solid var(--c);color:var(--fg)}.ptile .z{position:absolute;left:7px;top:4px;font:500 .72rem var(--font-data);color:var(--muted)}
-.ptile .s{font:700 2rem/1 var(--font-data)}.ptile .s.long{font-size:1.15rem}
-.vis.logo{background:#fff;border:2px solid var(--line)}.vis.logo img{max-width:70px;max-height:56px;object-fit:contain}.vis.logo .mono{position:absolute;bottom:-20px;font-size:.7rem;color:var(--muted);white-space:nowrap}
-.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.opt{font:inherit;text-align:left;border:0;background:var(--bg);color:var(--fg);border-radius:8px;padding:14px;cursor:pointer;line-height:1.5;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;min-height:68px;transition:transform .12s,background .12s}
-.opt .k{width:34px;height:34px;border-radius:6px;display:grid;place-items:center;background:var(--accent);color:#fff;font:700 .95rem var(--font-data)}
-.opt:hover:not(:disabled){background:var(--accent-soft);transform:translateY(-2px)}.opt:disabled{cursor:default}
+.isle{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
+.stage{position:relative;background:#cfe8f7;border-radius:8px;overflow:hidden;min-height:420px}
+@media (prefers-color-scheme:dark){.stage{background:#10283d}}
+.stage>svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.hud2{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none}
+.chip2{background:var(--surface);border-radius:6px;padding:6px 10px;font-size:.8rem;color:var(--muted);display:inline-flex;gap:6px;align-items:center}.chip2 b{font-family:var(--font-data);color:var(--fg)}
+.tools{position:absolute;right:12px;top:12px;display:flex;gap:8px}
+.g-btn{font:inherit;font-size:.9rem;border:0;border-radius:6px;padding:9px 16px;cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:8px;align-items:center}
+.g-btn:hover{background:var(--accent);color:#fff}.g-btn.primary{background:var(--accent);color:#fff}.g-btn.primary:hover{background:var(--accent-2)}.g-btn.sm{padding:6px 12px;font-size:.82rem}
+.tools .g-btn{background:var(--surface)}
+.is-land{cursor:pointer;outline:none}.is-land .top{transition:filter .15s}.is-land:hover .top,.is-land:focus-visible .top{filter:brightness(1.12)}
+.is-land:focus-visible .top{stroke:var(--fg);stroke-width:3}
+.is-name{font:700 13px var(--font-body);fill:var(--fg);paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.is-sub{font:500 10px var(--font-data);fill:var(--muted);paint-order:stroke;stroke:#fff;stroke-width:3px;pointer-events:none}
+@media (prefers-color-scheme:dark){.is-name,.is-sub{stroke:#10283d}}
+.link{fill:none;stroke:#fff;stroke-width:2.5;stroke-dasharray:6 6;opacity:.75}.link.on{stroke:var(--accent-2);opacity:1;stroke-width:3.5}
+.link-label{font:600 11px var(--font-body);fill:var(--accent-2);paint-order:stroke;stroke:#fff;stroke-width:4px}
+.mascot{cursor:pointer}.mascot:hover{transform:scale(1.15)}
+.side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:18px;display:grid;gap:14px;align-content:start}
+.side h3{margin:0;display:flex;gap:10px;align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
+.side p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
+.pbar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--c,var(--accent))}
+.blist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.bld{font:inherit;border:0;border-radius:6px;padding:10px 6px;cursor:pointer;background:var(--bg);color:var(--fg);display:grid;gap:4px;justify-items:center;font-size:.8rem}
+.bld .ic{width:22px;height:22px;color:var(--muted)}.bld b{font-family:var(--font-data)}
+.bld.lit{background:color-mix(in srgb,var(--c) 18%,var(--surface))}.bld.lit .ic{color:var(--c)}.bld:hover{outline:2px solid var(--c)}
+.ilist{display:grid;gap:6px}.irow{font:inherit;border:0;border-radius:6px;padding:8px 10px;cursor:pointer;background:var(--bg);color:var(--fg);display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;text-align:left;font-size:.88rem}
+.irow .dot{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;color:#fff}.irow .dot .ic{width:16px;height:16px}.irow span.mono{font-size:.78rem;color:var(--muted)}
+.irow:hover{background:var(--accent-soft)}
+.g-q{font-size:1.05rem;font-weight:700;line-height:1.6;margin:0}
+.qhead{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center}
+.vis{width:72px;height:72px;border-radius:8px;display:grid;place-items:center;position:relative;align-content:center;gap:2px;text-align:center}
+.vis.icon{background:color-mix(in srgb,var(--c,var(--accent)) 15%,var(--surface));color:var(--c,var(--accent))}.vis.icon .ic{width:34px;height:34px;stroke-width:1.5}
+.vis .vcap{font-size:.66rem;color:var(--muted)}.vis .vsym{position:absolute;right:-6px;bottom:-6px;background:var(--accent);color:#fff;border-radius:4px;font:600 .7rem var(--font-data);padding:2px 5px}
+.ptile{background:color-mix(in srgb,var(--pc) 22%,var(--surface));border:3px solid var(--pc);color:var(--fg)}.ptile .z{position:absolute;left:6px;top:3px;font:500 .66rem var(--font-data);color:var(--muted)}
+.ptile .s{font:700 1.6rem/1 var(--font-data)}.ptile .s.long{font-size:.95rem}
+.vis.logo{background:#fff;border:2px solid var(--line)}.vis.logo img{max-width:56px;max-height:44px;object-fit:contain}
+.opts{display:grid;gap:8px}
+.opt{font:inherit;text-align:left;border:0;background:var(--bg);color:var(--fg);border-radius:6px;padding:10px 12px;cursor:pointer;line-height:1.5;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center}
+.opt .k{width:28px;height:28px;border-radius:5px;display:grid;place-items:center;background:var(--c,var(--accent));color:#fff;font:700 .85rem var(--font-data)}
+.opt:hover:not(:disabled){background:var(--accent-soft)}.opt:disabled{cursor:default}
 .opt.right{background:var(--ok-soft);color:var(--ok);font-weight:700}.opt.right .k{background:var(--ok)}
 .opt.wrong{background:color-mix(in srgb,var(--up) 13%,var(--surface));color:var(--up)}.opt.wrong .k{background:var(--up)}.opt.dim{opacity:.45}
-.fb{border-radius:8px;padding:14px 16px;background:var(--bg);font-size:.93rem;line-height:1.7;border-left:5px solid var(--line)}.fb b{display:block;margin-bottom:2px;font-size:1rem}
+.fb{border-radius:6px;padding:12px 14px;background:var(--bg);font-size:.9rem;line-height:1.7;border-left:5px solid var(--line)}.fb b{display:block;margin-bottom:2px}
 .fb.ok{border-color:var(--ok)}.fb.ok b{color:var(--ok)}.fb.no{border-color:var(--up)}.fb.no b{color:var(--up)}
-.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.topic{font:inherit;border:0;border-radius:8px;padding:16px;cursor:pointer;background:var(--bg);color:var(--fg);display:grid;gap:6px;justify-items:start;text-align:left}
-.topic .ic{width:30px;height:30px;color:var(--accent)}.topic b{font-size:1rem}.topic span{font-size:.8rem;color:var(--muted)}
-.topic[aria-pressed=true]{background:var(--accent);color:#fff}.topic[aria-pressed=true] .ic,.topic[aria-pressed=true] span{color:#fff}
-.intro{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center}.intro p{margin:0;line-height:1.8}
-.result{display:grid;gap:14px;justify-items:center;text-align:center}.result .big{font:600 3rem/1 var(--font-data)}.result .grade{font-size:1.25rem;font-weight:800;color:var(--accent)}
-.stack{width:100%;max-width:560px}.stack svg{width:100%;height:auto;display:block}
-.review{display:grid;gap:8px;padding:0;margin:0;list-style:none;text-align:left;width:100%}.review li{background:var(--bg);border-radius:6px;padding:10px 12px;font-size:.88rem;line-height:1.6;border-left:4px solid var(--up)}
-.review li .a{color:var(--ok);font-weight:700}
-.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:900px;max-width:560px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--fg);color:var(--bg);border-radius:8px;padding:12px 18px;font-size:.92rem;z-index:20;max-width:min(92vw,520px);text-align:center}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;perspective:800px}
 .mc{font:inherit;border:0;padding:0;background:none;cursor:pointer;aspect-ratio:1;position:relative}
 .mc .in{position:absolute;inset:0;transition:transform .45s;transform-style:preserve-3d}.mc.flip .in{transform:rotateY(180deg)}
-.mc .f,.mc .b{position:absolute;inset:0;border-radius:8px;backface-visibility:hidden;display:grid;place-items:center;align-content:center;gap:4px}
-.mc .f{background:var(--accent);color:#fff;font:700 1.6rem var(--font-data)}.mc .f::after{content:"";position:absolute;inset:8px;border:2px dashed color-mix(in srgb,#fff 45%,transparent);border-radius:6px}
-.mc .b{transform:rotateY(180deg);background:color-mix(in srgb,var(--c) 22%,var(--surface));border:3px solid var(--c);color:var(--fg)}
-.mc .b .z{position:absolute;left:8px;top:5px;font:500 .75rem var(--font-data);color:var(--muted)}.mc .b .s{font:700 2rem/1 var(--font-data)}.mc .b .s.long{font-size:1.2rem}.mc .b .n{font-size:1.4rem;font-weight:700;padding:0 6px;text-align:center;line-height:1.3}.mc .b.name{background:var(--accent-soft);border-color:var(--accent)}.mc.done .b.name{background:color-mix(in srgb,var(--c) 22%,var(--surface))}
-.mc.done .b{border-color:var(--ok)}.mc.done .b::after{content:"✓";position:absolute;right:8px;top:4px;color:var(--ok);font-weight:800}
-.mc.miss .b{border-color:var(--up)}
-@media (max-width:640px){.game{grid-template-columns:1fr}.chamber{position:static;grid-template-columns:auto 1fr;justify-items:start;align-items:center;gap:12px}.chamber svg{width:96px}
-.qcard{grid-template-columns:72px minmax(0,1fr);gap:12px}.vis{width:72px;height:72px}.vis.icon .ic{width:32px;height:32px}.ptile .s{font-size:1.5rem}.g-q{font-size:1.02rem}
-.opts{grid-template-columns:1fr}.board{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mc .b .s{font-size:1.5rem}.mc .b .n{font-size:.95rem}.intro{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.ch-plasma{animation:none}.mc .in,.opt{transition:none}}
+.mc .f,.mc .b{position:absolute;inset:0;border-radius:6px;backface-visibility:hidden;display:grid;place-items:center;align-content:center;gap:2px}
+.mc .f{background:var(--c,var(--accent));color:#fff;font:700 1.3rem var(--font-data)}
+.mc .b{transform:rotateY(180deg);background:color-mix(in srgb,var(--pc) 22%,var(--surface));border:3px solid var(--pc);color:var(--fg)}
+.mc .b .z{position:absolute;left:6px;top:3px;font:500 .66rem var(--font-data);color:var(--muted)}.mc .b .s{font:700 1.5rem/1 var(--font-data)}.mc .b .s.long{font-size:.9rem}.mc .b .n{font-size:1.05rem;font-weight:700;text-align:center;line-height:1.3;padding:0 4px}
+.mc .b.name{background:var(--accent-soft);border-color:var(--accent)}.mc.done .b.name{background:color-mix(in srgb,var(--pc) 22%,var(--surface))}
+.mc.done .b{border-color:var(--ok)}.mc.miss .b{border-color:var(--up)}
+@media (max-width:860px){.isle{grid-template-columns:1fr}.stage{min-height:0}}
+@media (max-width:520px){.hud2{top:auto;bottom:10px}.hud2 .chip2:nth-child(n+3){display:none}}
+@media (prefers-reduced-motion:reduce){.mc .in{transition:none}}
 """
 
 GAME_SCRIPT = r"""
 (function(){
 const B = JSON.parse(document.getElementById('bank').textContent);
-const ROUND = __ROUND__, PAIRS = __PAIRS__, LAYER = 9, BASE = 228;
+const PAIRS = __PAIRS__, SVGNS = 'http://www.w3.org/2000/svg';
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const SVGNS = 'http://www.w3.org/2000/svg';
 const $ = id => document.getElementById(id);
 const el = (t, cls, txt) => { const n = document.createElement(t); if (cls) n.className = cls; if (txt !== undefined) n.textContent = txt; return n; };
 const sv = (t, a) => { const n = document.createElementNS(SVGNS, t); for (const k in a) n.setAttribute(k, a[k]); return n; };
-const icon = name => { const s = sv('svg', {class: 'ic', 'aria-hidden': 'true'}); s.append(sv('use', {href: '#i-' + name})); return s; };
+const icon = (name, tag) => { const s = sv('svg', {class: 'ic', 'aria-hidden': 'true'}); s.append(sv('use', {href: '#i-' + name})); return s; };
 const btn = (cls, txt, fn) => { const b = el('button', cls, txt); b.type = 'button'; b.onclick = fn; return b; };
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const store = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+                set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const ISL = Object.fromEntries(B.islands.map(i => [i.id, i]));
 const EL = Object.fromEntries(B.elements.map(e => [e.sym, e]));
-const PALETTE = ['#3b5bdb', '#0c8f6a', '#f76707', '#7048e8', '#d6336c', '#1098ad', '#e8590c', '#2f9e44', '#5c7cfa', '#b7791f'];
+let solved = new Set(store.get('isle-solved', [])), mascotFound = store.get('isle-mascot', false), matchDone = store.get('isle-match', false);
+const save = () => { store.set('isle-solved', [...solved]); store.set('isle-mascot', mascotFound); store.set('isle-match', matchDone); };
+const lit = i => i.questions.filter(q => solved.has(q.id)).length;
+const conquered = i => i.id === 'play' ? matchDone : i.questions.length > 0 && lit(i) === i.questions.length;
 
-document.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => {
-  document.querySelectorAll('[data-tab]').forEach(x => x.setAttribute('aria-selected', x === b));
-  $('quiz').hidden = b.dataset.tab !== 'quiz'; $('match').hidden = b.dataset.tab !== 'match';
-});
+// ---------- map geometry: pointy-top hexes, flattened for a 2.5D look ----------
+const R = 58, GAP = 1.42, SQ = 0.62, DEPTH = 14;  // GAP spreads the islands apart so there is sea between them
+const center = i => [R * GAP * Math.sqrt(3) * (i.hex[0] + i.hex[1] / 2), R * GAP * 1.5 * i.hex[1] * SQ];
+const hexPts = (cx, cy, r, dy) => [...Array(6)].map((_, k) => { const a = Math.PI / 180 * (60 * k - 30); return [cx + r * Math.cos(a), cy + r * Math.sin(a) * SQ + (dy || 0)]; });
+const pts = p => p.map(([x, y]) => x.toFixed(1) + ',' + y.toFixed(1)).join(' ');
+const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(v => Math.round(v * f)); return 'rgb(' + c.join(',') + ')'; };
+const xs = B.islands.map(i => center(i)[0]), ys = B.islands.map(i => center(i)[1]);
+const FULL = [Math.min(...xs) - R - 40, Math.min(...ys) - R - 40, Math.max(...xs) - Math.min(...xs) + 2 * R + 80, Math.max(...ys) - Math.min(...ys) + 2 * R + 90];
 
-// ---------- sputtering chamber: every right answer deposits one film layer ----------
-function chamber(caption) {
-  const wrap = el('div', 'chamber');
-  const s = sv('svg', {viewBox: '0 0 200 260', role: 'img', 'aria-label': '濺鍍腔體:答對一題就在晶圓上鍍一層薄膜'});
-  s.append(sv('rect', {class: 'ch-wall', x: 6, y: 6, width: 188, height: 248, rx: 10}),
-    sv('rect', {class: 'ch-magnet', x: 40, y: 14, width: 120, height: 8, rx: 2}),
-    sv('rect', {class: 'ch-target', x: 30, y: 24, width: 140, height: 16, rx: 2}),
-    sv('ellipse', {class: 'ch-plasma', cx: 100, cy: 70, rx: 70, ry: 22}));
-  const t1 = sv('text', {class: 'ch-label', x: 100, y: 35, 'text-anchor': 'middle'}); t1.textContent = 'TARGET';
-  const films = sv('g', {}), atoms = sv('g', {});
-  const wafer = sv('rect', {class: 'ch-wafer', x: 24, y: BASE, width: 152, height: 10, rx: 2});
-  const t2 = sv('text', {class: 'ch-label', x: 100, y: 251, 'text-anchor': 'middle'}); t2.textContent = 'WAFER';
-  s.append(t1, films, atoms, wafer, t2);
-  wrap.append(s, el('div', 'cap', caption));
-  return {wrap, films, atoms, layers: 0};
+let focus = null, view = FULL.slice(), svg, gLinks, gIslands, gTop;
+function drawMap() {
+  svg = sv('svg', {viewBox: view.join(' '), role: 'application', 'aria-label': '靶材產業島地圖:點選島嶼查看題目'});
+  const sea = sv('rect', {x: -2000, y: -2000, width: 4000, height: 4000, fill: 'transparent'}); sea.onclick = () => go(null); svg.append(sea);
+  gLinks = sv('g', {}); gIslands = sv('g', {}); gTop = sv('g', {}); svg.append(gLinks, gIslands, gTop);
+  $('stage').prepend(svg); render();
 }
-function deposit(ch, color, done) {
-  const top = BASE - (ch.layers + 1) * LAYER, n = ch.layers++;
-  const lay = () => {
-    const r = sv('rect', {x: 24, y: top, width: 152, height: LAYER, fill: color, style: 'transform-box:fill-box;transform-origin:bottom'});
-    ch.films.append(r);
-    if (!RM) r.animate([{opacity: 0, transform: 'scaleY(0)'}, {opacity: 1, transform: 'scaleY(1)'}], {duration: 250, easing: 'ease-out'});
-    done && done();
-  };
-  ch.wrap.classList.add('hit'); setTimeout(() => ch.wrap.classList.remove('hit'), 700);
-  if (RM) return lay();
-  for (let i = 0; i < 16; i++) {
-    const x0 = 40 + Math.random() * 120, x1 = 30 + Math.random() * 140;
-    const c = sv('circle', {cx: 0, cy: 0, r: 3, fill: color}); ch.atoms.append(c);
-    c.animate([{transform: `translate(${x0}px,44px)`, opacity: 1}, {transform: `translate(${x1}px,${top}px)`, opacity: .9}],
-      {duration: 520 + Math.random() * 260, delay: i * 25, easing: 'cubic-bezier(.3,.6,.4,1)', fill: 'forwards'}).onfinish = () => c.remove();
+function render() {
+  gLinks.replaceChildren(); gIslands.replaceChildren(); gTop.replaceChildren();
+  for (const [a, b, label] of B.links) {
+    const [x1, y1] = center(ISL[a]), [x2, y2] = center(ISL[b]), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 18;
+    const on = focus && (focus === a || focus === b);
+    gLinks.append(sv('path', {class: 'link' + (on ? ' on' : ''), d: `M${x1},${y1} Q${mx},${my} ${x2},${y2}`}));
+    if (on) {  // label near the other island's end, so labels of one focused island don't pile up in the middle
+      const [ox, oy] = focus === a ? [x2, y2] : [x1, y1], [fx, fy] = focus === a ? [x1, y1] : [x2, y2];
+      const t = sv('text', {class: 'link-label', x: fx + (ox - fx) * .7, y: fy + (oy - fy) * .7 - 22, 'text-anchor': 'middle'});
+      t.textContent = label; gTop.append(t);
+    }
   }
-  setTimeout(lay, 700);
+  // back-to-front so nearer islands overlap the ones behind
+  for (const i of B.islands.slice().sort((p, q) => center(p)[1] - center(q)[1])) {
+    const [cx, cy] = center(i), done = conquered(i), n = i.questions.length, k = lit(i);
+    const g = sv('g', {class: 'is-land', tabindex: 0, role: 'button', 'aria-label': i.name + (i.id === 'play' ? '' : `,已點亮 ${k} / ${n}`)});
+    g.append(sv('polygon', {points: pts(hexPts(cx, cy, R - 3, DEPTH)), fill: shade(i.color, .55)}),
+      sv('polygon', {class: 'top', points: pts(hexPts(cx, cy, R - 3)), fill: done ? i.color : shade(i.color, 1) , opacity: done ? 1 : .55}),
+      sv('polygon', {points: pts(hexPts(cx, cy, R - 14)), fill: '#fff', opacity: done ? .18 : .32}));
+    // buildings: one small block per question, lit when answered
+    const cells = i.id === 'play' ? 4 : n, cols = Math.min(3, Math.max(1, Math.ceil(Math.sqrt(cells))));
+    for (let j = 0; j < cells; j++) {
+      const row = Math.floor(j / cols), col = j % cols, rows = Math.ceil(cells / cols);
+      const bx = cx + (col - (cols - 1) / 2) * 18 - 5, by = cy + (row - (rows - 1) / 2) * 11 - 4;
+      const on = i.id === 'play' ? matchDone : solved.has(i.questions[j].id), h = 6 + (j * 7 % 8);
+      const front = on ? i.color : '#a3adbf', topc = on ? '#ffe066' : '#d5dbe5';
+      g.append(sv('rect', {x: bx, y: by - h, width: 10, height: h + 5, fill: shade(front.startsWith('#') ? front : '#a3adbf', .8)}),
+        sv('rect', {x: bx, y: by - h - 4, width: 10, height: 4, fill: topc}));
+    }
+    if (done) { g.append(sv('line', {x1: cx + 30, y1: cy - 30, x2: cx + 30, y2: cy - 58, stroke: 'var(--fg)', 'stroke-width': 2}),
+      sv('polygon', {points: `${cx + 30},${cy - 58} ${cx + 50},${cy - 52} ${cx + 30},${cy - 46}`, fill: '#ffd43b'})); }
+    const nm = sv('text', {class: 'is-name', x: cx, y: cy + R * SQ + DEPTH + 14, 'text-anchor': 'middle'}); nm.textContent = i.name;
+    const sub = sv('text', {class: 'is-sub', x: cx, y: cy + R * SQ + DEPTH + 27, 'text-anchor': 'middle'});
+    sub.textContent = i.id === 'play' ? (matchDone ? '已完成' : '小遊戲') : `${k} / ${n}`;
+    gTop.append(nm, sub);
+    g.onclick = e => { e.stopPropagation(); go(i.id); };
+    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i.id); } };
+    gIslands.append(g);
+    if (i.id === B.mascot && !mascotFound) {
+      const m = sv('g', {class: 'mascot', role: 'button', tabindex: 0, 'aria-label': '某個小東西'});
+      const mx = cx - 34, my = cy + 4;
+      m.append(sv('circle', {cx: mx, cy: my, r: 6.5, fill: '#fff', stroke: '#e03131', 'stroke-width': 2.5}), sv('circle', {cx: mx, cy: my, r: 2.5, fill: '#e03131'}),
+        sv('circle', {cx: mx - 2.5, cy: my - 9, r: 1.3, fill: 'var(--fg)'}), sv('circle', {cx: mx + 2.5, cy: my - 9, r: 1.3, fill: 'var(--fg)'}));
+      m.onclick = e => { e.stopPropagation(); mascotFound = true; save(); render(); hud();
+        toast('🎯 找到靶材小精靈了!小知識:濺鍍時靶材接在負極,電漿中的氬離子被吸過去撞擊靶面,把原子撞出來沉積到晶圓上。'); };
+      gTop.append(m);
+    }
+  }
 }
-function misfire(ch) { ch.wrap.classList.add('miss'); setTimeout(() => ch.wrap.classList.remove('miss'), 600); }
+function camera(target) {
+  const from = view.slice(), t0 = performance.now(), dur = RM ? 0 : 450;
+  const step = now => { const p = dur ? Math.min(1, (now - t0) / dur) : 1, e = 1 - Math.pow(1 - p, 3);
+    view = from.map((v, k) => v + (target[k] - v) * e); svg.setAttribute('viewBox', view.join(' ')); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+function go(id) {
+  focus = id && ISL[id] ? id : null;
+  const url = new URL(location.href); focus ? url.searchParams.set('island', focus) : url.searchParams.delete('island');
+  try { history.replaceState(null, '', url); } catch (e) {}
+  if (focus) { const [cx, cy] = center(ISL[focus]), w = Math.min(FULL[2], R * GAP * 6.5), h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 + 10, w, h]); }
+  else camera(FULL);
+  render(); panel();
+}
+function hud() {
+  const box = $('hud2'); box.replaceChildren();
+  const total = B.islands.reduce((n, i) => n + i.questions.length, 0), litAll = B.islands.reduce((n, i) => n + lit(i), 0);
+  const c1 = el('span', 'chip2', '征服島嶼 '); c1.append(el('b', '', B.islands.filter(conquered).length + ' / ' + B.islands.length));
+  const c2 = el('span', 'chip2', '點亮建築 '); c2.append(el('b', '', litAll + ' / ' + total));
+  const c3 = el('span', 'chip2', mascotFound ? '🎯 已找到小精靈' : '🔍 島上藏著小精靈');
+  box.append(c1, c2, c3);
+}
+function toast(msg) { const t = el('div', 'toast', msg); t.setAttribute('role', 'status'); document.body.append(t); setTimeout(() => t.remove(), 4200); }
 
-// ---------- question visuals ----------
-function visual(q) {
+// ---------- side panel ----------
+function panel(qid) {
+  const side = $('side'); side.replaceChildren(); hud();
+  const i = focus && ISL[focus];
+  side.style.setProperty('--c', i ? i.color : 'var(--accent)');
+  if (!i) {
+    side.append(el('h3', '', '歡迎來到靶材產業島'), el('p', '', '每座島是一個主題,島上每棟建築是一道題。點選島嶼、答對題目就能點亮建築;整座島都點亮就算征服。虛線是島與島之間的關聯,地圖上還藏著一隻靶材小精靈。'));
+    const list = el('div', 'ilist');
+    for (const x of B.islands) {
+      const r = btn('irow', '', () => go(x.id)), d = el('span', 'dot'); d.style.background = x.color; d.append(icon(x.icon));
+      r.append(d, el('span', '', x.name + (conquered(x) ? ' 🚩' : '')), el('span', 'mono', x.id === 'play' ? (matchDone ? '完成' : '遊戲') : lit(x) + '/' + x.questions.length));
+      list.append(r);
+    }
+    side.append(list); return;
+  }
+  const h = el('h3'); h.append(icon(i.icon), document.createTextNode(i.name)); side.append(h, el('p', '', i.desc));
+  if (i.id === 'play') { side.append(matchGame(i)); return side.append(nav(i)); }
+  const pb = el('div', 'pbar'), f = el('i'); f.style.width = (lit(i) / i.questions.length * 100) + '%'; pb.append(f);
+  side.append(pb);
+  if (qid) return side.append(question(i, i.questions.find(q => q.id === qid)), nav(i));
+  const list = el('div', 'blist');
+  i.questions.forEach((q, n) => { const b = btn('bld' + (solved.has(q.id) ? ' lit' : ''), '', () => panel(q.id));
+    b.append(icon(solved.has(q.id) ? 'check' : 'building'), el('b', '', '#' + (n + 1)), el('span', '', solved.has(q.id) ? '已點亮' : '未作答')); list.append(b); });
+  side.append(list, nav(i));
+}
+function nav(i) {
+  const row = el('div', 'g-meta'); row.style.display = 'flex'; row.style.gap = '8px'; row.style.flexWrap = 'wrap';
+  const ids = B.islands.map(x => x.id), k = ids.indexOf(i.id);
+  row.append(btn('g-btn sm', '← 上一座島', () => go(ids[(k - 1 + ids.length) % ids.length])), btn('g-btn sm', '下一座島 →', () => go(ids[(k + 1) % ids.length])),
+    btn('g-btn sm', '回到全島地圖', () => go(null)));
+  return row;
+}
+function visual(q, i) {
   const v = q.visual || {};
-  if (v.kind === 'element' && EL[v.sym]) {
-    const e = EL[v.sym], d = el('div', 'vis ptile'); d.style.setProperty('--c', e.color);
-    if (e.num) d.append(el('span', 'z', e.num));
-    d.append(el('span', 's' + (e.sym.length > 2 ? ' long' : ''), e.sym)); return d;
-  }
-  if (v.kind === 'logo') {
-    const d = el('div', 'vis logo');
-    if (v.src) { const img = el('img'); img.src = v.src; img.alt = v.label + ' logo'; d.append(img); }
-    else d.append(el('b', '', [...(v.label || '?')][0]));
-    d.append(el('span', 'mono', v.sub || '')); return d;
-  }
-  const d = el('div', 'vis icon'); d.append(icon(v.icon || 'sparkle'));
-  if (v.caption) d.append(el('span', 'vcap', v.caption));
-  if (v.sym) d.append(el('span', 'vsym', v.sym));
-  return d;
+  if (v.kind === 'element' && EL[v.sym]) { const e = EL[v.sym], d = el('div', 'vis ptile'); d.style.setProperty('--pc', e.color);
+    if (e.num) d.append(el('span', 'z', e.num)); d.append(el('span', 's' + (e.sym.length > 2 ? ' long' : ''), e.sym)); return d; }
+  if (v.kind === 'logo') { const d = el('div', 'vis logo'); if (v.src) { const img = el('img'); img.src = v.src; img.alt = v.label + ' logo'; d.append(img); } else d.append(el('b', '', [...(v.label || '?')][0])); return d; }
+  const d = el('div', 'vis icon'); d.append(icon(v.icon || i.icon)); if (v.caption) d.append(el('span', 'vcap', v.caption)); if (v.sym) d.append(el('span', 'vsym', v.sym)); return d;
 }
-const layerColor = (q, i) => (q.visual && q.visual.kind === 'element' && EL[q.visual.sym]) ? EL[q.visual.sym].color : PALETTE[i % PALETTE.length];
-
-// ---------- quiz ----------
-let topic = 'all', round = [], idx = 0, score = 0, streak = 0, bestStreak = 0, results = [], ch = null;
-const pool = t => B.questions.filter(q => t === 'all' || q.topic === t);
-function startScreen() {
-  const box = $('quiz'); box.replaceChildren(); document.onkeydown = null;
-  const intro = el('div', 'intro'), demo = chamber('');
-  [0, 1, 2].forEach(i => deposit(demo, PALETTE[i]));
-  const p = el('p'); p.append(el('b', '', '把知識鍍上晶圓!'), el('br'),
-    document.createTextNode('每回合 ' + ROUND + ' 題,答對一題就在晶圓上濺鍍一層薄膜;答錯會留下缺陷。看看你能鍍出幾層完整的膜。'));
-  intro.append(demo.wrap, p);
-  const grid = el('div', 'topics');
-  for (const [k, label, ic] of B.topics) {
-    const n = pool(k).length; if (!n) continue;
-    const t = btn('topic', '', () => { topic = k; startScreen(); }); t.setAttribute('aria-pressed', k === topic);
-    t.append(icon(ic), el('b', '', label), el('span', '', n + ' 題 · 最佳 ' + (store.get('quiz-best-' + k) || '—'))); grid.append(t);
-  }
-  const go = btn('g-btn primary', '', start); go.append(icon('target'), document.createTextNode('開始濺鍍'));
-  box.append(intro, grid, go);
-}
-function start() { round = shuffle(pool(topic)).slice(0, ROUND); idx = 0; score = 0; streak = 0; bestStreak = 0; results = []; ch = chamber('答對 = 鍍上一層膜'); show(); }
-function show() {
-  const q = round[idx], box = $('quiz'); box.replaceChildren();
-  const game = el('div', 'game'), main = el('div'); main.style.display = 'grid'; main.style.gap = '18px';
-  const hud = el('div', 'hud'), dots = el('div', 'dots');
-  round.forEach((_, i) => { const d = el('i'); if (i < results.length) d.className = results[i] ? 'ok' : 'no'; else if (i === idx) d.className = 'now'; dots.append(d); });
-  const sc = el('span', '', '膜層 '), scv = el('b', '', score + ' / ' + round.length); sc.append(scv);
-  hud.append(dots, sc); if (streak >= 2) hud.append(el('span', 'streak', '🔥 連續答對 ' + streak));
-  const card = el('div', 'qcard'); card.append(visual(q), el('p', 'g-q', q.q));
+function question(i, q) {
+  const box = el('div'); box.style.display = 'grid'; box.style.gap = '12px';
+  const n = i.questions.indexOf(q), head = el('div', 'qhead'); head.append(visual(q, i), el('p', 'g-q', q.q));
   const opts = el('div', 'opts'), fb = el('div', 'fb'); fb.hidden = true; fb.setAttribute('aria-live', 'polite');
-  const next = btn('g-btn primary', idx + 1 < round.length ? '下一題 →' : '看我的晶圓 →', () => { idx++; idx < round.length ? show() : finish(); });
-  next.hidden = true;
-  const choices = shuffle([q.answer, ...q.wrong]), buttons = [];
-  const answer = (text, b) => {
-    if (!next.hidden) return;
-    const ok = text === q.answer; results.push(ok);
-    dots.children[idx].className = ok ? 'ok' : 'no'; scv.textContent = (score + (ok ? 1 : 0)) + ' / ' + round.length;
-    if (ok) { score++; streak++; bestStreak = Math.max(bestStreak, streak); deposit(ch, layerColor(q, idx)); }
-    else { streak = 0; misfire(ch); }
-    buttons.forEach(o => { o.disabled = true; if (o.dataset.t === q.answer) o.classList.add('right'); else if (o !== b) o.classList.add('dim'); });
-    if (!ok) b.classList.add('wrong');
-    fb.className = 'fb ' + (ok ? 'ok' : 'no');
-    fb.replaceChildren(el('b', '', ok ? (streak >= 3 ? '答對了!連續 ' + streak + ' 題 🔥' : '答對了!鍍上一層膜') : '答錯了,正解是「' + q.answer + '」'));
-    if (q.explain) fb.append(document.createTextNode(q.explain));
-    if (q.link) { const a = el('a', '', ' 閱讀原文 →'); a.href = q.link; a.target = '_blank'; a.rel = 'noopener'; fb.append(a); }
-    fb.hidden = false; next.hidden = false; next.focus();
-  };
-  choices.forEach((text, i) => {
-    const b = el('button', 'opt'); b.type = 'button'; b.dataset.t = text;
-    b.append(el('span', 'k', 'ABCD'[i]), el('span', '', text)); b.onclick = () => answer(text, b);
+  const after = el('div', 'g-row'); after.style.display = 'flex'; after.style.gap = '8px'; after.hidden = true;
+  const buttons = [];
+  shuffle([q.answer, ...q.wrong]).forEach((text, k) => {
+    const b = el('button', 'opt'); b.type = 'button'; b.append(el('span', 'k', 'ABCD'[k]), el('span', '', text));
+    b.onclick = () => {
+      const ok = text === q.answer;
+      buttons.forEach(o => { o.disabled = true; if (o.lastChild.textContent === q.answer) o.classList.add('right'); else if (o !== b) o.classList.add('dim'); });
+      if (!ok) b.classList.add('wrong');
+      if (ok && !solved.has(q.id)) { solved.add(q.id); save(); render(); hud(); if (conquered(i)) toast('🚩 征服「' + i.name + '」!'); }
+      fb.className = 'fb ' + (ok ? 'ok' : 'no');
+      fb.replaceChildren(el('b', '', ok ? '答對了!點亮一棟建築' : '答錯了,正解是「' + q.answer + '」(可以再挑戰)'));
+      if (q.explain) fb.append(document.createTextNode(q.explain));
+      if (q.link) { const a = el('a', '', ' 閱讀原文 →'); a.href = q.link; a.target = '_blank'; a.rel = 'noopener'; fb.append(a); }
+      fb.hidden = false; after.hidden = false;
+    };
     buttons.push(b); opts.append(b);
   });
-  document.onkeydown = e => {
-    if (e.target.closest && e.target.closest('input,textarea')) return;
-    const i = '1234'.indexOf(e.key) >= 0 ? '1234'.indexOf(e.key) : 'abcd'.indexOf(e.key.toLowerCase());
-    if (i >= 0 && i < buttons.length && next.hidden) answer(choices[i], buttons[i]);
-  };
-  main.append(hud, card, opts, fb, next);
-  game.append(ch.wrap, main); box.append(game);
-}
-function finish() {
-  const box = $('quiz'); box.replaceChildren(); document.onkeydown = null;
-  const key = 'quiz-best-' + topic, best = +(store.get(key) || 0);
-  if (score > best) store.set(key, score);
-  const n = round.length, grade = score === n ? '完美鍍膜 · 靶材達人' : score >= n * .7 ? '良率優良' : score >= n * .4 ? '製程需要調整' : '重新開機再來一次';
-  // wafer cross-section: one band per question, film for right answers, defect for wrong ones
-  const W = 520, H = 40 + n * 14, s = sv('svg', {viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': '你的晶圓膜層剖面'});
-  round.forEach((q, i) => {
-    const y = H - 30 - (i + 1) * 14;
-    if (results[i]) s.append(sv('rect', {x: 20, y, width: W - 40, height: 13, fill: layerColor(q, i), rx: 1}));
-    else { s.append(sv('rect', {x: 20, y, width: W - 40, height: 13, fill: 'none', stroke: 'var(--up)', 'stroke-dasharray': '4 3'}));
-      const t = sv('text', {x: W / 2, y: y + 10, 'text-anchor': 'middle', fill: 'var(--up)', 'font-size': 10}); t.textContent = '缺陷'; s.append(t); }
-  });
-  s.append(sv('rect', {x: 10, y: H - 30, width: W - 20, height: 22, rx: 3, fill: 'var(--fg)', opacity: .85}));
-  const tw = sv('text', {x: W / 2, y: H - 15, 'text-anchor': 'middle', fill: 'var(--surface)', 'font-size': 11}); tw.textContent = 'Si WAFER'; s.append(tw);
-  const stack = el('div', 'stack'); stack.append(s);
-  const res = el('div', 'result');
-  res.append(el('div', 'grade', grade), el('div', 'big', score + ' / ' + n),
-    el('div', 'hud', (score > best ? '🎉 新紀錄!' : '最佳成績 ' + Math.max(best, score) + ' / ' + n) + (bestStreak >= 2 ? ' · 最長連對 ' + bestStreak : '')), stack);
-  const missed = round.filter((q, i) => !results[i]);
-  if (missed.length) {
-    const ul = el('ul', 'review');
-    for (const q of missed) { const li = el('li'); li.append(el('div', '', q.q), el('span', 'a', '正解:' + q.answer)); ul.append(li); }
-    res.append(el('b', '', '缺陷檢查:答錯的題目'), ul);
-  }
-  const row = el('div', 'g-row'); row.append(btn('g-btn primary', '再鍍一片', start), btn('g-btn', '換個主題', startScreen));
-  res.append(row); box.append(res);
+  const nextQ = i.questions.slice(n + 1).concat(i.questions.slice(0, n)).find(x => !solved.has(x.id));
+  after.append(nextQ ? btn('g-btn primary sm', '下一棟 →', () => panel(nextQ.id)) : btn('g-btn primary sm', '本島完成 🚩', () => panel()),
+    btn('g-btn sm', '島上建築一覽', () => panel()));
+  box.append(el('div', 'chip2', '建築 #' + (n + 1) + ' / ' + i.questions.length), head, opts, fb, after);
+  return box;
 }
 
-// ---------- matching: periodic-table tiles ----------
-let open = [], moves = 0, left = 0, t0 = 0, timer = null;
-function face(e, sym) {
-  // name cards stay neutral until matched, so the colour doesn't give the pair away
-  const b = el('div', sym ? 'b' : 'b name'); b.style.setProperty('--c', e.color);
-  if (sym) { if (e.num) b.append(el('span', 'z', e.num)); b.append(el('span', 's' + (e.sym.length > 2 ? ' long' : ''), e.sym)); }
-  else b.append(el('span', 'n', e.name));
-  return b;
-}
-function newMatch() {
-  const box = $('match'); box.replaceChildren(); clearInterval(timer);
-  const pick = shuffle(B.elements).slice(0, PAIRS);
-  const cards = shuffle(pick.flatMap(e => [{e, sym: true}, {e, sym: false}]));
-  open = []; moves = 0; left = PAIRS; t0 = 0;
-  const hud = el('div', 'hud'), mv = el('b', '', '0'), tm = el('b', '', '0'), best = store.get('match-best');
-  const a = el('span', '', '步數 '), b2 = el('span', '', '秒數 '); a.append(mv); b2.append(tm);
-  hud.append(a, b2, el('span', '', best ? '最佳 ' + best + ' 步' : '翻開兩張:元素符號配中文名稱'));
+// ---------- 配對遊樂島 ----------
+function matchGame(i) {
+  const box = el('div'); box.style.display = 'grid'; box.style.gap = '12px';
+  const pick = shuffle(B.elements).slice(0, PAIRS), cards = shuffle(pick.flatMap(e => [{e, sym: true}, {e, sym: false}]));
+  let open = [], moves = 0, left = PAIRS;
+  const info = el('div', 'chip2', '翻兩張:元素符號配中文名 · 步數 '), mv = el('b', '', '0'); info.append(mv);
   const board = el('div', 'board');
   for (const c of cards) {
     const card = el('button', 'mc'); card.type = 'button'; card.setAttribute('aria-label', '翻開卡片');
-    const inner = el('div', 'in'), front = el('div', 'f', '?');
-    inner.append(front, face(c.e, c.sym)); card.append(inner);
+    const inner = el('div', 'in'), back = el('div', c.sym ? 'b' : 'b name'); back.style.setProperty('--pc', c.e.color);
+    if (c.sym) { if (c.e.num) back.append(el('span', 'z', c.e.num)); back.append(el('span', 's' + (c.e.sym.length > 2 ? ' long' : ''), c.e.sym)); }
+    else back.append(el('span', 'n', c.e.name));
+    inner.append(el('div', 'f', '?'), back); card.append(inner);
     card.onclick = () => {
       if (card.classList.contains('flip') || open.length === 2) return;
-      if (!t0) { t0 = Date.now(); timer = setInterval(() => tm.textContent = Math.round((Date.now() - t0) / 1000), 500); }
       card.classList.add('flip'); card.setAttribute('aria-label', c.sym ? c.e.sym : c.e.name); open.push([card, c]);
       if (open.length < 2) return;
-      moves++; mv.textContent = moves;
+      mv.textContent = ++moves;
       const [[k1, c1], [k2, c2]] = open;
       if (c1.e.sym === c2.e.sym && c1.sym !== c2.sym) {
         [k1, k2].forEach(k => { k.classList.add('done'); k.disabled = true; }); open = [];
-        if (!--left) {
-          clearInterval(timer); const prev = +(store.get('match-best') || 0);
-          if (!prev || moves < prev) store.set('match-best', moves);
-          const fb = el('div', 'fb ok'); fb.append(el('b', '', '完成!' + moves + ' 步、' + tm.textContent + ' 秒' + (!prev || moves < prev ? ' 🎉 新紀錄' : '')),
-            document.createTextNode(pick.map(e => e.sym + ' = ' + e.name).join('、')));
-          box.insertBefore(fb, row);
-        }
-      } else {
-        [k1, k2].forEach(k => k.classList.add('miss'));
-        setTimeout(() => { [k1, k2].forEach(k => { k.classList.remove('flip', 'miss'); k.setAttribute('aria-label', '翻開卡片'); }); open = []; }, 900);
-      }
+        if (!--left) { const first = !matchDone; matchDone = true; save(); render(); hud(); toast((first ? '🚩 征服「配對遊樂島」!' : '完成!') + moves + ' 步'); }
+      } else { [k1, k2].forEach(k => k.classList.add('miss'));
+        setTimeout(() => { [k1, k2].forEach(k => { k.classList.remove('flip', 'miss'); k.setAttribute('aria-label', '翻開卡片'); }); open = []; }, 900); }
     };
     board.append(card);
   }
-  const row = el('div', 'g-row'); row.append(btn('g-btn primary', '重新洗牌', newMatch));
-  box.append(hud, board, row);
+  box.append(info, board, btn('g-btn sm', '重新洗牌', () => panel()));
+  return box;
 }
-startScreen(); newMatch();
+
+$('reset').onclick = () => { if (confirm('清除所有進度,重新探索?')) { solved = new Set(); mascotFound = false; matchDone = false; save(); render(); panel(); } };
+$('home').onclick = () => go(null);
+drawMap();
+const start = new URLSearchParams(location.search).get('island');
+start && ISL[start] ? go(start) : panel();
 })();
 """
 
@@ -424,19 +471,19 @@ def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "
     from .site import _brand, _head, esc, icon
 
     bank = build_bank(config, items, seed)
-    bank["topics"] = TOPICS
     payload = json.dumps(bank, ensure_ascii=False).replace("</", "<\\/")
-    counts = {k: sum(q["topic"] == k for q in bank["questions"]) for k, *_ in TOPICS[1:]}
-    script = GAME_SCRIPT.replace("__ROUND__", str(ROUND)).replace("__PAIRS__", str(PAIRS))
+    buildings = sum(len(i["questions"]) for i in bank["islands"])
+    script = GAME_SCRIPT.replace("__PAIRS__", str(PAIRS))
     return (
-        _head("靶材知識小遊戲", "用網站的新聞、商情預測與財報素材出題的靶材產業知識問答與元素配對遊戲。",
+        _head("靶材產業島", "探索靶材產業島:每座島是一個主題、每棟建築是一道題,答對點亮建築、征服島嶼。題目取自本站新聞、商情預測與財報素材。",
               config.settings.site_url, "quiz.html")
-        + f"""<style>{GAME_STYLE}</style><div class="wrap">
-<header>{_brand("Sputtering Target · Knowledge Game", "靶材知識小遊戲")}
+        + f"""<style>{GAME_STYLE}</style><div class="wrap" style="max-width:1180px">
+<header>{_brand("Sputtering Target · Knowledge Islands", "靶材產業島")}
 <nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><a class="btn" href="forecast.html">{icon("research")}商情預測</a><span>{icon("calendar")}題庫更新於 <span class="mono">{esc(generated)}</span></span></nav>
-<p class="sub">題目取自本站素材:材料與製程 {counts["materials"]} 題、市場與廠商 {counts["market"]} 題、近期新聞 {counts["news"]} 題(每天隨新聞更新)。可用鍵盤 1–4 或 A–D 作答。</p></header>
-<section aria-label="遊戲"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="quiz" aria-selected="true">{icon("target")}濺鍍問答</button><button type="button" role="tab" data-tab="match" aria-selected="false">{icon("layers")}元素配對</button></div>
-<div class="panel" id="quiz"></div><div class="panel" id="match" hidden></div></section>
+<p class="sub">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼探索,答對點亮建築;新聞港每天隨新聞換題。進度只存在你的瀏覽器。</p></header>
+<section class="isle" aria-label="靶材產業島"><div class="stage" id="stage"><div class="hud2" id="hud2"></div>
+<div class="tools"><button type="button" class="g-btn sm" id="home">{icon("globe")}全島</button><button type="button" class="g-btn sm" id="reset">重來</button></div></div>
+<aside class="side" id="side" aria-live="polite"></aside></section>
 <footer>題目與解說由網站素材整理;市場數字出自富士キメラ総研報告摘要,以原報告為準。公司 logo 取自財務儀表板。</footer>
 </div><script type="application/json" id="bank">{payload}</script><script>{script}</script></body></html>"""
     )

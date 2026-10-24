@@ -1224,13 +1224,19 @@ def test_quiz_bank_and_page(tmp_path, config):
         {"id": "c", "title": "兩家公司", "entities": ["光洋科 (Solar Applied Materials)", "台積電 (TSMC)"], "importance": 5},
     ]
     bank = build_bank(config, items, seed="s")
-    news = [q for q in bank["questions"] if q["topic"] == "news"]
+    islands = {i["id"]: i for i in bank["islands"]}
+    news = islands["news"]["questions"]
     assert [q["answer"] for q in news] == ["光洋科", "台積電"]  # two-company headline skipped
     assert "光洋科" not in news[0]["q"] and "○○" in news[0]["q"]
     assert "光洋科" not in news[1]["wrong"]  # a company named in the headline is never a distractor
-    for q in bank["questions"]:
+    questions = [q for i in bank["islands"] for q in i["questions"]]
+    for q in questions:
         assert len(q["wrong"]) == 3 and q["answer"] not in q["wrong"], q
-    assert {q["topic"] for q in bank["questions"]} == {"materials", "market", "news"}
+    assert all(len(i["questions"]) <= 9 for i in bank["islands"]) and "play" in islands
+    assert len({q["id"] for q in questions}) == len(questions)  # stable, unique ids for saved progress
+    assert islands["tw"]["questions"] and all(q["island"] == "tw" for q in islands["tw"]["questions"])
+    assert bank["mascot"] in islands and bank["mascot"] != "play"
+    assert all(a in islands and b in islands for a, b, _ in bank["links"])
 
     reports = tmp_path / "reports"
     reports.mkdir()
