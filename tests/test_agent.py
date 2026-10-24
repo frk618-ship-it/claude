@@ -1279,3 +1279,19 @@ def test_protect_site_encrypts_under_secret_path(tmp_path):
     assert (out / secret / "news" / "og.png").exists() and not (out / secret / "news" / "data.json").exists()
     assert secret not in (out / "index.html").read_text(encoding="utf-8")  # the root never reveals the path
     assert "Disallow: /" in (out / "robots.txt").read_text(encoding="utf-8")
+
+
+def test_protect_moves_absolute_site_links_under_secret_path(tmp_path):
+    from target_news_agent.protect import decrypt_page, protect
+
+    src = tmp_path / "site"
+    for d in ("news", "financials"):
+        (src / d).mkdir(parents=True)
+    base = "https://u.github.io/repo/"
+    (src / "news" / "index.html").write_text("<p>news</p>", encoding="utf-8")
+    (src / "financials" / "index.html").write_text(
+        f'<a id="news-link" href="{base}news/">新聞</a><a href="https://example.com/news/">x</a>', encoding="utf-8")
+    secret = "abcDEF123_secret-path"
+    protect(src, tmp_path / "out", secret, "pw", base)
+    page = decrypt_page((tmp_path / "out" / secret / "financials" / "index.html").read_text(encoding="utf-8"), "pw")
+    assert f'href="{base}{secret}/news/"' in page and 'href="https://example.com/news/"' in page

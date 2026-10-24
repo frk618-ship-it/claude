@@ -130,8 +130,20 @@ def placeholder(message: str) -> str:
     return PLACEHOLDER.replace("{message}", html.escape(message))
 
 
-def protect(src: str | Path, out: str | Path, path: str | None, password: str | None) -> tuple[int, str]:
-    """Write the protected site to `out`. Returns (pages encrypted, status message)."""
+def relink(page: str, public_base: str, path: str, tops: list[str]) -> str:
+    """Point absolute links into the site (public_base + news/ ...) at the secret path instead."""
+    base = public_base.rstrip("/") + "/"
+    for top in tops:
+        page = page.replace(base + top + "/", f"{base}{path}/{top}/")
+    return page
+
+
+def protect(src: str | Path, out: str | Path, path: str | None, password: str | None,
+            public_base: str = "") -> tuple[int, str]:
+    """Write the protected site to `out`. Returns (pages encrypted, status message).
+
+    `public_base` is the site's public root URL (e.g. https://user.github.io/repo/); absolute links
+    to its sections, such as the dashboard's link back to the news site, are moved under the path."""
     src, out = Path(src), Path(out)
     if out.exists():
         shutil.rmtree(out)
@@ -148,6 +160,7 @@ def protect(src: str | Path, out: str | Path, path: str | None, password: str | 
     salt = site_salt(path)
     key = derive_key(password, salt)
     base, pages = out / path, 0
+    tops = sorted(d.name for d in src.iterdir() if d.is_dir())
     for f in sorted(p for p in src.rglob("*") if p.is_file()):
         rel = f.relative_to(src)
         if rel == Path("index.html") or f.suffix.lower() in SKIP_SUFFIXES:
@@ -155,7 +168,10 @@ def protect(src: str | Path, out: str | Path, path: str | None, password: str | 
         dest = base / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         if f.suffix.lower() == ".html":
-            dest.write_text(encrypt_page(f.read_text(encoding="utf-8"), key, salt), encoding="utf-8")
+            page = f.read_text(encoding="utf-8")
+            if public_base:
+                page = relink(page, public_base, path, tops)
+            dest.write_text(encrypt_page(page, key, salt), encoding="utf-8")
             pages += 1
         else:
             shutil.copyfile(f, dest)

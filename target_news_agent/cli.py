@@ -79,6 +79,7 @@ def main(argv: list[str] | None = None) -> int:
     pr = sub.add_parser("protect", help="把建好的網站加密、放到秘密路徑下(SITE_PATH / SITE_PASSWORD 環境變數)")
     pr.add_argument("--src", default="site", help="建好的網站資料夾")
     pr.add_argument("--out", default="public", help="要發布的資料夾")
+    pr.add_argument("-c", "--config", default="config/watchlist.yaml", help="由其中的 site_url 推得網站根網址,把站內絕對連結改到秘密路徑")
 
     ns = sub.add_parser(
         "notion-sync",
@@ -102,7 +103,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "protect":
         from .protect import protect
 
-        pages, status = protect(args.src, args.out, os.environ.get("SITE_PATH"), os.environ.get("SITE_PASSWORD"))
+        site_url = load_config(args.config).settings.site_url if Path(args.config).exists() else ""
+        public_base = site_url.rstrip("/").rsplit("/", 1)[0] + "/" if site_url else ""  # .../claude/news/ -> .../claude/
+        pages, status = protect(args.src, args.out, os.environ.get("SITE_PATH"), os.environ.get("SITE_PASSWORD"), public_base)
         print(status)
         return 0
 
