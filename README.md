@@ -175,6 +175,7 @@ python -m pytest -q
 - **季度趨勢折線**:最多 4 家公司比較毛利率、營益率、ROE、存貨天數、負債比等。
 - **台股月營收年增率**:光洋科、鑫科的月營收。
 - **完整比較表**:可排序,標示最佳值與各公司規則訊號數(🔴 風險 / 🟡 注意 / 🟢 優勢);公司名旁的彩色小標籤標示靶材比重(專業廠 / 主要事業 / 多角化)。
+- **存取限制**(秘密網址+密碼):GitHub Pages 沒有權限控管,所以發布前會執行 `python -m target_news_agent protect`:整個網站放到一串隨機路徑下(`<網址>/claude/<SITE_PATH>/news/`、`.../financials/`),根目錄不連過去、robots 禁止收錄;每一頁都以 AES-256-GCM 加密(密碼經 PBKDF2-SHA256 產生金鑰),開啟時輸入密碼在瀏覽器解密,同一個瀏覽器工作階段換頁不必重輸(可勾選「在這個裝置上記住」)。分享時可用 `<網址>#k=<密碼>` 的連結直接開啟(`#` 後面不會送到伺服器,開啟後會自動從網址列移除)。報告 JSON / CSV 不再發布。`SITE_PATH`(16–64 個英數、`-`、`_`)與 `SITE_PASSWORD` 設在 repo 的 Actions Secrets;沒設定時只發布一個佔位頁。注意:repo 本身若仍是公開的,`reports/` 裡的報告原始資料仍可在 GitHub 上看到。
 - **分享預覽**:頁面內含靜態標題、`description` 與 Open Graph / Twitter 標籤(圖片 `fin_analyzer/assets/og.png`,絕對網址由 `settings.site_url` 組成),貼到 LINE、Slack、Teams 會顯示預覽卡片;新聞網站同樣設定(`config/watchlist.yaml` 的 `settings.site_url`)。預覽圖以 `python scripts/make_og_images.py` 產生(扁平風格,需要 Playwright 與中文字型)。
 - 圖表載入前顯示骨架屏(skeleton),版面不會跳動。
 - 篩選列:市場(台/日/美/中)、靶材比重、焦點公司;固定明亮配色,支援手機版面;標題列連到靶材產業新聞摘要網站(設定檔 `settings.news_url`)。

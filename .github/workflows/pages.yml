@@ -42,9 +42,16 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      - name: Protect site (secret path + password)
+        env:
+          # 在 repo 的 Settings → Secrets and variables → Actions 設定;沒設時只發布一個佔位頁,內容不會公開
+          SITE_PATH: ${{ secrets.SITE_PATH }}
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+        run: python -m target_news_agent protect --src site --out public
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: public
 
   deploy:
     needs: build

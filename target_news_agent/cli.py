@@ -76,6 +76,10 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("-o", "--out", default="site/news")
     st.add_argument("--root-redirect", metavar="DIR", help="在 DIR/index.html 放一個轉址到新聞網站的首頁(GitHub Pages 根目錄用)")
 
+    pr = sub.add_parser("protect", help="把建好的網站加密、放到秘密路徑下(SITE_PATH / SITE_PASSWORD 環境變數)")
+    pr.add_argument("--src", default="site", help="建好的網站資料夾")
+    pr.add_argument("--out", default="public", help="要發布的資料夾")
+
     ns = sub.add_parser(
         "notion-sync",
         help="把報告 JSON 的新聞 / 技術文獻 / 追蹤公司寫入 Notion(需 NOTION_TOKEN,及 NOTION_PARENT_PAGE_ID 或各資料庫 ID)",
@@ -94,6 +98,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
+
+    if args.command == "protect":
+        from .protect import protect
+
+        pages, status = protect(args.src, args.out, os.environ.get("SITE_PATH"), os.environ.get("SITE_PASSWORD"))
+        print(status)
+        return 0
 
     if args.command in ("notion-sync", "notion-setup"):
         try:

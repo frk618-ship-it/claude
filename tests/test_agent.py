@@ -1248,3 +1248,34 @@ def test_quiz_bank_and_page(tmp_path, config):
     page = (tmp_path / "out" / "quiz.html").read_text(encoding="utf-8")
     assert '<script type="application/json" id="bank">' in page and "<script>x</script>" not in page
     assert 'href="quiz.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+
+
+def test_protect_site_encrypts_under_secret_path(tmp_path):
+    from target_news_agent.protect import decrypt_page, protect
+
+    src = tmp_path / "site"
+    (src / "news").mkdir(parents=True)
+    (src / "index.html").write_text("<meta http-equiv=refresh content='0; url=news/'>", encoding="utf-8")
+    (src / "news" / "index.html").write_text("<title>靶材產業新聞摘要</title><p>機密內容</p>", encoding="utf-8")
+    (src / "news" / "og.png").write_bytes(b"png")
+    (src / "news" / "data.json").write_text("{}", encoding="utf-8")
+
+    # no secrets: placeholder only, nothing from the site is published
+    pages, status = protect(src, tmp_path / "out0", None, None)
+    assert pages == 0 and "placeholder" in status
+    assert sorted(p.name for p in (tmp_path / "out0").iterdir()) == [".nojekyll", "index.html", "robots.txt"]
+
+    with pytest.raises(ValueError):
+        protect(src, tmp_path / "bad", "short", "pw")
+
+    secret = "abcDEF123_secret-path"
+    pages, _ = protect(src, tmp_path / "out", secret, "密碼 pw")
+    out = tmp_path / "out"
+    page = (out / secret / "news" / "index.html").read_text(encoding="utf-8")
+    assert pages == 1 and "機密內容" not in page and "靶材產業新聞摘要" not in page
+    assert decrypt_page(page, "密碼 pw") == "<title>靶材產業新聞摘要</title><p>機密內容</p>"
+    with pytest.raises(Exception):
+        decrypt_page(page, "wrong")
+    assert (out / secret / "news" / "og.png").exists() and not (out / secret / "news" / "data.json").exists()
+    assert secret not in (out / "index.html").read_text(encoding="utf-8")  # the root never reveals the path
+    assert "Disallow: /" in (out / "robots.txt").read_text(encoding="utf-8")
