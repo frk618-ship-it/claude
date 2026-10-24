@@ -175,7 +175,7 @@ python -m pytest -q
 - **季度趨勢折線**:最多 4 家公司比較毛利率、營益率、ROE、存貨天數、負債比等。
 - **台股月營收年增率**:光洋科、鑫科的月營收。
 - **完整比較表**:可排序,標示最佳值與各公司規則訊號數(🔴 風險 / 🟡 注意 / 🟢 優勢);公司名旁的彩色小標籤標示靶材比重(專業廠 / 主要事業 / 多角化)。
-- **分享預覽**:頁面內含靜態標題、`description` 與 Open Graph / Twitter 標籤(圖片 `fin_analyzer/assets/og.png`,絕對網址由 `settings.site_url` 組成),貼到 LINE、Slack、Teams 會顯示預覽卡片;新聞網站同樣設定(`config/watchlist.yaml` 的 `settings.site_url`)。
+- **分享預覽**:頁面內含靜態標題、`description` 與 Open Graph / Twitter 標籤(圖片 `fin_analyzer/assets/og.png`,絕對網址由 `settings.site_url` 組成),貼到 LINE、Slack、Teams 會顯示預覽卡片;新聞網站同樣設定(`config/watchlist.yaml` 的 `settings.site_url`)。預覽圖以 `python scripts/make_og_images.py` 產生(扁平風格,需要 Playwright 與中文字型)。
 - 圖表載入前顯示骨架屏(skeleton),版面不會跳動。
 - 篩選列:市場(台/日/美/中)、靶材比重、焦點公司;固定明亮配色,支援手機版面;標題列連到靶材產業新聞摘要網站(設定檔 `settings.news_url`)。
 - 金額依匯率換算為**億台幣**(匯率由 `fetch` 從 Yahoo Finance 取得,取不到則用設定檔 `fx_rates`);比率不受匯率影響。
