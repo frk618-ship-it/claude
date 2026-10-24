@@ -115,6 +115,12 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
 .tablewrap .sk:empty { display: block; min-height: 420px; }
 @keyframes sk { from { opacity: .45; } to { opacity: .9; } }
 @media (prefers-reduced-motion: reduce) { .sk:empty { animation: none; } }
+/* chart motion: axes and labels fade in; bars and bubbles are tweened in script (see tween()) */
+.fade-in { animation: fadein .45s ease-out both; animation-delay: var(--d, 0s); }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.bub-in { transition: transform .18s ease-out; }
+.bar { transition: opacity .15s; }
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } .bub-in { transition: none; } }
 /* target-revenue share: badge in the table, bubble size in the scatter */
 .tf { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 17px; vertical-align: 1px;
   color: var(--tf); background: color-mix(in srgb, var(--tf) 13%, var(--surface)); border: 1px solid color-mix(in srgb, var(--tf) 35%, transparent); }
@@ -364,10 +370,28 @@ function renderTiles() {
   }
 }
 
+// ---------- motion ----------
+// Charts are redrawn on every filter / metric change; each one remembers where its marks were
+// and tweens them to the new spot, so bars re-sort and bubbles glide instead of jumping.
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const easeBack = t => { const c = 1.5; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+const lerp = (a, b, t) => a + (b - a) * t;
+function tween(dur, delay, step) {
+  if (REDUCE) { step(1); return; }
+  step(0);
+  const t0 = performance.now() + delay;
+  const frame = now => { const t = Math.min(1, Math.max(0, (now - t0) / dur)); step(t); if (t < 1) requestAnimationFrame(frame); };
+  requestAnimationFrame(frame);
+}
+let rankPrev = {}, rankPrevKey = null, scatterPrev = {};
+
 // ---------- ranking bars ----------
 function renderRank() {
   const m = metricsByKey[state.rank];
   const box = $("rank"); box.replaceChildren();
+  const prev = rankPrev, sameMetric = rankPrevKey === m.key;
+  rankPrev = {}; rankPrevKey = m.key;
   const rows = visible().filter(c => val(c, m.key) !== null);
   const missing = visible().filter(c => val(c, m.key) === null);
   $("rank-hint").textContent = (m.better === "high" ? "數值越高越好" : m.better === "low" ? "數值越低越好" : "高低需搭配情境判讀")
@@ -381,22 +405,38 @@ function renderRank() {
   const lo = ticks[0], hi = ticks[ticks.length - 1];
   const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
   const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${m.label} 排名`});
+  const axes = sv("g", {class: sameMetric ? "" : "fade-in"}); svg.appendChild(axes);
   for (const t of ticks) {
-    svg.appendChild(sv("line", {x1: x(t), x2: x(t), y1: top - 4, y2: H - 20, class: t === 0 ? "baseline" : "gridline"}));
-    svg.appendChild(sv("text", {x: x(t), y: H - 6, "text-anchor": "middle", class: "muted"}, fmtAxis(t, m.kind)));
+    axes.appendChild(sv("line", {x1: x(t), x2: x(t), y1: top - 4, y2: H - 20, class: t === 0 ? "baseline" : "gridline"}));
+    axes.appendChild(sv("text", {x: x(t), y: H - 6, "text-anchor": "middle", class: "muted"}, fmtAxis(t, m.kind)));
   }
+  const x0 = x(0);
   rows.forEach((c, i) => {
     const y = top + i * rowH, v = val(c, m.key);
-    const x0 = x(0), x1 = x(v), bw = Math.max(Math.abs(x1 - x0), 1.5);
+    const x1 = x(v), bx = Math.min(x0, x1), bw = Math.max(Math.abs(x1 - x0), 1.5);
     const isF = c.ticker === state.focus;
     const label = shortName(c) + (c.target_focus === "diversified" ? "＊" : "");
-    svg.appendChild(sv("text", {x: L - 8, y: y + rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, label));
-    const bar = sv("rect", {x: Math.min(x0, x1), y: y + 6, width: bw, height: rowH - 12, rx: 3,
+    // one group per company, moved as a whole when the order changes
+    const g = sv("g", {transform: `translate(0 ${y})`}); svg.appendChild(g);
+    g.appendChild(sv("text", {x: L - 8, y: rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, label));
+    const bar = sv("rect", {class: "bar", x: bx, y: 6, width: bw, height: rowH - 12, rx: 3,
       fill: isF ? cssVar("--s1") : cssVar("--other-mark")});
-    svg.appendChild(bar);
+    g.appendChild(bar);
     const neg = v < 0;
-    svg.appendChild(sv("text", {x: neg ? Math.min(x0, x1) - 5 : Math.max(x0, x1) + 5, y: y + rowH / 2 + 4,
-      "text-anchor": neg ? "end" : "start", class: isF ? "strong" : ""}, fmt(v, m.kind)));
+    const vt = sv("text", {y: rowH / 2 + 4, "text-anchor": neg ? "end" : "start", class: isF ? "strong" : ""}, fmt(v, m.kind));
+    g.appendChild(vt);
+    // tween from the previous render's bar (re-sort / new metric) or grow from the zero line
+    const p = prev[c.ticker];
+    const from = p ? {y: p.y, bx: p.bx, bw: p.bw, v: sameMetric ? p.v : 0} : {y, bx: x0, bw: 0, v: 0};
+    rankPrev[c.ticker] = {y, bx, bw, v};
+    tween(p ? 550 : 700, p ? 0 : i * 45, t => {
+      const e = easeOut(t), cbx = lerp(from.bx, bx, e), cbw = Math.max(lerp(from.bw, bw, e), 0.5);
+      g.setAttribute("transform", `translate(0 ${lerp(from.y, y, e)})`);
+      bar.setAttribute("x", cbx); bar.setAttribute("width", cbw);
+      vt.setAttribute("x", neg ? cbx - 5 : cbx + cbw + 5);
+      vt.textContent = fmt(lerp(from.v, v, e), m.kind);
+      vt.setAttribute("opacity", p ? 1 : Math.min(1, t * 2));
+    });
     const hit = sv("rect", {x: 0, y, width: W, height: rowH, fill: "transparent", tabindex: 0});
     const rows2 = [{label: m.kind === "amt" ? `${m.label}(${D.unit_label})` : m.label, value: fmt(v, m.kind)},
       {label: "市場 / 幣別", value: `${c.region} / ${c.currency}`}, {label: "最新季", value: c.latest_quarter}];
@@ -450,33 +490,50 @@ function renderScatter() {
   const defs = sv("defs"); svg.appendChild(defs);
   const labels = [];
   const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus) || rOf(b) - rOf(a));
-  for (const c of order) {
+  const prev = scatterPrev; scatterPrev = {};
+  let longest = 0;
+  order.forEach((c, i) => {
     const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
     const isF = c.ticker === state.focus, r = rOf(c);
+    // each bubble is drawn around (0,0) inside a group that is moved into place, so it can glide and pop
+    const g = sv("g", {transform: `translate(${cx} ${cy})`}); svg.appendChild(g);
+    const body = sv("g", {class: "bub-in"}); g.appendChild(body);
     // bubble = the company's logo in a white disc (monogram when there is no logo); focus gets an accent ring
-    svg.appendChild(sv("circle", {cx, cy, r, fill: cssVar("--surface"), stroke: isF ? cssVar("--s1") : cssVar("--axis"), "stroke-width": isF ? 3 : 1.5}));
+    body.appendChild(sv("circle", {cx: 0, cy: 0, r, fill: cssVar("--surface"), stroke: isF ? cssVar("--s1") : cssVar("--axis"), "stroke-width": isF ? 3 : 1.5}));
     const inner = r - (isF ? 3 : 2);
     if (c.logo) {
       const id = "lg-" + c.ticker.replace(/[^A-Za-z0-9]/g, "_");
-      const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx, cy, r: inner})); defs.appendChild(clip);
-      svg.appendChild(sv("image", {href: c.logo, x: cx - inner * 0.94, y: cy - inner * 0.94, width: inner * 1.88, height: inner * 1.88,
+      const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx: 0, cy: 0, r: inner})); defs.appendChild(clip);
+      body.appendChild(sv("image", {href: c.logo, x: -inner * 0.94, y: -inner * 0.94, width: inner * 1.88, height: inner * 1.88,
         preserveAspectRatio: "xMidYMid meet", "clip-path": `url(#${id})`}));
     } else {
-      svg.appendChild(sv("text", {x: cx, y: cy + r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
+      body.appendChild(sv("text", {x: 0, y: r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
     }
     labels.push({c, cx, cy, r, isF, text: shortName(c) + (c.target_focus === "diversified" ? "＊" : "") + (yoyShort(c) ? "†" : "")});
-    const hit = sv("circle", {cx, cy, r: Math.max(14, r + 4), fill: "transparent", tabindex: 0});
+    const hit = sv("circle", {cx: 0, cy: 0, r: Math.max(14, r + 4), fill: "transparent", tabindex: 0});
     const rows = [{label: "靶材比重", value: c.focus_label || "—"},
       {label: yoyLabel(c), value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
       {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
       {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
-    hit.addEventListener("pointermove", e => showTip(e, `${c.name}(${c.ticker})`, rows));
-    hit.addEventListener("pointerleave", hideTip);
-    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
-    hit.addEventListener("blur", hideTip);
-    svg.appendChild(hit);
-  }
-  placeLabels(svg, labels, W);
+    const grow = on => { body.style.transform = on ? "scale(1.18)" : ""; };
+    hit.addEventListener("pointermove", e => { grow(true); showTip(e, `${c.name}(${c.ticker})`, rows); });
+    hit.addEventListener("pointerleave", () => { grow(false); hideTip(); });
+    hit.addEventListener("focus", () => { grow(true); const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
+    hit.addEventListener("blur", () => { grow(false); hideTip(); });
+    g.appendChild(hit);
+    // known bubble: glide from where it was; new bubble: pop in at its spot, one after another
+    const p = prev[c.ticker];
+    scatterPrev[c.ticker] = {cx, cy};
+    const delay = p ? 0 : i * 60, dur = p ? 600 : 650;
+    longest = Math.max(longest, delay + dur);
+    tween(dur, delay, t => {
+      if (p) { const e = easeOut(t); g.setAttribute("transform", `translate(${lerp(p.cx, cx, e)} ${lerp(p.cy, cy, e)})`); }
+      else g.setAttribute("transform", `translate(${cx} ${cy}) scale(${Math.max(0, easeBack(t))})`);
+    });
+  });
+  // labels are placed for the final positions, so they appear once the bubbles have settled
+  const lbls = sv("g", {class: "fade-in", style: `--d:${REDUCE ? 0 : longest / 1000}s`}); svg.appendChild(lbls);
+  placeLabels(lbls, labels, W);
   box.appendChild(svg);
 }
 
