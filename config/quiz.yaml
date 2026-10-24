@@ -1,49 +1,49 @@
 # 靶材知識小遊戲(網站 quiz.html)的固定題庫。
 # 另有程式自動出的題目:公司上市市場與靶材比重(target_makers.yaml)、元素符號、最近 3 天的重點新聞。
 #
-# 每題:topic(materials = 材料與製程、market = 市場與廠商)、island 所在島嶼(見 target_news_agent/quiz.py 的 ISLANDS)、
+# 每題:topic(materials = 材料與製程、market = 市場與廠商)、island 所在島嶼(materials 材料島、process 製程島、market 市場島、makers 廠商島;見 target_news_agent/quiz.py 的 ISLANDS)、
 #       q 題目、answer 正解、wrong 三個錯誤選項、explain 解說
 
 questions:
   # ---- 材料與製程 ----
   - topic: materials
-    island: wiring
+    island: materials
     q: 半導體銅(Cu)導線的阻障層,主要使用哪一系的靶材?
     answer: 鉭(Ta)系
     wrong: [鋁(Al)系, 金(Au)系, 氧化銦錫(ITO)]
     explain: Cu 導線以 Ta / TaN 薄膜作阻障層,防止銅擴散進介電層;鋁導線則多用鈦(Ti)系阻障層。
   - topic: materials
-    island: wiring
+    island: materials
     q: 半導體鋁(Al)導線的阻障層,主要使用哪一系的靶材?
     answer: 鈦(Ti)系
     wrong: [銅(Cu)系, 銀(Ag)系, IGZO]
     explain: Al 導線多搭配 Ti / TiN 阻障層;Ti 也用於硬遮罩與電極的阻障金屬。
   - topic: materials
-    island: wiring
+    island: materials
     q: 先進邏輯與記憶體的銅導線,用哪種靶材濺鍍「種子層」再電鍍填銅?
     answer: 銅(Cu)
     wrong: [鋁(Al), 鈦(Ti), 鉬(Mo)]
     explain: 鑲嵌(damascene)製程先以 PVD 濺鍍一層薄 Cu 種子層,再電鍍把溝槽填滿。種子層是先進製程需求成長最快的用途之一。
   - topic: materials
-    island: wiring
+    island: materials
     q: 依富士キメラ総研,先進製程導線材料約在 2027 年以後逐步轉向哪些金屬?
     answer: 鈷(Co)/ 釕(Ru)
     wrong: [鋁(Al)/ 鈦(Ti), 銀(Ag)/ 金(Au), 鉬(Mo)/ 鎢(W)]
     explain: 微細化讓銅導線電阻上升,阻障層與種子層也愈來愈薄,因此 Co、Ru 受到重視;Co 已用於部分先進製程。
   - topic: materials
-    island: wiring
+    island: materials
     q: 以出貨片數計,半導體濺鍍靶材中用量最大的是哪一種材料?
     answer: 鋁(Al)
     wrong: [銅(Cu), 鉭(Ta), 釕(Ru)]
     explain: Al 用於多數半導體的導線,出貨量約占四成;其次是 Ti,Cu 與 Ta 的比重逐年提高。
   - topic: materials
-    island: display
+    island: process
     q: ITO 靶材最主要的用途是?
     answer: 顯示器與觸控面板的透明導電膜
     wrong: [半導體銅導線的阻障層, 硬碟的磁性記錄層, 晶圓背面研磨]
     explain: ITO(氧化銦錫)兼具導電與透光,是面板透明電極的主流材料,也用於部分太陽能電池。
   - topic: materials
-    island: display
+    island: process
     q: IGZO 屬於哪一類材料?
     answer: 氧化物半導體(顯示器 TFT 通道層)
     wrong: [金屬導線材料, 磁性記錄材料, 氮化物阻障層]
@@ -79,32 +79,32 @@ questions:
     wrong: [去除表面氧化層, 將靶材綁定到背板, 切割成最終尺寸]
     explain: HIP 在高溫高壓下讓粉末燒結體更緻密,減少孔隙,降低濺鍍時的顆粒(particle)與異常放電。
   - topic: materials
-    island: recycle
+    island: process
     q: 回收廢 ITO 靶材,最主要想回收的金屬是?
     answer: 銦(In)
     wrong: [鋁(Al), 鎢(W), 鉭(Ta)]
     explain: ITO 以氧化銦為主,銦是稀有金屬,廢靶與殘靶的銦回收是靶材循環的重要項目。
   - topic: materials
-    island: display
+    island: process
     q: 先進封裝的凸塊與重布線層(RDL),為何需要濺鍍靶材?
     answer: 以 PVD 形成凸塊下金屬層與電鍍用種子層
     wrong: [固化封裝膠材, 切割晶片, 雷射打標]
     explain: 凸塊下金屬層(UBM)與 RDL 種子層多以 Ti / Cu 等靶材濺鍍,封裝產能擴張會直接帶動靶材需求。
 
   - topic: materials
-    island: recycle
+    island: process
     q: 濺鍍用完、剩下未被濺射掉的靶材,一般稱為?
     answer: 殘靶(廢靶)
     wrong: [背板, 母合金, 鍍膜]
     explain: 平面靶的利用率有限,用完後仍留有大量材料;殘靶回收再精煉,可把稀有與貴金屬重新做成靶材。
   - topic: materials
-    island: recycle
+    island: process
     q: 靶材廠回收客戶的殘靶,最主要的好處是?
     answer: 回收稀有與貴金屬,降低原料成本
     wrong: [提高濺鍍速率, 讓背板更耐熱, 縮短客戶交期]
     explain: 鉭、銦、鉑族與金銀等原料昂貴,殘靶與製程廢料回收精煉是靶材廠重要的成本與供應保障。
   - topic: materials
-    island: recycle
+    island: process
     q: 平面靶與旋轉靶相比,哪一種用完後留下的殘靶比例通常較高?
     answer: 平面靶
     wrong: [旋轉靶, 兩者完全相同, 只有陶瓷靶才會留下殘靶]
@@ -124,31 +124,31 @@ questions:
     wrong: [約三成, 約五成, 約九成]
     explain: 江豐電子(KFMI)與 JX金屬為前兩大,在先進邏輯與記憶體的市占高,成長率預期高於同業。
   - topic: market
-    island: us
+    island: makers
     q: 哪一家公司在 2025 年 10 月自 Honeywell 電子材料分拆獨立?
     answer: Solstice Advanced Materials
     wrong: [Materion, 東曹, Linde Advanced Material Technologies]
     explain: Solstice 沿用 Honeywell 電子材料的韓國、美國據點,在 Al 靶有一定市占並聚焦先進邏輯。
   - topic: market
-    island: cn
+    island: makers
     q: 依富士キメラ総研,江豐電子在哪一種半導體靶材的市占第一?
     answer: 鋁(Al)靶
     wrong: [銅(Cu)靶, 鉭(Ta)靶, 釕(Ru)靶]
     explain: 江豐電子 Al 靶市占第一,旗下有鋁原料子公司具價格競爭力,也是鎧俠等記憶體廠的主要供應商。
   - topic: market
-    island: jp
+    island: makers
     q: 依富士キメラ総研,JX金屬在哪一種半導體靶材的市占第一?
     answer: 銅(Cu)靶
     wrong: [鋁(Al)靶, ITO 靶, IGZO 靶]
     explain: JX金屬 Cu 靶市占第一,Ti、Ta、W、Co 產品線完整,先進製程市占高,供應台積電等客戶。
   - topic: market
-    island: jp
+    island: makers
     q: 住友化學的半導體靶材專注在哪一系?
     answer: 鋁(Al)系,從高純化到靶材一貫生產
     wrong: [ITO 系, 釕(Ru)系, 鉭(Ta)系]
     explain: 住友化學把低純度鋁高純化後製成靶材,以日本國內客戶為主,計劃增強設備拓展海外。
   - topic: market
-    island: jp
+    island: makers
     q: 東曹的半導體靶材主要生產據點在哪裡?
     answer: 美國
     wrong: [台灣, 中國大陸, 新加坡]

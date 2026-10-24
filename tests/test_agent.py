@@ -1232,10 +1232,13 @@ def test_quiz_bank_and_page(tmp_path, config):
     questions = [q for i in bank["islands"] for q in i["questions"]]
     for q in questions:
         assert len(q["wrong"]) == 3 and q["answer"] not in q["wrong"], q
-    assert all(len(i["questions"]) <= 9 for i in bank["islands"]) and "play" in islands
+    assert list(islands) == ["materials", "process", "news", "market", "makers", "play"]
+    assert all(len(i["questions"]) <= 12 for i in bank["islands"])
     assert len({q["id"] for q in questions}) == len(questions)  # stable, unique ids for saved progress
-    assert islands["tw"]["questions"] and all(q["island"] == "tw" for q in islands["tw"]["questions"])
-    assert bank["mascot"] in islands and bank["mascot"] != "play"
+    assert all(q["island"] == iid for iid, i in islands.items() for q in i["questions"])
+    fixed_materials = [q["q"] for q in config.quiz if q.get("island") == "materials"]
+    assert all(any(q["q"] == f for q in islands["materials"]["questions"]) for f in fixed_materials)  # fixed first
+    assert bank["treasure"] in islands and bank["treasure"] != "play" and bank["tips"]
     assert all(a in islands and b in islands for a, b, _ in bank["links"])
 
     reports = tmp_path / "reports"

@@ -1,9 +1,10 @@
 """靶材產業島: the site's knowledge game (quiz.html).
 
-An explorable map of hexagonal islands, one per theme. Each building on an island is a
-question; answering it lights the building, and an island whose buildings are all lit is
-conquered. Dashed lines link islands that share a concept, one island hosts the element
-matching game, and a mascot hides on a different island every day.
+An explorable map of six hexagonal islands around a plaza, one per theme. Each building on an
+island is a question; answering it lights the building, and an island whose buildings are all
+lit is conquered. Dashed lines link islands that share a concept, one island hosts the element
+matching game, a guide character (靶靶) walks to the island you open and reacts to your
+answers, and a golden target hides on a different island every day.
 
 Questions: fixed ones from config/quiz.yaml; the rest are generated from the site's own
 material: listed target makers (market, target share) from target_makers.yaml, element
@@ -46,30 +47,32 @@ FOCUS_NOTE = {
 MAX_NEWS = 15
 
 
-# id, name, icon, colour, axial hex position (q, r), description
+# id, name, icon, colour, axial hex position (q, r), description. The six sit in a ring
+# around the plaza at (0, 0), where the guide character waits.
 ISLANDS = [
-    ("wiring", "導線材料島", "layers", "#3b5bdb", (0, 0), "銅、鋁導線與阻障層、種子層:半導體靶材的核心用途。"),
-    ("process", "製程工藝島", "flame", "#e8590c", (1, -1), "PVD、純度、綁定、旋轉靶、熱均壓:靶材怎麼做、怎麼用。"),
-    ("elements", "元素島", "gem", "#7048e8", (0, -1), "靶材常見的金屬與化合物符號。"),
-    ("display", "顯示與封裝島", "chip", "#1098ad", (-1, 0), "ITO、IGZO 與先進封裝的濺鍍應用。"),
-    ("recycle", "回收島", "recycle", "#2f9e44", (-1, 1), "殘靶回收與稀有金屬再生。"),
-    ("market", "市場預測島", "market", "#d6336c", (0, 1), "市場規模、成長率與價格:取自商情預測頁。"),
+    ("materials", "材料島", "layers", "#3b5bdb", (0, -1), "導線、阻障層、種子層用的金屬,以及靶材常見的元素符號。"),
+    ("process", "製程島", "flame", "#e8590c", (1, -1), "PVD、純度、綁定、旋轉靶、熱均壓,顯示與封裝應用,以及殘靶回收。"),
     ("news", "新聞港", "news", "#f08c00", (1, 0), "最近 3 天重點新聞的主角是誰?每天換題。"),
-    ("jp", "日本廠商島", "building", "#c92a2a", (1, -2), "JX金屬、東曹、三井金屬、住友化學、ULVAC 等。"),
-    ("tw", "台灣廠商島", "building", "#0c8f6a", (2, -1), "光洋科、鑫科。"),
-    ("cn", "中國廠商島", "building", "#e03131", (-2, 1), "江豐電子、有研新材、阿石創、歐萊新材。"),
-    ("us", "美國廠商島", "building", "#364fc7", (-1, 2), "Materion、Solstice Advanced Materials。"),
-    ("play", "配對遊樂島", "star", "#f76707", (2, 0), "元素符號配中文名的翻牌遊戲。"),
+    ("market", "市場島", "market", "#d6336c", (0, 1), "市場規模與成長率(商情預測)與各家公司的靶材比重。"),
+    ("makers", "廠商島", "building", "#0c8f6a", (-1, 1), "台日美中靶材廠:在哪上市、各自強項。"),
+    ("play", "配對遊樂島", "star", "#7048e8", (-1, 0), "元素符號配中文名的翻牌遊戲。"),
 ]
 # Collaboration lines: islands that share a concept (label shown when either island is focused).
 LINKS = [
-    ("wiring", "elements", "Cu、Ta、Ti、Co、Ru"), ("wiring", "process", "6N 高純度"), ("wiring", "jp", "JX金屬:Cu 靶第一"),
-    ("wiring", "cn", "江豐電子:Al 靶第一"), ("display", "recycle", "ITO 的銦回收"), ("process", "recycle", "旋轉靶與殘靶"),
-    ("market", "cn", "前兩大廠合計約七成"), ("market", "jp", "前兩大廠合計約七成"), ("market", "us", "Solstice 分拆"),
-    ("elements", "play", "元素配對"), ("news", "market", "市場訊號"), ("display", "news", "封裝擴產"),
+    ("materials", "process", "高純度金屬 → 靶材製程"), ("materials", "makers", "JX金屬 Cu 靶、江豐電子 Al 靶"),
+    ("market", "makers", "前兩大廠合計約七成"), ("news", "market", "每日市場訊號"),
+    ("process", "news", "封裝擴產帶動 PVD"), ("materials", "play", "元素配對"),
 ]
-MARKET_ISLAND = {"TW": "tw", "JP": "jp", "US": "us", "CN": "cn"}
-PER_ISLAND = 9  # buildings drawn per island; larger pools are sampled (seeded by report date)
+PER_ISLAND = 12  # buildings per island; fixed questions first, generated ones sampled (seeded by report date)
+GUIDE_TIPS = [
+    "點一座島,我就帶你過去!答對題目會點亮島上的建築。",
+    "島和島之間的虛線代表它們有關聯,點開島嶼就看得到說明。",
+    "聽說有一座島上藏著金色靶材,每天換地方喔。",
+    "新聞港的題目每天跟著最新新聞更新。",
+    "答錯沒關係,建築可以再挑戰,直到點亮為止。",
+    "濺鍍時,電漿裡的氬離子撞擊靶材,把原子撞出來沉積到晶圓上。",
+    "旋轉靶的材料利用率比平面靶高,常用在面板與太陽能大面積鍍膜。",
+]
 
 
 def _q(topic: str, q: str, answer: str, wrong: list[str], explain: str = "", island: str = "", **extra) -> dict:
@@ -96,7 +99,7 @@ def element_questions(rng: random.Random) -> list[dict]:
         wrong = rng.sample([n for n in names if n != name], 3)
         num = ELEMENT_INFO[sym][1]
         out.append(_q("materials", f"靶材上的「{sym}」指的是哪一種材料?", name, wrong,
-                      f"{sym} = {name}" + (f",原子序 {num}。" if num else "。"), "elements", visual={"kind": "element", "sym": sym}))
+                      f"{sym} = {name}" + (f",原子序 {num}。" if num else "。"), "materials", visual={"kind": "element", "sym": sym}))
     return out
 
 
@@ -119,11 +122,11 @@ def maker_questions(config: Config, rng: random.Random) -> list[dict]:
         if market in MARKETS:
             out.append(_q("market", f"{name}({ticker})在哪個市場上市?", MARKETS[market],
                           [v for k, v in MARKETS.items() if k != market],
-                          f"{name}在{MARKETS[market]}上市;主要業務:{segment}。", MARKET_ISLAND[market], visual=visual))
+                          f"{name}在{MARKETS[market]}上市;主要業務:{segment}。", "makers", visual=visual))
         if focus in FOCUS:
             out.append(_q("market", f"以靶材占營收的比重來看,{name}屬於哪一類?", FOCUS[focus],
                           [v for k, v in FOCUS.items() if k != focus] + ["不生產靶材"],
-                          f"{FOCUS_NOTE[focus]}主要業務:{segment}。", MARKET_ISLAND.get(market, "market"), visual=visual))
+                          f"{FOCUS_NOTE[focus]}主要業務:{segment}。", "market", visual=visual))
     return out
 
 
@@ -164,24 +167,22 @@ def news_questions(items: list[dict], config: Config, rng: random.Random) -> lis
 
 
 def build_bank(config: Config, items: list[dict], seed: str = "") -> dict:
-    """The island map: islands with their questions (buildings), links, element pairs and the mascot's island."""
+    """The island map: islands with their questions (buildings), links, element pairs, the treasure's island and guide tips."""
     rng = random.Random(seed)
-    questions = fixed_questions(config) + element_questions(rng) + maker_questions(config, rng) + news_questions(items, config, rng)
-    by_island: dict[str, list[dict]] = {}
-    for q in questions:
-        by_island.setdefault(q["island"], []).append(q)
+    fixed = fixed_questions(config)
+    generated = element_questions(rng) + maker_questions(config, rng) + news_questions(items, config, rng)
     islands = []
     for iid, name, icon_name, color, (hq, hr), desc in ISLANDS:
-        qs = by_island.get(iid, [])
-        if len(qs) > PER_ISLAND:
-            qs = rng.sample(qs, PER_ISLAND)
+        qs = [q for q in fixed if q["island"] == iid][:PER_ISLAND]
+        pool = [q for q in generated if q["island"] == iid]
+        qs += rng.sample(pool, min(len(pool), PER_ISLAND - len(qs)))
         if qs or iid == "play":
             islands.append({"id": iid, "name": name, "icon": icon_name, "color": color, "hex": [hq, hr], "desc": desc, "questions": qs})
     ids = {i["id"] for i in islands}
     links = [[a, b, label] for a, b, label in LINKS if a in ids and b in ids]
     elements = [{"sym": s, "name": n, "num": z, "color": c} for s, (n, z, c) in ELEMENT_INFO.items()]
-    mascot = rng.choice([i["id"] for i in islands if i["id"] != "play"]) if islands else ""
-    return {"islands": islands, "links": links, "elements": elements, "mascot": mascot}
+    treasure = rng.choice([i["id"] for i in islands if i["id"] != "play"]) if islands else ""
+    return {"islands": islands, "links": links, "elements": elements, "treasure": treasure, "tips": GUIDE_TIPS}
 
 
 
@@ -208,7 +209,15 @@ GAME_STYLE = """
 @media (prefers-color-scheme:dark){.is-name,.is-sub{stroke:#10283d}}
 .link{fill:none;stroke:#fff;stroke-width:2.5;stroke-dasharray:6 6;opacity:.75}.link.on{stroke:var(--accent-2);opacity:1;stroke-width:3.5}
 .link-label{font:600 11px var(--font-body);fill:var(--accent-2);paint-order:stroke;stroke:#fff;stroke-width:4px}
-.mascot{cursor:pointer}.mascot:hover{transform:scale(1.15)}
+.treasure{cursor:pointer}.treasure .glint{animation:glint 1.2s ease-in-out infinite alternate}@keyframes glint{from{opacity:.25}to{opacity:1}}
+.guide{cursor:pointer}.guide .gb{transform-box:fill-box;transform-origin:50% 100%;animation:bob 1.6s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-2.5px)}}
+.guide.walk .gb{animation:bob .18s ease-in-out infinite alternate}
+.guide.jump .gb{animation:jump .55s ease-out 2}@keyframes jump{0%,100%{transform:translateY(0)}45%{transform:translateY(-16px) scale(1.04,.98)}}
+.guide.sad .gb{animation:shake .5s ease-in-out 2}@keyframes shake{25%{transform:translateX(-3px) rotate(-5deg)}75%{transform:translateX(3px) rotate(5deg)}}
+.bubble rect{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}.bubble polygon{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+.bubble text{font:600 11.5px var(--font-body);fill:var(--fg)}.bubble{transition:opacity .25s}.bubble.off{opacity:0}
+.plaza{cursor:pointer}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:18px;display:grid;gap:14px;align-content:start}
 .side h3{margin:0;display:flex;gap:10px;align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
 .side p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
@@ -248,7 +257,7 @@ GAME_STYLE = """
 .mc.done .b{border-color:var(--ok)}.mc.miss .b{border-color:var(--up)}
 @media (max-width:860px){.isle{grid-template-columns:1fr}.stage{min-height:0}}
 @media (max-width:520px){.hud2{top:auto;bottom:10px}.hud2 .chip2:nth-child(n+3){display:none}}
-@media (prefers-reduced-motion:reduce){.mc .in{transition:none}}
+@media (prefers-reduced-motion:reduce){.mc .in{transition:none}.guide .gb,.guide.walk .gb,.guide.jump .gb,.guide.sad .gb,.treasure .glint{animation:none}}
 """
 
 GAME_SCRIPT = r"""
@@ -266,8 +275,9 @@ const store = { get(k, d) { try { const v = localStorage.getItem(k); return v ==
                 set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
 const ISL = Object.fromEntries(B.islands.map(i => [i.id, i]));
 const EL = Object.fromEntries(B.elements.map(e => [e.sym, e]));
-let solved = new Set(store.get('isle-solved', [])), mascotFound = store.get('isle-mascot', false), matchDone = store.get('isle-match', false);
-const save = () => { store.set('isle-solved', [...solved]); store.set('isle-mascot', mascotFound); store.set('isle-match', matchDone); };
+let solved = new Set(store.get('isle-solved', [])), treasureFound = store.get('isle-treasure', ''), matchDone = store.get('isle-match', false);
+const found = () => treasureFound === B.treasure;  // the treasure moves daily; finding today's counts
+const save = () => { store.set('isle-solved', [...solved]); store.set('isle-treasure', treasureFound); store.set('isle-match', matchDone); };
 const lit = i => i.questions.filter(q => solved.has(q.id)).length;
 const conquered = i => i.id === 'play' ? matchDone : i.questions.length > 0 && lit(i) === i.questions.length;
 
@@ -277,14 +287,16 @@ const center = i => [R * GAP * Math.sqrt(3) * (i.hex[0] + i.hex[1] / 2), R * GAP
 const hexPts = (cx, cy, r, dy) => [...Array(6)].map((_, k) => { const a = Math.PI / 180 * (60 * k - 30); return [cx + r * Math.cos(a), cy + r * Math.sin(a) * SQ + (dy || 0)]; });
 const pts = p => p.map(([x, y]) => x.toFixed(1) + ',' + y.toFixed(1)).join(' ');
 const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(v => Math.round(v * f)); return 'rgb(' + c.join(',') + ')'; };
-const xs = B.islands.map(i => center(i)[0]), ys = B.islands.map(i => center(i)[1]);
+const PLAZA = {id: 'plaza', plaza: true, name: '靶材廣場', hex: [0, 0]};
+const xs = B.islands.map(i => center(i)[0]).concat(0), ys = B.islands.map(i => center(i)[1]).concat(0);
 const FULL = [Math.min(...xs) - R - 40, Math.min(...ys) - R - 40, Math.max(...xs) - Math.min(...xs) + 2 * R + 80, Math.max(...ys) - Math.min(...ys) + 2 * R + 90];
 
-let focus = null, view = FULL.slice(), svg, gLinks, gIslands, gTop;
+let focus = null, view = FULL.slice(), svg, gLinks, gIslands, gTop, guide;
 function drawMap() {
   svg = sv('svg', {viewBox: view.join(' '), role: 'application', 'aria-label': '靶材產業島地圖:點選島嶼查看題目'});
   const sea = sv('rect', {x: -2000, y: -2000, width: 4000, height: 4000, fill: 'transparent'}); sea.onclick = () => go(null); svg.append(sea);
   gLinks = sv('g', {}); gIslands = sv('g', {}); gTop = sv('g', {}); svg.append(gLinks, gIslands, gTop);
+  guide = makeGuide(); svg.append(guide.g);
   $('stage').prepend(svg); render();
 }
 function render() {
@@ -300,7 +312,8 @@ function render() {
     }
   }
   // back-to-front so nearer islands overlap the ones behind
-  for (const i of B.islands.slice().sort((p, q) => center(p)[1] - center(q)[1])) {
+  for (const i of B.islands.concat(PLAZA).sort((p, q) => center(p)[1] - center(q)[1])) {
+    if (i.plaza) { drawPlaza(); continue; }
     const [cx, cy] = center(i), done = conquered(i), n = i.questions.length, k = lit(i);
     const g = sv('g', {class: 'is-land', tabindex: 0, role: 'button', 'aria-label': i.name + (i.id === 'play' ? '' : `,已點亮 ${k} / ${n}`)});
     g.append(sv('polygon', {points: pts(hexPts(cx, cy, R - 3, DEPTH)), fill: shade(i.color, .55)}),
@@ -325,16 +338,108 @@ function render() {
     g.onclick = e => { e.stopPropagation(); go(i.id); };
     g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i.id); } };
     gIslands.append(g);
-    if (i.id === B.mascot && !mascotFound) {
-      const m = sv('g', {class: 'mascot', role: 'button', tabindex: 0, 'aria-label': '某個小東西'});
-      const mx = cx - 34, my = cy + 4;
-      m.append(sv('circle', {cx: mx, cy: my, r: 6.5, fill: '#fff', stroke: '#e03131', 'stroke-width': 2.5}), sv('circle', {cx: mx, cy: my, r: 2.5, fill: '#e03131'}),
-        sv('circle', {cx: mx - 2.5, cy: my - 9, r: 1.3, fill: 'var(--fg)'}), sv('circle', {cx: mx + 2.5, cy: my - 9, r: 1.3, fill: 'var(--fg)'}));
-      m.onclick = e => { e.stopPropagation(); mascotFound = true; save(); render(); hud();
-        toast('🎯 找到靶材小精靈了!小知識:濺鍍時靶材接在負極,電漿中的氬離子被吸過去撞擊靶面,把原子撞出來沉積到晶圓上。'); };
-      gTop.append(m);
+    if (i.id === B.treasure && !found()) {
+      const t = sv('g', {class: 'treasure', role: 'button', tabindex: 0, 'aria-label': '閃閃發亮的東西'}), tx = cx - 36, ty = cy + 6;
+      t.append(sv('ellipse', {cx: tx, cy: ty + 3, rx: 8, ry: 3, fill: '#000', opacity: .15}),
+        sv('circle', {cx: tx, cy: ty - 4, r: 7, fill: '#f2b705', stroke: '#b7791f', 'stroke-width': 1.5}),
+        sv('circle', {cx: tx, cy: ty - 4, r: 3.5, fill: 'none', stroke: '#b7791f', 'stroke-width': 1.2}),
+        sv('path', {class: 'glint', d: `M${tx + 8},${ty - 14} l2,4 4,2 -4,2 -2,4 -2,-4 -4,-2 4,-2z`, fill: '#fff'}));
+      t.onclick = e => { e.stopPropagation(); treasureFound = B.treasure; save(); render(); hud();
+        guide.moveTo(tx + 14, ty + 4, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
+        toast('✨ 找到金色靶材!'); };
+      gTop.append(t);
     }
   }
+}
+function drawPlaza() {
+  const [cx, cy] = center(PLAZA), g = sv('g', {class: 'plaza', role: 'button', tabindex: 0, 'aria-label': '靶材廣場:回到全島地圖'});
+  g.append(sv('polygon', {points: pts(hexPts(cx, cy, R - 10, DEPTH - 4)), fill: '#c9b48a'}),
+    sv('polygon', {points: pts(hexPts(cx, cy, R - 10)), fill: '#efe1bf'}),
+    sv('ellipse', {cx, cy: cy + 2, rx: 20, ry: 20 * SQ, fill: '#74c0fc'}), sv('ellipse', {cx, cy: cy + 2, rx: 8, ry: 8 * SQ, fill: '#d0ebff'}));
+  const nm = sv('text', {class: 'is-name', x: cx, y: cy + (R - 10) * SQ + DEPTH + 10, 'text-anchor': 'middle'}); nm.textContent = PLAZA.name;
+  g.onclick = e => { e.stopPropagation(); go(null); };
+  g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(null); } };
+  gIslands.append(g); gTop.append(nm);
+}
+
+// Bubble lines of at most `per` characters: break after punctuation when one is near the end,
+// and never start a line with punctuation.
+const PUNCT = '。!?,、;:)」~!?,';
+function wrap(text, per) {
+  const out = []; let rest = [...text];
+  while (rest.length) {
+    let cut = Math.min(per, rest.length);
+    if (cut < rest.length) { for (let k = cut; k > cut - 5 && k > 1; k--) if (PUNCT.includes(rest[k - 1])) { cut = k; break; } }
+    while (cut < rest.length && PUNCT.includes(rest[cut])) cut++;
+    out.push(rest.slice(0, cut).join('')); rest = rest.slice(cut);
+  }
+  return out;
+}
+
+// ---------- 靶靶: the guide character ----------
+function makeGuide() {
+  const g = sv('g', {class: 'guide', role: 'button', tabindex: 0, 'aria-label': '嚮導靶靶:點我看小提示'});
+  const body = sv('g', {class: 'gb'});
+  const mouth = sv('path', {d: 'M-3.5,-30 Q0,-27 3.5,-30', fill: 'none', stroke: '#162033', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
+  const blush = sv('g', {}); blush.append(sv('circle', {cx: -6.5, cy: -31.5, r: 1.8, fill: '#ff8787', opacity: .8}), sv('circle', {cx: 6.5, cy: -31.5, r: 1.8, fill: '#ff8787', opacity: .8}));
+  const sweat = sv('path', {d: 'M9,-42 q2,3 0,5 q-2,-2 0,-5z', fill: '#74c0fc', opacity: 0});
+  body.append(
+    sv('rect', {x: -6, y: -9, width: 4.5, height: 9, rx: 2, fill: '#1e2a4a'}), sv('rect', {x: 1.5, y: -9, width: 4.5, height: 9, rx: 2, fill: '#1e2a4a'}),
+    sv('rect', {x: -8.5, y: -23, width: 17, height: 16, rx: 5, fill: '#3b5bdb'}), sv('rect', {x: -8.5, y: -13, width: 17, height: 2.5, fill: '#f76707'}),
+    sv('line', {x1: 8, y1: -20, x2: 13, y2: -27, stroke: '#3b5bdb', 'stroke-width': 3, 'stroke-linecap': 'round'}),
+    sv('line', {x1: 13, y1: -26, x2: 13, y2: -44, stroke: '#162033', 'stroke-width': 1.3}), sv('polygon', {points: '13,-44 23,-41 13,-38', fill: '#f76707'}),
+    sv('line', {x1: -8, y1: -20, x2: -12, y2: -13, stroke: '#3b5bdb', 'stroke-width': 3, 'stroke-linecap': 'round'}),
+    sv('circle', {cx: 0, cy: -34, r: 11.5, fill: '#dde3ec', stroke: '#8a93a8', 'stroke-width': 1.5}),
+    sv('circle', {cx: 0, cy: -34, r: 8, fill: 'none', stroke: '#b5bdcb', 'stroke-width': 1}),
+    sv('circle', {cx: -3.6, cy: -35.5, r: 1.7, fill: '#162033'}), sv('circle', {cx: 3.6, cy: -35.5, r: 1.7, fill: '#162033'}),
+    mouth, blush, sweat);
+  const bubble = sv('g', {class: 'bubble off'});
+  g.append(sv('ellipse', {cx: 0, cy: 1, rx: 10, ry: 3, fill: '#000', opacity: .18}), body, bubble);
+  let x = 0, y = 0, tip = 0, hideT = null;
+  const place = () => g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
+  const mood = m => {
+    mouth.setAttribute('d', m === 'sad' ? 'M-3.5,-28.5 Q0,-31.5 3.5,-28.5' : m === 'happy' ? 'M-4,-30.5 Q0,-25.5 4,-30.5' : 'M-3.5,-30 Q0,-27 3.5,-30');
+    blush.setAttribute('opacity', m === 'sad' ? 0 : 1); sweat.setAttribute('opacity', m === 'sad' ? 1 : 0);
+  };
+  const api = {
+    g,
+    moveTo(tx, ty, done) {
+      const fx = x, fy = y, d = Math.hypot(tx - fx, ty - fy), dur = RM || d < 1 ? 0 : Math.min(900, 300 + d * 2.2), t0 = performance.now();
+      g.classList.add('walk');
+      const step = now => { const p = dur ? Math.min(1, (now - t0) / dur) : 1, e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        x = fx + (tx - fx) * e; y = fy + (ty - fy) * e - Math.sin(p * Math.PI) * Math.min(40, d * .25); place();
+        if (p < 1) requestAnimationFrame(step); else { g.classList.remove('walk'); done && done(); } };
+      requestAnimationFrame(step);
+    },
+    react(kind, m) { g.classList.remove('jump', 'sad'); void g.getBBox(); g.classList.add(kind); mood(m);
+      setTimeout(() => { g.classList.remove(kind); mood('calm'); }, 1300); },
+    say(text) {
+      bubble.replaceChildren(); clearTimeout(hideT);
+      const lines = wrap(text, 13).slice(0, 5);
+      const w = Math.max(...lines.map(l => [...l].reduce((n, ch) => n + (ch.charCodeAt(0) > 0x2e80 ? 12 : 6.6), 0))) + 18, h = lines.length * 15 + 12;
+      const bx = -w / 2, by = -58 - h;
+      bubble.append(sv('rect', {x: bx, y: by, width: w, height: h, rx: 6}), sv('polygon', {points: `-5,${by + h - 1} 5,${by + h - 1} 0,${by + h + 7}`}));
+      lines.forEach((l, k) => { const t = sv('text', {x: bx + 9, y: by + 19 + k * 15}); t.textContent = l; bubble.append(t); });
+      bubble.classList.remove('off'); hideT = setTimeout(() => bubble.classList.add('off'), Math.max(3500, text.length * 140));
+      const live = $('guide-live'); if (live) live.textContent = text;
+    },
+    at() { return [x, y]; },
+  };
+  g.onclick = e => { e.stopPropagation(); api.react('jump', 'happy'); api.say(B.tips[tip++ % B.tips.length]); };
+  g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.onclick(e); } };
+  const [px, py] = center(PLAZA); x = px + 26; y = py + 8; place();
+  return api;
+}
+const praise = ['答對了!又點亮一棟!', '太厲害了!', '正確!這棟亮起來了!', '靶材達人就是你!'];
+const cheer = ['差一點!看完解說再挑戰一次~', '沒關係,建築可以重新挑戰!', '再想想看,答案就在解說裡。'];
+const pickOne = a => a[Math.floor(Math.random() * a.length)];
+function guideTo(id) {
+  const i = id && ISL[id];
+  if (!i) { const [px, py] = center(PLAZA); guide.moveTo(px + 26, py + 8, () => guide.say('這裡是靶材廣場。點一座島,我帶你去探險!')); return; }
+  const [cx, cy] = center(i), left = i.questions.length - lit(i);
+  guide.moveTo(cx - 22, cy + 18, () => guide.say(
+    i.id === 'play' ? '翻牌配對元素符號和中文名,記住位置喔!' :
+    conquered(i) ? `${i.name}已經征服了 🚩 去下一座島吧!` : `${i.name}到了!還有 ${left} 棟建築等你點亮。`));
 }
 function camera(target) {
   const from = view.slice(), t0 = performance.now(), dur = RM ? 0 : 450;
@@ -346,16 +451,16 @@ function go(id) {
   focus = id && ISL[id] ? id : null;
   const url = new URL(location.href); focus ? url.searchParams.set('island', focus) : url.searchParams.delete('island');
   try { history.replaceState(null, '', url); } catch (e) {}
-  if (focus) { const [cx, cy] = center(ISL[focus]), w = Math.min(FULL[2], R * GAP * 6.5), h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 + 10, w, h]); }
+  if (focus) { const [cx, cy] = center(ISL[focus]), w = FULL[2] * .72, h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 - 8, w, h]); }
   else camera(FULL);
-  render(); panel();
+  render(); panel(); guideTo(focus);
 }
 function hud() {
   const box = $('hud2'); box.replaceChildren();
   const total = B.islands.reduce((n, i) => n + i.questions.length, 0), litAll = B.islands.reduce((n, i) => n + lit(i), 0);
   const c1 = el('span', 'chip2', '征服島嶼 '); c1.append(el('b', '', B.islands.filter(conquered).length + ' / ' + B.islands.length));
   const c2 = el('span', 'chip2', '點亮建築 '); c2.append(el('b', '', litAll + ' / ' + total));
-  const c3 = el('span', 'chip2', mascotFound ? '🎯 已找到小精靈' : '🔍 島上藏著小精靈');
+  const c3 = el('span', 'chip2', found() ? '✨ 已找到今天的金色靶材' : '🔍 某座島上藏著金色靶材');
   box.append(c1, c2, c3);
 }
 function toast(msg) { const t = el('div', 'toast', msg); t.setAttribute('role', 'status'); document.body.append(t); setTimeout(() => t.remove(), 4200); }
@@ -366,7 +471,7 @@ function panel(qid) {
   const i = focus && ISL[focus];
   side.style.setProperty('--c', i ? i.color : 'var(--accent)');
   if (!i) {
-    side.append(el('h3', '', '歡迎來到靶材產業島'), el('p', '', '每座島是一個主題,島上每棟建築是一道題。點選島嶼、答對題目就能點亮建築;整座島都點亮就算征服。虛線是島與島之間的關聯,地圖上還藏著一隻靶材小精靈。'));
+    side.append(el('h3', '', '歡迎來到靶材產業島'), el('p', '', '六座島各是一個主題,島上每棟建築是一道題。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,整座島都點亮就算征服。虛線是島與島之間的關聯,某座島上還藏著每天換位置的金色靶材。點靶靶可以聽小提示。'));
     const list = el('div', 'ilist');
     for (const x of B.islands) {
       const r = btn('irow', '', () => go(x.id)), d = el('span', 'dot'); d.style.background = x.color; d.append(icon(x.icon));
@@ -411,7 +516,10 @@ function question(i, q) {
       const ok = text === q.answer;
       buttons.forEach(o => { o.disabled = true; if (o.lastChild.textContent === q.answer) o.classList.add('right'); else if (o !== b) o.classList.add('dim'); });
       if (!ok) b.classList.add('wrong');
-      if (ok && !solved.has(q.id)) { solved.add(q.id); save(); render(); hud(); if (conquered(i)) toast('🚩 征服「' + i.name + '」!'); }
+      if (ok && !solved.has(q.id)) { solved.add(q.id); save(); render(); hud(); }
+      if (ok && conquered(i)) { toast('🚩 征服「' + i.name + '」!'); guide.react('jump', 'happy'); guide.say('征服' + i.name + '!🚩 太強了!'); }
+      else if (ok) { guide.react('jump', 'happy'); guide.say(pickOne(praise)); }
+      else { guide.react('sad', 'sad'); guide.say(pickOne(cheer)); }
       fb.className = 'fb ' + (ok ? 'ok' : 'no');
       fb.replaceChildren(el('b', '', ok ? '答對了!點亮一棟建築' : '答錯了,正解是「' + q.answer + '」(可以再挑戰)'));
       if (q.explain) fb.append(document.createTextNode(q.explain));
@@ -448,7 +556,8 @@ function matchGame(i) {
       const [[k1, c1], [k2, c2]] = open;
       if (c1.e.sym === c2.e.sym && c1.sym !== c2.sym) {
         [k1, k2].forEach(k => { k.classList.add('done'); k.disabled = true; }); open = [];
-        if (!--left) { const first = !matchDone; matchDone = true; save(); render(); hud(); toast((first ? '🚩 征服「配對遊樂島」!' : '完成!') + moves + ' 步'); }
+        if (!--left) { const first = !matchDone; matchDone = true; save(); render(); hud(); toast((first ? '🚩 征服「配對遊樂島」!' : '完成!') + moves + ' 步');
+          guide.react('jump', 'happy'); guide.say('全部配對完成,' + moves + ' 步!記憶力真好!'); }
       } else { [k1, k2].forEach(k => k.classList.add('miss'));
         setTimeout(() => { [k1, k2].forEach(k => { k.classList.remove('flip', 'miss'); k.setAttribute('aria-label', '翻開卡片'); }); open = []; }, 900); }
     };
@@ -458,11 +567,12 @@ function matchGame(i) {
   return box;
 }
 
-$('reset').onclick = () => { if (confirm('清除所有進度,重新探索?')) { solved = new Set(); mascotFound = false; matchDone = false; save(); render(); panel(); } };
+$('reset').onclick = () => { if (confirm('清除所有進度,重新探索?')) { solved = new Set(); treasureFound = ''; matchDone = false; save(); render(); panel(); guide.say('進度清空了,重新出發吧!'); } };
 $('home').onclick = () => go(null);
 drawMap();
 const start = new URLSearchParams(location.search).get('island');
-start && ISL[start] ? go(start) : panel();
+if (start && ISL[start]) go(start);
+else { panel(); setTimeout(() => guide.say('嗨!我是嚮導靶靶。點一座島,我帶你去!'), 400); }
 })();
 """
 
@@ -475,15 +585,15 @@ def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "
     buildings = sum(len(i["questions"]) for i in bank["islands"])
     script = GAME_SCRIPT.replace("__PAIRS__", str(PAIRS))
     return (
-        _head("靶材產業島", "探索靶材產業島:每座島是一個主題、每棟建築是一道題,答對點亮建築、征服島嶼。題目取自本站新聞、商情預測與財報素材。",
+        _head("靶材產業島", "跟著嚮導靶靶探索六座靶材產業島:每座島是一個主題、每棟建築是一道題,答對點亮建築、征服島嶼。題目取自本站新聞、商情預測與財報素材。",
               config.settings.site_url, "quiz.html")
         + f"""<style>{GAME_STYLE}</style><div class="wrap" style="max-width:1180px">
 <header>{_brand("Sputtering Target · Knowledge Islands", "靶材產業島")}
 <nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><a class="btn" href="forecast.html">{icon("research")}商情預測</a><span>{icon("calendar")}題庫更新於 <span class="mono">{esc(generated)}</span></span></nav>
-<p class="sub">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼探索,答對點亮建築;新聞港每天隨新聞換題。進度只存在你的瀏覽器。</p></header>
+<p class="sub">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,新聞港每天隨新聞換題。進度只存在你的瀏覽器。</p></header>
 <section class="isle" aria-label="靶材產業島"><div class="stage" id="stage"><div class="hud2" id="hud2"></div>
 <div class="tools"><button type="button" class="g-btn sm" id="home">{icon("globe")}全島</button><button type="button" class="g-btn sm" id="reset">重來</button></div></div>
-<aside class="side" id="side" aria-live="polite"></aside></section>
+<aside class="side" id="side" aria-live="polite"></aside><p id="guide-live" class="sr" aria-live="polite"></p></section>
 <footer>題目與解說由網站素材整理;市場數字出自富士キメラ総研報告摘要,以原報告為準。公司 logo 取自財務儀表板。</footer>
 </div><script type="application/json" id="bank">{payload}</script><script>{script}</script></body></html>"""
     )
