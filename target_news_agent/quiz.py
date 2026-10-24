@@ -216,8 +216,12 @@ GAME_STYLE = """
 .guide.jump .gb{animation:jump .55s ease-out 2}@keyframes jump{0%,100%{transform:translateY(0)}45%{transform:translateY(-16px) scale(1.04,.98)}}
 .guide.sad .gb{animation:shake .5s ease-in-out 2}@keyframes shake{25%{transform:translateX(-3px) rotate(-5deg)}75%{transform:translateX(3px) rotate(5deg)}}
 .bubble rect{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}.bubble polygon{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
-.bubble text{font:600 11.5px var(--font-body);fill:var(--fg)}.bubble{transition:opacity .25s}.bubble.off{opacity:0}
-.plaza{cursor:pointer}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bubble text{font:600 11.5px var(--font-body);fill:var(--fg)}.bubble{transition:opacity .25s;pointer-events:none}.bubble.off{opacity:0}
+.plaza{cursor:pointer}.stage>svg{cursor:grab}.stage>svg:active{cursor:grabbing}
+.plasma{animation:pulse 1.4s ease-in-out infinite alternate}@keyframes pulse{from{opacity:.35}to{opacity:.95}}
+.beam{animation:pulse 1.8s ease-in-out infinite alternate}.glow{animation:pulse 1.6s ease-in-out infinite alternate}
+.smoke{animation:smoke 2.4s ease-out infinite}@keyframes smoke{from{opacity:.9;transform:translateY(0)}to{opacity:0;transform:translateY(-10px)}}
+.jet{animation:pulse 1s ease-in-out infinite alternate}.wave{transform-box:fill-box;transform-origin:0 50%;animation:wave 1.2s ease-in-out infinite alternate}@keyframes wave{to{transform:scaleX(.8) skewY(6deg)}}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:18px;display:grid;gap:14px;align-content:start}
 .side h3{margin:0;display:flex;gap:10px;align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
 .side p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
@@ -257,7 +261,7 @@ GAME_STYLE = """
 .mc.done .b{border-color:var(--ok)}.mc.miss .b{border-color:var(--up)}
 @media (max-width:860px){.isle{grid-template-columns:1fr}.stage{min-height:0}}
 @media (max-width:520px){.hud2{top:auto;bottom:10px}.hud2 .chip2:nth-child(n+3){display:none}}
-@media (prefers-reduced-motion:reduce){.mc .in{transition:none}.guide .gb,.guide.walk .gb,.guide.jump .gb,.guide.sad .gb,.treasure .glint{animation:none}}
+@media (prefers-reduced-motion:reduce){.mc .in{transition:none}.guide .gb,.guide.walk .gb,.guide.jump .gb,.guide.sad .gb,.treasure .glint,.plasma,.beam,.glow,.smoke,.jet,.wave{animation:none}}
 """
 
 GAME_SCRIPT = r"""
@@ -281,85 +285,212 @@ const save = () => { store.set('isle-solved', [...solved]); store.set('isle-trea
 const lit = i => i.questions.filter(q => solved.has(q.id)).length;
 const conquered = i => i.id === 'play' ? matchDone : i.questions.length > 0 && lit(i) === i.questions.length;
 
-// ---------- map geometry: pointy-top hexes, flattened for a 2.5D look ----------
-const R = 58, GAP = 1.42, SQ = 0.62, DEPTH = 14;  // GAP spreads the islands apart so there is sea between them
-const center = i => [R * GAP * Math.sqrt(3) * (i.hex[0] + i.hex[1] / 2), R * GAP * 1.5 * i.hex[1] * SQ];
-const hexPts = (cx, cy, r, dy) => [...Array(6)].map((_, k) => { const a = Math.PI / 180 * (60 * k - 30); return [cx + r * Math.cos(a), cy + r * Math.sin(a) * SQ + (dy || 0)]; });
-const pts = p => p.map(([x, y]) => x.toFixed(1) + ',' + y.toFixed(1)).join(' ');
-const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(v => Math.round(v * f)); return 'rgb(' + c.join(',') + ')'; };
+// ---------- world: target-shaped islands floating on the sea ----------
+// World coordinates lie in the sea plane; a gentle yaw turns the whole archipelago and each island
+// sways on its own axis. Projection flattens y by SQ; islands bob up and down.
+const S = 150, SQ = .5, RX = 50, DEPTH = 12, PLATE = 5, D2R = Math.PI / 180;
+const world = i => [S * (i.hex[0] + i.hex[1] / 2), S * i.hex[1] * Math.sqrt(3) / 2];
 const PLAZA = {id: 'plaza', plaza: true, name: '靶材廣場', hex: [0, 0]};
-const xs = B.islands.map(i => center(i)[0]).concat(0), ys = B.islands.map(i => center(i)[1]).concat(0);
-const FULL = [Math.min(...xs) - R - 40, Math.min(...ys) - R - 40, Math.max(...xs) - Math.min(...xs) + 2 * R + 80, Math.max(...ys) - Math.min(...ys) + 2 * R + 90];
+const ALL = B.islands.concat(PLAZA);
+const PHASE = Object.fromEntries(ALL.map((i, k) => [i.id, k * 1.7]));
+const RING = Math.max(...B.islands.map(i => Math.hypot(...world(i))));
+const FULL = [-(RING + RX + 60), -(RING * SQ + RX * SQ + 110), 2 * (RING + RX + 60), 2 * (RING * SQ + RX * SQ) + 190];
+const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(v => Math.min(255, Math.round(v * f))); return 'rgb(' + c.join(',') + ')'; };
+const proj = (px, py, a) => [px * Math.cos(a) - py * Math.sin(a), (px * Math.sin(a) + py * Math.cos(a)) * SQ];  // rotate in plane, flatten
+const poly = (ptsArr, a, dy) => ptsArr.map(([px, py]) => { const [x, y] = proj(px, py, a); return x.toFixed(1) + ',' + (y + (dy || 0)).toFixed(1); }).join(' ');
+const rectPts = (w, h) => [[-w / 2, -h / 2], [w / 2, -h / 2], [w / 2, h / 2], [-w / 2, h / 2]];
+const stadium = (w, h, n) => { const r = h / 2, c = w / 2 - r, out = [];
+  for (let k = 0; k <= n; k++) { const a = -Math.PI / 2 + Math.PI * k / n; out.push([c + r * Math.cos(a), r * Math.sin(a)]); }
+  for (let k = 0; k <= n; k++) { const a = Math.PI / 2 + Math.PI * k / n; out.push([-c + r * Math.cos(a), r * Math.sin(a)]); }
+  return out; };
 
-let focus = null, view = FULL.slice(), svg, gLinks, gIslands, gTop, guide;
+// target designs: shape of the target face and the material colour
+const DESIGN = {
+  materials: {shape: 'disc', metal: '#c3ccd8', ring: '#8d99ae'},
+  process: {shape: 'rect', metal: '#aab4c3', ring: '#6c7a89', w: 104, h: 64},
+  news: {shape: 'disc', metal: '#b9c4d2', ring: '#7c8ba1'},
+  market: {shape: 'disc', metal: '#f2c94c', ring: '#c99a06'},
+  makers: {shape: 'disc', metal: '#e0915a', ring: '#a85a24'},
+  play: {shape: 'tiles', metal: '#66d9e8', ring: '#1098ad', w: 96},
+  plaza: {shape: 'disc', metal: '#efe1bf', ring: '#c9b48a'},
+};
+
+// decorations: drawn at a local origin (base on the island surface), placed by polar angle / radius
+const deco = {
+  cube(sym, color) { const g = sv('g', {}); g.append(sv('polygon', {points: '-7,-12 0,-16 7,-12 0,-8', fill: shade(color, 1.25)}),
+    sv('polygon', {points: '-7,-12 0,-8 0,2 -7,-2', fill: color}), sv('polygon', {points: '0,-8 7,-12 7,-2 0,2', fill: shade(color, .75)}));
+    const t = sv('text', {x: -3.5, y: -3, 'text-anchor': 'middle', 'font-size': 5.5, 'font-weight': 700, fill: '#fff'}); t.textContent = sym; g.append(t); return g; },
+  ingot(color) { const g = sv('g', {}); g.append(sv('polygon', {points: '-11,0 11,0 8,-7 -8,-7', fill: shade(color, .8)}), sv('polygon', {points: '-8,-7 8,-7 6,-10 -6,-10', fill: shade(color, 1.15)})); return g; },
+  chamber() { const g = sv('g', {}); g.append(sv('rect', {x: -13, y: -14, width: 26, height: 14, rx: 2, fill: '#6c7a89'}),
+    sv('path', {d: 'M-11,-14 A11,10 0 0 1 11,-14 Z', fill: '#d0ebff', stroke: '#6c7a89', 'stroke-width': 1.5}),
+    sv('ellipse', {class: 'plasma', cx: 0, cy: -18, rx: 7, ry: 4, fill: '#9775fa'}), sv('rect', {x: -9, y: -6, width: 18, height: 3, fill: '#ffd43b'})); return g; },
+  magnet() { const g = sv('g', {}); g.append(sv('rect', {x: -9, y: -10, width: 8, height: 10, fill: '#e03131'}), sv('rect', {x: 1, y: -10, width: 8, height: 10, fill: '#3b5bdb'}));
+    const n = sv('text', {x: -5, y: -3, 'text-anchor': 'middle', 'font-size': 6, 'font-weight': 700, fill: '#fff'}); n.textContent = 'N';
+    const s = sv('text', {x: 5, y: -3, 'text-anchor': 'middle', 'font-size': 6, 'font-weight': 700, fill: '#fff'}); s.textContent = 'S'; g.append(n, s); return g; },
+  tube() { const g = sv('g', {}); g.append(sv('rect', {x: -6, y: -40, width: 12, height: 40, fill: '#9aa5b1'}), sv('rect', {x: -6, y: -40, width: 4, height: 40, fill: '#c3ccd8'}),
+    sv('ellipse', {cx: 0, cy: -40, rx: 6, ry: 3, fill: '#dde3ec'}), sv('rect', {x: -6, y: -26, width: 12, height: 3, fill: '#f76707'}),
+    sv('polygon', {class: 'beam', points: '4,-42 32,-50 32,-34', fill: '#ffe066'})); return g; },
+  boat() { const g = sv('g', {}); g.append(sv('path', {d: 'M-12,-4 L12,-4 L8,2 L-8,2 Z', fill: '#f08c00'}), sv('line', {x1: 0, y1: -4, x2: 0, y2: -22, stroke: '#495057', 'stroke-width': 1.3}),
+    sv('polygon', {points: '1,-21 12,-7 1,-7', fill: '#fff'})); return g; },
+  bars() { const g = sv('g', {}); [[-10, 8, '#d6336c'], [-3, 14, '#f76707'], [4, 21, '#2f9e44']].forEach(([x, h, c]) => g.append(sv('rect', {x, y: -h, width: 6, height: h, fill: c})));
+    g.append(sv('polyline', {points: '-10,-12 -2,-18 6,-26 11,-30', fill: 'none', stroke: '#162033', 'stroke-width': 1.4})); return g; },
+  coins() { const g = sv('g', {}); for (let k = 0; k < 4; k++) g.append(sv('ellipse', {cx: 0, cy: -k * 3, rx: 7, ry: 3, fill: k % 2 ? '#f2b705' : '#ffd43b', stroke: '#b7791f', 'stroke-width': .8})); return g; },
+  factory() { const g = sv('g', {}); g.append(sv('rect', {x: -12, y: -12, width: 24, height: 12, fill: '#e9ecef'}), sv('polygon', {points: '-12,-12 -6,-18 -6,-12 0,-18 0,-12 6,-18 6,-12', fill: '#868e96'}),
+    sv('rect', {x: 7, y: -24, width: 4, height: 12, fill: '#868e96'}), sv('circle', {class: 'smoke', cx: 9, cy: -28, r: 3, fill: '#dee2e6'})); return g; },
+  pennant(label, color) { const g = sv('g', {}); g.append(sv('line', {x1: 0, y1: 0, x2: 0, y2: -22, stroke: '#495057', 'stroke-width': 1.2}), sv('polygon', {points: '0,-22 15,-18 0,-14', fill: color}));
+    const t = sv('text', {x: 6, y: -16.5, 'text-anchor': 'middle', 'font-size': 4.5, 'font-weight': 700, fill: '#fff'}); t.textContent = label; g.append(t); return g; },
+  cards() { const g = sv('g', {}); g.append(sv('rect', {x: -10, y: -16, width: 11, height: 15, rx: 1.5, fill: '#7048e8', transform: 'rotate(-12)'}),
+    sv('rect', {x: -1, y: -17, width: 11, height: 15, rx: 1.5, fill: '#f76707', transform: 'rotate(10)'})); return g; },
+  fountain() { const g = sv('g', {}); g.append(sv('ellipse', {cx: 0, cy: 0, rx: 16, ry: 8, fill: '#74c0fc'}), sv('ellipse', {cx: 0, cy: 0, rx: 7, ry: 3.5, fill: '#d0ebff'}),
+    sv('path', {class: 'jet', d: 'M0,-2 Q-5,-14 -9,-4 M0,-2 Q5,-14 9,-4', fill: 'none', stroke: '#a5d8ff', 'stroke-width': 1.6})); return g; },
+  flag(color) { const g = sv('g', {}); g.append(sv('line', {x1: 0, y1: 0, x2: 0, y2: -34, stroke: '#162033', 'stroke-width': 1.6}), sv('polygon', {class: 'wave', points: '0,-34 18,-29 0,-24', fill: '#ffd43b'})); return g; },
+};
+const DECOR = {
+  materials: () => [[30, .55, deco.cube('Cu', '#d9773a')], [100, .6, deco.cube('Ta', '#5c6bc0')], [170, .55, deco.cube('Ti', '#6c7a89')], [250, .5, deco.ingot('#c3ccd8')]],
+  process: () => [[200, .35, deco.chamber()], [20, .5, deco.magnet()]],
+  news: () => [[120, .4, deco.tube()], [330, .65, deco.boat()]],
+  market: () => [[200, .4, deco.bars()], [40, .5, deco.coins()]],
+  makers: () => [[150, .45, deco.factory()], [20, .55, deco.pennant('TW', '#0c8f6a')], [70, .6, deco.pennant('JP', '#c92a2a')],
+    [250, .6, deco.pennant('US', '#364fc7')], [300, .55, deco.pennant('CN', '#e03131')]],
+  play: () => [[200, .35, deco.cards()]],
+  plaza: () => [[0, 0, deco.fountain()]],
+};
+
+let focus = null, view = FULL.slice(), svg, gSea, gLinks, gIslands, gTop, guide, nodes = {}, linkEls = [], treasureEl = null;
+let dragYaw = 0, dragging = null, dragMoved = false, now = 0;
+const yaw = () => (RM ? 0 : 5 * Math.sin(now / 7000 * 2 * Math.PI)) * D2R + dragYaw * D2R;
+const spin = i => yaw() + (RM ? 0 : 9 * Math.sin(now / 4300 * 2 * Math.PI + PHASE[i.id]) * D2R);
+const bob = i => RM ? 0 : 4 * Math.sin(now / 1900 * 2 * Math.PI + PHASE[i.id]);
+function pos(i) { const [wx, wy] = world(i), [x, y] = proj(wx, wy, yaw()); return [x, y - bob(i)]; }
+const center = i => pos(i);
+
 function drawMap() {
-  svg = sv('svg', {viewBox: view.join(' '), role: 'application', 'aria-label': '靶材產業島地圖:點選島嶼查看題目'});
-  const sea = sv('rect', {x: -2000, y: -2000, width: 4000, height: 4000, fill: 'transparent'}); sea.onclick = () => go(null); svg.append(sea);
-  gLinks = sv('g', {}); gIslands = sv('g', {}); gTop = sv('g', {}); svg.append(gLinks, gIslands, gTop);
+  svg = sv('svg', {viewBox: view.join(' '), role: 'application', 'aria-label': '靶材產業島地圖:點選島嶼查看題目,拖曳可以轉動地圖'});
+  const sea = sv('rect', {x: -3000, y: -3000, width: 6000, height: 6000, fill: 'transparent'}); sea.onclick = () => { if (!dragMoved) go(null); };
+  gSea = sv('g', {}); gLinks = sv('g', {}); gIslands = sv('g', {}); gTop = sv('g', {});
+  svg.append(sea, gSea, gLinks, gIslands, gTop);
   guide = makeGuide(); svg.append(guide.g);
+  // drag to turn the archipelago a little
+  svg.addEventListener('pointerdown', e => { dragging = {x: e.clientX, yaw: dragYaw}; dragMoved = false; });
+  svg.addEventListener('pointermove', e => { if (!dragging) return; const dx = e.clientX - dragging.x;
+    if (Math.abs(dx) > 4) { dragMoved = true; svg.setPointerCapture && svg.setPointerCapture(e.pointerId); }
+    dragYaw = Math.max(-30, Math.min(30, dragging.yaw + dx * .25)); if (RM) frame(0); });
+  const end = () => { dragging = null; setTimeout(() => dragMoved = false, 0); };
+  svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
   $('stage').prepend(svg); render();
+  const loop = t => { now = t; if (!dragging && !RM) dragYaw *= .985; frame(); requestAnimationFrame(loop); };
+  RM ? frame() : requestAnimationFrame(loop);
 }
+
+// Target body and face, built once per island; update(a) turns rectangles and tile targets (discs look the same at any angle).
+function buildShape(d, i, done) {
+  const top = done || i.plaza ? d.metal : shade(d.metal, .9), side = shade(d.metal, .62), body = [], face = [];
+  if (d.shape === 'disc') {
+    body.push(sv('ellipse', {cx: 0, cy: DEPTH, rx: RX, ry: RX * SQ, fill: side}), sv('rect', {x: -RX, y: 0, width: 2 * RX, height: DEPTH, fill: side}),
+      sv('ellipse', {cx: 0, cy: 0, rx: RX, ry: RX * SQ, fill: top}));
+    if (!i.plaza) face.push(sv('ellipse', {cx: 0, cy: 0, rx: RX * .66, ry: RX * .66 * SQ, fill: 'none', stroke: d.ring, 'stroke-width': 7, opacity: .55}),
+      sv('ellipse', {cx: 0, cy: 0, rx: RX * .2, ry: RX * .2 * SQ, fill: shade(d.metal, 1.12)}));
+    return {body, face, update() {}};
+  }
+  if (d.shape === 'rect') {
+    const r = rectPts(d.w, d.h), race = stadium(d.w * .72, d.h * .5, 8);
+    const s1 = sv('polygon', {fill: side}), s2 = sv('polygon', {fill: top}), s3 = sv('polygon', {fill: 'none', stroke: d.ring, 'stroke-width': 6, opacity: .55});
+    body.push(s1, s2); face.push(s3);
+    return {body, face, update(a) { s1.setAttribute('points', poly(r, a, DEPTH)); s2.setAttribute('points', poly(r, a)); s3.setAttribute('points', poly(race, a)); }};
+  }
+  const w = d.w, t3 = w / 3, sq = rectPts(w, w), s1 = sv('polygon', {fill: side}), s2 = sv('polygon', {fill: shade(d.ring, .9)}), tiles = [];
+  body.push(s1, s2);
+  for (let r0 = 0; r0 < 3; r0++) for (let c0 = 0; c0 < 3; c0++) {
+    const cx0 = -w / 2 + t3 * (c0 + .5), cy0 = -w / 2 + t3 * (r0 + .5), h = t3 / 2 - 1.5;
+    const el = sv('polygon', {fill: (r0 + c0) % 2 ? top : shade(d.metal, 1.08)}); face.push(el);
+    tiles.push([el, [[cx0 - h, cy0 - h], [cx0 + h, cy0 - h], [cx0 + h, cy0 + h], [cx0 - h, cy0 + h]]]);
+  }
+  return {body, face, update(a) { s1.setAttribute('points', poly(sq, a, DEPTH)); s2.setAttribute('points', poly(sq, a)); tiles.forEach(([el, p]) => el.setAttribute('points', poly(p, a))); }};
+}
+
+// Build the island DOM (called when progress changes); frame() moves it every animation frame.
 function render() {
-  gLinks.replaceChildren(); gIslands.replaceChildren(); gTop.replaceChildren();
+  gSea.replaceChildren(); gLinks.replaceChildren(); gIslands.replaceChildren(); gTop.replaceChildren(); nodes = {}; linkEls = []; treasureEl = null;
   for (const [a, b, label] of B.links) {
-    const [x1, y1] = center(ISL[a]), [x2, y2] = center(ISL[b]), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 18;
-    const on = focus && (focus === a || focus === b);
-    gLinks.append(sv('path', {class: 'link' + (on ? ' on' : ''), d: `M${x1},${y1} Q${mx},${my} ${x2},${y2}`}));
-    if (on) {  // label near the other island's end, so labels of one focused island don't pile up in the middle
-      const [ox, oy] = focus === a ? [x2, y2] : [x1, y1], [fx, fy] = focus === a ? [x1, y1] : [x2, y2];
-      const t = sv('text', {class: 'link-label', x: fx + (ox - fx) * .7, y: fy + (oy - fy) * .7 - 22, 'text-anchor': 'middle'});
-      t.textContent = label; gTop.append(t);
-    }
+    const on = focus && (focus === a || focus === b), path = sv('path', {class: 'link' + (on ? ' on' : '')});
+    gLinks.append(path); let text = null;
+    if (on) { text = sv('text', {class: 'link-label', 'text-anchor': 'middle'}); text.textContent = label; gTop.append(text); }
+    linkEls.push({a, b, path, text});
   }
-  // back-to-front so nearer islands overlap the ones behind
-  for (const i of B.islands.concat(PLAZA).sort((p, q) => center(p)[1] - center(q)[1])) {
-    if (i.plaza) { drawPlaza(); continue; }
-    const [cx, cy] = center(i), done = conquered(i), n = i.questions.length, k = lit(i);
-    const g = sv('g', {class: 'is-land', tabindex: 0, role: 'button', 'aria-label': i.name + (i.id === 'play' ? '' : `,已點亮 ${k} / ${n}`)});
-    g.append(sv('polygon', {points: pts(hexPts(cx, cy, R - 3, DEPTH)), fill: shade(i.color, .55)}),
-      sv('polygon', {class: 'top', points: pts(hexPts(cx, cy, R - 3)), fill: done ? i.color : shade(i.color, 1) , opacity: done ? 1 : .55}),
-      sv('polygon', {points: pts(hexPts(cx, cy, R - 14)), fill: '#fff', opacity: done ? .18 : .32}));
-    // buildings: one small block per question, lit when answered
-    const cells = i.id === 'play' ? 4 : n, cols = Math.min(3, Math.max(1, Math.ceil(Math.sqrt(cells))));
-    for (let j = 0; j < cells; j++) {
-      const row = Math.floor(j / cols), col = j % cols, rows = Math.ceil(cells / cols);
-      const bx = cx + (col - (cols - 1) / 2) * 18 - 5, by = cy + (row - (rows - 1) / 2) * 11 - 4;
-      const on = i.id === 'play' ? matchDone : solved.has(i.questions[j].id), h = 6 + (j * 7 % 8);
-      const front = on ? i.color : '#a3adbf', topc = on ? '#ffe066' : '#d5dbe5';
-      g.append(sv('rect', {x: bx, y: by - h, width: 10, height: h + 5, fill: shade(front.startsWith('#') ? front : '#a3adbf', .8)}),
-        sv('rect', {x: bx, y: by - h - 4, width: 10, height: 4, fill: topc}));
+  for (const i of ALL) {
+    const d = DESIGN[i.id] || DESIGN.materials, plaza = !!i.plaza, done = !plaza && conquered(i);
+    const n = plaza ? 0 : i.id === 'play' ? 6 : i.questions.length, k = plaza ? 0 : lit(i);
+    const shadow = sv('ellipse', {fill: '#0b3a5b', opacity: .14}); gSea.append(shadow);
+    const g = sv('g', {class: plaza ? 'plaza' : 'is-land', tabindex: 0, role: 'button',
+      'aria-label': plaza ? '靶材廣場:回到全島地圖' : i.name + (i.id === 'play' ? '' : `,已點亮 ${k} / ${n}`)});
+    // backing plate (copper) under the target, then the target body and face
+    const plate = sv('g', {}); plate.append(sv('ellipse', {cx: 0, cy: DEPTH + PLATE, rx: RX + 7, ry: (RX + 7) * SQ, fill: '#8f4f22'}),
+      sv('rect', {x: -RX - 7, y: DEPTH, width: 2 * RX + 14, height: PLATE, fill: '#8f4f22'}),
+      sv('ellipse', {cx: 0, cy: DEPTH, rx: RX + 7, ry: (RX + 7) * SQ, fill: '#c0773f'}));
+    if (plaza) plate.setAttribute('opacity', 0);
+    const shape = buildShape(d, i, done), body = sv('g', {}), face = sv('g', {class: 'top'}), faceBase = sv('g', {}), parts = sv('g', {});
+    body.append(...shape.body); faceBase.append(...shape.face); face.append(faceBase, parts);
+    g.append(plate, body, face);
+    const studs = [], decos = [];
+    if (!plaza) for (let j = 0; j < n; j++) {
+      const on = i.id === 'play' ? (matchDone || j < 0) : solved.has(i.questions[j].id), s = sv('g', {});
+      s.append(sv('rect', {x: -2.6, y: -6, width: 5.2, height: 6, fill: on ? '#f08c00' : '#868e96'}),
+        sv('ellipse', {cx: 0, cy: -6, rx: 2.6, ry: 1.3, fill: on ? '#ffe066' : '#ced4da'}));
+      if (on) s.append(sv('circle', {class: 'glow', cx: 0, cy: -8, r: 4.5, fill: '#ffe066', opacity: .35}));
+      studs.push({el: s, a: j / n * 2 * Math.PI}); parts.append(s);
     }
-    if (done) { g.append(sv('line', {x1: cx + 30, y1: cy - 30, x2: cx + 30, y2: cy - 58, stroke: 'var(--fg)', 'stroke-width': 2}),
-      sv('polygon', {points: `${cx + 30},${cy - 58} ${cx + 50},${cy - 52} ${cx + 30},${cy - 46}`, fill: '#ffd43b'})); }
-    const nm = sv('text', {class: 'is-name', x: cx, y: cy + R * SQ + DEPTH + 14, 'text-anchor': 'middle'}); nm.textContent = i.name;
-    const sub = sv('text', {class: 'is-sub', x: cx, y: cy + R * SQ + DEPTH + 27, 'text-anchor': 'middle'});
-    sub.textContent = i.id === 'play' ? (matchDone ? '已完成' : '小遊戲') : `${k} / ${n}`;
-    gTop.append(nm, sub);
-    g.onclick = e => { e.stopPropagation(); go(i.id); };
-    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i.id); } };
+    for (const [deg, r, el] of (DECOR[i.id] || (() => []))()) decos.push({el, a: deg * D2R, r});
+    if (done) decos.push({el: deco.flag(), a: 0, r: 0});
+    decos.forEach(x => parts.append(x.el));
+    g.onclick = e => { e.stopPropagation(); if (!dragMoved) go(plaza ? null : i.id); };
+    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(plaza ? null : i.id); } };
     gIslands.append(g);
-    if (i.id === B.treasure && !found()) {
-      const t = sv('g', {class: 'treasure', role: 'button', tabindex: 0, 'aria-label': '閃閃發亮的東西'}), tx = cx - 36, ty = cy + 6;
-      t.append(sv('ellipse', {cx: tx, cy: ty + 3, rx: 8, ry: 3, fill: '#000', opacity: .15}),
-        sv('circle', {cx: tx, cy: ty - 4, r: 7, fill: '#f2b705', stroke: '#b7791f', 'stroke-width': 1.5}),
-        sv('circle', {cx: tx, cy: ty - 4, r: 3.5, fill: 'none', stroke: '#b7791f', 'stroke-width': 1.2}),
-        sv('path', {class: 'glint', d: `M${tx + 8},${ty - 14} l2,4 4,2 -4,2 -2,4 -2,-4 -4,-2 4,-2z`, fill: '#fff'}));
-      t.onclick = e => { e.stopPropagation(); treasureFound = B.treasure; save(); render(); hud();
-        guide.moveTo(tx + 14, ty + 4, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
-        toast('✨ 找到金色靶材!'); };
-      gTop.append(t);
-    }
+    const nm = sv('text', {class: 'is-name', 'text-anchor': 'middle'}); nm.textContent = i.name;
+    const sub = sv('text', {class: 'is-sub', 'text-anchor': 'middle'});
+    sub.textContent = plaza ? '' : i.id === 'play' ? (matchDone ? '已完成' : '小遊戲') : `${k} / ${n}`;
+    gTop.append(nm, sub);
+    nodes[i.id] = {i, d, g, shape, parts, shadow, studs, decos, nm, sub, order: ''};
   }
+  if (B.treasure && !found() && ISL[B.treasure]) {
+    const t = sv('g', {class: 'treasure', role: 'button', tabindex: 0, 'aria-label': '閃閃發亮的東西'});
+    t.append(sv('ellipse', {cx: 0, cy: 3, rx: 8, ry: 3, fill: '#000', opacity: .15}), sv('circle', {cx: 0, cy: -4, r: 7, fill: '#f2b705', stroke: '#b7791f', 'stroke-width': 1.5}),
+      sv('circle', {cx: 0, cy: -4, r: 3.5, fill: 'none', stroke: '#b7791f', 'stroke-width': 1.2}), sv('path', {class: 'glint', d: 'M8,-14 l2,4 4,2 -4,2 -2,4 -2,-4 -4,-2 4,-2z', fill: '#fff'}));
+    t.onclick = e => { e.stopPropagation(); treasureFound = B.treasure; save(); render(); hud();
+      guide.goTo(B.treasure, 18, 14, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
+      toast('✨ 找到金色靶材!'); };
+    gTop.append(t); treasureEl = t;
+  }
+  frame();
 }
-function drawPlaza() {
-  const [cx, cy] = center(PLAZA), g = sv('g', {class: 'plaza', role: 'button', tabindex: 0, 'aria-label': '靶材廣場:回到全島地圖'});
-  g.append(sv('polygon', {points: pts(hexPts(cx, cy, R - 10, DEPTH - 4)), fill: '#c9b48a'}),
-    sv('polygon', {points: pts(hexPts(cx, cy, R - 10)), fill: '#efe1bf'}),
-    sv('ellipse', {cx, cy: cy + 2, rx: 20, ry: 20 * SQ, fill: '#74c0fc'}), sv('ellipse', {cx, cy: cy + 2, rx: 8, ry: 8 * SQ, fill: '#d0ebff'}));
-  const nm = sv('text', {class: 'is-name', x: cx, y: cy + (R - 10) * SQ + DEPTH + 10, 'text-anchor': 'middle'}); nm.textContent = PLAZA.name;
-  g.onclick = e => { e.stopPropagation(); go(null); };
-  g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(null); } };
-  gIslands.append(g); gTop.append(nm);
+function frame() {
+  const order = ALL.map(i => [i.id, pos(i)[1]]).sort((p, q) => p[1] - q[1]).map(x => x[0]);
+  if (gIslands.dataset.order !== order.join()) { order.forEach(id => nodes[id] && gIslands.append(nodes[id].g)); gIslands.dataset.order = order.join(); }
+  for (const id in nodes) {
+    const nd = nodes[id], i = nd.i, d = nd.d, [x, y] = pos(i), a = spin(i), bb = bob(i), [wx, wy] = world(i), [, ys] = proj(wx, wy, yaw());
+    nd.g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
+    const sh = 1 - bb / 30; nd.shadow.setAttribute('cx', x.toFixed(1)); nd.shadow.setAttribute('cy', (ys + DEPTH + PLATE + 18).toFixed(1));
+    nd.shadow.setAttribute('rx', ((RX + 10) * sh).toFixed(1)); nd.shadow.setAttribute('ry', ((RX + 10) * SQ * .55 * sh).toFixed(1));
+    nd.shape.update(a);
+    // studs (one per question) around the rim, and decorations, turning with the island
+    const items = [];
+    const rimX = d.shape === 'disc' ? RX * .86 : d.shape === 'rect' ? d.w * .42 : d.w * .42, rimY = d.shape === 'disc' ? RX * .86 : d.shape === 'rect' ? d.h * .36 : d.w * .42;
+    nd.studs.forEach(s => { const [sx, sy] = proj(rimX * Math.cos(s.a), rimY * Math.sin(s.a), a); items.push([s.el, sx, sy]); });
+    nd.decos.forEach(o => { const rr = o.r * (d.shape === 'disc' ? RX : d.w / 2), [dx, dy] = proj(rr * Math.cos(o.a), rr * Math.sin(o.a), a); items.push([o.el, dx, dy]); });
+    items.forEach(([el, ex, ey]) => el.setAttribute('transform', `translate(${ex.toFixed(1)},${ey.toFixed(1)})`));
+    const ord = items.map((it, k) => [k, it[2]]).sort((p, q) => p[1] - q[1]).map(x => x[0]).join();  // back-to-front, re-append only on change
+    if (ord !== nd.order) { ord.split(',').forEach(k => nd.parts.append(items[+k][0])); nd.order = ord; }
+    const lab = y + RX * SQ + DEPTH + PLATE + 16;
+    nd.nm.setAttribute('x', x.toFixed(1)); nd.nm.setAttribute('y', lab.toFixed(1)); nd.sub.setAttribute('x', x.toFixed(1)); nd.sub.setAttribute('y', (lab + 13).toFixed(1));
+  }
+  for (const L of linkEls) {
+    const [x1, y1] = pos(ISL[L.a]), [x2, y2] = pos(ISL[L.b]), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 20;
+    L.path.setAttribute('d', `M${x1.toFixed(1)},${y1.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`);
+    if (L.text) { const f = focus === L.a ? [x1, y1, x2, y2] : [x2, y2, x1, y1];
+      L.text.setAttribute('x', (f[0] + (f[2] - f[0]) * .62).toFixed(1)); L.text.setAttribute('y', (f[1] + (f[3] - f[1]) * .62 - 24).toFixed(1)); }
+  }
+  if (treasureEl) { const [x, y] = pos(ISL[B.treasure]), a = spin(ISL[B.treasure]), [dx, dy] = proj(-RX * .45, RX * .3, a);
+    treasureEl.setAttribute('transform', `translate(${(x + dx).toFixed(1)},${(y + dy).toFixed(1)})`); }
+  guide && guide.tick();
 }
 
 // Bubble lines of at most `per` characters: break after punctuation when one is near the end,
@@ -395,7 +526,7 @@ function makeGuide() {
     mouth, blush, sweat);
   const bubble = sv('g', {class: 'bubble off'});
   g.append(sv('ellipse', {cx: 0, cy: 1, rx: 10, ry: 3, fill: '#000', opacity: .18}), body, bubble);
-  let x = 0, y = 0, tip = 0, hideT = null;
+  let x = 0, y = 0, tip = 0, hideT = null, anchor = null, walking = false;
   const place = () => g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
   const mood = m => {
     mouth.setAttribute('d', m === 'sad' ? 'M-3.5,-28.5 Q0,-31.5 3.5,-28.5' : m === 'happy' ? 'M-4,-30.5 Q0,-25.5 4,-30.5' : 'M-3.5,-30 Q0,-27 3.5,-30');
@@ -403,14 +534,17 @@ function makeGuide() {
   };
   const api = {
     g,
-    moveTo(tx, ty, done) {
-      const fx = x, fy = y, d = Math.hypot(tx - fx, ty - fy), dur = RM || d < 1 ? 0 : Math.min(900, 300 + d * 2.2), t0 = performance.now();
-      g.classList.add('walk');
-      const step = now => { const p = dur ? Math.min(1, (now - t0) / dur) : 1, e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    // hop to a spot on an island (offset in the island's own plane), then ride along as it bobs and turns
+    goTo(id, ox, oy, done) {
+      const isl = id === 'plaza' ? PLAZA : ISL[id], spot = () => { const [cx, cy] = pos(isl), [dx, dy] = proj(ox, oy, spin(isl)); return [cx + dx, cy + dy]; };
+      const fx = x, fy = y, [tx0, ty0] = spot(), d = Math.hypot(tx0 - fx, ty0 - fy), dur = RM || d < 1 ? 0 : Math.min(900, 300 + d * 2.2), t0 = performance.now();
+      anchor = null; walking = true; g.classList.add('walk');
+      const step = t => { const p = dur ? Math.min(1, (t - t0) / dur) : 1, e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, [tx, ty] = spot();
         x = fx + (tx - fx) * e; y = fy + (ty - fy) * e - Math.sin(p * Math.PI) * Math.min(40, d * .25); place();
-        if (p < 1) requestAnimationFrame(step); else { g.classList.remove('walk'); done && done(); } };
+        if (p < 1) requestAnimationFrame(step); else { walking = false; anchor = spot; g.classList.remove('walk'); done && done(); } };
       requestAnimationFrame(step);
     },
+    tick() { if (anchor && !walking) { [x, y] = anchor(); place(); } },
     react(kind, m) { g.classList.remove('jump', 'sad'); void g.getBBox(); g.classList.add(kind); mood(m);
       setTimeout(() => { g.classList.remove(kind); mood('calm'); }, 1300); },
     say(text) {
@@ -427,7 +561,8 @@ function makeGuide() {
   };
   g.onclick = e => { e.stopPropagation(); api.react('jump', 'happy'); api.say(B.tips[tip++ % B.tips.length]); };
   g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.onclick(e); } };
-  const [px, py] = center(PLAZA); x = px + 26; y = py + 8; place();
+  const [px, py] = pos(PLAZA); x = px + 26; y = py + 8; place();
+  anchor = () => { const [cx, cy] = pos(PLAZA); return [cx + 26, cy + 8]; };
   return api;
 }
 const praise = ['答對了!又點亮一棟!', '太厲害了!', '正確!這棟亮起來了!', '靶材達人就是你!'];
@@ -435,9 +570,9 @@ const cheer = ['差一點!看完解說再挑戰一次~', '沒關係,建築可以
 const pickOne = a => a[Math.floor(Math.random() * a.length)];
 function guideTo(id) {
   const i = id && ISL[id];
-  if (!i) { const [px, py] = center(PLAZA); guide.moveTo(px + 26, py + 8, () => guide.say('這裡是靶材廣場。點一座島,我帶你去探險!')); return; }
-  const [cx, cy] = center(i), left = i.questions.length - lit(i);
-  guide.moveTo(cx - 22, cy + 18, () => guide.say(
+  if (!i) { guide.goTo('plaza', 26, 16, () => guide.say('這裡是靶材廣場。點一座島,我帶你去探險!')); return; }
+  const left = i.questions.length - lit(i);
+  guide.goTo(i.id, -20, 34, () => guide.say(
     i.id === 'play' ? '翻牌配對元素符號和中文名,記住位置喔!' :
     conquered(i) ? `${i.name}已經征服了 🚩 去下一座島吧!` : `${i.name}到了!還有 ${left} 棟建築等你點亮。`));
 }
@@ -451,7 +586,7 @@ function go(id) {
   focus = id && ISL[id] ? id : null;
   const url = new URL(location.href); focus ? url.searchParams.set('island', focus) : url.searchParams.delete('island');
   try { history.replaceState(null, '', url); } catch (e) {}
-  if (focus) { const [cx, cy] = center(ISL[focus]), w = FULL[2] * .72, h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 - 8, w, h]); }
+  if (focus) { const [cx, cy] = pos(ISL[focus]), w = FULL[2] * .7, h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 - 10, w, h]); }
   else camera(FULL);
   render(); panel(); guideTo(focus);
 }
