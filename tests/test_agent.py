@@ -1210,3 +1210,32 @@ def test_forecast_page_and_digest_background(tmp_path, config):
     assert "約 2,198 億" in page and "&lt;script&gt;bad" in page and "<script>bad" not in page
     assert "javascript:" not in page and "&lt;b&gt;Inst" in page
     assert 'href="forecast.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+
+
+def test_quiz_bank_and_page(tmp_path, config):
+    from target_news_agent.quiz import build_bank
+    from target_news_agent.site import build_site
+
+    assert config.quiz and config.makers
+    items = [
+        {"id": "a", "title": "光洋科擴產靶材新廠", "entities": ["光洋科 (Solar Applied Materials)"], "importance": 5,
+         "summary": "擴產。", "link": "https://example.com/a"},
+        {"id": "b", "title": "<script>x</script> 台積電 與 光洋科", "entities": ["台積電 (TSMC)"], "importance": 4},
+        {"id": "c", "title": "兩家公司", "entities": ["光洋科 (Solar Applied Materials)", "台積電 (TSMC)"], "importance": 5},
+    ]
+    bank = build_bank(config, items, seed="s")
+    news = [q for q in bank["questions"] if q["topic"] == "news"]
+    assert [q["answer"] for q in news] == ["光洋科", "台積電"]  # two-company headline skipped
+    assert "光洋科" not in news[0]["q"] and "○○" in news[0]["q"]
+    assert "光洋科" not in news[1]["wrong"]  # a company named in the headline is never a distractor
+    for q in bank["questions"]:
+        assert len(q["wrong"]) == 3 and q["answer"] not in q["wrong"], q
+    assert {q["topic"] for q in bank["questions"]} == {"materials", "market", "news"}
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    (reports / "2026-10-13.json").write_text(json.dumps({"generated": "2026-10-13T08:30:00+08:00", "items": items}), encoding="utf-8")
+    build_site(reports, tmp_path / "out", config)
+    page = (tmp_path / "out" / "quiz.html").read_text(encoding="utf-8")
+    assert '<script type="application/json" id="bank">' in page and "<script>x</script>" not in page
+    assert 'href="quiz.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")

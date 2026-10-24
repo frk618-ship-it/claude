@@ -88,6 +88,8 @@ class Config:
     research: ResearchSettings | None = None
     metals: list = field(default_factory=list)  # list[metals.MetalSpec]
     forecasts: list[dict] = field(default_factory=list)  # market forecasts (forecasts.yaml) for the site and the digest
+    quiz: list[dict] = field(default_factory=list)  # fixed questions for the knowledge game (quiz.yaml)
+    makers: list[dict] = field(default_factory=list)  # listed target makers (target_makers.yaml) for game questions
 
     @property
     def market_context(self) -> str:
@@ -164,8 +166,17 @@ def load_config(path: str | Path) -> Config:
         for x in (m.get("symbols") or [])
     ] if m.get("enabled", True) else []
     # Market forecasts: settings.forecasts_file (relative to this config), default forecasts.yaml next to it.
-    forecasts_path = Path(path).parent / str(s.get("forecasts_file", "forecasts.yaml"))
-    forecasts = []
-    if forecasts_path.exists():
-        forecasts = (yaml.safe_load(forecasts_path.read_text(encoding="utf-8")) or {}).get("forecasts") or []
-    return Config(settings=settings, entities=entities, research=research, metals=metals, forecasts=forecasts)
+    forecasts = _sibling(path, s.get("forecasts_file", "forecasts.yaml"), "forecasts")
+    # Knowledge game: fixed questions, and the listed makers from the financial dashboard's config.
+    quiz = _sibling(path, s.get("quiz_file", "quiz.yaml"), "questions")
+    makers = _sibling(path, s.get("makers_file", "target_makers.yaml"), "companies")
+    return Config(settings=settings, entities=entities, research=research, metals=metals, forecasts=forecasts,
+                  quiz=quiz, makers=makers)
+
+
+def _sibling(config_path: str | Path, name: str, key: str) -> list:
+    """A list from another YAML file next to the config (missing file = empty)."""
+    path = Path(config_path).parent / str(name)
+    if not path.exists():
+        return []
+    return (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get(key) or []

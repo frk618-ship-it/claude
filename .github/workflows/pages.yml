@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["reports/dashboard/**", "reports/*.json", "config/forecasts.yaml"]  # 也包含排程任務補寫 Claude 摘要後的報告
+    paths: ["reports/dashboard/**", "reports/*.json", "config/forecasts.yaml", "config/quiz.yaml"]  # 也包含排程任務補寫 Claude 摘要後的報告
 
 permissions:
   contents: read

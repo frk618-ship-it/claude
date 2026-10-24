@@ -636,7 +636,7 @@ def render_page(
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
-<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{f'<a class="btn" href="{home}forecast.html">{icon("research")}商情預測{icon("arrow-right")}</a>' if config.forecasts else ""}<a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
+<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{f'<a class="btn" href="{home}forecast.html">{icon("research")}商情預測{icon("arrow-right")}</a>' if config.forecasts else ""}{f'<a class="btn" href="{home}quiz.html">{icon("star")}知識小遊戲{icon("arrow-right")}</a>' if config.quiz else ""}<a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
@@ -710,6 +710,11 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         page = render_page(report, config, archive, date, library=library)
         (out / f"{date}.html").write_text(page, encoding="utf-8")
         written.append(out / f"{date}.html")
+    if reports and config.quiz:
+        from .quiz import render_quiz  # quiz imports this module
+
+        (out / "quiz.html").write_text(render_quiz(config, merge_recent(reports)["items"], generated, seed=reports[0][0]), encoding="utf-8")
+        written.append(out / "quiz.html")
     if reports:
         home = merge_recent(reports)
         page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True)
