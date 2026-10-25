@@ -290,6 +290,8 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
         meta += f'<span>{icon(SOURCE_ICONS.get(p.get("source", ""), "book"))}{esc(p["venue"])}</span>'
     if author_text:
         meta += f'<span>{icon("user")}{esc(author_text)}</span>'
+    if p.get("tier") == "related":  # sputtering study where the target is a variable, not target making itself
+        meta += f'<span title="濺鍍研究中以靶材為變因或主題(如毒化、成分、密度、侵蝕),非靶材製造本身">{icon("layers")}延伸相關</span>'
     attrs = ""
     if filterable:
         attrs = f' data-kind="{esc(p.get("source", ""))}" data-ent="{esc("|".join(p.get("topics") or [GENERAL_TOPIC]))}"'

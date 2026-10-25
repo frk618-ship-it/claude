@@ -67,6 +67,17 @@ TARGET_PROCESS_PATTERNS = [
     re.compile(rf"\b(?:recovery|recovering|recycling|reclamation|leaching|regeneration)\s+of\s+(?:[\w-]+\s+){{0,4}}from\s+"
                rf"(?:the\s+)?(?:[\w-]+\s+){{0,3}}{_T}\b"),
 ]
+# Wider net ("延伸相關"): sputtering papers in which the target itself is a variable or the subject
+# (poisoning, composition, density, erosion, arcing) rather than only the source of a film.
+TARGET_SIDE_PATTERNS = [
+    re.compile(r"\btargets? (?:poisoning|voltage|current|power density|erosion|racetrack|utili[sz]ation|temperature|"
+               r"composition|density|purity|stoichiometry|resistivity|condition|surface state|aging|lifetime|arcing|cracking|nodul\w*)"),
+    re.compile(r"\b(?:poisoned|hot|heated|segmented|mosaic) (?:[\w-]+ ){0,2}targets?\b"),
+    re.compile(r"\b(?:effects?|influence|role|impact) of (?:the )?(?:sputtering )?targets?(?:'s?)? (?:[\w-]+ ){0,2}"
+               r"(?:composition|density|purity|microstructure|grain|temperature|power|poisoning|erosion|stoichiometry|resistivity|type|material)"),
+    re.compile(r"\bfrom (?:[\w-]+ ){0,3}targets? (?:with|of) (?:different|various|varying) (?:compositions?|densit\w+|purit\w+|stoichiometr\w+)"),
+    re.compile(r"\b(?:arcing|nodule formation|erosion track|racetrack|poisoning hysteresis)\b"),
+]
 SPUTTER_WORDS = ["sputter", "magnetron", "PVD", "physical vapor deposition", "HiPIMS", "濺鍍", "溅射", "スパッタ"]
 # "Target" in other fields: nuclear / accelerator targets, laser-plasma targets, drug targets.
 OTHER_TARGET_CONTEXT = [
@@ -101,6 +112,7 @@ class Paper:
     importance: int = 0
     title_zh: str = ""        # Traditional Chinese display text (see translate.py)
     abstract_zh: str = ""
+    tier: str = ""            # "core" or "related" (see relevance); "" in records made before tiers
 
     @property
     def text(self) -> str:
@@ -122,6 +134,7 @@ class Paper:
             "importance": self.importance,
             "title_zh": self.title_zh,
             "abstract_zh": self.abstract_zh,
+            "tier": self.tier,
         }
 
     @classmethod
@@ -141,6 +154,7 @@ class Paper:
             importance=int(d.get("importance", 0)),
             title_zh=d.get("title_zh", ""),
             abstract_zh=d.get("abstract_zh", ""),
+            tier=d.get("tier", ""),
         )
 
 
@@ -158,25 +172,37 @@ def _match(low: str, term: str) -> bool:
     return _contains(low, t)
 
 
-def is_relevant(p: Paper) -> bool:
-    """True when the paper is about making / characterising sputtering targets.
+def relevance(p: Paper) -> str:
+    """How closely the paper concerns sputtering targets: "core", "related" or "" (not relevant).
 
-    Merely depositing films "from a ZnO target" does not count: the title must name the
-    target as its subject, or the abstract must describe processing the target itself.
+    core: making / characterising / recycling the target itself (the title names the target as
+    its subject, or the abstract describes processing the target).
+    related: a sputtering study in which the target is a variable or the subject (its poisoning,
+    composition, density, erosion, arcing, or a title about the target). Merely depositing films
+    "from a ZnO target" is neither.
     """
     if NOT_A_PAPER.match(p.title.strip()):
-        return False
+        return ""
     title = p.title.lower()
     if any(_match(title, t) for t in STRONG_TERMS):
-        return True
+        return "core"
     text = f"{p.text}\n{p.venue}".lower()  # the journal name tells nuclear targets apart too
     # Below here "target" alone is ambiguous: rule out nuclear / laser-plasma / biomedical targets.
     if any(_match(text, w) for w in OTHER_TARGET_CONTEXT) or ISOTOPE_TARGET.search(p.title):
-        return False
+        return ""
     if TARGET_IN_TITLE.search(title) and any(_match(title, w) for w in MANUFACTURING_WORDS):
-        return True
-    abstract = p.abstract.lower()
-    return any(rx.search(abstract) for rx in TARGET_PROCESS_PATTERNS)
+        return "core"
+    if any(rx.search(p.abstract.lower()) for rx in TARGET_PROCESS_PATTERNS):
+        return "core"
+    if not any(_match(text, w.lower()) for w in SPUTTER_WORDS):
+        return ""
+    if TARGET_IN_TITLE.search(title) or any(rx.search(text) for rx in TARGET_SIDE_PATTERNS):
+        return "related"
+    return ""
+
+
+def is_relevant(p: Paper) -> bool:
+    return bool(relevance(p))
 
 
 def classify_topics(p: Paper, topics: dict[str, list[str]]) -> list[str]:
@@ -356,6 +382,7 @@ def process_papers(papers: list[Paper], rs: ResearchSettings, since: date) -> li
             existing.doi = existing.doi or p.doi
             continue
         p.id = paper_id(p)
+        p.tier = relevance(p)
         p.topics = classify_topics(p, rs.topics)
         kept.append(p)
         by_title[title_key] = p

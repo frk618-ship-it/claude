@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
 import logging
 import os
@@ -74,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
     cp.add_argument("-c", "--config", default="config/watchlist.yaml")
     cp.add_argument("--feeds-only", action="store_true", help="只檢查期刊 RSS(略過 OpenAlex 與 arXiv)")
     cp.add_argument("--db", default="data/seen.sqlite3")
+    cp.add_argument("--days", type=int, help="覆寫要看的天數(預設同 research.days)")
 
     st = sub.add_parser("site", help="由 reports/ 的報告 JSON 產生靜態網站(GitHub Pages 用)")
     st.add_argument("-c", "--config", default="config/watchlist.yaml")
@@ -433,6 +435,8 @@ def _check_papers(args, config) -> int:
         return 1
     if args.feeds_only:
         rs.openalex = rs.arxiv = False
+    if args.days:
+        rs.days = args.days
     stats: list[dict] = []
     papers = collect_papers(rs, stats=stats)
     w = max(len(s["source"]) for s in stats) if stats else 10
@@ -441,9 +445,11 @@ def _check_papers(args, config) -> int:
         got = "FAILED" if s["fetched"] is None else str(s["fetched"])
         print(f"{s['source']:<{w}}  {got:>7}  {s['relevant']:>8}" + (f"  {s['error']}" if s["error"] else ""))
     new = {p.id for p in SeenStore(args.db).filter_new(papers)} if Path(args.db).exists() else {p.id for p in papers}
-    print(f"\n{len(papers)} relevant papers in the last {rs.days} days after de-duplication, {len(new)} not yet reported:")
+    tiers = Counter(p.tier for p in papers)
+    print(f"\n{len(papers)} relevant papers in the last {rs.days} days after de-duplication "
+          f"({tiers['core']} core, {tiers['related']} related), {len(new)} not yet reported:")
     for p in papers:
-        print(f"  [{'new ' if p.id in new else 'seen'}] {(p.published.date().isoformat() if p.published else '----------')}  {p.venue[:28]:<28}  {p.title[:90]}")
+        print(f"  [{'new ' if p.id in new else 'seen'}] {p.tier:<7} {(p.published.date().isoformat() if p.published else '----------')}  {p.venue[:28]:<28}  {p.title[:90]}")
     failed = [s["source"] for s in stats if s["fetched"] is None]
     if failed:
         print("\nfailed sources: " + ", ".join(failed))

@@ -8,6 +8,10 @@ on:
         description: "只檢查期刊 RSS(略過 OpenAlex 與 arXiv)"
         type: boolean
         default: false
+      days:
+        description: "要看的天數(空白 = 設定檔的 research.days)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -25,4 +29,5 @@ jobs:
       - name: Check paper sources
         env:
           FEEDS_ONLY: ${{ inputs.feeds_only }}
-        run: python -m target_news_agent -v check-papers $([ "$FEEDS_ONLY" = "true" ] && echo --feeds-only)
+          DAYS: ${{ inputs.days }}
+        run: python -m target_news_agent -v check-papers $([ "$FEEDS_ONLY" = "true" ] && echo --feeds-only) $([ -n "$DAYS" ] && echo --days "$DAYS")

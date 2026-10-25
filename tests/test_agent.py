@@ -429,6 +429,23 @@ def test_target_compound_words_are_not_targets():
     assert is_relevant(mk("Microstructure and grain refinement of tantalum targets by cross rolling"))
 
 
+def test_relevance_tiers():
+    from target_news_agent.research import Paper, relevance
+
+    mk = lambda t, a="", v="Vacuum": Paper(title=t, link="https://x", published=None, venue=v, authors=[], abstract=a, doi="", source="t")
+    # core: making / characterising the target itself
+    assert relevance(mk("Densification of ITO sputtering targets by spark plasma sintering")) == "core"
+    # related: the target is a variable or the subject of a sputtering study
+    assert relevance(mk("Target poisoning and hysteresis in reactive magnetron sputtering of AlN")) == "related"
+    assert relevance(mk("Effect of target density on sputtered ITO films")) == "related"
+    assert relevance(mk("Optical properties of AlN films", "Films were grown by HiPIMS; the influence of the target temperature on deposition rate was studied.")) == "related"
+    assert relevance(mk("Arcing behaviour in pulsed DC magnetron sputtering of aluminium oxide")) == "related"
+    # not relevant: films merely deposited from a target, or targets outside sputtering
+    assert relevance(mk("Optical properties of ZnO films", "ZnO films were deposited by RF magnetron sputtering from a ceramic ZnO target.")) == ""
+    assert relevance(mk("Hot target for isotope production", "proton beam irradiation", v="Nucl. Instrum. Methods")) == ""
+    assert relevance(mk("Target-driven design of porous tantalum scaffolds", "sputtered coating")) == ""
+
+
 def test_journal_feeds_are_unique():
     # one entry per journal; a duplicated feed would only waste requests
     from target_news_agent.config import load_config
