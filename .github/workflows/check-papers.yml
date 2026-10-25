@@ -1,0 +1,28 @@
+# 手動檢查技術文獻各來源(OpenAlex、arXiv、期刊 RSS):抓取篇數、相關篇數、是否已收錄。只讀取,不寫報告、不部署。
+name: 檢查文獻來源
+
+on:
+  workflow_dispatch:
+    inputs:
+      feeds_only:
+        description: "只檢查期刊 RSS(略過 OpenAlex 與 arXiv)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check paper sources
+        env:
+          FEEDS_ONLY: ${{ inputs.feeds_only }}
+        run: python -m target_news_agent -v check-papers $([ "$FEEDS_ONLY" = "true" ] && echo --feeds-only)

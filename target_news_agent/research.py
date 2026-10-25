@@ -290,7 +290,10 @@ def collect_papers(
     *,
     now: datetime | None = None,
     sleep: Callable[[float], None] = time.sleep,
+    stats: list[dict] | None = None,
 ) -> list[Paper]:
+    """Fetch every source and keep the relevant, recent papers. When `stats` is given, one
+    {source, url, fetched, relevant, error} record per source is appended to it."""
     now = now or datetime.now(timezone.utc)
     since = (now - timedelta(days=rs.days)).date()
     jobs: list[tuple[str, str]] = []
@@ -321,9 +324,14 @@ def collect_papers(
                     sleep(15)
                 else:
                     log.warning("paper source failed (%s %s): %s", source, url[:80], exc)
+                    if stats is not None:
+                        stats.append({"source": source, "url": url, "fetched": None, "relevant": 0, "error": str(exc)[:120]})
         if got is None:
             continue
-        log.info("%-10s %3d papers  %s", source, len(got), url[:90])
+        relevant = sum(1 for p in got if not (p.published and p.published.date() < since) and is_relevant(p))
+        log.info("%-10s %3d papers, %2d relevant  %s", source, len(got), relevant, url[:90])
+        if stats is not None:
+            stats.append({"source": source, "url": url, "fetched": len(got), "relevant": relevant, "error": ""})
         raw.extend(got)
     return process_papers(raw, rs, since)
 

@@ -412,8 +412,21 @@ def test_paper_source_failure_does_not_stop_run(config):
             raise OSError("down")
         return fake_paper_fetch(url)
 
-    papers = collect_papers(rs, flaky, now=NOW, sleep=lambda s: None)
+    stats = []
+    papers = collect_papers(rs, flaky, now=NOW, sleep=lambda s: None, stats=stats)
     assert any(p.source == "arXiv" for p in papers)
+    # per-source stats for check-papers: the failed source is recorded, the others with counts
+    by = {s["source"]: s for s in stats}
+    assert by["OpenAlex"]["fetched"] is None and "down" in by["OpenAlex"]["error"]
+    assert by["arXiv"]["fetched"] > 0 and 0 < by["arXiv"]["relevant"] <= by["arXiv"]["fetched"]
+
+
+def test_journal_feeds_are_unique():
+    # one entry per journal; a duplicated feed would only waste requests
+    from target_news_agent.config import load_config
+
+    feeds = load_config("config/watchlist.yaml").research.feeds
+    assert len(feeds) >= 18 and len({f["url"] for f in feeds}) == len(feeds) and len({f["name"] for f in feeds}) == len(feeds)
 
 
 def test_papers_in_report_and_site(tmp_path, config):

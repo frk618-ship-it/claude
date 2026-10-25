@@ -59,7 +59,7 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 每次執行也會蒐集靶材製造技術相關的期刊論文與預印本,寫在報告與網站的「技術文獻」區塊:
 
-- **來源**:[OpenAlex](https://openalex.org/)(免費學術文獻索引)、arXiv、期刊 RSS(Thin Solid Films、Surface and Coatings Technology、Vacuum、Journal of Alloys and Compounds、Ceramics International、Int. J. Refractory Metals and Hard Materials)。
+- **來源**:[OpenAlex](https://openalex.org/)(免費學術文獻索引)、arXiv、18 種期刊的 RSS:薄膜與鍍膜(Thin Solid Films、Surface and Coatings Technology、Vacuum、Materials Science in Semiconductor Processing、Coatings)、金屬靶的合金與加工(Journal of Alloys and Compounds、Int. J. Refractory Metals and Hard Materials、Materials Science and Engineering A、Materials Characterization、J. Materials Processing Technology、J. Materials Science & Technology、J. Materials Research and Technology、Trans. Nonferrous Metals Society of China、Metals、Materials)、陶瓷與氧化物靶(Ceramics International、J. European Ceramic Society)、回收精煉(Hydrometallurgy)。檢查各來源是否正常:`python -m target_news_agent check-papers`(或在 GitHub Actions 手動執行「檢查文獻來源」),會列出每個來源抓到幾篇、幾篇相關、哪些尚未收錄,不寫入報告。
 - **篩選**:標題或摘要必須明確談到濺鍍靶材("target" 單字太廣,醫學、雷射等論文會被排除);同一篇論文來自多個來源只留一筆。
 - **分類**:粉末冶金與燒結、熔煉與鑄造、塑性加工與晶粒織構、高純化與雜質控制、綁定與背板、陶瓷與氧化物靶、合金與複合靶、旋轉靶、濺鍍行為與靶材利用率、回收與再利用。
 - **靶材循環回收**:另以「spent sputtering target recovery」「spent ITO target indium recovery」「ITO / 鉭靶 scrap recycling」「貴金屬 / 釕靶回收」「废靶材 回收」等字詞搜尋;標題或摘要提到廢靶、殘靶、scrap / spent target 的回收、浸出、精煉再生研究都會收錄,歸入「回收與再利用」。手動執行時可填「papers_days」(例如 365)一次回溯較長期間的文獻。

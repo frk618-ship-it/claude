@@ -70,6 +70,11 @@ def main(argv: list[str] | None = None) -> int:
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
 
+    cp = sub.add_parser("check-papers", help="檢查技術文獻各來源:抓取篇數、相關篇數、是否已收錄(只讀取,不寫報告)")
+    cp.add_argument("-c", "--config", default="config/watchlist.yaml")
+    cp.add_argument("--feeds-only", action="store_true", help="只檢查期刊 RSS(略過 OpenAlex 與 arXiv)")
+    cp.add_argument("--db", default="data/seen.sqlite3")
+
     st = sub.add_parser("site", help="由 reports/ 的報告 JSON 產生靜態網站(GitHub Pages 用)")
     st.add_argument("-c", "--config", default="config/watchlist.yaml")
     st.add_argument("-i", "--reports-dir", default="reports")
@@ -129,6 +134,9 @@ def main(argv: list[str] | None = None) -> int:
         for url in iter_feed_urls(config):
             print(url)
         return 0
+
+    if args.command == "check-papers":
+        return _check_papers(args, config)
 
     if args.command == "site":
         written = build_site(args.reports_dir, args.out, config)
@@ -415,3 +423,28 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+def _check_papers(args, config) -> int:
+    """Fetch every paper source once and print how much each returns; nothing is written."""
+    rs = config.research
+    if not rs:
+        print("config has no research section")
+        return 1
+    if args.feeds_only:
+        rs.openalex = rs.arxiv = False
+    stats: list[dict] = []
+    papers = collect_papers(rs, stats=stats)
+    w = max(len(s["source"]) for s in stats) if stats else 10
+    print(f"{'source':<{w}}  fetched  relevant")
+    for s in stats:
+        got = "FAILED" if s["fetched"] is None else str(s["fetched"])
+        print(f"{s['source']:<{w}}  {got:>7}  {s['relevant']:>8}" + (f"  {s['error']}" if s["error"] else ""))
+    new = {p.id for p in SeenStore(args.db).filter_new(papers)} if Path(args.db).exists() else {p.id for p in papers}
+    print(f"\n{len(papers)} relevant papers in the last {rs.days} days after de-duplication, {len(new)} not yet reported:")
+    for p in papers:
+        print(f"  [{'new ' if p.id in new else 'seen'}] {(p.published.date().isoformat() if p.published else '----------')}  {p.venue[:28]:<28}  {p.title[:90]}")
+    failed = [s["source"] for s in stats if s["fetched"] is None]
+    if failed:
+        print("\nfailed sources: " + ", ".join(failed))
+    return 0
