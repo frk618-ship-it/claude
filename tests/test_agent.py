@@ -421,12 +421,20 @@ def test_paper_source_failure_does_not_stop_run(config):
     assert by["arXiv"]["fetched"] > 0 and 0 < by["arXiv"]["relevant"] <= by["arXiv"]["fetched"]
 
 
+def test_target_compound_words_are_not_targets():
+    from target_news_agent.research import Paper, is_relevant
+
+    mk = lambda t: Paper(title=t, link="https://x", published=None, venue="J. Materials Research and Technology", authors=[], abstract="", doi="", source="t")
+    assert not is_relevant(mk("Quantitative structure-property mapping and target-driven design of Voronoi porous tantalum"))
+    assert is_relevant(mk("Microstructure and grain refinement of tantalum targets by cross rolling"))
+
+
 def test_journal_feeds_are_unique():
     # one entry per journal; a duplicated feed would only waste requests
     from target_news_agent.config import load_config
 
     feeds = load_config("config/watchlist.yaml").research.feeds
-    assert len(feeds) >= 18 and len({f["url"] for f in feeds}) == len(feeds) and len({f["name"] for f in feeds}) == len(feeds)
+    assert len(feeds) >= 15 and len({f["url"] for f in feeds}) == len(feeds) and len({f["name"] for f in feeds}) == len(feeds)
 
 
 def test_papers_in_report_and_site(tmp_path, config):

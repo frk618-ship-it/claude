@@ -79,7 +79,8 @@ OTHER_TARGET_CONTEXT = [
 ]
 # Isotope-labelled targets ("120 Sn target", "48Ca targets") are nuclear-physics targets.
 ISOTOPE_TARGET = re.compile(r"\b\d{2,3}\s?[A-Z][a-z]?\s+targets?\b")
-TARGET_IN_TITLE = re.compile(r"(?<![a-z])targets?(?![a-z])|靶|ターゲット|타겟")
+# "target" as a noun; compounds such as "target-driven design" or "target-oriented" are a different word
+TARGET_IN_TITLE = re.compile(r"(?<![a-z])targets?(?![a-z]|-[a-z])|靶|ターゲット|타겟")
 NOT_A_PAPER = re.compile(r"^(?:decision letter|review for|author response|reply to|response to|erratum|corrigendum|retraction)\b", re.I)
 NON_PAPER_TYPES = {"peer-review", "paratext", "erratum", "retraction", "editorial"}
 

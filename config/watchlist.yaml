@@ -727,12 +727,12 @@ research:
     openalex: true
     arxiv: true
     feeds:                    # 期刊最新文章 RSS;只保留與靶材相關的文章(檢查各來源:python -m target_news_agent check-papers)
+      # MDPI(Coatings、Metals、Materials)的 RSS 會擋 GitHub Actions(HTTP 403);這些期刊已由 OpenAlex 收錄(含摘要)
       # 薄膜與鍍膜
       - {name: Thin Solid Films, url: "https://rss.sciencedirect.com/publication/science/00406090"}
       - {name: Surface and Coatings Technology, url: "https://rss.sciencedirect.com/publication/science/02578972"}
       - {name: Vacuum, url: "https://rss.sciencedirect.com/publication/science/0042207X"}
       - {name: Materials Science in Semiconductor Processing, url: "https://rss.sciencedirect.com/publication/science/13698001"}
-      - {name: Coatings (MDPI), url: "https://www.mdpi.com/rss/journal/coatings"}
       # 金屬靶:合金、難熔金屬、組織與加工
       - {name: Journal of Alloys and Compounds, url: "https://rss.sciencedirect.com/publication/science/09258388"}
       - {name: Int. J. Refractory Metals and Hard Materials, url: "https://rss.sciencedirect.com/publication/science/02634368"}
@@ -742,8 +742,6 @@ research:
       - {name: Journal of Materials Science & Technology, url: "https://rss.sciencedirect.com/publication/science/10050302"}
       - {name: Journal of Materials Research and Technology, url: "https://rss.sciencedirect.com/publication/science/22387854"}
       - {name: Trans. Nonferrous Metals Society of China, url: "https://rss.sciencedirect.com/publication/science/10036326"}
-      - {name: Metals (MDPI), url: "https://www.mdpi.com/rss/journal/metals"}
-      - {name: Materials (MDPI), url: "https://www.mdpi.com/rss/journal/materials"}
       # 陶瓷與氧化物靶(ITO、IGZO 等)
       - {name: Ceramics International, url: "https://rss.sciencedirect.com/publication/science/02728842"}
       - {name: Journal of the European Ceramic Society, url: "https://rss.sciencedirect.com/publication/science/09552219"}
