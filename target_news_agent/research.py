@@ -72,7 +72,7 @@ TARGET_PROCESS_PATTERNS = [
 TARGET_SIDE_PATTERNS = [
     # (target power / voltage / current are everyday deposition settings, and "target composition"
     # usually just compares a film with its source, so neither counts on its own)
-    re.compile(r"\btargets? (?:poisoning|erosion|racetrack|utili[sz]ation|temperature|density|purity|resistivity|"
+    re.compile(r"\btargets? (?:poisoning|erosion|racetrack|utili[sz]ation|density|purity|resistivity|"
                r"aging|lifetime|arcing|cracking|nodul\w*)"),
     re.compile(r"\b(?:poisoned|hot|heated|segmented|mosaic) (?:[\w-]+ ){0,2}targets?\b"),
     re.compile(r"\b(?:effects?|influence|role|impact) of (?:the )?(?:sputtering )?targets?(?:'s?)? (?:[\w-]+ ){0,2}"

@@ -478,27 +478,6 @@
   ],
   "papers": [
     {
-      "id": "p-84480de255b441de",
-      "title": "Development of interfaces in oxide matrix composites",
-      "link": "https://doi.org/10.82444/warw.33528973",
-      "published": "2026-09-10T00:00:00+00:00",
-      "venue": "University of Warwick",
-      "authors": [
-        "No author provided"
-      ],
-      "abstract": "A number of oxides are evaluated as candidates for use as \"interphases\" in CMCs. Compounds studied are of the MXO4 type, i.e. phosphates, vanadates & niobates, where M is a rare earth or yttrium ion. These are assessed in terms of their thermal and chemical stability and evidence of de-bonding in conjunction with selected oxides considered as potential fibre/matrix combinations, after heat treatment at 1400 degrees C, the target temperature for application of oxide CMCs in gas-turbines. Methods of deposition of these compounds onto commercially available woven oxide fibres are compared and an optimised procedure for the in-situ deposition of NdPO4 onto 3M's Nextel 720 satin weave has been developed based on the use of an immiscible liquid bi-layer and aqueous solution precursors. The fabrication of shaped components from oxide CMCs using infiltrated fabric pre-forms is also described. In addition, interphases have been successfully deposited on oxide substrates using RF-magnetron sputtering, yielding fine grained, uniform coatings.",
-      "doi": "10.82444/warw.33528973",
-      "source": "OpenAlex",
-      "topics": [
-        "綁定與背板"
-      ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
-      "abstract_zh": "",
-      "tier": "related"
-    },
-    {
       "id": "p-40d95efd9a126044",
       "title": "Control Effects and Optimization of Ion Source Power in HiPIMS Deposition of Alumina Thin Films",
       "link": "https://doi.org/10.16577/j.issn.1001-1560.2026.0141",
@@ -511,12 +490,12 @@
       "doi": "10.16577/j.issn.1001-1560.2026.0141",
       "source": "OpenAlex",
       "topics": [
-        "粉末冶金與燒結",
-        "濺鍍行為與靶材利用率"
+        "濺鍍行為與靶材利用率",
+        "粉末冶金與燒結"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "反應式 HiPIMS 為抑制靶材毒化通常只能用低氧流量,導致氧化鋁膜缺氧;本研究加入陽極層離子源獨立供應反應性氧,使薄膜氧化與陰極放電脫鉤。對靶材使用端而言,可在不毒化 Al 靶的條件下得到化學計量的 Al2O3 膜。",
+      "importance": 3,
+      "title_zh": "HiPIMS 沉積氧化鋁薄膜時離子源功率的控制效果與最佳化",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -536,11 +515,12 @@
       "doi": "10.1007/s10854-026-17363-0",
       "source": "OpenAlex",
       "topics": [
+        "合金與複合靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究四元 CIGS 靶材的化學計量比對濺鍍薄膜結構與光伏特性的影響(摘要未提供細節),與化合物靶的成分設計直接相關。",
+      "importance": 3,
+      "title_zh": "濺鍍 CIGS 薄膜的結構與光伏特性:四元靶材化學計量比的影響",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -562,11 +542,12 @@
       "doi": "10.1007/s10854-026-17016-2",
       "source": "OpenAlex",
       "topics": [
+        "合金與複合靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "使用 CZTS 化合物靶以 RF 磁控濺鍍,探討基板溫度對單相 Cu2ZnSnS4 薄膜成長的影響(摘要未提供細節);重點在製程條件,靶材本身為使用端。",
+      "importance": 2,
+      "title_zh": "以化合物靶 RF 磁控濺鍍、由基板溫度調控成長單相 Cu2ZnSnS4 太陽能薄膜",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -593,9 +574,9 @@
         "濺鍍行為與靶材利用率",
         "回收與再利用"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以鉻靶進行 HiPIMS 實驗並以電離區模型分析:放電電流密度提高時沉積速率下降、離化率上升(10%–50%),脈衝長度 50 µs 時沉積速率最高,放電以金屬自循環模式為主。有助於理解金屬靶在 HiPIMS 下的濺射與沉積效率。",
+      "importance": 3,
+      "title_zh": "鉻靶的高功率脈衝磁控濺鍍(HiPIMS)",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -615,9 +596,9 @@
       "topics": [
         "陶瓷與氧化物靶"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以 InGaO 與 ZnO 兩種氧化物靶共濺鍍取代單一 IGZO 靶,可精確控制陽離子比例並降低氧空缺與缺陷密度,TFT 場效遷移率達 18.79 cm²/V·s 且光照偏壓穩定性佳。顯示分離式氧化物靶可作為 IGZO 靶的替代選項。",
+      "importance": 2,
+      "title_zh": "以 InGaO 與 ZnO 靶 RF 磁控共濺鍍,提升 a-IGZO 薄膜電晶體的電性與光照穩定性",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -639,13 +620,13 @@
       "doi": "10.1016/j.jallcom.2025.184918",
       "source": "OpenAlex",
       "topics": [
+        "合金與複合靶",
         "塑性加工與晶粒織構",
-        "高純化與雜質控制",
-        "合金與複合靶"
+        "高純化與雜質控制"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以分段式(拼接)靶在高純氬氣中磁控濺鍍 Zr–Ti–Ta–Mo–W–Ni 高熵薄膜,探討濺鍍功率、基板溫度與 Ni 含量對非晶或單相 bcc 結構的影響,非晶膜具耐離子輻照特性。分段靶是多元合金鍍膜的一種靶材做法。",
+      "importance": 2,
+      "title_zh": "近平衡凝結條件下形成單相晶質與非晶質高熵 ZrTiTaMoWNi 薄膜",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -666,12 +647,12 @@
       "doi": "10.1007/s44251-025-00106-4",
       "source": "OpenAlex",
       "topics": [
-        "粉末冶金與燒結",
-        "合金與複合靶"
+        "合金與複合靶",
+        "粉末冶金與燒結"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以低成本的 Ti6Al4V 合金靶進行反應式磁控濺鍍製作 TiAlVN 鍍層,作為傳統燒結靶的替代方案,鍍層硬度 30.8 GPa,並建立預測摩擦相容性的模型。顯示以商用合金板材直接作靶可降低硬質鍍層的靶材成本。",
+      "importance": 3,
+      "title_zh": "以低成本 Ti6Al4V 合金靶沉積 TiAlVN 鍍層的摩擦相容性",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -695,9 +676,9 @@
       "topics": [
         "陶瓷與氧化物靶"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以 AlN 陶瓷靶濺鍍並插入 Mo 成核層,將 AlN 與 Si 的晶格不匹配由 45.4% 降至 3.7%,得到高結晶性 c 軸取向 AlN 膜。陶瓷 AlN 靶在此作為取代反應式濺鍍的做法。",
+      "importance": 2,
+      "title_zh": "以成核層設計與陶瓷靶濺鍍提升矽基板上 AlN 薄膜的結晶性",
       "abstract_zh": "",
       "tier": "related"
     },
@@ -712,11 +693,12 @@
       "doi": "",
       "source": "Vacuum",
       "topics": [
+        "合金與複合靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以化學計量比的 Nb3Sn 靶濺鍍沉積製作超導射頻腔(摘要未提供細節),屬化合物靶在加速器元件上的應用。",
+      "importance": 2,
+      "title_zh": "以化學計量 Nb3Sn 靶濺鍍沉積製作超導射頻共振腔",
       "abstract_zh": "",
       "tier": "core"
     },
@@ -731,11 +713,12 @@
       "doi": "",
       "source": "Vacuum",
       "topics": [
+        "濺鍍行為與靶材利用率",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究雙靶(TiB2 與石墨)HiPIMS 放電中,石墨靶的脈衝參數如何影響近基板電漿的離化(摘要未提供細節),與多靶共濺鍍的製程控制相關。",
+      "importance": 2,
+      "title_zh": "石墨靶脈衝參數對 TiB2 與 C 雙靶 HiPIMS 放電近基板電漿離化過程的影響",
       "abstract_zh": "",
       "tier": "related"
     }

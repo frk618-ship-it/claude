@@ -444,6 +444,8 @@ def test_relevance_tiers():
     assert relevance(mk("Optical properties of ZnO films", "ZnO films were deposited by RF magnetron sputtering from a ceramic ZnO target.")) == ""
     assert relevance(mk("Hot target for isotope production", "proton beam irradiation", v="Nucl. Instrum. Methods")) == ""
     assert relevance(mk("Target-driven design of porous tantalum scaffolds", "sputtered coating")) == ""
+    # "target temperature" of an application, not of a sputtering target
+    assert relevance(mk("Development of interfaces in oxide matrix composites", "after heat treatment at 1400 C, the target temperature for oxide CMCs; coatings by RF-magnetron sputtering")) == ""
 
 
 def test_journal_feeds_are_unique():
