@@ -16,6 +16,7 @@ from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
+from .charts import CHART_SCRIPT, CHART_STYLE, columns, hbar, index_lines, meter, sparkline
 from .fabnav import fab_nav
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
@@ -89,21 +90,28 @@ def esc(v) -> str:
 
 
 STYLE = """
-:root{--bg:#f4f6fb;--surface:#fff;--fg:#162033;--muted:#55607a;--line:#dfe4ef;--accent:#3b5bdb;--accent-2:#f76707;--accent-soft:#e7ecff;--hero:#e4e9ff;
---ok:#2b8a3e;--ok-soft:#e3f6e7;--none:#6b7480;--none-soft:#eceef3;
---k-news:#3b5bdb;--k-filing:#7048e8;--k-market:#0c8f6a;--k-forum:#d6336c;--k-research:#e8590c;--k-profile:#6b7480;--k-metals:#b7791f;--k-recycling:#2f9e44;--up:#e03131;--down:#2b8a3e;
---font-display:"Noto Serif TC","Songti TC",serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1424;--surface:#171e33;--fg:#e8ecf6;--muted:#9aa5c0;--line:#283252;--accent:#748ffc;--accent-2:#ffa94d;--accent-soft:#1f2a52;--hero:#1a2350;
---ok:#69db7c;--ok-soft:#173322;--none:#8d96a8;--none-soft:#1f2639;
---k-news:#748ffc;--k-filing:#b197fc;--k-market:#38d9a9;--k-forum:#f783ac;--k-research:#ffa94d;--k-profile:#adb5bd;--k-metals:#ffd43b;--k-recycling:#69db7c;--up:#ff8787;--down:#69db7c;
+/* Colour roles follow the data-viz reference palette (validated categorical order, light and dark):
+   warm-grey surfaces and ink, one blue accent, eight series slots (item types take fixed slots),
+   reserved status colours (price moves), and a de-emphasis grey for context marks. */
+:root{--bg:#f9f9f7;--surface:#fcfcfb;--fg:#0b0b0b;--muted:#52514e;--faint:#898781;--line:#e1e0d9;--grid:#e1e0d9;--axis:#c3c2b7;
+--accent:#2a78d6;--accent-2:#1c5cab;--accent-soft:#e6eefa;--accent-track:#cde2fb;--hero:#e6eefa;--deemph:#b9b8b0;
+--series-1:#2a78d6;--series-2:#eb6834;--series-3:#1baf7a;--series-4:#eda100;--series-5:#e87ba4;--series-6:#008300;--series-7:#6250d6;--series-8:#e34948;
+--ok:#006300;--ok-soft:#e3f1e3;--none:#52514e;--none-soft:#efeeea;--up:#c62f2f;--down:#006300;
+--k-news:var(--series-1);--k-filing:var(--series-2);--k-recycling:var(--series-3);--k-market:var(--series-4);--k-forum:var(--series-5);
+--k-research:var(--series-6);--k-metals:var(--series-7);--k-profile:var(--series-8);
+--font-display:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--surface:#1a1a19;--fg:#f0efec;--muted:#c3c2b7;--faint:#898781;--line:#2c2c2a;--grid:#2c2c2a;--axis:#383835;
+--accent:#3987e5;--accent-2:#86b6ef;--accent-soft:#16263b;--accent-track:#184f95;--hero:#16263b;--deemph:#5a5955;
+--series-1:#3987e5;--series-2:#d95926;--series-3:#199e70;--series-4:#c98500;--series-5:#d55181;--series-6:#008300;--series-7:#9085e9;--series-8:#e66767;
+--ok:#0ca30c;--ok-soft:#14261a;--none:#c3c2b7;--none-soft:#262624;--up:#ef6b6b;--down:#0ca30c;
 color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
 .wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
 a{color:var(--accent);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 .ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.18em}
-h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;line-height:1.2}
-h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
-h2 .hic{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:6px;background:var(--accent);color:#fff}
+h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:700;line-height:1.25}
+h2{font-size:1.25rem;font-weight:700;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+h2 .hic{display:inline-grid;place-items:center;width:26px;height:26px;color:var(--accent)}
 h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-data);font-size:.82rem;color:var(--muted);font-weight:400}
 .eyebrow{font-family:var(--font-data);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:16px;min-width:0}
@@ -114,64 +122,63 @@ header{display:grid;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--l
 .btn{display:inline-flex;gap:6px;align-items:center;padding:6px 14px;border:0;border-radius:6px;background:var(--accent-soft);color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:500}
 .btn:hover{background:var(--accent);color:#fff}.btn.primary{background:var(--accent);color:#fff}.btn.primary:hover{background:var(--accent-2)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.stat{display:flex;gap:12px;align-items:center;background:var(--surface);border-radius:6px;padding:14px 16px}
-.stat .sic{width:42px;height:42px;border-radius:6px;display:grid;place-items:center;flex:none;background:var(--accent);color:#fff}
-.stat .sic .ic{width:22px;height:22px}.stat b{display:block;font-family:var(--font-data);font-size:1.45rem;font-weight:500;line-height:1.15}.stat span{font-size:.8rem;color:var(--muted)}
+.stat{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.stat .sic{width:28px;height:28px;display:grid;place-items:center;flex:none;color:var(--faint)}
+.stat .sic .ic{width:22px;height:22px}.stat b{display:block;font-size:1.6rem;font-weight:700;line-height:1.15}.stat span{font-size:.8rem;color:var(--muted)}
 .fc-stats .stat>div:last-child{min-width:0}.fc-stats .stat b{font-size:1.15rem;white-space:normal;word-break:keep-all}.fc-stats .stat span{display:block}
 .fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px;margin-top:14px}.card.fc h3{display:flex;align-items:center;gap:8px;margin:0;font-size:1rem}.card.fc h3 .ic{width:20px;height:20px;color:var(--accent)}.card.fc li{line-height:1.6}
 .lead{font-size:1.04rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:4px}
-.filters{display:grid;gap:10px;background:var(--surface);border-radius:6px;padding:14px 16px}
+.filters{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
 .frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:4px;min-width:3.2em;display:inline-flex;gap:4px;align-items:center}
 button.f{font:inherit;font-size:.84rem;border:1px solid transparent;background:var(--bg);color:var(--fg);padding:4px 11px;border-radius:4px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
 button.f .mono{font-size:.72rem;color:var(--muted)}button.f:hover{border-color:var(--accent)}
 button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}button.f[aria-pressed=true] .mono{color:var(--bg)}
 .shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
-.kind{font-size:.72rem;padding:1px 8px;border-radius:4px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 13%,transparent)}
+.kind{font-size:.74rem;font-weight:500;color:var(--muted)}.kind .ic{color:var(--k)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}.k-recycling{--k:var(--k-recycling)}
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.quote{background:var(--surface);border-top:4px solid var(--k-metals);border-radius:6px;padding:12px 16px;display:grid;gap:2px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;display:grid;gap:2px}
 .quote .qn{font-size:.85rem;color:var(--muted);display:flex;gap:6px;align-items:center}.quote .qn .mono{font-family:var(--font-data)}
-.quote b{font-family:var(--font-data);font-size:1.3rem;font-weight:500}.quote .chg{font-family:var(--font-data);font-size:.85rem}.quote .chg.up{color:var(--up)}.quote .chg.down{color:var(--down)}
+.quote b{font-size:1.4rem;font-weight:700}.quote .chg{font-size:.85rem;font-variant-numeric:tabular-nums}.quote .chg.up{color:var(--up)}.quote .chg.down{color:var(--down)}
 .quote .qd{font-size:.75rem;color:var(--muted)}
 [hidden]{display:none!important}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-.card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border-top:4px solid var(--k);border-radius:6px;padding:14px 16px;min-width:0}
+.card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-width:0}
 .card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
 .card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
 .card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
 .kind{display:inline-flex;gap:4px;align-items:center}.kind .ic{width:13px;height:13px}
-.card.low{background:transparent}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
+.card.low{background:transparent;border-color:transparent}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
 .card.has-thumb{grid-template-columns:76px minmax(0,1fr);column-gap:14px}.card.has-thumb>*{grid-column:2}
 .card.has-thumb>.thumb{grid-column:1;grid-row:1/span 4;align-self:start}
 .thumb{position:relative;width:76px;height:76px;border-radius:6px;display:grid;place-items:center;align-content:center;gap:3px;color:var(--k);background:color-mix(in srgb,var(--k) 15%,var(--surface))}
 .thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
-.thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 5px;border-radius:4px;background:var(--k);color:var(--surface);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
+.thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 5px;border-radius:4px;background:var(--k);color:#fff;font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
 .card.low .thumb{filter:saturate(.55);opacity:.85}
-.stats .stat:nth-child(1){--c:var(--k-news)}.stats .stat:nth-child(2){--c:var(--k-market)}.stats .stat:nth-child(3){--c:var(--k-filing)}.stats .stat:nth-child(4){--c:var(--k-research)}
-.stats .stat .sic{background:var(--c,var(--accent));color:#fff}.stats .stat{border-top:4px solid var(--c,var(--accent))}
+.k-market .thumb .sym{color:#0b0b0b}/* label inside a fill: white, near-black on yellow */
 /* per-type colour wins over the .card default */
 .card.k-news{--k:var(--k-news)}.card.k-filing{--k:var(--k-filing)}.card.k-market{--k:var(--k-market)}.card.k-forum{--k:var(--k-forum)}.card.k-research{--k:var(--k-research)}.card.k-profile{--k:var(--k-profile)}.card.k-metals{--k:var(--k-metals)}.card.k-recycling{--k:var(--k-recycling)}
 .ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.region{background:var(--surface);border-radius:6px;padding:12px 16px}
+.region{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
 .region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
 .rb{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:4px;background:var(--accent);color:#fff;font-family:var(--font-data);font-size:.72rem;font-weight:500;letter-spacing:.04em}
-.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.92rem}
 .region li:last-child{border-bottom:0}
 .tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:6px}.pill{font-size:.72rem;padding:1px 9px;border-radius:99px;white-space:nowrap}
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
 .archive{display:flex;flex-wrap:wrap;gap:8px}.archive a{display:inline-flex;gap:6px;align-items:center;font-family:var(--font-data);font-size:.84rem;border:1px solid transparent;background:var(--surface);color:var(--fg);padding:4px 12px;border-radius:4px;text-decoration:none}
 .archive a:hover{border-color:var(--accent)}.archive a[aria-current=page]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 h3.topic{margin:8px 0 0;font-size:.98rem;font-weight:700;display:flex;gap:10px;align-items:center}
-h3.topic .tic{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;background:var(--accent);color:#fff}h3.topic .tic .ic{width:17px;height:17px}
+h3.topic .tic{width:24px;height:24px;display:grid;place-items:center;color:var(--accent)}h3.topic .tic .ic{width:17px;height:17px}
 h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
-.note{background:var(--surface);border-radius:6px;padding:16px 18px;display:grid;gap:10px;font-size:.88rem;color:var(--muted)}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:10px;font-size:.88rem;color:var(--muted)}
 .note p{display:flex;gap:10px;align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
 footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
 .sub{font-size:.88rem;color:var(--muted)}
 @media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:12px 14px}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:12px}.thumb{width:56px;height:56px;border-radius:6px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-"""
+""" + CHART_STYLE
 
 SCRIPT = """
 (function(){var items=[].slice.call(document.querySelectorAll('#list > article')),shown=document.getElementById('shown'),reset=document.getElementById('reset'),
@@ -302,9 +309,11 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
                  summary, meta, attrs, full_date=filterable, thumb=thumb)
 
 
-def _metals_section(metals: list[dict], kinds: Counter) -> str:
+def _metals_section(metals: list[dict], kinds: Counter, history: dict[str, list[float]] | None = None) -> str:
+    """Stat tiles: closing price, change vs the previous close, and a sparkline of recent closes."""
     if not metals:
         return ""
+    history = history or {}
     cards = []
     for m in metals:
         chg = m.get("change_pct")
@@ -314,16 +323,39 @@ def _metals_section(metals: list[dict], kinds: Counter) -> str:
             cls = "up" if chg > 0 else "down" if chg < 0 else ""
             arrow = "▲" if chg > 0 else "▼" if chg < 0 else ""
             chg_html = f'<span class="chg {cls}">{arrow} {chg:+.2f}%</span>'
+        trend = history.get(m["code"], [])
+        spark = sparkline(trend, f"{m['name']}最近 {len(trend)} 期收盤價走勢")
         cards.append(
             f'<div class="quote"><span class="qn">{icon("gem")}{esc(m["name"])} <span class="mono">{esc(m["code"])}</span></span>'
-            f'<b>{m["price"]:,.2f}</b>{chg_html}<span class="qd">{esc(m["unit"])} · {esc(m["date"])} 收盤</span></div>'
+            f'<b>{m["price"]:,.2f}</b>{chg_html}<span class="qd">{esc(m["unit"])} · {esc(m["date"])} 收盤</span>{spark}</div>'
         )
     sources = "、".join(dict.fromkeys(m.get("source", "") for m in metals if m.get("source")))
     news = f";相關行情新聞 {kinds['metals']} 則,可在下方「全部新聞」選擇「貴金屬行情」查看" if kinds.get("metals") else ""
     return (
-        f'<section aria-labelledby="metals">{_h2("metals", "gem", "貴金屬行情", "日收盤價與漲跌(漲紅跌綠)")}'
+        f'<section aria-labelledby="metals">{_h2("metals", "gem", "貴金屬行情", "日收盤價、與前一日相比(漲紅跌綠),小圖為近期各期收盤價")}'
         f'<div class="quotes">{"".join(cards)}</div><p class="sub">報價來源:{esc(sources)}{news}。</p></section>'
     )
+
+
+def _data_section(items: list[dict], config: Config, daily: list[tuple[str, int]], current: str) -> str:
+    """本期數據: news per category (bars) and news per day across the archive (columns)."""
+    signal = [it for it in items if it["kind"] in SIGNAL_KINDS]
+    if not signal and not daily:
+        return ""
+    by_cat = Counter((it.get("categories") or ["未分類"])[0] for it in signal)
+    order = list(config.settings.categories) + [c for c in by_cat if c not in config.settings.categories]
+    rows = sorted(((c, by_cat.get(c, 0)) for c in order), key=lambda r: -r[1])
+    cat_chart = (
+        f'<div class="ch"><h3>本期新聞的主題分布</h3><p class="chs">新聞與公司公告 {len(signal)} 則,依第一個主題分類</p>'
+        f'{hbar(rows, "則", total=len(signal))}</div>' if signal else ""
+    )
+    focus = current if any(d == current for d, _ in daily) else (daily[-1][0] if daily else "")
+    day_chart = (
+        f'<div class="ch"><h3>每日新聞與公告數</h3><p class="chs">最近 {len(daily)} 期報告;藍色為本頁日期,滑鼠移上可看各日數字</p>'
+        f'{columns(daily, highlight=focus, unit="則", label=lambda d: d[5:].replace("-", "/"))}</div>' if daily else ""
+    )
+    return (f'<section aria-labelledby="data">{_h2("data", "bars", "本期數據")}'
+            f'<div class="ch-grid">{cat_chart}{day_chart}</div></section>')
 
 
 def _recycling_section(items: list[dict], config: Config) -> str:
@@ -430,7 +462,7 @@ def _head(title: str, description: str = SITE_DESCRIPTION, site_url: str = "", p
         '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         f'<title>{esc(title)}</title>{_share_meta(title, description, site_url, page)}<link rel="icon" href="{favicon_href()}">'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
         f"<style>{STYLE}</style></head><body>{SPRITE}"
     )
 
@@ -466,6 +498,15 @@ def render_forecasts(config: Config, generated: str) -> str:
     sections = []
     for n, f in enumerate(config.forecasts):
         figures = "".join(_figure(x) for x in f.get("figures") or [])
+        charts = ""
+        tr = f.get("trend") or {}
+        if tr.get("years") and tr.get("series"):
+            charts += (f'<div class="ch"><h3>金額成長快於出貨量</h3><p class="chs">指數化走勢,{tr["years"][0]} 年 = 100;'
+                       f'同一軸比較不同單位的指標</p>{index_lines(tr["years"], tr.get("kinds") or ["實績"] * len(tr["years"]), tr["series"])}</div>')
+        sh = f.get("share") or {}
+        if sh.get("value") is not None:
+            charts += f'<div class="ch"><h3>市場集中度</h3>{meter(float(sh["value"]), sh.get("label", ""), sh.get("note", ""))}</div>'
+        charts = f'<div class="ch-grid">{charts}</div>' if charts else ""
         groups = "".join(
             f'<article class="card fc"><h3>{icon(FORECAST_ICONS.get(g.get("title", ""), "info"))}{esc(g.get("title", ""))}</h3>'
             f'<ul class="plain">{"".join(f"<li>{esc(i)}</li>" for i in g.get("items") or [])}</ul></article>'
@@ -477,7 +518,7 @@ def render_forecasts(config: Config, generated: str) -> str:
             f'<section aria-labelledby="fc{n}">{_h2(f"fc{n}", "research", esc(f.get("section") or f.get("report", "")))}'
             f'<p class="sub">{icon("book")}{source}《{esc(f.get("report", ""))}》· 發刊 <span class="mono">{esc(f.get("published", ""))}</span></p>'
             f'<p class="sub">範圍:{esc(f.get("scope", ""))}</p>'
-            f'<div class="stats fc-stats">{figures}</div><div class="fc-grid">{groups}</div></section>'
+            f'<div class="stats fc-stats">{figures}</div>{charts}<div class="fc-grid">{groups}</div></section>'
         )
     body = "".join(sections) or "<p>尚未加入商情預測資料(config/forecasts.yaml)。</p>"
     return (
@@ -488,7 +529,7 @@ def render_forecasts(config: Config, generated: str) -> str:
 <div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div></header>
 {body}
 <footer>本頁為市場調查報告的重點摘要,經改寫整理並註明出處;完整數據請參閱原報告。預測不構成投資建議。</footer>
-</div>{_fab("forecast", config)}</body></html>"""
+</div><script>{CHART_SCRIPT}</script>{_fab("forecast", config)}</body></html>"""
     )
 
 
@@ -568,6 +609,8 @@ def render_page(
     home: str = "",
     library: list[dict] | None = None,
     is_latest: bool = False,
+    daily: list[tuple[str, int]] | None = None,
+    metal_history: dict[str, list[float]] | None = None,
 ) -> str:
     library = library or []
     items = report.get("items", [])
@@ -647,7 +690,8 @@ def render_page(
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
-{_metals_section(report.get("metals") or [], kinds)}
+{_data_section(items, config, daily or [], current)}
+{_metals_section(report.get("metals") or [], kinds, metal_history)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_recycling_section(items, config)}
 {_papers_section(report, library, is_latest, home)}
@@ -662,11 +706,12 @@ def render_page(
 <p>{icon("book")}<span><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
 <p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p></div>
 <footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</footer>
-</div><script>{SCRIPT}</script>{_fab("news", config)}</body></html>"""
+</div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
 
 
 HOME_DAYS = 3  # the homepage combines this many of the latest daily reports
+CHART_DAYS = 14  # the daily-count chart and the metal sparklines cover this many reports
 
 
 def merge_recent(reports: list[tuple[str, dict]], n: int = HOME_DAYS) -> dict:
@@ -706,6 +751,14 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         shutil.copyfile(OG_IMAGE, out / OG_IMAGE.name)
     reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     archive = [(d, len(r.get("items", []))) for d, r in reports]
+    # chart data across the archive, oldest first: news + filings per day, and each metal's closes
+    recent = list(reversed(reports[:CHART_DAYS]))
+    daily = [(d, sum(1 for it in r.get("items", []) if item_kind(it) in SIGNAL_KINDS)) for d, r in recent]
+    metal_history: dict[str, list[float]] = {}
+    for _, r in recent:
+        for m in r.get("metals") or []:
+            if m.get("price") is not None:
+                metal_history.setdefault(m["code"], []).append(m["price"])
     library = paper_library(reports)
     written = []
     generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
@@ -715,7 +768,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         (out / "forecast.html").write_text(render_forecasts(config, generated), encoding="utf-8")
         written.append(out / "forecast.html")
     for date, report in reports:
-        page = render_page(report, config, archive, date, library=library)
+        page = render_page(report, config, archive, date, library=library, daily=daily, metal_history=metal_history)
         (out / f"{date}.html").write_text(page, encoding="utf-8")
         written.append(out / f"{date}.html")
     if reports and config.quiz:
@@ -725,7 +778,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         written.append(out / "quiz.html")
     if reports:
         home = merge_recent(reports)
-        page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True)
+        page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True, daily=daily, metal_history=metal_history)
         (out / "index.html").write_text(page, encoding="utf-8")
         written.append(out / "index.html")
     if not reports:

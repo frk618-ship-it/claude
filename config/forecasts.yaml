@@ -8,6 +8,9 @@
 #   source      發行機構;report 報告名稱;section 章節;published 發刊日;url 發行機構網址
 #   scope       涵蓋範圍
 #   figures     關鍵數字(label / value / note),顯示為指標卡
+#   trend       選填:商情頁的指數化折線圖(第一年 = 100)。years 年份、kinds 每年的性質(實績 / 預估 / 預測,
+#               預測區間畫成虛線)、series 各指標(name、unit、values 與 years 對應)。只放報告本身的數字或由其成長率推算的值
+#   share       選填:單一占比(label、value 0–1、note),畫成量表
 #   points      重點摘要(依主題分組:title + items)
 #   context     給每日 AI 摘要參考的一兩句產業背景(選填)
 
@@ -24,6 +27,13 @@ forecasts:
       - {label: "2031 年預測", value: "約 3,497 億日圓", note: "出貨約 38.4 萬片"}
       - {label: "金額年複合成長率", value: "8.0%", note: "2025→2031(出貨量 5.2%)"}
       - {label: "2026 年金額成長", value: "約 +16%", note: "出貨量約 +6%"}
+    trend:                    # 2026 年依報告的成長率推算(金額約 +16%、出貨量約 +6%)
+      years: [2025, 2026, 2031]
+      kinds: [實績, 預估, 預測]
+      series:
+        - {name: 市場金額, unit: 億日圓, values: [2198, 2550, 3497]}
+        - {name: 出貨片數, unit: 萬片, values: [28.3, 30.0, 38.4]}
+    share: {label: 江豐電子 + JX金屬 出貨量占比, value: 0.7, note: 報告指兩家合計約占七成出貨量,江豐電子略高於 JX金屬}
     points:
       - title: 市場概況
         items:

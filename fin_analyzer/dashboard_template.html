@@ -18,20 +18,23 @@
 <style>
 :root {
   color-scheme: light;
-  --page: #f4f6fb;
-  --surface: #ffffff;
-  --ink-1: #162033;
-  --ink-2: #55607a;
-  --ink-3: #8a93a8;
-  --grid: #e3e7f0;
-  --axis: #c5ccdb;
-  --border: rgba(22,32,51,0.10);
-  --wash: rgba(59,91,219,0.06);
-  --focus-wash: rgba(59,91,219,0.10);
-  --other-mark: #b4bccd;
-  --accent: #3b5bdb; --accent-2: #f76707; --hero: #e4e9ff;
-  --s1: #3b5bdb; --s2: #f76707; --s3: #0c8f6a; --s4: #d6336c;
-  --good: #2b8a3e; --critical: #e03131;
+  /* data-viz reference palette: warm-grey chrome, one blue accent, the first four validated
+     categorical slots for compared companies, a de-emphasis grey for context marks */
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --wash: rgba(42,120,214,0.06);
+  --focus-wash: rgba(42,120,214,0.10);
+  --other-mark: #b9b8b0;
+  --accent: #2a78d6; --accent-2: #1c5cab; --hero: #e6eefa;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --good: #006300; --critical: #c62f2f;
+  --ord-1: #1c5cab; --ord-2: #2a78d6; --ord-3: #86b6ef;  /* ordinal blue steps: target share high -> low */
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--page); color: var(--ink-1);
@@ -57,14 +60,13 @@ header .sub { color: var(--ink-2); font-size: 13px; }
 .chip[aria-pressed="true"] { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); border-color: var(--accent); font-weight: 600; }
 select { font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.tile { background: var(--surface); border-top: 4px solid var(--tc, var(--accent)); border-radius: 6px; padding: 12px 14px; }
-.tile:nth-child(4n+1) { --tc: var(--s1); } .tile:nth-child(4n+2) { --tc: var(--s2); } .tile:nth-child(4n+3) { --tc: var(--s3); } .tile:nth-child(4n+4) { --tc: var(--s4); }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
 header h1::before { content: ""; display: inline-block; width: 12px; height: 22px; margin-right: 10px; vertical-align: -3px; border-radius: 2px; background: var(--accent); }
 .tile .k { color: var(--ink-2); font-size: 12px; }
 .tile .v { font-size: 24px; font-weight: 650; margin: 2px 0; }
 .tile .r { color: var(--ink-3); font-size: 12px; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px; margin-bottom: 16px; }
-.card { background: var(--surface); border-radius: 6px; padding: 16px; min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; min-width: 0; }
 .card h2 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
 .card .hint { color: var(--ink-3); font-size: 12px; margin: 0 0 10px; }
 .card .ctl { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
@@ -80,7 +82,7 @@ svg .strong { fill: var(--ink-1); font-weight: 600; }
 svg text.lbl { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
 .gridline { stroke: var(--grid); stroke-width: 1; }
 .baseline { stroke: var(--axis); stroke-width: 1; }
-.tablewrap { overflow-x: auto; border-radius: 6px; background: var(--surface); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
 table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
 th, td { padding: 7px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
 th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 12px; cursor: pointer; user-select: none; }
@@ -119,9 +121,10 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
 .bar { transition: opacity .15s; }
 @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } .bub-in { transition: none; } }
 /* target-revenue share: badge in the table, bubble size in the scatter */
-.tf { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 17px; vertical-align: 1px;
-  color: var(--tf); background: color-mix(in srgb, var(--tf) 13%, var(--surface)); border: 1px solid color-mix(in srgb, var(--tf) 35%, transparent); }
-.tf.pure { --tf: var(--s3); } .tf.major { --tf: var(--s1); } .tf.diversified { --tf: var(--s2); }
+.tf { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 0 6px; border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 17px; vertical-align: 1px;
+  color: var(--ink-2); background: var(--page); border: 1px solid var(--border); }
+.tf::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--tf); }
+.tf.pure { --tf: var(--ord-1); } .tf.major { --tf: var(--ord-2); } .tf.diversified { --tf: var(--ord-3); }
 .legend .bub { display: inline-flex; align-items: center; gap: 5px; }
 .legend .bub svg { width: auto; min-width: 0; display: inline-block; overflow: visible; }
 </style>
@@ -383,6 +386,13 @@ function tween(dur, delay, step) {
 let rankPrev = {}, rankPrevKey = null, scatterPrev = {}, linePrev = {};
 
 // ---------- ranking bars ----------
+// A bar with a 4px rounded data end and a square end on the baseline (y from 6 to 6 + h).
+function barPath(x, w, h, neg) {
+  const r = Math.min(4, w, h / 2), t = 6, b = 6 + h;
+  return neg
+    ? `M${x + w},${t} H${x + r} Q${x},${t} ${x},${t + r} V${b - r} Q${x},${b} ${x + r},${b} H${x + w} Z`
+    : `M${x},${t} H${x + w - r} Q${x + w},${t} ${x + w},${t + r} V${b - r} Q${x + w},${b} ${x + w - r},${b} H${x} Z`;
+}
 function renderRank() {
   const m = metricsByKey[state.rank];
   const box = $("rank"); box.replaceChildren();
@@ -415,10 +425,9 @@ function renderRank() {
     // one group per company, moved as a whole when the order changes
     const g = sv("g", {transform: `translate(0 ${y})`}); svg.appendChild(g);
     g.appendChild(sv("text", {x: L - 8, y: rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, label));
-    const bar = sv("rect", {class: "bar", x: bx, y: 6, width: bw, height: rowH - 12, rx: 3,
-      fill: isF ? cssVar("--s1") : cssVar("--other-mark")});
-    g.appendChild(bar);
     const neg = v < 0;
+    const bar = sv("path", {class: "bar", d: barPath(bx, bw, rowH - 12, neg), fill: isF ? cssVar("--s1") : cssVar("--other-mark")});
+    g.appendChild(bar);
     const vt = sv("text", {y: rowH / 2 + 4, "text-anchor": neg ? "end" : "start", class: isF ? "strong" : ""}, fmt(v, m.kind));
     g.appendChild(vt);
     // tween from the previous render's bar (re-sort / new metric) or grow from the zero line
@@ -428,7 +437,7 @@ function renderRank() {
     tween(p ? 550 : 700, p ? 0 : i * 45, t => {
       const e = easeOut(t), cbx = lerp(from.bx, bx, e), cbw = Math.max(lerp(from.bw, bw, e), 0.5);
       g.setAttribute("transform", `translate(0 ${lerp(from.y, y, e)})`);
-      bar.setAttribute("x", cbx); bar.setAttribute("width", cbw);
+      bar.setAttribute("d", barPath(cbx, cbw, rowH - 12, neg));
       vt.setAttribute("x", neg ? cbx - 5 : cbx + cbw + 5);
       vt.textContent = fmt(lerp(from.v, v, e), m.kind);
       vt.setAttribute("opacity", p ? 1 : Math.min(1, t * 2));
@@ -594,7 +603,7 @@ function lineChart(box, series, xLabels, kind, ariaLabel) {
     const lastI = ys.map((y, i) => y === null ? -1 : i).filter(i => i >= 0).pop();
     let dot = null, end = null;
     if (lastI !== undefined) {
-      dot = sv("circle", {cx: X(lastI), cy: ys[lastI], r: 3.5, fill: s.color, stroke: cssVar("--surface"), "stroke-width": 2});
+      dot = sv("circle", {cx: X(lastI), cy: ys[lastI], r: 4, fill: s.color, stroke: cssVar("--surface"), "stroke-width": 2});
       svg.appendChild(dot);
       end = {y: ys[lastI], x: X(lastI), name: s.short, morph}; ends.push(end);
     }
@@ -608,7 +617,7 @@ function lineChart(box, series, xLabels, kind, ariaLabel) {
       const len = path.getTotalLength(), delay = si * 180, dur = 900;
       path.style.strokeDasharray = `${len} ${len}`;
       tween(dur, delay, t => { path.style.strokeDashoffset = len * (1 - easeOut(t)); if (t === 1) path.style.strokeDasharray = ""; });
-      if (dot) tween(350, delay + dur * 0.85, t => dot.setAttribute("r", 3.5 * Math.max(0, easeBack(t))));
+      if (dot) tween(350, delay + dur * 0.85, t => dot.setAttribute("r", 4 * Math.max(0, easeBack(t))));
       if (end) end.fade = (delay + dur) / 1000;
     });
   });
