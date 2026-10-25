@@ -476,6 +476,269 @@
       "change_pct": -0.48
     }
   ],
-  "papers": [],
-  "research_days": 30
+  "papers": [
+    {
+      "id": "p-84480de255b441de",
+      "title": "Development of interfaces in oxide matrix composites",
+      "link": "https://doi.org/10.82444/warw.33528973",
+      "published": "2026-09-10T00:00:00+00:00",
+      "venue": "University of Warwick",
+      "authors": [
+        "No author provided"
+      ],
+      "abstract": "A number of oxides are evaluated as candidates for use as \"interphases\" in CMCs. Compounds studied are of the MXO4 type, i.e. phosphates, vanadates & niobates, where M is a rare earth or yttrium ion. These are assessed in terms of their thermal and chemical stability and evidence of de-bonding in conjunction with selected oxides considered as potential fibre/matrix combinations, after heat treatment at 1400 degrees C, the target temperature for application of oxide CMCs in gas-turbines. Methods of deposition of these compounds onto commercially available woven oxide fibres are compared and an optimised procedure for the in-situ deposition of NdPO4 onto 3M's Nextel 720 satin weave has been developed based on the use of an immiscible liquid bi-layer and aqueous solution precursors. The fabrication of shaped components from oxide CMCs using infiltrated fabric pre-forms is also described. In addition, interphases have been successfully deposited on oxide substrates using RF-magnetron sputtering, yielding fine grained, uniform coatings.",
+      "doi": "10.82444/warw.33528973",
+      "source": "OpenAlex",
+      "topics": [
+        "綁定與背板"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-40d95efd9a126044",
+      "title": "Control Effects and Optimization of Ion Source Power in HiPIMS Deposition of Alumina Thin Films",
+      "link": "https://doi.org/10.16577/j.issn.1001-1560.2026.0141",
+      "published": "2026-09-01T00:00:00+00:00",
+      "venue": "DOAJ (DOAJ: Directory of Open Access Journals)",
+      "authors": [
+        "LIU Yaoyao, YANG Dongjie, CHEN Lingjie, CUI Suihan, LIU Liangliang, Wu Zhongzhen"
+      ],
+      "abstract": "The deposition of high-quality alumina (Al2O3) thin films by high-power impulse magnetron sputtering (HiPIMS) faces a fundamental process trade-off. To maintain discharge stability and suppress target poisoning during reactive sputtering，the process is generally operated at relatively low oxygen flow rates. However，the above operation will inevitably lead to insufficient oxygen content and deviation from the stoichiometric ratio of the film，seriously reducing its functional characteristics such as insulation resistance，hardness，and corrosion resistance. Alumina thin films are widely used in microelectronics，protective coatings，optical devices，and corrosion protection，and their performance strongly depends on an oxygen content close to the stoichiometric composition. Therefore，overcoming the long-standing trade-off between plasma stability and complete film oxidation remains an important objective in ceramic thin-film deposition. In this study，a hybrid process combining an anode-layer ion source (ALIS) with HiPIMS was proposed to address this challenge. The ALIS independently generated a high flux of reactive oxygen species，including ions and radicals，without relying on the cathode discharge，thereby decoupling film oxidation from the conditions required for stable magnetron sputtering. Unlike conventional reactive sputtering，in which oxidation is constrained by the dissociation of molecular oxygen near the target，the ALIS supplied controllable energetic reactive oxygen species that directly participated in oxidation reactions at the growing film surface. This configuration allowed the HiPIMS cathode to operate in the metallic discharge mode with minimal target poisoning，while the film oxidation state was regulated by the ALIS power.The effects of ALIS power over the range of 0-2 200 W on the chemical composition，microstructure，and properties of the alumina thin films were systematically investigated. Compositional analysis showed that，without ALIS assistance，the films were severely oxygen-deficient，with an Al/O atomic ratio of 1.04，indicating incomplete oxidation and the possible presence of suboxide phases or metallic Al components.With increasing ALIS power，the degree of oxidation increased markedly and controllably，and the Al/O ratio decreased to 0.58，indicating a substantial transition toward a more fully oxidized Al2O3 state. The decrease in the Al/O ratio was directly associated with the increased supply of reactive oxygen species，which promoted oxidation reactions at the growing film surface. The improved film composition was attributed to enhanced oxygen activation and ionization by the ALIS，which supplied sufficient reactive species to the growth surface. The transition toward a more fully oxidized state significantly improved the film properties. Owing to the formation of a more strongly bonded Al-O network，the film hardness increased substantially，reaching a maximum of 959 HV. The variation in hardness reflected both densification of the oxide structure and a reduction in oxygen-deficiency-related defects，thereby enhancing the mechanical strength. The electrical insulating properties were also markedly improved，as evidenced by substantial increases in breakdown strength and surface resistance，indicating a pronounced reduction in charge-carrier density. Electrochemical corrosion tests further demonstrated enhanced protective performance:the corrosion potential shifted positively from -0.771 to -0.544 V，while the corrosion current density decreased by nearly two orders of magnitude，indicating a significant enhancement in the anti-corrosion effect of the thin film. These results demonstrated a close relationship between the degree of film oxidation and electrochemical stability，because oxygen-deficient films tend to exhibit porous microstructures and high defect densities that facilitate the penetration of corrosive species.An optimized process window was also identified. Although increasing the ALIS power was critical for promoting complete oxidation，excessively high power produced an overly dense plasma and could induce plasma-related surface damage，highlighting the need for parameter optimization. When the ALIS power was too high，high-energy oxygen ion bombardment and charge accumulation might cause sputtering，re-etching，and ignition problems on the growth surface，increasing film roughness or introducing microstructural defects，thereby partially offsetting the performance optimization brought about by the improvement of stoichiometry. These observations highlight the importance of balancing oxidation enhancement against plasma-induced damage to ensure the growth of high-quality films. Overall，the ALIS-assisted HiPIMS process effectively alleviated the long-standing conflict between discharge stability and oxidation completeness in reactive sputtering. by externally supplying reactive oxygen species，this method significantly expanded the available process window，providing a robust and controllable pathway for depositing high-performance，fully stoichiometric Al2O3 films with good mechanical，electrical，and corrosion resistance properties，which can meet the needs of advanced technology applications. The proposed strategy could also be extended to other oxide systems subject to similar limitations in oxygen activation，providing a feasible route toward next-generation dielectric and protective coatings.",
+      "doi": "10.16577/j.issn.1001-1560.2026.0141",
+      "source": "OpenAlex",
+      "topics": [
+        "粉末冶金與燒結",
+        "濺鍍行為與靶材利用率"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-e86f5f77f20e4a33",
+      "title": "Structural and photovoltaic properties of sputtered CIGS thin films: the effect of quaternary target stoichiometry",
+      "link": "https://doi.org/10.1007/s10854-026-17363-0",
+      "published": "2026-05-01T00:00:00+00:00",
+      "venue": "Journal of Materials Science Materials in Electronics",
+      "authors": [
+        "Chia-Chun Wu",
+        "Cheng–Ying Chen",
+        "Sheng‐Kuei Chiu",
+        "Chien-Jen Tang"
+      ],
+      "abstract": "",
+      "doi": "10.1007/s10854-026-17363-0",
+      "source": "OpenAlex",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-16a40f70ca08c636",
+      "title": "Substrate temperature-driven growth of phase-pure Cu2ZnSnS4 thin films by RF magnetron sputtering using compound target for solar cell applications",
+      "link": "https://doi.org/10.1007/s10854-026-17016-2",
+      "published": "2026-03-01T00:00:00+00:00",
+      "venue": "Journal of Materials Science Materials in Electronics",
+      "authors": [
+        "Kaushlendra Pandey",
+        "Jyoti Jangra",
+        "Indu Gupta",
+        "Bhaskar Chandra Mohanty",
+        "Ramalinga Viswanathan Mangalaraja",
+        "Arunachalam Arulraj"
+      ],
+      "abstract": "",
+      "doi": "10.1007/s10854-026-17016-2",
+      "source": "OpenAlex",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-eac4119118e62886",
+      "title": "High power impulse magnetron sputtering from a chromium target",
+      "link": "https://doi.org/10.1088/1361-6595/ae42e5",
+      "published": "2026-02-01T00:00:00+00:00",
+      "venue": "Plasma Sources Science and Technology",
+      "authors": [
+        "Kateryna Barynova",
+        "T. Shimizu",
+        "Rommel Paulo B. Viloan",
+        "Michal Zanáška",
+        "Joel Fischer",
+        "Martin Rudolph",
+        "Daniel Lundin",
+        "Jón Tómas Guðmundsson"
+      ],
+      "abstract": "Abstract High power impulse magnetron sputtering discharges with a chromium target are studied experimentally. For a given pulse length the deposition rate decreases and the ionized flux fraction increases with increased discharge current density ranging between 0.4 – 1.0 A cm −2 . Furthermore, the deposition rate is highest for a pulse length of 50 µ s and decreases when shortening the pulses down to 25 µ s or increasing the pulse length up to 200 µ s. The measured chromium ionized flux fraction ranges between 10% – 50%. The ionized flux fraction is highest for the highest peak discharge current density, and the shortest pulse length studied. In order to understand the experimental findings the discharges were analyzed by applying the ionization region model (IRM). The IRM is a semi-empirical, time-dependent, volume-averaged, plasma chemistry model that covers the ionization region (IR) of the magnetron sputtering discharge and uses the measured cathode voltage and current waveforms as input data. The IRM results indicate that the singly charged chromium ion is the dominant ion in the IR and the discharges operate in metal recycling mode. The ionization probability of the sputtered species increases with increased peak discharge current density. It also increases at first with decreased pulse length, reaches a peak and then decreases with further decrease in the pulse length. The back-attraction probability of the sputtered species decreases with decreasing pulse length, and with increasing peak discharge current density.",
+      "doi": "10.1088/1361-6595/ae42e5",
+      "source": "OpenAlex",
+      "topics": [
+        "濺鍍行為與靶材利用率",
+        "回收與再利用"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-80df71568211b95c",
+      "title": "Enhanced electrical performance and light illumination stability in a-IGZO thin film transistors by RF magnetron co-sputtering of InGaO and ZnO targets",
+      "link": "https://doi.org/10.1039/d6tc02830f",
+      "published": "2026-01-01T00:00:00+00:00",
+      "venue": "Journal of Materials Chemistry C",
+      "authors": [
+        "Ibrahim Abduqadir",
+        "Ablat Abliz"
+      ],
+      "abstract": "Co-sputtering enables precise control of cation stoichiometry and reduces oxygen vacancies, deep band edge states and the trap density of IGZO TFTs. The co-sputtered IGZO TFT achieves μ FE of 18.79 cm 2 V −1 s −1 and excellent PBIS and NBIS stability.",
+      "doi": "10.1039/d6tc02830f",
+      "source": "OpenAlex",
+      "topics": [
+        "陶瓷與氧化物靶"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-3715a1694a52399c",
+      "title": "Formation of single-phase crystalline and amorphous high-entropy ZrTiTaMoWNi thin films under near-equilibrium condensation conditions",
+      "link": "https://doi.org/10.1016/j.jallcom.2025.184918",
+      "published": "2025-11-15T00:00:00+00:00",
+      "venue": "Journal of Alloys and Compounds",
+      "authors": [
+        "A. S. Kornyushchenko",
+        "В. И. Перекрестов",
+        "M. Tomut",
+        "Harald Rösner",
+        "Martin Peterlechner",
+        "Gerhard Wilde"
+      ],
+      "abstract": "Using magnetron sputtering of a segmented target in high-purity argon, this study investigates how the formation mechanisms of Zr–Ti–Ta–Mo–W–Ni high-entropy thin films depend on process parameters such as sputtering power P w , substrate temperature T c , and Ni concentration. At Ni concentrations of 8–15 at% and low vapor supersaturation levels (P w =15 W, T c =280–500 °C), structurally stable and chemically uniform high-entropy amorphous coatings are formed. Transmission electron microscopy (TEM) investigations have shown that the crystallization of the amorphous coatings occurs in the form of a single bcc phase at an annealing temperature of 800°C. Furthermore, it has been shown that at T c = 440°C, Pw = 15 W, and reduced Ni content (∼3 at%), the bcc crystals preferentially nucleate and grow as nano-patterns aligned parallel to the (310) plane. Additionally, amorphous coatings demonstrate increased resistance to 4.8 MeV/u Au ion irradiation at a fluence of 5 × 10 ¹ ³ ions/cm², indicating their suitability as radiation-resistant protective layers.",
+      "doi": "10.1016/j.jallcom.2025.184918",
+      "source": "OpenAlex",
+      "topics": [
+        "塑性加工與晶粒織構",
+        "高純化與雜質控制",
+        "合金與複合靶"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-4914d9d6ed2674d6",
+      "title": "Tribological compatibility of cost-effective TiAlVN coatings deposited using Ti6Al4V alloy targets",
+      "link": "https://doi.org/10.1007/s44251-025-00106-4",
+      "published": "2025-11-11T00:00:00+00:00",
+      "venue": "Surface Science and Technology",
+      "authors": [
+        "Junfeng Shen",
+        "Bi Wu",
+        "Peng Wang",
+        "Huan Qi Zhao",
+        "Deli Duan"
+      ],
+      "abstract": "TiAlVN coatings were deposited via reactive magnetron sputtering using cost-effective Ti6Al4V alloy targets, offering a practical alternative to conventional sintered targets for TiN-based coatings. The TiAlVN coatings exhibited a microstructure composed of alternating Ti(Al,V)N and TiN nanocolumnar, with a hardness of 30.8 GPa. Tribological performance was evaluated against four counterparts (WC–Co, Si₃N₄, GCr15, and Al). Although Al had the lowest hardness, it resulted in the highest coating wear rate (8.02 × 10⁻⁶ mm3/N·m), whereas the hardest counterpart, WC–Co, showed the best tribological compatibility and the lowest coating wear rate (2.80 × 10⁻⁶ mm3/N·m). The wear mechanisms of the coatings and counterparts were discussed and the tribological compatibility parameter (Wt) was defined based on the wear rates of both the coating and the counterpart. Moreover, a model based on mechanical properties and COF was established to analysis and predict tribological compatibility. The model demonstrated strong correlation with experimental results (R2 = 0.94) and was further validated using external data, highlighting its applicability to other coating-counterpart systems.",
+      "doi": "10.1007/s44251-025-00106-4",
+      "source": "OpenAlex",
+      "topics": [
+        "粉末冶金與燒結",
+        "合金與複合靶"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-b74cfe5f4154bad2",
+      "title": "Crystallinity enhancement of AlN thin films on Si via nucleation layer engineering and ceramic target sputtering",
+      "link": "https://doi.org/10.1016/j.jmrt.2025.11.233",
+      "published": "2025-11-01T00:00:00+00:00",
+      "venue": "Journal of Materials Research and Technology",
+      "authors": [
+        "Syazwani Izrah Badrudin",
+        "Aini Ayunni Mohd Raub",
+        "Nafarizal Nayan",
+        "Ahmad Shuhaimi Abu Bakar",
+        "Mohd Zamri Mohd Yusop",
+        "Rhonira Latif"
+      ],
+      "abstract": "Aluminium nitride (AlN) sputter-deposited directly on a bare silicon (Si) substrate suffers from significant lattice mismatch due to the presence of an amorphous interfacial layer at the AlN–Si interface and a considerable difference in in-plane lattice constant, leading to the growth of highly amorphous or poorly crystalline AlN. The introduction of titanium (Ti) and molybdenum (Mo) seed layers, along with AlN ceramic sputtering substantially reduced the lattice mismatch between AlN and the Si substrate from 45.4 % to 25.9 % and 3.7 %, respectively, leading to improved c-axis (002)-oriented growth and reduced inhibited local intrinsic strain in AlN. Although Ti seeding on the AlN–Si interface did not effectively suppress the undesired interfacial layer influence, the Mo seed layer facilitated the formation of a highly crystalline AlN layer with minimal amorphous content, attributed to its close lattice match and stable interface. In contrast, AlN grown on bare Si exhibited increased amorphosity and favoured a-axis (100)-oriented growth. The abstraction of disruptive amorphous interfacial phase layer through the combination of refractory molybdenum nucleation layer insertion and AlN ceramic target sputtering has enhanced the crystal quality of the grown AlN layer, which exhibited up to two orders of magnitude lower leakage current and a 1.5 × enhancement in piezoelectric amplitude. These findings underscore the critical role of nucleation layers and sputtering target chemistry in tailoring the structural and functional performance of AlN thin films for advanced insulating and piezoelectric applications.",
+      "doi": "10.1016/j.jmrt.2025.11.233",
+      "source": "OpenAlex",
+      "topics": [
+        "陶瓷與氧化物靶"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    },
+    {
+      "id": "p-3ea0b8e179507a4f",
+      "title": "Nb 3 Sn superconducting radiofrequency cavity fabricated by sputter deposition from a stoichiometric target",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0042207X2600833X?dgcid=rss_sd_all",
+      "published": null,
+      "venue": "Vacuum",
+      "authors": [],
+      "abstract": "Publication date: January 2027 Source: Vacuum, Volume 255 Author(s): Md Sharifuzzaman Shakel, Uttar Pudasaini, Grigory V. Eremeev, Nikki Tagdulang, Anne-Marie Valente-Feliciano, Hani E. Elsayed-Ali",
+      "doi": "",
+      "source": "Vacuum",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "core"
+    },
+    {
+      "id": "p-747603c3e4c131ee",
+      "title": "Effect of graphite target pulse parameters on ionization processes in the near-substrate plasma of a dual HiPIMS discharge with TiB 2 and C targets",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0042207X26007438?dgcid=rss_sd_all",
+      "published": null,
+      "venue": "Vacuum",
+      "authors": [],
+      "abstract": "Publication date: January 2027 Source: Vacuum, Volume 255 Author(s): A.N. Zakharov, E.O. Kraynova, N.E. Madzhara, A.G. Burachenko, A.S. Grenadyorov, A.A. Solovyev",
+      "doi": "",
+      "source": "Vacuum",
+      "topics": [
+        "其他靶材研究"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "related"
+    }
+  ],
+  "research_days": 365
 }
