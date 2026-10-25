@@ -1368,3 +1368,23 @@ def test_site_pages_carry_the_charts(tmp_path, config):
     index = (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
     assert 'aria-labelledby="data"' in index and 'class="hbar"' in index and 'class="cols"' in index and 'class="spark"' in index
     assert "Noto+Serif" not in index  # one sans face throughout
+
+
+def test_intranet_package_has_no_outside_loads(tmp_path):
+    from target_news_agent.intranet import THREE_CDN, package
+
+    base = "https://u.github.io/repo/"
+    site = tmp_path / "site"
+    (site / "news").mkdir(parents=True)
+    (site / "financials").mkdir()
+    (site / "news" / "quiz.html").write_text(
+        '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC">'
+        f"<script>const THREE_URL = '{THREE_CDN}';</script><a href=\"https://news.example.com/a\">原文</a>", encoding="utf-8")
+    (site / "financials" / "index.html").write_text(f'<a href="{base}news/index.html">新聞</a>', encoding="utf-8")
+    result = package(site, tmp_path / "out", base)
+    quiz = (tmp_path / "out" / "site" / "news" / "quiz.html").read_text(encoding="utf-8")
+    assert "fonts.g" not in quiz and "'./vendor/three.module.min.js'" in quiz and "https://news.example.com/a" in quiz  # article links stay
+    assert 'href="../news/index.html"' in (tmp_path / "out" / "site" / "financials" / "index.html").read_text(encoding="utf-8")
+    assert (tmp_path / "out" / "site" / "news" / "vendor" / "three.module.min.js").stat().st_size > 100_000
+    assert (tmp_path / "out" / "nginx" / "target-news.conf").exists() and (tmp_path / "out" / "collector" / "daily-update.sh").exists()
+    assert result == {"pages": 2, "external": {}}

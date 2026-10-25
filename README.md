@@ -288,3 +288,7 @@ python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦�
 - 網路公開標價通常未含稅、運費、綁靶 / 背板與加工費,且多為小量零售價;正式採購請以供應商報價單為準。
 - 「參考行情」(例如金屬現貨價)、超過有效天數或偏離中位數 3 倍以上的報價會列出但不納入統計。
 - 每次網路比價約 1–3 分鐘,費用依搜尋次數與內容長度而定,可用 `max_searches` 控制。
+## 企業內網版
+
+`python -m target_news_agent intranet --src <建好的網站> --out build/intranet [--zip] [--with-source]` 會把網站打包成可放在公司內網的版本:three.js 隨網站提供、改用系統字型(瀏覽時沒有任何對外連線)、不加密頁面(改由 SSO 控管)、絕對網址改為相對網址,並附上 Nginx 設定範例、蒐集主機的每日更新腳本與部署說明(`deploy/intranet/`)。也可以在 GitHub Actions 手動執行「打包內網版」,從 Artifacts 下載。
+

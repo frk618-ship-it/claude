@@ -71,6 +71,13 @@ def main(argv: list[str] | None = None) -> int:
     ls = sub.add_parser("queries", help="列出將會抓取的 RSS 網址(不連網)")
     ls.add_argument("-c", "--config", default="config/watchlist.yaml")
 
+    it = sub.add_parser("intranet", help="把建好的網站打包成企業內網版(不連外部 CDN、無頁面加密,附部署設定)")
+    it.add_argument("--src", default="site", help="建好的網站資料夾")
+    it.add_argument("--out", default="build/intranet", help="輸出資料夾")
+    it.add_argument("-c", "--config", default="config/watchlist.yaml", help="由其中的 site_url 推得公開網站根網址,改寫成相對網址")
+    it.add_argument("--zip", action="store_true", help="另外壓縮成 <out>.zip")
+    it.add_argument("--with-source", action="store_true", help="在 source/ 附上目前 git HEAD 的程式碼與報告(git archive)")
+
     cp = sub.add_parser("check-papers", help="檢查技術文獻各來源:抓取篇數、相關篇數、是否已收錄(只讀取,不寫報告)")
     cp.add_argument("-c", "--config", default="config/watchlist.yaml")
     cp.add_argument("--feeds-only", action="store_true", help="只檢查期刊 RSS(略過 OpenAlex 與 arXiv)")
@@ -106,6 +113,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
+
+    if args.command == "intranet":
+        return _intranet(args)
 
     if args.command == "protect":
         from .protect import protect
@@ -454,3 +464,27 @@ def _check_papers(args, config) -> int:
     if failed:
         print("\nfailed sources: " + ", ".join(failed))
     return 0
+
+
+def _intranet(args) -> int:
+    import shutil
+    import subprocess
+
+    from .intranet import package
+
+    site_url = load_config(args.config).settings.site_url if Path(args.config).exists() else ""
+    public_base = site_url.rstrip("/").rsplit("/", 1)[0] + "/" if site_url else ""
+    result = package(args.src, args.out, public_base)
+    print(f"{result['pages']} pages -> {args.out}/site")
+    if args.with_source:
+        src = Path(args.out) / "source"
+        src.mkdir(parents=True, exist_ok=True)
+        tar = subprocess.run(["git", "archive", "--format=tar", "HEAD"], capture_output=True, check=True).stdout
+        subprocess.run(["tar", "-x", "-C", str(src)], input=tar, check=True)
+        print(f"source (git HEAD) -> {src}")
+    if args.zip:
+        archive = shutil.make_archive(str(Path(args.out)), "zip", root_dir=Path(args.out).parent, base_dir=Path(args.out).name)
+        print(f"zip -> {archive}")
+    for page, urls in result["external"].items():
+        print(f"WARNING {page} still loads from outside: {', '.join(urls)}")
+    return 1 if result["external"] else 0
