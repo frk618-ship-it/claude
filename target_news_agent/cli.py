@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
-from collections import Counter
 import json
 import logging
 import os
 import sys
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo

@@ -70,11 +70,13 @@ TARGET_PROCESS_PATTERNS = [
 # Wider net ("延伸相關"): sputtering papers in which the target itself is a variable or the subject
 # (poisoning, composition, density, erosion, arcing) rather than only the source of a film.
 TARGET_SIDE_PATTERNS = [
-    re.compile(r"\btargets? (?:poisoning|voltage|current|power density|erosion|racetrack|utili[sz]ation|temperature|"
-               r"composition|density|purity|stoichiometry|resistivity|condition|surface state|aging|lifetime|arcing|cracking|nodul\w*)"),
+    # (target power / voltage / current are everyday deposition settings, and "target composition"
+    # usually just compares a film with its source, so neither counts on its own)
+    re.compile(r"\btargets? (?:poisoning|erosion|racetrack|utili[sz]ation|temperature|density|purity|resistivity|"
+               r"aging|lifetime|arcing|cracking|nodul\w*)"),
     re.compile(r"\b(?:poisoned|hot|heated|segmented|mosaic) (?:[\w-]+ ){0,2}targets?\b"),
     re.compile(r"\b(?:effects?|influence|role|impact) of (?:the )?(?:sputtering )?targets?(?:'s?)? (?:[\w-]+ ){0,2}"
-               r"(?:composition|density|purity|microstructure|grain|temperature|power|poisoning|erosion|stoichiometry|resistivity|type|material)"),
+               r"(?:composition|density|purity|microstructure|grain|temperature|poisoning|erosion|stoichiometry|resistivity|material)"),
     re.compile(r"\bfrom (?:[\w-]+ ){0,3}targets? (?:with|of) (?:different|various|varying) (?:compositions?|densit\w+|purit\w+|stoichiometr\w+)"),
     re.compile(r"\b(?:arcing|nodule formation|erosion track|racetrack|poisoning hysteresis)\b"),
 ]
@@ -86,12 +88,13 @@ OTHER_TARGET_CONTEXT = [
     "x-ray source", "tumor", "cancer", "drug", "protein", "receptor", "bnct", "neutron capture",
     # fusion devices: divertor "target plates", plasma "recycling"
     "tokamak", "divertor", "scrape-off layer", "gyrokinetic", "edge plasma", "plasma-wall", "plasma wall", "stellarator",
-    "plasma-facing", "plasma facing",
+    "plasma-facing", "plasma facing", "deuterium", "tritium", "radiation damage",
 ]
 # Isotope-labelled targets ("120 Sn target", "48Ca targets") are nuclear-physics targets.
 ISOTOPE_TARGET = re.compile(r"\b\d{2,3}\s?[A-Z][a-z]?\s+targets?\b")
-# "target" as a noun; compounds such as "target-driven design" or "target-oriented" are a different word
-TARGET_IN_TITLE = re.compile(r"(?<![a-z])targets?(?![a-z]|-[a-z])|靶|ターゲット|타겟")
+# "target" as a noun naming the subject; compounds such as "target-driven design", "single-target",
+# "dual-target" or "target–substrate distance" describe a set-up, not the target
+TARGET_IN_TITLE = re.compile(r"(?<![a-z\-–])targets?(?![a-z]|[-–]\s?[a-z])|靶|ターゲット|타겟")
 NOT_A_PAPER = re.compile(r"^(?:decision letter|review for|author response|reply to|response to|erratum|corrigendum|retraction)\b", re.I)
 NON_PAPER_TYPES = {"peer-review", "paratext", "erratum", "retraction", "editorial"}
 
