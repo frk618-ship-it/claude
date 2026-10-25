@@ -16,6 +16,7 @@ from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
+from .fabnav import fab_nav
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
@@ -432,6 +433,12 @@ def _head(title: str, description: str = SITE_DESCRIPTION, site_url: str = "", p
     )
 
 
+def _fab(current: str, config: Config) -> str:
+    """Floating page switcher; news pages sit in news/, one level below the site root."""
+    skip = ({"forecast"} if not config.forecasts else set()) | ({"quiz"} if not config.quiz else set())
+    return fab_nav(current, "../", skip)
+
+
 def _brand(eyebrow: str, title: str) -> str:
     return (
         f'<div class="brand"><div class="logo">{icon("target")}</div>'
@@ -476,10 +483,10 @@ def render_forecasts(config: Config, generated: str) -> str:
               config.settings.site_url, "forecast.html")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Market Outlook", "靶材商情預測")}
-<nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><a class="btn" href="papers.html">{icon("book")}技術文獻庫</a><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></nav></header>
+<div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div></header>
 {body}
 <footer>本頁為市場調查報告的重點摘要,經改寫整理並註明出處;完整數據請參閱原報告。預測不構成投資建議。</footer>
-</div></body></html>"""
+</div>{_fab("forecast", config)}</body></html>"""
     )
 
 
@@ -504,7 +511,7 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
               config.settings.site_url, "papers.html")
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Research Library", "靶材技術文獻庫")}
-<nav class="meta" aria-label="網站導覽"><a class="btn" href="index.html">{icon("arrow-left")}新聞摘要</a><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></nav>
+<div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div>
 <div class="stats">{_stat("book", str(len(library)), "累積收錄文獻(篇)")}{_stat("layers", str(len([t for t in topics if t != GENERAL_TOPIC])), "涵蓋製程主題")}{_stat("database", str(len([s for s in sources if s])), "資料來源")}</div></header>
 <section aria-labelledby="lib">{_h2("lib", "list", "全部文獻", "依發表日期,新到舊")}
 <p class="sub">{PAPER_SOURCES_NOTE}</p>
@@ -513,7 +520,7 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(library)} / {len(library)} 篇</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
 <div class="cards" id="list">{body}</div></section>
 <footer>文獻摘要為改寫整理;引用請以原文為準。</footer>
-</div><script>{SCRIPT.replace("則", "篇")}</script></body></html>"""
+</div><script>{SCRIPT.replace("則", "篇")}</script>{_fab("papers", config)}</body></html>"""
     )
 
 
@@ -636,7 +643,6 @@ def render_page(
         + f"""<div class="wrap">
 <header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
 <div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
-<nav class="meta" aria-label="網站導覽"><a class="btn primary" href="{home}papers.html">{icon("book")}技術文獻庫{icon("arrow-right")}</a>{f'<a class="btn" href="{home}forecast.html">{icon("research")}商情預測{icon("arrow-right")}</a>' if config.forecasts else ""}{f'<a class="btn" href="{home}quiz.html">{icon("star")}知識小遊戲{icon("arrow-right")}</a>' if config.quiz else ""}<a class="btn" href="{home}../financials/">{icon("market")}靶材製造商財務儀表板{icon("arrow-right")}</a></nav>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_metals_section(report.get("metals") or [], kinds)}
@@ -654,7 +660,7 @@ def render_page(
 <p>{icon("book")}<span><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
 <p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p></div>
 <footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</footer>
-</div><script>{SCRIPT}</script></body></html>"""
+</div><script>{SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
 
 

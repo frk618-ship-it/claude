@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime, timezone
 
 import pytest
@@ -183,7 +184,9 @@ def test_dashboard_light_theme_and_news_link():
     data = build_dashboard_data([analyze(make_company(), cfg)], cfg, NOW)
     assert data["news_url"] == cfg.news_url
     html = render_html(data)
-    assert 'id="news-link"' in html and cfg.news_url in html
+    # floating page switcher: news pages under the site root that holds news/, the dashboard marked current
+    root = cfg.news_url.rstrip("/").rsplit("/", 1)[0] + "/"
+    assert 'id="fabnav"' in html and f'href="{root}news/index.html"' in html and re.search(f'href="{re.escape(root)}financials/"[^>]*aria-current=page', html)
     assert "prefers-color-scheme" not in html  # always the light palette, even in OS dark mode
     # Static title and share-preview tags, readable by link crawlers that don't run JS.
     assert f'<h1 id="title">{cfg.title}</h1>' in html and '<meta name="description" content="比較' in html

@@ -1209,7 +1209,7 @@ def test_forecast_page_and_digest_background(tmp_path, config):
     page = (tmp_path / "out" / "forecast.html").read_text(encoding="utf-8")
     assert "約 2,198 億" in page and "&lt;script&gt;bad" in page and "<script>bad" not in page
     assert "javascript:" not in page and "&lt;b&gt;Inst" in page
-    assert 'href="forecast.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+    assert 'href="../news/forecast.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")  # floating page switcher
 
 
 def test_quiz_bank_and_page(tmp_path, config):
@@ -1247,7 +1247,7 @@ def test_quiz_bank_and_page(tmp_path, config):
     build_site(reports, tmp_path / "out", config)
     page = (tmp_path / "out" / "quiz.html").read_text(encoding="utf-8")
     assert '<script type="application/json" id="bank">' in page and "<script>x</script>" not in page
-    assert 'href="quiz.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
+    assert 'href="../news/quiz.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")  # floating page switcher
 
 
 def test_protect_site_encrypts_under_secret_path(tmp_path):

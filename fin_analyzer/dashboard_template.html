@@ -40,9 +40,6 @@ body { margin: 0; background: var(--page); color: var(--ink-1);
 header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
 header .sub { color: var(--ink-2); font-size: 13px; }
 .topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
-.navlink { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; }
-.navlink:hover { background: var(--accent-2); }
-.navlink:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 .fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary::before { content: "▸"; color: var(--ink-3); transition: transform .15s; }
@@ -132,7 +129,7 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
 <body>
 <div class="wrap">
   <header>
-    <div class="topbar"><h1 id="title">__TITLE__</h1><a class="navlink" id="news-link" hidden>📰 靶材產業新聞摘要 →</a></div>
+    <div class="topbar"><h1 id="title">__TITLE__</h1></div>
     <div class="sub" id="sub"></div>
     <details class="fold" id="banners-fold" hidden>
       <summary>⚠️ 資料提醒 <span id="banner-count"></span>(點擊展開)</summary>
@@ -335,7 +332,6 @@ function addTrend(ticker, front) {
 // ---------- header, tiles ----------
 function renderHeader() {
   $("title").textContent = D.title;
-  if (D.news_url) { $("news-link").href = D.news_url; $("news-link").hidden = false; }
   document.title = D.title;
   const fx = D.fx;
   const rates = Object.entries(fx.rates).filter(([k]) => k !== fx.base).map(([k, v]) => `1 ${k} = ${v.toFixed(k === "JPY" ? 4 : 3)} ${fx.base}`).join("、");
@@ -755,5 +751,6 @@ renderAll();
 renderMonthly();
 renderNotes();
 </script>
+<!--__FAB__-->
 </body>
 </html>

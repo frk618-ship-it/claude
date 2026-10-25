@@ -194,7 +194,17 @@ def render_html(data: dict) -> str:
     return (html.replace("__TITLE__", _html_escape(data["title"]))
             .replace("__DESCRIPTION__", _html_escape(description(data)))
             .replace("<!--__SHARE_META__-->", share_meta(data))
-            .replace("/*__DATA__*/null", payload))
+            .replace("/*__DATA__*/null", payload)
+            .replace("<!--__FAB__-->", page_switcher(data)))
+
+
+def page_switcher(data: dict) -> str:
+    """The news site's floating page switcher; the site root is the folder above news_url (…/news/)."""
+    news = (data.get("news_url") or "").rstrip("/")
+    if not news:
+        return ""
+    from target_news_agent.fabnav import fab_nav
+    return fab_nav("financials", news.rsplit("/", 1)[0] + "/")
 
 
 def _html_escape(text: str) -> str:
