@@ -1,0 +1,632 @@
+{
+  "generated": "2026-10-26T07:31:23.536054+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期蒐集 28 則,其中新聞與公司公告 18 則;報導最多的是 江豐電子(3 則)、Singulus Technologies(3 則)、SK海力士(2 則)、JX金屬(2 則)。依主題:產業動態 9 則、擴產與投資 5 則、客戶與供應鏈 2 則、技術與新產品 1 則、原物料與價格 1 則。",
+    "key_trends": [
+      "產業動態(9 則):New Fab Plan Could Be A Game Changer For GlobalFoundries (GFS)",
+      "擴產與投資(5 則):南亞科 Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，臺灣記憶體廠該怕嗎",
+      "客戶與供應鏈(2 則):工廠越蓋越強大──臺積電讓資本支出產生複利",
+      "技術與新產品(1 則):天虹科技 (6937) 深度解析：先進封裝與晶背供電雙引擎，引領半導體設備國產化新紀元"
+    ],
+    "watch_points": [
+      "南亞科 Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，臺灣記憶體廠該怕嗎(TechNews 科技新報)",
+      "韓國SK海力士擱置Solidigm赴美上市，NAND擴產風險消退，美光、晟碟同步受益(BigGo 財經)",
+      "SK hynix 結束 Solidigm IPO 評估，美國 SSD 擴產時程與資金方案待定(XFastest News)"
+    ],
+    "source": "auto"
+  },
+  "items": [
+    {
+      "id": "51993cfd73b27361",
+      "title": "4923 力士 - 南亞科Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，台灣記憶體廠該怕嗎- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9ySzZRQWZoNElMQmxkVjVIVlVvbXA1aHJTblQ0MU80RXFWb1NjSnE0NGpGLXllVUtFY2dCNUlHTGRmMFZvNGltVXRPRG5FaWZld0dOdVlBb2M?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-25T09:19:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "南亞科 (Nanya Technology)",
+        "長鑫存儲 (CXMT)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 6.42,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "4923 力士 - 南亞科Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，臺灣記憶體廠該怕嗎- 股市爆料同學會",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5728f97c5c3f05f4",
+      "title": "南亞科 Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，台灣記憶體廠該怕嗎",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA1Z05xUFd6QjRKQzNFY3hzTEpiQUNyWDh1ZEJ3NnVBMW9KT3c2QlNmX1l6Y1pOX3NJSlJvRHJ0MnJQM2tCVDFRbThVZUdRMDNaS1cwYw?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-10-25T02:01:09+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "南亞科 (Nanya Technology)",
+        "長鑫存儲 (CXMT)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 6.37,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "南亞科 Q3 獲利創紀錄股價卻重挫！長鑫存儲擴產來襲，臺灣記憶體廠該怕嗎",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c052208c8858507a",
+      "title": "韓國SK海力士擱置Solidigm赴美上市，NAND擴產風險消退，美光、晟碟同步受益",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA5NzZtTEJ3c0RtQjlfTFJmcnM0QnR6ekk5QWRjVmdzaTFIdFVqd0pFUUY1SE5oZDJCYU5RSHFkbUhCVHNfMVZYN000RlJmWWcxamEtOV9iMk51MWdtNFdNQlA3NE0zaVNMUFljcXBaNWRXVGZsUjZtWTFB?oc=5",
+      "source": "BigGo 財經",
+      "published": "2026-10-24T18:16:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)",
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 6.33,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5621330abcbb42fa",
+      "title": "SK hynix 結束 Solidigm IPO 評估，美國 SSD 擴產時程與資金方案待定",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOOFlLT0xVdk0tY3F3Yk51OXM2bVM2Rzl6bXk0a2tQVGxkN3ZySXVHQjkyZ052TGYtM29zWDhnSkt5M2VWVC1OUHlKMXVwN3lPVVU3S0ZMMno1X1FJcGZCdTk0b3R0djJVWnlCNG5yeVMzNWUzTWRwZ0lkVzVPc1VFV3pXcw?oc=5",
+      "source": "XFastest News",
+      "published": "2026-10-24T21:27:43+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.34,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e0c91e192219f37d",
+      "title": "JX金属、チタン銅増産 神奈川に熱処理設備導入",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE91NFNQUlBRZnQ3ZGlGdW9OU3FzbTJGRnlsS1VUczJTTHVFZXZyOF96akI2OVcwUHV1b0lUbmR0bk5Ma1JNZFRfN3pHZG9aSUlUeVQxOEhFQXE?oc=5",
+      "source": "日刊工業新聞",
+      "published": "2026-10-25T20:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2987b09b98fba69c",
+      "title": "看懂矽品下市內幕3大關鍵：為何昔日封測大廠能成輝達擴產夥伴",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdC12VWNtWWZxbThOeFJvVEo3VHNiMGgxY3hCYXQ3b2VzVU5RLWk0SUhIN2loZl9vRFRKSWh2czFqRHNQMVk1T1Y5UjZzRm5LMmRoRGdjeC1nU240YmFNOTBsb2swNHBZX2VWS1F6eldBS3A0VVY0YlFRNE1XTS1kVU5R?oc=5",
+      "source": "加密城市CryptoCity",
+      "published": "2026-10-25T07:59:12+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.41,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "892cab6ddbdf255e",
+      "title": "工廠越蓋越強大──台積電讓資本支出產生複利",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5jVUoxVEVNYjBlZHhSRTk3ckd6MHp3Y0hEX0NnV1Rqdlp6dVNkVUwzQUptV2xiXzZrNzlXOEQ4dDRUQ3pQRGlXLWg1Q2pnWnM5SFNOTEFaay1wVC1vYnhmNWhUYXlvZ2dL0gFoQVVfeXFMTmNVSjFURU1iMGVkeFJFOTdyR3owendjSERfQ2dXVGp2Wnp1U2RVTDNBSm1XbGJfNms3OVc4RDh0NFRDelBEaVctaDVDamdaczlIU05MQVprLXBULW9ieGY1aFRheW9nZ0s?oc=5",
+      "source": "鏡週刊Mirror Media",
+      "published": "2026-10-24T22:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.85,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "工廠越蓋越強大──臺積電讓資本支出產生複利",
+      "snippet_zh": ""
+    },
+    {
+      "id": "01302d17d8311f3d",
+      "title": "台積電資本支出強勁 法人點名這些廠務工程股可望受惠",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8wWkhpUWh4TDczS2VQTWhFeXE4Y0h0Vlg0YXNJX21BbjBlVlNDRmNveWo0ZkR2TlIxQzVTcFB6SFJlbzRuME1lQldCQ2hnR3ZlbTBFS3BuQ0t5d9IBX0FVX3lxTFBORWZkR0JRUWhyZ0dTaEdYaGh6eDhsbTBxbG1YT0JsUkF0NFo1SHQ4TVpaYXQxMkVNYXJKYXJ4bl9xWHMzQl8zMjBscG5qRFM5eGF2ZC1IWFdTbnhsd3I0?oc=5",
+      "source": "經濟日報",
+      "published": "2026-10-24T09:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.77,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "臺積電資本支出強勁 法人點名這些廠務工程股可望受惠",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3a62ab7f85d4f272",
+      "title": "天虹科技 (6937) 深度解析：先進封裝與晶背供電雙引擎，引領半導體設備國產化新紀元",
+      "link": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE9xaC1SbTlVR0lYOG04Szd4cHYxcURvcFhkVHF5UmZhZm9UQ2dMVTQwLVJSNnZFcEhrVGRtVGU2a25IbEU?oc=5",
+      "source": "913 理財估測站",
+      "published": "2026-10-22T07:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "天虹科技 (Skytech)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 3.27,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "847beb1e13c333e3",
+      "title": "Silver Price Forecast: $50 in View as Oil Fuels Fed Rate Hike Fears",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQY3BtX2lDMENRLVpOOF9JUFQtVDFKRG1QaW9GVUtQU3NXdDVUSG05cWNKdTE4bDQ5cGdWejEzQXRQY0Y3VTNHeUVfOVRVSExWZERpc2QtNlN5QkNJZTBWTElrRFRwT0o5VHgwUlpuZTB4T25CN3ZBSi1vUFg5YmJPUUFCeVh6UFhaVkV1bU9mRmZSQTVWRWFJZUxVcEhaLTBIbnphZVZyUnFJbW8tVng5UVV2U3BveWc?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-10-25T16:08:06+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "90108347263f6985",
+      "title": "Gold Price Outlook as US Bond Yields Rise Ahead of FOMC Decision",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWTV2U3h4MGhEYTdwN09jMG9zTlRjdHBOb1JIOEJZMEdrMmF3bVg1UjRQVGdaZkxYY2lRdEZ2SkpjUTdXcG1GaHIwQ3V5TElEU1J2c1ZVX0wybHZtUGw0bEZabDM0SW1wV1VlNHptcXhqSHVUNjVXdHNPSkpmYjl0c1FDRl9GTERkQVJvdmExM2kxTE9HTFpQSGdrLXFnbFVMS0syNHVFU3V2d1ZjekV4YXpfNk1LQUE2akYwSVkwM3NhUQ?oc=5",
+      "source": "Benzinga",
+      "published": "2026-10-25T15:15:15+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.25,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1573b9a3c06f1024",
+      "title": "Gold price today: Gold rate, silver price predictions by experts are out. Check here",
+      "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOM3NSU2tXNDlDSE5IZjA1bVYybjdMeXVpeHEwOFg1emhwWkZBeU0wTkZlcmU1aHp0SWtKdlZ0d1hyRmFtb1ViTm5adl9qSEU1bk5rWlNGWG90SXREZDQ1bzN1NHU0WGNpemN5YmpvXzZ0ZmloNl92eUlYRVVaMDZhMFllcWExXzRuY2NKQ0tDUm9zbS01S0lDT0VBVXBfZXhBUGpzbkZ5dU1yTHJ5TE05UFh1VTUxVm1TeF94eS1OOVVGOTZQaW40TkJWSlNUdDBycC1XYWtMVzlHeFpYQzNuaDh5RXByS3MzMXRwaV9B0gHzAUFVX3lxTE5jeEl6Z1dfMTJKMk1oSEhMRWdSNTFnN2VvMTJjUFcxLXlXM1ZfV1VOZFBONHozZlJ1OVp2dTFMMFl3VWNTUDB6Nnp2MWRHMy1yWm9JMFQtU1MwdzBvSE9Od1FmYkh4UVhuX3pKNGgtMXE2NjVEQUpfdndERTQ0Q21zQm5tS3BTcWdjUFJjcnFWR2pfMmlMREZ4VjIwNlRWVGtFVm1CU2ZVdlNDV2dER2UzcnNzUEgwaEp4V2hUUVJzQjFuT2E4NjZaWjNzNGZwY0ZOb2Q3eVNrREQyV3VGcnV6WEpRLTRnQ0xRZ0dGUFgtUF9zOA?oc=5",
+      "source": "The Economic Times",
+      "published": "2026-10-25T14:46:23+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.25,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1eceab301887db39",
+      "title": "Price to sales ratio of Materion Corporation Shs Thailand Depositary Receipts Repr 1 Sh – SET:MTRN03",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdWs1NWFWck9qSmstSFF0OTJTMEN5NVRtbzF3NjBhaHdFUUdNT2dmU2FvSFdXRmpmdlZGazB5dHdMeVFlTkIwdUJtQ2tfOVlWSm80NHJqdW8xeGV1dHVDc3dFcDJXWUNldmJaNXZIN29haURBWmNSRDA4c3hYTzNKV0Rpa05GejhaVnJLQkoxUUpfcWFXWE1F?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-20T21:51:01+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.08,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "447574fefcbb1517",
+      "title": "New Fab Plan Could Be A Game Changer For GlobalFoundries (GFS)",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPOFNHdDJ4U3Rrck9NRGhFREpmcTBQRTdXbnE1V0FIS3Rqblc5MmFXcXRUYWtHN1cyNXJ3WWdvZmFGamhXT1lHUDc0YlFMVUw4Z3ptWnhQSktMOUZWcHZFMnNVWE0zY2FSYjc3czBWamk3ZDd4RmJyclJ6YUJCYjBtcXVhU2JmQjNrVGszaElsNWxaU19sV1ZZRlFCNlpyLWxFbzdSTjRCUmhsZEhKM1M4U3Z1cTVoS2s4d2xtSFBKV05LUVVkNnlJQy1zWG9oVDFsUnVOMThR0gHbAUFVX3lxTE5hbl8wZ3lBSXhrMkJhOGF1OW82ZWdVT3pCTk5SUjhzTGlZUm1TUl92dnhIQ3hRU2c0UHdGZ2FOM21qdnctVnRwT01UWlkzdE5nckRjY0ZHZzR4MXdCV1pJcW9wUHZSWTNBRUlUN25nWDNOQnlTWVU5WHIzZHlRcmxmSEI4bTZpVmtpM2FGR2puenBtZW5FSWxhMDlUQjV5eHlGbE1DWkg0aEZOQ3RNTFpqTjFMazQzT2dKcG44ZElwTGg4WTNPdTRIbXp0M192NERhTGp5MExFSXktMA?oc=5",
+      "source": "Simply Wall Street",
+      "published": "2026-10-25T17:48:01+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.97,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f889cf35591a7f49",
+      "title": "股市必读：江丰电子新发布《关于召开2026年第四次临时股东会的提示性公告》",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbkV5RXZiY083ajBuRlE3OHVVQWJEdVNINThha0M2aGppdy1IX0x1SVV6YWJwWVFSSktyWEVDUXplTUctb2piU0Y3c2d6cXFvb0tVaF9Yb0pvYzVNU01mVV9GZEJfcEhuQ211eFE3UkM2bkRyeVdROE84TU52SW5hLTE1OERWYWRx?oc=5",
+      "source": "搜狐网",
+      "published": "2026-10-25T17:08:07+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.96,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "股市必讀：江豐電子新發布《關於召開2026年第四次臨時股東會的提示性公告》",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dd1733a6914d68cf",
+      "title": "SINGULUS TECHNOLOGIES AG Estimates – BX:SNG",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9DaklkMnZWLVZuNW9yV3dKZlNUaWt3QnpubXJVdDNMWmJ0dldjalZuenFwN3VGbC1BZFlPMTBkQkpZamZXV0pMUDl3THc0dzFEYzNSSkdua3ZxU3lqWXk3bFNlZHpHaHBJdFdhRC1mZ2JEQQ?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-25T00:07:41+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "746d57c84d72d080",
+      "title": "【JX金属暴落】なぜ高値から半分以下になったの？わかりやすく解説",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAwaFV5NzlxLXpib0xpN3dpOTh4VG4xaUI2ZG5YQ3kzV25hZUozR2gwdE51WE1FUEtHazN5VXp0dXEyVDhTSGgzVjA1SWZpNUhSZ0lYOEVTRi0wdU01?oc=5",
+      "source": "YouTube",
+      "published": "2026-10-24T11:00:14+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.78,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "73ce8d6e6928dd40",
+      "title": "江丰电子筹划港股上市：靶材龙头的A+H资本棋局",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9LQ1JOdXVpWUx5ajZCZ2hQM3gxV09GRWJZS2xvUDhPMURTRXBXRXpRZlBDZ25UVGpXNkdxZnRQYkJ3UDNJX01MSGdVWFl4TlpKTXI1ODdvd3V2a2t6RlFRWkltbldiOW9iWG5uY2FR?oc=5",
+      "source": "新浪财经",
+      "published": "2026-10-23T11:40:58+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.64,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "江豐電子籌劃港股上市：靶材龍頭的A+H資本棋局",
+      "snippet_zh": ""
+    },
+    {
+      "id": "be69da3d9a42b49e",
+      "title": "Materion (MTRN) Dividend Yield 2026, Date & History",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE56RndNckQ1Yk9kN00wc2V3NElNYjhGVHlibjBNd21GdzFkc2Z1M2JrNVBFSmZJZU5HZy0tc1JCVmJYVnpsZUtLSFJELUdSMF9YZVowXzRnUmFYNDBzQmtSc3Nkcw?oc=5",
+      "source": "MarketBeat",
+      "published": "2026-10-23T07:00:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.62,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "718e806b817fd31b",
+      "title": "1785 光洋科- 八大官股持續買進- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBYYkJBRG9lWTItUXNRVFNWaEZadWhYMUNmQVNOMGNfUU1ZN1dRR3Z0WklFOXF2dXFsSkU2aGZDb2tjQWM5OXBTdXlIbDFWdUxkcjFnNnBfVEo?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-23T05:46:34+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.61,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6491cc523070d738",
+      "title": "Will gold hit $5,000 again? What experts expect for 2027",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRmNuRGNna3E1QVlPNDRRZjZhMDdpMUJVeXRfVHVyVXk3Z0xDc0M2b25hSVVkTjVwbWIwdG5xdlEybDRqdjBUMnhURnFTc2ZFdkQ4RWZFMG5OV3VOOVJOTDZnSmZZR3dUVVY2N3NRSnkyTkRHT1RoVDYxRGZOdFlSYXhaSzd3UndJTTBLMURNYXRZbmlycGJzdFFvMA?oc=5",
+      "source": "USA Today",
+      "published": "2026-10-25T23:21:28+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1699c2d6af0e39ee",
+      "title": "金價下跌背後有三大推手",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9UZ3lTaGNmcGY4Q2hBUDNLV2JlSzQ4anFjRUFMN1g4UmxNUnI2QXZCMWg5ZHc2V2JSYnJzUGZMUmNxc1BmRDZoRGFqMTdjR0RtRW9wUnFoMW9ia19X?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-25T08:12:12+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.41,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "54bbe27f937e0176",
+      "title": "國際金價「跌跌不休」，首飾黃金為何跌不動？",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE0tOFNic2VTRVJucGlJLXg1Y25fekZZSTByS3p2cTVJdkhCbGU3V3JtbGw0bUZiNk5WdkNmT3dxZ3NjamdpazRoeW5BX0F0alJlcnNvcm91bEVIN09oWU5KX3J5akRhTkFDNHFvMks3ZkdKZw?oc=5",
+      "source": "香港商报",
+      "published": "2026-10-25T06:45:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.4,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9574673cc5daed1a",
+      "title": "SINGULUS TECHNOLOGIES AG (SNG) Takes ~€22.75M Loan To Repay Triumph; Stake Sold",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQcG5OUXpZZ1RmeWk4X2puSkZVSENKNXNHemNQWHFxNksyYXAzVndQLVJCTGRjdEYyYVBwS0FiUTZ4TW82SVFsTmhYeEQzR2o3aEhlSVAydE45VVlyQjl3RTk1Tlprbk45NkpNMTRCTmpxaVgyT2VSQkVjZGUzMFRoSUpXNENodkZ5TUdkcGJPS1ZlYV8tWG1uVngzb3NfaV91UHVoQklMT1ZiX1Jvenp3ZFl4Tk5tZjBrYVZMNWF0Y2NXZENrNnVydnU1STdIdmNtcnc?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-21T18:10:43+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.4,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0425400a4982a717",
+      "title": "SINGULUS TECHNOLOGIES AG (SNG) Takes €22.75M Loan; Repays Triumph, Triumph Exits Stake",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPN2VHU000QUdiMGtFQkRvbmM3TzlaSlZ3d293VmpJSmhaLWdXUXBrNVM1RFZ6MFBYLWRFSV9NMHp3M2gwLTRFZGhCVUpOTHBTTm1jSmtsbXZfOG1pY0VZQ0JFZDcwSmEwT01zblB5NkVONU1QNTdJV3F6OFdxejRfZUNBX1VJOHAyVXBKMjZMRkozcHBoWnVXRWcwUmh2NTY3SnYwOWxaUUJrYkFRX2pHaXQtOGpNcjBGZE9OZkRZd0tjZTUwVl9jdGVQemN2bk1NR1BsM0FIZnZsRGs?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-21T17:35:19+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.39,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "455a9df55370c664",
+      "title": "白銀今天暴漲 7.2%，銀礦商產量大增，什麼信號？",
+      "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxPcVhjdjFMUkYwNEJJXy1GeVRfSll2TkM4UW1XR2hqcVdiNXdmNW4tQ19QUlRyRGZiUml3cWIwT3pDUVhkUUZwQ21adFdXLTJwcDZjOUVTeS02c01pWW9PVDNsQXR2X3BCZ2p6aHFMMkowNUFhSjhDNEpTRDdjTEZzREk1dm5GRXFNWGRuYlRsc0dBRldRMlhvRmJ1dlVDT014N3NiR2xsMDBuR1pMRzh4S0x0VVUyTVIyMGptVjFxV3pkQUpyQmMwRTVuSGlmRG5RMDhzRmxzZmkzYUxpLXRJZndPSC12SExUS1oweXlNeFQ0UkM0SDF2bHdHeE9LRmJwbGdmRVdXWVFxbnBXd0ptRlQzaG00NzBvVkVhM3FLQkt3eFI4Z3hNOWNsMWlOcncwczZVU3RwS3A5RWNkS3E2SFdsd0lGci0y?oc=5",
+      "source": "NAI500",
+      "published": "2026-10-24T14:33:21+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "71580762c156e161",
+      "title": "1785 光洋科 - 好 - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ENVRUUHJKQ0ZDaWZ5MFVCcEJ1emE2R0lWYzNzZ2NqcGxzTVh6ekd1elkwalAxZ216M0tVdFhfcGJhd0RYQlh3UFduUFp0X295N2dhZ0VpNjE?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-20T08:35:58+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.2,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e7bc0c0f432eece4",
+      "title": "江丰电子：融资净偿还708.21万元，融资余额13.64亿元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5MQ05qcHd4a0NXek5PT3hRcm9mSERqbl9RQUV0TElpdDUwcUROZjdWakEyOGRObGZ4c0o3aHNMUm5waGpxdE5oeVZDaGozMDJGWTJZdWREcGwzN0t2NE5WQm9BRVAtQQ?oc=5",
+      "source": "东方财富",
+      "published": "2026-10-20T02:25:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.16,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "江豐電子：融資淨償還708.21萬元，融資餘額13.64億元",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 4009.6,
+      "prev": 4007.9,
+      "date": "2026-10-25",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.04
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 54.07,
+      "prev": 53.71,
+      "date": "2026-10-25",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.67
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1558.9,
+      "prev": 1554.2,
+      "date": "2026-10-25",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.3
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 1052.0,
+      "prev": 1046.6,
+      "date": "2026-10-25",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.52
+    }
+  ],
+  "papers": [],
+  "research_days": 30
+}
