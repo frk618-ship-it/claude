@@ -16,26 +16,27 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Flat: solid fills only, no gradients, shadows or transparency.
+# Flat: solid fills only, no gradients, shadows or transparency. Colours from the site's data-viz
+# palette: warm-grey page and ink, one blue accent, the target rings in steps of the blue ramp.
 CARD = """<!doctype html><html><head><meta charset=utf-8><style>
 *{box-sizing:border-box;margin:0}
-body{width:1200px;height:630px;overflow:hidden;position:relative;background:#3b5bdb;color:#fff;
+body{width:1200px;height:630px;overflow:hidden;position:relative;background:#f9f9f7;color:#0b0b0b;
 font-family:"Noto Sans CJK TC","Noto Sans TC","PingFang TC",sans-serif;padding:72px 80px}
 .rings{position:absolute;right:-150px;top:50%;transform:translateY(-50%)}
-.eyebrow{font:600 24px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#dbe4ff;text-transform:uppercase}
-h1{font-size:76px;font-weight:800;line-height:1.15;margin-top:24px;position:relative}
-p{font-size:31px;color:#e7ecff;margin-top:22px;line-height:1.45;max-width:700px;position:relative}
-.bar{position:absolute;left:80px;bottom:150px;width:96px;height:10px;background:#f76707}
+.eyebrow{font:600 24px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#2a78d6;text-transform:uppercase}
+h1{font-size:76px;font-weight:700;line-height:1.15;margin-top:24px;position:relative}
+p{font-size:31px;color:#52514e;margin-top:22px;line-height:1.45;max-width:700px;position:relative}
+.bar{position:absolute;left:80px;bottom:150px;width:96px;height:10px;background:#2a78d6}
 .row{position:absolute;left:80px;bottom:72px;display:flex;gap:14px}
-.chip{background:#fff;color:#3b5bdb;border-radius:6px;padding:12px 22px;font-size:26px;font-weight:700}
+.chip{background:#fcfcfb;color:#0b0b0b;border:2px solid #e1e0d9;border-radius:6px;padding:10px 20px;font-size:26px;font-weight:700}
 .logo{position:absolute;left:80px;top:72px;width:0;height:0}
-.tile{position:absolute;right:80px;top:72px;width:112px;height:112px;border-radius:10px;background:#fff;display:grid;place-items:center}
+.tile{position:absolute;right:80px;top:72px;width:112px;height:112px;border-radius:10px;background:#2a78d6;display:grid;place-items:center}
 </style></head><body>
 <svg class=rings width=620 height=620 viewBox="0 0 620 620" aria-hidden=true>
-<circle cx=310 cy=310 r=300 fill=#4c6ef5 /><circle cx=310 cy=310 r=230 fill=#5c7cfa /><circle cx=310 cy=310 r=160 fill=#748ffc />
-<circle cx=310 cy=310 r=90 fill=#91a7ff /><circle cx=310 cy=310 r=30 fill=#f76707 /></svg>
-<div class=tile><svg width=68 height=68 viewBox="0 0 24 24" fill=none stroke=#3b5bdb stroke-width=1.8 stroke-linecap=round>
-<circle cx=12 cy=12 r=9 /><circle cx=12 cy=12 r=5.5 /><circle cx=12 cy=12 r=1.8 fill=#3b5bdb /></svg></div>
+<circle cx=310 cy=310 r=300 fill=#cde2fb /><circle cx=310 cy=310 r=230 fill=#b7d3f6 /><circle cx=310 cy=310 r=160 fill=#9ec5f4 />
+<circle cx=310 cy=310 r=90 fill=#86b6ef /><circle cx=310 cy=310 r=30 fill=#2a78d6 /></svg>
+<div class=tile><svg width=68 height=68 viewBox="0 0 24 24" fill=none stroke=#ffffff stroke-width=1.8 stroke-linecap=round>
+<circle cx=12 cy=12 r=9 /><circle cx=12 cy=12 r=5.5 /><circle cx=12 cy=12 r=1.8 fill=#ffffff /></svg></div>
 <div class=eyebrow>EYEBROW</div><h1>TITLE</h1><p>SUB</p><div class=bar></div><div class=row>CHIPS</div></body></html>"""
 
 CARDS = [
