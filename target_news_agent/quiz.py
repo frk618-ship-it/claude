@@ -195,33 +195,27 @@ GAME_STYLE = """
 .isle{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
 .stage{position:relative;background:#cfe8f7;border-radius:8px;overflow:hidden;min-height:420px}
 @media (prefers-color-scheme:dark){.stage{background:#10283d}}
-.stage>svg{display:block;width:100%;height:auto;touch-action:manipulation}
-.hud2{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none}
+.hud2{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none;z-index:2}
 .chip2{background:var(--surface);border-radius:6px;padding:6px 10px;font-size:.8rem;color:var(--muted);display:inline-flex;gap:6px;align-items:center}.chip2 b{font-family:var(--font-data);color:var(--fg)}
-.tools{position:absolute;right:12px;top:12px;display:flex;gap:8px}
+.tools{position:absolute;right:12px;top:12px;display:flex;gap:8px;z-index:2}
 .g-btn{font:inherit;font-size:.9rem;border:0;border-radius:6px;padding:9px 16px;cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:8px;align-items:center}
 .g-btn:hover{background:var(--accent);color:#fff}.g-btn.primary{background:var(--accent);color:#fff}.g-btn.primary:hover{background:var(--accent-2)}.g-btn.sm{padding:6px 12px;font-size:.82rem}
 .tools .g-btn{background:var(--surface)}
-.is-land{cursor:pointer;outline:none}.is-land .top{transition:filter .15s}.is-land:hover .top,.is-land:focus-visible .top{filter:brightness(1.12)}
-.is-land:focus-visible .top{stroke:var(--fg);stroke-width:3}
-.is-name{font:700 13px var(--font-body);fill:var(--fg);paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
-.is-sub{font:500 10px var(--font-data);fill:var(--muted);paint-order:stroke;stroke:#fff;stroke-width:3px;pointer-events:none}
-@media (prefers-color-scheme:dark){.is-name,.is-sub{stroke:#10283d}}
-.link{fill:none;stroke:#fff;stroke-width:2.5;stroke-dasharray:6 6;opacity:.75}.link.on{stroke:var(--accent-2);opacity:1;stroke-width:3.5}
-.link-label{font:600 11px var(--font-body);fill:var(--accent-2);paint-order:stroke;stroke:#fff;stroke-width:4px}
-.treasure{cursor:pointer}.treasure .glint{animation:glint 1.2s ease-in-out infinite alternate}@keyframes glint{from{opacity:.25}to{opacity:1}}
-.guide{cursor:pointer}.guide .gb{transform-box:fill-box;transform-origin:50% 100%;animation:bob 1.6s ease-in-out infinite alternate}
-@keyframes bob{to{transform:translateY(-2.5px)}}
-.guide.walk .gb{animation:bob .18s ease-in-out infinite alternate}
-.guide.jump .gb{animation:jump .55s ease-out 2}@keyframes jump{0%,100%{transform:translateY(0)}45%{transform:translateY(-16px) scale(1.04,.98)}}
-.guide.sad .gb{animation:shake .5s ease-in-out 2}@keyframes shake{25%{transform:translateX(-3px) rotate(-5deg)}75%{transform:translateX(3px) rotate(5deg)}}
-.bubble rect{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}.bubble polygon{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
-.bubble text{font:600 11.5px var(--font-body);fill:var(--fg)}.bubble{transition:opacity .25s;pointer-events:none}.bubble.off{opacity:0}
-.plaza{cursor:pointer}.stage>svg{cursor:grab}.stage>svg:active{cursor:grabbing}
-.plasma{animation:pulse 1.4s ease-in-out infinite alternate}@keyframes pulse{from{opacity:.35}to{opacity:.95}}
-.beam{animation:pulse 1.8s ease-in-out infinite alternate}.glow{animation:pulse 1.6s ease-in-out infinite alternate}
-.smoke{animation:smoke 2.4s ease-out infinite}@keyframes smoke{from{opacity:.9;transform:translateY(0)}to{opacity:0;transform:translateY(-10px)}}
-.jet{animation:pulse 1s ease-in-out infinite alternate}.wave{transform-box:fill-box;transform-origin:0 50%;animation:wave 1.2s ease-in-out infinite alternate}@keyframes wave{to{transform:scaleX(.8) skewY(6deg)}}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stage canvas.gl{display:block;width:100%;cursor:grab;touch-action:pan-y}.stage canvas.gl.grab{cursor:grabbing}
+.ov{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ov>*{position:absolute;left:0;top:0;will-change:transform}
+.lbl{display:grid;justify-items:center;text-align:center;white-space:nowrap;line-height:1.25}
+.lbl b{font:700 13px var(--font-body);color:var(--fg);text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff}
+.lbl small{font:500 10.5px var(--font-data);color:var(--muted);text-shadow:0 0 3px #fff,0 0 3px #fff}
+.lbl.on b{color:var(--accent)}
+@media (prefers-color-scheme:dark){.lbl b,.lbl small{text-shadow:0 0 3px #10283d,0 0 3px #10283d,0 0 6px #10283d}}
+.link-tag{font:600 11.5px var(--font-body);color:var(--accent-2);background:var(--surface);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.gbubble{background:var(--surface);border:1.5px solid var(--accent);border-radius:8px;padding:7px 11px;font:600 12.5px/1.5 var(--font-body);color:var(--fg);white-space:nowrap;transition:opacity .25s;margin-top:-10px}
+.gbubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:10px;background:var(--surface);border:solid var(--accent);border-width:0 1.5px 1.5px 0;transform:translateX(-50%) rotate(45deg)}
+.gbubble.off{opacity:0}.gbubble.corner{position:absolute;left:12px;bottom:12px}.gbubble.corner::after{display:none}
+.nomap{position:absolute;inset:auto 12px 12px 12px;background:var(--surface);border-radius:6px;padding:12px 14px;font-size:.88rem;color:var(--muted)}
+.stage{min-height:380px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:18px;display:grid;gap:14px;align-content:start}
 .side h3{margin:0;display:flex;gap:10px;align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
 .side p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
@@ -261,7 +255,7 @@ GAME_STYLE = """
 .mc.done .b{border-color:var(--ok)}.mc.miss .b{border-color:var(--up)}
 @media (max-width:860px){.isle{grid-template-columns:1fr}.stage{min-height:0}}
 @media (max-width:520px){.hud2{top:auto;bottom:10px}.hud2 .chip2:nth-child(n+3){display:none}}
-@media (prefers-reduced-motion:reduce){.mc .in{transition:none}.guide .gb,.guide.walk .gb,.guide.jump .gb,.guide.sad .gb,.treasure .glint,.plasma,.beam,.glow,.smoke,.jet,.wave{animation:none}}
+@media (prefers-reduced-motion:reduce){.mc .in{transition:none}.gbubble{transition:none}}
 """
 
 GAME_SCRIPT = r"""
@@ -285,213 +279,29 @@ const save = () => { store.set('isle-solved', [...solved]); store.set('isle-trea
 const lit = i => i.questions.filter(q => solved.has(q.id)).length;
 const conquered = i => i.id === 'play' ? matchDone : i.questions.length > 0 && lit(i) === i.questions.length;
 
-// ---------- world: target-shaped islands floating on the sea ----------
-// World coordinates lie in the sea plane; a gentle yaw turns the whole archipelago and each island
-// sways on its own axis. Projection flattens y by SQ; islands bob up and down.
-const S = 150, SQ = .5, RX = 50, DEPTH = 12, PLATE = 5, D2R = Math.PI / 180;
-const world = i => [S * (i.hex[0] + i.hex[1] / 2), S * i.hex[1] * Math.sqrt(3) / 2];
+// ---------- world: target-shaped islands floating over the sea (three.js) ----------
+// three.js is loaded on demand; until it arrives (or if WebGL is unavailable) the side panel
+// still lists every island, so the game stays playable. Labels and the guide's speech bubble
+// are HTML overlays positioned from the 3D scene, so Chinese text stays crisp.
+const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
+const S = 10, R = 3.2, TH = .9, PL = .4, D2R = Math.PI / 180;  // island spacing, target radius / thickness, backing plate
 const PLAZA = {id: 'plaza', plaza: true, name: '靶材廣場', hex: [0, 0]};
 const ALL = B.islands.concat(PLAZA);
 const PHASE = Object.fromEntries(ALL.map((i, k) => [i.id, k * 1.7]));
-const RING = Math.max(...B.islands.map(i => Math.hypot(...world(i))));
-const FULL = [-(RING + RX + 60), -(RING * SQ + RX * SQ + 110), 2 * (RING + RX + 60), 2 * (RING * SQ + RX * SQ) + 190];
-const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(v => Math.min(255, Math.round(v * f))); return 'rgb(' + c.join(',') + ')'; };
-const proj = (px, py, a) => [px * Math.cos(a) - py * Math.sin(a), (px * Math.sin(a) + py * Math.cos(a)) * SQ];  // rotate in plane, flatten
-const poly = (ptsArr, a, dy) => ptsArr.map(([px, py]) => { const [x, y] = proj(px, py, a); return x.toFixed(1) + ',' + (y + (dy || 0)).toFixed(1); }).join(' ');
-const rectPts = (w, h) => [[-w / 2, -h / 2], [w / 2, -h / 2], [w / 2, h / 2], [-w / 2, h / 2]];
-const stadium = (w, h, n) => { const r = h / 2, c = w / 2 - r, out = [];
-  for (let k = 0; k <= n; k++) { const a = -Math.PI / 2 + Math.PI * k / n; out.push([c + r * Math.cos(a), r * Math.sin(a)]); }
-  for (let k = 0; k <= n; k++) { const a = Math.PI / 2 + Math.PI * k / n; out.push([-c + r * Math.cos(a), r * Math.sin(a)]); }
-  return out; };
-
+const worldXZ = i => [S * (i.hex[0] + i.hex[1] / 2), S * i.hex[1] * Math.sqrt(3) / 2];
 // target designs: shape of the target face and the material colour
 const DESIGN = {
   materials: {shape: 'disc', metal: '#c3ccd8', ring: '#8d99ae'},
-  process: {shape: 'rect', metal: '#aab4c3', ring: '#6c7a89', w: 104, h: 64},
+  process: {shape: 'rect', metal: '#aab4c3', ring: '#6c7a89', w: 7.2, d: 4.6},
   news: {shape: 'disc', metal: '#b9c4d2', ring: '#7c8ba1'},
   market: {shape: 'disc', metal: '#f2c94c', ring: '#c99a06'},
   makers: {shape: 'disc', metal: '#e0915a', ring: '#a85a24'},
-  play: {shape: 'tiles', metal: '#66d9e8', ring: '#1098ad', w: 96},
+  play: {shape: 'tiles', metal: '#66d9e8', ring: '#1098ad', w: 6.2},
   plaza: {shape: 'disc', metal: '#efe1bf', ring: '#c9b48a'},
 };
+const OVERVIEW = {x: 0, z: 1.5, r: 46, pitch: 48}, CLOSE = {r: 21, pitch: 40};
 
-// decorations: drawn at a local origin (base on the island surface), placed by polar angle / radius
-const deco = {
-  cube(sym, color) { const g = sv('g', {}); g.append(sv('polygon', {points: '-7,-12 0,-16 7,-12 0,-8', fill: shade(color, 1.25)}),
-    sv('polygon', {points: '-7,-12 0,-8 0,2 -7,-2', fill: color}), sv('polygon', {points: '0,-8 7,-12 7,-2 0,2', fill: shade(color, .75)}));
-    const t = sv('text', {x: -3.5, y: -3, 'text-anchor': 'middle', 'font-size': 5.5, 'font-weight': 700, fill: '#fff'}); t.textContent = sym; g.append(t); return g; },
-  ingot(color) { const g = sv('g', {}); g.append(sv('polygon', {points: '-11,0 11,0 8,-7 -8,-7', fill: shade(color, .8)}), sv('polygon', {points: '-8,-7 8,-7 6,-10 -6,-10', fill: shade(color, 1.15)})); return g; },
-  chamber() { const g = sv('g', {}); g.append(sv('rect', {x: -13, y: -14, width: 26, height: 14, rx: 2, fill: '#6c7a89'}),
-    sv('path', {d: 'M-11,-14 A11,10 0 0 1 11,-14 Z', fill: '#d0ebff', stroke: '#6c7a89', 'stroke-width': 1.5}),
-    sv('ellipse', {class: 'plasma', cx: 0, cy: -18, rx: 7, ry: 4, fill: '#9775fa'}), sv('rect', {x: -9, y: -6, width: 18, height: 3, fill: '#ffd43b'})); return g; },
-  magnet() { const g = sv('g', {}); g.append(sv('rect', {x: -9, y: -10, width: 8, height: 10, fill: '#e03131'}), sv('rect', {x: 1, y: -10, width: 8, height: 10, fill: '#3b5bdb'}));
-    const n = sv('text', {x: -5, y: -3, 'text-anchor': 'middle', 'font-size': 6, 'font-weight': 700, fill: '#fff'}); n.textContent = 'N';
-    const s = sv('text', {x: 5, y: -3, 'text-anchor': 'middle', 'font-size': 6, 'font-weight': 700, fill: '#fff'}); s.textContent = 'S'; g.append(n, s); return g; },
-  tube() { const g = sv('g', {}); g.append(sv('rect', {x: -6, y: -40, width: 12, height: 40, fill: '#9aa5b1'}), sv('rect', {x: -6, y: -40, width: 4, height: 40, fill: '#c3ccd8'}),
-    sv('ellipse', {cx: 0, cy: -40, rx: 6, ry: 3, fill: '#dde3ec'}), sv('rect', {x: -6, y: -26, width: 12, height: 3, fill: '#f76707'}),
-    sv('polygon', {class: 'beam', points: '4,-42 32,-50 32,-34', fill: '#ffe066'})); return g; },
-  boat() { const g = sv('g', {}); g.append(sv('path', {d: 'M-12,-4 L12,-4 L8,2 L-8,2 Z', fill: '#f08c00'}), sv('line', {x1: 0, y1: -4, x2: 0, y2: -22, stroke: '#495057', 'stroke-width': 1.3}),
-    sv('polygon', {points: '1,-21 12,-7 1,-7', fill: '#fff'})); return g; },
-  bars() { const g = sv('g', {}); [[-10, 8, '#d6336c'], [-3, 14, '#f76707'], [4, 21, '#2f9e44']].forEach(([x, h, c]) => g.append(sv('rect', {x, y: -h, width: 6, height: h, fill: c})));
-    g.append(sv('polyline', {points: '-10,-12 -2,-18 6,-26 11,-30', fill: 'none', stroke: '#162033', 'stroke-width': 1.4})); return g; },
-  coins() { const g = sv('g', {}); for (let k = 0; k < 4; k++) g.append(sv('ellipse', {cx: 0, cy: -k * 3, rx: 7, ry: 3, fill: k % 2 ? '#f2b705' : '#ffd43b', stroke: '#b7791f', 'stroke-width': .8})); return g; },
-  factory() { const g = sv('g', {}); g.append(sv('rect', {x: -12, y: -12, width: 24, height: 12, fill: '#e9ecef'}), sv('polygon', {points: '-12,-12 -6,-18 -6,-12 0,-18 0,-12 6,-18 6,-12', fill: '#868e96'}),
-    sv('rect', {x: 7, y: -24, width: 4, height: 12, fill: '#868e96'}), sv('circle', {class: 'smoke', cx: 9, cy: -28, r: 3, fill: '#dee2e6'})); return g; },
-  pennant(label, color) { const g = sv('g', {}); g.append(sv('line', {x1: 0, y1: 0, x2: 0, y2: -22, stroke: '#495057', 'stroke-width': 1.2}), sv('polygon', {points: '0,-22 15,-18 0,-14', fill: color}));
-    const t = sv('text', {x: 6, y: -16.5, 'text-anchor': 'middle', 'font-size': 4.5, 'font-weight': 700, fill: '#fff'}); t.textContent = label; g.append(t); return g; },
-  cards() { const g = sv('g', {}); g.append(sv('rect', {x: -10, y: -16, width: 11, height: 15, rx: 1.5, fill: '#7048e8', transform: 'rotate(-12)'}),
-    sv('rect', {x: -1, y: -17, width: 11, height: 15, rx: 1.5, fill: '#f76707', transform: 'rotate(10)'})); return g; },
-  fountain() { const g = sv('g', {}); g.append(sv('ellipse', {cx: 0, cy: 0, rx: 16, ry: 8, fill: '#74c0fc'}), sv('ellipse', {cx: 0, cy: 0, rx: 7, ry: 3.5, fill: '#d0ebff'}),
-    sv('path', {class: 'jet', d: 'M0,-2 Q-5,-14 -9,-4 M0,-2 Q5,-14 9,-4', fill: 'none', stroke: '#a5d8ff', 'stroke-width': 1.6})); return g; },
-  flag(color) { const g = sv('g', {}); g.append(sv('line', {x1: 0, y1: 0, x2: 0, y2: -34, stroke: '#162033', 'stroke-width': 1.6}), sv('polygon', {class: 'wave', points: '0,-34 18,-29 0,-24', fill: '#ffd43b'})); return g; },
-};
-const DECOR = {
-  materials: () => [[30, .55, deco.cube('Cu', '#d9773a')], [100, .6, deco.cube('Ta', '#5c6bc0')], [170, .55, deco.cube('Ti', '#6c7a89')], [250, .5, deco.ingot('#c3ccd8')]],
-  process: () => [[200, .35, deco.chamber()], [20, .5, deco.magnet()]],
-  news: () => [[120, .4, deco.tube()], [330, .65, deco.boat()]],
-  market: () => [[200, .4, deco.bars()], [40, .5, deco.coins()]],
-  makers: () => [[150, .45, deco.factory()], [20, .55, deco.pennant('TW', '#0c8f6a')], [70, .6, deco.pennant('JP', '#c92a2a')],
-    [250, .6, deco.pennant('US', '#364fc7')], [300, .55, deco.pennant('CN', '#e03131')]],
-  play: () => [[200, .35, deco.cards()]],
-  plaza: () => [[0, 0, deco.fountain()]],
-};
-
-let focus = null, view = FULL.slice(), svg, gSea, gLinks, gIslands, gTop, guide, nodes = {}, linkEls = [], treasureEl = null;
-let dragYaw = 0, dragging = null, dragMoved = false, now = 0;
-const yaw = () => (RM ? 0 : 5 * Math.sin(now / 7000 * 2 * Math.PI)) * D2R + dragYaw * D2R;
-const spin = i => yaw() + (RM ? 0 : 9 * Math.sin(now / 4300 * 2 * Math.PI + PHASE[i.id]) * D2R);
-const bob = i => RM ? 0 : 4 * Math.sin(now / 1900 * 2 * Math.PI + PHASE[i.id]);
-function pos(i) { const [wx, wy] = world(i), [x, y] = proj(wx, wy, yaw()); return [x, y - bob(i)]; }
-const center = i => pos(i);
-
-function drawMap() {
-  svg = sv('svg', {viewBox: view.join(' '), role: 'application', 'aria-label': '靶材產業島地圖:點選島嶼查看題目,拖曳可以轉動地圖'});
-  const sea = sv('rect', {x: -3000, y: -3000, width: 6000, height: 6000, fill: 'transparent'}); sea.onclick = () => { if (!dragMoved) go(null); };
-  gSea = sv('g', {}); gLinks = sv('g', {}); gIslands = sv('g', {}); gTop = sv('g', {});
-  svg.append(sea, gSea, gLinks, gIslands, gTop);
-  guide = makeGuide(); svg.append(guide.g);
-  // drag to turn the archipelago a little
-  svg.addEventListener('pointerdown', e => { dragging = {x: e.clientX, yaw: dragYaw}; dragMoved = false; });
-  svg.addEventListener('pointermove', e => { if (!dragging) return; const dx = e.clientX - dragging.x;
-    if (Math.abs(dx) > 4) { dragMoved = true; svg.setPointerCapture && svg.setPointerCapture(e.pointerId); }
-    dragYaw = Math.max(-30, Math.min(30, dragging.yaw + dx * .25)); if (RM) frame(0); });
-  const end = () => { dragging = null; setTimeout(() => dragMoved = false, 0); };
-  svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
-  $('stage').prepend(svg); render();
-  const loop = t => { now = t; if (!dragging && !RM) dragYaw *= .985; frame(); requestAnimationFrame(loop); };
-  RM ? frame() : requestAnimationFrame(loop);
-}
-
-// Target body and face, built once per island; update(a) turns rectangles and tile targets (discs look the same at any angle).
-function buildShape(d, i, done) {
-  const top = done || i.plaza ? d.metal : shade(d.metal, .9), side = shade(d.metal, .62), body = [], face = [];
-  if (d.shape === 'disc') {
-    body.push(sv('ellipse', {cx: 0, cy: DEPTH, rx: RX, ry: RX * SQ, fill: side}), sv('rect', {x: -RX, y: 0, width: 2 * RX, height: DEPTH, fill: side}),
-      sv('ellipse', {cx: 0, cy: 0, rx: RX, ry: RX * SQ, fill: top}));
-    if (!i.plaza) face.push(sv('ellipse', {cx: 0, cy: 0, rx: RX * .66, ry: RX * .66 * SQ, fill: 'none', stroke: d.ring, 'stroke-width': 7, opacity: .55}),
-      sv('ellipse', {cx: 0, cy: 0, rx: RX * .2, ry: RX * .2 * SQ, fill: shade(d.metal, 1.12)}));
-    return {body, face, update() {}};
-  }
-  if (d.shape === 'rect') {
-    const r = rectPts(d.w, d.h), race = stadium(d.w * .72, d.h * .5, 8);
-    const s1 = sv('polygon', {fill: side}), s2 = sv('polygon', {fill: top}), s3 = sv('polygon', {fill: 'none', stroke: d.ring, 'stroke-width': 6, opacity: .55});
-    body.push(s1, s2); face.push(s3);
-    return {body, face, update(a) { s1.setAttribute('points', poly(r, a, DEPTH)); s2.setAttribute('points', poly(r, a)); s3.setAttribute('points', poly(race, a)); }};
-  }
-  const w = d.w, t3 = w / 3, sq = rectPts(w, w), s1 = sv('polygon', {fill: side}), s2 = sv('polygon', {fill: shade(d.ring, .9)}), tiles = [];
-  body.push(s1, s2);
-  for (let r0 = 0; r0 < 3; r0++) for (let c0 = 0; c0 < 3; c0++) {
-    const cx0 = -w / 2 + t3 * (c0 + .5), cy0 = -w / 2 + t3 * (r0 + .5), h = t3 / 2 - 1.5;
-    const el = sv('polygon', {fill: (r0 + c0) % 2 ? top : shade(d.metal, 1.08)}); face.push(el);
-    tiles.push([el, [[cx0 - h, cy0 - h], [cx0 + h, cy0 - h], [cx0 + h, cy0 + h], [cx0 - h, cy0 + h]]]);
-  }
-  return {body, face, update(a) { s1.setAttribute('points', poly(sq, a, DEPTH)); s2.setAttribute('points', poly(sq, a)); tiles.forEach(([el, p]) => el.setAttribute('points', poly(p, a))); }};
-}
-
-// Build the island DOM (called when progress changes); frame() moves it every animation frame.
-function render() {
-  gSea.replaceChildren(); gLinks.replaceChildren(); gIslands.replaceChildren(); gTop.replaceChildren(); nodes = {}; linkEls = []; treasureEl = null;
-  for (const [a, b, label] of B.links) {
-    const on = focus && (focus === a || focus === b), path = sv('path', {class: 'link' + (on ? ' on' : '')});
-    gLinks.append(path); let text = null;
-    if (on) { text = sv('text', {class: 'link-label', 'text-anchor': 'middle'}); text.textContent = label; gTop.append(text); }
-    linkEls.push({a, b, path, text});
-  }
-  for (const i of ALL) {
-    const d = DESIGN[i.id] || DESIGN.materials, plaza = !!i.plaza, done = !plaza && conquered(i);
-    const n = plaza ? 0 : i.id === 'play' ? 6 : i.questions.length, k = plaza ? 0 : lit(i);
-    const shadow = sv('ellipse', {fill: '#0b3a5b', opacity: .14}); gSea.append(shadow);
-    const g = sv('g', {class: plaza ? 'plaza' : 'is-land', tabindex: 0, role: 'button',
-      'aria-label': plaza ? '靶材廣場:回到全島地圖' : i.name + (i.id === 'play' ? '' : `,已點亮 ${k} / ${n}`)});
-    // backing plate (copper) under the target, then the target body and face
-    const plate = sv('g', {}); plate.append(sv('ellipse', {cx: 0, cy: DEPTH + PLATE, rx: RX + 7, ry: (RX + 7) * SQ, fill: '#8f4f22'}),
-      sv('rect', {x: -RX - 7, y: DEPTH, width: 2 * RX + 14, height: PLATE, fill: '#8f4f22'}),
-      sv('ellipse', {cx: 0, cy: DEPTH, rx: RX + 7, ry: (RX + 7) * SQ, fill: '#c0773f'}));
-    if (plaza) plate.setAttribute('opacity', 0);
-    const shape = buildShape(d, i, done), body = sv('g', {}), face = sv('g', {class: 'top'}), faceBase = sv('g', {}), parts = sv('g', {});
-    body.append(...shape.body); faceBase.append(...shape.face); face.append(faceBase, parts);
-    g.append(plate, body, face);
-    const studs = [], decos = [];
-    if (!plaza) for (let j = 0; j < n; j++) {
-      const on = i.id === 'play' ? (matchDone || j < 0) : solved.has(i.questions[j].id), s = sv('g', {});
-      s.append(sv('rect', {x: -2.6, y: -6, width: 5.2, height: 6, fill: on ? '#f08c00' : '#868e96'}),
-        sv('ellipse', {cx: 0, cy: -6, rx: 2.6, ry: 1.3, fill: on ? '#ffe066' : '#ced4da'}));
-      if (on) s.append(sv('circle', {class: 'glow', cx: 0, cy: -8, r: 4.5, fill: '#ffe066', opacity: .35}));
-      studs.push({el: s, a: j / n * 2 * Math.PI}); parts.append(s);
-    }
-    for (const [deg, r, el] of (DECOR[i.id] || (() => []))()) decos.push({el, a: deg * D2R, r});
-    if (done) decos.push({el: deco.flag(), a: 0, r: 0});
-    decos.forEach(x => parts.append(x.el));
-    g.onclick = e => { e.stopPropagation(); if (!dragMoved) go(plaza ? null : i.id); };
-    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(plaza ? null : i.id); } };
-    gIslands.append(g);
-    const nm = sv('text', {class: 'is-name', 'text-anchor': 'middle'}); nm.textContent = i.name;
-    const sub = sv('text', {class: 'is-sub', 'text-anchor': 'middle'});
-    sub.textContent = plaza ? '' : i.id === 'play' ? (matchDone ? '已完成' : '小遊戲') : `${k} / ${n}`;
-    gTop.append(nm, sub);
-    nodes[i.id] = {i, d, g, shape, parts, shadow, studs, decos, nm, sub, order: ''};
-  }
-  if (B.treasure && !found() && ISL[B.treasure]) {
-    const t = sv('g', {class: 'treasure', role: 'button', tabindex: 0, 'aria-label': '閃閃發亮的東西'});
-    t.append(sv('ellipse', {cx: 0, cy: 3, rx: 8, ry: 3, fill: '#000', opacity: .15}), sv('circle', {cx: 0, cy: -4, r: 7, fill: '#f2b705', stroke: '#b7791f', 'stroke-width': 1.5}),
-      sv('circle', {cx: 0, cy: -4, r: 3.5, fill: 'none', stroke: '#b7791f', 'stroke-width': 1.2}), sv('path', {class: 'glint', d: 'M8,-14 l2,4 4,2 -4,2 -2,4 -2,-4 -4,-2 4,-2z', fill: '#fff'}));
-    t.onclick = e => { e.stopPropagation(); treasureFound = B.treasure; save(); render(); hud();
-      guide.goTo(B.treasure, 18, 14, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
-      toast('✨ 找到金色靶材!'); };
-    gTop.append(t); treasureEl = t;
-  }
-  frame();
-}
-function frame() {
-  const order = ALL.map(i => [i.id, pos(i)[1]]).sort((p, q) => p[1] - q[1]).map(x => x[0]);
-  if (gIslands.dataset.order !== order.join()) { order.forEach(id => nodes[id] && gIslands.append(nodes[id].g)); gIslands.dataset.order = order.join(); }
-  for (const id in nodes) {
-    const nd = nodes[id], i = nd.i, d = nd.d, [x, y] = pos(i), a = spin(i), bb = bob(i), [wx, wy] = world(i), [, ys] = proj(wx, wy, yaw());
-    nd.g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
-    const sh = 1 - bb / 30; nd.shadow.setAttribute('cx', x.toFixed(1)); nd.shadow.setAttribute('cy', (ys + DEPTH + PLATE + 18).toFixed(1));
-    nd.shadow.setAttribute('rx', ((RX + 10) * sh).toFixed(1)); nd.shadow.setAttribute('ry', ((RX + 10) * SQ * .55 * sh).toFixed(1));
-    nd.shape.update(a);
-    // studs (one per question) around the rim, and decorations, turning with the island
-    const items = [];
-    const rimX = d.shape === 'disc' ? RX * .86 : d.shape === 'rect' ? d.w * .42 : d.w * .42, rimY = d.shape === 'disc' ? RX * .86 : d.shape === 'rect' ? d.h * .36 : d.w * .42;
-    nd.studs.forEach(s => { const [sx, sy] = proj(rimX * Math.cos(s.a), rimY * Math.sin(s.a), a); items.push([s.el, sx, sy]); });
-    nd.decos.forEach(o => { const rr = o.r * (d.shape === 'disc' ? RX : d.w / 2), [dx, dy] = proj(rr * Math.cos(o.a), rr * Math.sin(o.a), a); items.push([o.el, dx, dy]); });
-    items.forEach(([el, ex, ey]) => el.setAttribute('transform', `translate(${ex.toFixed(1)},${ey.toFixed(1)})`));
-    const ord = items.map((it, k) => [k, it[2]]).sort((p, q) => p[1] - q[1]).map(x => x[0]).join();  // back-to-front, re-append only on change
-    if (ord !== nd.order) { ord.split(',').forEach(k => nd.parts.append(items[+k][0])); nd.order = ord; }
-    const lab = y + RX * SQ + DEPTH + PLATE + 16;
-    nd.nm.setAttribute('x', x.toFixed(1)); nd.nm.setAttribute('y', lab.toFixed(1)); nd.sub.setAttribute('x', x.toFixed(1)); nd.sub.setAttribute('y', (lab + 13).toFixed(1));
-  }
-  for (const L of linkEls) {
-    const [x1, y1] = pos(ISL[L.a]), [x2, y2] = pos(ISL[L.b]), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 20;
-    L.path.setAttribute('d', `M${x1.toFixed(1)},${y1.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`);
-    if (L.text) { const f = focus === L.a ? [x1, y1, x2, y2] : [x2, y2, x1, y1];
-      L.text.setAttribute('x', (f[0] + (f[2] - f[0]) * .62).toFixed(1)); L.text.setAttribute('y', (f[1] + (f[3] - f[1]) * .62 - 24).toFixed(1)); }
-  }
-  if (treasureEl) { const [x, y] = pos(ISL[B.treasure]), a = spin(ISL[B.treasure]), [dx, dy] = proj(-RX * .45, RX * .3, a);
-    treasureEl.setAttribute('transform', `translate(${(x + dx).toFixed(1)},${(y + dy).toFixed(1)})`); }
-  guide && guide.tick();
-}
+let focus = null, T = null, W3 = null;
 
 // Bubble lines of at most `per` characters: break after punctuation when one is near the end,
 // and never start a line with punctuation.
@@ -507,87 +317,410 @@ function wrap(text, per) {
   return out;
 }
 
-// ---------- 靶靶: the guide character ----------
-function makeGuide() {
-  const g = sv('g', {class: 'guide', role: 'button', tabindex: 0, 'aria-label': '嚮導靶靶:點我看小提示'});
-  const body = sv('g', {class: 'gb'});
-  const mouth = sv('path', {d: 'M-3.5,-30 Q0,-27 3.5,-30', fill: 'none', stroke: '#162033', 'stroke-width': 1.4, 'stroke-linecap': 'round'});
-  const blush = sv('g', {}); blush.append(sv('circle', {cx: -6.5, cy: -31.5, r: 1.8, fill: '#ff8787', opacity: .8}), sv('circle', {cx: 6.5, cy: -31.5, r: 1.8, fill: '#ff8787', opacity: .8}));
-  const sweat = sv('path', {d: 'M9,-42 q2,3 0,5 q-2,-2 0,-5z', fill: '#74c0fc', opacity: 0});
-  body.append(
-    sv('rect', {x: -6, y: -9, width: 4.5, height: 9, rx: 2, fill: '#1e2a4a'}), sv('rect', {x: 1.5, y: -9, width: 4.5, height: 9, rx: 2, fill: '#1e2a4a'}),
-    sv('rect', {x: -8.5, y: -23, width: 17, height: 16, rx: 5, fill: '#3b5bdb'}), sv('rect', {x: -8.5, y: -13, width: 17, height: 2.5, fill: '#f76707'}),
-    sv('line', {x1: 8, y1: -20, x2: 13, y2: -27, stroke: '#3b5bdb', 'stroke-width': 3, 'stroke-linecap': 'round'}),
-    sv('line', {x1: 13, y1: -26, x2: 13, y2: -44, stroke: '#162033', 'stroke-width': 1.3}), sv('polygon', {points: '13,-44 23,-41 13,-38', fill: '#f76707'}),
-    sv('line', {x1: -8, y1: -20, x2: -12, y2: -13, stroke: '#3b5bdb', 'stroke-width': 3, 'stroke-linecap': 'round'}),
-    sv('circle', {cx: 0, cy: -34, r: 11.5, fill: '#dde3ec', stroke: '#8a93a8', 'stroke-width': 1.5}),
-    sv('circle', {cx: 0, cy: -34, r: 8, fill: 'none', stroke: '#b5bdcb', 'stroke-width': 1}),
-    sv('circle', {cx: -3.6, cy: -35.5, r: 1.7, fill: '#162033'}), sv('circle', {cx: 3.6, cy: -35.5, r: 1.7, fill: '#162033'}),
-    mouth, blush, sweat);
-  const bubble = sv('g', {class: 'bubble off'});
-  g.append(sv('ellipse', {cx: 0, cy: 1, rx: 10, ry: 3, fill: '#000', opacity: .18}), body, bubble);
-  let x = 0, y = 0, tip = 0, hideT = null, anchor = null, walking = false;
-  const place = () => g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)})`);
-  const mood = m => {
-    mouth.setAttribute('d', m === 'sad' ? 'M-3.5,-28.5 Q0,-31.5 3.5,-28.5' : m === 'happy' ? 'M-4,-30.5 Q0,-25.5 4,-30.5' : 'M-3.5,-30 Q0,-27 3.5,-30');
-    blush.setAttribute('opacity', m === 'sad' ? 0 : 1); sweat.setAttribute('opacity', m === 'sad' ? 1 : 0);
-  };
-  const api = {
-    g,
-    // hop to a spot on an island (offset in the island's own plane), then ride along as it bobs and turns
-    goTo(id, ox, oy, done) {
-      const isl = id === 'plaza' ? PLAZA : ISL[id], spot = () => { const [cx, cy] = pos(isl), [dx, dy] = proj(ox, oy, spin(isl)); return [cx + dx, cy + dy]; };
-      const fx = x, fy = y, [tx0, ty0] = spot(), d = Math.hypot(tx0 - fx, ty0 - fy), dur = RM || d < 1 ? 0 : Math.min(900, 300 + d * 2.2), t0 = performance.now();
-      anchor = null; walking = true; g.classList.add('walk');
-      const step = t => { const p = dur ? Math.min(1, (t - t0) / dur) : 1, e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, [tx, ty] = spot();
-        x = fx + (tx - fx) * e; y = fy + (ty - fy) * e - Math.sin(p * Math.PI) * Math.min(40, d * .25); place();
-        if (p < 1) requestAnimationFrame(step); else { walking = false; anchor = spot; g.classList.remove('walk'); done && done(); } };
-      requestAnimationFrame(step);
-    },
-    tick() { if (anchor && !walking) { [x, y] = anchor(); place(); } },
-    react(kind, m) { g.classList.remove('jump', 'sad'); void g.getBBox(); g.classList.add(kind); mood(m);
-      setTimeout(() => { g.classList.remove(kind); mood('calm'); }, 1300); },
-    say(text) {
-      bubble.replaceChildren(); clearTimeout(hideT);
-      const lines = wrap(text, 13).slice(0, 5);
-      const w = Math.max(...lines.map(l => [...l].reduce((n, ch) => n + (ch.charCodeAt(0) > 0x2e80 ? 12 : 6.6), 0))) + 18, h = lines.length * 15 + 12;
-      const bx = -w / 2, by = -58 - h;
-      bubble.append(sv('rect', {x: bx, y: by, width: w, height: h, rx: 6}), sv('polygon', {points: `-5,${by + h - 1} 5,${by + h - 1} 0,${by + h + 7}`}));
-      lines.forEach((l, k) => { const t = sv('text', {x: bx + 9, y: by + 19 + k * 15}); t.textContent = l; bubble.append(t); });
-      bubble.classList.remove('off'); hideT = setTimeout(() => bubble.classList.add('off'), Math.max(3500, text.length * 140));
-      const live = $('guide-live'); if (live) live.textContent = text;
-    },
-    at() { return [x, y]; },
-  };
-  g.onclick = e => { e.stopPropagation(); api.react('jump', 'happy'); api.say(B.tips[tip++ % B.tips.length]); };
-  g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.onclick(e); } };
-  const [px, py] = pos(PLAZA); x = px + 26; y = py + 8; place();
-  anchor = () => { const [cx, cy] = pos(PLAZA); return [cx + 26, cy + 8]; };
-  return api;
+function boot() {
+  import(THREE_URL).then(mod => {
+    try { init3d(mod); }
+    catch (e) { console.error(e); noMap('這個瀏覽器無法顯示 3D 地圖(需要 WebGL),請用右側清單選擇島嶼。'); }
+  }).catch(() => noMap('3D 地圖載入失敗,請檢查網路後重新整理;也可以直接用右側清單選擇島嶼。'));
 }
+function noMap(msg) { const n = el('div', 'nomap', msg); $('stage').append(n); }
+
+function init3d(THREE) {
+  T = THREE;
+  const stage = $('stage'), dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const renderer = new T.WebGLRenderer({antialias: true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
+  const canvas = renderer.domElement;
+  canvas.className = 'gl'; canvas.setAttribute('role', 'img');
+  canvas.setAttribute('aria-label', '靶材產業島 3D 地圖:點選島嶼查看題目,拖曳可以轉動視角;也可以用右側清單選擇島嶼');
+  const overlay = el('div', 'ov');
+  stage.prepend(canvas, overlay);
+
+  const scene = new T.Scene(), sky = new T.Color(dark ? '#10283d' : '#cfe8f7');
+  scene.background = sky; scene.fog = new T.Fog(sky, 60, 140);
+  const camera = new T.PerspectiveCamera(32, 1.6, .1, 400);
+  scene.add(new T.HemisphereLight('#ffffff', dark ? '#1b3550' : '#8fbfdd', dark ? 1.1 : 1.6));
+  const sun = new T.DirectionalLight('#fff6e8', dark ? 1.6 : 2.4);
+  sun.position.set(16, 34, 22); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, {left: -32, right: 32, top: 32, bottom: -32, near: 1, far: 100}); sun.shadow.bias = -.0006;
+  scene.add(sun);
+
+  // ---- helpers: flat-shaded materials (cached), meshes, canvas-text textures ----
+  const mats = {};
+  const mat = (c, o) => { const k = c + JSON.stringify(o || {}); return mats[k] || (mats[k] = new T.MeshStandardMaterial(Object.assign({color: c, flatShading: true, roughness: .55, metalness: .1}, o))); };
+  const mesh = (geo, m, shadow = true) => { const x = new T.Mesh(geo, m); x.castShadow = shadow; x.receiveShadow = true; return x; };
+  const at = (o, x, y, z) => { o.position.set(x, y, z); return o; };
+  const textTex = (text, bg, fg, w = 128, h = 128, size = 64) => {
+    const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+    g.fillStyle = bg; g.fillRect(0, 0, w, h); g.fillStyle = fg; g.font = `700 ${size}px "Noto Sans TC", system-ui, sans-serif`;
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, w / 2, h / 2 + 2);
+    const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+  };
+  const anim = [];  // per-frame animations of decorations: fn(seconds)
+
+  // ---- sea with gentle low-poly waves, and a few drifting clouds ----
+  const seaGeo = new T.PlaneGeometry(260, 260, 64, 64); seaGeo.rotateX(-Math.PI / 2);
+  const sea = mesh(seaGeo, mat(dark ? '#1d4e73' : '#7cc4ec', {roughness: .85, metalness: 0}), false);
+  sea.position.y = -8; scene.add(sea);
+  const seaPos = seaGeo.attributes.position, seaBase = Float32Array.from(seaPos.array);
+  const clouds = [];
+  for (let k = 0; k < 6; k++) {
+    const c = new T.Group(), m = mat('#ffffff', {roughness: 1, transparent: true, opacity: dark ? .35 : .9});
+    [[0, 0, 0, 1.6], [1.5, -.2, .3, 1.2], [-1.4, -.3, -.2, 1.1], [.4, .5, -.4, 1.1]].forEach(([x, y, z, r]) => c.add(at(mesh(new T.IcosahedronGeometry(r, 0), m, false), x, y, z)));
+    const a = k / 6 * Math.PI * 2 + .4, rr = 30 + (k % 3) * 9;
+    c.position.set(Math.cos(a) * rr, 7 + (k % 2) * 3, Math.sin(a) * rr - 6); c.scale.setScalar(1 + (k % 3) * .3);
+    clouds.push({c, a, rr}); scene.add(c);
+  }
+
+  // ---- decorations (base at y = 0), built from primitives ----
+  const deco = {
+    cube(sym, color) { const tex = textTex(sym, color, '#ffffff', 128, 128, 58), b = mesh(new T.BoxGeometry(.75, .75, .75), new T.MeshStandardMaterial({map: tex, roughness: .5}));
+      b.position.y = .375; b.rotation.y = .5; const g = new T.Group(); g.add(b); return g; },
+    ingot(color) { const geo = new T.CylinderGeometry(.42, .6, .38, 4); geo.rotateY(Math.PI / 4); geo.scale(1.7, 1, .9);
+      const g = new T.Group(); g.add(at(mesh(geo, mat(color, {metalness: .4})), 0, .19, 0)); return g; },
+    chamber() { const g = new T.Group();
+      g.add(at(mesh(new T.BoxGeometry(1.6, .8, 1.1), mat('#6c7a89')), 0, .4, 0));
+      g.add(at(mesh(new T.SphereGeometry(.6, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), mat('#d0ebff', {transparent: true, opacity: .55, roughness: .1})), 0, .8, 0));
+      const plasma = at(mesh(new T.SphereGeometry(.28, 12, 8), mat('#9775fa', {emissive: '#7048e8', emissiveIntensity: 1.2}), false), 0, 1.0, 0);
+      g.add(plasma, at(mesh(new T.BoxGeometry(1.2, .12, .02), mat('#ffd43b')), 0, .5, .56));
+      anim.push(t => { const s = RM ? 1 : .85 + .25 * Math.sin(t * 4.4); plasma.scale.setScalar(s); });
+      return g; },
+    magnet() { const g = new T.Group();
+      g.add(at(mesh(new T.BoxGeometry(.42, .75, .5), mat('#e03131')), -.22, .375, 0), at(mesh(new T.BoxGeometry(.42, .75, .5), mat('#3b5bdb')), .22, .375, 0));
+      return g; },
+    tube() { const g = new T.Group();
+      g.add(at(mesh(new T.CylinderGeometry(.32, .32, 2.6, 16), mat('#9aa5b1', {metalness: .3})), 0, 1.3, 0), at(mesh(new T.CylinderGeometry(.34, .34, .18, 16), mat('#f76707')), 0, 1.7, 0));
+      const beamGeo = new T.ConeGeometry(.55, 2.4, 16, 1, true); beamGeo.rotateZ(Math.PI / 2); beamGeo.translate(1.4, 0, 0);
+      const beam = at(mesh(beamGeo, mat('#ffe066', {transparent: true, opacity: .5, emissive: '#ffd43b', emissiveIntensity: .8, side: T.DoubleSide}), false), 0, 2.45, 0);
+      g.add(beam); anim.push(t => { if (!RM) { beam.rotation.y = t * 1.2; beam.material.opacity = .3 + .25 * (1 + Math.sin(t * 3)) / 2; } });
+      return g; },
+    boat() { const g = new T.Group(), hull = new T.CylinderGeometry(.55, .35, .32, 4); hull.rotateY(Math.PI / 4); hull.scale(1.7, 1, .7);
+      g.add(at(mesh(hull, mat('#f08c00')), 0, .16, 0), at(mesh(new T.CylinderGeometry(.03, .03, 1.3), mat('#495057')), 0, .95, 0));
+      const sail = new T.Shape(); sail.moveTo(0, 0); sail.lineTo(.75, 0); sail.lineTo(0, 1.05); sail.closePath();
+      g.add(at(mesh(new T.ShapeGeometry(sail), mat('#ffffff', {side: T.DoubleSide})), .04, .4, 0));
+      anim.push(t => { if (!RM) g.rotation.z = .08 * Math.sin(t * 2.2); });
+      return g; },
+    bars() { const g = new T.Group();
+      [[-.5, .5, '#d6336c'], [0, .9, '#f76707'], [.5, 1.35, '#2f9e44']].forEach(([x, h, c]) => g.add(at(mesh(new T.BoxGeometry(.38, h, .38), mat(c)), x, h / 2, 0)));
+      return g; },
+    coins() { const g = new T.Group();
+      for (let k = 0; k < 5; k++) g.add(at(mesh(new T.CylinderGeometry(.38, .38, .12, 20), mat(k % 2 ? '#f2b705' : '#ffd43b', {metalness: .5})), (k % 2) * .04, .06 + k * .13, 0));
+      return g; },
+    factory() { const g = new T.Group();
+      g.add(at(mesh(new T.BoxGeometry(1.4, .7, .9), mat('#e9ecef')), 0, .35, 0));
+      for (let k = 0; k < 3; k++) { const roof = new T.CylinderGeometry(.01, .32, .9, 3); roof.rotateX(Math.PI / 2); g.add(at(mesh(roof, mat('#868e96')), -.45 + k * .45, .85, 0)); }
+      g.add(at(mesh(new T.CylinderGeometry(.13, .16, 1.3, 10), mat('#868e96')), .55, .95, -.25));
+      const puffs = [0, 1, 2].map(k => { const p = mesh(new T.IcosahedronGeometry(.18, 0), mat('#dee2e6', {transparent: true, opacity: .8}), false); g.add(p); return p; });
+      anim.push(t => puffs.forEach((p, k) => { const f = RM ? .4 + k * .2 : (t * .45 + k / 3) % 1; p.position.set(.55 + f * .2, 1.65 + f * 1.2, -.25); p.scale.setScalar(.7 + f * 1.3); p.material.opacity = .85 * (1 - f); }));
+      return g; },
+    pennant(label, color) { const g = new T.Group();
+      g.add(at(mesh(new T.CylinderGeometry(.03, .03, 1.5), mat('#495057')), 0, .75, 0));
+      const flag = at(new T.Mesh(new T.PlaneGeometry(.75, .45), new T.MeshStandardMaterial({map: textTex(label, color, '#ffffff', 128, 80, 44), side: T.DoubleSide})), .38, 1.25, 0);
+      g.add(flag); const ph = Math.random() * 6; anim.push(t => { if (!RM) flag.rotation.y = .25 * Math.sin(t * 2.6 + ph); });
+      return g; },
+    cards() { const g = new T.Group();
+      const c1 = at(mesh(new T.BoxGeometry(.55, .78, .05), mat('#7048e8')), -.2, .39, 0), c2 = at(mesh(new T.BoxGeometry(.55, .78, .05), mat('#f76707')), .22, .39, .05);
+      c1.rotation.z = .2; c2.rotation.z = -.18; g.add(c1, c2); return g; },
+    fountain() { const g = new T.Group();
+      g.add(at(mesh(new T.CylinderGeometry(1.2, 1.3, .35, 24), mat('#c9b48a')), 0, .17, 0), at(mesh(new T.CylinderGeometry(1.0, 1.0, .05, 24), mat('#74c0fc', {roughness: .2})), 0, .36, 0),
+        at(mesh(new T.CylinderGeometry(.16, .2, .8, 10), mat('#e9dcc0')), 0, .7, 0));
+      const drops = [...Array(10)].map(() => { const d = mesh(new T.SphereGeometry(.07, 6, 4), mat('#a5d8ff', {emissive: '#74c0fc', emissiveIntensity: .3}), false); g.add(d); return d; });
+      anim.push(t => drops.forEach((d, k) => { const a = k / drops.length * Math.PI * 2, f = RM ? .5 : (t * .8 + k * .13) % 1, rr = f * .85;
+        d.position.set(Math.cos(a) * rr, 1.1 + 1.1 * f - 1.6 * f * f, Math.sin(a) * rr); }));
+      return g; },
+    flag() { const g = new T.Group();
+      g.add(at(mesh(new T.CylinderGeometry(.04, .04, 2.4), mat('#162033')), 0, 1.2, 0));
+      const f = at(new T.Mesh(new T.PlaneGeometry(1, .62, 6, 1), mat('#ffd43b', {side: T.DoubleSide})), .5, 2.05, 0);
+      g.add(f); const base = Float32Array.from(f.geometry.attributes.position.array);
+      anim.push(t => { if (RM) return; const p = f.geometry.attributes.position;
+        for (let k = 0; k < p.count; k++) { const x = base[k * 3] + .5; p.setZ(k, Math.sin(t * 5 - x * 4) * .09 * x); } p.needsUpdate = true; });
+      return g; },
+  };
+  const DECOR = {
+    materials: () => [[30, .55, deco.cube('Cu', '#d9773a')], [100, .6, deco.cube('Ta', '#5c6bc0')], [170, .55, deco.cube('Ti', '#6c7a89')], [250, .5, deco.ingot('#c3ccd8')]],
+    process: () => [[200, .35, deco.chamber()], [20, .5, deco.magnet()]],
+    news: () => [[120, .4, deco.tube()], [330, .65, deco.boat()]],
+    market: () => [[200, .4, deco.bars()], [40, .5, deco.coins()]],
+    makers: () => [[150, .45, deco.factory()], [20, .58, deco.pennant('TW', '#0c8f6a')], [70, .62, deco.pennant('JP', '#c92a2a')],
+      [250, .62, deco.pennant('US', '#364fc7')], [300, .58, deco.pennant('CN', '#e03131')]],
+    play: () => [[200, .3, deco.cards()]],
+    plaza: () => [[0, 0, deco.fountain()]],
+  };
+
+  // ---- islands: rock cone, copper backing plate, the target itself, decorations; studs = questions ----
+  const nodes = {};
+  for (const i of ALL) {
+    const d = DESIGN[i.id] || DESIGN.materials, plaza = !!i.plaza, [x, z] = worldXZ(i);
+    const root = new T.Group(), top = new T.Group(); root.add(top); root.position.set(x, 0, z);
+    const reach = d.shape === 'disc' ? R : d.shape === 'rect' ? Math.max(d.w, d.d) / 2 : d.w / 2;
+    const rock = mesh(new T.ConeGeometry(reach * .92, 4.6, 7), mat(plaza ? '#b08d57' : '#7a6a5a', {roughness: .9}));
+    rock.rotation.x = Math.PI; rock.position.y = -PL - 2.3; top.add(rock);
+    let topY = TH;
+    if (d.shape === 'disc') {
+      if (!plaza) top.add(at(mesh(new T.CylinderGeometry(R + .35, R + .35, PL, 48), mat('#c0773f', {metalness: .3})), 0, -PL / 2, 0));
+      const h = plaza ? TH * 1.3 : TH; topY = plaza ? h - PL : TH;
+      top.add(at(mesh(new T.CylinderGeometry(plaza ? R * 1.05 : R, plaza ? R * 1.05 : R, h, 48), mat(d.metal, {metalness: plaza ? 0 : .35})), 0, topY - h / 2, 0));
+      if (!plaza) {
+        const ring = new T.TorusGeometry(R * .62, .2, 6, 48); ring.rotateX(Math.PI / 2); ring.scale(1, .25, 1);
+        top.add(at(mesh(ring, mat(d.ring, {metalness: .3}), false), 0, TH, 0), at(mesh(new T.CylinderGeometry(R * .18, R * .18, .06, 24), mat(d.metal, {metalness: .5, roughness: .3}), false), 0, TH + .03, 0));
+      }
+    } else if (d.shape === 'rect') {
+      top.add(at(mesh(new T.BoxGeometry(d.w + .6, PL, d.d + .6), mat('#c0773f', {metalness: .3})), 0, -PL / 2, 0),
+        at(mesh(new T.BoxGeometry(d.w, TH, d.d), mat(d.metal, {metalness: .35})), 0, TH / 2, 0));
+      const race = new T.TorusGeometry(1, .09, 6, 48); race.rotateX(Math.PI / 2); race.scale(d.w * .36, .5, d.d * .28);
+      top.add(at(mesh(race, mat(d.ring, {metalness: .3}), false), 0, TH, 0));
+    } else {
+      top.add(at(mesh(new T.BoxGeometry(d.w + .6, PL, d.w + .6), mat('#c0773f', {metalness: .3})), 0, -PL / 2, 0));
+      const t3 = d.w / 3;
+      for (let r0 = 0; r0 < 3; r0++) for (let c0 = 0; c0 < 3; c0++)
+        top.add(at(mesh(new T.BoxGeometry(t3 - .14, TH, t3 - .14), mat((r0 + c0) % 2 ? d.metal : d.ring, {metalness: .2})), -d.w / 2 + t3 * (c0 + .5), TH / 2, -d.w / 2 + t3 * (r0 + .5)));
+    }
+    const decoR = d.shape === 'disc' ? R : d.shape === 'rect' ? d.w / 2 : d.w / 2;
+    for (const [deg, rr, g] of (DECOR[i.id] || (() => []))()) { g.position.set(rr * decoR * Math.cos(deg * D2R), topY, rr * decoR * Math.sin(deg * D2R)); top.add(g); }
+    const dyn = new T.Group(); top.add(dyn);
+    root.traverse(o => { o.userData.pick = i.id; });
+    scene.add(root);
+    const lbl = el('div', 'lbl'), nm = el('b', '', i.name), sub = el('small', ''); lbl.append(nm, sub); overlay.append(lbl);
+    const rim = d.shape === 'disc' ? [R * .86, R * .86] : d.shape === 'rect' ? [d.w * .44, d.d * .4] : [d.w * .5, d.w * .5];
+    nodes[i.id] = {i, d, root, top, dyn, topY, rim, x, z, lbl, sub, hover: 0, reach};
+  }
+
+  // ---- links between related islands: dashed arcs, highlighted (with a label) around the focused island ----
+  const links = B.links.map(([a, b, label]) => {
+    const geo = new T.BufferGeometry(), line = new T.Line(geo, new T.LineDashedMaterial({color: '#ffffff', dashSize: .7, gapSize: .5, transparent: true, opacity: .8}));
+    scene.add(line); const tag = el('div', 'link-tag', label); tag.hidden = true; tag.dataset.anchor = '-50%,-50%'; overlay.append(tag);
+    return {a, b, line, tag};
+  });
+
+  // ---- treasure: a spinning gold target with a sparkle ----
+  const treasure = new T.Group();
+  const coin = mesh(new T.CylinderGeometry(.5, .5, .14, 28), mat('#f2b705', {metalness: .7, roughness: .25, emissive: '#b7791f', emissiveIntensity: .25}));
+  coin.rotation.x = Math.PI / 2; coin.position.y = .8;
+  const star = mesh(new T.OctahedronGeometry(.16), mat('#ffffff', {emissive: '#ffffff', emissiveIntensity: 1}), false); star.position.set(.45, 1.35, 0);
+  treasure.add(coin, star); treasure.traverse(o => { o.userData.pick = 'treasure'; });
+
+  // ---- 靶靶: the guide, a little figure with a target for a head ----
+  const G = new T.Group(), gBody = new T.Group(); G.add(gBody);
+  const navy = mat('#1e2a4a'), blue = mat('#3b5bdb'), ink = mat('#162033', {roughness: .3});
+  gBody.add(at(mesh(new T.CylinderGeometry(.11, .11, .5, 8), navy), -.17, .25, 0), at(mesh(new T.CylinderGeometry(.11, .11, .5, 8), navy), .17, .25, 0),
+    at(mesh(new T.CylinderGeometry(.36, .42, .75, 14), blue), 0, .85, 0), at(mesh(new T.CylinderGeometry(.43, .43, .12, 14), mat('#f76707')), 0, .7, 0));
+  const armL = at(mesh(new T.CylinderGeometry(.08, .08, .55, 8), blue), -.48, .95, 0), armR = at(mesh(new T.CylinderGeometry(.08, .08, .55, 8), blue), .5, 1.05, 0);
+  armL.rotation.z = -.5; armR.rotation.z = .9; gBody.add(armL, armR);
+  gBody.add(at(mesh(new T.CylinderGeometry(.025, .025, 1.3, 6), ink), .72, 1.5, 0));
+  const pen = new T.Shape(); pen.moveTo(0, 0); pen.lineTo(.5, -.15); pen.lineTo(0, -.3); pen.closePath();
+  gBody.add(at(mesh(new T.ShapeGeometry(pen), mat('#f76707', {side: T.DoubleSide})), .73, 2.15, 0));
+  const head = new T.Group(); head.position.y = 1.75; gBody.add(head);
+  const face = new T.CylinderGeometry(.58, .58, .26, 32); face.rotateX(Math.PI / 2);
+  head.add(mesh(face, mat('#dde3ec', {metalness: .4, roughness: .35})));
+  const hr = new T.TorusGeometry(.4, .025, 6, 32); head.add(at(mesh(hr, mat('#b5bdcb'), false), 0, 0, .135));
+  head.add(at(mesh(new T.SphereGeometry(.07, 10, 8), ink, false), -.18, .08, .14), at(mesh(new T.SphereGeometry(.07, 10, 8), ink, false), .18, .08, .14));
+  const blush = [-.33, .33].map(x => at(mesh(new T.CircleGeometry(.07, 12), mat('#ff8787', {transparent: true, opacity: .8}), false), x, -.08, .135));
+  head.add(...blush);
+  const mouthGeo = new T.TorusGeometry(.12, .025, 6, 14, Math.PI);
+  const smile = at(mesh(mouthGeo, ink, false), 0, -.08, .14), frown = at(mesh(mouthGeo, ink, false), 0, -.2, .14);
+  smile.rotation.z = Math.PI; head.add(smile, frown); frown.visible = false;
+  const sweat = at(mesh(new T.SphereGeometry(.07, 8, 6), mat('#74c0fc'), false), .5, .38, .1); sweat.visible = false; head.add(sweat);
+  const shadowDisc = at(new T.Mesh(new T.CircleGeometry(.45, 20), new T.MeshBasicMaterial({color: '#000000', transparent: true, opacity: .18, depthWrite: false})), 0, .02, 0);
+  shadowDisc.rotation.x = -Math.PI / 2; G.add(shadowDisc);
+  G.traverse(o => { o.castShadow = o.castShadow && o !== shadowDisc; o.userData.pick = 'guide'; });
+  scene.add(G);
+  const bubble = el('div', 'gbubble off'); bubble.dataset.anchor = '-50%,-100%'; overlay.append(bubble);
+  const early = $('bubble0'); if (early) early.remove();
+
+  // ---- camera: orbit around a target, eased toward the overview or the focused island; drag to turn ----
+  const cam = {x: OVERVIEW.x, z: OVERVIEW.z, r: OVERVIEW.r, pitch: OVERVIEW.pitch, yaw: 0};
+  let goal = Object.assign({}, OVERVIEW), dragYaw = 0, dragPitch = 0, drag = null, dragMoved = false, hovered = null;
+  const ray = new T.Raycaster(), ndc = new T.Vector2();
+  const pickAt = e => { const b = canvas.getBoundingClientRect(); ndc.set((e.clientX - b.left) / b.width * 2 - 1, -(e.clientY - b.top) / b.height * 2 + 1);
+    ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(scene.children, true).find(h => h.object.userData.pick && h.object.visible);
+    return hit ? hit.object.userData.pick : null; };
+  canvas.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY, yaw: dragYaw, pitch: dragPitch}; dragMoved = false; });
+  canvas.addEventListener('pointermove', e => {
+    if (drag) { const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (!dragMoved && Math.hypot(dx, dy) > 5) { dragMoved = true; canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId); canvas.classList.add('grab'); }
+      if (dragMoved) { dragYaw = Math.max(-70, Math.min(70, drag.yaw - dx * .3)); dragPitch = Math.max(-20, Math.min(22, drag.pitch + dy * .2)); }
+      return; }
+    const id = e.pointerType === 'mouse' ? pickAt(e) : null; hovered = id && id !== 'plaza' && ISL[id] ? id : null;
+    canvas.style.cursor = id ? 'pointer' : 'grab';
+  });
+  const end = e => {
+    canvas.classList.remove('grab');
+    if (drag && !dragMoved && e.type === 'pointerup') {
+      const id = pickAt(e);
+      if (id === 'guide') guide.poke();
+      else if (id === 'treasure') findTreasure();
+      else go(id && ISL[id] ? id : null);
+    }
+    drag = null;
+  };
+  canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('pointerleave', () => { hovered = null; });
+
+  const resize = () => { const w = stage.clientWidth, h = Math.round(Math.max(380, Math.min(640, w * .68)));
+    renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  new ResizeObserver(resize).observe(stage); resize();
+
+  const v3 = new T.Vector3();
+  const screen = p => { v3.copy(p).project(camera); return [(v3.x + 1) / 2 * canvas.clientWidth, (1 - v3.y) / 2 * canvas.clientHeight, v3.z < 1]; };
+  // overlays: each div is anchored by its data-anchor (default: top centre)
+  const place = (div, p) => { const [sx, sy, ok] = screen(p);
+    div.style.transform = `translate(${sx.toFixed(1)}px,${sy.toFixed(1)}px) translate(${div.dataset.anchor || '-50%,0'})`; div.style.visibility = ok ? '' : 'hidden'; };
+
+  W3 = {
+    nodes, links, treasure, deco, mesh, mat, at, T,
+    G, gBody, head, smile, frown, sweat, blush, bubble,
+    focusOn(id) { const n = id && nodes[id]; goal = n ? {x: n.x, z: n.z + 1, r: CLOSE.r, pitch: CLOSE.pitch} : Object.assign({}, OVERVIEW); },
+    yaw: () => cam.yaw,
+  };
+
+  let t = 0, last = performance.now();
+  const loop = now => {
+    const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt;
+    // islands bob, sway on their own axis and lift a little under the mouse
+    for (const id in nodes) {
+      const n = nodes[id], ph = PHASE[id];
+      n.root.position.y = RM ? 0 : .35 * Math.sin(t * 2 * Math.PI / 3.2 + ph);
+      n.top.rotation.y = RM ? 0 : 9 * D2R * Math.sin(t * 2 * Math.PI / 7 + ph);
+      n.top.rotation.z = RM ? 0 : .025 * Math.sin(t * 2 * Math.PI / 5 + ph * 1.3);
+      n.hover += ((hovered === id || focus === id ? 1 : 0) - n.hover) * Math.min(1, dt * 8);
+      n.root.scale.setScalar(1 + .05 * n.hover);
+      // name tag just below the island's rim on the side facing the camera
+      place(n.lbl, new T.Vector3(n.x + Math.sin(cam.yaw) * (n.reach + .3), n.root.position.y - PL - .6, n.z + Math.cos(cam.yaw) * (n.reach + .3)));
+    }
+    // links follow the islands
+    for (const L of links) {
+      const A = nodes[L.a].root.position, Bp = nodes[L.b].root.position, mid = A.clone().add(Bp).multiplyScalar(.5); mid.y += 2.2;
+      const pts = new T.QuadraticBezierCurve3(A.clone().setY(A.y + TH), mid, Bp.clone().setY(Bp.y + TH)).getPoints(24);
+      L.line.geometry.setFromPoints(pts); L.line.computeLineDistances();
+      if (!L.tag.hidden) { const f = focus === L.a ? pts : pts.slice().reverse(); place(L.tag, f[15].clone().setY(f[15].y + .8)); }
+    }
+    if (treasure.parent) { coin.rotation.z = RM ? .5 : t * 2; star.scale.setScalar(RM ? 1 : .6 + .5 * Math.abs(Math.sin(t * 3))); }
+    for (const f of anim) f(t);
+    // sea waves and clouds
+    if (!RM) {
+      for (let k = 0; k < seaPos.count; k++) { const x = seaBase[k * 3], z = seaBase[k * 3 + 2];
+        seaPos.setY(k, .35 * Math.sin(x * .18 + t * .9) + .25 * Math.cos(z * .21 + t * .7)); }
+      seaPos.needsUpdate = true; seaGeo.computeVertexNormals();
+      clouds.forEach((c, k) => { const a = c.a + t * .01 * (k % 2 ? 1 : -1); c.c.position.x = Math.cos(a) * c.rr; c.c.position.z = Math.sin(a) * c.rr - 6; });
+    }
+    // camera eases toward its goal; a slow idle sway when nobody is dragging
+    if (!drag) { dragYaw *= RM ? 1 : .995; dragPitch *= RM ? 1 : .99; }
+    const k = Math.min(1, dt * 3.2);
+    cam.x += (goal.x - cam.x) * k; cam.z += (goal.z - cam.z) * k; cam.r += (goal.r * Math.max(1, 1.45 / camera.aspect) - cam.r) * k;  // narrow screens: step back so the ring fits cam.pitch += (goal.pitch - cam.pitch) * k;
+    cam.yaw = (dragYaw + (RM ? 0 : 6 * Math.sin(t * 2 * Math.PI / 24))) * D2R;
+    const p = Math.max(18, Math.min(72, cam.pitch + dragPitch)) * D2R;
+    camera.position.set(cam.x + cam.r * Math.cos(p) * Math.sin(cam.yaw), cam.r * Math.sin(p), cam.z + cam.r * Math.cos(p) * Math.cos(cam.yaw));
+    camera.lookAt(cam.x, 0, cam.z);
+    guide.tick(dt, t);
+    if (!bubble.classList.contains('off')) place(bubble, G.position.clone().setY(G.position.y + 2.7));
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  };
+  render(); guide.home();
+  if (focus) { W3.focusOn(focus); guide.place(focus, -1.3, 2.0); }  // ?island= was opened before three.js arrived
+  requestAnimationFrame(loop);
+}
+
+// Rebuild what depends on progress: studs (one per question, lit when answered), conquest flags,
+// label text, the link highlight and the treasure.
+function render() {
+  if (!W3) return;
+  const {nodes, links, treasure, deco, mesh, mat, at, T} = W3;
+  const STUD = W3.stud || (W3.stud = {post: new T.CylinderGeometry(.14, .14, .4, 8), cap: new T.SphereGeometry(.15, 10, 6)});  // shared by every rebuild
+  for (const id in nodes) {
+    const n = nodes[id], i = n.i, plaza = !!i.plaza, done = !plaza && conquered(i);
+    const cnt = plaza ? 0 : i.id === 'play' ? 6 : i.questions.length, k = plaza ? 0 : lit(i);
+    n.dyn.clear();
+    for (let j = 0; j < cnt; j++) {
+      const on = i.id === 'play' ? matchDone : solved.has(i.questions[j].id), a = j / cnt * Math.PI * 2;
+      const s = new T.Group(); s.position.set(n.rim[0] * Math.cos(a), n.topY, n.rim[1] * Math.sin(a));
+      s.add(at(mesh(STUD.post, mat(on ? '#f08c00' : '#868e96')), 0, .2, 0),
+        at(mesh(STUD.cap, on ? mat('#ffe066', {emissive: '#ffd43b', emissiveIntensity: 1.1}) : mat('#ced4da'), false), 0, .45, 0));
+      n.dyn.add(s);
+    }
+    if (done) n.dyn.add(deco.flag());
+    n.dyn.traverse(o => { o.userData.pick = id; });
+    n.sub.textContent = plaza ? '' : i.id === 'play' ? (matchDone ? '已完成' : '小遊戲') : `${k} / ${cnt}`;
+    n.lbl.classList.toggle('on', focus === id);
+  }
+  for (const L of links) {
+    const on = !!focus && (focus === L.a || focus === L.b);
+    L.line.material.color.set(on ? '#f76707' : '#ffffff'); L.line.material.opacity = on ? 1 : .75; L.tag.hidden = !on;
+  }
+  if (treasure.parent) treasure.parent.remove(treasure);
+  if (B.treasure && !found() && nodes[B.treasure]) { const n = nodes[B.treasure]; treasure.position.set(-n.rim[0] * .55, n.topY, n.rim[1] * .4); n.top.add(treasure); }
+}
+function findTreasure() {
+  treasureFound = B.treasure; save(); render(); hud();
+  guide.goTo(B.treasure, -1.2, .9, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
+  toast('✨ 找到金色靶材!');
+}
+
+// ---------- 靶靶: the guide character ----------
+// Hops between islands, then rides along on the island it stands on (a spot in that island's own
+// frame, so it bobs and turns with it). Without the 3D map only the speech bubble is shown.
+const guide = (() => {
+  let tip = 0, hideT = null, anchor = null, hop = null, react = null, standOn = 'plaza';
+  const spot = (id, ox, oz) => () => { const n = W3.nodes[id]; return n.top.localToWorld(new W3.T.Vector3(ox, n.topY, oz)); };
+  const mood = m => { if (!W3) return; W3.smile.visible = m !== 'sad'; W3.frown.visible = m === 'sad'; W3.sweat.visible = m === 'sad';
+    W3.blush.forEach(b => { b.visible = m !== 'sad'; }); W3.smile.scale.setScalar(m === 'happy' ? 1.3 : 1); };
+  const api = {
+    home() { api.place('plaza', 1.8, 1.1); },
+    place(id, ox, oz) { anchor = spot(id, ox, oz); standOn = id; hop = null; W3.G.position.copy(anchor()); },
+    goTo(id, ox, oz, done) {
+      if (!W3) { done && done(); return; }
+      const to = spot(id, ox, oz), from = W3.G.position.clone(), dist = from.distanceTo(to());
+      anchor = null; standOn = id;
+      hop = {to, from, t0: performance.now(), dur: RM || dist < .05 ? 0 : Math.min(1100, 380 + dist * 45), h: Math.min(5, 1 + dist * .25), done};
+    },
+    tick(dt, t) {
+      const G = W3.G, body = W3.gBody;
+      if (hop) {
+        const p = hop.dur ? Math.min(1, (performance.now() - hop.t0) / hop.dur) : 1, e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        G.position.lerpVectors(hop.from, hop.to(), e); G.position.y += Math.sin(p * Math.PI) * hop.h;
+        if (p >= 1) { const d = hop.done; anchor = hop.to; hop = null; d && d(); }
+      } else if (anchor) G.position.copy(anchor());
+      // face the camera; idle breathing, jump for joy, shake when sad
+      G.rotation.y = W3.yaw();
+      let y = RM ? 0 : .05 * Math.abs(Math.sin(t * 2.2)), rz = 0, sc = 1;
+      if (hop && !RM) y = .12 * Math.abs(Math.sin(t * 16));
+      if (react) { const p = (performance.now() - react.t0) / 1300;
+        if (p >= 1) { react = null; mood('calm'); }
+        else if (!RM && react.kind === 'jump') { const q = (p * 2) % 1; y = Math.sin(q * Math.PI) * .9; sc = 1 + .05 * Math.sin(q * Math.PI); }
+        else if (!RM) rz = .25 * Math.sin(p * Math.PI * 8) * (1 - p); }
+      body.position.y = y; body.rotation.z = rz; body.scale.set(sc, 2 - sc, sc);
+    },
+    react(kind, m) { react = {kind, t0: performance.now()}; mood(m); },
+    say(text) {
+      const live = $('guide-live'); if (live) live.textContent = text;
+      // before the 3D map is ready (or without it) the bubble sits in the corner of the stage
+      let b = W3 ? W3.bubble : $('bubble0');
+      if (!b) { b = el('div', 'gbubble corner off'); b.id = 'bubble0'; $('stage').append(b); }
+      clearTimeout(hideT); b.replaceChildren(...wrap(text, 13).slice(0, 5).map(l => el('div', '', l)));
+      b.classList.remove('off'); hideT = setTimeout(() => b.classList.add('off'), Math.max(3500, text.length * 140));
+    },
+    poke() { api.react('jump', 'happy'); api.say(B.tips[tip++ % B.tips.length]); },
+    on: () => standOn,
+  };
+  return api;
+})();
 const praise = ['答對了!又點亮一棟!', '太厲害了!', '正確!這棟亮起來了!', '靶材達人就是你!'];
 const cheer = ['差一點!看完解說再挑戰一次~', '沒關係,建築可以重新挑戰!', '再想想看,答案就在解說裡。'];
 const pickOne = a => a[Math.floor(Math.random() * a.length)];
 function guideTo(id) {
   const i = id && ISL[id];
-  if (!i) { guide.goTo('plaza', 26, 16, () => guide.say('這裡是靶材廣場。點一座島,我帶你去探險!')); return; }
+  if (!i) { guide.goTo('plaza', 1.8, 1.1, () => guide.say('這裡是靶材廣場。點一座島,我帶你去探險!')); return; }
   const left = i.questions.length - lit(i);
-  guide.goTo(i.id, -20, 34, () => guide.say(
+  guide.goTo(i.id, -1.3, 2.0, () => guide.say(
     i.id === 'play' ? '翻牌配對元素符號和中文名,記住位置喔!' :
     conquered(i) ? `${i.name}已經征服了 🚩 去下一座島吧!` : `${i.name}到了!還有 ${left} 棟建築等你點亮。`));
-}
-function camera(target) {
-  const from = view.slice(), t0 = performance.now(), dur = RM ? 0 : 450;
-  const step = now => { const p = dur ? Math.min(1, (now - t0) / dur) : 1, e = 1 - Math.pow(1 - p, 3);
-    view = from.map((v, k) => v + (target[k] - v) * e); svg.setAttribute('viewBox', view.join(' ')); if (p < 1) requestAnimationFrame(step); };
-  requestAnimationFrame(step);
 }
 function go(id) {
   focus = id && ISL[id] ? id : null;
   const url = new URL(location.href); focus ? url.searchParams.set('island', focus) : url.searchParams.delete('island');
   try { history.replaceState(null, '', url); } catch (e) {}
-  if (focus) { const [cx, cy] = pos(ISL[focus]), w = FULL[2] * .7, h = w * FULL[3] / FULL[2]; camera([cx - w / 2, cy - h / 2 - 10, w, h]); }
-  else camera(FULL);
+  if (W3) W3.focusOn(focus);
   render(); panel(); guideTo(focus);
 }
 function hud() {
@@ -606,7 +739,7 @@ function panel(qid) {
   const i = focus && ISL[focus];
   side.style.setProperty('--c', i ? i.color : 'var(--accent)');
   if (!i) {
-    side.append(el('h3', '', '歡迎來到靶材產業島'), el('p', '', '六座島各是一個主題,島上每棟建築是一道題。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,整座島都點亮就算征服。虛線是島與島之間的關聯,某座島上還藏著每天換位置的金色靶材。點靶靶可以聽小提示。'));
+    side.append(el('h3', '', '歡迎來到靶材產業島'), el('p', '', '六座島各是一個主題,島上每棟建築是一道題。點選島嶼,嚮導靶靶會帶你過去(拖曳地圖可以轉動視角);答對點亮建築,整座島都點亮就算征服。虛線是島與島之間的關聯,某座島上還藏著每天換位置的金色靶材。點靶靶可以聽小提示。'));
     const list = el('div', 'ilist');
     for (const x of B.islands) {
       const r = btn('irow', '', () => go(x.id)), d = el('span', 'dot'); d.style.background = x.color; d.append(icon(x.icon));
@@ -704,7 +837,7 @@ function matchGame(i) {
 
 $('reset').onclick = () => { if (confirm('清除所有進度,重新探索?')) { solved = new Set(); treasureFound = ''; matchDone = false; save(); render(); panel(); guide.say('進度清空了,重新出發吧!'); } };
 $('home').onclick = () => go(null);
-drawMap();
+boot();
 const start = new URLSearchParams(location.search).get('island');
 if (start && ISL[start]) go(start);
 else { panel(); setTimeout(() => guide.say('嗨!我是嚮導靶靶。點一座島,我帶你去!'), 400); }
