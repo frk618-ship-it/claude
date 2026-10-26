@@ -1,0 +1,28 @@
+# LINE 訂單詢價機器人設定(python -m line_order_bot)
+#
+# LINE 金鑰不要寫在這裡,用環境變數:
+#   LINE_CHANNEL_SECRET        Messaging API channel secret(驗證 webhook 簽章)
+#   LINE_CHANNEL_ACCESS_TOKEN  長期 channel access token(回覆 / 推播訊息)
+#   ANTHROPIC_API_KEY          選用:設定後用 Claude 理解客戶的自由文字需求,未設定時用規則解析
+
+company_name: 本公司
+timezone: Asia/Taipei
+db: data/line_order_bot/orders.sqlite3
+
+# 內部窗口:建議把機器人加入一個內部 LINE 群組,在群組輸入 /id 取得群組 ID 後填入。
+# 也可以(或另外)列出窗口個人的 user ID,窗口在與機器人的 1 對 1 聊天中下指令。
+staff_group_id: ""
+staff_user_ids: []
+
+# 報價預設幣別、報價有效天數
+default_currency: TWD
+quote_valid_days: 7
+
+# 詢價超過幾小時仍未報價,執行 `python -m line_order_bot remind` 時提醒窗口
+remind_after_hours: 4
+
+# 最小訂購重量(公斤),0 = 不限制;低於此重量仍會受理,但會提醒客戶與窗口
+min_order_kg: 0
+
+# 有設定 ANTHROPIC_API_KEY 時是否用 Claude 解析客戶訊息
+use_claude: true

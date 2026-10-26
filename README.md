@@ -292,3 +292,85 @@ python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦�
 
 `python -m target_news_agent intranet --src <建好的網站> --out build/intranet [--zip] [--with-source]` 會把網站打包成可放在公司內網的版本:three.js 隨網站提供、改用系統字型(瀏覽時沒有任何對外連線)、不加密頁面(改由 SSO 控管)、絕對網址改為相對網址,並附上 Nginx 設定範例、蒐集主機的每日更新腳本與部署說明(`deploy/intranet/`)。也可以在 GitHub Actions 手動執行「打包內網版」,從 Artifacts 下載。
 
+
+---
+
+# LINE 訂單詢價機器人(`line_order_bot`)
+
+客戶在 LINE 官方帳號傳訊息提出**品項規格與需求重量**,機器人整理成詢價單,推播到**內部窗口群組**;窗口在群組用指令回覆**報價與交期**,客戶按按鈕接受或婉拒,窗口再確認成交。全程記錄在 SQLite。
+
+## 流程
+
+```
+客戶(1 對 1 聊天)                     機器人                         內部窗口群組
+「鈦靶 4N5 Φ300x6.35mm 50公斤          解析品項、重量、交期、交貨地
+  11/20前,送到新竹」 ───────────────►  缺什麼就追問(例如重量要有單位)
+                     ◄──────────────  摘要 +〔送出〕〔修改〕
+〔送出〕 ──────────────────────────►  建立詢價 Q20261026-001  ─────►  🆕 新詢價 +〔認領〕〔明細〕
+                                                                   /詢問 ID 是否需要背板?
+「需要」(自動轉交) ◄───────────────────────────────────────────────►  💬 客戶回覆
+                                                                   /報價 ID 1250 TWD/kg 交期 14天
+報價通知 +〔接受報價〕〔婉拒〕 ◄───────────────────────────────────────
+〔接受報價〕 ───────────────────────────────────────────────────────►  ✅ 客戶接受報價
+                                                                   /成交 ID
+🎉 訂單成立 ◄──────────────────────────────────────────────────────
+```
+
+狀態:待報價 → 處理中 →(待客戶補充)→ 已報價 → 客戶接受 → 訂單成立;另有客戶婉拒、公司婉拒、客戶取消、報價逾期。
+
+## 客戶可以怎麼說
+
+- 一次說完:「我要訂鈦靶 4N5 Φ300x6.35mm 50公斤,11/20前交貨,送到新竹」
+- 分次說:先「鎳粉 3N 325目」,機器人追問重量,再回「200 kg 兩週內」
+- 重量單位:公斤 / kg / 公克 / g / 噸 / 公噸 / t / lb / 磅(全部換算成 kg);交期:2026/11/20、11/20前、兩週內、10個工作天內、急件
+- 其他:「送到 台南」「公司:光明科技」「備註 需附背板」
+- 指令:「我的詢價」查進度、「取消 Q20261026-001」取消、「取消」清除未送出的需求、「說明」
+
+尺寸(Φ300x6.35mm 等)不會被誤認成重量;品項規格沿用 `price_compare` 的材質 / 純度 / 型態解析。設定 `ANTHROPIC_API_KEY` 後改由 Claude(預設 `claude-opus-5-5`,可用 `--model` 或 `LINE_BOT_MODEL` 更換;結構化輸出、已開啟伺服器端 fallback)理解自由文字,規則解析補上 Claude 沒填的欄位;API 失敗時自動退回規則解析。
+
+## 窗口指令(在內部群組輸入)
+
+| 指令 | 說明 |
+|---|---|
+| `/清單`、`/清單 全部` | 未結案詢價 / 最近 20 筆 |
+| `/查 ID` | 明細與處理紀錄 |
+| `/認領 ID` | 由自己負責(新詢價通知上也有〔認領〕按鈕) |
+| `/報價 ID 1250 TWD/kg 交期 2026-11-20 有效 7天 備註 含運` | 送報價給客戶;單位 `/kg` `/g` `/t` 或 `總價`;交期可寫日期或 `14天`;有效天數預設 7 天;交期晚於客戶希望時會提醒雙方 |
+| `/詢問 ID 問題` | 轉問客戶,客戶下一則訊息自動轉回群組 |
+| `/婉拒 ID 原因` | 通知客戶無法承接 |
+| `/成交 ID` | 客戶接受報價後確認訂單 |
+| `/備註 ID 內容` | 內部備註(不通知客戶) |
+| `/id` | 顯示聊天室 ID |
+
+只有 `staff_group_id` 群組(或 `staff_user_ids` 列出的人在 1 對 1 聊天)下的指令有效;客戶只能操作自己的詢價。
+
+## 使用方式
+
+```bash
+pip install -r requirements.txt
+
+# 不需要 LINE 帳號的終端機模擬:直接輸入 = 客戶,s:/指令 = 窗口群組,p:action=… = 按按鈕
+python -m line_order_bot simulate --no-claude
+
+# 正式上線
+export LINE_CHANNEL_SECRET=...            # LINE Developers → Messaging API channel → Basic settings
+export LINE_CHANNEL_ACCESS_TOKEN=...      # Messaging API → Channel access token (long-lived)
+export ANTHROPIC_API_KEY=...              # 選用
+python -m line_order_bot serve --port 8080   # webhook:POST /callback,健康檢查:GET /health
+
+python -m line_order_bot list [--all]     # 列出詢價
+python -m line_order_bot remind           # 超過 remind_after_hours 未報價就提醒群組;報價過期標為逾期(建議排程每小時)
+```
+
+## 上線步驟
+
+1. 在 [LINE Developers](https://developers.line.biz/) 建立 Messaging API channel,取得 channel secret 與 access token。
+2. 把 `serve` 部署到有 HTTPS 的主機(雲端主機 + Nginx 反向代理、Cloud Run 等;本機測試可用 ngrok),在 channel 設定 Webhook URL 為 `https://<網域>/callback`,開啟「Use webhook」,並在 LINE Official Account Manager 關閉「自動回應訊息」。
+3. 在 Messaging API 設定允許機器人加入群組,把機器人加入內部窗口群組,輸入 `/id`,把 `groupId` 填入 `config/line_order_bot.yaml` 的 `staff_group_id`(或設定環境變數 `LINE_STAFF_GROUP_ID`),重新啟動。
+4. `config/line_order_bot.yaml` 可設定公司名稱、預設幣別、報價有效天數、提醒時間、最小訂購量;資料庫預設在 `data/line_order_bot/orders.sqlite3`(已加入 `.gitignore`,請自行備份)。
+
+## 注意事項
+
+- 回覆訊息用 reply(免費);通知窗口與送報價給客戶用 push,會計入 LINE 官方帳號方案的訊息則數。
+- webhook 會驗證 `X-Line-Signature`,簽章不符一律拒絕;事件在背景執行緒處理,webhook 會立即回 200。
+- 報價總價 = 單價 × 客戶需求重量(依 `/kg` `/g` `/t` 換算),是預估值;稅、運費與實際出貨重量請在報價備註或成交後與客戶確認。
