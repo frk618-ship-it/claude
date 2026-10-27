@@ -161,7 +161,7 @@ svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
     </section>
     <section class="card">
       <h2>獲利能力 × 成長四象限</h2>
-      <p class="hint">橫軸:近四季營收年增(成長);縱軸:近四季營業利益率(獲利)。01 象限 = 成長快且獲利高。藍點為焦點公司;滑鼠移上可看數值與靶材比重。<span id="scatter-mid"></span></p>
+      <p class="hint">橫軸:近四季營收年增(成長);縱軸:近四季營業利益率(獲利)。01 象限 = 成長快且獲利高。圖示為各公司 logo,藍框為焦點公司;滑鼠移上可看數值與靶材比重。<span id="scatter-mid"></span></p>
       <div id="scatter" class="chart sk"></div>
     </section>
   </div>
@@ -491,9 +491,9 @@ function renderScatter() {
   const Y = v => cy0 - (v - my) / dy * (H - PT - PB) / 2;
   $("scatter-mid").textContent = `十字把篩選範圍內的公司在兩個軸上各分成數量相同的兩半(約為中位數):營收年增 ${fmt(mx, "pct")}、營業利益率 ${fmt(my, "pct")}。`;
   const legend = el("div", {class: "legend"});
-  const key = (fill, text) => { const i = el("span", {class: "bub"}), d = sv("svg", {width: 12, height: 12, viewBox: "0 0 12 12", "aria-hidden": "true"});
-    d.appendChild(sv("circle", {cx: 6, cy: 6, r: 4, fill})); i.append(d, document.createTextNode(text)); return i; };
-  legend.append(key(cssVar("--accent"), "焦點公司"), key(cssVar("--ink-2"), "其他公司"), el("span", {}, "＊ 多角化(利益率含非靶材部門)"), el("span", {}, "† 季度資料不足 4 季"));
+  const key = (stroke, w, text) => { const i = el("span", {class: "bub"}), d = sv("svg", {width: 16, height: 16, viewBox: "0 0 16 16", "aria-hidden": "true"});
+    d.appendChild(sv("circle", {cx: 8, cy: 8, r: 6.5, fill: cssVar("--surface"), stroke, "stroke-width": w})); i.append(d, document.createTextNode(text)); return i; };
+  legend.append(key(cssVar("--accent"), 2.5, "焦點公司(藍框)"), key(cssVar("--axis"), 1, "其他公司"), el("span", {}, "圖示為公司 logo"), el("span", {}, "＊ 多角化(利益率含非靶材部門)"), el("span", {}, "† 季度資料不足 4 季"));
   box.appendChild(legend);
   const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "獲利能力與成長四象限:橫軸營收成長,縱軸營業利益率,十字為中位數"});
   const defs = sv("defs"); svg.appendChild(defs);
@@ -519,17 +519,28 @@ function renderScatter() {
   let longest = 0;
   order.forEach((c, i) => {
     const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
-    const isF = c.ticker === state.focus, r = 4;
+    // each company is its logo in a small round badge (one size for all; monogram without a logo);
+    // the focus company gets an accent ring
+    const isF = c.ticker === state.focus, r = 11;
     const g = sv("g", {transform: `translate(${cx} ${cy})`}); svg.appendChild(g);
     const body = sv("g", {class: "bub-in"}); g.appendChild(body);
-    body.appendChild(sv("circle", {cx: 0, cy: 0, r, fill: isF ? cssVar("--accent") : cssVar("--ink-2"), stroke: cssVar("--surface"), "stroke-width": 2}));
+    body.appendChild(sv("circle", {cx: 0, cy: 0, r, fill: cssVar("--surface"), stroke: isF ? cssVar("--accent") : cssVar("--axis"), "stroke-width": isF ? 2.5 : 1}));
+    const inner = r - (isF ? 2.5 : 1.5);
+    if (c.logo) {
+      const id = "lg-" + c.ticker.replace(/[^A-Za-z0-9]/g, "_");
+      const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx: 0, cy: 0, r: inner})); defs.appendChild(clip);
+      body.appendChild(sv("image", {href: c.logo, x: -inner * 0.9, y: -inner * 0.9, width: inner * 1.8, height: inner * 1.8,
+        preserveAspectRatio: "xMidYMid meet", "clip-path": `url(#${id})`}));
+    } else {
+      body.appendChild(sv("text", {x: 0, y: 4, "text-anchor": "middle", class: "strong", "font-size": 11}, [...shortName(c)][0] || ""));
+    }
     labels.push({c, cx, cy, r, isF, text: shortName(c) + (c.target_focus === "diversified" ? "＊" : "") + (yoyShort(c) ? "†" : "")});
-    const hit = sv("circle", {cx: 0, cy: 0, r: 12, fill: "transparent", tabindex: 0});
+    const hit = sv("circle", {cx: 0, cy: 0, r: r + 3, fill: "transparent", tabindex: 0});
     const rows = [{label: "靶材比重", value: c.focus_label || "—"},
       {label: yoyLabel(c), value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
       {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
       {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
-    const grow = on => { body.style.transform = on ? "scale(1.6)" : ""; };
+    const grow = on => { body.style.transform = on ? "scale(1.25)" : ""; };
     hit.addEventListener("pointermove", e => { grow(true); showTip(e, `${c.name}(${c.ticker})`, rows); });
     hit.addEventListener("pointerleave", () => { grow(false); hideTip(); });
     hit.addEventListener("focus", () => { grow(true); const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
@@ -560,7 +571,7 @@ function placeLabels(svg, labels, W, cross, reserved = []) {
   const onAxis = b => cross && ((b.x1 < cross.x && b.x2 > cross.x) || (b.y1 < cross.y && b.y2 > cross.y));
   const placed = [...reserved];   // e.g. the quadrant tags
   for (const l of [...labels].sort((a, b) => b.isF - a.isF)) {
-    const w = textW(l.text), h = 13, gap = l.r + 4;   // 8px from a 4px dot
+    const w = textW(l.text), h = 13, gap = l.r + 5;   // just clear of the badge
     const spots = [
       {x: l.cx + gap, y: l.cy + 4, anchor: "start"}, {x: l.cx - gap, y: l.cy + 4, anchor: "end"},
       {x: l.cx, y: l.cy - gap, anchor: "middle"}, {x: l.cx, y: l.cy + gap + 10, anchor: "middle"},
