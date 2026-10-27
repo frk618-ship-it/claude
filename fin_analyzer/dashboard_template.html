@@ -109,7 +109,11 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
 .sk:empty { border-radius: 4px; background: var(--grid); animation: sk 1.2s ease-in-out infinite alternate; }
 #tiles.sk:empty { min-height: 86px; }
 #rank.sk:empty { min-height: 330px; }
-#scatter.sk:empty { min-height: 330px; }
+#scatter.sk:empty { min-height: 380px; }
+/* quadrant: 1px ink cross, eyebrow-style tags and arrow words (diagram-design standard quadrant) */
+svg .qaxis { stroke: var(--ink-1); stroke-width: 1; }
+svg .qword { fill: var(--ink-1); font-size: 12px; letter-spacing: .18em; }
+svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
 #trend.sk:empty, #monthly.sk:empty { min-height: 280px; }
 .tablewrap .sk:empty { display: block; min-height: 420px; }
 @keyframes sk { from { opacity: .45; } to { opacity: .9; } }
@@ -156,8 +160,8 @@ h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
       <div id="rank" class="chart sk"></div>
     </section>
     <section class="card">
-      <h2>獲利能力 × 成長</h2>
-      <p class="hint">橫軸:近四季營收年增;縱軸:近四季營業利益率。右上象限 = 成長且高獲利。圖示為各公司 logo;泡泡越大 = 靶材營收比重越高,小泡泡是多角化公司,利益率反映全公司(多為非靶材部門);藍框為焦點公司;† = 季度資料不足 4 季(美、中公司),營收年增改以最近 2–3 季合計比較去年同期。</p>
+      <h2>獲利能力 × 成長四象限</h2>
+      <p class="hint">橫軸:近四季營收年增(成長);縱軸:近四季營業利益率(獲利)。01 象限 = 成長快且獲利高。藍點為焦點公司;滑鼠移上可看數值與靶材比重。<span id="scatter-mid"></span></p>
       <div id="scatter" class="chart sk"></div>
     </section>
   </div>
@@ -463,104 +467,110 @@ const yoyShort = c => c.yoy_quarters && c.yoy_quarters < 4;
 const yoyLabel = c => yoyShort(c) ? `近 ${c.yoy_quarters} 季營收年增(季度資料不足 4 季)` : "近四季營收年增";
 const tfBadge = c => TF[c.target_focus] ? el("span", {class: "tf " + c.target_focus, title: "靶材營收比重:" + c.focus_label}, TF[c.target_focus].short) : null;
 
-// ---------- scatter ----------
+// ---------- profit x growth quadrant ----------
+// Drawn to diagram-design's standard quadrant: a thin ink cross through the centre, single-ended
+// arrows with one word at each tip (never on the lines, never at the midpoint), r=4 dots with
+// labels 8px away that stay off the axes, a corner tag per quadrant, no coloured quadrant fills,
+// and one accent item (the focus company, in the dashboard's accent so it matches the ranking).
+// The cross splits the companies in view into two equal halves on each axis (the median; with an
+// odd count, halfway between the middle company and its upper neighbour, so no company sits on a
+// line) and the range is symmetric around it, so the cross is the centre. Exact values are in the
+// tooltip and the table.
+const split = a => { const s = [...a].sort((p, q) => p - q), m = s.length >> 1;
+  return s.length === 1 ? s[0] : s.length % 2 ? (s[m] + s[m + 1]) / 2 : (s[m - 1] + s[m]) / 2; };
 function renderScatter() {
   const box = $("scatter"); box.replaceChildren();
   const pts = visible().filter(c => val(c, "revenue_ttm_yoy") !== null && val(c, "operating_margin_ttm") !== null);
   if (!pts.length) { box.appendChild(el("div", {class: "empty"}, "資料不足(需至少 8 季資料才能計算近四季年增)")); return; }
-  const W = 560, H = 330, L = 48, R = 16, T = 12, B = 34;
   const xs = pts.map(c => val(c, "revenue_ttm_yoy")), ys = pts.map(c => val(c, "operating_margin_ttm"));
-  const xt = niceTicks(Math.min(0, ...xs), Math.max(0, ...xs), 5), yt = niceTicks(Math.min(0, ...ys), Math.max(0, ...ys), 5);
-  const X = v => L + (v - xt[0]) / (xt[xt.length - 1] - xt[0]) * (W - L - R);
-  const Y = v => H - B - (v - yt[0]) / (yt[yt.length - 1] - yt[0]) * (H - T - B);
-  const legend = el("div", {class: "legend", "aria-label": "泡泡大小 = 靶材營收比重"});
-  legend.appendChild(el("span", {}, "泡泡大小 = 靶材比重:"));
-  for (const [k, t] of Object.entries(TF)) {
-    if (!pts.some(c => c.target_focus === k)) continue;
-    const item = el("span", {class: "bub"}), d = 2 * t.r + 2;
-    const ic = sv("svg", {width: d, height: d, viewBox: `0 0 ${d} ${d}`, "aria-hidden": "true"});
-    ic.appendChild(sv("circle", {cx: d / 2, cy: d / 2, r: t.r, fill: cssVar("--surface"), stroke: cssVar("--axis"), "stroke-width": 1.5}));
-    item.append(ic, document.createTextNode(FOCUS_TEXT[k])); legend.appendChild(item);
-  }
+  const mx = split(xs), my = split(ys);
+  const dx = Math.max(...xs.map(v => Math.abs(v - mx)), 0.01) * 1.3, dy = Math.max(...ys.map(v => Math.abs(v - my)), 0.01) * 1.3;
+  const W = 560, H = 380, PL = 24, PR = 76, PT = 44, PB = 24;      // room for the arrow-tip words
+  const cx0 = PL + (W - PL - PR) / 2, cy0 = PT + (H - PT - PB) / 2;
+  const X = v => cx0 + (v - mx) / dx * (W - PL - PR) / 2;
+  const Y = v => cy0 - (v - my) / dy * (H - PT - PB) / 2;
+  $("scatter-mid").textContent = `十字把篩選範圍內的公司在兩個軸上各分成數量相同的兩半(約為中位數):營收年增 ${fmt(mx, "pct")}、營業利益率 ${fmt(my, "pct")}。`;
+  const legend = el("div", {class: "legend"});
+  const key = (fill, text) => { const i = el("span", {class: "bub"}), d = sv("svg", {width: 12, height: 12, viewBox: "0 0 12 12", "aria-hidden": "true"});
+    d.appendChild(sv("circle", {cx: 6, cy: 6, r: 4, fill})); i.append(d, document.createTextNode(text)); return i; };
+  legend.append(key(cssVar("--accent"), "焦點公司"), key(cssVar("--ink-2"), "其他公司"), el("span", {}, "＊ 多角化(利益率含非靶材部門)"), el("span", {}, "† 季度資料不足 4 季"));
   box.appendChild(legend);
-  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "營業利益率與營收成長散佈圖(泡泡大小為靶材營收比重)"});
-  for (const t of xt) { svg.appendChild(sv("line", {x1: X(t), x2: X(t), y1: T, y2: H - B, class: t === 0 ? "baseline" : "gridline"}));
-    svg.appendChild(sv("text", {x: X(t), y: H - B + 16, "text-anchor": "middle", class: "muted"}, fmtAxis(t, "pct"))); }
-  for (const t of yt) { svg.appendChild(sv("line", {x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: t === 0 ? "baseline" : "gridline"}));
-    svg.appendChild(sv("text", {x: L - 6, y: Y(t) + 4, "text-anchor": "end", class: "muted"}, fmtAxis(t, "pct"))); }
-  svg.appendChild(sv("text", {x: W - R, y: H - 4, "text-anchor": "end", class: "muted"}, "近四季營收年增 →"));
-  svg.appendChild(sv("text", {x: L, y: T - 2, class: "muted"}, "↑ 營業利益率"));
-  // big bubbles first so small ones stay on top; the focus company last
-  const rOf = c => (TF[c.target_focus] || {r: 12}).r;
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "獲利能力與成長四象限:橫軸營收成長,縱軸營業利益率,十字為中位數"});
   const defs = sv("defs"); svg.appendChild(defs);
+  const mk = sv("marker", {id: "qa", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse"});
+  mk.appendChild(sv("path", {d: "M0,0 L10,5 L0,10 z", fill: cssVar("--ink-1")})); defs.appendChild(mk);
+  // quadrant corner tags (eyebrow style), numbered from the top-right; the words match the axis words
+  const tags = [[W - PR - 8, PT + 14, "end", "01 · 成長快 / 獲利高"], [PL + 8, PT + 14, "start", "02 · 成長慢 / 獲利高"],
+                [W - PR - 8, H - PB - 8, "end", "03 · 成長快 / 獲利低"], [PL + 8, H - PB - 8, "start", "04 · 成長慢 / 獲利低"]];
+  const tagBoxes = [];
+  for (const [x, y, anchor, t] of tags) {
+    svg.appendChild(sv("text", {x, y, "text-anchor": anchor, class: "qtag"}, t));
+    const w = [...t].reduce((n, ch) => n + (ch.charCodeAt(0) > 0x2e80 ? 12 : 7.5), 0);
+    tagBoxes.push({x1: anchor === "end" ? x - w : x, x2: anchor === "end" ? x : x + w, y1: y - 11, y2: y + 3});
+  }
+  // the cross: 1px ink, single-ended arrows
+  svg.appendChild(sv("line", {x1: PL, y1: cy0, x2: W - PR, y2: cy0, class: "qaxis", "marker-end": "url(#qa)"}));
+  svg.appendChild(sv("line", {x1: cx0, y1: H - PB, x2: cx0, y2: PT, class: "qaxis", "marker-end": "url(#qa)"}));
+  svg.appendChild(sv("text", {x: W - PR + 12, y: cy0, "text-anchor": "start", "dominant-baseline": "middle", class: "qword"}, "成長"));
+  svg.appendChild(sv("text", {x: cx0, y: PT - 12, "text-anchor": "middle", class: "qword"}, "獲利"));
   const labels = [];
-  const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus) || rOf(b) - rOf(a));
+  const order = [...pts].sort((a, b) => (a.ticker === state.focus) - (b.ticker === state.focus));
   const prev = scatterPrev; scatterPrev = {};
   let longest = 0;
   order.forEach((c, i) => {
     const cx = X(val(c, "revenue_ttm_yoy")), cy = Y(val(c, "operating_margin_ttm"));
-    const isF = c.ticker === state.focus, r = rOf(c);
-    // each bubble is drawn around (0,0) inside a group that is moved into place, so it can glide and pop
+    const isF = c.ticker === state.focus, r = 4;
     const g = sv("g", {transform: `translate(${cx} ${cy})`}); svg.appendChild(g);
     const body = sv("g", {class: "bub-in"}); g.appendChild(body);
-    // bubble = the company's logo in a white disc (monogram when there is no logo); focus gets an accent ring
-    body.appendChild(sv("circle", {cx: 0, cy: 0, r, fill: cssVar("--surface"), stroke: isF ? cssVar("--s1") : cssVar("--axis"), "stroke-width": isF ? 3 : 1.5}));
-    const inner = r - (isF ? 3 : 2);
-    if (c.logo) {
-      const id = "lg-" + c.ticker.replace(/[^A-Za-z0-9]/g, "_");
-      const clip = sv("clipPath", {id}); clip.appendChild(sv("circle", {cx: 0, cy: 0, r: inner})); defs.appendChild(clip);
-      body.appendChild(sv("image", {href: c.logo, x: -inner * 0.94, y: -inner * 0.94, width: inner * 1.88, height: inner * 1.88,
-        preserveAspectRatio: "xMidYMid meet", "clip-path": `url(#${id})`}));
-    } else {
-      body.appendChild(sv("text", {x: 0, y: r * 0.32, "text-anchor": "middle", class: "strong", "font-size": Math.round(r * 0.95)}, [...shortName(c)][0] || ""));
-    }
+    body.appendChild(sv("circle", {cx: 0, cy: 0, r, fill: isF ? cssVar("--accent") : cssVar("--ink-2"), stroke: cssVar("--surface"), "stroke-width": 2}));
     labels.push({c, cx, cy, r, isF, text: shortName(c) + (c.target_focus === "diversified" ? "＊" : "") + (yoyShort(c) ? "†" : "")});
-    const hit = sv("circle", {cx: 0, cy: 0, r: Math.max(14, r + 4), fill: "transparent", tabindex: 0});
+    const hit = sv("circle", {cx: 0, cy: 0, r: 12, fill: "transparent", tabindex: 0});
     const rows = [{label: "靶材比重", value: c.focus_label || "—"},
       {label: yoyLabel(c), value: fmt(val(c, "revenue_ttm_yoy"), "pct")},
       {label: "營業利益率", value: fmt(val(c, "operating_margin_ttm"), "pct")},
       {label: `近四季營收(${D.unit_label})`, value: fmt(val(c, "revenue_ttm"), "amt")}];
-    const grow = on => { body.style.transform = on ? "scale(1.18)" : ""; };
+    const grow = on => { body.style.transform = on ? "scale(1.6)" : ""; };
     hit.addEventListener("pointermove", e => { grow(true); showTip(e, `${c.name}(${c.ticker})`, rows); });
     hit.addEventListener("pointerleave", () => { grow(false); hideTip(); });
     hit.addEventListener("focus", () => { grow(true); const b = hit.getBoundingClientRect(); showTip({clientX: b.right, clientY: b.top}, `${c.name}(${c.ticker})`, rows); });
     hit.addEventListener("blur", () => { grow(false); hideTip(); });
     g.appendChild(hit);
-    // known bubble: glide from where it was; new bubble: pop in at its spot, one after another
+    // known dot: glide from where it was; new dot: pop in at its spot, one after another
     const p = prev[c.ticker];
     scatterPrev[c.ticker] = {cx, cy};
-    const delay = p ? 0 : i * 60, dur = p ? 600 : 650;
+    const delay = p ? 0 : i * 50, dur = p ? 600 : 500;
     longest = Math.max(longest, delay + dur);
     tween(dur, delay, t => {
       if (p) { const e = easeOut(t); g.setAttribute("transform", `translate(${lerp(p.cx, cx, e)} ${lerp(p.cy, cy, e)})`); }
       else g.setAttribute("transform", `translate(${cx} ${cy}) scale(${Math.max(0, easeBack(t))})`);
     });
   });
-  // labels are placed for the final positions, so they appear once the bubbles have settled
+  // labels are placed for the final positions, so they appear once the dots have settled
   const lbls = sv("g", {class: "fade-in", style: `--d:${REDUCE ? 0 : longest / 1000}s`}); svg.appendChild(lbls);
-  placeLabels(lbls, labels, W);
+  placeLabels(lbls, labels, W, {x: cx0, y: cy0}, tagBoxes);
   box.appendChild(svg);
 }
 
-// Labels go on top of all bubbles; each takes the first spot (right, left, above, below)
-// that overlaps no bubble and no label already placed. Focus company first.
-function placeLabels(svg, labels, W) {
+// Labels go on top of the dots; each takes the first spot (right, left, above, below) that
+// overlaps no dot, no label or reserved box (quadrant tags) and neither axis line. Focus company first.
+function placeLabels(svg, labels, W, cross, reserved = []) {
   const textW = t => [...t].reduce((w, ch) => w + (ch.charCodeAt(0) > 0x2e80 ? 11 : 6.5), 0);
   const hit = (a, b) => a.x1 < b.x2 && b.x1 < a.x2 && a.y1 < b.y2 && b.y1 < a.y2;
   const discs = labels.map(l => ({x1: l.cx - l.r, x2: l.cx + l.r, y1: l.cy - l.r, y2: l.cy + l.r, own: l}));
-  const placed = [];
+  const onAxis = b => cross && ((b.x1 < cross.x && b.x2 > cross.x) || (b.y1 < cross.y && b.y2 > cross.y));
+  const placed = [...reserved];   // e.g. the quadrant tags
   for (const l of [...labels].sort((a, b) => b.isF - a.isF)) {
-    const w = textW(l.text), h = 13;
+    const w = textW(l.text), h = 13, gap = l.r + 4;   // 8px from a 4px dot
     const spots = [
-      {x: l.cx + l.r + 4, y: l.cy + 4, anchor: "start"}, {x: l.cx - l.r - 4, y: l.cy + 4, anchor: "end"},
-      {x: l.cx, y: l.cy - l.r - 4, anchor: "middle"}, {x: l.cx, y: l.cy + l.r + 13, anchor: "middle"},
-      {x: l.cx + l.r + 2, y: l.cy - l.r + 2, anchor: "start"}, {x: l.cx + l.r + 2, y: l.cy + l.r + 8, anchor: "start"},
+      {x: l.cx + gap, y: l.cy + 4, anchor: "start"}, {x: l.cx - gap, y: l.cy + 4, anchor: "end"},
+      {x: l.cx, y: l.cy - gap, anchor: "middle"}, {x: l.cx, y: l.cy + gap + 10, anchor: "middle"},
+      {x: l.cx + gap - 2, y: l.cy - gap + 2, anchor: "start"}, {x: l.cx + gap - 2, y: l.cy + gap + 6, anchor: "start"},
     ];
     const boxOf = sp => { const x1 = sp.anchor === "start" ? sp.x : sp.anchor === "end" ? sp.x - w : sp.x - w / 2;
       return {x1, x2: x1 + w, y1: sp.y - 10, y2: sp.y - 10 + h}; };
-    const ok = sp => { const b = boxOf(sp);
+    const free = sp => { const b = boxOf(sp);
       return b.x1 >= 0 && b.x2 <= W && !placed.some(p => hit(b, p)) && !discs.some(d => d.own !== l && hit(b, d)); };
-    const sp = spots.find(ok) || spots[l.cx < W - 110 ? 0 : 1];
+    const sp = spots.find(s => free(s) && !onAxis(boxOf(s))) || spots.find(free) || spots[l.cx < W - 110 ? 0 : 1];
     placed.push(boxOf(sp));
     svg.appendChild(sv("text", {x: sp.x, y: sp.y, "text-anchor": sp.anchor, class: "lbl" + (l.isF ? " strong" : "")}, l.text));
   }
