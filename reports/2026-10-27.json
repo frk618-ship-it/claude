@@ -2,19 +2,21 @@
   "generated": "2026-10-27T08:28:14.678656+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 42 則,其中新聞與公司公告 31 則;報導最多的是 JX金屬(8 則)、Materion(5 則)、英特爾(3 則)、Amkor 艾克爾(3 則)。依主題:產業動態 17 則、客戶與供應鏈 5 則、擴產與投資 4 則、營收與財報 3 則、併購與合作 1 則。",
+    "overview": "本期焦點在先進封裝擴產:長電科技淨利大增 117% 並再擴產 173 億元、上修資本支出,Amkor 先進封裝推升毛利率至 18.3%,弘塑與德國濺鍍設備商 Singulus 合作搶攻先進封裝,有利封裝段 PVD 與 Ti、Cu 靶材需求。靶材廠中,JX金屬因應 AI 伺服器需求計畫在 2029 年度前將鈦銅產能提升五成,並推出 100% 回收原料銅箔、與 Renet Japan 等合作強化回收;江豐電子持續推進港股上市準備。晶圓廠方面,英特爾更新美國新廠進度、華邦電規劃擴充高雄廠。金價在每盎司 4,000 美元附近拉鋸。",
     "key_trends": [
-      "產業動態(17 則):Amkor Q3 2026 slides highlight margin gains, advanced packaging growth",
-      "客戶與供應鏈(5 則):從SK海力士晶圓廠出發 SKT成立Hy-TF組織拓展B2B AI業務",
-      "擴產與投資(4 則):NVIDIA、AMD、Intel傳砸50億美元搶臺灣ABF載板產能：欣興、景碩、南電啟動千億擴產",
-      "營收與財報(3 則):Amkor Technology (AMKR) Q3 2026 Earnings Call: Advanced Packaging steigert Margen"
+      "先進封裝擴產:長電科技擴產 173 億元並上修資本支出,Amkor 先進封裝推升毛利率,ABF 載板擴產",
+      "設備合作:弘塑攜手 Singulus 進軍先進封裝 PVD 設備",
+      "JX金屬擴產與循環:鈦銅產能 2029 年度前提升五成,推出 100% 回收原料銅箔,與 Renet Japan 等合作回收",
+      "靶材廠資本動作:江豐電子推進 H 股上市準備,光洋科完成百億元聯貸",
+      "金價在 4,000 美元附近拉鋸,鉑金走弱"
     ],
     "watch_points": [
-      "NVIDIA、AMD、Intel傳砸50億美元搶臺灣ABF載板產能：欣興、景碩、南電啟動千億擴產(XFastest News)",
-      "淨利大漲117%！長電科技再擴產173億(finance.sina.com.cn)",
-      "Amkor Technology (AMKR) Q3 2026 Earnings Call: Advanced Packaging steigert Margen(TradingKey)"
+      "長電科技、Amkor 擴產對封裝用 Ti、Cu 靶材的實際拉貨時程",
+      "弘塑與 Singulus 合作的 PVD 設備是否帶來新的靶材認證機會",
+      "JX金屬回收原料比重提高對靶材原料成本與供應的影響",
+      "江豐電子港股上市時程與募資用途"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,8 +35,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指輝達、AMD、英特爾傳出投入約 50 億美元搶台灣 ABF 載板產能,欣興、景碩、南電啟動千億擴產。AI 晶片封裝需求強勁,間接帶動封裝段 PVD 製程與相關材料需求。",
+      "importance": 3,
       "title_zh": "NVIDIA、AMD、Intel傳砸50億美元搶臺灣ABF載板產能：欣興、景碩、南電啟動千億擴產",
       "snippet_zh": ""
     },
@@ -54,8 +56,8 @@
         "營收與財報"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技淨利大增 117%,並再擴產 173 億元。中國封測龍頭擴產將增加凸塊、RDL 等製程的 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "淨利大漲117%！長電科技再擴產173億",
       "snippet_zh": ""
     },
@@ -75,9 +77,9 @@
         "技術與新產品"
       ],
       "score": 4.8,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Amkor 第三季法說會指先進封裝業務推升毛利率。封裝廠先進封裝產能成長,有利封裝用濺鍍靶材需求。",
+      "importance": 3,
+      "title_zh": "Amkor(AMKR)2026 年第三季法說會:先進封裝推升毛利率",
       "snippet_zh": ""
     },
     {
@@ -95,9 +97,9 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬為因應 AI 伺服器需求增產鈦銅,計畫在 2029 年度前將產能提升五成。投資標的為銅合金,但顯示這家靶材龍頭積極擴充 AI 相關材料產能。",
+      "importance": 3,
+      "title_zh": "JX金屬因應 AI 伺服器需求增產鈦銅,2029 年度前產能提升五成",
       "snippet_zh": ""
     },
     {
@@ -112,13 +114,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "併購與合作",
-        "回收與循環"
+        "回收與循環",
+        "併購與合作"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 SGHD、JX金屬集團等三家公司建立資本與業務合作,串聯小型家電回收到金屬再資源化。強化 JX金屬的回收原料來源,與貴金屬循環相關。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 SGHD、JX金屬集團等三家公司資本與業務合作,串聯小型家電回收到再資源化",
       "snippet_zh": ""
     },
     {
@@ -136,8 +138,8 @@
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 先進封裝帶動毛利率升至 18.3%,預估第四季運算業務營收年增逾五成。先進封裝需求持續增溫,有利封裝段 PVD 與靶材拉貨。",
+      "importance": 3,
       "title_zh": "Amkor先進封裝拉昇毛利率至18.3%，第四季運算業務營收估年增逾五成",
       "snippet_zh": ""
     },
@@ -156,9 +158,9 @@
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 宣布第四季每股配發 0.145 美元股息。屬例行配息資訊。",
+      "importance": 1,
+      "title_zh": "Materion 宣布 2026 年第四季每股配息 0.145 美元",
       "snippet_zh": ""
     },
     {
@@ -176,8 +178,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "SK Telecom 以 SK海力士晶圓廠經驗為基礎成立 Hy-TF 組織,拓展 B2B AI 業務。與靶材供需關聯低。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -193,12 +195,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場報告新聞稿估計液晶顯示器用靶材市場規模將成長至約 13.15 億美元。屬市場研究推廣內容,數字需以原報告為準。",
+      "importance": 2,
+      "title_zh": "液晶顯示器靶材投資分析 2026:邁向 13.15 億美元規模的成長策略",
       "snippet_zh": ""
     },
     {
@@ -213,13 +216,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "原物料與價格",
-        "回收與循環"
+        "回收與循環",
+        "原物料與價格"
       ],
       "score": 3.78,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬推出以 100% 回收原料製成的銅箔,運用 2025 年導入的專用冶煉爐。顯示其金屬回收與再生能力持續擴大,與靶材的循環材料策略相關。",
+      "importance": 3,
+      "title_zh": "JX金屬推出 100% 回收原料銅箔,運用 2025 年導入的專用冶煉爐(鐵鋼新聞)",
       "snippet_zh": ""
     },
     {
@@ -237,8 +240,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.52,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電評估無稀土馬達的替代方案,以降低晶圓廠設備的供應風險。反映晶圓廠對關鍵原料供應鏈風險的重視。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -257,9 +260,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "越南媒體分析金價在下跌後反轉上漲的原因,屬一般行情評論。",
+      "importance": 1,
+      "title_zh": "金價暴跌後反轉上漲的原因",
       "snippet_zh": ""
     },
     {
@@ -277,9 +280,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "越南當地金價報導,屬地區性零售行情,與靶材關聯低。",
+      "importance": 1,
+      "title_zh": "10 月 27 日金價:SJC 金價持平,聯準會會議前金戒指價格下跌",
       "snippet_zh": ""
     },
     {
@@ -297,9 +300,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "越南媒體報導國際金價早盤回檔,屬一般行情資訊。",
+      "importance": 1,
+      "title_zh": "10 月 27 日早盤金價:國際金價意外回檔",
       "snippet_zh": ""
     },
     {
@@ -314,11 +317,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.23,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾更新亞利桑那州與俄亥俄州晶圓廠的建設進度。新廠進度影響未來 PVD 機台與靶材需求的時點。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -334,11 +338,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "政策與貿易",
         "客戶與供應鏈"
       ],
       "score": 3.21,
-      "summary": "",
-      "importance": 0,
+      "summary": "文章指美國 FCC 的機器人禁令影響英特爾晶圓廠的建置。政策因素可能延後新廠設備導入,間接影響材料需求時程。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -354,11 +359,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "併購與合作",
         "客戶與供應鏈"
       ],
       "score": 3.04,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰化銀行統籌主辦光洋科與創鉅材料的百億元聯貸案,資金將助攻 AI 半導體與資料儲存供應鏈。光洋科取得大額融資,有助支應靶材與貴金屬業務的擴產需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -374,12 +380,13 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Amkor 第三季簡報強調毛利率提升與先進封裝成長,與前述法說會內容相同。",
+      "importance": 2,
+      "title_zh": "Amkor 2026 年第三季簡報:毛利率提升,先進封裝成長",
       "snippet_zh": ""
     },
     {
@@ -394,12 +401,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 宣布每季股息 0.145 美元,屬例行配息。",
+      "importance": 1,
+      "title_zh": "Materion 宣布每季股息 0.145 美元",
       "snippet_zh": ""
     },
     {
@@ -414,12 +422,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 配息 0.145 美元,與前則為同一事件。",
+      "importance": 1,
+      "title_zh": "Materion 宣布配息 0.145 美元",
       "snippet_zh": ""
     },
     {
@@ -434,12 +443,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 宣布每季股息 0.145 美元,殖利率約 0.3%,屬例行配息。",
+      "importance": 1,
+      "title_zh": "Materion(MTRN)宣布每季股息 0.145 美元,殖利率 0.3%",
       "snippet_zh": ""
     },
     {
@@ -454,12 +464,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 發布每季現金股息公告,屬例行配息。",
+      "importance": 1,
+      "title_zh": "Materion 宣布每季現金股息",
       "snippet_zh": ""
     },
     {
@@ -474,11 +485,12 @@
         "長電科技 (JCET)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "券商報告指輝達在 GTC 加碼 AI 投入,長電科技上修資本支出。封測廠資本支出增加,將帶動封裝段 PVD 設備與靶材需求。",
+      "importance": 3,
       "title_zh": "電子行業點評報告：英偉達GTC加碼AI投入，長電科技上修資本支出_行業研究_研報",
       "snippet_zh": ""
     },
@@ -494,12 +506,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬在倉見與室蘭據點強化鈦銅供應能力,與同期增產鈦銅的報導為同一計畫。",
+      "importance": 2,
+      "title_zh": "JX金屬在倉見、室蘭強化鈦銅供應能力",
       "snippet_zh": ""
     },
     {
@@ -514,11 +527,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子(300666)的企業價值對預估息稅前利潤比數據頁面,沒有具體事件。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -534,12 +548,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將鈦銅產能提升 50%,背景是 AI 資料中心持續擴建。顯示 AI 需求帶動這家靶材龍頭的銅合金業務擴產。",
+      "importance": 3,
+      "title_zh": "JX金屬鈦銅產能提升 50%,背景為 AI 資料中心擴建",
       "snippet_zh": ""
     },
     {
@@ -554,11 +569,12 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "弘塑與德國濺鍍設備商 Singulus 合作搶攻半導體先進封裝。先進封裝 PVD 設備供應增加,可能帶動封裝用靶材的新需求與認證機會。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -574,11 +590,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群對有研新材的短線操作評論,與靶材基本面關聯低。",
+      "importance": 1,
       "title_zh": "10.26早評：有研新材震盪磨籌碼，繼續滾動做差價",
       "snippet_zh": ""
     },
@@ -594,11 +611,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創公告控股股東部分股份解除質押及重新質押,屬股權資訊。",
+      "importance": 1,
       "title_zh": "阿石創：關於控股股東、實際控制人部分股份解除質押及質押的公告",
       "snippet_zh": ""
     },
@@ -614,12 +632,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "影片分析當日熱門個股的技術線圖,包括 JX金屬,屬短線投資內容。",
+      "importance": 1,
+      "title_zh": "今日熱門個股(鎧俠、藤倉、尤尼吉可、JX金屬、軟銀等)技術線圖分析",
       "snippet_zh": ""
     },
     {
@@ -634,11 +653,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 H 股發行上市後適用的董事會議事規則草案,顯示港股上市準備持續推進。",
+      "importance": 2,
       "title_zh": "江豐電子：寧波江豐電子材料股份有限公司董事會議事規則（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -654,12 +674,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.78,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "影片解說 JX金屬股價大跌 33% 的原因,涉及可轉債、公開收購與 AI 半導體材料題材。屬投資評論。",
+      "importance": 2,
+      "title_zh": "【暴跌 33% 的真相】JX金屬是買點還是陷阱?解說可轉債、公開收購與 AI 半導體材料",
       "snippet_zh": ""
     },
     {
@@ -674,12 +695,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.52,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬的分析師財測預估頁面,沒有具體事件。",
+      "importance": 1,
+      "title_zh": "JX金屬(TSE:5016)財測預估",
       "snippet_zh": ""
     },
     {
@@ -694,12 +716,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場預期美伊緊張局勢緩和,金價回升至每盎司 4,000 美元以上。金價走勢影響貴金屬靶材的原料成本。",
+      "importance": 2,
+      "title_zh": "美伊緊張可望緩和,金價回升至 4,000 美元以上",
       "snippet_zh": ""
     },
     {
@@ -714,11 +737,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導探討華邦電擴充高雄廠的規劃。記憶體廠擴產將增加 PVD 製程與 Al、Ti、Cu 等靶材的需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -734,11 +758,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "逢低買盤進場,COMEX 黃金上漲 0.8%。金價回穩使貴金屬靶材成本維持高檔。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -754,11 +779,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "文章探討金價重回 4,000 美元是真正的底部還是短線反彈,屬行情評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -774,11 +800,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "文章討論金價 4,000 美元關卡與央行會議週的走勢及布局策略,屬投資評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -794,11 +821,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指金價一度失守 4,000 美元,近半華爾街分析師看空。金價若續跌,可稍微緩解貴金屬靶材的成本壓力。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -814,11 +842,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群討論有研新材等個股的短線操作,與靶材基本面關聯低。",
+      "importance": 1,
       "title_zh": "做T解套抱團帖：有研新材，蓮花控股，一起來交流點位！",
       "snippet_zh": ""
     },
@@ -834,12 +863,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.25,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "濺鍍設備商 Singulus 取得 2,275 萬歐元次順位貸款,原股東 Triumph 出脫 16.75% 持股。財務結構調整有助營運穩定。",
+      "importance": 2,
+      "title_zh": "SINGULUS TECHNOLOGIES(SNG)取得 2,275 萬歐元次順位貸款,Triumph 出脫 16.75% 持股",
       "snippet_zh": ""
     },
     {
@@ -854,11 +884,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.09,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群對有研新材的心情喊話貼文,沒有具體事件。",
+      "importance": 1,
       "title_zh": "老男孩-10 月 21 日早盤《有研新材》你已經熬過最難的階段 ，你手裡的票，正在回本的路上",
       "snippet_zh": ""
     }
