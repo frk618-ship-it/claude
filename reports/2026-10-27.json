@@ -35,8 +35,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指英特爾美國晶圓廠擴建有新進展,亞利桑那州新廠預計 2028 年投產,AI 晶片需求提振擴產信心。新廠投產將帶動 PVD 機台與先進製程靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -52,11 +52,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾重啟俄亥俄州與亞利桑那州晶圓廠擴建,AI 晶片需求推升信心。美國晶圓產能擴充有利半導體靶材的長期需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -72,12 +73,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 宣布每季股息 0.145 美元,與同期其他配息報導為同一事件。",
+      "importance": 1,
+      "title_zh": "Materion 宣布每季股息 0.145 美元",
       "snippet_zh": ""
     },
     {
@@ -92,12 +94,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場研究公司發布多層濺鍍膜全球市場報告,依金屬與陶瓷濺鍍分類分析市場規模。屬報告推廣新聞稿,與靶材需求間接相關。",
+      "importance": 2,
+      "title_zh": "多層濺鍍膜全球市場(2026–2032 年):市場規模(金屬濺鍍、陶瓷濺鍍)分析報告發布",
       "snippet_zh": ""
     },
     {
@@ -112,11 +115,12 @@
         "產業綜合:溅射靶材"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.25,
-      "summary": "",
-      "importance": 0,
+      "summary": "IndexBox 發布中國銅靶材市場規模、趨勢與至 2035 年的預測報告。屬市場研究推廣內容,細節需參閱原報告。",
+      "importance": 2,
       "title_zh": "中國銅靶材市場：規模、趨勢及至2035年的預測",
       "snippet_zh": ""
     },
