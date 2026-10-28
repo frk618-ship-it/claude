@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T08:28:34.581746+08:00",
+  "generated": "2026-10-28T08:43:16.200141+08:00",
   "days": 7,
   "digest": {
     "overview": "本期記憶體擴產訊號明確:三星電子與 SK海力士今年設備投資創新高,但供給要到 2028 年才全面擴大;南亞科第三季每股盈餘 25.4 元、DRAM 新廠 2027 年裝機,並不排除再蓋新廠,有利 2027–2028 年 PVD 與靶材需求。先進封裝持續擴產,長電科技追加產線投資,輝達點名矽品 CPO 產能拚增 30 倍。靶材廠方面,JX金屬透過巴西採購與回收穩固鉭原料、稀有金屬再生能力提升至 3 倍;阿石創第三季淨利年增逾十三倍;古屋金屬新工廠竣工。金價在聯準會決策前升破每盎司 4,050 美元。",
@@ -19,6 +19,248 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "a6945bdf94d404ba",
+      "title": "力積電啟動擴產評估台、日、星全力衝3D AI Foundry業務、客戶需循美光模式- 鏡報",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5FYlZFcnFZUk1kQjJtalUwTk9zTF80U0xfN3JseVJvTDl1RjhvY01NLTRPdkxscVAxczBIbVdJazVFS3ljWXNkSnJ0MHI5bXQtQnc?oc=5",
+      "source": "鏡報",
+      "published": "2026-10-21T10:39:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "力積電 (PSMC)",
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.56,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "力積電啟動擴產評估臺、日、星全力衝3D AI Foundry業務、客戶需循美光模式- 鏡報",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c82d4f96dc57c641",
+      "title": "聯電增資本支出 擴南科、星國產能",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ReWV0QVBfNV9Sc045S0tBWGU3ZWJaQjQ1TVJtTmxXaG9KSEJaM0V1UTVVN0w4OUdhR2ZWZ052QlVib3Y0VW9xUXdUdUxXc0c2WVNIVkRqS2Q?oc=5",
+      "source": "自由時報",
+      "published": "2026-10-25T10:28:39+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "聯電 (UMC)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.13,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ce47f8eab7fdf40e",
+      "title": "【JX金属】決算発表22%上方修正！爆騰の始まりか？！！ | #48 Rose (Rhjw6HCw88)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5sV3hDMkhsQWd1dFpKYk03R1luZzdpemJHWVdBNk9mNTQ5dTlqZG5hakluek5yTkk0SldXSTdlbFFWXzdYaTVCVHhfcGRRVVBXeEduWjBfT0gyd2poZS1mdEFHQTFLQQ?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-27T15:06:01+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.94,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "07beaa42f1cf9612",
+      "title": "Why is the Gold Price Falling? 4 Key Reasons",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9aSjBoZHVXZ1pzT01ZS0hMWkdkSm1FRnljdEFVeGFhdldtREJDcXRmc21xYXJXVjdhTkRzU2p3ODIxbHQ3c2gtWXpobGVDNEtWRHhFTGVlNmRBUjRESmFERkp1Q2FQdXJGdDl1S0RnTFY?oc=5",
+      "source": "Equitymaster",
+      "published": "2026-10-28T00:30:01+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "936ba4d0356b2774",
+      "title": "Gold price forecast: why inflation and rising yields are weighing on gold",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQWw1QzRpbHV0VmxQdXNBODMwNTZrTndEN3cyZE1sR3FHNHFETzh3TzkxOVJfUTNQVGtaV3l0aVQxd2ZacUhCSGhZV01sR3FTTkNqN1pqRkVwYktxR3FBYTI3Rl9lY1dQNTZDb3h6NmlUU1lrelpwa2ZMajl1MXhQUzNMVWhSenhTVXRKVUY4anROS2QzVWx0ZjBJclVsOGZN?oc=5",
+      "source": "Equiti Global",
+      "published": "2026-10-27T23:35:29+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fe52bc30ebad53dd",
+      "title": "【下落株】 JX金属は今が買い時？AI・半導体関連銘柄の株価が上がらない理由",
+      "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTFBEY3J2SWtMTnlGSEE2amdXR2FWRDdQb0pMVzl2MkpLckxCTG85RmpfUElyWFE4YUhpS1BV?oc=5",
+      "source": "Howl.Link",
+      "published": "2026-10-26T10:00:28+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.77,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c5a6677eb4e6ebf0",
+      "title": "10.26午评：上海洗霸、沈鼓集团、有研新材、大元泵业",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNcnNqaktQeWR6MzZlSi1NTFJKSEd5enFQTnY4SnAzS1o4bm1VNkNGbUxUOGVDZDR0cTVteUNTYnY0OTdKNFZLSkJFMUpTSzZCMVk1SE44MjFSeDlIdDBwQXJEZnRQc0hiVEU5eTJwczBaWmFYZEMtREdQTGN1RDh3Q3dGN04tVTFRaFFEMmhid25JRDRLeXJ5XzNFOC1qbnJQM2I0UHVqeklDTWEwSkVVdUY2ZEc1ek9MWE9Va1Bmb1EzT3NMWDhJV25mT0V2Y1pXSHBZRlZ3ZmhJNlpMcHVOVDJnYmsyOEpMc3NzdkszbmxZYmozUGpsUmJOdGJwWjA?oc=5",
+      "source": "财富号",
+      "published": "2026-10-26T04:31:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.74,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "10.26午評：上海洗霸、沈鼓集團、有研新材、大元泵業",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0267bfb533855554",
+      "title": "賀利氏：金價雙向拉扯，弗雷斯尼洛2026年白銀產量下滑",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9OeVdoNTAwc2RFREV6Y1RVeFRDVHgxMmVNQVNUNVMwSXpTWWNHOWtSMHFDTzIwbW1vRDBVZGZwZnNtdk4tQndfR29yRzNEenN4bjVWYkd6N28ycDBDOWZZaGlZTml2aTN1b1pLd2VNaHh6ZUhH?oc=5",
+      "source": "風火輪傳媒有限公司",
+      "published": "2026-10-27T12:10:49+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.43,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ca894a31525a9203",
+      "title": "金價跌破4000美元關口，國內實物黃金ETF淨值悉數創年內新低，較高點回撤超30%",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTUxrR2pmVjdzQnY2QjczN1NjTHduR0FuSjBEWXdQUlM1WVZxYmVINEFsSjBvZEh4Z0RoV2V0Q3d4WTVhVF9oMTlUXzhIOTVZYnk5RnpRakZRN1BmczdJYXQ5YVM1ZGNlNHZXbnF3N25TT2dqSE0tR0lBZkVOV3hfbmhJbW9wa2lzNzh6dHBKQUJTY3BGdmIxN20wc2Zrc3dHNDFsOE14YUpHdw?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-27T09:29:58+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.41,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "548254d7418ddcd1",
+      "title": "國際金價徘徊4000美元關口，上金所黃金現貨周成交量增加27",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaW1ZYnozN0V1dDM4RGRQV3FCdU84QUptMXNpQlpJTE5CSFFoVDFnVVVmZEprbk9RdHNOaWhjSWhCNWlHMmtaZTFJWkxlWnV0YVRfTHo4cUVTZEpMQ1R5d2RHamlRcEo1WTcwcFNQNENWbDNCRW1vVzVoTDE4cGJ5M0dvUnpsOHFtRU5mY0RjSXR2RjgzQ2lCNXJ0dWluUkxq?oc=5",
+      "source": "群益期貨",
+      "published": "2026-10-27T09:19:09+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.41,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8d325987f8fc2fec",
+      "title": "印度今日金價：根據 FXStreet 數據，金價持穩",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNakJzeEs3TVRkS1YySGw2c0hoU1Vzb1JWcWZOUFZsVFE1d2RTYjdGVXBGcHE3aEROMTd6ZGw2cm56ZHBjT3VLakZJNGo3dFpJY21RcFU4THZ6NF9nNklDaXhSYk1EcnBwTVF5ekg5RFNrTmo3Z1FCX2pfb2ZYV0NVUjlIa0NSZjFnMldUX3BfUF9DbUMyc25aWXRBejhqbmh3WjA1Umt3MUJOWDNIVnU5eUFBNUhDeGs0LUE2UGRYWWIzWDNSeXdTSHhR?oc=5",
+      "source": "www.tmgm.com",
+      "published": "2026-10-27T05:29:29+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.39,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "492866e5ccae4d3a",
+      "title": "華邦電為應對未來需求擴張，擴充高雄廠的具體規劃是什麼？",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQb0l1SU1CU1B4b2g4ajl6UDhIM3A1VnJDLWZ4OHY0QTBmdUZKcHRLcGJKX3pvODNLTXBSWklMeGVmTWNnYUtxbk8teXlHRGlwVTlnc0RLQUlpUGN2YnJ4SXR6YzRqVm1SVnlQZEsweTRlZkp1ZElhMnV1dDNjNEdXYXhhMVlmZEZYREFLaF9qR0ZJLXpEVHVNQzJR?oc=5",
+      "source": "UDN",
+      "published": "2026-10-23T15:06:37+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "華邦電 (Winbond)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.37,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "f6ae3777b68295d6",
       "title": "삼성전자·SK하이닉스, 올해 사상 최대 설비투자에도… 메모리 공급 확대는 2028년부터 본격화",
@@ -896,42 +1138,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4077.0,
+      "price": 4075.9,
       "prev": 4038.4,
       "date": "2026-10-28",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.96
+      "change_pct": 0.93
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 54.48,
+      "price": 54.47,
       "prev": 54.11,
       "date": "2026-10-28",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.68
+      "change_pct": 0.67
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1542.9,
+      "price": 1539.7,
       "prev": 1536.7,
       "date": "2026-10-28",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.4
+      "change_pct": 0.2
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1033.5,
+      "price": 1031.5,
       "prev": 1047.9,
       "date": "2026-10-28",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.37
+      "change_pct": -1.57
     }
   ],
   "papers": [],
