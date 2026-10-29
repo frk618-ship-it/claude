@@ -2,19 +2,22 @@
   "generated": "2026-10-29T08:28:12.831423+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 77 則,其中新聞與公司公告 65 則;報導最多的是 聯電(32 則)、江豐電子(16 則)、JX金屬(3 則)、力成(3 則)。依主題:擴產與投資 26 則、產業動態 23 則、營收與財報 11 則、客戶與供應鏈 3 則、技術與新產品 1 則。",
+    "overview": "本期焦點為聯電法說:第三季營收 742 億元、稼動率升至 92%,董事會追加 32 億美元資本支出,加速新加坡與台南擴產並強攻先進封裝與矽光子,將帶動 PVD 機台與靶材需求。靶材廠方面,江豐電子前三季淨利年增 102%、第三季年增 83%,並擬回購股份、推進 H 股上市;JX金屬投資新回收設備,半導體靶材再生能力將提高至 3 倍;光洋科取得百億元聯貸。封測端力成第三季營收創新高,Amkor 則調降資本支出。金價回落至每盎司 4,050 美元附近,恐創 11 年來最大年度跌幅。",
     "key_trends": [
-      "擴產與投資(26 則):不拚先進製程照樣供不應求！聯電追加32億美元擴產滿足客戶",
-      "產業動態(23 則):〈臺股盤前要聞〉楊金龍重申匯市依循「柳樹理論」、聯電追加32億美元資本支出",
-      "營收與財報(11 則):江豐電子(300666.SZ)發佈前三季度業績，歸母淨利潤8.11億元，同比增長102.38% 作者智通財經 - Investing.com 香港 - 股市報價& 財經新聞",
-      "客戶與供應鏈(3 則):Alphabet Plunges 10% After Hours: How AI Capex Burden Could Affect Samsung Electronics, SK Hynix Rebound"
+      "晶圓廠擴產:聯電追加 32 億美元資本支出,新加坡、台南擴產並布局先進封裝與矽光子",
+      "靶材廠獲利:江豐電子前三季淨利年增 102%,一次性收益退潮後主業仍加速成長",
+      "回收擴大:JX金屬半導體靶材再生能力提高至 3 倍,光洋科取得百億元聯貸",
+      "先進封裝分歧:力成營收創高、轉型 AI 先進封裝,Amkor 調降資本支出",
+      "金價回落至 4,050 美元附近,年度跌幅恐創 11 年最大"
     ],
     "watch_points": [
-      "不拚先進製程照樣供不應求！聯電追加32億美元擴產滿足客戶(財訊)",
-      "聯電法說／第三季EPS 1.32元、營業利益季增24.7%，稼動率升至92%；第四季出貨再增、毛利率持平，追加32億美元資本支出加速擴產｜股市話題｜豐雲學堂2026 年 10 月(永豐金證券)",
-      "聯電第三季EPS 1.32元 董事會追加32億美元資本支出預算 加速擴產時程(經濟日報)"
+      "聯電新加坡與台南新產能開出時程對 Ti、Cu、Ta 靶材拉貨的影響",
+      "江豐電子第三季淨利季減 17% 的原因與 H 股上市進度",
+      "JX金屬回收能力擴大後對 Ta 等稀有金屬原料與靶材價格的影響",
+      "Amkor 縮減資本支出是否影響先進封裝 PVD 需求",
+      "金價下行對 Au、Ag 靶材報價的傳導"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,8 +37,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電成熟製程產能供不應求,董事會追加 32 億美元資本支出擴產以滿足客戶。成熟製程擴產同樣會增加 PVD 機台與 Al、Ti、TiN 相關靶材用量。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -51,12 +54,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元、營業利益季增 24.7%,稼動率升至 92%,第四季出貨續增、毛利率持平。聯電追加 32 億美元資本支出加速擴產(新加坡、台南,聚焦先進封裝與矽光子),新產能將帶動 PVD 機台與 Ti、Cu、Ta 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -76,8 +79,8 @@
         "營收與財報"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元,董事會追加 32 億美元資本支出預算並加速擴產時程。晶圓廠擴產將提高靶材長期需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -97,8 +100,8 @@
         "營收與財報"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電加碼逾千億元擴產矽光子與 3D IC,目標三年內 AI 相關營收占比達 25%。3D IC 與先進封裝製程使用 PVD 鍍製阻障與種子層,有利 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "重量級法說／聯電加碼千億擴產矽光子、3D IC 拚AI營收3年衝佔比25％",
       "snippet_zh": ""
     },
@@ -118,8 +121,8 @@
         "營收與財報"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元,追加 32 億美元擴產先進封裝與矽光子。與同期聯電法說報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -135,12 +138,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季營收 742.4 億元創新高,產能利用率衝上 92%,並追加 32 億美元資本支出。高稼動率代表靶材耗用量同步上升。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -156,12 +159,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電本業獲利季增近 25%,產能利用率達 92%,追加 32 億美元擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -177,12 +180,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季營收 742 億元、稼動率 92%,第四季毛利率拚守 34%,再追加 32 億美元擴產預算。聯電追加 32 億美元資本支出加速擴產(新加坡、台南,聚焦先進封裝與矽光子),新產能將帶動 PVD 機台與 Ti、Cu、Ta 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -198,12 +201,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電前三季獲利 748 億元、每股盈餘 6 元,加碼 32 億美元擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -219,12 +222,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季營收 742 億元、產能利用率 92%,再加碼 32 億美元擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -240,13 +243,13 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "英文分析指聯電第三季營收與稼動率走高,第四季產能與資本支出計畫顯示持續擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
+      "title_zh": "聯電:第三季營收與稼動率走高,第四季產能與 20 億美元資本支出計畫指向擴產",
       "snippet_zh": ""
     },
     {
@@ -261,12 +264,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季營收 742 億元為歷史次高,矽光子與新加坡擴產受市場關注。新加坡新產能將帶動當地靶材供應需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -286,8 +289,8 @@
         "技術與新產品"
       ],
       "score": 5.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電砸逾千億元搶 AI 商機,矽光子擴產規劃至 2030 年,並強調薄膜鈮酸鋰(TFLN)技術領先。矽光子元件製程可能帶來新的濺鍍材料需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -307,9 +310,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Alphabet 盤後重挫 10%,報導探討 AI 資本支出負擔對三星電子、SK海力士股價反彈的影響。屬股市分析,若 AI 支出降溫可能影響記憶體擴產節奏。",
+      "importance": 2,
+      "title_zh": "Alphabet 盤後重挫 10%:AI 資本支出負擔可能如何影響三星電子、SK海力士的反彈",
       "snippet_zh": ""
     },
     {
@@ -328,8 +331,8 @@
         "原物料與價格"
       ],
       "score": 4.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子前三季歸母淨利潤 8.11 億元人民幣,年增 102.38%。全球靶材龍頭之一獲利倍增,反映半導體靶材需求強勁。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -348,8 +351,8 @@
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電擴產追加逾千億元資本支出。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -365,11 +368,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電砸千億擴產,報導同時提及聯亞手握逾半年長單。屬股市題材報導,與靶材關聯有限。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -385,13 +389,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "擴產與投資",
-        "回收與循環"
+        "回收與循環",
+        "擴產與投資"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將投資新的半導體濺鍍靶材回收設備。全球靶材龍頭擴大廢靶回收,有助穩定 Ta 等稀有金屬原料供應並強化成本優勢。",
+      "importance": 5,
+      "title_zh": "日本 JX金屬將投資新的半導體濺鍍靶材回收設備",
       "snippet_zh": ""
     },
     {
@@ -409,8 +413,8 @@
         "擴產與投資"
       ],
       "score": 4.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電積極擴產,新產能預計 2030 年達規劃規模。產能逐年開出,靶材需求將分階段放量。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -429,8 +433,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電追加 32 億美元資本支出加速擴產,月初已敲定 18 億美元可轉債籌資。擴產資金到位,有利後續機台與材料採購。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -446,11 +450,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元、產能利用率 92%,追加 32 億美元加速擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -469,8 +474,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電追加 32 億美元資本支出,加快新加坡與台南擴產。兩地新產能將增加 PVD 機台與靶材採購。",
+      "importance": 4,
       "title_zh": "聯電追加32億美元資本支出 加快新加坡、臺南擴產",
       "snippet_zh": ""
     },
@@ -489,8 +494,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電下半年稼動率逾九成,封裝與矽光子需求升溫,再追加 32 億美元擴產。先進封裝擴產將增加凸塊與 RDL 的 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -509,8 +514,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季產能利用率衝上 92%,再加碼 32 億美元擴產先進封裝。與同期聯電法說報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -526,11 +531,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電前三季獲利 748 億元、年增 136%,第三季每股盈餘 1.32 元,晶圓出貨創新高並加速擴產。出貨創高代表靶材耗用量同步增加。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -549,8 +555,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季出貨創新高,再砸 32 億美元推進新加坡與台灣擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "聯電法說｜Q3出貨創新高還不夠 再砸32億美元拚星臺擴產",
       "snippet_zh": ""
     },
@@ -569,8 +575,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電再追加 32 億美元資本支出,強攻矽光子與先進封裝。與同期聯電法說報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -586,11 +592,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元、出貨創新高,追加 32 億美元加速擴產。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -606,11 +613,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季獲利穩健、稼動率 92%,砸逾千億元追加資本支出卡位 AI 與矽光子。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -629,8 +637,8 @@
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子第三季單季淨利潤年增 83.20%。靶材龍頭獲利持續成長,顯示中國半導體靶材國產替代需求強勁。",
+      "importance": 4,
       "title_zh": "圖解江豐電子三季報：第三季度單季淨利潤同比增長83.20%",
       "snippet_zh": ""
     },
@@ -649,8 +657,8 @@
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子第三季淨利潤年增 83%。與同期江豐財報報導為同一事件。",
+      "importance": 4,
       "title_zh": "江豐電子第三季度淨利潤同比增83%",
       "snippet_zh": ""
     },
@@ -666,11 +674,12 @@
         "力成 (Powertech)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析指晶片大型化帶動面板級封裝(FOPLP)機會,力成為主要布局廠商。面板級封裝需大面積 PVD 鍍膜,可能帶動大尺寸或矩形靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -689,8 +698,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子前三季淨利潤 8.11 億元人民幣,年增 102.38%。與同期江豐財報報導為同一事件。",
+      "importance": 4,
       "title_zh": "江豐電子(300666.SZ)：前三季淨利潤8.11億元，同比增長102.38%_公司新聞",
       "snippet_zh": ""
     },
@@ -706,11 +715,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電追加 32 億美元資本支出,目標三年內 AI 營收占比衝上 25%。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "〈聯電法說〉追加32億美元資本支出 三年內AI營收佔比衝25%",
       "snippet_zh": ""
     },
@@ -729,8 +739,8 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電晶圓廠產能滿載,但第三季稅後獲利較前季縮水約六成,報導分析財報原因。產能滿載仍代表靶材耗用量維持高檔。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -749,8 +759,8 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季營收與出貨創高,並追加 32 億美元資本支出。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -769,8 +779,8 @@
         "營收與財報"
       ],
       "score": 3.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子第三季淨利潤年增 83%、但較前季下降 17%。年增強勁但季減,需留意單季波動來源。",
+      "importance": 4,
       "title_zh": "江豐電子：第三季度淨利潤同比增長83% 環比下降17%",
       "snippet_zh": ""
     },
@@ -789,8 +799,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "DIGITIMES 每日要聞:美光傳挖角南韓人才來台擴充戰力、台灣經濟高成長年將結束等。美光在台擴充可能帶動記憶體廠靶材需求,但屬綜合新聞。",
+      "importance": 2,
       "title_zh": "DIGITIMES Today：美光挖角南韓來臺擴充戰力？| 臺灣經濟成長狂飆的一年將結束| Anthropic上市文件聚焦中國",
       "snippet_zh": ""
     },
@@ -809,8 +819,8 @@
         "營收與財報"
       ],
       "score": 3.77,
-      "summary": "",
-      "importance": 0,
+      "summary": "力成第三季營收 253 億元創單季新高、每股盈餘 3.55 元,董事長宣示轉型為 AI 先進封裝戰略夥伴。封裝廠擴大先進封裝將增加 PVD 與 Ti、Cu 靶材用量。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -826,11 +836,12 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 3.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 股價勁揚逾 5%,調降資本支出成為市場焦點。封測大廠縮減資本支出,可能使先進封裝 PVD 機台與靶材需求成長放緩。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -846,11 +857,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子擬以 5,000 萬至 1 億元人民幣回購股份,價格上限每股 323.04 元。屬公司資本運作,與靶材供需無直接關係。",
+      "importance": 2,
       "title_zh": "江豐電子擬5000萬元-1億元回購股份價格不超323.04元/股_公司新聞",
       "snippet_zh": ""
     },
@@ -869,8 +881,8 @@
         "營收與財報"
       ],
       "score": 3.71,
-      "summary": "",
-      "importance": 0,
+      "summary": "財報解讀指江豐電子第三季淨利年增 83%,一次性收益退潮後主業仍加速成長。顯示靶材本業動能強勁,不只靠非經常性收益。",
+      "importance": 4,
       "title_zh": "江豐電子Q3淨利同比增83%：一次性收益“退潮” 主業加速增長|財報解讀",
       "snippet_zh": ""
     },
@@ -886,11 +898,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "政策與貿易"
       ],
       "score": 3.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析指聯準會政策與停滯性通膨風險將主導金價走勢。金價變動影響 Au 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -909,9 +922,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "10 月 29 日早盤全球金價持續震盪、走勢難測。金價影響 Au 靶材與貴金屬靶材成本。",
+      "importance": 2,
+      "title_zh": "10 月 29 日早盤金價更新:全球金價持續波動,走勢難以預測",
       "snippet_zh": ""
     },
     {
@@ -929,9 +942,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "老鋪黃金代幣化股票的即時報價頁面,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "老鋪黃金 xStock 價格:LAOPGX 今日報價、即時走勢與市值",
       "snippet_zh": ""
     },
     {
@@ -949,8 +962,8 @@
         "原物料與價格"
       ],
       "score": 3.16,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價自歷史高點顯著回調,機構對貴金屬後市看法分歧。貴金屬價格波動影響 Au、Ag、Pt 靶材報價。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -966,11 +979,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "台股盤前要聞:央行總裁重申匯市政策,聯電追加 32 億美元資本支出。與同期聯電法說報導為同一事件。",
+      "importance": 2,
       "title_zh": "〈臺股盤前要聞〉楊金龍重申匯市依循「柳樹理論」、聯電追加32億美元資本支出",
       "snippet_zh": ""
     },
@@ -986,12 +1000,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 確認維持每季股息,報導討論其股價是否仍被低估。屬配息與股價評論,與前期配息報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Materion(MTRN)確認每季股息,股價是否仍被低估?",
       "snippet_zh": ""
     },
     {
@@ -1006,12 +1021,13 @@
         "Stanford Advanced Materials"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "靶材通路商 Stanford Advanced Materials 在加州推出超音波清洗機產品線。屬非靶材新品,關聯有限。",
+      "importance": 1,
+      "title_zh": "Stanford Advanced Materials(SAM)在加州 Santa Ana 推出完整超音波清洗機產品線",
       "snippet_zh": ""
     },
     {
@@ -1026,11 +1042,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子發布回購公司股份方案公告。與同期回購報導為同一事件。",
+      "importance": 2,
       "title_zh": "江豐電子: 關於回購公司股份方案的公告_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -1046,11 +1063,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子發布回購股份報告書。與同期回購報導為同一事件。",
+      "importance": 2,
       "title_zh": "江豐電子: 回購股份報告書_公司公告_每日必讀",
       "snippet_zh": ""
     },
@@ -1066,11 +1084,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子擬以 5,000 萬至 1 億元人民幣回購公司股份。與同期回購報導為同一事件。",
+      "importance": 2,
       "title_zh": "江豐電子：擬5000.00萬元至1.00億元回購公司股份",
       "snippet_zh": ""
     },
@@ -1086,11 +1105,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子發布 2026 年第三季報告。前三季淨利年增逾一倍,細節需參閱原報告。",
+      "importance": 4,
       "title_zh": "[三季報]江豐電子(300666):2026年三季度報告",
       "snippet_zh": ""
     },
@@ -1106,11 +1126,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 A 股股東戶數減少 2,511 戶,戶均持股增加。屬股東結構資訊,與靶材供需無關。",
+      "importance": 1,
       "title_zh": "江豐電子A股股東戶數減少2511戶降幅2.89%，流通A股戶均持股2627.66股增幅2.98%，戶均持股市值58.54萬元降幅1.83%",
       "snippet_zh": ""
     },
@@ -1126,11 +1147,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子擬以 5,000 萬至 1 億元人民幣回購股份,用於股權激勵。與同期回購報導為同一事件。",
+      "importance": 2,
       "title_zh": "江豐電子：擬5000萬元-1億元回購股份用於股權激勵",
       "snippet_zh": ""
     },
@@ -1146,11 +1168,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季稅後獲利 164 億元、較前季減少逾六成,並追加逾千億元資本支出。獲利季減但擴產不變,靶材需求展望仍正向。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1166,11 +1189,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "碳纖維板塊 10 月 28 日上漲 3.02%,江豐電子領漲、主力資金淨流入。屬股市行情。",
+      "importance": 1,
       "title_zh": "碳纖維板塊10月28日漲3.02%，江豐電子領漲，主力資金淨流入4806.45萬元",
       "snippet_zh": ""
     },
@@ -1186,11 +1210,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電第三季每股盈餘 1.32 元,追加 32 億美元資本支出強攻先進封裝與矽光子。與同期聯電法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1206,11 +1231,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 10 月 28 日股價上漲 10.35%,半導體設備 ETF 重倉該股。股價大漲反映市場對其第三季財報的正面反應。",
+      "importance": 2,
       "title_zh": "10月28日江豐電子漲10.35%，半導體設備ETF國泰基金重倉該股",
       "snippet_zh": ""
     },
@@ -1226,11 +1252,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子股價上漲 10.35%,開源證券兩個月前曾給予「買入」評級。屬股市行情。",
+      "importance": 1,
       "title_zh": "江豐電子漲10.35%，開源證券二個月前給出“買入”評級",
       "snippet_zh": ""
     },
@@ -1246,11 +1273,12 @@
         "頎邦 (Chipbond)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "頎邦跨入光通訊,金凸塊技術從顯示驅動 IC 延伸至 AI 資料中心。金凸塊製程使用 PVD 鍍製凸塊下金屬層,可能帶動 Au、Ti 靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1266,11 +1294,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "台股盤前要聞轉載:聯電追加 32 億美元資本支出。與同期報導重複。",
+      "importance": 1,
       "title_zh": "2303 聯電 - 〈臺股盤前要聞〉楊金龍重申匯市依循「柳樹理論」、聯電追加32億美元資本支出- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -1286,11 +1315,12 @@
         "頎邦 (Chipbond)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "頎邦股價走強逼近前高,光通訊與金凸塊題材受關注。屬股市行情,與同期頎邦報導相關。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1306,11 +1336,12 @@
         "力成 (Powertech)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "力成股價走強,AI 先進封裝與營運高檔受關注。屬股市行情。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1326,12 +1357,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓媒報導 JX金屬將稀有金屬再生能力提高至 3 倍,股價盤中急漲 4.8%。與同期 JX金屬靶材回收報導為同一事件。",
+      "importance": 4,
+      "title_zh": "稀有金屬再生能力提高 3 倍……JX金屬股價盤中急漲 4.8%",
       "snippet_zh": ""
     },
     {
@@ -1346,11 +1378,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "記憶體支撐第四季,力成、京元電、日月光股價齊揚,法人看好明年由先進封裝接棒成長。先進封裝擴產有利 PVD 靶材需求。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1366,12 +1399,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬股價一度上漲 4.8%,報導指其稀有金屬再生能力將提高至 3 倍。與同期 JX金屬靶材回收報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬股價一度上漲 4.8%:報導稱「稀有金屬再生能力提高至 3 倍」",
       "snippet_zh": ""
     },
     {
@@ -1386,11 +1420,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "10 月 28 日封測族群大漲 5.57%,日月光與力成領軍,先進封裝題材帶動。屬股市行情。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1406,11 +1441,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 10 月 27 日主力資金淨賣出 1,180.92 萬元人民幣。屬靶材股資金流向,與供需無關。",
+      "importance": 1,
       "title_zh": "歐萊新材（688530）10月27日主力資金淨賣出1180.92萬元",
       "snippet_zh": ""
     },
@@ -1426,11 +1462,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市早評提及有研新材等個股操作計畫。屬股市評論,與靶材供需關聯薄弱。",
+      "importance": 1,
       "title_zh": "10.28早評：有研新材，山東玻纖，鄭州煤電今天操作計劃",
       "snippet_zh": ""
     },
@@ -1446,11 +1483,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子發布 H 股發行上市後適用的市值管理制度草案。顯示其赴港上市進程持續推進。",
+      "importance": 2,
       "title_zh": "江豐電子：寧波江豐電子材料股份有限公司市值管理制度（草案）（H股發行並上市後適用）",
       "snippet_zh": ""
     },
@@ -1466,11 +1504,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.6,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 10 月 23 日融券賣出 1,300 股,融資融券餘額 13.17 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "江豐電子：10月23日融券賣出1300股，融資融券餘額13.17億元",
       "snippet_zh": ""
     },
@@ -1486,12 +1525,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "聯準會按兵不動後金價回落至每盎司 4,050 美元附近,市場等待美國 PCE 數據。金價影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "聯準會維持利率後金價回落至 4,050 美元附近,市場靜待美國 PCE 數據",
       "snippet_zh": ""
     },
     {
@@ -1506,12 +1546,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "伊朗戰事推升殖利率與美元,金價可能創 11 年來最大年度跌幅。貴金屬價格下行有助降低 Au、Ag 靶材原料成本。",
+      "importance": 3,
+      "title_zh": "伊朗戰事推升殖利率與美元,金價恐創 11 年來最大年度跌幅",
       "snippet_zh": ""
     },
     {
@@ -1526,12 +1567,13 @@
         "回收綜合:ターゲットリサイクル"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將半導體濺鍍靶材的再生能力提高至 3 倍。擴大廢靶回收可強化稀有金屬原料自給,鞏固其在 Ta、Cu 等靶材的成本與供應優勢。",
+      "importance": 5,
+      "title_zh": "JX金屬:半導體濺鍍靶材再生能力將提高至 3 倍",
       "snippet_zh": ""
     },
     {
@@ -1546,12 +1588,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "IndexBox 發布日本鉻濺鍍靶材市場規模、趨勢與至 2035 年的預測報告。屬市場研究推廣內容,細節需參閱原報告。",
+      "importance": 2,
+      "title_zh": "日本鉻濺鍍靶材市場:規模、趨勢與至 2035 年預測",
       "snippet_zh": ""
     },
     {
@@ -1566,11 +1609,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.11,
-      "summary": "",
-      "importance": 0,
+      "summary": "彰化銀行主辦光洋科與創鉅的百億元聯貸案。光洋科取得大額融資,可支應靶材與貴金屬回收產能擴充。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     }
