@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T08:28:12.831423+08:00",
+  "generated": "2026-10-29T09:13:25.968335+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為聯電法說:第三季營收 742 億元、稼動率升至 92%,董事會追加 32 億美元資本支出,加速新加坡與台南擴產並強攻先進封裝與矽光子,將帶動 PVD 機台與靶材需求。靶材廠方面,江豐電子前三季淨利年增 102%、第三季年增 83%,並擬回購股份、推進 H 股上市;JX金屬投資新回收設備,半導體靶材再生能力將提高至 3 倍;光洋科取得百億元聯貸。封測端力成第三季營收創新高,Amkor 則調降資本支出。金價回落至每盎司 4,050 美元附近,恐創 11 年來最大年度跌幅。",
@@ -20,6 +20,207 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "18de2c4e418061f0",
+      "title": "三星、SK海力士砸110兆韓元擴產 記憶體供給恐到2028年才放量",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQXp6ZjQ4eHUxX01DSkJJT1dMR2FzWUFkUUpBaEdsNTNPUGtaR1NqTWE4eDRERzRqZ0NkWjBYU1NvVDFhYjZJbEN1dlpsV1ZXa2lwTEZNeDdlVXludHNTYmRwU2Zua1VtNzU2NWUtNG0tQ2IwdUhHSEhlMkFrbEhsWlI2ZmZvSW00RF9VTFJR?oc=5",
+      "source": "DIGITIMES",
+      "published": "2026-10-28T18:01:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "092b1d3b1324d96d",
+      "title": "進擊的聯電！追加千億國內外擴產 搶攻矽光子、先進封裝 2027年喊漲10％",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE0xdkUyUmQ4QnpLRThNUGxIdGhiVFBKbDh6R2lRZFlrbVB1R3ZKTGxLUlpXQnJpV21rWkNWV1RlZFBmR3luVm5iSDExakxLMVRkbHkyUlRHWnBTR25BVlJB?oc=5",
+      "source": "工商時報",
+      "published": "2026-10-28T19:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "聯電 (UMC)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "84223e00bbf50dce",
+      "title": "中科布局成焦點》台積電擴充先進封裝有眉目- 財經要聞- 工商時報",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9vcTZmdlMzejlseWZwalJHeU5TczBBaGN0YjQzWmwtUHpjWkpNMHVuYjNkSndsbGV3azE3Y1pjSFlRXzhqMkMwRFFvdjdlM3lxLVdQa09KMUtIc00ySl9FVVJwdE44cjhtX2NF?oc=5",
+      "source": "中時新聞網",
+      "published": "2026-10-28T20:10:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.97,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "中科佈局成焦點》臺積電擴充先進封裝有眉目- 財經要聞- 工商時報",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3e261f02b78f0bde",
+      "title": "中科布局成焦點》台積電擴充先進封裝有眉目- 日報",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1oMVV2V2hFbUFOLW1PcFVFeEtOLTdDVmtBYXN5TDdxZFBWem5IcnRQa213Ykl4YVM5VWxNZzAtSC15LTd0WGdXdlRTVXA4S0VnMUVxU3hkY0J4X2VOZG9B?oc=5",
+      "source": "工商時報",
+      "published": "2026-10-28T19:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.96,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "中科佈局成焦點》臺積電擴充先進封裝有眉目- 日報",
+      "snippet_zh": ""
+    },
+    {
+      "id": "36b3cd840eb0cf3c",
+      "title": "TWA00 加權指數- 聯電追加資本支出，台光電第三季獲利創新高- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9sb2J1cHFFTFlXVGVnVDlwSDNGVk5PWlNraEM2Nm1FSlVtOXNWYWhfVDZkNzI4bjNJMVFmZFVMTjl3bnpVT0kzdVk2eDhOQ0wzdWtVWnVjLXM?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-28T08:33:27+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "聯電 (UMC)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "TWA00 加權指數- 聯電追加資本支出，臺光電第三季獲利創新高- 股市爆料同學會",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d2732e32054095b5",
+      "title": "Gold (XAU/USD) Price Forecast: Bearish Trend Faces Critical Test",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRF9QOTJWZU1fLXp2eEtqNGctNGRSVF9FTV9JcnVla2g3Sl8ybFRhVjhEYVlqNjc3R09MSVVBTFliZm9pREJFeUcweDFMMVJHTnAzRzV2bjFIcWRzcG9ick1kOHpwV3R4OGtOTExQcE9FaTVaN1B2TFlMcVRsdGM2STk2N1lyS2Z4OXZ3RVBtSGlIbWNnVko3SV9QUGZBcDE0OEFkcnhoN1hpcks2REV0LW1R?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-10-29T00:43:59+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9186254edc823a2d",
+      "title": "Gold price edges lower ahead of Fed rate decision, Warsh comments",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMi05RU1Bcmd0cGFIX1BUOFMzUUFXNkY0Sl9icTg1MnZ3TG14WThBXzlEOHFJSG1Dcl9IV05hMlVHbll2NXFXdWJ0N1ZPNzBIY3N6UWdmZUNTaWR0RDF4c3VGTVo0c1NNRWhFeDNuNkgxOTJISmJDQWhsVmc0QzBuaV90RWIzdEFWaktNMG5HZ1ltX29PeHVB?oc=5",
+      "source": "Mining.com",
+      "published": "2026-10-28T18:29:58+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6860d96362e1c48b",
+      "title": "Gold price drops to $4,035/oz as Fed votes 10-2 in favor of rate hold",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTkVadUVFNW9aUUZEM1BhNnZBQ0k3M004YUdlemlZbldkZmN2ZXRaWjNnalI0VzZ3aC0tTERhWWxRR1RWZTlpaGZvTnFndnJxUEk1OUgyU3lKWkE3SVZFeUJNX2NCTWZ3WDA5TS01VTd0dmVIVFJ5akl0UHR4b3BVUzVnbVR4Sl90clRuY3FNdGF4Zmx3SnNpWVU5WHFVRGhqMFE?oc=5",
+      "source": "Kitco",
+      "published": "2026-10-28T18:01:20+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "96006a58119cdf9e",
+      "title": "Gold steadies, silver falls as Fed holds rates, two officials favor hike - Kitco PM Report",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbEpMdkMycHVTTHhGWDJHdkczaF9sOXpRdUJ4cDNZUm1ydGI2ZTZBbnV2Z1dPRDlJUU8zdnpCcV9HTzk1LUNxWVJDbmkxOFd1Z2dTR0ZjZ3B6U2VObE00VTBFdU5CYWFXejNpcl9vWF9uTjRiNFpnWU1QNTc1eHp1dnN6cVc2TWVPSHRFR1dLYnhBc0FTREVVTzgxR2Y4Q05WV0RWdlJ1WXBuUDhtVzdsc2FCU1lSalVMcmZB?oc=5",
+      "source": "Kitco",
+      "published": "2026-10-28T20:51:50+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.47,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b94e775023fddb27",
+      "title": "國際金價徘徊4000美元關口，上金所黃金現貨周成交量增加27.6%",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5fTkprY1BXRDlFM1oyQ25mSFFla3pNNWZKcXFMeDA1Yjc2RV9hclZyS0l5b21kOTRZeW1wZ2VabmhseTVPeTBsczhoZlZMWFNhbjJINVhFSldreXdj?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-27T09:15:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.26,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "03e384c39a04fe05",
       "title": "不拚先進製程照樣供不應求！聯電追加32億美元擴產滿足客戶",
@@ -1623,7 +1824,7 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4053.9,
+      "price": 4053.8,
       "prev": 4074.6,
       "date": "2026-10-29",
       "unit": "USD/oz",
@@ -1633,32 +1834,32 @@
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 53.69,
+      "price": 53.78,
       "prev": 54.29,
       "date": "2026-10-29",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.11
+      "change_pct": -0.94
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1535.5,
+      "price": 1538.6,
       "prev": 1535.0,
       "date": "2026-10-29",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.03
+      "change_pct": 0.23
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1017.0,
+      "price": 1018.0,
       "prev": 1023.7,
       "date": "2026-10-29",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.65
+      "change_pct": -0.56
     }
   ],
   "papers": [],
