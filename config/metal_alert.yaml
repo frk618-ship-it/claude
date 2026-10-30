@@ -1,0 +1,43 @@
+# 貴金屬價格預警(python -m metal_alert)設定
+# 資料來源:Yahoo Finance chart API(免金鑰),COMEX / NYMEX 期貨連續月。
+
+settings:
+  interval_minutes: 60        # 檢查頻率(serve 模式的排程與 GitHub Actions 排程都是每小時一次)
+  history_range: 60d          # 抓取多久的小時 K 線(Yahoo 1h 資料最多約 730 天)
+  bar_interval: 1h            # K 線週期
+  daily_range: 1y             # 日 K 線(判斷中長期趨勢、52 週位置)
+  chart_bars: 240             # 網頁圖表顯示最近幾根 K 線
+  cooldown_hours: 6           # 同一品項、同一方向的預警至少間隔幾小時
+  forward_bars: 24            # 回測:訊號出現後觀察幾根 K 線的報酬
+  tz: Asia/Taipei
+
+# 綜合分數 -100(相對高點、出場)~ +100(相對低點、進場)的分級門檻
+levels:
+  strong_buy: 60
+  buy: 30
+  sell: -30
+  strong_sell: -60
+
+# 指標參數與權重(權重越大影響越大;設 0 停用)
+indicators:
+  rsi:        {period: 14, low: 30, high: 70, weight: 1.5}
+  kd:         {period: 9, k: 3, d: 3, low: 20, high: 80, weight: 1.0}
+  macd:       {fast: 12, slow: 26, signal: 9, weight: 1.0}
+  bollinger:  {period: 20, std: 2.0, weight: 1.5}
+  williams:   {period: 14, low: -80, high: -20, weight: 0.5}
+  cci:        {period: 20, low: -100, high: 100, weight: 0.5}
+  bias:       {period: 60, lookback: 500, z: 2.0, weight: 1.0}   # 乖離率(相對 60 小時均線)的 Z 分數
+  range:      {days: 20, weight: 1.0}                            # 收盤價在近 20 日高低區間的位置
+  trend:      {ema: 200, daily_ma: 50, weight: 1.0}              # 趨勢濾網:順勢的訊號加分、逆勢的打折
+  atr:        {period: 14, stop_mult: 2.0, target_mult: 3.0}     # 停損 / 目標價 = 收盤 ± 倍數 × ATR
+
+metals:
+  - {name: 黃金, code: Au, symbol: GC=F, unit: USD/oz}
+  - {name: 白銀, code: Ag, symbol: SI=F, unit: USD/oz}
+  - {name: 鉑金, code: Pt, symbol: PL=F, unit: USD/oz}
+  - {name: 鈀金, code: Pd, symbol: PA=F, unit: USD/oz}
+
+# 自訂價位預警(選填):價格跌破 below 或突破 above 時發出預警
+price_alerts: []
+#  - {code: Au, below: 3800}
+#  - {code: Ag, above: 55}

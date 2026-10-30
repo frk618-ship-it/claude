@@ -1,0 +1,127 @@
+name: 貴金屬價格預警
+# 每小時抓 Yahoo Finance 的黃金、白銀、鉑金、鈀金小時 K 線,以技術指標評分相對低點(進場)/ 高點(出場),
+# 分數進入進場 / 出場區時發出預警,並重新發布網站(/metals/)。手動執行:Actions 頁面選「貴金屬價格預警」→ Run workflow。
+#
+# 選填 secrets(Settings → Secrets and variables → Actions),設定後預警會即時推送:
+#   METAL_ALERT_WEBHOOK_URL       Slack / Discord / Teams / Google Chat 的 incoming webhook
+#   TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID
+#   Email:SMTP_HOST、SMTP_PORT(465 = SSL,587 = STARTTLS)、SMTP_USER、SMTP_PASSWORD、ALERT_EMAIL_TO(多個以逗號分隔)、ALERT_EMAIL_FROM(選填)
+
+on:
+  schedule:
+    # 每小時第 17 分(避開整點,GitHub 在整點前後負載高,排程容易延遲)
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "同時重新發布網站"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: metal-alert
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.flags.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # 上一次的指標狀態(用來判斷「狀態改變」與冷卻時間)放在 Actions cache,不必每小時 commit
+      - name: Restore alert state
+        uses: actions/cache/restore@v4
+        with:
+          path: data/metal_alert/state.json
+          key: metal-alert-state-${{ github.run_id }}
+          restore-keys: metal-alert-state-
+
+      - name: Check prices and send alerts
+        env:
+          METAL_ALERT_WEBHOOK_URL: ${{ secrets.METAL_ALERT_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
+        run: python -m metal_alert -v run
+
+      - name: Save alert state
+        if: always() && hashFiles('data/metal_alert/state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/metal_alert/state.json
+          key: metal-alert-state-${{ github.run_id }}
+
+      - name: Commit alert log (only when new alerts fired)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/metal_alert/alerts.jsonl 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "metals: 貴金屬價格預警 $(TZ=Asia/Taipei date '+%F %H:%M')"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
+
+      - id: flags
+        run: echo "publish=${{ github.event_name == 'schedule' || github.event.inputs.publish == 'true' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Build site
+        if: steps.flags.outputs.publish == 'true'
+        run: |
+          python -m target_news_agent site -i reports -o site/news --root-redirect site
+          if [ -f reports/dashboard/index.html ]; then
+            mkdir -p site/financials
+            cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png site/financials/
+          fi
+          python -m metal_alert site -o site/metals
+
+      - uses: actions/configure-pages@v5
+        if: steps.flags.outputs.publish == 'true'
+
+      - name: Protect site (secret path + password)
+        if: steps.flags.outputs.publish == 'true'
+        env:
+          SITE_PATH: ${{ secrets.SITE_PATH }}
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+        run: python -m target_news_agent protect --src site --out public
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.flags.outputs.publish == 'true'
+        with:
+          path: public
+
+  deploy:
+    needs: check
+    if: needs.check.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -292,3 +292,97 @@ python -m price_compare -c examples/price_compare_demo.yaml search --no-web 鈦�
 
 `python -m target_news_agent intranet --src <建好的網站> --out build/intranet [--zip] [--with-source]` 會把網站打包成可放在公司內網的版本:three.js 隨網站提供、改用系統字型(瀏覽時沒有任何對外連線)、不加密頁面(改由 SSO 控管)、絕對網址改為相對網址,並附上 Nginx 設定範例、蒐集主機的每日更新腳本與部署說明(`deploy/intranet/`)。也可以在 GitHub Actions 手動執行「打包內網版」,從 Artifacts 下載。
 
+
+---
+
+# 貴金屬價格預警(`metal_alert`)
+
+每小時抓取**黃金、白銀、鉑金、鈀金**的 1 小時 K 線(Yahoo Finance,COMEX / NYMEX 期貨連續月 `GC=F`、`SI=F`、`PL=F`、`PA=F`,免金鑰),用多項股票技術分析指標算出綜合分數,提示**相對低點(進場)**與**相對高點(出場)**,分數進入進場 / 出場區時發出預警,並以網頁模組呈現。
+
+## 運作流程
+
+```
+Yahoo Finance chart API ─► 1h K 線(60 天)+ 日 K 線(1 年)
+          │
+          ▼
+  指標投票(−1 ~ +1,正 = 超賣偏進場):RSI、KD、MACD、布林 %B、威廉 %R、CCI、乖離率 Z 分數、近 20 日區間位置
+          │  加權平均 ×100
+          ▼
+  趨勢濾網(EMA200 小時線 + 日線 MA50):多頭中的超賣訊號加強、空頭中的打折(出場訊號反之)
+          │
+          ▼
+  綜合分數 −100 ~ +100 → 強烈進場 / 留意進場 / 中性 / 留意出場 / 強烈出場
+          │
+  與上一次狀態比較(冷卻時間、升級為「強烈」) + 自訂價位線
+          │
+          ▼
+  預警紀錄 data/metal_alert/alerts.jsonl · 通知(Webhook / Telegram)· 網頁 /metals/
+```
+
+## 網頁內容
+
+- **總覽卡片**:各品項價格、日 / 24 小時漲跌(漲紅跌綠)、綜合分數量尺與訊號等級。
+- **技術面圖表**(最近 240 根小時 K):收盤價、布林通道、EMA200 與歷次進場 ▲ / 出場 ▼ 訊號;綜合分數走勢與門檻;RSI 與 K 值。滑鼠移到圖上可看各時點數值。
+- **指標明細**:每個指標的數值、投票方向與判讀。
+- **參考價位**:支撐 / 壓力(布林軌道、20 日區間)、ATR、進出場的參考停損與目標價(收盤 ± 倍數 × ATR)。
+- **歷史訊號回測**:過去 60 天分數剛進入進場 / 出場區後 24 小時的勝率與平均報酬。
+- **預警紀錄**:最近的預警與觸發原因。支援深色模式與手機版面。
+
+## 使用方式
+
+```bash
+pip install -r requirements.txt
+
+python -m metal_alert run                 # 執行一次檢查(排程用),有預警時發通知
+python -m metal_alert run --site site/metals   # 同時輸出靜態網頁
+python -m metal_alert serve               # 網頁模組 http://127.0.0.1:8770/ ,背景每小時自動檢查,可按「立即更新」
+python -m metal_alert site --fetch -o site/metals   # 抓最新資料產生靜態網頁(唯讀:不發通知、不改狀態)
+```
+
+- `serve` 另提供 JSON API:`GET /api/latest`(最新評分)、`GET /api/alerts`(預警紀錄)、`POST /api/refresh`(立即檢查)、`GET /healthz`。
+- 狀態、預警紀錄與最新資料存在 `data/metal_alert/`(`-d` 可改)。
+
+## 預警規則
+
+- 分數由中性 / 反方向進入進場(≥ +30)或出場(≤ −30)區時發出預警;由「留意」升級為「強烈」(±60)時也會發出。
+- 同一品項、同一方向的預警至少間隔 `cooldown_hours`(預設 6 小時),避免價格在門檻附近來回時重複通知。
+- 第一次執行時,已經在進場 / 出場區的品項會各發出一次預警。
+- 自訂價位線:在 `config/metal_alert.yaml` 的 `price_alerts` 加入例如 `{code: Au, below: 3800}`,價格跌破 / 突破時預警。
+
+## 通知(選填)
+
+| 環境變數 / Actions Secret | 說明 |
+|---|---|
+| `METAL_ALERT_WEBHOOK_URL` | Slack / Discord / Microsoft Teams / Google Chat 的 incoming webhook 網址 |
+| `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Telegram 機器人 |
+| `SMTP_HOST`、`SMTP_PORT`、`SMTP_USER`、`SMTP_PASSWORD`、`ALERT_EMAIL_TO`、`ALERT_EMAIL_FROM` | Email(SMTP)。`SMTP_PORT` 填 465 用 SSL、587 用 STARTTLS(預設 465);`ALERT_EMAIL_TO` 可填多個收件人,以逗號分隔;`ALERT_EMAIL_FROM` 不填時用 `SMTP_USER` |
+
+Email 設定範例:
+
+| 信箱 | `SMTP_HOST` | `SMTP_PORT` | `SMTP_PASSWORD` |
+|---|---|---|---|
+| Gmail | `smtp.gmail.com` | `465` | 應用程式密碼(Google 帳戶 → 安全性 → 開啟兩步驟驗證 → 應用程式密碼,16 碼),不是登入密碼 |
+| Outlook / Microsoft 365 | `smtp.office365.com` | `587` | 帳號密碼(公司帳號需管理員開啟 SMTP AUTH) |
+| 公司郵件伺服器 | 依 IT 提供 | 465 或 587 | 依 IT 提供 |
+
+同一次檢查的多則預警會合併成一封信。
+
+都沒設定時,預警仍會寫入紀錄、顯示在網頁與 Actions 執行摘要。
+
+## 每小時自動執行(GitHub Actions)
+
+`.github/workflows/metal-alert.yml` 每小時第 17 分執行:檢查並發送預警 → 有新預警時把 `data/metal_alert/alerts.jsonl` commit 回 repo → 重新建置整個網站並發布,頁面位於 `<網站>/metals/`(和新聞、財務儀表板一樣受 `SITE_PATH` / `SITE_PASSWORD` 保護,頁面右下角的切換選單可互相切換)。上一次的指標狀態存在 Actions cache,不會每小時產生 commit。「靶材產業新聞」與「發布網站」workflow 發布時也會一併產生最新的貴金屬頁面。GitHub 排程可能延遲數分鐘到數十分鐘;需要準時的每小時檢查,可在自己的主機執行 `serve` 或用 cron 執行 `run`。
+
+## 設定(`config/metal_alert.yaml`)
+
+- `settings`:檢查頻率 `interval_minutes`(預設 60)、K 線期間與週期、圖表根數、冷卻時間、回測觀察根數、時區。
+- `levels`:分級門檻。
+- `indicators`:各指標參數與權重(權重設 0 即停用)、趨勢濾網、ATR 停損 / 目標倍數。
+- `metals`:品項與 Yahoo 代號,可加入其他商品(例如銅 `HG=F`)。
+
+## 注意事項
+
+- 期貨連續月在換月時可能出現價格跳動;期貨價格與現貨、實體金屬報價有價差。
+- Yahoo Finance 對完整瀏覽器 User-Agent 但沒有 cookie 的請求會回 429,程式使用精簡 UA 並在 query1 / query2 兩個主機間重試。
+- 技術指標在強趨勢中可能持續鈍化(例如下跌中長期超賣),趨勢濾網只能降低、不能消除逆勢訊號;回測統計僅供參考。
+- 本工具僅為技術指標的量化整理,不構成投資建議。
