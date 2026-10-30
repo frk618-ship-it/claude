@@ -204,7 +204,17 @@ def page_switcher(data: dict) -> str:
     if not news:
         return ""
     from target_news_agent.fabnav import fab_nav
-    return fab_nav("financials", news.rsplit("/", 1)[0] + "/")
+    return fab_nav("financials", news.rsplit("/", 1)[0] + "/", news_site_skip())
+
+
+def news_site_skip(path: Path = Path(__file__).resolve().parents[1] / "config" / "watchlist.yaml") -> set[str]:
+    """Pages the news site doesn't build (no forecasts / quiz configured), so the switcher doesn't link to a 404."""
+    from target_news_agent.config import load_config
+    try:
+        config = load_config(path)
+    except (OSError, ValueError):
+        return set()
+    return ({"forecast"} if not config.forecasts else set()) | ({"quiz"} if not config.quiz else set())
 
 
 def _html_escape(text: str) -> str:

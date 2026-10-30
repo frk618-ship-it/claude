@@ -268,3 +268,12 @@ def test_revenue_yoy_falls_back_to_recent_quarters():
     m = quarter_metrics(CompanyData("X", quarters={p: {"revenue": v} for p, v in revs.items()}))
     assert m["2026Q2"]["revenue_ttm_yoy"] == pytest.approx(280 / 200 - 1) and m["2026Q2"]["revenue_yoy_quarters"] == 2
     assert m["2026Q1"]["revenue_ttm_yoy"] is None  # only one matched quarter
+
+
+def test_page_switcher_skips_pages_the_news_site_does_not_build(tmp_path):
+    from fin_analyzer.dashboard import news_site_skip
+
+    assert news_site_skip() == set()  # the repo's news site has forecasts and the quiz
+    bare = tmp_path / "watchlist.yaml"
+    bare.write_text((ROOT / "config" / "watchlist.yaml").read_text(encoding="utf-8"), encoding="utf-8")
+    assert news_site_skip(bare) == {"forecast", "quiz"}  # no forecasts.yaml / quiz.yaml next to it

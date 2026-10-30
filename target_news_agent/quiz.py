@@ -86,7 +86,7 @@ def fixed_questions(config: Config) -> list[dict]:
         wrong = [str(w) for w in x.get("wrong") or []]
         if x.get("q") and x.get("answer") and len(wrong) >= 3:
             topic = str(x.get("topic", "materials"))
-            island = str(x.get("island") or ("wiring" if topic == "materials" else "market"))
+            island = str(x.get("island") or ("materials" if topic == "materials" else "market"))
             out.append(_q(topic, str(x["q"]), str(x["answer"]), wrong, str(x.get("explain", "")), island,
                           visual={"kind": "icon", "icon": str(x.get("icon") or ("flask" if topic == "materials" else "market"))}))
     return out
@@ -155,7 +155,7 @@ def news_questions(items: list[dict], config: Config, rng: random.Random) -> lis
             continue
         pool = [n for n in names if n != answer and n.lower() not in title.lower()]  # no second right answer
         if len(pool) < 3:
-            break
+            continue  # this headline names too many companies; later ones may still work
         seen.add(ents[0])
         motif, caption, sym = pick_thumb(it, roles)
         picked.append(_q("news", f"這則近期新聞的主角是哪家公司?「{masked}」", answer, rng.sample(pool, 3),

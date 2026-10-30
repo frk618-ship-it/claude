@@ -81,7 +81,9 @@ async function main() {
   if (saved && await tryKey(b64(saved))) return;
   const m = location.hash.match(/^#k=(.+)$/);
   if (m) {
-    const raw = await derive(decodeURIComponent(m[1]));
+    // a raw '%' in a shared password is not a valid escape; use it as typed instead of failing before the form shows
+    let pw = m[1]; try { pw = decodeURIComponent(pw); } catch (e) {}
+    const raw = await derive(pw);
     put(sessionStorage, enc(raw));
     try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
     if (await tryKey(raw)) return;

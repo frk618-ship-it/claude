@@ -433,8 +433,6 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
         print(f"{path}: companies database: {created} added, {updated} updated")
     return 0
 
-if __name__ == "__main__":
-    sys.exit(main())
 
 
 def _check_papers(args, config) -> int:
@@ -488,3 +486,7 @@ def _intranet(args) -> int:
     for page, urls in result["external"].items():
         print(f"WARNING {page} still loads from outside: {', '.join(urls)}")
     return 1 if result["external"] else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

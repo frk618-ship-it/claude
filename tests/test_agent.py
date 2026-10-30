@@ -1290,6 +1290,33 @@ def test_quiz_bank_and_page(tmp_path, config):
     assert 'href="../news/quiz.html"' in (tmp_path / "out" / "index.html").read_text(encoding="utf-8")  # floating page switcher
 
 
+def test_quiz_fixed_default_island_and_crowded_headline(config):
+    import random
+
+    from target_news_agent.quiz import fixed_questions, news_questions, short_name
+
+    # a fixed materials question without `island:` lands on the materials island, not a missing one
+    bare = SimpleNamespace(quiz=[{"topic": "materials", "q": "Q?", "answer": "A", "wrong": ["B", "C", "D"]}])
+    assert [q["island"] for q in fixed_questions(bare)] == ["materials"]
+    # one headline naming nearly every company is skipped, not the end of the news questions
+    names = sorted({short_name(e.name) for e in config.entities if not e.is_topic})
+    items = [
+        {"id": "a", "title": "光洋科 " + " ".join(n for n in names if n != "台積電"),
+         "entities": ["光洋科 (Solar Applied Materials)"], "importance": 5},
+        {"id": "b", "title": "台積電擴產", "entities": ["台積電 (TSMC)"], "importance": 4},
+    ]
+    assert [q["answer"] for q in news_questions(items, config, random.Random(0))] == ["台積電"]
+
+
+def test_protect_unlock_tolerates_raw_percent_in_link():
+    from pathlib import Path
+
+    import target_news_agent.protect as mod
+
+    # a shared #k= link with a raw '%' must not throw before the password form shows
+    src = Path(mod.__file__).read_text(encoding="utf-8")
+    assert "try { pw = decodeURIComponent(pw); } catch (e) {}" in src and "derive(decodeURIComponent(" not in src
+
 def test_protect_site_encrypts_under_secret_path(tmp_path):
     from target_news_agent.protect import decrypt_page, protect
 
