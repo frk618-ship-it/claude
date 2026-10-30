@@ -153,6 +153,9 @@ def notify(alerts: list[dict], texts: list[str], env: dict | None = None, post=_
         return []
     used = []
     body = "\n\n".join(texts)
+    page = env.get("METAL_ALERT_PAGE_URL", "").strip()
+    if page:
+        body += f"\n\n預警網頁(圖表、指標明細與預警紀錄):{page}"
     hook = env.get("METAL_ALERT_WEBHOOK_URL", "").strip()
     if hook:
         # Slack / Teams / Google Chat read "text"; Discord reads "content".

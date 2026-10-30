@@ -367,6 +367,8 @@ Email 設定範例:
 
 同一次檢查的多則預警會合併成一封信。
 
+每則通知(Email、Webhook、Telegram)最後都會附上預警網頁網址,方便收件者查看圖表與指標明細。GitHub Actions 會用 `SITE_PATH` 自動組成 `https://<帳號>.github.io/<repo>/<SITE_PATH>/metals/`;網站放在其他位置(例如內網)時,可設定 `METAL_ALERT_PAGE_URL` 覆寫。網站有密碼保護時,收件者開啟網頁需輸入 `SITE_PASSWORD`,請另外告知,不要寫進通知內容。
+
 都沒設定時,預警仍會寫入紀錄、顯示在網頁與 Actions 執行摘要。
 
 ## 每小時自動執行(GitHub Actions)

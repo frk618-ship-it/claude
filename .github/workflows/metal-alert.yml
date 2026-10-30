@@ -6,6 +6,7 @@ name: 貴金屬價格預警
 #   METAL_ALERT_WEBHOOK_URL       Slack / Discord / Teams / Google Chat 的 incoming webhook
 #   TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID
 #   Email:SMTP_HOST、SMTP_PORT(465 = SSL,587 = STARTTLS)、SMTP_USER、SMTP_PASSWORD、ALERT_EMAIL_TO(多個以逗號分隔)、ALERT_EMAIL_FROM(選填)
+#   METAL_ALERT_PAGE_URL          通知內附上的預警網頁網址;不設定時由 SITE_PATH 自動組成 GitHub Pages 的 /metals/ 網址
 
 on:
   schedule:
@@ -62,7 +63,13 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
-        run: python -m metal_alert -v run
+          METAL_ALERT_PAGE_URL: ${{ secrets.METAL_ALERT_PAGE_URL }}
+          SITE_PATH: ${{ secrets.SITE_PATH }}
+        run: |
+          if [ -z "$METAL_ALERT_PAGE_URL" ] && [ -n "$SITE_PATH" ]; then
+            export METAL_ALERT_PAGE_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/${SITE_PATH}/metals/"
+          fi
+          python -m metal_alert -v run
 
       - name: Save alert state
         if: always() && hashFiles('data/metal_alert/state.json') != ''

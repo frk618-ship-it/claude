@@ -197,6 +197,11 @@ def test_notify_email():
     used = al.notify([alert, alert], [al.format_text(alert)], env=env, post=lambda *a: None,
                      send_email=lambda e, subject, body: mails.append((subject, body)))
     assert used == ["email"] and mails[0][0] == "【貴金屬預警】進場|黃金 留意進場 等 2 則"
+    assert "預警網頁" not in mails[0][1]
+
+    env["METAL_ALERT_PAGE_URL"] = "https://example.github.io/claude/secret/metals/"
+    al.notify([alert], [al.format_text(alert)], env=env, send_email=lambda e, subject, body: mails.append((subject, body)))
+    assert mails[-1][1].endswith("預警網頁(圖表、指標明細與預警紀錄):https://example.github.io/claude/secret/metals/")
 
     def boom(*a):
         raise OSError("auth failed")
