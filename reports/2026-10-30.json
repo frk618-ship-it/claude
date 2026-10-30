@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-30T08:28:09.976914+08:00",
+  "generated": "2026-10-30T09:20:07.960153+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為日月光法說:第三季每股盈餘 6.13 元創 19 季新高,資本支出第四度上修至 115 億美元,先進封測(LEAP)營收今年上調至逾 40 億美元、明年可望倍增,並以面板級封裝打入 AMD;台積電也以 388 億元買下友達中科兩廠擴充先進封裝,封裝端 PVD 與靶材需求持續升溫。記憶體方面,三星電子與 SK海力士獲利創紀錄並擴大資本支出,三星 2026 年資本支出達 632 億美元新高。靶材廠財報亮眼:江豐電子前三季淨利年增 102%、擬回購股份並投資凱德石英,歐萊新材前三季營收年增 101%;JX金屬北關東兩據點新設備,半導體靶材回收能力提高至 3 倍。聯電追加 32 億美元擴產但股價重挫;貴金屬全面回落,鉑金單日跌約 4%。",
@@ -21,6 +21,66 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "0bc1967d6fee3aa0",
+      "title": "Advanced Packaging Substrates Market Is Going to Boom |• Amkor Technology • ASE Group",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNaHQ2QTJ3WVlpQzZVYURhTnYwTjlTVTJPXzQ0RWxJSnYzYVNOUnlJS2VvTzZmMnpBSFhET3hQUDk4REloeXhiT0xnZGM1WUNHcGY1R2JGNnRZRjJaWkpZUnFKdVY3SnpIODZNb1JBNWd0TDEwOUF4a1NoUTZGU3J4V1JOZHlFZXhHVXBLTUVOd0NKbHdvUjJEN2Vzbw?oc=5",
+      "source": "openPR.com",
+      "published": "2026-10-29T06:24:22+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Amkor 艾克爾"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 3.69,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d7c059b98865a7cf",
+      "title": "Gold (XAU/USD) Price Forecast: Bearish Reversal Threatens Key Support",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY3p3ZzFTMlM0cnVSN3NKeFE1TEZZdnJhYl9kWHZnc1hGaUoxVHlsTjJjRHJlMDJ6MU1UQTNSZlU1aXV2WmtiQloySDZNLVBXcFdVQ0xIaWZTc1lXV1dPdWxxeGRMWE95ZHQ1by1hYzkxYmpRbUhsRlMxS0FvOThUb0ZFQ1J3enBHaXhUdHJUbEdkUTV2WjVPTXpnQVNvbDJMMkxuUHM4aS02S2ZEeG5sV3BIVkNuVmw0?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-10-29T21:31:23+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.28,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4a87aa7baca86b3f",
+      "title": "機構：預計年底前金價測試3900美元，白銀跌至50至53美元區間，二者明年初企穩",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZ1JfMmlrd2NTSjlfU05oY3ctZ29YMVIwUVRjS3JqMkNZd0pNWXFvWWpZWFZiSlNhOWowUkJzSm1mbjZoOWY0YUtTc2I3UDVid3FYMUswN3h2MWZyenBFNTBXWVQ2eHNBYTR1Z3RnRzhMRUZqLXp5WnBERzNWaG5mYnRwU0FLV0JMTVQ1QlVObnNlVm5wVzF3WXM0aDQ3Y2VXSDlYbzdKYy1KcGpSUFMxMVJKeUtjMlE?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-29T04:15:24+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.37,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "875ec8a89da7f015",
       "title": "英特爾Q3財報前瞻：AI服務器CPU需求受關注，機構聚焦Q4指引與擴產投入",
@@ -1478,42 +1538,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4022.7,
+      "price": 4010.6,
       "prev": 4051.6,
       "date": "2026-10-30",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.71
+      "change_pct": -1.01
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 52.02,
+      "price": 51.19,
       "prev": 53.46,
       "date": "2026-10-30",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -2.69
+      "change_pct": -4.25
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1485.1,
+      "price": 1467.8,
       "prev": 1547.9,
       "date": "2026-10-30",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -4.06
+      "change_pct": -5.17
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1000.5,
+      "price": 988.5,
       "prev": 1009.4,
       "date": "2026-10-30",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.88
+      "change_pct": -2.07
     }
   ],
   "papers": [],
