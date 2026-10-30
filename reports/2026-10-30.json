@@ -2,19 +2,23 @@
   "generated": "2026-10-30T08:28:09.976914+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 70 則,其中新聞與公司公告 59 則;報導最多的是 日月光投控(17 則)、江豐電子(10 則)、聯電(7 則)、JX金屬(7 則)。依主題:營收與財報 18 則、擴產與投資 15 則、產業動態 13 則、客戶與供應鏈 5 則、回收與循環 4 則。",
+    "overview": "本期焦點為日月光法說:第三季每股盈餘 6.13 元創 19 季新高,資本支出第四度上修至 115 億美元,先進封測(LEAP)營收今年上調至逾 40 億美元、明年可望倍增,並以面板級封裝打入 AMD;台積電也以 388 億元買下友達中科兩廠擴充先進封裝,封裝端 PVD 與靶材需求持續升溫。記憶體方面,三星電子與 SK海力士獲利創紀錄並擴大資本支出,三星 2026 年資本支出達 632 億美元新高。靶材廠財報亮眼:江豐電子前三季淨利年增 102%、擬回購股份並投資凱德石英,歐萊新材前三季營收年增 101%;JX金屬北關東兩據點新設備,半導體靶材回收能力提高至 3 倍。聯電追加 32 億美元擴產但股價重挫;貴金屬全面回落,鉑金單日跌約 4%。",
     "key_trends": [
-      "營收與財報(18 則):三星電子SK海力士獲利創紀錄 看好AI前景齊擴大資本支出",
-      "擴產與投資(15 則):英特爾Q3財報前瞻：AI服務器CPU需求受關注，機構聚焦Q4指引與擴產投入",
-      "產業動態(13 則):Materion stock at EUR 214.50 in late Lang & Schwarz quote",
-      "客戶與供應鏈(5 則):日月光秀出AMD 處理器面板級封裝，力成攜手博通在新加坡設廠獲準| 動區動趨-最具影響力的區塊鏈新聞媒體"
+      "先進封裝擴產:日月光資本支出上修至 115 億美元,台積電買下友達中科兩廠,面板級封裝邁向 2027 年量產",
+      "記憶體資本支出創高:三星 2026 年資本支出 632 億美元,SK海力士同步擴大",
+      "靶材廠獲利倍增:江豐電子前三季淨利年增 102%,歐萊新材營收年增 101%",
+      "回收擴大:JX金屬半導體靶材回收能力提高至 3 倍,並推出 100% 回收銅箔",
+      "晶圓代工擴產與漲價:聯電追加 32 億美元、明年平均售價看增 10%",
+      "貴金屬回落:金價跌破 4,050 美元,鉑金單日跌逾 4%"
     ],
     "watch_points": [
-      "英特爾Q3財報前瞻：AI服務器CPU需求受關注，機構聚焦Q4指引與擴產投入(TradingView)",
-      "臺積電砸 388 億拿下友達中科兩廠！先進封裝擴產再加速、精材地位升(鏈新聞 ABMedia)",
-      "三星電子SK海力士獲利創紀錄 看好AI前景齊擴大資本支出(中央社 CNA)"
+      "日月光與台積電先進封裝新廠落地時程,以及面板級封裝對靶材尺寸與規格的要求",
+      "三星與 SK海力士擴產對 Cu、Ta、W 靶材的拉貨節奏",
+      "江豐電子投資凱德石英與 CoFeB 靶材專利是否延伸為新產品線",
+      "JX金屬回收能力擴大對 Ta 等稀有金屬原料與靶材價格的影響",
+      "金價與鉑價下行對貴金屬靶材報價的傳導"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -29,13 +33,13 @@
         "英特爾 (Intel)"
       ],
       "categories": [
-        "擴產與投資",
         "營收與財報",
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾第三季財報前瞻,市場關注 AI 伺服器 CPU 需求、第四季財測與擴產投入。英特爾擴產步調攸關其晶圓廠 PVD 機台與靶材採購。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -56,8 +60,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電以 388 億元買下友達中科兩座廠房,加速先進封裝擴產,精材地位隨之提升。先進封裝新廠將帶動 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "臺積電砸 388 億拿下友達中科兩廠！先進封裝擴產再加速、精材地位升",
       "snippet_zh": ""
     },
@@ -74,12 +78,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 5.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星電子與 SK海力士獲利創紀錄,看好 AI 前景同步擴大資本支出。兩大記憶體廠擴產將直接推升 Cu、Ta、Ti、W 等半導體靶材需求。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -95,12 +100,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光第三季每股盈餘 6.13 元,封測毛利率突破三成,接下來面臨擴產考驗。封測擴產將增加凸塊與 RDL 製程的 PVD 靶材用量。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -116,12 +121,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光預估第四季封測營收季增 11% 至 13%,先進封裝需求強勁,明年擴產再加速。有利封裝用 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -137,12 +142,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電法說會後股價重挫近 9%,砸千億元擴產仍難擋賣壓,公司預告未來 3 年毛利率承壓。擴產計畫本身仍將增加靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -162,8 +167,8 @@
         "原物料與價格"
       ],
       "score": 5.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電預告漲價並急擴 AI 產線,股價卻大跌,報導分析原因。擴產方向不變,對靶材需求屬正面。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -179,13 +184,13 @@
         "英特爾 (Intel)"
       ],
       "categories": [
-        "營收與財報",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "營收與財報"
       ],
       "score": 5.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "英特爾與亞馬遜財報疲弱,加上資本支出膨脹的疑慮,拖累那斯達克 100 期貨走低。若市場壓抑 AI 支出,可能影響後續擴產節奏。",
+      "importance": 2,
+      "title_zh": "英特爾、亞馬遜財報疲弱且資本支出膨脹疑慮壓抑市場情緒,那斯達克 100 期貨走低",
       "snippet_zh": ""
     },
     {
@@ -200,12 +205,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 4.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達揭示 AI 擴產藍圖,點名欣興、京元電、矽品等四大供應鏈。矽品等封測廠擴產可能帶動 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -225,8 +230,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.7,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光以面板級封裝打入 AMD Venice,目標 2027 年量產;力成赴新加坡設廠獲准。面板級封裝的大尺寸 RDL 製程需要 PVD,可能帶來新的靶材規格需求。",
+      "importance": 4,
       "title_zh": "錢進面板級封裝！日月光打入AMD Venice拚2027量產、力成赴星設廠獲準",
       "snippet_zh": ""
     },
@@ -242,11 +247,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "併購與合作",
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子新增一筆對外投資,被投資公司為北京凱德石英。顯示靶材龍頭向半導體上游材料延伸布局。",
+      "importance": 3,
       "title_zh": "江豐電子（300666.SZ）新增一起對外投資，被投資公司為北京凱德石英股份有限公司_公司新聞_財經",
       "snippet_zh": ""
     },
@@ -262,11 +268,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "併購與合作",
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子說明此次投資是基於公司戰略發展規劃,以拓展投資管道並挖掘半導體上下游優質項目。與同期江豐投資凱德石英報導相關。",
+      "importance": 3,
       "title_zh": "江豐電子：本次投資系基於公司戰略發展規劃，旨在進一步拓展投資渠道，挖掘半導體上下游領域優質項目資源",
       "snippet_zh": ""
     },
@@ -285,8 +292,8 @@
         "擴產與投資"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電法說釋出利多,股價仍一度跌停,報導分析千億元擴產背後的隱憂。與同期聯電報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -305,8 +312,8 @@
         "擴產與投資"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導分析聯電法說後股價跌停的原因,以及法人提前 14 天賣超與目標價。屬股市分析,與同期聯電報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -325,9 +332,9 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "聯電董事會核准 32 億美元資本支出用於擴產,股價下跌 9%。新產能將增加 PVD 機台與靶材採購。",
+      "importance": 4,
+      "title_zh": "聯電董事會核准 32 億美元資本支出擴產,股價下跌 9%",
       "snippet_zh": ""
     },
     {
@@ -342,13 +349,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "擴產與投資",
-        "回收與循環"
+        "回收與循環",
+        "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬投資半導體用濺鍍靶材的回收設備。全球靶材龍頭擴大廢靶回收,有助穩定稀有金屬原料並強化成本優勢。",
+      "importance": 5,
+      "title_zh": "JX金屬投資半導體用濺鍍靶材回收設備",
       "snippet_zh": ""
     },
     {
@@ -366,8 +373,8 @@
         "擴產與投資"
       ],
       "score": 4.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電法說釋出三大訊號:明年平均售價看增 10%、追加 32 億美元擴產,成長重心轉移。晶圓代工漲價與擴產有利靶材需求與議價環境。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -386,8 +393,8 @@
         "營收與財報"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材第三季單季淨利潤年增 267.66%。國內靶材廠獲利大幅成長,反映顯示面板與半導體靶材需求回升。",
+      "importance": 4,
       "title_zh": "圖解歐萊新材三季報：第三季度單季淨利潤同比增長267.66%",
       "snippet_zh": ""
     },
@@ -406,8 +413,8 @@
         "營收與財報"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材公告將召開 2026 年第三季業績說明會。屬例行公告。",
+      "importance": 1,
       "title_zh": "歐萊新材(688530):歐萊新材關於召開2026年第三季度業績說明會",
       "snippet_zh": ""
     },
@@ -426,8 +433,8 @@
         "營收與財報"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "券商點評江豐電子 2026 年第三季報:第三季業績持續釋放,靶材業務維持高景氣。顯示中國半導體靶材需求強勁。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -443,11 +450,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說會報導,第四季營收預估季增 6% 至 8%,再度追加資本支出,先進封測(LEAP)營收目標上修且明年可望翻倍。封測擴產將帶動 PVD 與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -463,11 +471,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說會報導,封測毛利率 30% 成為新底線,資本支出提高至 115 億美元,明年再增加。大規模擴產有利封裝用靶材。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -486,8 +495,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子前三季淨利潤倍增,擬以 5,000 萬至 1 億元人民幣回購股份。靶材龍頭獲利強勁,財務體質支撐後續擴產。",
+      "importance": 4,
       "title_zh": "江豐電子前三季度淨利潤倍增 擬5000萬元至1億元回購公司股份",
       "snippet_zh": ""
     },
@@ -506,8 +515,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材前三季淨利潤 9,195.51 萬元人民幣,年增 550.94%。靶材廠獲利大幅改善。",
+      "importance": 4,
       "title_zh": "歐萊新材(688530.SH)前三季淨利潤9195.51萬元，同比增長550.94%_公司新聞",
       "snippet_zh": ""
     },
@@ -523,11 +532,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光投控第四度上修今年資本支出,明年先進封測營收目標倍增。持續擴產有利 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -543,11 +553,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光投控將 2026 年 LEAP 營收目標上調至逾 40 億美元,今明兩年資本支出與毛利率同步走揚。先進封裝擴產帶動靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -566,8 +577,8 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說會報導,第三季獲利近 270 億元,2027 年先進封裝營收倍增。與同期日月光法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -583,11 +594,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光第三季獲利創 19 季新高,2026 年資本支出追加 10 億美元。新增資本支出將增加封裝 PVD 機台與靶材採購。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -603,11 +615,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光展示 AMD 處理器的面板級封裝,力成與博通在新加坡設廠獲准。與同期面板級封裝報導為同一事件。",
+      "importance": 3,
       "title_zh": "日月光秀出AMD 處理器面板級封裝，力成攜手博通在新加坡設廠獲準| 動區動趨-最具影響力的區塊鏈新聞媒體",
       "snippet_zh": ""
     },
@@ -623,11 +636,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說會報導,先進封測營收今年上修、明年翻倍,CoWoS 需求供不應求,廠房空間成為瓶頸。產能受限可能拉長靶材拉貨期,但需求動能明確。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -643,11 +657,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光上修先進封測營收並擴大資本支出,看好 CPO(共同封裝光學)營收成長。與同期日月光法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -663,11 +678,12 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導介紹 ETF 布局韓國在地 AI 供應鏈,提及資本支出上看 150 兆韓元。屬 ETF 投資內容,細節需看原文。",
+      "importance": 2,
       "title_zh": "韓國AI不只三星、SK海力士！009833佈局在地供應鏈資本支出上看150兆韓元| 存股族愛ETF | 股市",
       "snippet_zh": ""
     },
@@ -683,11 +699,12 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星電子 2026 年顯示業務資本支出為 3.9 兆韓元。顯示器產線投資影響 ITO、Mo、Al 等面板靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -703,11 +720,12 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星電子預期隨 AI 生態系擴張,2027 年 AI 基礎設施資本支出將達歷史水準。有利半導體靶材的中長期需求。",
+      "importance": 3,
       "title_zh": "三星電子：隨著人工智能生態系統擴張，預計2027年人工智能基礎設施資本支出將達到歷史水平。",
       "snippet_zh": ""
     },
@@ -723,11 +741,12 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 晶片需求暴衝,三星電子 2026 年資本支出衝上 632 億美元創新高。記憶體與晶圓代工擴產將直接推升靶材需求。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -743,11 +762,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "雲端業者資本支出大增,科技巨頭財報分歧,聯電豪擲千億元卡位先進封裝商機。與同期聯電報導相關。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -766,8 +786,8 @@
         "營收與財報"
       ],
       "score": 3.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子第三季淨利年增 83%,一次性收益退潮後主業加速成長。靶材本業動能強勁。",
+      "importance": 4,
       "title_zh": "江豐電子Q3淨利同比增83%：一次性收益“退潮” 主業加速增長",
       "snippet_zh": ""
     },
@@ -786,8 +806,8 @@
         "營收與財報"
       ],
       "score": 3.81,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子前三季歸母淨利潤 8.11 億元人民幣,年增 102.38%。與同期江豐財報報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -803,12 +823,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.76,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion(NYSE: MTRN)股價上漲 2.48%,報導提供技術面分析。屬股價行情。",
+      "importance": 2,
+      "title_zh": "Materion(NYSE: MTRN)股價上漲 2.48%:價格走勢與技術面展望",
       "snippet_zh": ""
     },
     {
@@ -826,8 +847,8 @@
         "技術與新產品"
       ],
       "score": 3.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子取得「一種 CoFeB 靶材及其製備方法」發明專利。CoFeB 用於 MRAM 磁性穿隧接面,顯示其布局磁性靶材。",
+      "importance": 3,
       "title_zh": "江豐電子獲得發明專利授權：“一種CoFeB靶材及其製備方法”_公司新聞",
       "snippet_zh": ""
     },
@@ -843,11 +864,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.59,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子擬以 5,000 萬至 1 億元人民幣回購股份,價格上限每股 323.04 元。與同期江豐回購報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -866,8 +888,8 @@
         "擴產與投資"
       ],
       "score": 3.58,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導探討力積電如何平衡矽電容擴產與傳統 DRAM 供應。記憶體與矽電容產線配置可能影響相關靶材用量。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -886,9 +908,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Polymarket 推出金價 15 分鐘漲跌合約,並計畫增加股票與外匯。屬金融商品新聞,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Polymarket 推出金價 15 分鐘「漲或跌」合約,並計畫增加股票與外匯",
       "snippet_zh": ""
     },
     {
@@ -906,9 +928,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Integra 回收進度落後,2027 年將面臨金價與品位考驗。屬礦業個股分析,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "Integra 回收率下滑,2027 年面臨金價與品位考驗",
       "snippet_zh": ""
     },
     {
@@ -926,8 +948,8 @@
         "原物料與價格"
       ],
       "score": 3.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價預測:聯準會暫停升息後金價仍下跌,9 月 PCE 數據可能決定方向。金價影響 Au 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -946,8 +968,8 @@
         "原物料與價格"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價從 5,500 美元回落至 4,000 美元,專家認為美債殖利率回落與央行買盤是支撐,但抄底時機未到。貴金屬回落有利 Au 靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -963,12 +985,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 股價在 Lang & Schwarz 盤後報價為 214.50 歐元。屬股價行情。",
+      "importance": 1,
+      "title_zh": "Materion 股價於 Lang & Schwarz 盤後報 214.50 歐元",
       "snippet_zh": ""
     },
     {
@@ -983,11 +1006,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光訂單多到沒有廠房,資本支出提高至 115 億美元。與同期日月光法說報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1003,11 +1027,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光上調資本支出,全力搶攻測試與 CPO 商機。與同期日月光法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1023,11 +1048,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光上調資本支出,全力搶攻測試與 CPO 商機。與同期報導重複。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1043,12 +1069,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 董事 Emily M. Liggett 申報證券實益持有變動(Form 4)。屬例行申報。",
+      "importance": 1,
+      "title_zh": "Materion Form 4:董事 Emily M. Liggett 證券實益持有變動申報",
       "snippet_zh": ""
     },
     {
@@ -1063,11 +1090,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材發布 2026 年第三季報告。與同期歐萊新材財報報導相關。",
+      "importance": 2,
       "title_zh": "[三季報]歐萊新材(688530):歐萊新材2026年第三季度報告",
       "snippet_zh": ""
     },
@@ -1083,11 +1111,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 2026 年前三季營業收入 7.43 億元人民幣,年增 101.41%。靶材廠營收倍增。",
+      "importance": 4,
       "title_zh": "歐萊新材：2026年前三季度營業收入7.43億元 同比增長101.41%",
       "snippet_zh": ""
     },
@@ -1103,11 +1132,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說會報導,第三季每股盈餘 6.13 元創 19 季新高,訂單多到沒有廠房可裝,資本支出急修至 115 億美元。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1123,11 +1153,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 A 股股東戶數減少 927 戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "江豐電子A股股東戶數減少927戶降幅1.13%，流通A股戶均持股2730股增幅1.14%，戶均持股市值47.4萬元降幅14.08%",
       "snippet_zh": ""
     },
@@ -1143,11 +1174,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 A 股股東戶數減少 2,232 戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "江豐電子A股股東戶數減少2232戶降幅2.65%，流通A股戶均持股2699.15股增幅2.72%，戶均持股市值55.17萬元降幅5.75%",
       "snippet_zh": ""
     },
@@ -1163,11 +1195,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光李俊哲回顧先進封裝過去被視為低階、進不了科學園區,如今才獲肯定。屬產業專訪。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1186,9 +1219,9 @@
         "回收與循環"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬銷售回收率 100% 的壓延銅箔,供電子與產業機械等用途。顯示其銅材循環再生能力。",
+      "importance": 3,
+      "title_zh": "JX金屬銷售回收料 100% 的壓延銅箔,供電子、產業機械等用途",
       "snippet_zh": ""
     },
     {
@@ -1203,11 +1236,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子截至 2026 年 10 月 20 日合併股東戶數為 81,115 戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "江豐電子(300666.SZ)：截至2026年10月20號，公司合併股東戶數為81115戶_公司新聞_財經",
       "snippet_zh": ""
     },
@@ -1223,11 +1257,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子取得不超過 9,000 萬元人民幣的股票回購專項貸款承諾。與同期回購報導相關。",
+      "importance": 2,
       "title_zh": "江豐電子：獲不超9000萬元股票回購專項貸款承諾_公司新聞_財經",
       "snippet_zh": ""
     },
@@ -1246,9 +1281,9 @@
         "回收與循環"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬增強半導體用金屬的再資源化能力。與同期 JX金屬靶材回收報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬增強半導體用金屬再資源化能力",
       "snippet_zh": ""
     },
     {
@@ -1266,9 +1301,9 @@
         "回收與循環"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬在北關東 2 個據點新設設備,使用過的半導體靶材回收處理能力提高至 3 倍。擴大廢靶回收可穩定稀有金屬原料並強化其成本優勢。",
+      "importance": 5,
+      "title_zh": "JX金屬於北關東 2 據點新設設備,使用過的半導體靶材回收處理能力提高至 3 倍(日刊產業新聞)",
       "snippet_zh": ""
     },
     {
@@ -1286,9 +1321,9 @@
         "回收與循環"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬以 100% 回收銅製成智慧型手機電路材料並商品化,品質維持不變。與同期壓延銅箔報導相關。",
+      "importance": 3,
+      "title_zh": "JX金屬以 100% 回收銅商品化智慧型手機電路材料,維持既有品質",
       "snippet_zh": ""
     },
     {
@@ -1303,12 +1338,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓媒報導 JX金屬將半導體稀有金屬回收能力提高至 3 倍。與同期 JX金屬靶材回收報導為同一事件。",
+      "importance": 4,
+      "title_zh": "日本 JX金屬將半導體稀有金屬回收能力提高至 3 倍",
       "snippet_zh": ""
     },
     {
@@ -1323,11 +1359,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子融資淨償還 4,122.89 萬元,融資餘額 12.33 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "江豐電子：融資淨償還4122.89萬元，融資餘額12.33億元",
       "snippet_zh": ""
     },
@@ -1343,12 +1380,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.73,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將稀有金屬再生能力提高 3 倍,股價盤中急漲 4.8%。與同期 JX金屬回收報導為同一事件。",
+      "importance": 3,
+      "title_zh": "稀有金屬再生能力提高 3 倍……JX金屬股價盤中急漲 4.8%",
       "snippet_zh": ""
     },
     {
@@ -1363,12 +1401,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美國 GDP 與通膨數據強勁,支撐聯準會緊縮預期,金銀價格下跌。貴金屬回落有利 Au、Ag 靶材原料成本。",
+      "importance": 2,
+      "title_zh": "美國 GDP 與通膨強勁支撐聯準會緊縮預期,金銀價格下跌",
       "snippet_zh": ""
     },
     {
@@ -1383,12 +1422,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價重回每盎司 4,000 美元之上,報導推薦一檔月跌 15% 的權利金公司股票。屬投資建議。",
+      "importance": 1,
+      "title_zh": "金價重回 4,000 美元之上:這檔月跌 15% 的權利金公司可能值得撿便宜",
       "snippet_zh": ""
     },
     {
@@ -1403,11 +1443,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價衝高回落,升息預期鬆動但流動性賣壓再現。金價波動影響 Au 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1423,11 +1464,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "「金鉑比」發出美股未來 12 個月可能遇逆風的警訊。屬市場指標分析,與靶材關聯薄弱。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     }
