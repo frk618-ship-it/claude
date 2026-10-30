@@ -355,6 +355,17 @@ python -m metal_alert site --fetch -o site/metals   # 抓最新資料產生靜�
 |---|---|
 | `METAL_ALERT_WEBHOOK_URL` | Slack / Discord / Microsoft Teams / Google Chat 的 incoming webhook 網址 |
 | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Telegram 機器人 |
+| `SMTP_HOST`、`SMTP_PORT`、`SMTP_USER`、`SMTP_PASSWORD`、`ALERT_EMAIL_TO`、`ALERT_EMAIL_FROM` | Email(SMTP)。`SMTP_PORT` 填 465 用 SSL、587 用 STARTTLS(預設 465);`ALERT_EMAIL_TO` 可填多個收件人,以逗號分隔;`ALERT_EMAIL_FROM` 不填時用 `SMTP_USER` |
+
+Email 設定範例:
+
+| 信箱 | `SMTP_HOST` | `SMTP_PORT` | `SMTP_PASSWORD` |
+|---|---|---|---|
+| Gmail | `smtp.gmail.com` | `465` | 應用程式密碼(Google 帳戶 → 安全性 → 開啟兩步驟驗證 → 應用程式密碼,16 碼),不是登入密碼 |
+| Outlook / Microsoft 365 | `smtp.office365.com` | `587` | 帳號密碼(公司帳號需管理員開啟 SMTP AUTH) |
+| 公司郵件伺服器 | 依 IT 提供 | 465 或 587 | 依 IT 提供 |
+
+同一次檢查的多則預警會合併成一封信。
 
 都沒設定時,預警仍會寫入紀錄、顯示在網頁與 Actions 執行摘要。
 

@@ -9,7 +9,10 @@ from __future__ import annotations
 import json
 import logging
 import os
+import smtplib
+import ssl
 import urllib.request
+from email.message import EmailMessage
 from pathlib import Path
 
 from .config import Config
@@ -110,7 +113,40 @@ def _post_json(url: str, payload: dict) -> None:
         resp.read()
 
 
-def notify(alerts: list[dict], texts: list[str], env: dict | None = None, post=_post_json) -> list[str]:
+def email_subject(alerts: list[dict]) -> str:
+    first = alerts[0]
+    icon = "進場" if first["side"] == "buy" else "出場"
+    more = f" 等 {len(alerts)} 則" if len(alerts) > 1 else ""
+    return f"【貴金屬預警】{icon}|{first['title']}{more}"
+
+
+def _send_email(env: dict, subject: str, body: str) -> None:
+    """SMTP with SSL on port 465, otherwise STARTTLS (587) — Gmail, Outlook, company mail servers."""
+    host = env["SMTP_HOST"].strip()
+    port = int(env.get("SMTP_PORT", "").strip() or 465)
+    user, password = env.get("SMTP_USER", "").strip(), env.get("SMTP_PASSWORD", "")
+    to = [a.strip() for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()]
+    msg = EmailMessage()
+    msg["Subject"] = subject
+    msg["From"] = env.get("ALERT_EMAIL_FROM", "").strip() or user
+    msg["To"] = ", ".join(to)
+    msg.set_content(body)
+    ctx = ssl.create_default_context()
+    if port == 465:
+        with smtplib.SMTP_SSL(host, port, context=ctx, timeout=30) as s:
+            if user:
+                s.login(user, password)
+            s.send_message(msg)
+    else:
+        with smtplib.SMTP(host, port, timeout=30) as s:
+            s.starttls(context=ctx)
+            if user:
+                s.login(user, password)
+            s.send_message(msg)
+
+
+def notify(alerts: list[dict], texts: list[str], env: dict | None = None, post=_post_json,
+           send_email=_send_email) -> list[str]:
     """Send to every configured channel; returns the channels used. Failures are logged, not raised."""
     env = os.environ if env is None else env
     if not alerts:
@@ -132,4 +168,10 @@ def notify(alerts: list[dict], texts: list[str], env: dict | None = None, post=_
             used.append("telegram")
         except Exception as exc:
             log.warning("telegram notify failed: %s", exc)
+    if env.get("SMTP_HOST", "").strip() and env.get("ALERT_EMAIL_TO", "").strip():
+        try:
+            send_email(env, email_subject(alerts), body)
+            used.append("email")
+        except Exception as exc:
+            log.warning("email notify failed: %s", exc)
     return used

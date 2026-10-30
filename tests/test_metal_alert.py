@@ -189,6 +189,51 @@ def test_notify_channels():
     assert al.notify([alert], ["x"], env={}) == []
 
 
+def test_notify_email():
+    mails = []
+    alert = al._alert(_assessment("buy", 40), "signal", "buy", "黃金 留意進場")
+    env = {"SMTP_HOST": "smtp.gmail.com", "SMTP_USER": "me@example.com", "SMTP_PASSWORD": "x",
+           "ALERT_EMAIL_TO": "a@example.com, b@example.com"}
+    used = al.notify([alert, alert], [al.format_text(alert)], env=env, post=lambda *a: None,
+                     send_email=lambda e, subject, body: mails.append((subject, body)))
+    assert used == ["email"] and mails[0][0] == "【貴金屬預警】進場|黃金 留意進場 等 2 則"
+
+    def boom(*a):
+        raise OSError("auth failed")
+
+    assert al.notify([alert], ["x"], env=env, send_email=boom) == []  # failure is logged, not raised
+
+
+def test_send_email_builds_message(monkeypatch):
+    sent = {}
+
+    class FakeSMTP:
+        def __init__(self, host, port, **kw):
+            sent["server"] = (host, port)
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def starttls(self, context=None):
+            sent["tls"] = True
+
+        def login(self, user, password):
+            sent["login"] = user
+
+        def send_message(self, msg):
+            sent["msg"] = msg
+
+    monkeypatch.setattr(al.smtplib, "SMTP", FakeSMTP)
+    al._send_email({"SMTP_HOST": "smtp.office365.com", "SMTP_PORT": "587", "SMTP_USER": "me@example.com",
+                    "SMTP_PASSWORD": "x", "ALERT_EMAIL_TO": "a@example.com;b@example.com"}, "主旨", "內容")
+    msg = sent["msg"]
+    assert sent["tls"] and sent["login"] == "me@example.com" and sent["server"] == ("smtp.office365.com", 587)
+    assert msg["To"] == "a@example.com, b@example.com" and msg["From"] == "me@example.com" and msg["Subject"] == "主旨"
+
+
 # ---------- engine / page / web ----------
 
 def _fake_fetch(url):
