@@ -95,6 +95,10 @@ jobs:
             cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png site/financials/
           fi
 
+      - name: Add precious-metal alert page
+        continue-on-error: true   # Yahoo 暫時無法連線時略過,下一次每小時排程會補上
+        run: python -m metal_alert site --fetch -o site/metals
+
       - uses: actions/configure-pages@v5
 
       - name: Protect site (secret path + password)

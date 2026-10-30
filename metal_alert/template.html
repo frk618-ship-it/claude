@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>貴金屬價格預警</title>
+<meta name="description" content="黃金、白銀、鉑金、鈀金每小時技術指標綜合評分,提示相對低點(進場)與相對高點(出場)。">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --buy: #2a78d6;          /* 進場 / 相對低點(diverging cool pole) */
+  --buy-soft: #cde2fb;
+  --sell: #eb6834;         /* 出場 / 相對高點(diverging warm pole) */
+  --sell-soft: #fbdccd;
+  --neutral: #f0efec;
+  --s1: #2a78d6;           /* series: 價格 / RSI */
+  --s3: #1baf7a;           /* series: K 值 */
+  --band: rgba(42,120,214,0.10);
+  --up: #d03b3b;           /* 漲(台灣慣例:漲紅跌綠) */
+  --down: #008300;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --buy: #3987e5; --buy-soft: #173352; --sell: #d95926; --sell-soft: #4a2414; --neutral: #383835;
+    --s1: #3987e5; --s3: #199e70; --band: rgba(57,135,229,0.14); --up: #e66767; --down: #0ca30c;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --buy: #3987e5; --buy-soft: #173352; --sell: #d95926; --sell-soft: #4a2414; --neutral: #383835;
+  --s1: #3987e5; --s3: #199e70; --band: rgba(57,135,229,0.14); --up: #e66767; --down: #0ca30c;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--page); color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+.wrap { max-width: 1160px; margin: 0 auto; padding: 20px 16px 48px; }
+header.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+h1 { font-size: 24px; margin: 0; letter-spacing: .02em; }
+h2 { font-size: 17px; margin: 0 0 10px; }
+.meta { color: var(--ink-2); font-size: 13px; }
+.meta b { color: var(--ink); font-weight: 600; }
+.btn { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.btn:hover { border-color: var(--axis); }
+.btn[disabled] { opacity: .5; cursor: progress; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); margin-bottom: 16px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer;
+  text-align: left; font: inherit; color: inherit; box-shadow: var(--shadow); transition: border-color .15s; }
+.card:hover { border-color: var(--axis); }
+.card[aria-pressed="true"] { border-color: var(--ink-2); outline: 1px solid var(--ink-2); }
+.card .row1 { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card .nm { font-weight: 600; font-size: 16px; }
+.card .sym { color: var(--muted); font-size: 12px; margin-left: 4px; }
+.card .px { font-size: 26px; font-weight: 600; margin: 4px 0 2px; }
+.card .px small { font-size: 12px; color: var(--muted); font-weight: 400; margin-left: 4px; }
+.chg { font-size: 13px; color: var(--ink-2); }
+.chg .up { color: var(--up); } .chg .down { color: var(--down); }
+.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+  background: var(--neutral); color: var(--ink); white-space: nowrap; }
+.badge.buy, .badge.strong_buy { background: var(--buy-soft); color: var(--ink); }
+.badge.sell, .badge.strong_sell { background: var(--sell-soft); color: var(--ink); }
+.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.badge.buy .dot, .badge.strong_buy .dot { background: var(--buy); }
+.badge.sell .dot, .badge.strong_sell .dot { background: var(--sell); }
+.gauge { margin-top: 10px; }
+.gauge .track { position: relative; height: 8px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--sell) 0%, var(--sell-soft) 30%, var(--neutral) 50%, var(--buy-soft) 70%, var(--buy) 100%); }
+.gauge .pin { position: absolute; top: -4px; width: 4px; height: 16px; margin-left: -2px; border-radius: 2px; background: var(--ink);
+  box-shadow: 0 0 0 2px var(--surface); }
+.gauge .lbl { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.gauge .lbl b { color: var(--ink); font-size: 13px; }
+.detail-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 8px; }
+.detail-head .hint { color: var(--ink-2); font-size: 13px; }
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .cap { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 12px; color: var(--ink-2); margin: 10px 0 2px; }
+.chart .cap b { color: var(--ink); font-weight: 600; font-size: 13px; margin-right: 4px; }
+.key { display: inline-flex; align-items: center; gap: 5px; }
+.key i { display: inline-block; width: 14px; height: 2px; border-radius: 1px; background: var(--s1); }
+.key i.band { height: 10px; background: var(--band); border: 1px solid var(--s1); border-width: 1px 0; }
+.key i.dash { background: repeating-linear-gradient(90deg, var(--ink-2) 0 4px, transparent 4px 7px); }
+.key i.tri { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; background: none; border-radius: 0; }
+.key i.tri.b { border-bottom: 8px solid var(--buy); } .key i.tri.s { border-top: 8px solid var(--sell); }
+.axis text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 10px; font-size: 12px; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap;
+  font-variant-numeric: tabular-nums; z-index: 5; display: none; }
+.tip .t { color: var(--ink-2); }
+.grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vote { position: relative; width: 90px; height: 8px; background: var(--neutral); border-radius: 4px; }
+.vote span { position: absolute; top: 0; height: 8px; }
+.vote span.b { left: 50%; background: var(--buy); border-radius: 0 4px 4px 0; }
+.vote span.s { right: 50%; background: var(--sell); border-radius: 4px 0 0 4px; }
+.vote::after { content: ""; position: absolute; left: calc(50% - 1px); top: -2px; width: 2px; height: 12px; background: var(--axis); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13px; }
+.kv dt { color: var(--ink-2); } .kv dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
+.sub { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.side-buy { color: var(--buy); font-weight: 600; } .side-sell { color: var(--sell); font-weight: 600; }
+.errors { border-left: 3px solid var(--sell); padding: 8px 12px; background: var(--sell-soft); border-radius: 6px; font-size: 13px; margin-bottom: 16px; }
+.scroll { overflow-x: auto; }
+.grid2 > * { min-width: 0; }
+.scroll table { min-width: 560px; }
+td.nw { white-space: nowrap; }
+details summary { cursor: pointer; font-weight: 600; }
+.method { font-size: 13px; color: var(--ink-2); }
+.method li { margin: 3px 0; }
+.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>貴金屬價格預警</h1>
+      <div class="meta" id="meta"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn" id="refresh" type="button" hidden>立即更新</button>
+      <button class="btn" id="theme" type="button" aria-label="切換深淺色">◐</button>
+    </div>
+  </header>
+  <div id="errors"></div>
+  <div class="cards" id="cards" role="group" aria-label="品項"></div>
+  <section class="panel" id="detail"></section>
+  <div class="grid2">
+    <section class="panel" id="votes"></section>
+    <section class="panel" id="plan"></section>
+  </div>
+  <section class="panel" id="alerts"></section>
+  <section class="panel method">
+    <details>
+      <summary>評分方式說明</summary>
+      <ul>
+        <li>每小時以 Yahoo Finance 的 1 小時 K 線(COMEX / NYMEX 期貨連續月)計算各項指標,每個指標投票 −1 ~ +1(正 = 超賣、偏向進場;負 = 超買、偏向出場),依權重加權平均後 ×100 成為綜合分數。</li>
+        <li>指標:RSI(14)、KD(9,3,3)低檔 / 高檔交叉、MACD(12,26,9)交叉與動能收斂、布林通道(20,2)%B、威廉 %R(14)、CCI(20)、60 小時均線乖離率的 Z 分數、近 20 日高低區間位置。</li>
+        <li>趨勢濾網:價格與 EMA200(小時)及日線 MA50 的關係判斷多空;多頭中的超賣(回檔)訊號加強,空頭中的超賣訊號打折(避免接刀),出場訊號反之。</li>
+        <li>分級:<span id="cutoffs"></span>。分數進入進場 / 出場區、或由「留意」升級為「強烈」時發出預警;同方向預警至少間隔 <span id="cooldown"></span> 小時。</li>
+        <li>參考停損 / 目標價以 ATR(14)倍數計算;回測統計為過去資料中「分數剛進入該區」後固定根數 K 線的報酬,樣本少時參考性有限。</li>
+      </ul>
+    </details>
+    <p>本頁僅為技術指標的量化整理,不構成投資建議;期貨價格與現貨、實體金屬報價有價差。</p>
+  </section>
+  <footer>資料來源:Yahoo Finance · 每小時更新</footer>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const DATA = /*__DATA__*/null;
+const LIVE = /*__LIVE__*/false;
+let state = { data: DATA, sel: null, hover: null };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const SIDE = { buy: "進場", sell: "出場" };
+
+function tz() { return (state.data && state.data.tz) || "Asia/Taipei"; }
+function fmtTime(ts, withYear) {
+  return new Intl.DateTimeFormat("zh-TW", { timeZone: tz(), year: withYear ? "numeric" : undefined, month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(ts * 1000));
+}
+function fmtNum(v, d = 2) { return v == null ? "—" : Number(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+function fmtPct(v) {
+  if (v == null) return "—";
+  const cls = v > 0 ? "up" : v < 0 ? "down" : "";
+  return `<span class="${cls}">${v > 0 ? "▲" : v < 0 ? "▼" : ""}${Math.abs(v).toFixed(2)}%</span>`;
+}
+function badge(level, name) { return `<span class="badge ${level}"><span class="dot"></span>${esc(name)}</span>`; }
+
+// ---------- theme ----------
+(function () {
+  let saved = null;
+  try { saved = localStorage.getItem("metal-alert-theme"); } catch (e) {}
+  if (saved) document.documentElement.dataset.theme = saved;
+  $("theme").onclick = () => {
+    const dark = document.documentElement.dataset.theme
+      ? document.documentElement.dataset.theme === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    const next = dark ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("metal-alert-theme", next); } catch (e) {}
+  };
+})();
+
+// ---------- render ----------
+function render() {
+  const d = state.data;
+  if (!d || !d.metals) { $("cards").innerHTML = `<div class="empty">尚無資料。</div>`; return; }
+  if (!state.sel || !d.metals.some((m) => m.code === state.sel)) state.sel = d.metals[0] && d.metals[0].code;
+  $("meta").innerHTML = `更新時間 <b>${esc(fmtTime(d.generated_at, true))}</b>`
+    + (d.next_run ? ` · 下次更新 ${esc(fmtTime(d.next_run))}` : "")
+    + ` · 每 ${d.interval_minutes} 分鐘檢查一次`;
+  $("errors").innerHTML = (d.errors || []).length
+    ? `<div class="errors">${d.errors.map((e) => esc(e)).join("<br>")}</div>` : "";
+  const L = d.levels;
+  $("cutoffs").textContent = `≥ ${L.strong_buy} 強烈進場、≥ ${L.buy} 留意進場、≤ ${L.sell} 留意出場、≤ ${L.strong_sell} 強烈出場,其餘為中性`;
+  $("cooldown").textContent = d.cooldown_hours;
+  renderCards(); renderDetail(); renderAlerts();
+}
+
+function renderCards() {
+  $("cards").innerHTML = state.data.metals.map((m) => {
+    const pos = (m.score + 100) / 2;
+    return `<button class="card" type="button" data-code="${esc(m.code)}" aria-pressed="${m.code === state.sel}">
+      <div class="row1"><span><span class="nm">${esc(m.name)}</span><span class="sym">${esc(m.code)} · ${esc(m.symbol)}</span></span>${badge(m.level, m.level_name)}</div>
+      <div class="px">${fmtNum(m.price)}<small>${esc(m.unit)}</small></div>
+      <div class="chg">日 ${fmtPct(m.change_day)} · 24 小時 ${fmtPct(m.change_24h)}</div>
+      <div class="gauge" title="綜合分數 ${m.score}">
+        <div class="track"><div class="pin" style="left:${pos}%"></div></div>
+        <div class="lbl"><span>出場 −100</span><b>${m.score > 0 ? "+" : ""}${m.score.toFixed(0)}</b><span>+100 進場</span></div>
+      </div>
+    </button>`;
+  }).join("");
+  document.querySelectorAll(".card").forEach((el) => el.onclick = () => { state.sel = el.dataset.code; state.hover = null; renderCards(); renderDetail(); });
+}
+
+function cur() { return state.data.metals.find((m) => m.code === state.sel); }
+
+function renderDetail() {
+  const m = cur();
+  if (!m) return;
+  const c = m.chart;
+  $("detail").innerHTML = `
+    <div class="detail-head">
+      <h2 style="margin:0">${esc(m.name)}(${esc(m.code)})技術面 ${badge(m.level, m.level_name)}</h2>
+      <div class="hint">${esc(m.level_hint)} · ${esc(m.trend_text)}</div>
+    </div>
+    <div class="chart" id="c-price"></div>
+    <div class="chart" id="c-score"></div>
+    <div class="chart" id="c-osc"></div>
+    <div class="sub">最近 ${c.ts.length} 根 1 小時 K 線(${esc(fmtTime(c.ts[0]))} – ${esc(fmtTime(c.ts[c.ts.length - 1]))}),時間為台北時間。滑鼠移到圖上可看各時點數值。</div>`;
+  drawCharts(m);
+  renderVotes(m); renderPlan(m);
+}
+
+// ---------- charts (SVG) ----------
+let W = 1000;
+const PAD = { l: 8, r: 64 };
+function scaleY(vals, h, top, bottom, padFrac = 0.06) {
+  const xs = vals.filter((v) => v != null);
+  let lo = Math.min(...xs), hi = Math.max(...xs);
+  const pad = (hi - lo) * padFrac || 1;
+  lo -= pad; hi += pad;
+  const y = (v) => top + (hi - v) / (hi - lo) * (h - top - bottom);
+  y.lo = lo; y.hi = hi;
+  return y;
+}
+function niceTicks(lo, hi, n = 4) {
+  const step0 = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1, 2, 2.5, 5, 10].map((k) => k * mag).find((s) => s >= step0) || step0;
+  const out = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+function pathOf(vals, x, y) {
+  let d = "", pen = false;
+  vals.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1); pen = true; });
+  return d;
+}
+function xScale(n) { return (i) => PAD.l + (n <= 1 ? 0 : i / (n - 1)) * (W - PAD.l - PAD.r); }
+function dayTicks(ts, x, h, bottom) {
+  // a hairline + label at the first bar of each Taipei day (thinned to ~6 labels)
+  const fmt = new Intl.DateTimeFormat("zh-TW", { timeZone: tz(), month: "numeric", day: "numeric" });
+  const idx = []; let last = "";
+  ts.forEach((t, i) => { const k = fmt.format(new Date(t * 1000)); if (k !== last) { idx.push([i, k]); last = k; } });
+  let lastX = -1e9;
+  return idx.filter(([i]) => { const ok = x(i) - lastX >= 44; if (ok) lastX = x(i); return ok; }).map(([i, k]) =>
+    `<text x="${Math.max(x(i), 14)}" y="${h - bottom + 16}" text-anchor="middle">${esc(k)}</text>`).join("");
+}
+function yAxis(ticks, y, fmt) {
+  return ticks.map((v) => `<line class="gridline" x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(v)}" y2="${y(v)}"/>`
+    + `<text x="${W - PAD.r + 8}" y="${y(v) + 4}">${fmt(v)}</text>`).join("");
+}
+
+function drawCharts(m) {
+  // draw at the container's real width so text and strokes keep their pixel size on phones
+  W = Math.max(300, Math.min(1000, $("c-price").clientWidth || 1000));
+  const c = m.chart, n = c.ts.length, x = xScale(n);
+  // price
+  {
+    const H = W < 600 ? 220 : 300, top = 10, bottom = 24;
+    const y = scaleY([...c.close, ...c.bb_upper, ...c.bb_lower, ...c.low, ...c.high], H, top, bottom, 0.04);
+    const ticks = niceTicks(y.lo, y.hi, 5);
+    let band = "";
+    const up = [], lo = [];
+    c.bb_upper.forEach((v, i) => { if (v != null && c.bb_lower[i] != null) { up.push([x(i), y(v)]); lo.push([x(i), y(c.bb_lower[i])]); } });
+    if (up.length) band = `<path d="M${up.map((p) => p.join(",")).join("L")}L${lo.reverse().map((p) => p.join(",")).join("L")}Z" fill="var(--band)"/>`;
+    const markers = c.markers.map((mk) => {
+      const cx = x(mk.i), cy = y(mk.price);
+      return mk.side === "buy"
+        ? `<path d="M${cx},${cy + 8} l-6,10 h12 z" fill="var(--buy)" stroke="var(--surface)" stroke-width="2"><title>進場訊號 ${fmtTime(c.ts[mk.i])} 分數 ${mk.score}</title></path>`
+        : `<path d="M${cx},${cy - 8} l-6,-10 h12 z" fill="var(--sell)" stroke="var(--surface)" stroke-width="2"><title>出場訊號 ${fmtTime(c.ts[mk.i])} 分數 ${mk.score}</title></path>`;
+    }).join("");
+    const lastY = y(c.close[n - 1]);
+    $("c-price").innerHTML = `
+      <div class="cap"><b>價格(${esc(m.unit)})</b>
+        <span class="key"><i></i>收盤價</span><span class="key"><i class="band"></i>布林通道</span>
+        <span class="key"><i class="dash"></i>EMA200</span>
+        <span class="key"><i class="tri b"></i>進場訊號</span><span class="key"><i class="tri s"></i>出場訊號</span></div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(m.name)}價格走勢與布林通道">
+        <g class="axis">${yAxis(ticks, y, (v) => fmtNum(v, v >= 100 ? 0 : 2))}${dayTicks(c.ts, x, H, bottom)}</g>
+        ${band}
+        <path d="${pathOf(c.ema, x, y)}" fill="none" stroke="var(--ink-2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <path d="${pathOf(c.close, x, y)}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>
+        ${markers}
+        <circle cx="${x(n - 1)}" cy="${lastY}" r="4" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>
+        <g class="axis"><text x="${W - PAD.r + 8}" y="${lastY + 4}" style="fill:var(--ink);font-weight:600">${fmtNum(c.close[n - 1], c.close[n - 1] >= 100 ? 0 : 2)}</text></g>
+        <g class="hover"></g>
+      </svg>`;
+    hookHover("c-price", H, x, n);
+  }
+  // score
+  {
+    const H = W < 600 ? 120 : 150, top = 8, bottom = 22;
+    const y = (v) => top + (100 - v) / 200 * (H - top - bottom);
+    const L = state.data.levels;
+    const zero = y(0);
+    const pts = c.score.map((v, i) => v == null ? null : [x(i), y(v)]);
+    let pos = "", neg = "";
+    // clip the area into the positive (buy) and negative (sell) halves
+    const area = pts.filter(Boolean);
+    if (area.length) {
+      const d = `M${area[0][0]},${zero}L${area.map((p) => p.join(",")).join("L")}L${area[area.length - 1][0]},${zero}Z`;
+      pos = `<path d="${d}" fill="var(--buy)" fill-opacity=".28" clip-path="url(#clip-pos)"/>`;
+      neg = `<path d="${d}" fill="var(--sell)" fill-opacity=".28" clip-path="url(#clip-neg)"/>`;
+    }
+    const ref = [L.strong_buy, L.buy, 0, L.sell, L.strong_sell].filter((v) => W >= 600 || Math.abs(v) !== Math.abs(L.strong_buy)).map((v) =>
+      `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? "var(--axis)" : "var(--grid)"}" stroke-width="1" ${Math.abs(v) === Math.abs(L.buy) ? 'stroke-dasharray="3 3"' : ""}/>`
+      + `<text x="${W - PAD.r + 8}" y="${y(v) + 4}">${v > 0 ? "+" : ""}${v}</text>`).join("");
+    $("c-score").innerHTML = `
+      <div class="cap"><b>綜合分數</b><span class="key"><i style="background:var(--buy)"></i>正值 = 偏低(進場)</span>
+        <span class="key"><i style="background:var(--sell)"></i>負值 = 偏高(出場)</span><span>虛線:留意門檻 ±${Math.abs(L.buy)}</span></div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="綜合分數走勢">
+        <defs><clipPath id="clip-pos"><rect x="0" y="0" width="${W}" height="${zero}"/></clipPath>
+          <clipPath id="clip-neg"><rect x="0" y="${zero}" width="${W}" height="${H}"/></clipPath></defs>
+        <g class="axis">${ref}${dayTicks(c.ts, x, H, bottom)}</g>
+        ${pos}${neg}
+        <path d="${pathOf(c.score, x, y)}" fill="none" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <g class="hover"></g>
+      </svg>`;
+    hookHover("c-score", H, x, n);
+  }
+  // oscillators: RSI + K
+  {
+    const H = W < 600 ? 120 : 150, top = 8, bottom = 22;
+    const y = (v) => top + (100 - v) / 100 * (H - top - bottom);
+    const ref = [80, 70, 50, 30, 20].map((v) => `<line class="gridline" x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(v)}" y2="${y(v)}" ${v === 50 ? "" : 'stroke-dasharray="3 3"'}/>`
+      + `<text x="${W - PAD.r + 8}" y="${y(v) + 4}">${v}</text>`).join("");
+    const lastR = c.rsi[n - 1], lastK = c.k[n - 1];
+    $("c-osc").innerHTML = `
+      <div class="cap"><b>震盪指標</b><span class="key"><i></i>RSI ${fmtNum(lastR, 1)}</span>
+        <span class="key"><i style="background:var(--s3)"></i>K 值 ${fmtNum(lastK, 1)}</span><span>虛線:30 / 70(RSI)、20 / 80(KD)</span></div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="RSI 與 KD 指標">
+        <rect x="${PAD.l}" y="${y(100)}" width="${W - PAD.l - PAD.r}" height="${y(70) - y(100)}" fill="var(--sell)" fill-opacity=".06"/>
+        <rect x="${PAD.l}" y="${y(30)}" width="${W - PAD.l - PAD.r}" height="${y(0) - y(30)}" fill="var(--buy)" fill-opacity=".06"/>
+        <g class="axis">${ref}${dayTicks(c.ts, x, H, bottom)}</g>
+        <path d="${pathOf(c.k, x, y)}" fill="none" stroke="var(--s3)" stroke-width="1.5"/>
+        <path d="${pathOf(c.rsi, x, y)}" fill="none" stroke="var(--s1)" stroke-width="2"/>
+        <g class="hover"></g>
+      </svg>`;
+    hookHover("c-osc", H, x, n);
+  }
+}
+
+function hookHover(id, H, x, n) {
+  const host = $(id), svg = host.querySelector("svg");
+  const move = (ev) => {
+    const r = svg.getBoundingClientRect();
+    const px = (ev.clientX - r.left) / r.width * W;
+    const i = Math.max(0, Math.min(n - 1, Math.round((px - PAD.l) / (W - PAD.l - PAD.r) * (n - 1))));
+    state.hover = i; drawHover(x, ev);
+  };
+  svg.addEventListener("pointermove", move);
+  svg.addEventListener("pointerdown", move);
+  svg.addEventListener("pointerleave", () => { state.hover = null; drawHover(x); });
+}
+function drawHover(x, ev) {
+  const i = state.hover, m = cur(), c = m.chart, tip = $("tip");
+  document.querySelectorAll("#detail .hover").forEach((g) => {
+    const h = g.ownerSVGElement.viewBox.baseVal.height;
+    g.innerHTML = i == null ? "" : `<line x1="${x(i)}" x2="${x(i)}" y1="0" y2="${h - 22}" stroke="var(--ink-2)" stroke-width="1" opacity=".5"/>`;
+  });
+  if (i == null || !ev) { tip.style.display = "none"; return; }
+  tip.innerHTML = `<div class="t">${esc(fmtTime(c.ts[i], true))}</div>
+    收盤 <b>${fmtNum(c.close[i])}</b><br>
+    分數 <b>${c.score[i] == null ? "—" : (c.score[i] > 0 ? "+" : "") + c.score[i]}</b><br>
+    RSI ${fmtNum(c.rsi[i], 1)} · K ${fmtNum(c.k[i], 1)} · D ${fmtNum(c.d[i], 1)}<br>
+    布林 ${fmtNum(c.bb_lower[i])} – ${fmtNum(c.bb_upper[i])}`;
+  tip.style.display = "block";
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = ev.pageX + 14, top = ev.pageY - th - 10;
+  if (left + tw > window.scrollX + document.documentElement.clientWidth - 8) left = ev.pageX - tw - 14;
+  if (top < window.scrollY + 4) top = ev.pageY + 16;
+  tip.style.left = left + "px"; tip.style.top = top + "px";
+}
+
+// ---------- tables ----------
+function renderVotes(m) {
+  const rows = m.votes.map((v) => {
+    const w = Math.abs(v.vote) * 50;
+    const bar = v.vote > 0 ? `<span class="b" style="width:${w}%"></span>` : v.vote < 0 ? `<span class="s" style="width:${w}%"></span>` : "";
+    return `<tr><td>${esc(v.name)}</td><td class="num">${esc(v.value)}</td>
+      <td><div class="vote" title="投票 ${v.vote > 0 ? "+" : ""}${v.vote}(權重 ${v.weight})">${bar}</div></td><td>${esc(v.comment)}</td></tr>`;
+  }).join("");
+  $("votes").innerHTML = `<h2>指標明細</h2><div class="scroll"><table>
+    <thead><tr><th>指標</th><th>數值</th><th>出場 ← → 進場</th><th>判讀</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="sub">趨勢濾網:${esc(m.trend_text)}。藍色長條 = 偏向進場(超賣),橘色 = 偏向出場(超買)。</div>`;
+}
+
+function renderPlan(m) {
+  const p = m.plan, bt = m.backtest;
+  const btRow = (side) => {
+    const s = bt[side];
+    return `<tr><td class="side-${side}">${SIDE[side]}訊號</td><td class="num">${s.signals}</td>
+      <td class="num">${s.win_rate == null ? "—" : s.win_rate + "%"}</td><td class="num">${s.avg_return == null ? "—" : (s.avg_return > 0 ? "+" : "") + s.avg_return + "%"}</td></tr>`;
+  };
+  $("plan").innerHTML = `<h2>參考價位</h2>
+    <dl class="kv">
+      <dt>支撐(布林下軌 / 區間低)</dt><dd>${fmtNum(p.support)}</dd>
+      <dt>壓力(布林上軌 / 區間高)</dt><dd>${fmtNum(p.resistance)}</dd>
+      <dt>ATR(14,每小時波動)</dt><dd>${fmtNum(p.atr)}</dd>
+      <dt><span class="side-buy">進場</span> 停損 / 目標</dt><dd>${fmtNum(p.buy_stop)} / ${fmtNum(p.buy_target)}</dd>
+      <dt><span class="side-sell">出場</span> 回補停損 / 目標</dt><dd>${fmtNum(p.sell_stop)} / ${fmtNum(p.sell_target)}</dd>
+    </dl>
+    <h2 style="margin-top:16px">歷史訊號回測</h2>
+    <table><thead><tr><th></th><th>次數</th><th>勝率</th><th>平均報酬</th></tr></thead><tbody>${btRow("buy")}${btRow("sell")}</tbody></table>
+    <div class="sub">期間內分數剛進入進場 / 出場區後 ${bt.forward_bars} 小時的價格變化;出場訊號以後續下跌為「勝」。</div>`;
+}
+
+function renderAlerts() {
+  const list = (state.data.alerts || []).slice().reverse().slice(0, 30);
+  const rows = list.map((a) => `<tr><td class="num">${esc(fmtTime(a.ts))}</td><td class="nw">${esc(a.name)}</td>
+    <td>${badge(a.level || (a.side === "buy" ? "buy" : "sell"), a.kind === "price" ? "價位" + SIDE[a.side] : a.level_name)}</td>
+    <td class="num">${fmtNum(a.price)}</td><td class="num">${a.score > 0 ? "+" : ""}${Math.round(a.score)}</td>
+    <td>${esc(a.title)}${a.reasons && a.reasons.length ? `<div class="sub" style="margin-top:2px">${a.reasons.map(esc).join(";")}</div>` : ""}</td></tr>`).join("");
+  $("alerts").innerHTML = `<h2>預警紀錄</h2>` + (rows
+    ? `<div class="scroll"><table><thead><tr><th>時間</th><th>品項</th><th>訊號</th><th>價格</th><th>分數</th><th>說明</th></tr></thead><tbody>${rows}</tbody></table></div>`
+    : `<div class="empty">目前沒有預警。分數進入進場 / 出場區時會記錄在這裡。</div>`);
+}
+
+// ---------- live mode (python -m metal_alert serve) ----------
+async function reload(force) {
+  const btn = $("refresh");
+  btn.disabled = true;
+  try {
+    const r = await fetch(force ? "api/refresh" : "api/latest", { method: force ? "POST" : "GET", cache: "no-store" });
+    if (r.ok) { const d = await r.json(); if (d && d.metals) { state.data = d; render(); } }
+  } catch (e) { /* keep showing the last data */ }
+  btn.disabled = false;
+}
+if (LIVE) {
+  $("refresh").hidden = false;
+  $("refresh").onclick = () => reload(true);
+  setInterval(() => reload(false), 5 * 60 * 1000);
+}
+render();
+let resizeTimer = null, lastWidth = innerWidth;
+window.addEventListener("resize", () => {
+  if (innerWidth === lastWidth) return;
+  lastWidth = innerWidth;
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => { state.hover = null; $("tip").style.display = "none"; const m = cur(); if (m) drawCharts(m); }, 150);
+});
+</script>
+</body>
+</html>
