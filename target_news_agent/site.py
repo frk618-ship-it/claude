@@ -16,7 +16,7 @@ from collections import Counter, OrderedDict
 from pathlib import Path
 
 from .config import Config
-from .charts import CHART_SCRIPT, CHART_STYLE, columns, hbar, index_lines, meter, sparkline
+from .charts import CHART_SCRIPT, CHART_STYLE, columns, hbar, index_lines, meter
 from .fabnav import fab_nav
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
@@ -137,11 +137,6 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.74rem;font-weight:500;color:var(--muted)}.kind .ic{color:var(--k)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}.k-recycling{--k:var(--k-recycling)}
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.quote{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;display:grid;gap:2px}
-.quote .qn{font-size:.85rem;color:var(--muted);display:flex;gap:6px;align-items:center}.quote .qn .mono{font-family:var(--font-data)}
-.quote b{font-size:1.4rem;font-weight:700}.quote .chg{font-size:.85rem;font-variant-numeric:tabular-nums}.quote .chg.up{color:var(--up)}.quote .chg.down{color:var(--down)}
-.quote .qd{font-size:.75rem;color:var(--muted)}
 [hidden]{display:none!important}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-width:0}
@@ -307,34 +302,6 @@ def _paper_html(p: dict, filterable: bool = False) -> str:
     thumb = _thumb(topic_icon(topic), "技術文獻", material(f"{p.get('title', '')} {p.get('title_zh', '')}"))
     return _card("k-research", topic, topic_icon(topic), p.get("published"), _title_link(p) + stars,
                  summary, meta, attrs, full_date=filterable, thumb=thumb)
-
-
-def _metals_section(metals: list[dict], kinds: Counter, history: dict[str, list[float]] | None = None) -> str:
-    """Stat tiles: closing price, change vs the previous close, and a sparkline of recent closes."""
-    if not metals:
-        return ""
-    history = history or {}
-    cards = []
-    for m in metals:
-        chg = m.get("change_pct")
-        if chg is None:
-            chg_html = '<span class="chg">—</span>'
-        else:
-            cls = "up" if chg > 0 else "down" if chg < 0 else ""
-            arrow = "▲" if chg > 0 else "▼" if chg < 0 else ""
-            chg_html = f'<span class="chg {cls}">{arrow} {chg:+.2f}%</span>'
-        trend = history.get(m["code"], [])
-        spark = sparkline(trend, f"{m['name']}最近 {len(trend)} 期收盤價走勢")
-        cards.append(
-            f'<div class="quote"><span class="qn">{icon("gem")}{esc(m["name"])} <span class="mono">{esc(m["code"])}</span></span>'
-            f'<b>{m["price"]:,.2f}</b>{chg_html}<span class="qd">{esc(m["unit"])} · {esc(m["date"])} 收盤</span>{spark}</div>'
-        )
-    sources = "、".join(dict.fromkeys(m.get("source", "") for m in metals if m.get("source")))
-    news = f";相關行情新聞 {kinds['metals']} 則,可在下方「全部新聞」選擇「貴金屬行情」查看" if kinds.get("metals") else ""
-    return (
-        f'<section aria-labelledby="metals">{_h2("metals", "gem", "貴金屬行情", "日收盤價、與前一日相比(漲紅跌綠),小圖為近期各期收盤價")}'
-        f'<div class="quotes">{"".join(cards)}</div><p class="sub">報價來源:{esc(sources)}{news}。</p></section>'
-    )
 
 
 def _data_section(items: list[dict], config: Config, daily: list[tuple[str, int]], current: str) -> str:
@@ -610,7 +577,6 @@ def render_page(
     library: list[dict] | None = None,
     is_latest: bool = False,
     daily: list[tuple[str, int]] | None = None,
-    metal_history: dict[str, list[float]] | None = None,
 ) -> str:
     library = library or []
     items = report.get("items", [])
@@ -691,7 +657,6 @@ def render_page(
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_data_section(items, config, daily or [], current)}
-{_metals_section(report.get("metals") or [], kinds, metal_history)}
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_recycling_section(items, config)}
 {_papers_section(report, library, is_latest, home)}
@@ -711,7 +676,7 @@ def render_page(
 
 
 HOME_DAYS = 3  # the homepage combines this many of the latest daily reports
-CHART_DAYS = 14  # the daily-count chart and the metal sparklines cover this many reports
+CHART_DAYS = 14  # the daily-count chart covers this many reports
 
 
 def merge_recent(reports: list[tuple[str, dict]], n: int = HOME_DAYS) -> dict:
@@ -751,14 +716,9 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         shutil.copyfile(OG_IMAGE, out / OG_IMAGE.name)
     reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     archive = [(d, len(r.get("items", []))) for d, r in reports]
-    # chart data across the archive, oldest first: news + filings per day, and each metal's closes
+    # chart data across the archive, oldest first: news + filings per day
     recent = list(reversed(reports[:CHART_DAYS]))
     daily = [(d, sum(1 for it in r.get("items", []) if item_kind(it) in SIGNAL_KINDS)) for d, r in recent]
-    metal_history: dict[str, list[float]] = {}
-    for _, r in recent:
-        for m in r.get("metals") or []:
-            if m.get("price") is not None:
-                metal_history.setdefault(m["code"], []).append(m["price"])
     library = paper_library(reports)
     written = []
     generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
@@ -768,7 +728,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         (out / "forecast.html").write_text(render_forecasts(config, generated), encoding="utf-8")
         written.append(out / "forecast.html")
     for date, report in reports:
-        page = render_page(report, config, archive, date, library=library, daily=daily, metal_history=metal_history)
+        page = render_page(report, config, archive, date, library=library, daily=daily)
         (out / f"{date}.html").write_text(page, encoding="utf-8")
         written.append(out / f"{date}.html")
     if reports and config.quiz:
@@ -778,7 +738,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
         written.append(out / "quiz.html")
     if reports:
         home = merge_recent(reports)
-        page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True, daily=daily, metal_history=metal_history)
+        page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True, daily=daily)
         (out / "index.html").write_text(page, encoding="utf-8")
         written.append(out / "index.html")
     if not reports:

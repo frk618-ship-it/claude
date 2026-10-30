@@ -1088,7 +1088,7 @@ def test_busy_metal_topic_is_capped_and_labelled(config):
     assert short_name("行情綜合:Precious Metals") == "貴金屬行情(英文)"
 
 
-def test_metal_quotes_on_site_and_report(tmp_path, config):
+def test_metal_quotes_in_report_not_on_site(tmp_path, config):
     from target_news_agent.report import write_reports
     from target_news_agent.site import build_site
 
@@ -1101,7 +1101,7 @@ def test_metal_quotes_on_site_and_report(tmp_path, config):
     assert json.loads(js.read_text(encoding="utf-8"))["metals"][1]["code"] == "Pt"
     build_site(tmp_path / "reports", tmp_path / "site", config)
     page = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
-    assert "貴金屬行情" in page and "4,185.25" in page and 'class="chg up">▲ +1.57%' in page and 'class="chg down">▼ -1.00%' in page
+    assert "4,185.25" not in page and 'aria-labelledby="metals"' not in page  # quotes stay in the report, not on the site
 
 
 def test_metal_cap_counts_headlines_found_by_two_searches(config):
@@ -1393,7 +1393,7 @@ def test_site_pages_carry_the_charts(tmp_path, config):
         }, ensure_ascii=False), encoding="utf-8")
     build_site(reports, tmp_path / "out", config)
     index = (tmp_path / "out" / "index.html").read_text(encoding="utf-8")
-    assert 'aria-labelledby="data"' in index and 'class="hbar"' in index and 'class="cols"' in index and 'class="spark"' in index
+    assert 'aria-labelledby="data"' in index and 'class="hbar"' in index and 'class="cols"' in index and 'class="spark"' not in index
     assert "Noto+Serif" not in index  # one sans face throughout
 
 
