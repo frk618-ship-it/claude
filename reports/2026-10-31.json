@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-31T08:28:55.508011+08:00",
+  "generated": "2026-10-31T09:00:42.175878+08:00",
   "days": 7,
   "digest": {
     "overview": "本期靶材廠動態密集:有研新材積體電路用高純濺鍍靶材二期擴建開工,江豐電子臨時股東會通過 H 股發行上市議案、前三季營收 44.65 億元人民幣;歐萊新材定增獲上交所審核通過,阿石創定增獲證監會同意註冊,中國靶材廠募資與擴產同步推進。封測端日月光買下乖乖廠房擴產,南茂投資 235 億元加入投資臺灣方案,Amkor 指先進封裝推升毛利率。JX金屬投入 100 億日圓擴產 AI 伺服器用鈦銅,Furuya 金屬啟動金屬奈米粒子布局,Materion 將於 11 月 4 日公布財報。貴金屬重挫,金價跌破 3,900 美元、創一年新低,銀價大跌。",
@@ -18,6 +18,286 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "102af4d0b9246115",
+      "title": "突發：英特爾股價重挫28%，人工智能資本支出拋售加劇",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMGt1UmZRWjdKbVMxM1ZhZXkwUDZWVVhteDFLZXR0d1phT0U4TXh4MGFBT0ZKRVpTeTNpcTBPR2d5RVl5TXI3VkUwbFd2Wnl4V3hnTDZWcHdISm9GbU1uTXQzSUVuVFhQczZndjRmU19NSUpMdzZLeGx0ZnR0a0Jmc2Fkek5NaXhjbWxvRERETWx1OU9SbW9kU1l6aHoyYWptNEV2WnJmdWRVSjBzVnJkNVN0bi1YQQ?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-30T13:43:37+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "英特爾 (Intel)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.93,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d0552a32cbd835af",
+      "title": "友達(2409)、群創(3481)殺到快跌停能撿？面板雙虎拚轉型，誰能先靠AI封裝翻身？日月光、力成也搶進....FOPLP受惠股還有哪些？",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMTlmenplR1R0UURjeFVrRHlhTDV2ZWk1aEVQSEZ0d3NtMGxuX0NtZmZ5c0thQy1GU1FnSzlaMTBWZGtvNzRaQzVTRlhxUWxhQ25zb1ppeW5oR05Nam9WQlJUbWs1Ni1GLWFyU3BoZFMxc0oyYWtJTDBxalozaUZqUQ?oc=5",
+      "source": "今周刊",
+      "published": "2026-10-30T02:58:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.87,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "33f088423a25c919",
+      "title": "AI與先進封裝需求帶動，科技大廠Q3財報出爐，日月光上調資本支出至115億美元-財經焦點情報站",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNdnZhQ3EzeWV2Tm91WEZzdUJBcWxJSG02X0Nlb3RnZWZEVjdLdU9fRlE2NGYwbUNyLXZDWHBRSXFEWWFpTlJTOFdzbnlFWGEwSGppX3pxMzY5eUYzbGpmZlM4V0puaWI4Rk1JbTg3TDdjSW9CY1BEQTRIRUwtdzRVZjZn?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-10-29T09:09:17+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.76,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5ccf0c5949e4acab",
+      "title": "3 Stocks Riding AI Memory Capex Beyond Samsung And SK Hynix",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQWi10dHJxS0hjTU5ILWtqNVZ6b2V3MmRHWVREeFZlUlFqZE5EQUxOeEhCTDNnRXJXZi11OEZBODRjR0loY25XV0FBMjFWdTBfNHYwSU93c0JLR25wZXE2TnR3QU5lbHEtZlU2a3pVQ3lhdjRhTld3WHBneG1CRkloZ3pmbWdCeGNHUGk2OUhEZ3YyZjhG?oc=5",
+      "source": "Yahoo Finance",
+      "published": "2026-10-29T05:21:37+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.74,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fb146adf69997bf3",
+      "title": "Experts predict unexpected gold prices next week",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbVllWmpZRGFHc1h4YVlVeUI3NVNrdWhqemRtWU5OcUZkY2k5UHE5Z28tcWpYMENfNHFneXVQZDNNUG9WT2VTY0l3TG5GbTFVWkRzd0IwbW56cWIySld5OHY0X25QWkNDb0V3QnNUVVJQMF9wNWdrWHU2MDNnaE1NSTFObTdKWjFUWUdGVjRzdEs5TmdCTGJYSjU5aTZodw?oc=5",
+      "source": "Laodong.vn",
+      "published": "2026-10-31T00:20:04+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9f329bbf5e48c80c",
+      "title": "Gold and silver price slump: key risk signals for mine planners and engineers",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMkRVWWQ0SlNHOVJGd1FpUzFXLVozblM2SWQ5c3RWclc1eWMxZVhYd1FBbmJwQm5uVVlta0o0cEpZS1BuWlNyME5WU05HcE0wYVEzVTZKZnlKVnRWT1JXR19aTXRsVDJ6SXl3RHFLNlRnd0tfVktqTHBWdDR5ZUdFc3FPWnNUVHYwWDROd2lsUWpuS0xQZU81dDNJUkdQMEwwMm1tMU5RWjduSXgyanhHYXUzTWd2M09F?oc=5",
+      "source": "Geomechanics.io",
+      "published": "2026-10-31T00:02:52+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "859252332cf3a403",
+      "title": "Gold and silver prices fall sharply, silver loses nearly 6%",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNTGU5WGtwemhWZVgxbEpvRXFSbnNpWmJ4RHM2ZlJWaVdfRG52QUd2NzN0R21fVDB6VkhKS2ROMDUtc0tQUTFKWVpkcDB0bVZELUQtUFJvUENrUmV2VXNCclQ5WnVsNkdtaWJSSVBzRk54aktWUzVKemVMbVg0TUtYUHctaEtkVXlqZmhCc0xTdUU?oc=5",
+      "source": "Laodong.vn",
+      "published": "2026-10-30T23:46:07+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1c17b24df03c6e18",
+      "title": "股票行情快报：有研新材（600206）10月30日主力资金净卖出6111.87万元",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNNEl6MU5tWDhzSGhJQkRZMHlCbzdDZFdsb1Fic3VyWUZMUVVKWnN5QVFfN1dScHpGS2duTnp3bnp6cHdlZjBacG16MktCaXVtS3ZJX0xmY0RnXzgwc0lYb0tyVFBkRTMtbjY4NUQ2RkQyTENlV2tobXM0cTJiYjRNaVpVTTBKWTFGeVBwWQ?oc=5",
+      "source": "搜狐网",
+      "published": "2026-10-31T00:48:24+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "股票行情快報：有研新材（600206）10月30日主力資金淨賣出6111.87萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c066bf9943e74249",
+      "title": "JX Advanced Metals Corporation (5016.T) Seasonal Returns Chart - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9nb1JrZ0N5Y0o3NkRvcS1LRjI0VnlSOWZwdk44QnFHdTNLQzBrMklaN2huR0NjdHREM05tRjBvZS10eE5idXlQWGwyYW83VXMzV3c5eFlGcDF2WHRfS2RPR3BLeVE?oc=5",
+      "source": "Yahoo! Finance Canada",
+      "published": "2026-10-30T10:27:36+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c1ba7eda562d2625",
+      "title": "【DJロウリュウのチャート分析】日経平均1,889円安！原油高・金利上昇で更なる下落も！？キオクシア・JX金属・フジクラなど徹底分析！ Naomi Osaka (PsjQztrHLU)",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZXVFdXh3bGprakpKYV9vVjFyQ3NJZFBFbzFCZkFCUVd4US1qOE9QRmg0c0lYTnVxcWI2U1EyMnIxcVhZUC1mR1dCRURoaXBmNERFcUt5cWdlZHUyVk5hQW9EajQ2eW5yMmJlMVVvdWRkeWZuTUlzZl9mMm9qY3dRN0Frc2VhNmtI?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-28T01:45:23+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.58,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6facd67a1b0f6d20",
+      "title": "〈貴金屬盤後〉黃金重摔至一年低點、創2008年來最差10月表現 「白色貴金屬」全面下殺",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5RZGM2Y3pPWnNmY1NJZlAzZHR5S01NdXA0a2JWQ2RneEJLQ2VpV2wzZkx2aDZZYlhFU25RbmNsSkcyZGM1QzlzSnFoR1dGWWNHQkxGcHo1QWRRWDZnNlZIeTRiM2k?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-30T22:33:43+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "94d3c9ba09ff5b68",
+      "title": "國際金價跌至4個月來新低",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA1QkxTb3BYeW5lWU95eXZDbzliZXN6WHJYMEMzRWZWc2VzOHM4MG5GOFc4blNlY2dRWkdkS2U5cWZia24tUTRES1BIREZ0Mllwci1Dd19zU1BhZk1X?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-30T14:23:55+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.44,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "94c77f90e2b8e1c0",
+      "title": "今日の活況銘柄を見ていく！（キオクシア・フジクラ・東電・ユニチカ・JX金属・住友電気工業等）株式テクニカルチャート分析 Bts (rd3EzrtJ7t)",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBKbUYtQTJNZUlSZ2UyV0VqNkFlTGJ1ZVJoSndzSzZEZlVLc0xERzNveEJXcFNzWnJzWlp5aDVoYmxsOHBNa1pvOHlUdk5NUlpnQnYwejFTY0J4TmR6bFNIT2NjUXJPdw?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-24T21:48:43+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.12,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e2eb3447d3f2798f",
+      "title": "三菱電機みずほフィナンシャルグループ第一三共ゆうちょ銀行トヨタ自動車JX金属で利益を取る💰株デイトレード T (5yGbzLNTfl)",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQemx1OTlCSDBqSW5oSWtkX3Y4T3BRS2FEMmIwZ0hGQWllVk5WX3A5V042WDZ5amR2Qy1Mel9ka2MwNk42QWdnVzdpdF9Gdm5vV21UeklsejhvRUFFMHVzMEdrUlJheGhHMXBIMWZNcERNTXNjaFdmbFBNb29CSjhMc3RFOVEwOXc?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-10-24T19:31:33+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.11,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "de6ecc1fbd65632c",
       "title": "日月光買下乖乖廠房，封測毛利率破三成後的擴產考驗",
