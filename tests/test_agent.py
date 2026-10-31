@@ -1422,6 +1422,6 @@ def test_every_page_carries_the_corner_logo():
     from target_news_agent.protect import encrypt_page
 
     nav = fab_nav("news", "../")
-    assert nav.count('class="corner-logo"') == 1 and nav.count("data:image/png;base64,") == 2  # inlined: works encrypted / offline
-    assert 'aria-label="鑫科材料科技股份有限公司"' in nav
+    assert nav.count('class="corner-logo"') == 1 and nav.count("data:image/png;base64,") == 1  # inlined: works encrypted / offline
+    assert '<span class="cl-name">鑫科材料科技股份有限公司</span>' in nav  # text in the page's ink, readable in dark mode
     assert 'class="corner-logo"' in encrypt_page("<p>x</p>", b"k" * 32, b"s" * 16)  # the password page too

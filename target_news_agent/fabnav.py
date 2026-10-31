@@ -96,13 +96,15 @@ def _svg(name: str, cls: str = "") -> str:
 
 BRAND_STYLE = """
 .corner-logo{position:absolute;top:10px;right:max(14px,env(safe-area-inset-right));z-index:30;display:flex;align-items:center;gap:10px;
-  padding:5px 12px 5px 6px;background:#fff;border-radius:6px;box-shadow:0 1px 2px rgba(19,20,21,.08),0 2px 8px rgba(19,20,21,.06);border-bottom:3px solid #f39043}
-.corner-logo img{display:block;height:auto}.corner-logo .cl-mark{width:46px}.corner-logo .cl-name{width:190px}
+  padding:5px 12px 5px 6px;background:rgba(255,255,255,.2);border-radius:6px}  /* 80% transparent, no border or shadow */
+.corner-logo img{display:block;height:auto}.corner-logo .cl-mark{width:46px}
+.corner-logo .cl-name{font:700 15px/1.2 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;letter-spacing:.04em;white-space:nowrap;
+  color:var(--fg,var(--ink-1,var(--ink,#131415)))}
 @media (max-width:720px){.corner-logo{padding:4px;top:8px}.corner-logo .cl-name{display:none}.corner-logo .cl-mark{width:38px}}
 /* keep page headers clear of the logo: the dashboard's title row, the alert page's header, the news pages' brand row */
 @media (min-width:721px){header.top,header>.topbar,header>.sub{padding-right:280px}}
 @media (max-width:720px){header.top,header>.topbar,header>.sub,header>.brand{padding-right:52px}}
-@media print{.corner-logo{position:static;box-shadow:none;width:max-content;margin:0 0 0 auto}}
+@media print{.corner-logo{position:static;width:max-content;margin:0 0 0 auto}}
 """
 
 
@@ -113,13 +115,14 @@ def _png(name: str) -> str:
 
 
 def corner_logo() -> str:
-    """The company logo (TTMC mark + 鑫科材料科技股份有限公司) pinned to the page's top-right corner;
-    images are inlined so encrypted pages and the intranet copy need no extra files."""
+    """The company logo (TTMC mark + 鑫科材料科技股份有限公司) pinned to the page's top-right corner.
+    The mark is inlined so encrypted pages and the intranet copy need no extra files; the name is text
+    in the page's ink, so it stays readable in dark mode."""
     return (
         f"<style>{BRAND_STYLE}</style>"
-        '<div class="corner-logo" role="img" aria-label="鑫科材料科技股份有限公司">'
-        f'<img class="cl-mark" src="{_png("ttmc-mark.png")}" alt="">'
-        f'<img class="cl-name" src="{_png("ttmc-name.png")}" alt=""></div>'
+        '<div class="corner-logo">'
+        f'<img class="cl-mark" src="{_png("ttmc-mark.png")}" alt="TTMC">'
+        '<span class="cl-name">鑫科材料科技股份有限公司</span></div>'
     )
 
 
