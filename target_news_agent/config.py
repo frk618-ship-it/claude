@@ -62,6 +62,7 @@ class Settings:
     categories: dict[str, list[str]] = field(default_factory=dict)
     hot_terms: list[str] = field(default_factory=list)
     site_url: str = ""  # public URL of the site; used for absolute og:image / og:url links
+    keep_days: int = 365  # daily reports older than this are deleted after each run; 0 keeps them all
 
 
 @dataclass
@@ -114,6 +115,7 @@ def load_config(path: str | Path) -> Config:
         categories={k: [str(t) for t in v] for k, v in (s.get("categories", {}) or {}).items()},
         hot_terms=[str(t) for t in s.get("hot_terms", [])],
         site_url=str(s.get("site_url", "") or ""),
+        keep_days=int(s.get("keep_days", 365) or 0),
     )
 
     entities = []

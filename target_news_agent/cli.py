@@ -16,7 +16,7 @@ from . import notion
 from .config import load_config
 from .models import NewsItem
 from .processing import process
-from .report import write_reports
+from .report import prune_reports, write_reports
 from .research import Paper, collect_papers, is_relevant
 from .site import build_site, write_redirect
 from .metals import fetch_quotes
@@ -234,6 +234,9 @@ def main(argv: list[str] | None = None) -> int:
         translate_records(items, papers, llm)
 
     md_path, json_path = write_reports(items, config, digest, args.out, generated, papers, metals)
+    removed = prune_reports(args.out, generated.date(), config.settings.keep_days)
+    if removed:
+        print(f"刪除 {len({r.stem for r in removed})} 天超過 {config.settings.keep_days} 天的舊報告")
     if not args.papers_only:
         store.mark(items)
     if papers:

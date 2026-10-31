@@ -55,6 +55,8 @@ python -m target_news_agent run --no-llm                 # 不呼叫 Claude
 python -m target_news_agent queries                      # 列出會抓取的 RSS 網址(不連網)
 ```
 
+每日報告保存最近一年:每次 `run` 結束時刪除 `reports/` 中超過 `settings.keep_days`(預設 365 天)的 `YYYY-MM-DD.json` / `.md`,網站的歷次報告也隨之只列這段期間;設為 0 則永久保存。
+
 ### 技術文獻:靶材製造技術(期刊與研究)
 
 每次執行也會蒐集靶材製造技術相關的期刊論文與預印本,寫在報告與網站的「技術文獻」區塊:

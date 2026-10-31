@@ -22,7 +22,8 @@
 settings:
   # 網站公開網址:分享到 LINE / Slack / Teams 時預覽卡片的圖片與連結需要絕對網址
   site_url: https://frk618-ship-it.github.io/claude/news/
-  days: 7                     # 只保留最近 N 天的新聞
+  days: 7                     # 每次只蒐集最近 N 天內發布的新聞
+  keep_days: 365              # 每日報告保存天數:每次執行後刪除超過這個天數的報告;0 = 永久保存
   request_delay: 0.6          # 每次抓取之間的間隔秒數,避免被來源限流
   default_editions: [zh-TW, en]
   sources:

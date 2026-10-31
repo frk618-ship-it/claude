@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from .config import Config
@@ -163,3 +163,23 @@ def write_reports(
         encoding="utf-8",
     )
     return md_path, json_path
+
+
+def prune_reports(out_dir: str | Path, today: date, keep_days: int) -> list[Path]:
+    """Delete daily reports (YYYY-MM-DD.json / .md) dated more than `keep_days` before `today`;
+    0 keeps everything. Returns the deleted paths."""
+    if keep_days <= 0:
+        return []
+    cutoff = today - timedelta(days=keep_days)
+    removed = []
+    for path in sorted(Path(out_dir).glob("????-??-??.*")):
+        if path.suffix not in (".json", ".md"):
+            continue
+        try:
+            day = date.fromisoformat(path.stem)
+        except ValueError:
+            continue
+        if day < cutoff:
+            path.unlink()
+            removed.append(path)
+    return removed

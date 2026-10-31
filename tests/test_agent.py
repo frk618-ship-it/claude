@@ -1425,3 +1425,20 @@ def test_every_page_carries_the_corner_logo():
     assert nav.count('class="corner-logo"') == 1 and nav.count("data:image/png;base64,") == 1  # inlined: works encrypted / offline
     assert '<span class="cl-name">鑫科材料科技股份有限公司</span>' in nav  # text in the page's ink, readable in dark mode
     assert 'class="corner-logo"' in encrypt_page("<p>x</p>", b"k" * 32, b"s" * 16)  # the password page too
+
+
+def test_prune_reports_keeps_the_last_year(tmp_path):
+    from datetime import date
+
+    from target_news_agent.report import prune_reports
+
+    for name in ("2025-10-30.json", "2025-10-30.md", "2025-10-31.json", "2025-10-31.md", "2026-10-31.json", "notes.md", "dashboard"):
+        (tmp_path / name).mkdir() if name == "dashboard" else (tmp_path / name).write_text("{}", encoding="utf-8")
+    removed = prune_reports(tmp_path, date(2026, 10, 31), 365)
+    assert sorted(p.name for p in removed) == ["2025-10-30.json", "2025-10-30.md"]  # 2025-10-31 is exactly 365 days back: kept
+    assert {p.name for p in tmp_path.iterdir()} == {"2025-10-31.json", "2025-10-31.md", "2026-10-31.json", "notes.md", "dashboard"}
+    assert prune_reports(tmp_path, date(2030, 1, 1), 0) == []  # 0 keeps everything
+
+
+def test_keep_days_setting(config):
+    assert config.settings.keep_days == 365
