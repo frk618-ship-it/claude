@@ -18,7 +18,7 @@ from .models import NewsItem
 from .processing import process
 from .report import prune_reports, write_reports
 from .research import Paper, collect_papers, is_relevant
-from .site import build_site, write_redirect
+from .site import build_site, update_paper_archive, write_redirect
 from .metals import fetch_quotes
 from .sources import collect, http_fetch, iter_feed_urls
 from .store import SeenStore
@@ -39,6 +39,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--days", type=int, help="覆寫設定檔的天數")
     run.add_argument("--only", nargs="+", metavar="NAME", help="只跑名稱包含這些字串的公司/主題")
     run.add_argument("--db", default="data/seen.sqlite3", help="已讀紀錄資料庫")
+    run.add_argument("--papers-archive", help="永久保存的技術文獻庫(預設與 --db 同資料夾的 papers.json;每日報告只保存 keep_days 天)")
     run.add_argument("--include-seen", action="store_true", help="包含先前報告過的新聞")
     run.add_argument("--no-llm", action="store_true", help="不使用 Claude 摘要")
     run.add_argument("--model", help="Claude 模型 ID(預設 claude-opus-5-5 或 TARGET_NEWS_MODEL)")
@@ -88,6 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("-c", "--config", default="config/watchlist.yaml")
     st.add_argument("-i", "--reports-dir", default="reports")
     st.add_argument("-o", "--out", default="site/news")
+    st.add_argument("--papers-archive", default="data/papers.json", help="永久保存的技術文獻庫(每日報告只保存 keep_days 天)")
     st.add_argument("--root-redirect", metavar="DIR", help="在 DIR/index.html 放一個轉址到新聞網站的首頁(GitHub Pages 根目錄用)")
 
     pr = sub.add_parser("protect", help="把建好的網站加密、放到秘密路徑下(SITE_PATH / SITE_PASSWORD 環境變數)")
@@ -151,7 +153,7 @@ def main(argv: list[str] | None = None) -> int:
         return _check_papers(args, config)
 
     if args.command == "site":
-        written = build_site(args.reports_dir, args.out, config)
+        written = build_site(args.reports_dir, args.out, config, args.papers_archive)
         if args.root_redirect:
             written.append(write_redirect(args.root_redirect, args.out))
         print(f"{len(written)} pages -> {args.out}")
@@ -234,6 +236,7 @@ def main(argv: list[str] | None = None) -> int:
         translate_records(items, papers, llm)
 
     md_path, json_path = write_reports(items, config, digest, args.out, generated, papers, metals)
+    update_paper_archive(args.papers_archive or Path(args.db).parent / "papers.json", args.out)  # before pruning, so no paper is lost with its report
     removed = prune_reports(args.out, generated.date(), config.settings.keep_days)
     if removed:
         print(f"刪除 {len({r.stem for r in removed})} 天超過 {config.settings.keep_days} 天的舊報告")

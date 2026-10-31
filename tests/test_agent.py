@@ -711,9 +711,10 @@ def test_papers_only_targets_latest_report_across_midnight(tmp_path, monkeypatch
 
     assert main(["run", "-c", str(CONFIG), "-o", str(tmp_path), "--db", str(tmp_path / "seen.db"), "--papers-only"]) == 0
     files = sorted(p.name for p in tmp_path.glob("*.json"))
-    assert files == [f"{yesterday:%Y-%m-%d}.json"]
+    assert files == [f"{yesterday:%Y-%m-%d}.json", "papers.json"]  # the permanent papers library sits next to the seen db
     data = json.loads((tmp_path / files[0]).read_text(encoding="utf-8"))
     assert len(data["items"]) == len(items) and data["papers"]
+    assert {p["id"] for p in json.loads((tmp_path / "papers.json").read_text(encoding="utf-8"))} == {p["id"] for p in data["papers"]}
 
 
 def test_needs_translation_detects_languages():
@@ -1442,3 +1443,24 @@ def test_prune_reports_keeps_the_last_year(tmp_path):
 
 def test_keep_days_setting(config):
     assert config.settings.keep_days == 365
+
+
+def test_papers_library_outlives_the_reports(tmp_path, config):
+    from target_news_agent.site import build_site, update_paper_archive
+
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    old = {"id": "p-old", "title": "Sintering of ITO targets", "published": "2025-01-02", "summary": "舊摘要"}
+    (reports / "2025-01-05.json").write_text(json.dumps({"generated": "2025-01-05T08:00:00+08:00", "items": [], "papers": [old]}), encoding="utf-8")
+    archive = tmp_path / "papers.json"
+    assert update_paper_archive(archive, reports) == 1
+    (reports / "2025-01-05.json").unlink()  # the report ages out
+    new = {"id": "p-new", "title": "Bonding of Cu targets", "published": "2026-10-30"}
+    (reports / "2026-10-31.json").write_text(json.dumps({"generated": "2026-10-31T08:00:00+08:00", "items": [], "papers": [new, {**old, "summary": "新摘要"}]}), encoding="utf-8")
+    assert update_paper_archive(archive, reports) == 2
+    stored = {p["id"]: p for p in json.loads(archive.read_text(encoding="utf-8"))}
+    assert stored["p-old"]["collected"] == "2025-01-05" and stored["p-old"]["summary"] == "新摘要"  # first sighting kept, newer summary taken
+    (reports / "2026-10-31.json").write_text(json.dumps({"generated": "2026-10-31T08:00:00+08:00", "items": [], "papers": [new]}), encoding="utf-8")
+    build_site(reports, tmp_path / "out", config, archive)
+    page = (tmp_path / "out" / "papers.html").read_text(encoding="utf-8")
+    assert "Sintering of ITO targets" in page and "Bonding of Cu targets" in page

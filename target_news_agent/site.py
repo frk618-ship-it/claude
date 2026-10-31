@@ -163,8 +163,11 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .region li:last-child{border-bottom:0}
 .tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:6px}.pill{font-size:.72rem;padding:1px 9px;border-radius:99px;white-space:nowrap}
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
-.archive{display:flex;flex-wrap:wrap;gap:8px}.archive a{display:inline-flex;gap:6px;align-items:center;font-family:var(--font-data);font-size:.84rem;border:1px solid transparent;background:var(--surface);color:var(--fg);padding:4px 12px;border-radius:4px;text-decoration:none}
-.archive a:hover{border-color:var(--accent)}.archive a[aria-current=page]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.archive{display:grid;gap:10px;font-size:.9rem}.archive a{color:var(--fg);text-decoration:none;font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.archive a:hover{color:var(--accent);text-decoration:underline}.archive a[aria-current=page]{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-thickness:2px}
+.archive .arc-recent{font-family:var(--font-body);justify-self:start;color:var(--accent)}.arc-months{margin:0;display:grid;gap:6px}
+.arc-m{display:grid;grid-template-columns:7.5em 1fr;gap:4px 12px;align-items:baseline;padding-top:6px;border-top:1px solid var(--line)}
+.arc-m dt{color:var(--muted);font-size:.84rem}.arc-m dd{margin:0;display:flex;flex-wrap:wrap;gap:2px 14px}
 h3.topic{margin:8px 0 0;font-size:.98rem;font-weight:700;display:flex;gap:10px;align-items:center}
 h3.topic .tic{width:24px;height:24px;display:grid;place-items:center;color:var(--accent)}h3.topic .tic .ic{width:17px;height:17px}
 h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
@@ -395,6 +398,25 @@ def _papers_section(report: dict, library: list[dict], is_latest: bool, home: st
     )
 
 
+def _archive(archive: list[tuple[str, int]], current: str, home: str) -> str:
+    """歷次報告, kept plain: one line per month (newest first), its days as bare numbers in date order;
+    the news count sits in the tooltip, the open page is marked in the accent colour."""
+    if not archive:
+        return ""
+    months: dict[str, list[tuple[str, int]]] = {}
+    for d, n in sorted(archive, reverse=True):
+        months.setdefault(d[:7], []).append((d, n))
+    recent = f'<a class="arc-recent" href="{home}index.html"{" aria-current=page" if current == HOME_PAGE else ""}>最近 {HOME_DAYS} 天</a>'
+    rows = "".join(
+        f'<div class="arc-m"><dt>{m[:4]} 年 {int(m[5:])} 月</dt><dd>'
+        + "".join(f'<a href="{home}{d}.html" title="{d} · {n} 則"{" aria-current=page" if d == current else ""}>{int(d[8:])}</a>'
+                  for d, n in sorted(days))
+        + "</dd></div>"
+        for m, days in months.items()
+    )
+    return f'{recent}<dl class="arc-months">{rows}</dl>'
+
+
 def paper_library(reports: list[tuple[str, dict]]) -> list[dict]:
     """Every paper across all reports, one entry per paper ID, newest publication first."""
     seen: dict[str, dict] = {}
@@ -403,6 +425,33 @@ def paper_library(reports: list[tuple[str, dict]]) -> list[dict]:
             if p.get("id") and p["id"] not in seen:
                 seen[p["id"]] = {**p, "collected": date}
     return sorted(seen.values(), key=lambda p: (p.get("published") or "", p["collected"]), reverse=True)
+
+
+def merge_library(stored: list[dict], current: list[dict]) -> list[dict]:
+    """The permanent papers library: the stored archive plus papers in the reports still kept.
+    A paper in both takes the report's copy (newer summaries) and keeps its earliest "collected" date."""
+    merged = {p["id"]: p for p in stored if p.get("id")}
+    for p in current:
+        old = merged.get(p["id"])
+        merged[p["id"]] = {**p, "collected": min(p["collected"], old["collected"])} if old and old.get("collected") else p
+    return sorted(merged.values(), key=lambda p: (p.get("published") or "", p.get("collected") or ""), reverse=True)
+
+
+def load_paper_archive(path: str | Path | None) -> list[dict]:
+    if not path or not Path(path).exists():
+        return []
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def update_paper_archive(path: str | Path, reports_dir: str | Path) -> int:
+    """Fold every paper in reports_dir into the archive file, so papers outlive the reports'
+    retention period. Returns the archive's size."""
+    reports_dir = Path(reports_dir)
+    reports = [(p.stem, json.loads(p.read_text(encoding="utf-8"))) for p in reports_dir.iterdir() if REPORT_RE.match(p.name)]
+    library = merge_library(load_paper_archive(path), paper_library(reports))
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_text(json.dumps(library, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return len(library)
 
 
 SITE_DESCRIPTION = "每日彙整全球濺鍍靶材產業新聞、公司公告、貴金屬行情與技術文獻,附 AI 繁體中文摘要。"
@@ -641,13 +690,7 @@ def render_page(
         for e, n in ent_counts.most_common()
     )
     paper_stat = _stat("book", str(len(report["papers"])), "技術文獻(篇)") if "papers" in report else ""
-    archive_html = (
-        f'<a href="{home}index.html"{" aria-current=page" if current == HOME_PAGE else ""}>{icon("star")}最近 {HOME_DAYS} 天</a>'
-        if archive else ""
-    ) + "".join(
-        f'<a href="{home}{d}.html"{" aria-current=page" if d == current else ""}>{icon("calendar")}{d} · {n}</a>'
-        for d, n in archive
-    )
+    archive_html = _archive(archive, current, home)
 
     return (
         _head(f"靶材產業新聞摘要 {label}", SITE_DESCRIPTION, config.settings.site_url,
@@ -709,7 +752,7 @@ def merge_recent(reports: list[tuple[str, dict]], n: int = HOME_DAYS) -> dict:
     return merged
 
 
-def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> list[Path]:
+def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config, papers_archive: str | Path | None = None) -> list[Path]:
     reports_dir, out = Path(reports_dir), Path(out_dir)
     paths = sorted((p for p in reports_dir.iterdir() if REPORT_RE.match(p.name)), reverse=True)
     out.mkdir(parents=True, exist_ok=True)
@@ -720,7 +763,7 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config) -> 
     # chart data across the archive, oldest first: news + filings per day
     recent = list(reversed(reports[:CHART_DAYS]))
     daily = [(d, sum(1 for it in r.get("items", []) if item_kind(it) in SIGNAL_KINDS)) for d, r in recent]
-    library = paper_library(reports)
+    library = merge_library(load_paper_archive(papers_archive), paper_library(reports))  # papers are kept for good
     written = []
     generated = (reports[0][1].get("generated") or "")[:16].replace("T", " ") if reports else ""
     (out / "papers.html").write_text(render_library(library, config, generated), encoding="utf-8")
