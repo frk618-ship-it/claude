@@ -18,29 +18,31 @@
 <style>
 :root {
   color-scheme: light;
-  /* data-viz reference palette: warm-grey chrome, one blue accent, the first four validated
-     categorical slots for compared companies, a de-emphasis grey for context marks */
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink-1: #0b0b0b;
-  --ink-2: #52514e;
-  --ink-3: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --border: rgba(11,11,11,0.10);
-  --wash: rgba(42,120,214,0.06);
-  --focus-wash: rgba(42,120,214,0.10);
-  --other-mark: #b9b8b0;
-  --accent: #2a78d6; --accent-2: #1c5cab; --hero: #e6eefa;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  /* palette from the 鑫科材料 (TTMC) logo via the data-viz method: cool-grey chrome, navy accent,
+     the first four validated categorical slots for compared companies, a de-emphasis grey for context marks */
+  --page: #f3f4f6;
+  --surface: #fbfcfd;
+  --ink-1: #131415;
+  --ink-2: #4d4e4f;
+  --ink-3: #7c7d80;
+  --grid: #e4e6ea;
+  --axis: #c3c6cc;
+  --border: rgba(19,20,21,0.10);
+  --wash: rgba(31,95,168,0.06);
+  --focus-wash: rgba(31,95,168,0.10);
+  --other-mark: #b4b6ba;
+  --accent: #173c66; --accent-2: #005a7f; --hero: #e4eaf2; --brand-orange: #f39043;
+  --s1: #1f5fa8; --s2: #ee8a2e; --s3: #0f8fa6; --s4: #eda100;
   --good: #006300; --critical: #c62f2f;
-  --ord-1: #1c5cab; --ord-2: #2a78d6; --ord-3: #86b6ef;  /* ordinal blue steps: target share high -> low */
+  --ord-1: #173c66; --ord-2: #1f5fa8; --ord-3: #8fb3dd;  /* ordinal blue steps: target share high -> low */
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--page); color: var(--ink-1);
   font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
 header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
+header { position: relative; padding: 0 0 14px; border-bottom: 3px solid var(--accent); }
+header::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 96px; height: 3px; background: var(--brand-orange); }
 header .sub { color: var(--ink-2); font-size: 13px; }
 .topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
 .fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; }

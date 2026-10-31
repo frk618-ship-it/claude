@@ -1415,3 +1415,13 @@ def test_intranet_package_has_no_outside_loads(tmp_path):
     assert (tmp_path / "out" / "site" / "news" / "vendor" / "three.module.min.js").stat().st_size > 100_000
     assert (tmp_path / "out" / "nginx" / "target-news.conf").exists() and (tmp_path / "out" / "collector" / "daily-update.sh").exists()
     assert result == {"pages": 2, "external": {}}
+
+
+def test_every_page_carries_the_corner_logo():
+    from target_news_agent.fabnav import fab_nav
+    from target_news_agent.protect import encrypt_page
+
+    nav = fab_nav("news", "../")
+    assert nav.count('class="corner-logo"') == 1 and nav.count("data:image/png;base64,") == 2  # inlined: works encrypted / offline
+    assert 'aria-label="鑫科材料科技股份有限公司"' in nav
+    assert 'class="corner-logo"' in encrypt_page("<p>x</p>", b"k" * 32, b"s" * 16)  # the password page too

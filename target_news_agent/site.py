@@ -90,19 +90,20 @@ def esc(v) -> str:
 
 
 STYLE = """
-/* Colour roles follow the data-viz reference palette (validated categorical order, light and dark):
-   warm-grey surfaces and ink, one blue accent, eight series slots (item types take fixed slots),
+/* Colour roles follow the 鑫科材料 (TTMC) logo, run through the data-viz method: cool-grey surfaces,
+   charcoal ink, navy accent with the logo's teal as the second accent and its orange as a brand rule;
+   eight validated series slots (navy-blue, orange, teal first; item types take fixed slots),
    reserved status colours (price moves), and a de-emphasis grey for context marks. */
-:root{--bg:#f9f9f7;--surface:#fcfcfb;--fg:#0b0b0b;--muted:#52514e;--faint:#898781;--line:#e1e0d9;--grid:#e1e0d9;--axis:#c3c2b7;
---accent:#2a78d6;--accent-2:#1c5cab;--accent-soft:#e6eefa;--accent-track:#cde2fb;--hero:#e6eefa;--deemph:#b9b8b0;
---series-1:#2a78d6;--series-2:#eb6834;--series-3:#1baf7a;--series-4:#eda100;--series-5:#e87ba4;--series-6:#008300;--series-7:#6250d6;--series-8:#e34948;
+:root{--bg:#f3f4f6;--surface:#fbfcfd;--fg:#131415;--muted:#4d4e4f;--faint:#7c7d80;--line:#dfe1e5;--grid:#e4e6ea;--axis:#c3c6cc;
+--accent:#173c66;--accent-2:#005a7f;--accent-soft:#e4eaf2;--accent-track:#c9d6e6;--hero:#e4eaf2;--deemph:#b4b6ba;--brand-orange:#f39043;--brand-orange-ink:#b35a10;
+--series-1:#1f5fa8;--series-2:#ee8a2e;--series-3:#0f8fa6;--series-4:#eda100;--series-5:#e87ba4;--series-6:#008300;--series-7:#6250d6;--series-8:#e34948;
 --ok:#006300;--ok-soft:#e3f1e3;--none:#52514e;--none-soft:#efeeea;--up:#c62f2f;--down:#006300;
 --k-news:var(--series-1);--k-filing:var(--series-2);--k-recycling:var(--series-3);--k-market:var(--series-4);--k-forum:var(--series-5);
 --k-research:var(--series-6);--k-metals:var(--series-7);--k-profile:var(--series-8);
 --font-display:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--surface:#1a1a19;--fg:#f0efec;--muted:#c3c2b7;--faint:#898781;--line:#2c2c2a;--grid:#2c2c2a;--axis:#383835;
---accent:#3987e5;--accent-2:#86b6ef;--accent-soft:#16263b;--accent-track:#184f95;--hero:#16263b;--deemph:#5a5955;
---series-1:#3987e5;--series-2:#d95926;--series-3:#199e70;--series-4:#c98500;--series-5:#d55181;--series-6:#008300;--series-7:#9085e9;--series-8:#e66767;
+@media (prefers-color-scheme:dark){:root{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--faint:#888889;--line:#29313c;--grid:#29313c;--axis:#3a4350;
+--accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;--accent-track:#2b4c78;--hero:#1a2a40;--deemph:#4d5560;--brand-orange:#f39043;--brand-orange-ink:#f39043;
+--series-1:#4a8ad6;--series-2:#d36f1c;--series-3:#1ba3bd;--series-4:#c98500;--series-5:#d55181;--series-6:#008300;--series-7:#9085e9;--series-8:#e66767;
 --ok:#0ca30c;--ok-soft:#14261a;--none:#c3c2b7;--none-soft:#262624;--up:#ef6b6b;--down:#0ca30c;
 color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
@@ -113,9 +114,9 @@ h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:cl
 h2{font-size:1.25rem;font-weight:700;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 h2 .hic{display:inline-grid;place-items:center;width:26px;height:26px;color:var(--accent)}
 h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-data);font-size:.82rem;color:var(--muted);font-weight:400}
-.eyebrow{font-family:var(--font-data);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.eyebrow{font-family:var(--font-data);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-orange-ink)}
 .mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:16px;min-width:0}
-header{display:grid;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+header{display:grid;gap:18px;padding-bottom:26px;border-bottom:3px solid var(--accent);position:relative}header::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
 .brand{display:flex;gap:16px;align-items:center}.brand .logo{width:56px;height:56px;border-radius:8px;display:grid;place-items:center;background:var(--accent);color:#fff;flex:none}
 .brand .logo .ic{width:34px;height:34px;stroke-width:1.6}.brand>div{display:grid;gap:2px;min-width:0}
 .meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.88rem;align-items:center}.meta>*{display:inline-flex;gap:6px;align-items:center}

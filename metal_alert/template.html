@@ -8,22 +8,22 @@
 <style>
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --border: rgba(11,11,11,0.10);
-  --buy: #2a78d6;          /* 進場 / 相對低點(diverging cool pole) */
-  --buy-soft: #cde2fb;
-  --sell: #eb6834;         /* 出場 / 相對高點(diverging warm pole) */
-  --sell-soft: #fbdccd;
-  --neutral: #f0efec;
-  --s1: #2a78d6;           /* series: 價格 / RSI */
-  --s3: #1baf7a;           /* series: K 值 */
-  --band: rgba(42,120,214,0.10);
+  --page: #f3f4f6;
+  --surface: #fbfcfd;
+  --ink: #131415;
+  --ink-2: #4d4e4f;
+  --muted: #7c7d80;
+  --grid: #e4e6ea;
+  --axis: #c3c6cc;
+  --border: rgba(19,20,21,0.10);
+  --buy: #1f5fa8;          /* 進場 / 相對低點(diverging cool pole) */
+  --buy-soft: #d3e0f0;
+  --sell: #ee8a2e;         /* 出場 / 相對高點(diverging warm pole) */
+  --sell-soft: #fbe2cb;
+  --neutral: #eceef1;
+  --s1: #1f5fa8;           /* series: 價格 / RSI */
+  --s3: #0f8fa6;           /* series: K 值 */
+  --band: rgba(31,95,168,0.10);
   --up: #d03b3b;           /* 漲(台灣慣例:漲紅跌綠) */
   --down: #008300;
   --shadow: 0 1px 2px rgba(0,0,0,.04), 0 2px 8px rgba(0,0,0,.04);
@@ -31,19 +31,19 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
-    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
-    --buy: #3987e5; --buy-soft: #173352; --sell: #d95926; --sell-soft: #4a2414; --neutral: #383835;
-    --s1: #3987e5; --s3: #199e70; --band: rgba(57,135,229,0.14); --up: #e66767; --down: #0ca30c;
+    --page: #0f1319; --surface: #161c24; --ink: #eef0f3; --ink-2: #b4b6ba; --muted: #888889;
+    --grid: #29313c; --axis: #3a4350; --border: rgba(255,255,255,0.10);
+    --buy: #4a8ad6; --buy-soft: #1a2a40; --sell: #d36f1c; --sell-soft: #3f2612; --neutral: #2a323d;
+    --s1: #4a8ad6; --s3: #1ba3bd; --band: rgba(74,138,214,0.14); --up: #e66767; --down: #0ca30c;
     --shadow: none;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
-  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
-  --buy: #3987e5; --buy-soft: #173352; --sell: #d95926; --sell-soft: #4a2414; --neutral: #383835;
-  --s1: #3987e5; --s3: #199e70; --band: rgba(57,135,229,0.14); --up: #e66767; --down: #0ca30c;
+  --page: #0f1319; --surface: #161c24; --ink: #eef0f3; --ink-2: #b4b6ba; --muted: #888889;
+  --grid: #29313c; --axis: #3a4350; --border: rgba(255,255,255,0.10);
+  --buy: #4a8ad6; --buy-soft: #1a2a40; --sell: #d36f1c; --sell-soft: #3f2612; --neutral: #2a323d;
+  --s1: #4a8ad6; --s3: #1ba3bd; --band: rgba(74,138,214,0.14); --up: #e66767; --down: #0ca30c;
   --shadow: none;
 }
 * { box-sizing: border-box; }
@@ -53,7 +53,9 @@ body {
   font: 15px/1.55 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
 }
 .wrap { max-width: 1160px; margin: 0 auto; padding: 20px 16px 48px; }
-header.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+header.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px;
+  position: relative; padding-bottom: 12px; border-bottom: 3px solid #173c66; }
+header.top::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 96px; height: 3px; background: #f39043; }
 h1 { font-size: 24px; margin: 0; letter-spacing: .02em; }
 h2 { font-size: 17px; margin: 0 0 10px; }
 .meta { color: var(--ink-2); font-size: 13px; }
