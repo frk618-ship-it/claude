@@ -17,24 +17,25 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 
 # Flat: solid fills only, no gradients, shadows or transparency. Colours from the site's data-viz
-# palette: warm-grey page and ink, one blue accent, the target rings in steps of the blue ramp.
+# palette from the 鑫科材料 (TTMC) logo, as on the site: cool-grey page, charcoal ink, navy accent,
+# an orange brand rule, the target rings in steps of a navy ramp.
 CARD = """<!doctype html><html><head><meta charset=utf-8><style>
 *{box-sizing:border-box;margin:0}
-body{width:1200px;height:630px;overflow:hidden;position:relative;background:#f9f9f7;color:#0b0b0b;
+body{width:1200px;height:630px;overflow:hidden;position:relative;background:#f3f4f6;color:#131415;
 font-family:"Noto Sans CJK TC","Noto Sans TC","PingFang TC",sans-serif;padding:72px 80px}
 .rings{position:absolute;right:-150px;top:50%;transform:translateY(-50%)}
-.eyebrow{font:600 24px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#2a78d6;text-transform:uppercase}
+.eyebrow{font:600 24px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#b35a10;text-transform:uppercase}
 h1{font-size:76px;font-weight:700;line-height:1.15;margin-top:24px;position:relative}
-p{font-size:31px;color:#52514e;margin-top:22px;line-height:1.45;max-width:700px;position:relative}
-.bar{position:absolute;left:80px;bottom:150px;width:96px;height:10px;background:#2a78d6}
+p{font-size:31px;color:#4d4e4f;margin-top:22px;line-height:1.45;max-width:700px;position:relative}
+.bar{position:absolute;left:80px;bottom:150px;width:96px;height:10px;background:#f39043}
 .row{position:absolute;left:80px;bottom:72px;display:flex;gap:14px}
-.chip{background:#fcfcfb;color:#0b0b0b;border:2px solid #e1e0d9;border-radius:6px;padding:10px 20px;font-size:26px;font-weight:700}
+.chip{background:#fbfcfd;color:#131415;border:2px solid #dfe1e5;border-radius:6px;padding:10px 20px;font-size:26px;font-weight:700}
 .logo{position:absolute;left:80px;top:72px;width:0;height:0}
-.tile{position:absolute;right:80px;top:72px;width:112px;height:112px;border-radius:10px;background:#2a78d6;display:grid;place-items:center}
+.tile{position:absolute;right:80px;top:72px;width:112px;height:112px;border-radius:10px;background:#173c66;display:grid;place-items:center}
 </style></head><body>
 <svg class=rings width=620 height=620 viewBox="0 0 620 620" aria-hidden=true>
-<circle cx=310 cy=310 r=300 fill=#cde2fb /><circle cx=310 cy=310 r=230 fill=#b7d3f6 /><circle cx=310 cy=310 r=160 fill=#9ec5f4 />
-<circle cx=310 cy=310 r=90 fill=#86b6ef /><circle cx=310 cy=310 r=30 fill=#2a78d6 /></svg>
+<circle cx=310 cy=310 r=300 fill=#e4eaf2 /><circle cx=310 cy=310 r=230 fill=#c9d6e6 /><circle cx=310 cy=310 r=160 fill=#a9c0dc />
+<circle cx=310 cy=310 r=90 fill=#7f9fc6 /><circle cx=310 cy=310 r=30 fill=#173c66 /></svg>
 <div class=tile><svg width=68 height=68 viewBox="0 0 24 24" fill=none stroke=#ffffff stroke-width=1.8 stroke-linecap=round>
 <circle cx=12 cy=12 r=9 /><circle cx=12 cy=12 r=5.5 /><circle cx=12 cy=12 r=1.8 fill=#ffffff /></svg></div>
 <div class=eyebrow>EYEBROW</div><h1>TITLE</h1><p>SUB</p><div class=bar></div><div class=row>CHIPS</div></body></html>"""
