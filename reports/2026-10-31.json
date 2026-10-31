@@ -2,19 +2,20 @@
   "generated": "2026-10-31T08:28:55.508011+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 33 則,其中新聞與公司公告 23 則;報導最多的是 江豐電子(5 則)、日月光投控(3 則)、有研新材(3 則)、台積電(2 則)。依主題:產業動態 11 則、擴產與投資 5 則、營收與財報 3 則、客戶與供應鏈 2 則、技術與新產品 2 則。",
+    "overview": "本期靶材廠動態密集:有研新材積體電路用高純濺鍍靶材二期擴建開工,江豐電子臨時股東會通過 H 股發行上市議案、前三季營收 44.65 億元人民幣;歐萊新材定增獲上交所審核通過,阿石創定增獲證監會同意註冊,中國靶材廠募資與擴產同步推進。封測端日月光買下乖乖廠房擴產,南茂投資 235 億元加入投資臺灣方案,Amkor 指先進封裝推升毛利率。JX金屬投入 100 億日圓擴產 AI 伺服器用鈦銅,Furuya 金屬啟動金屬奈米粒子布局,Materion 將於 11 月 4 日公布財報。貴金屬重挫,金價跌破 3,900 美元、創一年新低,銀價大跌。",
     "key_trends": [
-      "產業動態(11 則):歐萊新材(688530):歐萊新材關於2026年度向特定對象發行A股股票申請獲得上海證券交易所審核通過",
-      "擴產與投資(5 則):日月光買下乖乖廠房，封測毛利率破三成後的擴產考驗",
-      "營收與財報(3 則):Amkor Technology (AMKR) Q3 2026 Earnings Call: Advanced Packaging Lifts Margins",
-      "客戶與供應鏈(2 則):【23:20 即時新聞】TSMC 臺積電(Taiwan Semiconductor Manufacturing) 股價急跌逾5%／AI資本支出雜音加劇科技股修正"
+      "中國靶材廠擴產與募資:有研新材二期擴建開工,歐萊新材、阿石創定增過關,江豐電子推進 H 股上市",
+      "封測擴產:日月光買廠、南茂投資 235 億元,Amkor 先進封裝推升毛利率",
+      "JX金屬擴產 AI 伺服器用鈦銅,強化高性能銅合金布局",
+      "貴金屬重挫:金價跌破 3,900 美元、創一年新低,銀價大跌"
     ],
     "watch_points": [
-      "日月光買下乖乖廠房，封測毛利率破三成後的擴產考驗(口袋證券)",
-      "最新AI運算帶動半導體供應鏈擴產，臺積電斥388億買廠！-財經焦點情報站(CMoney投資網誌)",
-      "頎邦前三季EPS 4.33元，矽光子佈局逐步收成、馬來西亞新廠添動能(鏈新聞 ABMedia)"
+      "有研新材二期擴建量產時程與中國高純靶材產能擴張對價格的影響",
+      "Materion 11 月 4 日財報中的靶材業務表現",
+      "日月光、南茂新產能對封裝用 Ti、Cu 靶材的拉貨",
+      "金銀價格急跌對貴金屬靶材報價與庫存評價的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,8 +34,8 @@
         "營收與財報"
       ],
       "score": 5.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光買下乖乖廠房擴充產能,封測毛利率突破三成後面臨擴產考驗。新廠房將增加封裝 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -54,8 +55,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 運算帶動半導體供應鏈擴產,台積電斥資 388 億元買廠。與前一日台積電購廠報導為同一事件。",
+      "importance": 3,
       "title_zh": "最新AI運算帶動半導體供應鏈擴產，臺積電斥388億買廠！-財經焦點情報站",
       "snippet_zh": ""
     },
@@ -71,12 +72,12 @@
         "頎邦 (Chipbond)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "頎邦前三季每股盈餘 4.33 元,矽光子布局逐步收成,馬來西亞新廠增添動能。頎邦金凸塊製程使用 PVD,新廠可能帶動 Au、Ti 靶材需求。",
+      "importance": 3,
       "title_zh": "頎邦前三季EPS 4.33元，矽光子佈局逐步收成、馬來西亞新廠添動能",
       "snippet_zh": ""
     },
@@ -95,8 +96,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資臺灣三大方案再新增 7 家企業,其中南茂投資 235 億元。封測廠擴產可能帶動凸塊與 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -112,11 +113,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光法說指出不怕晶圓代工搶食先進封裝,產能不足才是瓶頸。顯示封裝產能擴充需求明確,有利靶材長期需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -136,9 +138,9 @@
         "技術與新產品"
       ],
       "score": 4.22,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Amkor 2026 年第三季法說會:先進封裝推升毛利率。先進封裝需求強勁有利 PVD 靶材用量。",
+      "importance": 3,
+      "title_zh": "Amkor(AMKR)2026 年第三季法說會:先進封裝推升毛利率",
       "snippet_zh": ""
     },
     {
@@ -156,8 +158,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電股價急跌逾 5%,AI 資本支出雜音加劇科技股修正。若 AI 支出降溫可能影響後續擴產節奏。",
+      "importance": 2,
       "title_zh": "【23:20 即時新聞】TSMC 臺積電(Taiwan Semiconductor Manufacturing) 股價急跌逾5%／AI資本支出雜音加劇科技股修正",
       "snippet_zh": ""
     },
@@ -176,9 +178,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 將於 11 月 4 日盤前公布財報。可留意其濺鍍靶材相關業務表現。",
+      "importance": 3,
+      "title_zh": "財報預告:Materion 將於 11 月 4 日盤前公布業績",
       "snippet_zh": ""
     },
     {
@@ -196,8 +198,8 @@
         "營收與財報"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 將於 11 月 4 日盤前公布業績,並整理分析師最新預測。與同期 Materion 財報預告為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -213,11 +215,12 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "ETF 布局韓國在地 AI 供應鏈,報導提及資本支出上看 150 兆韓元。與前一日報導重複。",
+      "importance": 2,
       "title_zh": "韓國AI不只三星、SK海力士！009833佈局在地供應鏈 資本支出上看150兆韓元",
       "snippet_zh": ""
     },
@@ -233,11 +236,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "營收與財報",
         "技術與新產品"
       ],
       "score": 3.67,
-      "summary": "",
-      "importance": 0,
+      "summary": "外資看好日月光投控強勁成長,先進封裝與 CPO 量產帶動,目標價最高 908 元。屬法人評等,反映封裝擴產動能。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -256,9 +260,9 @@
         "技術與新產品"
       ],
       "score": 3.67,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬全面啟動次世代材料「金屬奈米粒子」的研發與量產技術布局。Furuya 為貴金屬靶材廠,新材料布局值得留意。",
+      "importance": 3,
+      "title_zh": "Furuya 金屬全面啟動次世代材料「金屬奈米粒子」研發與量產技術布局",
       "snippet_zh": ""
     },
     {
@@ -276,9 +280,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析探討金價低於每盎司 4,000 美元時是否為買點。金價走勢影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "金價預測:跌破 4,000 美元時買進,還是錯過下一波漲勢?",
       "snippet_zh": ""
     },
     {
@@ -296,9 +300,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "儘管伊朗局勢再起,金價仍跌至一年來最低。貴金屬大跌有助降低 Au、Ag 靶材原料成本。",
+      "importance": 3,
+      "title_zh": "伊朗緊張再起,金價為何仍跌至一年新低",
       "snippet_zh": ""
     },
     {
@@ -316,8 +320,8 @@
         "原物料與價格"
       ],
       "score": 3.19,
-      "summary": "",
-      "importance": 0,
+      "summary": "美國 9 月 PCE 通膨加速,金價失守 4,000 美元,恐跌向 3,900 美元。金價下行有利 Au 靶材成本。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -333,11 +337,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 10 月 29 日主力資金淨買入 82.81 萬元人民幣。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：阿石創（300706）10月29日主力資金淨買入82.81萬元",
       "snippet_zh": ""
     },
@@ -353,11 +358,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 2026 年度向特定對象發行 A 股股票申請獲上海證券交易所審核通過。募資到位後可支應靶材擴產。",
+      "importance": 4,
       "title_zh": "歐萊新材(688530):歐萊新材關於2026年度向特定對象發行A股股票申請獲得上海證券交易所審核通過",
       "snippet_zh": ""
     },
@@ -373,11 +379,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "律師事務所就江豐電子 2026 年第四次臨時股東會出具法律意見書。屬例行公告。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):國浩律師（上海）事務所關於寧波江豐電子材料股份有限公司2026年第四次臨時股東會之法律意見書",
       "snippet_zh": ""
     },
@@ -393,11 +400,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告 2026 年第四次臨時股東會決議。與同期 H 股議案報導相關。",
+      "importance": 2,
       "title_zh": "江豐電子(300666):2026年第四次臨時股東會決議",
       "snippet_zh": ""
     },
@@ -413,11 +421,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材積體電路用高純濺鍍靶材二期擴建項目已順利開工。中國靶材廠擴產將增加半導體靶材供給,影響競爭格局。",
+      "importance": 5,
       "title_zh": "有研新材：公司集成電路用高純濺射靶材二期擴建項目已經順利開工_公司新聞",
       "snippet_zh": ""
     },
@@ -433,11 +442,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子臨時股東會審議通過 H 股發行上市相關議案。赴港上市可擴大募資管道,支應靶材擴產與海外布局。",
+      "importance": 4,
       "title_zh": "江豐電子：臨時股東會審議通過H股發行上市相關議案",
       "snippet_zh": ""
     },
@@ -453,11 +463,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 2026 年前三季營業收入 44.65 億元人民幣。靶材龍頭營收持續成長。",
+      "importance": 4,
       "title_zh": "江豐電子2026年前三季度實現營業收入44.65億元",
       "snippet_zh": ""
     },
@@ -473,11 +484,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 29 日融券賣出 3.34 萬股,融資融券餘額 9.73 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "有研新材：10月29日融券賣出3.34萬股，融資融券餘額9.73億元",
       "snippet_zh": ""
     },
@@ -493,11 +505,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子融資淨償還 47.03 萬元,融資餘額 12.33 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "江豐電子：融資淨償還47.03萬元，融資餘額12.33億元",
       "snippet_zh": ""
     },
@@ -513,11 +526,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 30 日盤中跌幅達 5%。屬股價行情。",
+      "importance": 1,
       "title_zh": "有研新材10月30日盤中跌幅達5%",
       "snippet_zh": ""
     },
@@ -533,12 +547,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓媒報導 JX金屬將投入 100 億日圓生產 AI 伺服器用鈦銅。顯示其擴大高性能銅合金產能,與靶材原料布局相關。",
+      "importance": 4,
+      "title_zh": "日本 JX金屬投入 100 億日圓生產 AI 伺服器用鈦銅",
       "snippet_zh": ""
     },
     {
@@ -553,11 +568,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創向特定對象發行股票申請獲中國證監會同意註冊批覆。募資可支應靶材擴產。",
+      "importance": 4,
       "title_zh": "阿石創：關於向特定對象發行股票申請獲得中國證券監督管理委員會同意註冊批覆的公告",
       "snippet_zh": ""
     },
@@ -573,12 +589,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價自歷史高點下跌 27%,報導分析原因。貴金屬回落有利 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "金價為何下跌?較歷史高點已跌 27%",
       "snippet_zh": ""
     },
     {
@@ -593,12 +610,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "華爾街拋售引發平倉,金價跌破每盎司 3,900 美元,銀價重挫。貴金屬大跌有利 Au、Ag 靶材原料成本。",
+      "importance": 3,
+      "title_zh": "華爾街拋售引發平倉,金價跌破 3,900 美元、銀價重挫",
       "snippet_zh": ""
     },
     {
@@ -613,11 +631,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "2026 年金價走勢分析,探討是否續跌。屬投資分析。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -633,11 +652,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材截至 10 月 20 日股東戶數 32.53 萬戶,較上期減少 0.23%。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "有研新材：截至10月20日最新股東戶數32.53萬戶，較上期減少0.23%",
       "snippet_zh": ""
     },
@@ -653,11 +673,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "現貨黃金大跌 3%、跌破 3,900 美元,報導分析原因。與同期金價報導相關。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -673,11 +694,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價跌破 4,000 美元、銀價大幅下挫,霍爾木茲海峽遇襲推高油價。貴金屬回落有利靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     }
@@ -745,9 +767,9 @@
       "topics": [
         "濺鍍行為與靶材利用率"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究以 HiPIMS 與中頻疊加濺鍍沉積含氫碳化鎢陶瓷鍍層,探討靶材毒化對微結構演變與多功能特性的影響。摘要未提供細節。",
+      "importance": 2,
+      "title_zh": "靶材毒化控制含氫碳化鎢陶瓷鍍層的微結構演變與多功能特性:HiPIMS–中頻疊加濺鍍",
       "abstract_zh": "",
       "tier": "core"
     }
