@@ -2,19 +2,20 @@
   "generated": "2026-11-01T08:24:52.239440+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 21 則,其中新聞與公司公告 10 則;報導最多的是 三星電子(3 則)、台積電(1 則)、南茂(1 則)、Materion(1 則)。依主題:營收與財報 3 則、產業動態 3 則、擴產與投資 2 則、客戶與供應鏈 2 則。",
+    "overview": "本期焦點在先進封裝與記憶體擴產:傳台積電擬將先進封裝價格最高調漲 20%,全球先進封裝進入集中擴產期;南茂加入投資台灣方案擴建封測新廠。三星電子法說會擴大 AI 半導體資本支出並公布 2026 年資本支出計畫,預期記憶體短缺持續到 2028 年,將推升半導體靶材需求。靶材市場方面,IndexBox 發布 ITO 與亞洲鉬濺鍍靶材至 2035 年預測,Materion 獲利回升受關注。貴金屬持續重挫,金價創 2008 年以來最差 10 月表現,鉑、鈀跌至年內低點。",
     "key_trends": [
-      "營收與財報(3 則):Samsung Electronics Earnings Call Transcript: Ramping Up Capex for AI Semiconductors; Memory Shortage Expected to Continue Until 2028!",
-      "產業動態(3 則):10月30日有研新材跌5.06%，稀土ETF嘉實基金重倉該股",
-      "擴產與投資(2 則):臺積電據傳擬將先進封裝價格最高上調20%，全球先進封裝進入集中擴產期丨盤中雷達",
-      "客戶與供應鏈(2 則):REG - Samsung Electronics Samsung Elec - SMSD - Announcement of Capex Plan for FY 2026"
+      "先進封裝擴產與漲價:傳台積電封裝價格最高調漲 20%,南茂擴建新廠",
+      "記憶體資本支出擴大:三星預期記憶體短缺持續到 2028 年",
+      "顯示與鉬靶材市場:IndexBox 預測 ITO 與亞洲鉬靶材至 2035 年需求成長",
+      "貴金屬重挫:金價跌至一年低點,鉑、鈀跌至年內低點"
     ],
     "watch_points": [
-      "臺積電據傳擬將先進封裝價格最高上調20%，全球先進封裝進入集中擴產期丨盤中雷達(证券之星)",
-      "投資臺灣方案再添250億！半導體封測與儲能供應鏈擴產，南茂斥重金建新廠-財經焦點情報站(CMoney投資網誌)",
-      "Samsung Electronics Earnings Call Transcript: Ramping Up Capex for AI Semiconductors; Memory Shortage Expected to Continue Until 2028!(Moomoo)"
+      "台積電封裝漲價與擴產對 PVD 機台與 Ti、Cu 靶材拉貨的影響",
+      "三星 2026 年資本支出計畫的產能配置與靶材採購節奏",
+      "Materion 11 月 4 日財報的靶材業務表現",
+      "貴金屬急跌對 Au、Ag、Pt、Pd 靶材報價與庫存評價的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -29,13 +30,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "原物料與價格",
-        "客戶與供應鏈"
+        "原物料與價格"
       ],
       "score": 5.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳台積電擬將先進封裝價格最高調漲 20%,全球先進封裝進入集中擴產期。封裝擴產與漲價有利 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "臺積電據傳擬將先進封裝價格最高上調20%，全球先進封裝進入集中擴產期丨盤中雷達",
       "snippet_zh": ""
     },
@@ -55,8 +56,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資台灣方案再增 250 億元,南茂斥資建新廠擴充封測產能。封測新廠可能帶動凸塊與 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "投資臺灣方案再添250億！半導體封測與儲能供應鏈擴產，南茂斥重金建新廠-財經焦點情報站",
       "snippet_zh": ""
     },
@@ -72,12 +73,12 @@
         "產業綜合:濺鍍靶材"
       ],
       "categories": [
-        "擴產與投資",
-        "原物料與價格"
+        "原物料與價格",
+        "擴產與投資"
       ],
       "score": 4.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "IndexBox 預測 ITO 濺鍍靶材市場至 2035 年,平面顯示器擴產帶動需求加速。屬市場研究報告,細節需參閱原文。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -93,13 +94,14 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 4.61,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "三星電子法說會:擴大 AI 半導體資本支出,預期記憶體短缺將持續到 2028 年。記憶體擴產將直接推升 Cu、Ta、Ti、W 等靶材需求。",
+      "importance": 5,
+      "title_zh": "三星電子法說會逐字稿:擴大 AI 半導體資本支出,預期記憶體短缺持續到 2028 年",
       "snippet_zh": ""
     },
     {
@@ -117,9 +119,9 @@
         "營收與財報"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析指 Materion 獲利回升可能改變市場對其股票的看法。Materion 為主要靶材廠之一,可留意其靶材業務。",
+      "importance": 3,
+      "title_zh": "獲利回升可能改變 Materion 的投資論點",
       "snippet_zh": ""
     },
     {
@@ -134,12 +136,13 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.61,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "三星電子公告 2026 會計年度資本支出計畫。與同期三星擴大資本支出報導相關。",
+      "importance": 4,
+      "title_zh": "三星電子公告 2026 會計年度資本支出計畫",
       "snippet_zh": ""
     },
     {
@@ -154,12 +157,13 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.6,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "三星電子增加資本支出,投資人反應失望。擴產方向仍有利靶材需求。",
+      "importance": 3,
+      "title_zh": "三星電子增加資本支出,投資人感到失望",
       "snippet_zh": ""
     },
     {
@@ -178,9 +182,9 @@
         "原物料與價格"
       ],
       "score": 3.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "IndexBox 發布亞洲鉬濺鍍靶材市場規模、趨勢與至 2035 年預測。屬市場研究報告,細節需參閱原文。",
+      "importance": 3,
+      "title_zh": "亞洲鉬濺鍍靶材市場:規模、趨勢與至 2035 年預測",
       "snippet_zh": ""
     },
     {
@@ -198,9 +202,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "11 月 1 日早盤金價更新,回顧本週金價跌至逾一年低點。與同期金價報導相關。",
+      "importance": 1,
+      "title_zh": "11 月 1 日早盤金價:回顧金價跌至逾一年低點的一週",
       "snippet_zh": ""
     },
     {
@@ -218,9 +222,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價自由落體,創數月來最大跌幅。貴金屬回落有利 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "今日金價(11 月 1 日):自由落體,數月來最深跌幅",
       "snippet_zh": ""
     },
     {
@@ -238,9 +242,9 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價(XAU/USD)跌幅達 17%,威脅多年上升趨勢。金價走勢影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "金價預測:XAU/USD 重挫 17% 威脅多年上升趨勢",
       "snippet_zh": ""
     },
     {
@@ -258,9 +262,9 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價跌破關鍵支撐,GLD ETF 資金流出增加,市場等待非農數據。屬金價評論。",
+      "importance": 1,
+      "title_zh": "金價跌破關鍵支撐,非農公布前 GLD ETF 資金流出大增",
       "snippet_zh": ""
     },
     {
@@ -278,8 +282,8 @@
         "原物料與價格"
       ],
       "score": 3.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "鉑金、鈀金跌至年內低點,美銀仍逆勢看多。Pt、Pd 價格影響貴金屬靶材成本與報價。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -298,8 +302,8 @@
         "營收與財報"
       ],
       "score": 3.02,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指一家半導體靶材龍頭前三季淨利翻倍(標題未點名公司),反映靶材需求強勁。",
+      "importance": 3,
       "title_zh": "利好！半導體靶材龍頭，前三季度淨利翻倍了",
       "snippet_zh": ""
     },
@@ -315,11 +319,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 10 月 30 日主力資金淨買入 515.09 萬元人民幣。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：歐萊新材（688530）10月30日主力資金淨買入515.09萬元",
       "snippet_zh": ""
     },
@@ -335,11 +340,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.77,
-      "summary": "",
-      "importance": 0,
+      "summary": "個人收盤評論,提及有研新材等個股。屬股市評論。",
+      "importance": 1,
       "title_zh": "10.30老朱收評：有研新材，魅視科技，星網銳捷，肯特股份，寶通科技，愛仕達",
       "snippet_zh": ""
     },
@@ -355,11 +361,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 10 月 30 日下跌 5.06%,稀土 ETF 重倉該股。屬股價行情。",
+      "importance": 1,
       "title_zh": "10月30日有研新材跌5.06%，稀土ETF嘉實基金重倉該股",
       "snippet_zh": ""
     },
@@ -375,11 +382,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.68,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光上調資本支出,全力搶攻測試與 CPO 商機。與前幾日報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -395,11 +403,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區文章評論精材股價重返 500 元,題材為先進封裝。屬股市討論,參考價值較低。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -415,12 +424,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "文章整理在貴金屬濺鍍靶材領域擁有市占的全球企業。可作為貴金屬靶材競爭者參考。",
+      "importance": 3,
+      "title_zh": "在貴金屬濺鍍靶材擁有市占的全球企業",
       "snippet_zh": ""
     },
     {
@@ -435,12 +445,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus Technologies 一名與中國相關的股東將持股降至 0%。Singulus 為濺鍍設備商,股權變動值得留意。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies(SNG)中國相關股東持股降至 0%",
       "snippet_zh": ""
     }
   ],
