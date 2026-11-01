@@ -29,7 +29,12 @@ def fetch_one(c: Company, cfg: FinConfig, start: str):
     """Taiwan tickers go to FinMind (with monthly revenue); everything else to Yahoo Finance."""
     if c.market == "TW":
         return fetch_company(c.ticker, start, http_fetch, field_map=cfg.finmind_field_map, ytd=cfg.finmind_ytd, name=c.name)
-    return fetch_yahoo(c.ticker, name=c.name, currency=c.currency)
+    previous = None
+    try:
+        previous = load_company(c.ticker, cfg.data_dir, c.name)
+    except (FileNotFoundError, ValueError):
+        pass  # first fetch
+    return fetch_yahoo(c.ticker, name=c.name, currency=c.currency, previous=previous)
 
 
 def cmd_fetch(args, cfg: FinConfig) -> int:

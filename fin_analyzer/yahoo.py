@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import logging
 import math
+import re
 
 from .models import CompanyData, parse_period, period_from_date, shift_period
 
@@ -139,13 +140,60 @@ def adjust_for_splits(rows: dict[str, dict[str, float | None]], splits: dict[str
     return adjusted
 
 
+def statements_restated(quarters: dict[str, dict[str, float | None]], splits: dict[str, float], current_shares) -> bool:
+    """True when Yahoo already restated the statements to the post-split share basis.
+
+    Yahoo sometimes restates share counts and EPS after a split (Mitsui Kinzoku's 1:10 split:
+    57M shares at first, 572M a few weeks later); adjusting again would multiply them twice.
+    Compare the latest pre-split share count with today's shares outstanding."""
+    if not current_shares or not splits:
+        return False
+    # The latest quarter that has a share count and a split after it.
+    for p in sorted(quarters, key=parse_period, reverse=True):
+        shares = quarters[p].get("shares")
+        if not shares:
+            continue
+        y, q = parse_period(p)
+        period_end = f"{y:04d}-{q * 3:02d}-31"
+        factor = 1.0
+        for date, ratio in splits.items():
+            if str(date)[:10] > period_end and ratio and ratio > 0:
+                factor *= ratio
+        if factor != 1.0:
+            return abs(math.log(shares / current_shares)) < abs(math.log(shares * factor / current_shares))
+    return False
+
+
+def merge_previous(new: dict[str, dict[str, float | None]], old: dict[str, dict[str, float | None]]) -> list[str]:
+    """Fill gaps in freshly fetched rows from the previously stored ones.
+
+    Yahoo only serves the last ~5 quarters, so each fetch would otherwise drop the oldest
+    quarter (and with it year-over-year growth). New values win; shares and EPS are not
+    carried over because a split in between would mix share bases."""
+    kept = []
+    for p, row in old.items():
+        target = new.setdefault(p, {})
+        added = False
+        for k, v in row.items():
+            if v is not None and target.get(k) is None and k not in ("shares", "eps"):
+                target[k] = v
+                added = True
+        if added:
+            kept.append(p)
+    return sorted(kept, key=parse_period)
+
+
 def _frame(t, attr: str) -> dict:
     df = getattr(t, attr, None)
     return df.to_dict() if df is not None and hasattr(df, "to_dict") else {}
 
 
-def fetch_yahoo(ticker: str, name: str = "", currency: str = "", ticker_factory=None) -> CompanyData:
-    """Fetch quarterly statements and ~1 year of prices for a Yahoo Finance symbol."""
+def fetch_yahoo(
+    ticker: str, name: str = "", currency: str = "", ticker_factory=None, previous: CompanyData | None = None
+) -> CompanyData:
+    """Fetch quarterly statements and ~1 year of prices for a Yahoo Finance symbol.
+
+    ``previous``: the data stored by the last fetch; quarters Yahoo no longer serves are kept."""
     if ticker_factory is None:
         import yfinance as yf
 
@@ -164,20 +212,29 @@ def fetch_yahoo(ticker: str, name: str = "", currency: str = "", ticker_factory=
         for p, row in frames_to_quarters({"income": _frame(t, "income_stmt"), "cashflow": _frame(t, "cashflow")}, ANNUAL_FIELDS).items()
         if any(v is not None for v in row.values())
     }
-    filled = fill_quarter_from_annual(quarters, annual)
+    info: dict = {}
+    try:
+        info = t.info or {}
+    except Exception as exc:  # info is a best-effort extra
+        log.warning("%s: info unavailable: %s", ticker, exc)
     splits = {}
     try:
         raw_splits = getattr(t, "splits", None)
         splits = {str(k)[:10]: float(v) for k, v in (raw_splits.to_dict() if raw_splits is not None else {}).items()}
     except Exception as exc:  # split history is a best-effort extra
         log.warning("%s: split history unavailable: %s", ticker, exc)
-    if adjust_for_splits(quarters, splits) + adjust_for_splits(annual, splits):
+    if statements_restated(quarters, splits, info.get("sharesOutstanding")):
+        log.info("%s: statements already on the post-split share basis %s", ticker, splits)
+    elif adjust_for_splits(quarters, splits) + adjust_for_splits(annual, splits):
         log.info("%s: shares / EPS restated for stock splits %s", ticker, splits)
-    info: dict = {}
-    try:
-        info = t.info or {}
-    except Exception as exc:  # info is a best-effort extra
-        log.warning("%s: info unavailable: %s", ticker, exc)
+    if previous is not None:
+        kept = merge_previous(quarters, previous.quarters) + merge_previous(annual, previous.annual)
+        if kept:
+            log.info("%s: kept stored values for %s", ticker, sorted(set(kept)))
+    filled = fill_quarter_from_annual(quarters, annual)
+    if previous is not None and "推得" in previous.note:  # quarters derived earlier and kept from storage
+        derived = re.findall(r"\d{4}Q[1-4]", previous.note.split("推得")[0])
+        filled = sorted(set(filled) | {p for p in derived if p in quarters and quarters[p].get("revenue") is not None}, key=parse_period)
     data = CompanyData(
         ticker=ticker,
         name=name or info.get("shortName", ""),

@@ -2,19 +2,19 @@
   "title": "濺鍍靶材製造商財務指標儀表板",
   "news_url": "https://frk618-ship-it.github.io/claude/news/",
   "site_url": "https://frk618-ship-it.github.io/claude/financials/",
-  "generated": "2026-11-01 00:31",
+  "generated": "2026-11-01 08:55",
   "display_currency": "TWD",
   "unit_label": "億台幣",
   "fx": {
     "base": "TWD",
     "rates": {
-      "USD": 32.395999908447266,
-      "JPY": 0.20280000567436218,
-      "CNY": 4.860000133514404,
+      "USD": 32.566898345947266,
+      "JPY": 0.20631800591945648,
+      "CNY": 4.907199859619141,
       "TWD": 1.0
     },
     "source": "Yahoo Finance",
-    "asof": "2026-10-22"
+    "asof": "2026-11-01"
   },
   "metrics": [
     {
@@ -250,15 +250,15 @@
       "segment": "濺鍍靶材、特殊合金",
       "latest_quarter": "2026Q2",
       "yoy_quarters": 4,
-      "close": 66.8,
-      "close_date": "2026-10-21",
+      "close": 55.8,
+      "close_date": "2026-10-30",
       "is_focus": true,
       "note": "",
       "latest": {
         "revenue_ttm": 70.57236,
         "revenue_ttm_yoy": 0.2934096047434307,
         "revenue_yoy": 0.026394510161300566,
-        "market_cap": 72.473992,
+        "market_cap": 60.539652,
         "gross_margin_ttm": 0.037389992342611186,
         "operating_margin_ttm": 0.004361622595588414,
         "net_margin_ttm": 0.0035264514322604487,
@@ -275,9 +275,9 @@
         "ocf_to_net_income_ttm": -1.5281874070800017,
         "fcf_margin_ttm": -0.01875791032069779,
         "capex_to_revenue_ttm": 0.013368831650238139,
-        "pe_ttm": 303.6363636363636,
-        "pb": 2.2411797103233,
-        "ev_ebitda_ttm": 60.37139450690987,
+        "pe_ttm": 253.63636363636363,
+        "pb": 1.8721231711982058,
+        "ev_ebitda_ttm": 49.98539875378564,
         "fscore": 5.0,
         "zscore": 6.742006296886398
       },
@@ -597,15 +597,15 @@
       "segment": "濺鍍靶材、貴金屬材料與精煉回收",
       "latest_quarter": "2026Q2",
       "yoy_quarters": 4,
-      "close": 96.0,
-      "close_date": "2026-10-21",
+      "close": 88.0,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "",
       "latest": {
         "revenue_ttm": 518.86568,
         "revenue_ttm_yoy": 0.5430678378262557,
         "revenue_yoy": 0.6467576392266854,
-        "market_cap": 572.140992,
+        "market_cap": 524.462576,
         "gross_margin_ttm": 0.14528241682895657,
         "operating_margin_ttm": 0.10440944947447671,
         "net_margin_ttm": 0.0768002616785138,
@@ -622,9 +622,9 @@
         "ocf_to_net_income_ttm": 0.0854623275553577,
         "fcf_margin_ttm": -0.0003794045503260112,
         "capex_to_revenue_ttm": 0.006942933670232342,
-        "pe_ttm": 14.349775784753362,
-        "pb": 3.5282763720842003,
-        "ev_ebitda_ttm": 10.784761354724175,
+        "pe_ttm": 13.153961136023916,
+        "pb": 3.2342533410771837,
+        "ev_ebitda_ttm": 10.00248368286512,
         "fscore": 7.0,
         "zscore": 4.355940385881716
       },
@@ -928,46 +928,46 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20280000567436218,
+      "fx_rate": 0.20631800591945648,
       "target_focus": "major",
       "focus_label": "靶材為主要事業之一",
       "segment": "半導體/資訊通信材料(靶材)、銅箔、金屬",
-      "latest_quarter": "2026Q1",
-      "yoy_quarters": 4,
-      "close": 2930.0,
-      "close_date": "2026-10-20",
+      "latest_quarter": "2026Q2",
+      "yoy_quarters": 2,
+      "close": 2955.0,
+      "close_date": "2026-10-30",
       "is_focus": false,
-      "note": "JX金屬(5016.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
+      "note": "",
       "latest": {
-        "revenue_ttm": 1794.0459141975641,
-        "revenue_ttm_yoy": 0.2373597784429462,
-        "revenue_yoy": null,
-        "market_cap": 5503.077421595436,
-        "gross_margin_ttm": 0.22794747682102737,
-        "operating_margin_ttm": 0.06836242621275596,
-        "net_margin_ttm": 0.1182913236826815,
-        "roe_ttm": 0.15597878944838406,
-        "roa_ttm": 0.0750590225937377,
-        "asset_turnover_ttm": 0.6345268634839595,
-        "dso": 62.40464461169428,
-        "dio": 165.2049233733585,
-        "ccc": 170.8199914630985,
-        "current_ratio": 1.772174432327139,
-        "debt_ratio": 0.4431426318492138,
-        "net_debt_to_equity": 0.307714331387234,
-        "interest_coverage_ttm": 21.889794909809737,
+        "revenue_ttm": 1968.2036283496025,
+        "revenue_ttm_yoy": 0.36334142488344323,
+        "revenue_yoy": 0.3624500721470545,
+        "market_cap": 5797.319929525137,
+        "gross_margin_ttm": 0.22894945941469613,
+        "operating_margin_ttm": 0.09764813421023391,
+        "net_margin_ttm": 0.14555026070111513,
+        "roe_ttm": 0.2222750495656552,
+        "roa_ttm": 0.09423848887208712,
+        "asset_turnover_ttm": 0.6474635525772378,
+        "dso": 56.88226197602492,
+        "dio": 160.71524688391725,
+        "ccc": 166.64865794641966,
+        "current_ratio": 2.0082941854224794,
+        "debt_ratio": 0.5656440946390561,
+        "net_debt_to_equity": 0.2999615402111567,
+        "interest_coverage_ttm": 26.455564544088755,
         "ocf_to_net_income_ttm": null,
         "fcf_margin_ttm": null,
         "capex_to_revenue_ttm": null,
-        "pe_ttm": 25.942978572693466,
-        "pb": 3.735160041913975,
+        "pe_ttm": 19.776032251998185,
+        "pb": 4.374324234200084,
         "ev_ebitda_ttm": null,
         "fscore": null,
-        "zscore": 4.416568719853287
+        "zscore": 4.3547430926444415
       },
       "trend": {
         "2025Q1": {
-          "revenue": 401.58254323631525,
+          "revenue": 408.5488521416486,
           "revenue_yoy": null,
           "gross_margin": 0.22048389295976648,
           "operating_margin": 0.027961963245951148,
@@ -977,58 +977,78 @@
           "debt_ratio": 0.4452432654041069
         },
         "2025Q2": {
-          "revenue": null,
+          "revenue": 394.63682900249955,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.21952048348982622,
+          "operating_margin": 0.08320437483008845,
+          "net_margin": 0.09862711474518497,
           "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": null
+          "dio": 167.0992283320048,
+          "debt_ratio": 0.44809046218052956
         },
         "2025Q3": {
-          "revenue": null,
+          "revenue": 423.1891778416932,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.25063500962874485,
+          "operating_margin": 0.11384345367233016,
+          "net_margin": 0.11737805621236867,
           "roe_ttm": null,
-          "dio": null,
+          "dio": 164.64965583646702,
           "debt_ratio": 0.4428923083464562
         },
-        "2026Q1": {
-          "revenue": null,
+        "2025Q4": {
+          "revenue": 449.9981395308673,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.21870257531784568,
+          "operating_margin": 0.08220660312045812,
+          "net_margin": 0.16800773924964124,
+          "roe_ttm": null,
+          "dio": 158.43902941763298,
+          "debt_ratio": 0.4453042759580669
+        },
+        "2026Q1": {
+          "revenue": 557.3433348307013,
+          "revenue_yoy": 0.36420242501982125,
+          "gross_margin": 0.22415210003775848,
+          "operating_margin": 0.012141942266545247,
+          "net_margin": 0.092767400365739,
           "roe_ttm": 0.15597878944838406,
-          "dio": 165.2049233733585,
+          "dio": 142.74460424360404,
           "debt_ratio": 0.4431426318492138
         },
         "2026Q2": {
-          "revenue": null,
-          "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
-          "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": null
+          "revenue": 537.6729761463404,
+          "revenue_yoy": 0.3624500721470545,
+          "gross_margin": 0.22543015456401283,
+          "operating_margin": 0.18645914874675754,
+          "net_margin": 0.20364230786941107,
+          "roe_ttm": 0.2222750495656552,
+          "dio": 160.71524688391725,
+          "debt_ratio": 0.5656440946390561
         }
       },
       "monthly": {},
       "signals": [
         {
           "level": "優勢",
+          "topic": "成長",
+          "message": "2026Q2 營收年增 36.2%,成長動能強"
+        },
+        {
+          "level": "優勢",
           "topic": "獲利",
-          "message": "近四季 ROE 15.6%,高於 15.0% 門檻"
+          "message": "近四季 ROE 22.2%,高於 15.0% 門檻"
+        },
+        {
+          "level": "注意",
+          "topic": "獲利品質",
+          "message": "業外收支挹注稅前淨利比重 39.0%,本業獲利需另行評估"
         }
       ],
       "signal_counts": {
         "風險": 0,
-        "注意": 0,
-        "優勢": 1
+        "注意": 1,
+        "優勢": 2
       },
       "fscore_details": [
         [
@@ -1049,11 +1069,11 @@
         ],
         [
           "長期負債比重下降",
-          true
+          false
         ],
         [
           "流動比率提升",
-          false
+          true
         ],
         [
           "未增發股本",
@@ -1078,21 +1098,21 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20280000567436218,
+      "fx_rate": 0.20631800591945648,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "化工為主",
       "latest_quarter": "2026Q1",
       "yoy_quarters": 4,
-      "close": 2565.5,
-      "close_date": "2026-10-20",
+      "close": 2537.5,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "東曹(4042.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
       "latest": {
-        "revenue_ttm": 2068.3917338737847,
+        "revenue_ttm": 2104.272416433543,
         "revenue_ttm_yoy": -0.040874304812381634,
         "revenue_yoy": null,
-        "market_cap": 1601.9034458287647,
+        "market_cap": 1611.9053486138819,
         "gross_margin_ttm": 0.2559276882334543,
         "operating_margin_ttm": 0.09366644540683212,
         "net_margin_ttm": 0.04080233979823848,
@@ -1109,9 +1129,9 @@
         "ocf_to_net_income_ttm": 2.7527574191998077,
         "fcf_margin_ttm": null,
         "capex_to_revenue_ttm": null,
-        "pe_ttm": 19.37688821752266,
-        "pb": 0.949629409025825,
-        "ev_ebitda_ttm": 5.843392978093905,
+        "pe_ttm": 19.165407854984892,
+        "pb": 0.9392651044252703,
+        "ev_ebitda_ttm": 5.78336404416731,
         "fscore": null,
         "zscore": 6.080348892679525
       },
@@ -1222,21 +1242,21 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20280000567436218,
+      "fx_rate": 0.20631800591945648,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "功能材料(含 ITO 等靶材)、金屬、汽車零件",
       "latest_quarter": "2026Q1",
       "yoy_quarters": 4,
-      "close": 2190.0,
-      "close_date": "2026-10-20",
+      "close": 2017.5,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "三井金屬(5706.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
       "latest": {
-        "revenue_ttm": 1538.302939041853,
+        "revenue_ttm": 1564.9880966609717,
         "revenue_ttm_yoy": 0.06483945958694104,
         "revenue_yoy": null,
-        "market_cap": 2540.9815711096903,
+        "market_cap": 2381.44256989939,
         "gross_margin_ttm": 0.26715682397051144,
         "operating_margin_ttm": 0.17258599505360353,
         "net_margin_ttm": 0.12031529322428058,
@@ -1253,9 +1273,9 @@
         "ocf_to_net_income_ttm": 0.9592167691178243,
         "fcf_margin_ttm": 0.06798790294938117,
         "capex_to_revenue_ttm": 0.04742054389267691,
-        "pe_ttm": 13.726534833432575,
-        "pb": 3.040792573662713,
-        "ev_ebitda_ttm": 8.145801172560589,
+        "pe_ttm": 12.645335171895077,
+        "pb": 2.801278090120787,
+        "ev_ebitda_ttm": 7.531568475297808,
         "fscore": null,
         "zscore": 6.669127443974298
       },
@@ -1372,42 +1392,42 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20280000567436218,
+      "fx_rate": 0.20631800591945648,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "化學品為主;資訊電子化學事業含濺鍍靶材",
-      "latest_quarter": "2026Q1",
-      "yoy_quarters": 4,
-      "close": 592.2,
-      "close_date": "2026-10-20",
+      "latest_quarter": "2026Q2",
+      "yoy_quarters": null,
+      "close": 565.0,
+      "close_date": "2026-10-30",
       "is_focus": false,
-      "note": "住友化學(4005.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2026Q1 的年度財報",
+      "note": "",
       "latest": {
-        "revenue_ttm": 4722.228552128375,
-        "revenue_ttm_yoy": -0.10657561483201539,
-        "revenue_yoy": null,
-        "market_cap": 1983.3172649702694,
-        "gross_margin_ttm": 0.2869932124122026,
-        "operating_margin_ttm": 0.08375080255012314,
-        "net_margin_ttm": 0.02617419256478915,
-        "roe_ttm": 0.06383776553680305,
-        "roa_ttm": 0.01780819816430661,
-        "asset_turnover_ttm": 0.6803723981255912,
-        "dso": 94.24776950116275,
-        "dio": 134.18503692522862,
-        "ccc": 123.7248292398643,
-        "current_ratio": 1.5056833502106166,
-        "debt_ratio": 0.6368111279717337,
-        "net_debt_to_equity": 0.7624214323430689,
-        "interest_coverage_ttm": 2.819932262920221,
-        "ocf_to_net_income_ttm": 3.8518548903145358,
-        "fcf_margin_ttm": 0.04861166881037915,
-        "capex_to_revenue_ttm": 0.05220752282033828,
-        "pe_ttm": 15.936490850376751,
-        "pb": 0.9695859647378063,
-        "ev_ebitda_ttm": 6.0769702541634505,
+        "revenue_ttm": 4911.552806237042,
+        "revenue_ttm_yoy": null,
+        "revenue_yoy": 0.09894514767932483,
+        "market_cap": 1925.0451741377776,
+        "gross_margin_ttm": 0.29353382839600867,
+        "operating_margin_ttm": 0.08760996297531604,
+        "net_margin_ttm": 0.0446329330657228,
+        "roe_ttm": 0.10685423044277548,
+        "roa_ttm": 0.03060669978849368,
+        "asset_turnover_ttm": 0.6857425153624738,
+        "dso": 98.88845254834409,
+        "dio": 147.2288607728447,
+        "ccc": 125.57210994031877,
+        "current_ratio": 1.5029832113958133,
+        "debt_ratio": 0.6091214460416006,
+        "net_debt_to_equity": 0.6435457172754704,
+        "interest_coverage_ttm": 4.361595616783934,
+        "ocf_to_net_income_ttm": 2.0303241350751047,
+        "fcf_margin_ttm": null,
+        "capex_to_revenue_ttm": null,
+        "pe_ttm": 8.749638012763631,
+        "pb": 0.8460231109439703,
+        "ev_ebitda_ttm": 5.598364231022892,
         "fscore": null,
-        "zscore": 2.556776241201441
+        "zscore": 2.7110262971309638
       },
       "trend": {
         "2025Q1": {
@@ -1421,44 +1441,54 @@
           "debt_ratio": 0.6876504454930891
         },
         "2025Q2": {
-          "revenue": null,
+          "revenue": 1085.5215563446284,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.31114152126810357,
+          "operating_margin": 0.06705059489869616,
+          "net_margin": -0.008596571254799103,
           "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": null
+          "dio": 160.09624630279555,
+          "debt_ratio": 0.6812210903038219
         },
         "2025Q3": {
-          "revenue": null,
+          "revenue": 1174.473501416743,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.32037719541716,
+          "operating_margin": 0.168195568234918,
+          "net_margin": 0.07768412694508954,
           "roe_ttm": null,
-          "dio": null,
+          "dio": 152.16089277498332,
           "debt_ratio": 0.649385435806471
         },
-        "2026Q1": {
-          "revenue": null,
+        "2025Q4": {
+          "revenue": 1260.464783103913,
           "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
+          "gross_margin": 0.298926396184197,
+          "operating_margin": 0.15157799627782426,
+          "net_margin": 0.07801837517370971,
+          "roe_ttm": null,
+          "dio": 139.02613679609814,
+          "debt_ratio": 0.6393164248441642
+        },
+        "2026Q1": {
+          "revenue": 1283.6858746701478,
+          "revenue_yoy": null,
+          "gross_margin": 0.22431162285354267,
+          "operating_margin": -0.045987707895362814,
+          "net_margin": -0.042456620828431275,
           "roe_ttm": 0.06383776553680305,
-          "dio": 134.18503692522862,
+          "dio": 118.81866499593887,
           "debt_ratio": 0.6368111279717337
         },
         "2026Q2": {
-          "revenue": null,
-          "revenue_yoy": null,
-          "gross_margin": null,
-          "operating_margin": null,
-          "net_margin": null,
-          "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": null
+          "revenue": 1192.9286470462382,
+          "revenue_yoy": 0.09894514767932483,
+          "gross_margin": 0.3358964647119763,
+          "operating_margin": 0.08444324531865327,
+          "net_margin": 0.07053280963820414,
+          "roe_ttm": 0.10685423044277548,
+          "dio": 147.2288607728447,
+          "debt_ratio": 0.6091214460416006
         }
       },
       "monthly": {},
@@ -1466,22 +1496,12 @@
         {
           "level": "風險",
           "topic": "財務結構",
-          "message": "負債比率 63.7%,高於 60.0%"
-        },
-        {
-          "level": "風險",
-          "topic": "財務結構",
-          "message": "利息保障倍數 2.8 倍,低於 3 倍"
-        },
-        {
-          "level": "注意",
-          "topic": "綜合評分",
-          "message": "Altman Z'' = 2.56(灰色地帶)"
+          "message": "負債比率 60.9%,高於 60.0%"
         }
       ],
       "signal_counts": {
-        "風險": 2,
-        "注意": 1,
+        "風險": 1,
+        "注意": 0,
         "優勢": 0
       },
       "fscore_details": [
@@ -1522,7 +1542,7 @@
           null
         ]
       ],
-      "zone": "灰色地帶"
+      "zone": "安全區"
     },
     {
       "ticker": "6728.T",
@@ -1532,57 +1552,127 @@
       "market": "JP",
       "region": "日本",
       "currency": "JPY",
-      "fx_rate": 0.20280000567436218,
+      "fx_rate": 0.20631800591945648,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "真空與濺鍍設備為主;材料事業含濺鍍靶材",
-      "latest_quarter": "2025Q2",
+      "latest_quarter": "2026Q2",
       "yoy_quarters": 4,
-      "close": 7751.0,
-      "close_date": "2026-10-20",
+      "close": 7419.0,
+      "close_date": "2026-10-30",
       "is_focus": false,
-      "note": "ULVAC(6728.T):Yahoo Finance 季度損益不完整,近四季指標改用截至 2025Q2 的年度財報",
+      "note": "",
       "latest": {
-        "revenue_ttm": 509.4011662530899,
-        "revenue_ttm_yoy": -0.038033050571587235,
-        "revenue_yoy": null,
-        "market_cap": 774.0566759802947,
-        "gross_margin_ttm": 0.3179422256194662,
-        "operating_margin_ttm": 0.10559191668259124,
-        "net_margin_ttm": 0.06643337155232817,
-        "roe_ttm": null,
-        "roa_ttm": null,
-        "asset_turnover_ttm": null,
-        "dso": 123.13431587999236,
-        "dio": 151.51626761303277,
-        "ccc": 191.83200210826425,
-        "current_ratio": 2.6831950722765883,
-        "debt_ratio": 0.38388586420378495,
-        "net_debt_to_equity": -0.24590078803536422,
-        "interest_coverage_ttm": 44.7536,
-        "ocf_to_net_income_ttm": 2.086114939773476,
-        "fcf_margin_ttm": 0.09340961207720237,
-        "capex_to_revenue_ttm": 0.045178036817631696,
-        "pe_ttm": 22.881856290960616,
-        "pb": 1.708021537012342,
-        "ev_ebitda_ttm": 8.702897042166738,
+        "revenue_ttm": 555.2636493310332,
+        "revenue_ttm_yoy": 0.07144563347983945,
+        "revenue_yoy": 0.22126445838192188,
+        "market_cap": 752.6902968036464,
+        "gross_margin_ttm": 0.28880095121316834,
+        "operating_margin_ttm": 0.07281982684947795,
+        "net_margin_ttm": 0.06350834169360532,
+        "roe_ttm": 0.07360356907547681,
+        "roa_ttm": 0.04332001865406841,
+        "asset_turnover_ttm": 0.6821154119102172,
+        "dso": 105.60999174182892,
+        "dio": 118.47281931733647,
+        "ccc": 161.1614661462716,
+        "current_ratio": 2.4601862185257293,
+        "debt_ratio": 0.3980900488356254,
+        "net_debt_to_equity": -0.24386475988700565,
+        "interest_coverage_ttm": 39.801178203240056,
+        "ocf_to_net_income_ttm": 1.7980341680318277,
+        "fcf_margin_ttm": 0.06478281871214654,
+        "capex_to_revenue_ttm": 0.049407349607996136,
+        "pe_ttm": 21.355171123456433,
+        "pb": 1.5139788656377609,
+        "ev_ebitda_ttm": 9.999850659266569,
         "fscore": null,
-        "zscore": 6.759593594462415
+        "zscore": 6.378578776341769
       },
       "trend": {
-        "2025Q2": {
+        "2025Q1": {
           "revenue": null,
           "revenue_yoy": null,
           "gross_margin": null,
           "operating_margin": null,
           "net_margin": null,
           "roe_ttm": null,
-          "dio": 151.51626761303277,
+          "dio": null,
+          "debt_ratio": 0.40899835058121753
+        },
+        "2025Q2": {
+          "revenue": 130.9252801963687,
+          "revenue_yoy": null,
+          "gross_margin": 0.3048630590311702,
+          "operating_margin": 0.09094204040467711,
+          "net_margin": 0.056399508336222384,
+          "roe_ttm": null,
+          "dio": 148.8669351182245,
           "debt_ratio": 0.38388586420378495
+        },
+        "2025Q3": {
+          "revenue": 108.78942134127021,
+          "revenue_yoy": null,
+          "gross_margin": 0.2972557795520492,
+          "operating_margin": 0.04331582241271407,
+          "net_margin": 0.03151965711468072,
+          "roe_ttm": null,
+          "dio": 184.2533396302793,
+          "debt_ratio": 0.39653549996773707
+        },
+        "2025Q4": {
+          "revenue": 146.824145732522,
+          "revenue_yoy": null,
+          "gross_margin": 0.29073688943848014,
+          "operating_margin": 0.08672924512393906,
+          "net_margin": 0.06376819740318139,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": null
+        },
+        "2026Q1": {
+          "revenue": 139.75569084972142,
+          "revenue_yoy": null,
+          "gross_margin": 0.3198500103339337,
+          "operating_margin": 0.0924591809619416,
+          "net_margin": 0.04297440136998435,
+          "roe_ttm": 0.0566175371594415,
+          "dio": null,
+          "debt_ratio": 0.39361291131403014
+        },
+        "2026Q2": {
+          "revenue": 159.89439140751958,
+          "revenue_yoy": 0.22126445838192188,
+          "gross_margin": 0.254132311384663,
+          "operating_margin": 0.06295565104065859,
+          "net_margin": 0.10298197396095433,
+          "roe_ttm": 0.07360356907547681,
+          "dio": 118.47281931733647,
+          "debt_ratio": 0.3980900488356254
         }
       },
       "monthly": {},
       "signals": [
+        {
+          "level": "優勢",
+          "topic": "成長",
+          "message": "2026Q2 營收年增 22.1%,成長動能強"
+        },
+        {
+          "level": "風險",
+          "topic": "獲利",
+          "message": "毛利率 25.4%,較去年同季下滑 5.1 個百分點"
+        },
+        {
+          "level": "注意",
+          "topic": "獲利品質",
+          "message": "業外收支挹注稅前淨利比重 62.5%,本業獲利需另行評估"
+        },
+        {
+          "level": "優勢",
+          "topic": "營運效率",
+          "message": "存貨天數 118 天,較去年同季縮短 20.4%"
+        },
         {
           "level": "優勢",
           "topic": "財務結構",
@@ -1590,14 +1680,14 @@
         }
       ],
       "signal_counts": {
-        "風險": 0,
-        "注意": 0,
-        "優勢": 1
+        "風險": 1,
+        "注意": 1,
+        "優勢": 3
       },
       "fscore_details": [
         [
           "ROA 為正",
-          null
+          true
         ],
         [
           "營業現金流為正",
@@ -1613,15 +1703,15 @@
         ],
         [
           "長期負債比重下降",
-          null
+          true
         ],
         [
           "流動比率提升",
-          null
+          false
         ],
         [
           "未增發股本",
-          null
+          true
         ],
         [
           "毛利率提升",
@@ -1642,21 +1732,21 @@
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.395999908447266,
+      "fx_rate": 32.566898345947266,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "冷媒與特用化學品、電子材料(原 Honeywell 電子材料",
       "latest_quarter": "2026Q2",
       "yoy_quarters": 2,
-      "close": 64.38,
-      "close_date": "2026-10-21",
+      "close": 60.55,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "Solstice Advanced Materials(SOLS):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 1326.94015625,
+        "revenue_ttm": 1333.94015625,
         "revenue_ttm_yoy": 0.10880829015544036,
         "revenue_yoy": 0.11132623426911903,
-        "market_cap": 3312.899951625212,
+        "market_cap": 3132.2506293225974,
         "gross_margin_ttm": 0.306396484375,
         "operating_margin_ttm": 0.169189453125,
         "net_margin_ttm": 0.05126953125,
@@ -1673,15 +1763,15 @@
         "ocf_to_net_income_ttm": 2.8857142857142857,
         "fcf_margin_ttm": 0.043701171875,
         "capex_to_revenue_ttm": 0.104248046875,
-        "pe_ttm": 48.7918004310776,
-        "pb": 6.4478325227742745,
-        "ev_ebitda_ttm": 12.902912889628007,
+        "pe_ttm": 45.88915060735863,
+        "pb": 6.064247580832282,
+        "ev_ebitda_ttm": 12.237304883150983,
         "fscore": null,
         "zscore": 2.137740513733886
       },
       "trend": {
         "2025Q1": {
-          "revenue": 290.59211917877195,
+          "revenue": 292.12507816314695,
           "revenue_yoy": null,
           "gross_margin": 0.35785953177257523,
           "operating_margin": 0.2329988851727982,
@@ -1691,7 +1781,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 334.65067905426025,
+          "revenue": 336.41605991363525,
           "revenue_yoy": null,
           "gross_margin": 0.3494675701839303,
           "operating_margin": 0.22555663117134558,
@@ -1701,7 +1791,7 @@
           "debt_ratio": 0.772189349112426
         },
         "2025Q3": {
-          "revenue": 313.917239112854,
+          "revenue": 315.573244972229,
           "revenue_yoy": null,
           "gross_margin": 0.31991744066047473,
           "operating_margin": 0.17647058823529413,
@@ -1711,7 +1801,7 @@
           "debt_ratio": 0.39374880884314845
         },
         "2025Q4": {
-          "revenue": 319.74851909637454,
+          "revenue": 321.43528667449954,
           "revenue_yoy": null,
           "gross_margin": 0.2613981762917933,
           "operating_margin": 0.12056737588652482,
@@ -1721,7 +1811,7 @@
           "debt_ratio": 0.7572712850343734
         },
         "2026Q1": {
-          "revenue": 321.3683190917969,
+          "revenue": 323.0636315917969,
           "revenue_yoy": 0.10590858416945381,
           "gross_margin": 0.31955645161290325,
           "operating_margin": 0.18245967741935484,
@@ -1731,7 +1821,7 @@
           "debt_ratio": 0.743910925539318
         },
         "2026Q2": {
-          "revenue": 371.9060789489746,
+          "revenue": 373.8679930114746,
           "revenue_yoy": 0.11132623426911903,
           "gross_margin": 0.32229965156794427,
           "operating_margin": 0.19337979094076654,
@@ -1807,21 +1897,21 @@
       "market": "US",
       "region": "美國",
       "currency": "USD",
-      "fx_rate": 32.395999908447266,
+      "fx_rate": 32.566898345947266,
       "target_focus": "diversified",
       "focus_label": "多角化(靶材占比較低)",
       "segment": "先進材料、精密光學、電子材料(含靶材)",
       "latest_quarter": "2026Q2",
       "yoy_quarters": 2,
-      "close": 250.77,
-      "close_date": "2026-10-21",
+      "close": 221.94,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "Materion(MTRN):2025Q1 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 679.7626743989563,
+        "revenue_ttm": 683.3486226411438,
         "revenue_ttm_yoy": 0.36589951971154533,
         "revenue_yoy": 0.4222046156911259,
-        "market_cap": 1692.5203390011218,
+        "market_cap": 1505.8402715356274,
         "gross_margin_ttm": 0.1601140356061025,
         "operating_margin_ttm": 0.06350117142895269,
         "net_margin_ttm": 0.042947311432345925,
@@ -1838,15 +1928,15 @@
         "ocf_to_net_income_ttm": 1.2018620444760086,
         "fcf_margin_ttm": 0.015459716760107744,
         "capex_to_revenue_ttm": 0.03615702676271939,
-        "pe_ttm": 57.781105990783416,
-        "pb": 5.251428802292166,
-        "ev_ebitda_ttm": 27.41906510066299,
+        "pe_ttm": 51.13824884792627,
+        "pb": 4.6476935374276165,
+        "ev_ebitda_ttm": 24.501726335089977,
         "fscore": null,
         "zscore": 5.344889388735204
       },
       "trend": {
         "2025Q1": {
-          "revenue": 136.1701064151764,
+          "revenue": 136.88844381752014,
           "revenue_yoy": null,
           "gross_margin": 0.18123617157947328,
           "operating_margin": 0.0745604643970214,
@@ -1856,7 +1946,7 @@
           "debt_ratio": null
         },
         "2025Q2": {
-          "revenue": 139.8399252848053,
+          "revenue": 140.57762206214906,
           "revenue_yoy": null,
           "gross_margin": 0.1914895588637301,
           "operating_margin": 0.08895931501327439,
@@ -1866,7 +1956,7 @@
           "debt_ratio": 0.47700359578154694
         },
         "2025Q3": {
-          "revenue": 144.09999927276613,
+          "revenue": 144.86016919464112,
           "revenue_yoy": null,
           "gross_margin": 0.19361837017319833,
           "operating_margin": 0.08682397798600744,
@@ -1876,7 +1966,7 @@
           "debt_ratio": 0.4788126968228944
         },
         "2025Q4": {
-          "revenue": 158.66070539161683,
+          "revenue": 159.49768732521056,
           "revenue_yoy": null,
           "gross_margin": 0.1299958754803432,
           "operating_margin": 0.009988688198564993,
@@ -1886,7 +1976,7 @@
           "debt_ratio": 0.476771424022951
         },
         "2026Q1": {
-          "revenue": 178.12098253662109,
+          "revenue": 179.0606231616211,
           "revenue_yoy": 0.30807698712916043,
           "gross_margin": 0.14883853742288441,
           "operating_margin": 0.06706327843091607,
@@ -1896,7 +1986,7 @@
           "debt_ratio": 0.4902719134291645
         },
         "2026Q2": {
-          "revenue": 198.88098719795227,
+          "revenue": 199.93014295967103,
           "revenue_yoy": 0.4222046156911259,
           "gross_margin": 0.16996413131652077,
           "operating_margin": 0.08610275840275221,
@@ -1967,46 +2057,46 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.860000133514404,
+      "fx_rate": 4.907199859619141,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "超高純金屬濺射靶材、半導體零部件",
-      "latest_quarter": "2026Q2",
-      "yoy_quarters": 2,
-      "close": 173.63,
-      "close_date": "2026-10-20",
+      "latest_quarter": "2026Q3",
+      "yoy_quarters": 3,
+      "close": 156.09,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "江豐電子(300666.SZ):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 254.9901130051136,
-        "revenue_ttm_yoy": 0.3067852522330272,
-        "revenue_yoy": 0.30848808305307784,
-        "market_cap": 2328.7594182426033,
-        "gross_margin_ttm": 0.27735742970356664,
-        "operating_margin_ttm": 0.1416842173476331,
-        "net_margin_ttm": 0.14991263096302254,
-        "roe_ttm": 0.13103980767564757,
-        "roa_ttm": 0.06464697431210456,
-        "asset_turnover_ttm": 0.4312310036640634,
-        "dso": 96.5460434418215,
-        "dio": 162.9896111401269,
-        "ccc": 73.63337249049061,
-        "current_ratio": 1.450250124308768,
-        "debt_ratio": 0.516972036012291,
-        "net_debt_to_equity": -0.07621872707557005,
-        "interest_coverage_ttm": 9.537268231127756,
-        "ocf_to_net_income_ttm": 0.6611402405015027,
-        "fcf_margin_ttm": -0.15399791488380338,
-        "capex_to_revenue_ttm": 0.25311118777290914,
-        "pe_ttm": 60.92044357018979,
-        "pb": 6.5720378138161735,
+        "revenue_ttm": 283.5473315685272,
+        "revenue_ttm_yoy": 0.3567446029503365,
+        "revenue_yoy": 0.44421042074118655,
+        "market_cap": 2113.841425953987,
+        "gross_margin_ttm": 0.29029730763439765,
+        "operating_margin_ttm": 0.15156614787675726,
+        "net_margin_ttm": 0.1574503607531078,
+        "roe_ttm": null,
+        "roa_ttm": null,
+        "asset_turnover_ttm": null,
+        "dso": 90.85736845608065,
+        "dio": 166.21533209767378,
+        "ccc": 47.17000342921355,
+        "current_ratio": 1.2818029249580436,
+        "debt_ratio": 0.5263157288553346,
+        "net_debt_to_equity": -0.08749984803355419,
+        "interest_coverage_ttm": 9.602334550887369,
+        "ocf_to_net_income_ttm": 1.0769840469890406,
+        "fcf_margin_ttm": -0.06340800492887912,
+        "capex_to_revenue_ttm": 0.23297953165264554,
+        "pe_ttm": 46.719852689841126,
+        "pb": 5.679925308871619,
         "ev_ebitda_ttm": null,
         "fscore": null,
-        "zscore": 2.892648240625543
+        "zscore": 2.515234059856668
       },
       "trend": {
         "2025Q1": {
-          "revenue": 48.621871335744856,
+          "revenue": 49.09408099555969,
           "revenue_yoy": null,
           "gross_margin": 0.3238582637812984,
           "operating_margin": 0.19676345644459994,
@@ -2016,7 +2106,7 @@
           "debt_ratio": 0.5024642173643494
         },
         "2025Q2": {
-          "revenue": 53.18006546096802,
+          "revenue": 53.696543743896484,
           "revenue_yoy": null,
           "gross_margin": 0.2728935151337915,
           "operating_margin": 0.1274427913437637,
@@ -2026,7 +2116,7 @@
           "debt_ratio": 0.5103330113075445
         },
         "2025Q3": {
-          "revenue": 58.14795759744644,
+          "revenue": 58.71268344039917,
           "revenue_yoy": null,
           "gross_margin": 0.27547431589856747,
           "operating_margin": 0.15075472644300686,
@@ -2036,7 +2126,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 63.80888575296402,
+          "revenue": 64.42858983688355,
           "revenue_yoy": null,
           "gross_margin": 0.22758084908678233,
           "operating_margin": 0.08704586652855424,
@@ -2046,7 +2136,7 @@
           "debt_ratio": 0.5439826888914087
         },
         "2026Q1": {
-          "revenue": 63.4477877430439,
+          "revenue": 64.06398488731384,
           "revenue_yoy": 0.30492278474686385,
           "gross_margin": 0.32855895397201096,
           "operating_margin": 0.19209963922145368,
@@ -2056,7 +2146,7 @@
           "debt_ratio": 0.5768619444538183
         },
         "2026Q2": {
-          "revenue": 69.58548191165924,
+          "revenue": 70.26128759002685,
           "revenue_yoy": 0.30848808305307784,
           "gross_margin": 0.2778900684453136,
           "operating_margin": 0.13823858080737533,
@@ -2064,6 +2154,16 @@
           "roe_ttm": 0.13103980767564757,
           "dio": 162.9896111401269,
           "debt_ratio": 0.516972036012291
+        },
+        "2026Q3": {
+          "revenue": 84.79346925430298,
+          "revenue_yoy": 0.44421042074118655,
+          "gross_margin": 0.3193241663483686,
+          "operating_margin": 0.181009757283239,
+          "net_margin": 0.15702917925390927,
+          "roe_ttm": null,
+          "dio": 166.21533209767378,
+          "debt_ratio": 0.5263157288553346
         }
       },
       "monthly": {},
@@ -2071,17 +2171,207 @@
         {
           "level": "優勢",
           "topic": "成長",
-          "message": "2026Q2 營收年增 30.8%,成長動能強"
+          "message": "2026Q3 營收年增 44.4%,成長動能強"
+        },
+        {
+          "level": "優勢",
+          "topic": "獲利",
+          "message": "毛利率 31.9%,較去年同季提升 4.4 個百分點"
+        },
+        {
+          "level": "注意",
+          "topic": "現金流",
+          "message": "近四季自由現金流為負(營業現金流不足以支應資本支出)"
+        },
+        {
+          "level": "優勢",
+          "topic": "財務結構",
+          "message": "淨現金部位(現金大於有息負債)"
+        },
+        {
+          "level": "注意",
+          "topic": "綜合評分",
+          "message": "Altman Z'' = 2.52(灰色地帶)"
+        }
+      ],
+      "signal_counts": {
+        "風險": 0,
+        "注意": 2,
+        "優勢": 3
+      },
+      "fscore_details": [
+        [
+          "ROA 為正",
+          null
+        ],
+        [
+          "營業現金流為正",
+          true
+        ],
+        [
+          "ROA 較去年提升",
+          null
+        ],
+        [
+          "營業現金流 > 淨利(盈餘品質)",
+          true
+        ],
+        [
+          "長期負債比重下降",
+          null
+        ],
+        [
+          "流動比率提升",
+          null
+        ],
+        [
+          "未增發股本",
+          null
+        ],
+        [
+          "毛利率提升",
+          null
+        ],
+        [
+          "資產週轉率提升",
+          null
+        ]
+      ],
+      "zone": "灰色地帶"
+    },
+    {
+      "ticker": "600206.SS",
+      "name": "有研新材",
+      "short": "",
+      "logo": "data:image/png;base64,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",
+      "market": "CN",
+      "region": "中國大陸",
+      "currency": "CNY",
+      "fx_rate": 4.907199859619141,
+      "target_focus": "major",
+      "focus_label": "靶材為主要事業之一",
+      "segment": "濺射靶材(有研億金)、稀土與光電材料",
+      "latest_quarter": "2026Q3",
+      "yoy_quarters": 3,
+      "close": 31.92,
+      "close_date": "2026-10-30",
+      "is_focus": false,
+      "note": "有研新材(600206.SS):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
+      "latest": {
+        "revenue_ttm": 551.2566755901337,
+        "revenue_ttm_yoy": 0.24985118322262556,
+        "revenue_yoy": -0.1386405530815451,
+        "market_cap": 1326.0226803106048,
+        "gross_margin_ttm": 0.08021343056518686,
+        "operating_margin_ttm": 0.03992110297383838,
+        "net_margin_ttm": 0.02516741249266711,
+        "roe_ttm": null,
+        "roa_ttm": null,
+        "asset_turnover_ttm": null,
+        "dso": 46.92274019178011,
+        "dio": 64.04015088223814,
+        "ccc": 92.72183965289561,
+        "current_ratio": 4.1232528818443805,
+        "debt_ratio": 0.20848885060771366,
+        "net_debt_to_equity": -0.12330080233532262,
+        "interest_coverage_ttm": 9.748284113851279,
+        "ocf_to_net_income_ttm": 0.0900356322513966,
+        "fcf_margin_ttm": -0.010266672482536812,
+        "capex_to_revenue_ttm": 0.012532636378445792,
+        "pe_ttm": 95.6557256934216,
+        "pb": 6.038269891631957,
+        "ev_ebitda_ttm": null,
+        "fscore": null,
+        "zscore": 9.171670141581926
+      },
+      "trend": {
+        "2025Q1": {
+          "revenue": 90.28266301727295,
+          "revenue_yoy": null,
+          "gross_margin": 0.06673279704315686,
+          "operating_margin": 0.034857267094249376,
+          "net_margin": 0.03662610066311556,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": 0.33021224306420255
+        },
+        "2025Q2": {
+          "revenue": 110.69661443328857,
+          "revenue_yoy": null,
+          "gross_margin": 0.08958329639152407,
+          "operating_margin": 0.04096506782516181,
+          "net_margin": 0.027813946271832608,
+          "roe_ttm": null,
+          "dio": 66.05818952924449,
+          "debt_ratio": 0.34284759663291636
+        },
+        "2025Q3": {
+          "revenue": 131.24158808555603,
+          "revenue_yoy": null,
+          "gross_margin": 0.1192554038744125,
+          "operating_margin": 0.07327769614166545,
+          "net_margin": 0.04308741545053786,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": null
+        },
+        "2025Q4": {
+          "revenue": 136.03003370857238,
+          "revenue_yoy": null,
+          "gross_margin": 0.07778250753052794,
+          "operating_margin": 0.02005479699139626,
+          "net_margin": 0.007008026550747642,
+          "roe_ttm": null,
+          "dio": null,
+          "debt_ratio": 0.34861565473448836
+        },
+        "2026Q1": {
+          "revenue": 145.10148336906434,
+          "revenue_yoy": 0.6071909990216329,
+          "gross_margin": 0.06418727658264878,
+          "operating_margin": 0.043386170022083864,
+          "net_margin": 0.029852481137403575,
+          "roe_ttm": 0.06858376156711357,
+          "dio": 61.35436430066025,
+          "debt_ratio": 0.35219504191134715
+        },
+        "2026Q2": {
+          "revenue": 157.07897678642274,
+          "revenue_yoy": 0.41900434435676925,
+          "gross_margin": 0.08345043252243838,
+          "operating_margin": 0.0428964164211697,
+          "net_margin": 0.029697874720008496,
+          "roe_ttm": 0.07646991066382908,
+          "dio": 67.54198805673053,
+          "debt_ratio": 0.3272444927214445
+        },
+        "2026Q3": {
+          "revenue": 113.04618172607422,
+          "revenue_yoy": -0.1386405530815451,
+          "gross_margin": 0.09921126198083068,
+          "operating_margin": 0.05524465203500486,
+          "net_margin": 0.03471015939713849,
+          "roe_ttm": null,
+          "dio": 64.04015088223814,
+          "debt_ratio": 0.20848885060771366
+        }
+      },
+      "monthly": {},
+      "signals": [
+        {
+          "level": "注意",
+          "topic": "成長",
+          "message": "2026Q3 營收年減 13.9%"
         },
         {
           "level": "注意",
           "topic": "獲利品質",
-          "message": "業外收支挹注稅前淨利比重 44.1%,本業獲利需另行評估"
+          "message": "業外收支侵蝕稅前淨利比重 32.7%,本業獲利需另行評估"
         },
         {
           "level": "風險",
           "topic": "現金流",
-          "message": "近四季營業現金流僅為淨利的 0.66 倍,盈餘含金量偏低"
+          "message": "近四季營業現金流僅為淨利的 0.09 倍,盈餘含金量偏低"
         },
         {
           "level": "注意",
@@ -2096,13 +2386,13 @@
       ],
       "signal_counts": {
         "風險": 1,
-        "注意": 2,
-        "優勢": 2
+        "注意": 3,
+        "優勢": 1
       },
       "fscore_details": [
         [
           "ROA 為正",
-          true
+          null
         ],
         [
           "營業現金流為正",
@@ -2118,200 +2408,15 @@
         ],
         [
           "長期負債比重下降",
-          true
+          null
         ],
         [
           "流動比率提升",
-          false
+          null
         ],
         [
           "未增發股本",
-          false
-        ],
-        [
-          "毛利率提升",
           null
-        ],
-        [
-          "資產週轉率提升",
-          null
-        ]
-      ],
-      "zone": "安全區"
-    },
-    {
-      "ticker": "600206.SS",
-      "name": "有研新材",
-      "short": "",
-      "logo": "data:image/png;base64,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",
-      "market": "CN",
-      "region": "中國大陸",
-      "currency": "CNY",
-      "fx_rate": 4.860000133514404,
-      "target_focus": "major",
-      "focus_label": "靶材為主要事業之一",
-      "segment": "濺射靶材(有研億金)、稀土與光電材料",
-      "latest_quarter": "2026Q2",
-      "yoy_quarters": 2,
-      "close": 39.96,
-      "close_date": "2026-10-20",
-      "is_focus": false,
-      "note": "有研新材(600206.SS):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
-      "latest": {
-        "revenue_ttm": 563.9748274935722,
-        "revenue_ttm_yoy": 0.5035403848032034,
-        "revenue_yoy": 0.41900434435676925,
-        "market_cap": 1644.0540228962066,
-        "gross_margin_ttm": 0.08544003060902657,
-        "operating_margin_ttm": 0.04456680299403158,
-        "net_margin_ttm": 0.027403032637563964,
-        "roe_ttm": 0.07646991066382908,
-        "roa_ttm": 0.044427100287661836,
-        "asset_turnover_ttm": 1.6212475777867503,
-        "dso": 39.38628557102646,
-        "dio": 67.54198805673053,
-        "ccc": 86.31686531723199,
-        "current_ratio": 2.4599752598401476,
-        "debt_ratio": 0.3272444927214445,
-        "net_debt_to_equity": -0.05873882918384367,
-        "interest_coverage_ttm": 11.280323415938723,
-        "ocf_to_net_income_ttm": -2.5288344549920865,
-        "fcf_margin_ttm": -0.08490034831555562,
-        "capex_to_revenue_ttm": 0.015602615210411206,
-        "pe_ttm": 106.37944890151238,
-        "pb": 7.7591159125558224,
-        "ev_ebitda_ttm": null,
-        "fscore": null,
-        "zscore": 6.004471238390483
-      },
-      "trend": {
-        "2025Q1": {
-          "revenue": 89.41428245639801,
-          "revenue_yoy": null,
-          "gross_margin": 0.06673279704315686,
-          "operating_margin": 0.034857267094249376,
-          "net_margin": 0.03662610066311556,
-          "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": 0.33021224306420255
-        },
-        "2025Q2": {
-          "revenue": 109.63188301181793,
-          "revenue_yoy": null,
-          "gross_margin": 0.08958329639152407,
-          "operating_margin": 0.04096506782516181,
-          "net_margin": 0.027813946271832608,
-          "roe_ttm": null,
-          "dio": 66.05818952924449,
-          "debt_ratio": 0.34284759663291636
-        },
-        "2025Q3": {
-          "revenue": 129.97924557080268,
-          "revenue_yoy": null,
-          "gross_margin": 0.1192554038744125,
-          "operating_margin": 0.07327769614166545,
-          "net_margin": 0.04308741545053786,
-          "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": null
-        },
-        "2025Q4": {
-          "revenue": 134.72163370108603,
-          "revenue_yoy": null,
-          "gross_margin": 0.07778250753052794,
-          "operating_margin": 0.02005479699139626,
-          "net_margin": 0.007008026550747642,
-          "roe_ttm": null,
-          "dio": null,
-          "debt_ratio": 0.34861565473448836
-        },
-        "2026Q1": {
-          "revenue": 143.70582994790078,
-          "revenue_yoy": 0.6071909990216329,
-          "gross_margin": 0.06418727658264878,
-          "operating_margin": 0.043386170022083864,
-          "net_margin": 0.029852481137403575,
-          "roe_ttm": 0.06858376156711357,
-          "dio": 61.35436430066025,
-          "debt_ratio": 0.35219504191134715
-        },
-        "2026Q2": {
-          "revenue": 155.56811827378274,
-          "revenue_yoy": 0.41900434435676925,
-          "gross_margin": 0.08345043252243838,
-          "operating_margin": 0.0428964164211697,
-          "net_margin": 0.029697874720008496,
-          "roe_ttm": 0.07646991066382908,
-          "dio": 67.54198805673053,
-          "debt_ratio": 0.3272444927214445
-        }
-      },
-      "monthly": {},
-      "signals": [
-        {
-          "level": "優勢",
-          "topic": "成長",
-          "message": "2026Q2 營收年增 41.9%,成長動能強"
-        },
-        {
-          "level": "注意",
-          "topic": "獲利品質",
-          "message": "業外收支侵蝕稅前淨利比重 31.3%,本業獲利需另行評估"
-        },
-        {
-          "level": "風險",
-          "topic": "現金流",
-          "message": "近四季營業現金流僅為淨利的 -2.53 倍,盈餘含金量偏低"
-        },
-        {
-          "level": "注意",
-          "topic": "現金流",
-          "message": "近四季自由現金流為負(營業現金流不足以支應資本支出)"
-        },
-        {
-          "level": "風險",
-          "topic": "現金流",
-          "message": "近四季營業現金流為負"
-        },
-        {
-          "level": "優勢",
-          "topic": "財務結構",
-          "message": "淨現金部位(現金大於有息負債)"
-        }
-      ],
-      "signal_counts": {
-        "風險": 2,
-        "注意": 2,
-        "優勢": 2
-      },
-      "fscore_details": [
-        [
-          "ROA 為正",
-          true
-        ],
-        [
-          "營業現金流為正",
-          false
-        ],
-        [
-          "ROA 較去年提升",
-          null
-        ],
-        [
-          "營業現金流 > 淨利(盈餘品質)",
-          false
-        ],
-        [
-          "長期負債比重下降",
-          true
-        ],
-        [
-          "流動比率提升",
-          true
-        ],
-        [
-          "未增發股本",
-          true
         ],
         [
           "毛利率提升",
@@ -2332,46 +2437,46 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.860000133514404,
+      "fx_rate": 4.907199859619141,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "PVD 鍍膜材料(濺射靶材、蒸鍍材料)",
-      "latest_quarter": "2026Q2",
-      "yoy_quarters": 2,
-      "close": 39.52,
-      "close_date": "2026-10-20",
+      "latest_quarter": "2026Q3",
+      "yoy_quarters": 3,
+      "close": 35.15,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "阿石創(300706.SZ):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 74.70806785238743,
-        "revenue_ttm_yoy": 0.16389506341602567,
-        "revenue_yoy": -0.040245938440113704,
-        "market_cap": 294.8928785742543,
-        "gross_margin_ttm": 0.11042237102061342,
-        "operating_margin_ttm": 0.04313438758576454,
-        "net_margin_ttm": 0.007341821477059308,
-        "roe_ttm": 0.015911402104485512,
-        "roa_ttm": 0.005592601585728444,
-        "asset_turnover_ttm": 0.7617457879088206,
-        "dso": 75.43749632345732,
-        "dio": 160.9521482306868,
-        "ccc": 166.02614810384813,
-        "current_ratio": 1.1123421820035262,
-        "debt_ratio": 0.6508588410943806,
-        "net_debt_to_equity": 0.8530714327147345,
-        "interest_coverage_ttm": 0.9743903216629552,
-        "ocf_to_net_income_ttm": -9.457755582866008,
-        "fcf_margin_ttm": -0.10785023188219123,
-        "capex_to_revenue_ttm": 0.03841307881912799,
-        "pe_ttm": 537.6417180492067,
-        "pb": 8.534833511238642,
+        "revenue_ttm": 78.49974007434845,
+        "revenue_ttm_yoy": 0.1581191810080549,
+        "revenue_yoy": 0.14885810807591326,
+        "market_cap": 264.83180667208364,
+        "gross_margin_ttm": 0.1248451413872106,
+        "operating_margin_ttm": 0.0584358670613277,
+        "net_margin_ttm": 0.018082184930158125,
+        "roe_ttm": null,
+        "roa_ttm": null,
+        "asset_turnover_ttm": null,
+        "dso": 63.866522611898205,
+        "dio": 125.10512757576615,
+        "ccc": 132.24354419983214,
+        "current_ratio": 1.1111715244061202,
+        "debt_ratio": 0.6670541867582623,
+        "net_debt_to_equity": 0.7750568075104952,
+        "interest_coverage_ttm": 1.8835211143160682,
+        "ocf_to_net_income_ttm": -0.5581868090078753,
+        "fcf_margin_ttm": -0.05813069448047584,
+        "capex_to_revenue_ttm": 0.04803745737442059,
+        "pe_ttm": 191.03779994021573,
+        "pb": 7.4324020473945,
         "ev_ebitda_ttm": null,
         "fscore": null,
-        "zscore": 1.2158461970016465
+        "zscore": 1.2499538915821047
       },
       "trend": {
         "2025Q1": {
-          "revenue": 14.631176201949119,
+          "revenue": 14.773272393379212,
           "revenue_yoy": null,
           "gross_margin": 0.05752973728878304,
           "operating_margin": 0.0030073641518270867,
@@ -2381,7 +2486,7 @@
           "debt_ratio": 0.6095140987950809
         },
         "2025Q2": {
-          "revenue": 18.077402296624182,
+          "revenue": 18.252967813835145,
           "revenue_yoy": null,
           "gross_margin": 0.024187701464930652,
           "operating_margin": -0.041487459774224855,
@@ -2391,7 +2496,7 @@
           "debt_ratio": 0.6125607097485871
         },
         "2025Q3": {
-          "revenue": 20.39946176041603,
+          "revenue": 20.597578834762572,
           "revenue_yoy": null,
           "gross_margin": 0.06557599668367711,
           "operating_margin": 0.018539793492192824,
@@ -2401,7 +2506,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 16.239253046126365,
+          "revenue": 16.396966682929992,
           "revenue_yoy": null,
           "gross_margin": 0.11669504789894086,
           "operating_margin": 0.012717625194154564,
@@ -2411,7 +2516,7 @@
           "debt_ratio": 0.6406310353940922
         },
         "2026Q1": {
-          "revenue": 20.719492769207953,
+          "revenue": 20.920717945518494,
           "revenue_yoy": 0.4161194208328767,
           "gross_margin": 0.12468902978230326,
           "operating_margin": 0.07052755279398208,
@@ -2421,7 +2526,7 @@
           "debt_ratio": 0.6464390962671905
         },
         "2026Q2": {
-          "revenue": 17.349860276637077,
+          "revenue": 17.518359994850158,
           "revenue_yoy": -0.040245938440113704,
           "gross_margin": 0.14024280588134783,
           "operating_margin": 0.06780833237626509,
@@ -2429,34 +2534,34 @@
           "roe_ttm": 0.015911402104485512,
           "dio": 160.9521482306868,
           "debt_ratio": 0.6508588410943806
+        },
+        "2026Q3": {
+          "revenue": 23.663695451049804,
+          "revenue_yoy": 0.14885810807591326,
+          "gross_margin": 0.11923151896214207,
+          "operating_margin": 0.07248623046550981,
+          "net_margin": 0.033863100965526395,
+          "roe_ttm": null,
+          "dio": 125.10512757576615,
+          "debt_ratio": 0.6670541867582623
         }
       },
       "monthly": {},
       "signals": [
         {
-          "level": "注意",
-          "topic": "成長",
-          "message": "2026Q2 營收年減 4.0%"
-        },
-        {
           "level": "優勢",
           "topic": "獲利",
-          "message": "毛利率 14.0%,較去年同季提升 11.6 個百分點"
+          "message": "毛利率 11.9%,較去年同季提升 5.4 個百分點"
         },
         {
           "level": "注意",
-          "topic": "營運效率",
-          "message": "存貨天數 161 天,較去年同季增加 41.5%"
-        },
-        {
-          "level": "注意",
-          "topic": "營運效率",
-          "message": "應收帳款天數 75 天,較去年同季增加 24.2%"
+          "topic": "獲利品質",
+          "message": "業外收支侵蝕稅前淨利比重 91.9%,本業獲利需另行評估"
         },
         {
           "level": "風險",
           "topic": "現金流",
-          "message": "近四季營業現金流僅為淨利的 -9.46 倍,盈餘含金量偏低"
+          "message": "近四季營業現金流僅為淨利的 -0.56 倍,盈餘含金量偏低"
         },
         {
           "level": "注意",
@@ -2471,7 +2576,7 @@
         {
           "level": "風險",
           "topic": "財務結構",
-          "message": "負債比率 65.1%,高於 60.0%"
+          "message": "負債比率 66.7%,高於 60.0%"
         },
         {
           "level": "注意",
@@ -2481,23 +2586,23 @@
         {
           "level": "風險",
           "topic": "財務結構",
-          "message": "利息保障倍數 1.0 倍,低於 3 倍"
+          "message": "利息保障倍數 1.9 倍,低於 3 倍"
         },
         {
           "level": "注意",
           "topic": "綜合評分",
-          "message": "Altman Z'' = 1.22(灰色地帶)"
+          "message": "Altman Z'' = 1.25(灰色地帶)"
         }
       ],
       "signal_counts": {
         "風險": 4,
-        "注意": 6,
+        "注意": 4,
         "優勢": 1
       },
       "fscore_details": [
         [
           "ROA 為正",
-          true
+          null
         ],
         [
           "營業現金流為正",
@@ -2513,15 +2618,15 @@
         ],
         [
           "長期負債比重下降",
-          false
+          null
         ],
         [
           "流動比率提升",
-          true
+          null
         ],
         [
           "未增發股本",
-          false
+          null
         ],
         [
           "毛利率提升",
@@ -2542,21 +2647,21 @@
       "market": "CN",
       "region": "中國大陸",
       "currency": "CNY",
-      "fx_rate": 4.860000133514404,
+      "fx_rate": 4.907199859619141,
       "target_focus": "pure",
       "focus_label": "靶材專業廠",
       "segment": "濺射靶材(顯示面板為主)",
       "latest_quarter": "2026Q2",
       "yoy_quarters": 2,
-      "close": 48.19,
-      "close_date": "2026-10-20",
+      "close": 37.82,
+      "close_date": "2026-10-30",
       "is_focus": false,
       "note": "歐萊新材(688530.SS):2025Q3 部分損益/現金流量為年度合計減其餘三季推得",
       "latest": {
-        "revenue_ttm": 40.64272311654091,
+        "revenue_ttm": 41.03744026603699,
         "revenue_ttm_yoy": 1.3343447880038228,
         "revenue_yoy": 0.7812130154777823,
-        "market_cap": 374.8304296293946,
+        "market_cap": 297.0276669007586,
         "gross_margin_ttm": 0.18435744436605403,
         "operating_margin_ttm": 0.07769825534815311,
         "net_margin_ttm": 0.04348440097097827,
@@ -2573,15 +2678,15 @@
         "ocf_to_net_income_ttm": -0.1650941709954984,
         "fcf_margin_ttm": -0.08108820117904504,
         "capex_to_revenue_ttm": 0.07390918004950554,
-        "pe_ttm": 212.0891982763504,
-        "pb": 8.805820266256244,
+        "pe_ttm": 166.44975054599652,
+        "pb": 6.910896917821357,
         "ev_ebitda_ttm": null,
         "fscore": null,
         "zscore": 4.726631534687667
       },
       "trend": {
         "2025Q1": {
-          "revenue": 4.243781276585579,
+          "revenue": 4.2849963606185915,
           "revenue_yoy": null,
           "gross_margin": 0.14478026948967368,
           "operating_margin": -0.051181050061497514,
@@ -2591,7 +2696,7 @@
           "debt_ratio": 0.2567091819003267
         },
         "2025Q2": {
-          "revenue": 6.323929373731613,
+          "revenue": 6.385346601333618,
           "revenue_yoy": null,
           "gross_margin": 0.10816003442922796,
           "operating_margin": -0.03979834309340465,
@@ -2601,7 +2706,7 @@
           "debt_ratio": 0.3266931344241258
         },
         "2025Q3": {
-          "revenue": 7.3688294024372105,
+          "revenue": 7.440394571151733,
           "revenue_yoy": null,
           "gross_margin": 0.03902402026091201,
           "operating_margin": -0.09809328461568902,
@@ -2611,7 +2716,7 @@
           "debt_ratio": null
         },
         "2025Q4": {
-          "revenue": 8.605213436403275,
+          "revenue": 8.688786215438842,
           "revenue_yoy": null,
           "gross_margin": 0.10576690650732512,
           "operating_margin": -0.054341304175938375,
@@ -2621,7 +2726,7 @@
           "debt_ratio": 0.41509599553205534
         },
         "2026Q1": {
-          "revenue": 13.404414968247414,
+          "revenue": 13.534597004814147,
           "revenue_yoy": 2.158601750331537,
           "gross_margin": 0.2800254522118407,
           "operating_margin": 0.20314672003654677,
@@ -2631,7 +2736,7 @@
           "debt_ratio": 0.3863980761151434
         },
         "2026Q2": {
-          "revenue": 11.26426530945301,
+          "revenue": 11.373662474632264,
           "revenue_yoy": 0.7812130154777823,
           "gross_margin": 0.22562528314097724,
           "operating_margin": 0.14428432747276454,

@@ -277,3 +277,31 @@ def test_page_switcher_skips_pages_the_news_site_does_not_build(tmp_path):
     bare = tmp_path / "watchlist.yaml"
     bare.write_text((ROOT / "config" / "watchlist.yaml").read_text(encoding="utf-8"), encoding="utf-8")
     assert news_site_skip(bare) == {"forecast", "quiz"}  # no forecasts.yaml / quiz.yaml next to it
+
+
+def test_split_already_restated_by_yahoo():
+    from fin_analyzer.yahoo import statements_restated
+
+    splits = {"2017-09-27": 0.1, "2026-09-29": 10.0}
+    pre = {"2026Q1": {"shares": 57.2e6}, "2026Q2": {"eps": 294.08}}   # Yahoo right after the split
+    post = {"2026Q1": {"shares": 572.1e6}, "2026Q2": {"eps": 29.408}}  # weeks later: already restated
+    assert not statements_restated(pre, splits, 572.1e6)
+    assert statements_restated(post, splits, 572.1e6)
+    assert not statements_restated(post, {}, 572.1e6) and not statements_restated(post, splits, None)
+
+
+def test_fetch_keeps_quarters_yahoo_no_longer_serves():
+    from fin_analyzer.models import CompanyData
+    from fin_analyzer.yahoo import merge_previous
+
+    old = {"2025Q1": {"revenue": 100.0, "shares": 50.0, "eps": 1.0}, "2025Q2": {"revenue": 110.0}}
+    new = {"2025Q2": {"revenue": 111.0}, "2025Q3": {"revenue": 120.0}}
+    assert merge_previous(new, old) == ["2025Q1"]
+    assert new["2025Q1"] == {"revenue": 100.0}   # shares / EPS not carried over (split basis)
+    assert new["2025Q2"]["revenue"] == 111.0     # fresh values win
+
+    prev = CompanyData(ticker="5016.T", quarters={"2025Q1": {"revenue": 900.0}}, note="X:2025Q3 部分損益/現金流量為年度合計減其餘三季推得")
+    prev.quarters["2025Q3"] = {"revenue": 950.0}
+    d = fetch_yahoo("5016.T", ticker_factory=FakeTicker, previous=prev)
+    assert d.quarters["2025Q1"]["revenue"] == 900  # Yahoo's window moved past it; kept from storage
+    assert "2025Q3" in d.note and "推得" in d.note
