@@ -103,6 +103,7 @@ jobs:
             cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png site/financials/
           fi
           python -m metal_alert site -o site/metals
+          python -m card_scanner build -o site/cards
 
       - uses: actions/configure-pages@v5
         if: steps.flags.outputs.publish == 'true'

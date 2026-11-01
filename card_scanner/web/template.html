@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#173c66">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>名片庫</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='6' width='28' height='20' rx='3' fill='%23173c66'/%3E%3Ccircle cx='11' cy='15' r='3.5' fill='%23f39043'/%3E%3Crect x='17' y='12' width='9' height='2' fill='%23fff'/%3E%3Crect x='17' y='17' width='7' height='2' fill='%23fff'/%3E%3C/svg%3E">
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M15 10h3M15 13h3"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V9M7 14l5-5 5 5M5 4h14"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="top-in">
+    <div class="brand-row">
+      <div class="brand"><h1>名片庫</h1><span class="count" id="count"></span></div>
+      <button class="btn primary" id="btn-scan" type="button" title="拍照或選擇名片照片(可多選)"><svg class="i"><use href="#i-camera"/></svg><span class="lbl">掃描名片</span></button>
+      <button class="btn" id="btn-new" type="button" title="手動新增"><svg class="i"><use href="#i-card"/></svg><span class="lbl">手動新增</span></button>
+      <div class="menu" id="menu">
+        <button class="btn icon-btn" id="btn-menu" type="button" aria-haspopup="true" aria-expanded="false" aria-label="更多功能"><svg class="i"><use href="#i-more"/></svg></button>
+        <div class="menu-list" role="menu">
+          <button type="button" data-act="export-csv" role="menuitem"><svg class="i"><use href="#i-down"/></svg>匯出 Excel(CSV)</button>
+          <button type="button" data-act="export-vcf" role="menuitem"><svg class="i"><use href="#i-down"/></svg>匯出通訊錄(vCard)</button>
+          <button type="button" data-act="export-json" role="menuitem"><svg class="i"><use href="#i-down"/></svg>完整備份(JSON,含圖片)</button>
+          <button type="button" data-act="import" role="menuitem"><svg class="i"><use href="#i-up"/></svg>匯入(JSON / CSV / vCard)</button>
+          <hr>
+          <button type="button" data-act="settings" role="menuitem"><svg class="i"><use href="#i-gear"/></svg>設定與 OCR 引擎</button>
+        </div>
+      </div>
+    </div>
+    <div class="search" id="search-box">
+      <svg class="i"><use href="#i-search"/></svg>
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="搜尋姓名、公司、職稱、電話末碼、Email…" aria-label="搜尋名片">
+      <kbd>/</kbd>
+      <button class="clear" type="button" id="q-clear" aria-label="清除搜尋"><svg class="i"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="索引方式" id="group-mode">
+        <button type="button" data-mode="name">姓名</button><button type="button" data-mode="company">公司</button><button type="button" data-mode="tag">標籤</button><button type="button" data-mode="month">建檔月份</button>
+      </div>
+      <div class="chips" id="chips"></div>
+      <span class="result-info" id="result-info"></span>
+    </div>
+    <div class="hint">進階搜尋:<code>公司:鑫科</code> <code>#客戶</code> <code>電話:5678</code> <code>-離職</code> <code>"sales manager"</code> · 方向鍵選擇、Enter 開啟</div>
+  </div>
+</header>
+
+<main id="main" aria-live="polite"></main>
+<nav class="rail" id="rail" aria-label="快速索引"></nav>
+<div class="rail-pop" id="rail-pop" aria-hidden="true"></div>
+<div class="queue" id="queue" aria-live="polite"></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="drop" id="drop">放開以辨識名片</div>
+<div class="zoom" id="zoom"><img alt="名片放大"></div>
+<input type="file" id="file-scan" accept="image/*" multiple hidden>
+<input type="file" id="file-import" accept=".json,.csv,.vcf,application/json,text/csv,text/vcard" hidden>
+
+<dialog id="dlg-edit" aria-labelledby="edit-title">
+  <form method="dialog" id="edit-form">
+    <div class="dlg-head"><h2 id="edit-title" tabindex="-1" autofocus>名片</h2>
+      <button type="button" class="btn ghost" id="edit-fav" aria-pressed="false" title="加星號">☆</button>
+      <button type="button" class="btn ghost icon-btn" data-close aria-label="關閉"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <div class="dlg-body">
+      <div id="edit-notice"></div>
+      <div class="editor">
+        <div>
+          <div class="shot" id="edit-shot"><div class="none">沒有名片圖片</div></div>
+          <div class="shot-tools">
+            <button type="button" class="btn" id="edit-rotate"><svg class="i"><use href="#i-rotate"/></svg>旋轉</button>
+            <button type="button" class="btn" id="edit-reocr"><svg class="i"><use href="#i-scan"/></svg>重新辨識</button>
+            <button type="button" class="btn" id="edit-photo"><svg class="i"><use href="#i-camera"/></svg>換照片</button>
+          </div>
+          <details class="raw" id="edit-raw-wrap"><summary>辨識原文</summary><pre id="edit-raw"></pre></details>
+          <div class="quick" id="edit-quick"></div>
+        </div>
+        <div class="form" id="edit-fields">
+          <label>姓名<input name="name" autocomplete="off"></label>
+          <label>英文姓名<input name="nameEn" autocomplete="off"></label>
+          <label class="wide">公司<input name="company" autocomplete="off" list="dl-company"></label>
+          <label class="wide">公司英文名<input name="companyEn" autocomplete="off"></label>
+          <label>部門<input name="department" autocomplete="off"></label>
+          <label>職稱<input name="title" autocomplete="off"></label>
+          <label>手機<input name="mobile" inputmode="tel" autocomplete="off"></label>
+          <label>電話<input name="tel" inputmode="tel" autocomplete="off"></label>
+          <label>傳真<input name="fax" inputmode="tel" autocomplete="off"></label>
+          <label>Email<input name="email" inputmode="email" autocomplete="off"></label>
+          <label>網站<input name="website" inputmode="url" autocomplete="off"></label>
+          <label>統一編號<input name="taxId" inputmode="numeric" autocomplete="off"></label>
+          <label>LINE ID<input name="lineId" autocomplete="off"></label>
+          <label class="wide">地址<input name="address" autocomplete="off"></label>
+          <label class="wide">標籤(以逗號分隔,例如:客戶, 供應商, 2026 展覽)<input name="tags" autocomplete="off" list="dl-tags"></label>
+          <label class="wide">備註(認識場合、簡稱、待辦…)<textarea name="notes"></textarea></label>
+        </div>
+      </div>
+    </div>
+    <div class="dlg-foot">
+      <div class="left"><button type="button" class="btn danger" id="edit-delete"><svg class="i"><use href="#i-trash"/></svg>刪除</button>
+        <button type="button" class="btn" id="edit-vcf"><svg class="i"><use href="#i-down"/></svg>vCard</button></div>
+      <button type="button" class="btn" data-close>取消</button>
+      <button type="submit" class="btn primary" id="edit-save" value="save">儲存</button>
+    </div>
+  </form>
+</dialog>
+<datalist id="dl-company"></datalist><datalist id="dl-tags"></datalist>
+
+<dialog id="dlg-settings" class="small" aria-labelledby="set-title">
+  <form method="dialog" class="set-form">
+    <div class="dlg-head"><h2 id="set-title" tabindex="-1" autofocus>設定</h2><button type="button" class="btn ghost icon-btn" data-close aria-label="關閉"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <div class="dlg-body set">
+      <fieldset><legend>OCR 引擎</legend>
+        <label class="radio"><input type="radio" name="engine" value="tesseract"><span>本機辨識(Tesseract)<small>免費、照片不離開裝置。第一次使用需下載約 20 MB 語言檔;對手寫、藝術字、彎曲或反光的名片較弱。</small></span></label>
+        <label class="radio"><input type="radio" name="engine" value="claude"><span>Claude 視覺辨識<small>準確度高,直接判斷欄位;照片會傳送到 Anthropic API,依用量計費,需要自己的 API 金鑰。</small></span></label>
+      </fieldset>
+      <fieldset><legend>本機辨識語言</legend>
+        <select name="langs" aria-label="辨識語言">
+          <option value="chi_tra">繁體中文(含英數字,建議)</option><option value="chi_tra+eng">繁體中文 + 英文模型(英文為主的名片)</option>
+          <option value="chi_sim">簡體中文(含英數字)</option>
+          <option value="jpn+eng">日文 + 英文</option><option value="kor+eng">韓文 + 英文</option><option value="eng">英文</option>
+        </select>
+      </fieldset>
+      <fieldset><legend>Claude</legend>
+        <label class="f">Anthropic API 金鑰<input name="apiKey" type="password" autocomplete="off" placeholder="sk-ant-…"></label>
+        <label class="f">模型<select name="model">
+          <option value="claude-opus-5-5">Claude Opus 5.5(最準確,預設)</option>
+          <option value="claude-sonnet-5-5">Claude Sonnet 5.5(較快、較省)</option>
+          <option value="claude-haiku-5-5">Claude Haiku 5.5(最省,大量建檔)</option>
+        </select></label>
+        <div class="hint">金鑰只存在這台裝置的瀏覽器,呼叫時直接傳給 api.anthropic.com。建議在 Anthropic Console 為這個用途建立專用金鑰並設定花費上限;共用電腦請勿儲存。</div>
+      </fieldset>
+      <fieldset><legend>資料</legend>
+        <div class="hint" id="set-storage"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn" id="set-persist">要求永久保存</button>
+          <button type="button" class="btn" id="set-demo">載入示範名片</button>
+          <button type="button" class="btn danger" id="set-clear">清除全部名片</button>
+        </div>
+      </fieldset>
+    </div>
+    <div class="dlg-foot"><button type="button" class="btn" data-close>取消</button><button type="submit" class="btn primary" value="save">儲存設定</button></div>
+  </form>
+</dialog>
+
+<script>/*__JS__*/</script>
+</body>
+</html>

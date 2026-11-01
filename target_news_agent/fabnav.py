@@ -22,6 +22,7 @@ PAGES = [
     ("quiz", "靶材產業島", "news/quiz.html", "island"),
     ("financials", "財務儀表板", "financials/", "bars"),
     ("metals", "貴金屬預警", "metals/", "bell"),
+    ("cards", "名片庫", "cards/", "card"),
 ]
 
 ICONS = {
@@ -31,6 +32,7 @@ ICONS = {
     "island": '<circle cx="12" cy="10" r="6"/><circle cx="12" cy="10" r="2.5"/><path d="M7 15l5 6 5-6"/>',
     "bars": '<path d="M4 20h16"/><rect x="6" y="11" width="3" height="7"/><rect x="11" y="7" width="3" height="11"/><rect x="16" y="4" width="3" height="14"/>',
     "bell": '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>',
+    "card": '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M15 10h3M15 13h3"/>',
     "menu": '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
     "close": '<path d="M6 6l12 12M18 6L6 18"/>',
 }
