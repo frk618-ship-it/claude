@@ -234,7 +234,7 @@ def test_notion_sync_creates_rows_and_skips_existing(config):
 
     items = process(parse_feed(SAMPLE), config, now=NOW)
     fake = FakeNotion(existing_ids=[items[0].id, items[1].id])
-    created = notion.sync(items, fake, "db-1", sleep=lambda s: None)
+    created, _ = notion.sync(items, fake, "db-1", sleep=lambda s: None)
 
     assert created == len(items) - 2
     pages = [b for m, p, b in fake.calls if p == "/pages"]
@@ -248,7 +248,7 @@ def test_notion_sync_creates_rows_and_skips_existing(config):
 
     # Running again with everything present creates nothing.
     again = FakeNotion(existing_ids=[i.id for i in items])
-    assert notion.sync(items, again, "db-1", sleep=lambda s: None) == 0
+    assert notion.sync(items, again, "db-1", sleep=lambda s: None) == (0, 0)
 
 
 def test_notion_setup_and_sync_cli(tmp_path, monkeypatch, config):
@@ -520,7 +520,7 @@ def test_notion_sync_papers(config):
     papers = sample_papers(config.research)
     papers[0].summary, papers[0].importance = "研究摘要", 4
     fake = FakeNotion(existing_ids=[papers[1].id])
-    created = notion.sync(papers, fake, "db-p", properties=notion.paper_properties, sleep=lambda s: None)
+    created, _ = notion.sync(papers, fake, "db-p", properties=notion.paper_properties, sleep=lambda s: None)
     assert created == len(papers) - 1
 
     rows = [b["properties"] for m, p, b in fake.calls if p == "/pages"]
@@ -1464,3 +1464,26 @@ def test_papers_library_outlives_the_reports(tmp_path, config):
     build_site(reports, tmp_path / "out", config, archive)
     page = (tmp_path / "out" / "papers.html").read_text(encoding="utf-8")
     assert "Sintering of ITO targets" in page and "Bonding of Cu targets" in page
+
+
+def test_notion_sync_fills_in_late_summaries(config):
+    from target_news_agent import notion
+
+    items = process(parse_feed(SAMPLE), config, now=NOW)[:3]
+    for it in items[:2]:
+        it.summary, it.importance = "後補的繁中摘要", 4
+
+    class Rows(FakeNotion):
+        @staticmethod
+        def _row(item_id):
+            scored = item_id == items[1].id  # already summarized in Notion (or edited by hand): left alone
+            return {"id": f"page-{item_id}", "properties": {"ID": {"rich_text": [{"plain_text": item_id}]},
+                                                       "重要度": {"number": 3 if scored else None}}}
+
+    fake = Rows(existing_ids=[i.id for i in items])
+    assert notion.sync(items, fake, "db-1", sleep=lambda s: None) == (0, 1)
+    patches = [(p, b) for m, p, b in fake.calls if m == "PATCH"]
+    assert [p for p, _ in patches] == [f"/pages/page-{items[0].id}"]
+    props = patches[0][1]["properties"]
+    assert set(props) == {"標題", "摘要", "重要度"} and props["重要度"]["number"] == 4  # other columns untouched
+    assert props["摘要"]["rich_text"][0]["text"]["content"] == "後補的繁中摘要"

@@ -57,6 +57,25 @@ jobs:
         with:
           path: public
 
+      # 每日補寫的 Claude 摘要推送後會觸發這個 workflow:把最近兩份報告再同步到 Notion,
+      # 補上先前同步時還沒有的標題譯文、摘要與重要度(已有重要度的資料列不動,保留手動編輯)
+      - name: Sync summaries to Notion
+        continue-on-error: true   # Notion 失敗只顯示警告,不擋網站發布
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_PAPERS_DATABASE_ID: ${{ secrets.NOTION_PAPERS_DATABASE_ID }}
+          NOTION_COMPANIES_DATABASE_ID: ${{ secrets.NOTION_COMPANIES_DATABASE_ID }}
+        run: |
+          # step-level env isn't visible to the step's own `if:`, so skip here when Notion isn't set up
+          if [ -z "$NOTION_TOKEN" ] || [ -z "$NOTION_PARENT_PAGE_ID$NOTION_DATABASE_ID$NOTION_PAPERS_DATABASE_ID" ]; then
+            echo "Notion 未設定,略過"; exit 0
+          fi
+          for r in $(ls reports/????-??-??.json | sort | tail -2); do
+            python -m target_news_agent -v notion-sync "$r"
+          done
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

@@ -276,21 +276,28 @@ def sync_companies(
     return created, updated
 
 
-def existing_ids(call: Transport, database_id: str, since: str | None) -> set[str]:
-    """IDs of rows dated on/after `since` (YYYY-MM-DD; None = every row), so re-runs don't duplicate."""
-    ids: set[str] = set()
+def existing_rows(call: Transport, database_id: str, since: str | None) -> dict[str, dict]:
+    """Rows dated on/after `since` (YYYY-MM-DD; None = every row) by ID: the Notion page id and whether
+    the row already has an importance score, so re-runs don't duplicate and late summaries can be filled in."""
+    rows: dict[str, dict] = {}
     body: dict = {"page_size": 100}
     if since:
         body["filter"] = {"property": "日期", "date": {"on_or_after": since}}
     while True:
         resp = call("POST", f"/databases/{database_id}/query", body)
         for page in resp.get("results", []):
-            rich = page.get("properties", {}).get("ID", {}).get("rich_text", [])
+            props = page.get("properties", {})
+            rich = props.get("ID", {}).get("rich_text", [])
             if rich:
-                ids.add("".join(r.get("plain_text") or r.get("text", {}).get("content", "") for r in rich))
+                rid = "".join(r.get("plain_text") or r.get("text", {}).get("content", "") for r in rich)
+                rows[rid] = {"page": page.get("id"), "scored": (props.get("重要度") or {}).get("number") is not None}
         if not resp.get("has_more"):
-            return ids
+            return rows
         body["start_cursor"] = resp["next_cursor"]
+
+
+# Filled in on rows synced before Claude summarized them; every other column is left as the person edited it.
+SUMMARY_FIELDS = ("標題", "摘要", "重要度")
 
 
 def sync(
@@ -301,27 +308,36 @@ def sync(
     properties: Callable[[object], dict] = item_properties,
     delay: float = 0.35,
     sleep: Callable[[float], None] | None = None,
-) -> int:
+) -> tuple[int, int]:
     """Add each record (NewsItem, or Paper with properties=paper_properties) as a row.
 
-    Returns the number of rows created; rows already present (by ID) are skipped.
+    Rows already present (by ID) are skipped, except that a row without an importance score gets the
+    record's title, summary and importance once the record has been summarized (summaries are often
+    written after the first sync). Returns (rows created, rows given a summary).
     """
     if not items:
-        return 0
+        return 0, 0
     sleep = sleep or time.sleep
     # Undated records could match rows of any date, so then check the whole database.
     if all(i.published for i in items):
         since = (min(i.published for i in items) - timedelta(days=1)).date().isoformat()
     else:
         since = None
-    seen = existing_ids(call, database_id, since)
-    created = 0
+    rows = existing_rows(call, database_id, since)
+    created = updated = 0
     for item in items:
-        if item.id in seen:
+        row = rows.get(item.id)
+        if row is not None and (row["scored"] or not item.importance or not row["page"]):
             continue
-        if created and delay:
+        if created + updated and delay:
             sleep(delay)  # Notion allows ~3 requests/second per integration
-        call("POST", "/pages", {"parent": {"database_id": database_id}, "properties": properties(item)})
-        seen.add(item.id)
-        created += 1
-    return created
+        props = properties(item)
+        if row is None:
+            call("POST", "/pages", {"parent": {"database_id": database_id}, "properties": props})
+            rows[item.id] = {"page": None, "scored": True}
+            created += 1
+        else:
+            call("PATCH", f"/pages/{row['page']}", {"properties": {k: v for k, v in props.items() if k in SUMMARY_FIELDS}})
+            row["scored"] = True
+            updated += 1
+    return created, updated

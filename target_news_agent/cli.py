@@ -421,12 +421,12 @@ def _notion_command(args, p: argparse.ArgumentParser) -> int:
         if added:
             print(f"Added columns to the news database: {', '.join(added)}")
         roles = {e.name: e.role_label for e in config.entities}
-        created = notion.sync(items, call, news_db, properties=lambda i: notion.item_properties(i, roles))
-        print(f"{path}: {len(items)} news items, {created} new rows in Notion")
+        created, filled = notion.sync(items, call, news_db, properties=lambda i: notion.item_properties(i, roles))
+        print(f"{path}: {len(items)} news items, {created} new rows in Notion, {filled} rows given summaries")
     if papers_db:
         papers = [Paper.from_dict(d) for d in data.get("papers", [])]
-        created = notion.sync(papers, call, papers_db, properties=notion.paper_properties)
-        print(f"{path}: {len(papers)} papers, {created} new rows in Notion")
+        created, filled = notion.sync(papers, call, papers_db, properties=notion.paper_properties)
+        print(f"{path}: {len(papers)} papers, {created} new rows in Notion, {filled} rows given summaries")
     if companies_db:
         counts: dict[str, int] = {}
         last: dict[str, str] = {}
