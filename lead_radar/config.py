@@ -71,6 +71,7 @@ class Settings:
     grades: dict[str, float] = field(default_factory=lambda: {"A": 70, "B": 45, "C": 25})
     noise_terms: list[str] = field(default_factory=list)
     noise_factor: float = 0.3
+    drop_terms: list[str] = field(default_factory=list)
     exclude_orgs: list[str] = field(default_factory=list)
 
 
@@ -115,6 +116,7 @@ def load_config(path: str | Path) -> Config:
         grades={k: float(v) for k, v in (s.get("grades") or {"A": 70, "B": 45, "C": 25}).items()},
         noise_terms=[str(t) for t in s.get("noise_terms", []) or []],
         noise_factor=float(s.get("noise_factor", 0.3)),
+        drop_terms=[str(t) for t in s.get("drop_terms", []) or []],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
     )
     industries = {

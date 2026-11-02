@@ -21,7 +21,7 @@ def build_report(signals: list[Signal], config: Config, asof: date, *, coverage_
     window = [sig for sig in signals if signal_heat(sig, config, asof) > 0]
     grid = analyse(signals, config, asof, coverage_start)
     cells = grid["cells"]
-    leads = build_leads(window, cells, config, asof, first_seen)
+    leads = build_leads(window, cells, config, asof, first_seen, grid["factors"])
     hot = hotspots(cells)
     used = {sid for c in cells if c["count"] for sid in c["signal_ids"]}
     rows = []

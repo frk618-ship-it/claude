@@ -141,7 +141,11 @@ def classify(
     edition: str = "",
     origin: str = "news",
 ) -> Signal | None:
-    """Place one item on the grid; None when it mentions none of the product lines."""
+    """Place one item on the grid. None when it is not a demand signal: no product line named,
+    a drop term in the headline (market-report ads, games, reviews), or — for news — no
+    application industry and no watch-list account (a bare mention such as a titanium watch)."""
+    if _hits(title.lower(), config.settings.drop_terms):
+        return None
     raw = f"{title}\n{snippet}"
     products, relevance = [], 0.6
     for p in config.products:
@@ -171,6 +175,8 @@ def classify(
         }
         best = max(scores, key=lambda i: scores[i], default="")
         industries[key] = best if best and scores[best] > 0 else OTHER
+    if origin != "manual" and not accounts and all(v == OTHER for v in industries.values()):
+        return None
 
     intents = [k for k, it in sorted(config.intents.items(), key=lambda kv: -kv[1].weight) if _hits(low, it.keywords)]
 
@@ -191,6 +197,9 @@ def classify(
         if not _is_excluded(o, excluded) and not any(o in x or x in o for x in orgs):
             orgs.append(o)
     orgs = [o for o in orgs if not _is_excluded(o, excluded)]
+    noise = _hits(title_low, config.settings.noise_terms) > 0
+    if noise:
+        orgs = [a.name for a in accounts]   # stock chatter: no leads from broker / ticker names
 
     if isinstance(published, datetime):
         pub = published.astimezone(timezone.utc).date().isoformat() if published.tzinfo else published.date().isoformat()
@@ -215,8 +224,20 @@ def classify(
         orgs=orgs,
         accounts=[a.name for a in accounts],
         relevance=relevance,
-        noise=_hits(title_low, config.settings.noise_terms) > 0,
+        noise=noise,
     )
+
+
+def reclassify(sig: Signal, config: Config) -> Signal | None:
+    """Re-run the current rules on a stored news signal, so config changes apply to history.
+    Manual rows and Claude-enriched signals are kept as they are."""
+    if sig.origin == "manual" or sig.enriched:
+        return sig
+    new = classify(config, title=sig.title, snippet=sig.snippet, link=sig.link, source=sig.source,
+                   published=sig.published, edition=sig.edition, origin=sig.origin)
+    if new is not None:
+        new.id = sig.id
+    return new
 
 
 def dedupe(signals: list[Signal]) -> list[Signal]:

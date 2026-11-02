@@ -56,12 +56,17 @@ def test_classify_rejects_unrelated_and_false_titanium(cfg):
     assert classify(cfg, title="台積電法說會 營收創新高") is None
     assert classify(cfg, title="鈦媒體:AI 新創融資熱") is None             # media outlet name, not the metal
     assert classify(cfg, title="二氧化鈦塗料漲價") is None                   # pigment
-    assert classify(cfg, title="鈦合金概念股漲停").noise                     # stock chatter is down-weighted
+    chatter = classify(cfg, title="鈦合金概念股漲停 航太族群走強 漢翔大漲")
+    assert chatter.noise and chatter.orgs == ["漢翔航空"]                    # stock chatter: down-weighted, no ticker leads
+    assert classify(cfg, title="Titanium Court game trailer: aerospace fantasy") is None          # drop term
+    assert classify(cfg, title="Titanium Castings Market to Reach USD 7.19 Billion by 2033 aerospace") is None
+    assert classify(cfg, title="Seiko's new titanium watch goes beyond looks") is None          # no industry, no account
+    assert classify(cfg, title="某某公司 純鈦 手動匯入", origin="manual") is not None             # manual rows are kept
 
 
 def test_region_falls_back_to_edition(cfg):
-    assert sig(cfg, "チタン合金の需要拡大", edition="ja").region == "JP"
-    assert sig(cfg, "titanium demand rises", edition="en").region == "OTHER"
+    assert sig(cfg, "航空機向けチタン合金の需要拡大", edition="ja").region == "JP"
+    assert sig(cfg, "titanium demand rises for aircraft", edition="en").region == "OTHER"
 
 
 def test_extract_orgs():
@@ -71,7 +76,7 @@ def test_extract_orgs():
 
 
 def test_excluded_orgs_are_not_leads(cfg):
-    s = sig(cfg, "鑫科材料擴產鈦靶 濺鍍靶材產能提升")
+    s = sig(cfg, "鑫科材料擴產鈦靶 半導體濺鍍靶材產能提升")
     assert not any("鑫科" in o for o in s.orgs)
 
 
@@ -228,3 +233,39 @@ def test_cli_demo(tmp_path, monkeypatch):
     monkeypatch.chdir(ROOT)
     assert main(["demo", "-o", str(tmp_path)]) == 0
     assert (tmp_path / "index.html").exists() and (tmp_path / "2026-11-02-leads.csv").exists()
+
+
+def test_reprints_of_one_story_count_once(cfg):
+    from lead_radar.hotspot import ECHO, story_factors
+
+    a = sig(cfg, "Norsk Titanium wins Rolls-Royce order for titanium aero engine part", days_ago=3)
+    b = sig(cfg, "Rolls-Royce places order with Norsk Titanium for 3D printed titanium aircraft parts", days_ago=2)
+    c = sig(cfg, "Norsk Titanium Wins Rolls-Royce Order for RPD Titanium aerospace Component - News", days_ago=1)
+    other = sig(cfg, "漢翔 航太鈦合金板材 公開招標", days_ago=1)
+    f = story_factors([a, b, c, other], cfg)
+    assert sorted(f[x.id] for x in (a, b, c)) == [ECHO, ECHO, 1.0] and f[other.id] == 1.0
+    cell = next(x for x in analyse([a, b, c], cfg, ASOF)["cells"] if x["count"])
+    assert cell["count"] == 1                                                    # one story, not three signals
+    leads = {l["org"]: l for l in build_leads([a, b, c], analyse([a, b, c], cfg, ASOF)["cells"], cfg, ASOF)}
+    assert leads["Rolls-Royce"]["signals"] == 1
+
+
+def test_catch_all_cells_are_never_hotspots(cfg):
+    sigs = [sig(cfg, f"Titanium aircraft part order {i}", days_ago=i % 5) for i in range(12)]
+    for s in sigs:
+        assert s.region == "OTHER"
+    cells = analyse(sigs, cfg, ASOF)["cells"]
+    assert all(c["level"] in ("neutral", "cold") for c in cells if c["region"] == "OTHER" or c["industry"] == "other")
+
+
+def test_reclassify_applies_current_rules(cfg):
+    from lead_radar.signals import reclassify
+
+    stored = Signal(id="x1", title="Titanium Court game launches on PS5", published="2026-11-01", products=["titanium"],
+                    industries={"titanium": "other"}, origin="news")
+    assert reclassify(stored, cfg) is None
+    kept = sig(cfg, "漢翔 航太鈦合金板材 公開招標")
+    kept.id = "keep-id"
+    assert reclassify(kept, cfg).id == "keep-id"
+    manual = Signal(id="m-1", title="Titanium Court", origin="manual")
+    assert reclassify(manual, cfg) is manual

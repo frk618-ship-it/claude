@@ -23,8 +23,13 @@ settings:
     neighbor_weight: 0.3   # 鄰格權重(自己 = 1):同產業其他地區、同地區其他產業;1 = 標準二元 Gi*
   grades: {A: 70, B: 45, C: 25}   # 潛在客戶分數門檻(0–100)
   # 標題命中這些字詞多半是股市行情或股價新聞,權重 × noise_factor
-  noise_terms: [股價, 漲停, 跌停, 目標價, 法說, 外資, 收盤, 盤中, 股東會, stock price, shares rose, shares fell, price target, 株価]
+  noise_terms: [股價, 漲停, 跌停, 目標價, 法說, 外資, 收盤, 盤中, 股東會, 熱門股, 小漲, 小跌, 即時新聞, 利好, 龍頭, 龙头, 淨利, 净利, 預增, 预增, 三季報, 三季报, 年報, 年报, 研報, 研报, 點評, 点评, 概念股,
+                stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
+  # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
+  drop_terms: [市場預測, 市场预测, 市場規模, 市场规模, 市場報告, 市场报告, 研究報告, 研究报告, 年預測, 年预测, CAGR, "Market to Reach", "Market Size", "Market Share",
+               "Market Report", "Market Expansion", "Market Outlook", "Market Forecast", "Market Analysis", "market research",
+               game, games, trailer, gameplay, PS5, Pokémon, hands-on, unboxing, "best gravel", discount, 評測, 开箱, 開箱, 遊戲, 游戏, 優惠, 折扣]
   # 自家公司與同業:不列為潛在客戶(新聞仍計入市場熱度)
   exclude_orgs: [鑫科, 鑫科材料, TTMC, 光洋科, Solar Applied, JX金屬, JX Advanced Metals, Materion, Plansee, 東曹, Tosoh, Honeywell, Solstice,
                  寶鈦, 宝钛, 西部超導, 西部超导, TIMET, VSMPO, ATI, Haynes, Special Metals, 撫順特鋼, 抚顺特钢, 鋼研高納, 钢研高纳, 中鋼, 中钢, 大同特殊鋼]
@@ -110,17 +115,19 @@ industries:
 # action  對應的業務下一步(名單上的「建議行動」)
 intents:
   tender:        {name: 招標採購,   weight: 5.0, action: 立即索取標案 / RFQ 規格,確認投標資格、交期與截止日,
-                  keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid, 入札, 調達, 입찰, 구매]}
+                  keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid,
+                             purchase order, seeks supplier, seeking suppliers, 入札, 調達, 입찰, 구매]}
   shortage:      {name: 缺料與交期, weight: 4.0, action: 主動提出可交貨量、交期與替代牌號 / 規格方案,
-                  keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 漲價, 涨价, 去中化, shortage, supply crunch, lead time, supply constraint, tight supply, 品薄, 부족]}
+                  keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 漲價, 涨价, 去中化, 吃緊, 吃紧, shortage, supply crunch, lead time, supply constraint, tight supply,
+                             supply stays tight, supply remains tight, supply chain disruption, 品薄, 부족]}
   expansion:     {name: 擴產與新廠, weight: 4.0, action: 聯繫採購與廠務,提案新產線材料認證並安排送樣,
                   keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
-                             expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, 増産, 新工場, 증설, 신공장]}
+                             expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, commits, mass production, 増産, 新工場, 증설, 신공장]}
   contract:      {name: 訂單與專案, weight: 3.0, action: 鎖定得標方與其一階供應商,提案配套材料與備料,
-                  keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, order, contract, awarded, deal, backlog, program, 受注, 수주]}
+                  keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, order, contract, awarded, deal, backlog, program, programme, 受注, 수주]}
   qualification: {name: 認證與在地化, weight: 3.0, action: 準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格,
-                  keywords: [認證, 认证, 驗證, 验证, 合格供應商, 供應鏈, 供应链, 在地化, 國產化, 国产化, 第二供應商, qualification, qualified supplier, supply chain, localization,
-                             second source, dual source, AS9100, NADCAP, ISO 13485, 国産化, 국산화]}
+                  keywords: [認證, 认证, 驗證, 验证, 合格供應商, 供應鏈, 供应链, 在地化, 國產化, 国产化, 第二供應商, 選定, 入選, qualification, qualified supplier, approved supplier, supply chain,
+                             localization, second source, dual source, selected by, approved by, evaluates, evaluate, new supplier, AS9100, NADCAP, ISO 13485, 国産化, 국산화]}
   new_product:   {name: 新產品研發, weight: 2.5, action: 安排研發端技術拜訪,提供試樣與材料數據,
                   keywords: [研發, 研发, 新產品, 新产品, 新品, 開發, 开发, 推出, 發表, 量試, 試產, R&D, launch, unveil, prototype, develop, next-generation, 開発, 개발]}
   hiring:        {name: 徵才擴編,   weight: 1.5, action: 從新設部門或新任主管切入,建立聯繫窗口,
@@ -135,9 +142,11 @@ regions:
   JP:    {name: 日本,     keywords: [日本, 東京, 东京, 大阪, 九州, 熊本, 北海道, Japan, Japanese, Tokyo, Kumamoto, 일본]}
   KR:    {name: 韓國,     keywords: [韓國, 韩国, 南韓, 首爾, 平澤, Korea, Korean, Seoul, Pyeongtaek, 韓国, 한국]}
   SEA:   {name: 東南亞與印度, keywords: [越南, 泰國, 泰国, 馬來西亞, 马来西亚, 新加坡, 印尼, 菲律賓, 印度, Vietnam, Thailand, Malaysia, Singapore, Indonesia, Philippines, India, Penang, 檳城]}
-  US:    {name: 北美,     keywords: [美國, 美国, 加拿大, 墨西哥, 亞利桑那, 德州, 俄亥俄, United States, U.S., USA, America, American, Arizona, Texas, Ohio, Canada, Mexico, 米国, 미국]}
-  EU:    {name: 歐洲,     keywords: [歐洲, 欧洲, 德國, 德国, 法國, 法国, 英國, 英国, 義大利, 西班牙, 荷蘭, 瑞典, 波蘭, Europe, European, Germany, German, France, French, UK, Britain, Italy, Spain, Netherlands, Sweden, Poland, 欧州, 유럽]}
-  OTHER: {name: 其他,     keywords: [中東, 沙烏地, 阿聯, 以色列, 土耳其, 巴西, 澳洲, Middle East, Saudi, UAE, Israel, Turkey, Brazil, Australia]}
+  US:    {name: 北美,     keywords: [美國, 美国, 加拿大, 墨西哥, 亞利桑那, 德州, 俄亥俄, United States, U.S., USA, America, American, Arizona, Texas, Ohio, Pennsylvania, California, Michigan,
+                                   Carolina, Washington, Utah, Oregon, Connecticut, Canada, Mexico, 米国, 미국]}
+  EU:    {name: 歐洲,     keywords: [歐洲, 欧洲, 德國, 德国, 法國, 法国, 英國, 英国, 義大利, 西班牙, 荷蘭, 瑞典, 波蘭, 挪威, Europe, European, Germany, German, France, French, UK, Britain, British, Italy, Spain,
+                                   Netherlands, Dutch, Sweden, Norway, Norwegian, Poland, 欧州, 유럽]}
+  OTHER: {name: 其他 / 未標示, keywords: [中東, 沙烏地, 阿聯, 以色列, 土耳其, 巴西, 澳洲, 俄羅斯, 俄罗斯, Middle East, Saudi, UAE, Israel, Turkey, Brazil, Australia, Russia, Ukraine, Africa]}
 
 # ── 目標客戶清單(選填)──────────────────────────────────────────────────
 # 已知的潛在客戶或想主攻的對象:會額外以「名稱 + 產品字詞」搜尋,命中時歸戶到這家公司,產業適配加權。
@@ -153,6 +162,9 @@ accounts:
   - {name: GE Aerospace, aliases: [GE Aerospace, 奇異航太, GE航空],       industry: aerospace, region: US, products: [nickel, titanium]}
   - {name: Rolls-Royce, aliases: [Rolls-Royce, 勞斯萊斯],                industry: aerospace, region: EU, products: [nickel, titanium]}
   - {name: Pratt & Whitney, aliases: [Pratt & Whitney, 普惠],            industry: aerospace, region: US, products: [nickel, titanium]}
+  - {name: Boeing,     aliases: [Boeing, 波音],                          industry: aerospace, region: US, products: [titanium]}
+  - {name: Airbus,     aliases: [Airbus, 空中巴士, 空客],                industry: aerospace, region: EU, products: [titanium]}
+  - {name: Apple,      aliases: [Apple, 蘋果, 苹果],                     industry: consumer,  region: US, products: [titanium]}
   - {name: 大田精密,   aliases: [大田精密, OTO],                         industry: sports,    region: TW, products: [titanium]}
   - {name: 復盛應用,   aliases: [復盛應用, 复盛应用, Fusheng Precision], industry: sports,    region: TW, products: [titanium]}
   - {name: 明安國際,   aliases: [明安, Advanced International Multitech], industry: sports,  region: TW, products: [titanium]}

@@ -12,7 +12,7 @@ from pathlib import Path
 from .config import load_config
 from .page import write_site
 from .report import build_report, latest_report, write_reports
-from .signals import dedupe
+from .signals import dedupe, reclassify
 from .sources import iter_urls, load_csv
 from .store import SignalStore
 
@@ -40,7 +40,8 @@ def _enrich(signals, cfg, enabled: bool, model: str | None) -> None:
 
 def _analyse_and_write(store: SignalStore, cfg, asof: date, out: Path, site: str | None) -> dict:
     cov = store.get_meta("coverage_start")
-    rep = build_report(store.all(), cfg, asof, coverage_start=date.fromisoformat(cov) if cov else None, first_seen=store.first_seen())
+    signals = [s for s in (reclassify(x, cfg) for x in store.all()) if s is not None]   # current rules apply to history too
+    rep = build_report(signals, cfg, asof, coverage_start=date.fromisoformat(cov) if cov else None, first_seen=store.first_seen())
     paths = write_reports(rep, out)
     if site:
         paths.append(write_site(rep, site))

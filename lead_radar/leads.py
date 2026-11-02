@@ -11,7 +11,7 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 
 from .config import Config
-from .hotspot import LEVELS, TRENDS, signal_heat
+from .hotspot import LEVELS, TRENDS, signal_heat, story_factors
 from .signals import OTHER, Signal
 
 SCALE = 6.0
@@ -25,11 +25,12 @@ def _grade(score: float, grades: dict[str, float]) -> str:
 
 
 def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: date,
-                first_seen: dict[str, str] | None = None) -> list[dict]:
+                first_seen: dict[str, str] | None = None, factors: dict[str, float] | None = None) -> list[dict]:
     cell_by_key = {(c["product"], c["industry"], c["region"]): c for c in cells}
+    factors = factors if factors is not None else story_factors(signals, config)
     by_org: dict[str, list[tuple[Signal, float]]] = defaultdict(list)
     for sig in signals:
-        h = signal_heat(sig, config, asof)
+        h = signal_heat(sig, config, asof) * factors.get(sig.id, 1.0)
         if h <= 0:
             continue
         for org in sig.orgs:
@@ -81,7 +82,7 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
             "region": region,
             "top_intent": top_intent,
             "intents": [k for k, _ in intent_heat.most_common()],
-            "signals": len(items),
+            "signals": sum(1 for sig, _ in items if factors.get(sig.id, 1.0) == 1.0),
             "first_seen": firsts[0] if firsts else "",
             "last_signal": days[-1] if days else "",
             "new": bool(firsts) and firsts[0] >= (asof - timedelta(days=7)).isoformat(),
