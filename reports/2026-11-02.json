@@ -2,17 +2,19 @@
   "generated": "2026-11-02T08:28:20.007478+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 13 則,其中新聞與公司公告 4 則;報導最多的是 台積電(1 則)、SK海力士(1 則)、光洋科(1 則)、Materion(1 則)。依主題:客戶與供應鏈 2 則、產業動態 2 則。",
+    "overview": "本期新聞量較少,焦點在記憶體與晶圓代工資本支出:SK海力士產能售罄至 2029 年,資本支出動向受關注;市場對台積電資本支出的疑慮則拖累美股晶片股。台灣方面,公股銀行以 500 億元支持 AI 產業,光洋科聯貸案完成簽約,可支應靶材與貴金屬回收擴產。貴金屬方面,金價跌破 3,900 美元、創一年多新低,但多家華爾街機構仍上調 2026 年底金價目標。",
     "key_trends": [
-      "客戶與供應鏈(2 則):S&P 500, Nasdaq, Dow End Lower As Chip Stocks Slide On TSMC Capex Concerns — TSM, MU, NVDA, UNH, GOOGL In Focus",
-      "產業動態(2 則):公股銀500億銀彈力挺AI！創意與光洋科聯貸達陣"
+      "記憶體產能吃緊:SK海力士售罄至 2029 年,擴產需求延續",
+      "晶圓代工資本支出疑慮影響晶片股,擴產節奏受關注",
+      "光洋科完成聯貸,強化靶材與貴金屬回收擴產資金",
+      "金價跌破 3,900 美元後波動加劇,機構看法分歧"
     ],
     "watch_points": [
-      "S&P 500, Nasdaq, Dow End Lower As Chip Stocks Slide On TSMC Capex Concerns — TSM, MU, NVDA, UNH, GOOGL In Focus(Stocktwits)",
-      "SK hynix: Sold Out Through 2029 But Capex Is The Focus (NASDAQ:SKHY)(Seeking Alpha)",
-      "公股銀500億銀彈力挺AI！創意與光洋科聯貸達陣(Yahoo股市)"
+      "SK海力士與台積電資本支出計畫對靶材拉貨的影響",
+      "光洋科聯貸資金的擴產用途",
+      "金銀價格下週事件後走勢與貴金屬靶材報價"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -27,12 +29,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.81,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場擔憂台積電資本支出,晶片股走跌拖累美股三大指數收低。台積電資本支出動向直接影響 PVD 機台與靶材需求。",
+      "importance": 3,
+      "title_zh": "晶片股因台積電資本支出疑慮下跌,美股三大指數收低:TSM、MU、NVDA、UNH、GOOGL 受關注",
       "snippet_zh": ""
     },
     {
@@ -47,12 +50,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.77,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析指 SK海力士產能已售罄至 2029 年,資本支出成為焦點。記憶體產能吃緊將推動擴產,有利 Cu、Ta、W 等靶材需求。",
+      "importance": 4,
+      "title_zh": "SK海力士:產能售罄至 2029 年,資本支出成焦點",
       "snippet_zh": ""
     },
     {
@@ -70,9 +74,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "11 月 2 日國際金價跌破每盎司 3,900 美元,報導展望新一週走勢。金價影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "11 月 2 日金價:國際金價跌破 3,900 美元,新的一週走勢如何?",
       "snippet_zh": ""
     },
     {
@@ -90,9 +94,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "科技股拋售升高銀價跌向 45 美元的風險。銀價走勢影響 Ag 靶材成本。",
+      "importance": 2,
+      "title_zh": "銀價預測:科技股拋售升高跌向 45 美元的風險",
       "snippet_zh": ""
     },
     {
@@ -110,8 +114,8 @@
         "原物料與價格"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃金週評:金價暴跌創一年多新低,3,800 美元防線告急,下週兩大事件可能引發大行情。貴金屬波動影響靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -127,11 +131,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "櫃買市場券商賣超前 30 名名單,光洋科遭賣超 346 張。屬交易資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -147,11 +152,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "公股銀行以 500 億元支持 AI 產業,創意與光洋科聯貸案完成簽約。光洋科取得融資可支應靶材與貴金屬回收產能擴充。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -167,12 +173,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion(MTRN)股價季節性報酬圖表。屬股價資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(MTRN)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -187,11 +194,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.55,
-      "summary": "",
-      "importance": 0,
+      "summary": "個人早盤評論,提及有研新材的操作計畫。屬股市評論。",
+      "importance": 1,
       "title_zh": "10.30早評：鄭州煤電和有研新材今天操作計劃",
       "snippet_zh": ""
     },
@@ -207,12 +215,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Dorex 週報:全球市場尋求流動性,金價承受賣壓。屬金價評論。",
+      "importance": 1,
+      "title_zh": "DOREX 黃金市場週報(截至 10/30):全球市場尋求流動性,金價承受賣壓",
       "snippet_zh": ""
     },
     {
@@ -227,12 +236,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "四家金礦探勘公司即將公布新的鑽探成果。屬礦業新聞,與靶材關聯薄弱。",
+      "importance": 1,
+      "title_zh": "四家金礦探勘公司排隊公布新鑽探成果",
       "snippet_zh": ""
     },
     {
@@ -247,11 +257,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市討論區的光洋科相關貼文。屬討論區內容,參考價值低。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -267,11 +278,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "多家華爾街機構上調 2026 年底金價目標,認為金價漲勢未結束。金價走勢影響 Au 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     }
@@ -338,11 +350,12 @@
       "doi": "10.1016/j.surfin.2026.111169",
       "source": "OpenAlex",
       "topics": [
+        "合金與複合靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究以 CsI 與 PbI2 靶材共濺鍍製備鈣鈦礦太陽能電池用 CsPbI3 薄膜並分析其特性。摘要未提供細節。",
+      "importance": 2,
+      "title_zh": "以 CsI 與 PbI2 靶材共濺鍍製備鈣鈦礦太陽能電池用 CsPbI3 薄膜之特性",
       "abstract_zh": "",
       "tier": "related"
     }
