@@ -1,0 +1,74 @@
+name: 商機雷達
+# 每週蒐集靶材、純鈦 / 鈦合金、鎳基合金的需求訊號(新聞、標案、擴產、缺料…),做熱點分析並產生潛在客戶名單:
+#   reports/leads/YYYY-MM-DD.json / .md / -leads.csv,訊號歷史存在 data/lead_radar/signals.sqlite3(用來比較逐週熱度)。
+# 完成後 commit 回 main,再呼叫「發布網站」workflow 重新發布(網頁在 <網站>/leads/;bot 的推送不會自動觸發它)。
+# 選填 secret:ANTHROPIC_API_KEY(Claude 判讀買方 / 供應商、需求摘要與急迫度;沒設時用關鍵字規則)。
+
+on:
+  schedule:
+    # 每週一台北時間 06:23(UTC 週日 22:23),業務週會前更新
+    - cron: "23 22 * * 0"
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "蒐集最近 N 天(留空 = 設定檔預設 30)"
+        required: false
+        default: ""
+      no_llm:
+        description: "不呼叫 Claude"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: lead-radar
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Collect signals and build the prospect list
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DAYS: ${{ inputs.days }}
+          NO_LLM: ${{ inputs.no_llm }}
+        run: |
+          args=""
+          if [[ "$DAYS" =~ ^[0-9]+$ ]]; then args="$args --days $DAYS"; fi
+          if [ "$NO_LLM" = "true" ]; then args="$args --no-llm"; fi
+          python -m lead_radar -v run $args
+
+      - name: Commit report
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/leads data/lead_radar
+          git diff --cached --quiet || git commit -m "leads: 商機雷達 $(TZ=Asia/Taipei date +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"   # 其他排程(新聞、貴金屬)可能剛推送過
+          git push
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  publish:
+    needs: run
+    uses: ./.github/workflows/pages.yml
+    with:
+      ref: ${{ needs.run.outputs.sha }}
+    secrets: inherit

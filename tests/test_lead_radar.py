@@ -1,0 +1,230 @@
+"""Tests for the lead radar (商機雷達): classification, hotspot statistics, lead scoring, reports."""
+
+import json
+import math
+import re
+from datetime import date, timedelta
+from types import SimpleNamespace
+
+import pytest
+
+from conftest import ROOT
+from lead_radar.config import load_config
+from lead_radar.hotspot import Cell, analyse, build_grid, getis_ord, signal_heat, trend_of
+from lead_radar.leads import build_leads
+from lead_radar.report import build_report, render_csv, render_markdown, write_reports
+from lead_radar.signals import Signal, classify, extract_orgs
+from lead_radar.sources import build_jobs, collect, load_csv
+
+CONFIG = ROOT / "config" / "lead_radar.yaml"
+DEMO = ROOT / "examples" / "lead_radar_demo.csv"
+ASOF = date(2026, 11, 2)
+
+
+@pytest.fixture(scope="module")
+def cfg():
+    return load_config(CONFIG)
+
+
+def sig(cfg, title, days_ago=1, **kw):
+    s = classify(cfg, title=title, published=(ASOF - timedelta(days=days_ago)).isoformat(), **kw)
+    assert s is not None, title
+    return s
+
+
+def test_config_loads(cfg):
+    assert [p.key for p in cfg.products] == ["target", "titanium", "nickel"]
+    for p in cfg.products:
+        assert all(i in cfg.industries for i in p.industries)
+    assert cfg.intents["tender"].weight > cfg.intents["policy"].weight
+    assert all(a.region in cfg.regions for a in cfg.accounts)
+
+
+def test_classify_product_industry_intent_region(cfg):
+    s = sig(cfg, "漢翔擴建台中廠 航太鈦合金零件產能倍增")
+    assert s.products == ["titanium"] and s.industries["titanium"] == "aerospace"
+    assert s.intents[0] == "expansion" and s.region == "TW"
+    assert s.orgs[0] == "漢翔航空" and s.accounts == ["漢翔航空"]   # watch-list alias → canonical name
+    t = sig(cfg, "Arizona fab issues RFQ for sputtering target supply", edition="en")
+    assert t.products == ["target"] and t.industries["target"] == "semiconductor"
+    assert t.intents[0] == "tender" and t.region == "US"
+    n = sig(cfg, "燃氣輪機訂單滿載 Inconel 718 高溫合金供不應求")
+    assert n.products == ["nickel"] and n.industries["nickel"] == "power" and "shortage" in n.intents
+
+
+def test_classify_rejects_unrelated_and_false_titanium(cfg):
+    assert classify(cfg, title="台積電法說會 營收創新高") is None
+    assert classify(cfg, title="鈦媒體:AI 新創融資熱") is None             # media outlet name, not the metal
+    assert classify(cfg, title="二氧化鈦塗料漲價") is None                   # pigment
+    assert classify(cfg, title="鈦合金概念股漲停").noise                     # stock chatter is down-weighted
+
+
+def test_region_falls_back_to_edition(cfg):
+    assert sig(cfg, "チタン合金の需要拡大", edition="ja").region == "JP"
+    assert sig(cfg, "titanium demand rises", edition="en").region == "OTHER"
+
+
+def test_extract_orgs():
+    orgs = extract_orgs("宏翼航太擴建新廠,Skyward Aerostructures Ltd 同步擴產;台灣鈦材需求增")
+    assert "宏翼航太" in orgs and "Skyward Aerostructures Ltd" in orgs
+    assert not any(o.startswith("台灣") for o in orgs)
+
+
+def test_excluded_orgs_are_not_leads(cfg):
+    s = sig(cfg, "鑫科材料擴產鈦靶 濺鍍靶材產能提升")
+    assert not any("鑫科" in o for o in s.orgs)
+
+
+def test_heat_decays_and_respects_window(cfg):
+    s = sig(cfg, "宏翼航太公開招標 鈦合金板材採購", days_ago=0)
+    h0 = signal_heat(s, cfg, ASOF)
+    assert h0 >= cfg.intents["tender"].weight
+    assert signal_heat(s, cfg, ASOF + timedelta(days=cfg.settings.half_life_days)) == pytest.approx(h0 / 2)
+    assert signal_heat(s, cfg, ASOF + timedelta(days=cfg.settings.days + 1)) == 0
+    assert signal_heat(s, cfg, ASOF - timedelta(days=1)) == 0                   # not yet published
+
+
+def test_getis_ord_matches_formula():
+    inds, regs = ["a", "b", "c"], ["x", "y", "z", "w"]
+    heat = {("a", "x"): 9.0, ("a", "y"): 3.0, ("b", "x"): 2.0, ("c", "w"): 1.0}
+    grid = {("p", i, r): Cell("p", i, r, heat=heat.get((i, r), 0.0)) for i in inds for r in regs}
+    alpha = 0.5
+    getis_ord(grid, inds, regs, "p", alpha)
+    xs = [c.heat for c in grid.values()]
+    n = len(xs)
+    mean = sum(xs) / n
+    s = math.sqrt(sum(x * x for x in xs) / n - mean ** 2)
+    for (p, i, r), c in grid.items():
+        w = {(i2, r2): (1.0 if (i2, r2) == (i, r) else alpha if (i2 == i or r2 == r) else 0.0) for i2 in inds for r2 in regs}
+        sw, sw2 = sum(w.values()), sum(v * v for v in w.values())
+        local = sum(w[k] * grid[("p",) + k].heat for k in w)
+        z = (local - mean * sw) / (s * math.sqrt((n * sw2 - sw * sw) / (n - 1)))
+        assert c.z == pytest.approx(z)
+    assert grid[("p", "a", "x")].z == max(c.z for c in grid.values())
+
+
+def test_trend_labels():
+    assert trend_of("hot", 5, [], []) == "new"
+    assert trend_of("hot", 5, ["neutral"] * 4, [0, 0, 1, 1]) == "new"
+    assert trend_of("hot", 5, ["hot"] * 5, [5] * 5) == "persistent"
+    assert trend_of("hot", 9, ["hot", "neutral", "neutral", "warm"], [4, 1, 1, 3]) == "intensifying"
+    assert trend_of("neutral", 1, ["hot", "hot", "neutral", "neutral"], [5, 5, 2, 1]) == "diminishing"
+    assert trend_of("warm", 4, ["neutral", "neutral"], [1, 1]) == "rising"
+
+
+def test_demo_report_finds_hotspots_and_leads(cfg, tmp_path):
+    signals = load_csv(DEMO, cfg)
+    assert len(signals) == 45 and all(s.origin == "manual" and s.id.startswith("m-") for s in signals)
+    rep = build_report(signals, cfg, ASOF, coverage_start=date(2026, 8, 1))
+    hot = {(c["product"], c["industry"], c["region"]): c for c in rep["hotspots"]}
+    assert hot[("titanium", "aerospace", "TW")]["level"] == "hot"
+    assert hot[("target", "semiconductor", "US")]["level"] == "hot"
+    assert hot[("target", "display", "CN")]["trend"] == "diminishing"         # busy in Aug–Sep, quiet now
+    assert hot[("titanium", "hydrogen", "EU")]["trend"] == "new"
+    leads = {l["org"]: l for l in rep["leads"]}
+    assert leads["Mesa Semiconductor Corp"]["grade"] == "A" and leads["Mesa Semiconductor Corp"]["product"] == "target"
+    assert leads["宏翼航太"]["grade"] == "A" and leads["宏翼航太"]["hotspot"]["level"] == "hot"
+    assert "東嶺面板" not in leads                                              # its signals are outside the window
+    assert rep["leads"] == sorted(rep["leads"], key=lambda l: -l["score"])
+    assert rep["stats"]["grades"]["A"] >= 3
+
+    paths = write_reports(rep, tmp_path)
+    assert [p.name for p in paths] == ["2026-11-02.json", "2026-11-02.md", "2026-11-02-leads.csv"]
+    assert json.loads(paths[0].read_text(encoding="utf-8"))["asof"] == "2026-11-02"
+    md = render_markdown(rep)
+    assert "## 需求熱點" in md and "Mesa Semiconductor Corp" in md
+    csv_text = render_csv(rep)
+    assert csv_text.startswith("﻿等級,分數,公司")
+
+
+def test_history_skips_slices_before_coverage(cfg):
+    signals = load_csv(DEMO, cfg)
+    full = analyse(signals, cfg, ASOF, coverage_start=date(2026, 8, 1))
+    first_run = analyse(signals, cfg, ASOF, coverage_start=ASOF - timedelta(days=cfg.settings.days))
+    assert len(full["slices"]) > 1 and first_run["slices"] == [ASOF.isoformat()]
+    trends = {c["trend"] for c in first_run["cells"] if c["level"] == "hot"}
+    assert trends <= {"new"}                                                      # no history yet: every hot spot is new
+
+
+def test_account_fit_raises_score(cfg):
+    a = sig(cfg, "漢翔 航太鈦合金板材 招標")
+    b = sig(cfg, "某某航太 航太鈦合金板材 招標")
+    b.orgs = ["某某航太"]
+    grid = analyse([a, b], cfg, ASOF)["cells"]
+    leads = {l["org"]: l for l in build_leads([a, b], grid, cfg, ASOF)}
+    assert leads["漢翔航空"]["account"] and leads["漢翔航空"]["score"] > leads["某某航太"]["score"]
+
+
+def test_build_jobs_and_collect_offline(cfg):
+    jobs = build_jobs(cfg)
+    labels = {j.label for j in jobs}
+    assert "純鈦 / 鈦合金 × 航太" in labels and "鎳基合金 × 招標採購" in labels and "客戶:漢翔航空" in labels
+    rss = b"""<?xml version="1.0"?><rss><channel>
+      <item><title>Aero maker expands titanium alloy plant - Daily</title><link>https://ex.com/1</link>
+        <pubDate>Sun, 01 Nov 2026 08:00:00 GMT</pubDate><description>aerospace</description></item>
+      <item><title>Unrelated headline - Daily</title><link>https://ex.com/2</link><pubDate>Sun, 01 Nov 2026 08:00:00 GMT</pubDate></item>
+    </channel></rss>"""
+    small = load_config(CONFIG)
+    small.products, small.accounts = small.products[1:2], []
+    small.products[0].industries = ["aerospace"]
+    small.products[0].editions = ["en"]
+    got = collect(small, fetch=lambda url: rss, sleep=lambda s: None)
+    assert len(got) == 2 and all(s.products == ["titanium"] for s in got)        # same item from both searches
+    assert got[0].industries["titanium"] == "aerospace" and got[0].source == "Daily"
+
+
+def test_claude_enrichment_applies_structured_facts(cfg):
+    from lead_radar.enrich import Enricher, SignalFacts, SignalFactsBatch
+
+    s = sig(cfg, "Skyward Aerostructures Ltd wins titanium order from Pacific Airframe Inc")
+    facts = SignalFacts(id=s.id, buyers=["Pacific Airframe Inc"], suppliers=["Skyward Aerostructures Ltd"], products=["titanium"],
+                        industry="aerospace", intents=["contract", "bogus"], region="US", urgency=4,
+                        need="機身結構件需要鈦合金板材", title_zh="Skyward 取得 Pacific Airframe 鈦合金訂單")
+
+    class FakeBeta:
+        def __init__(self):
+            self.messages = SimpleNamespace(parse=self.parse)
+
+        def parse(self, **kw):
+            assert "<signals>" in kw["messages"][0]["content"] and kw["output_format"] is SignalFactsBatch
+            return SimpleNamespace(stop_reason="end_turn", parsed_output=SignalFactsBatch(items=[facts]))
+
+    enricher = Enricher(cfg, client=SimpleNamespace(beta=FakeBeta()))
+    assert enricher.enrich([s]) == 1
+    assert s.orgs == ["Pacific Airframe Inc"] and s.suppliers == ["Skyward Aerostructures Ltd"]
+    assert s.intents == ["contract"] and s.region == "US" and s.urgency == 4 and s.enriched
+    assert enricher.enrich([s]) == 0                                              # already enriched
+
+
+def test_store_keeps_enrichment(cfg, tmp_path):
+    from lead_radar.store import SignalStore
+
+    st = SignalStore(tmp_path / "s.sqlite3")
+    s = sig(cfg, "宏翼航太公開招標 鈦合金板材採購")
+    s.enriched, s.need = True, "需要板材"
+    assert st.upsert([s], ASOF) == 1
+    plain = sig(cfg, "宏翼航太公開招標 鈦合金板材採購")
+    assert st.upsert([plain], ASOF) == 0
+    assert st.all()[0].need == "需要板材"
+    assert st.mark_coverage(ASOF, 30) == ASOF - timedelta(days=30)
+    assert st.mark_coverage(ASOF + timedelta(days=7), 30) == ASOF - timedelta(days=30)   # earliest coverage kept
+    st.close()
+
+
+def test_page_embeds_report_and_nav(cfg, tmp_path):
+    from lead_radar.page import render_page, write_site
+
+    rep = build_report(load_csv(DEMO, cfg), cfg, ASOF, coverage_start=date(2026, 8, 1))
+    html = render_page(rep)
+    assert "/*__DATA__*/null" not in html and '"asof": "2026-11-02"' in html
+    page = write_site(rep, tmp_path / "leads").read_text(encoding="utf-8")
+    assert 'id="fabnav"' in page and re.search(r'href="\.\./leads/"[^>]*aria-current=page', page)
+    assert "const DATA = null" in render_page(None)
+
+
+def test_cli_demo(tmp_path, monkeypatch):
+    from lead_radar.cli import main
+
+    monkeypatch.chdir(ROOT)
+    assert main(["demo", "-o", str(tmp_path)]) == 0
+    assert (tmp_path / "index.html").exists() and (tmp_path / "2026-11-02-leads.csv").exists()

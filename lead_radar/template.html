@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>商機雷達</title>
+<meta name="description" content="靶材、純鈦 / 鈦合金、鎳基合金的需求熱點與潛在客戶名單">
+<style>
+:root{--bg:#f3f4f6;--surface:#fbfcfd;--fg:#131415;--muted:#4d4e4f;--faint:#7c7d80;--line:#dfe1e5;--grid:#e4e6ea;
+--accent:#173c66;--accent-2:#005a7f;--accent-soft:#e4eaf2;--brand-orange:#f39043;--brand-orange-ink:#b35a10;
+--h0:#eef1f5;--h1:#d3dff0;--h2:#a9c1e2;--h3:#6f98cd;--h4:#2f68ad;--h5:#173c66;--cold:#e9e5dc;
+--hot:#c62f2f;--hot-soft:#fbe7e5;--warm:#b35a10;--warm-soft:#fdeedf;--ok:#006300;--ok-soft:#e3f1e3;
+--gA:#c62f2f;--gB:#b35a10;--gC:#1f5fa8;--gD:#7c7d80;
+--on-accent:#fff;--font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--faint:#888889;--line:#29313c;--grid:#29313c;
+--accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;--brand-orange-ink:#f39043;
+--h0:#1a212b;--h1:#1d3047;--h2:#25456b;--h3:#2f5f95;--h4:#4a8ad6;--h5:#9cc2ee;--cold:#2a2722;
+--hot:#ef6b6b;--hot-soft:#3a1d1d;--warm:#f39043;--warm-soft:#3a2614;--ok:#0ca30c;--ok-soft:#14261a;
+--gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--faint:#888889;--line:#29313c;--grid:#29313c;
+--accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;--brand-orange-ink:#f39043;
+--h0:#1a212b;--h1:#1d3047;--h2:#25456b;--h3:#2f5f95;--h4:#4a8ad6;--h5:#9cc2ee;--cold:#2a2722;
+--hot:#ef6b6b;--hot-soft:#3a1d1d;--warm:#f39043;--warm-soft:#3a2614;--ok:#0ca30c;--ok-soft:#14261a;
+--gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px;display:grid;gap:36px}
+a{color:var(--accent);text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:clamp(1.6rem,4.5vw,2.2rem);line-height:1.25}
+h2{font-size:1.2rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+h2 small{font-size:.8rem;color:var(--muted);font-weight:400}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-orange-ink)}
+header.top{display:grid;gap:12px;padding-bottom:22px;border-bottom:3px solid var(--accent);position:relative}
+header.top::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:.86rem}
+.lede{max-width:72ch;color:var(--muted)}
+section{display:grid;gap:14px;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.stat b{display:block;font-size:1.55rem;line-height:1.2;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:4px 10px;font-size:.82rem;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+/* heat matrix */
+.matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table.matrix{border-collapse:separate;border-spacing:3px;width:100%;min-width:720px;padding:6px}
+.matrix th{font-size:.78rem;font-weight:600;color:var(--muted);padding:4px 6px;white-space:nowrap}
+.matrix thead th{text-align:center}
+.matrix tbody th{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}
+.matrix td{padding:0}
+.hc{width:100%;min-height:46px;border:2px solid transparent;border-radius:5px;cursor:pointer;display:grid;place-items:center;gap:0;padding:4px 2px;
+  font-family:var(--mono);font-size:.8rem;line-height:1.2;font-variant-numeric:tabular-nums;transition:transform .1s}
+.hc:hover{transform:scale(1.04)}
+.hc small{font-size:.66rem;opacity:.85}
+.hc.empty{cursor:default;color:var(--faint)}
+.hc.empty:hover{transform:none}
+.hc.is-hot{border-color:var(--hot)}
+.hc.is-warm{border-color:var(--warm);border-style:dashed}
+.hc[aria-pressed="true"]{outline:3px solid var(--fg);outline-offset:1px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:.78rem;color:var(--muted)}
+.ramp{display:inline-flex;border-radius:3px;overflow:hidden}.ramp i{width:22px;height:10px;display:block}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;border:2px solid var(--hot);vertical-align:-2px;margin-right:4px}
+.sw.w{border-color:var(--warm);border-style:dashed}
+/* hotspot cards */
+.hs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:10px}
+.hs{display:grid;gap:6px;cursor:pointer;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px}
+.hs:hover{border-color:var(--accent)}
+.hs .t{font-weight:700}
+.hs .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.hs ul{margin:0;padding-left:1.1em;font-size:.82rem;color:var(--muted);display:grid;gap:2px}
+.hs ul li{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.badge.hot{background:var(--hot-soft);color:var(--hot)}.badge.warm{background:var(--warm-soft);color:var(--warm)}
+.badge.new{background:var(--ok-soft);color:var(--ok)}.badge.acc{background:transparent;border:1px solid var(--brand-orange-ink);color:var(--brand-orange-ink)}
+.spark{width:96px;height:26px;flex:none}
+.spark path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
+.spark circle{fill:var(--accent)}
+/* leads */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters input[type=search]{flex:1 1 220px;min-width:0;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;font-size:16px}
+.filters select{padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;font-size:.88rem}
+.filters label{font-size:.86rem;display:inline-flex;gap:4px;align-items:center}
+.btn{border:0;background:var(--accent);color:var(--on-accent);border-radius:6px;padding:7px 14px;cursor:pointer;font-size:.86rem}
+.btn.ghost{background:var(--accent-soft);color:var(--accent)}
+.chip-filter{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 6px 3px 12px;font-size:.84rem}
+.chip-filter button{border:0;background:transparent;cursor:pointer;color:inherit;font-size:1rem;line-height:1;padding:0 4px}
+.leads{display:grid;gap:8px}
+details.lead{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--g,var(--gD));border-radius:8px}
+details.lead>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:6px 14px;align-items:center;padding:10px 14px}
+details.lead>summary::-webkit-details-marker{display:none}
+.grade{width:38px;height:38px;border-radius:6px;display:grid;place-items:center;font-weight:800;font-size:1.1rem;color:var(--on-accent);background:var(--g)}
+.lead .name{font-weight:700;font-size:1rem;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.lead .sub{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 10px}
+.score{text-align:right;font-family:var(--mono);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+.score small{display:block;font-size:.68rem;font-weight:400;color:var(--muted);font-family:var(--font)}
+.lead .body{padding:0 14px 14px 66px;display:grid;gap:8px;font-size:.9rem}
+.lead dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0}
+.lead dt{color:var(--muted);font-size:.82rem;white-space:nowrap}.lead dd{margin:0}
+.ev{margin:0;padding-left:1.1em;display:grid;gap:3px;font-size:.86rem}
+.ev .src{color:var(--muted);font-size:.78rem}
+.more{justify-self:center}
+/* signals */
+.sig-list{display:grid;gap:6px}
+.sig{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:9px 12px;display:grid;gap:3px}
+.sig .t{font-size:.92rem}
+.sig .row{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:.76rem;color:var(--muted);align-items:center}
+.empty-note{color:var(--muted);font-size:.9rem;padding:14px;border:1px dashed var(--line);border-radius:8px;text-align:center}
+.method{font-size:.86rem;color:var(--muted);display:grid;gap:6px;max-width:80ch}
+.method ol{margin:0;padding-left:1.3em;display:grid;gap:4px}
+@media (max-width:640px){
+  .lead .body{padding-left:14px}
+  details.lead>summary{grid-template-columns:auto 1fr;}
+  .score{grid-column:2;text-align:left;font-size:1rem}.score small{display:inline;margin-left:6px}
+}
+@media print{.filters,.tabs,.seg,.more{display:none}details.lead{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Lead Radar · 首次業務開發</div>
+    <h1>商機雷達:誰正在找靶材、鈦與鎳基合金</h1>
+    <p class="lede">把每一則公開資訊當成需求訊號,落在「產品線 × 應用產業 × 地區」的熱度網格上;以熱點分析找出需求集中的區塊,再把訊號歸到具體公司排出開發名單。</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section aria-labelledby="h-kpi">
+    <h2 id="h-kpi" hidden>本期概況</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section aria-labelledby="h-map">
+    <div class="bar">
+      <h2 id="h-map">需求熱度地圖 <small>點格子可篩選下方名單與訊號</small></h2>
+      <div class="seg" role="group" aria-label="著色方式">
+        <button type="button" data-metric="z" aria-pressed="true">熱點 Gi* z</button>
+        <button type="button" data-metric="heat" aria-pressed="false">熱度</button>
+      </div>
+    </div>
+    <div class="tabs" id="ptabs" role="group" aria-label="產品線"></div>
+    <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section aria-labelledby="h-hot">
+    <h2 id="h-hot">熱點清單 <small id="hot-note"></small></h2>
+    <div class="hs-grid" id="hotspots"></div>
+  </section>
+
+  <section aria-labelledby="h-leads">
+    <div class="bar">
+      <h2 id="h-leads">潛在客戶名單 <small id="lead-count"></small></h2>
+      <button type="button" class="btn ghost" id="csv">下載名單 CSV</button>
+    </div>
+    <div class="filters">
+      <input type="search" id="q" placeholder="搜尋公司、需求、產業…" aria-label="搜尋潛在客戶">
+      <select id="fgrade" aria-label="等級"><option value="">全部等級</option><option value="AB">A + B 級</option><option>A</option><option>B</option><option>C</option><option>D</option></select>
+      <select id="fprod" aria-label="產品線"></select>
+      <label><input type="checkbox" id="facc"> 只看目標客戶</label>
+      <label><input type="checkbox" id="fnew"> 本週新出現</label>
+      <span id="cellchip"></span>
+    </div>
+    <div class="leads" id="leads"></div>
+    <button type="button" class="btn ghost more" id="more" hidden>顯示更多</button>
+  </section>
+
+  <section aria-labelledby="h-sig">
+    <h2 id="h-sig">需求訊號 <small id="sig-count"></small></h2>
+    <div class="sig-list" id="signals"></div>
+    <button type="button" class="btn ghost more" id="more-sig" hidden>顯示更多</button>
+  </section>
+
+  <section aria-labelledby="h-method" class="method">
+    <h2 id="h-method">方法說明</h2>
+    <ol>
+      <li><b>訊號蒐集</b>:以「產品字詞 × 應用產業字詞」「產品 × 招標採購」與目標客戶名稱搜尋中英日韓新聞,另可匯入展會名單、詢價紀錄、標案等 CSV。</li>
+      <li><b>網格定位</b>:每則訊號依關鍵字(或 Claude 判讀)歸到產品線、應用產業、地區,並標出意圖:招標採購 &gt; 缺料 / 擴產 &gt; 訂單 / 認證 &gt; 新產品 &gt; 徵才 &gt; 政策。</li>
+      <li><b>熱度</b>:意圖權重 × 相關度 × 時間衰減(半衰期 <span class="mono" id="hl"></span> 天),股價類新聞降權。</li>
+      <li><b>熱點分析(Getis-Ord Gi*)</b>:每一格的鄰域是自己 + 同產業的其他地區 + 同地區的其他產業;鄰域熱度顯著高於整體時 z 值升高,z ≥ <span class="mono" id="zh"></span> 且至少 <span class="mono" id="ms"></span> 則訊號為熱點。逐週重算可看出新興、持續、升溫、零星與降溫熱點。</li>
+      <li><b>潛在客戶分數</b>:公司的訊號熱度總和 × 產業適配(目標客戶 1.2、目標產業 1.0、其他 0.7)× 熱點加權 × 意圖多樣性,換算為 0–100 分並分 A / B / C / D 級。</li>
+    </ol>
+    <p>資料來自公開新聞與自行匯入的紀錄,名單是開發順序的建議,接觸前請人工確認公司與需求。</p>
+  </section>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+(function () {
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+  if (!DATA) { $(".wrap").insertAdjacentHTML("beforeend", '<p class="empty-note">尚無資料:請先執行 <code>python -m lead_radar run</code>。</p>'); return; }
+  const L = DATA.labels, st = DATA.stats;
+  const name = (k, v) => (L[k] && L[k][v]) || v;
+  const sigById = Object.fromEntries(DATA.signals.map(s => [s.id, s]));
+  const cellKey = c => c.product + "|" + c.industry + "|" + c.region;
+  const cells = Object.fromEntries(DATA.cells.map(c => [cellKey(c), c]));
+  const products = Object.keys(L.products);
+  const regions = Object.keys(L.regions);
+  const hotCount = p => DATA.hotspots.filter(c => c.product === p && c.level === "hot").length;
+  const state = {product: [...products].sort((a, b) => hotCount(b) - hotCount(a))[0], metric: "z", cell: null, shown: 30, shownSig: 40};
+
+  // header + KPIs
+  $("#meta").innerHTML = [
+    `資料日 <b class="mono">${esc(DATA.asof)}</b>`,
+    `時間窗 最近 <span class="mono">${DATA.days}</span> 天`,
+    `熱度比較 <span class="mono">${DATA.slices.length}</span> 個週次`,
+    st.enriched ? `Claude 判讀 <span class="mono">${st.enriched}</span> 則` : "關鍵字規則判讀",
+  ].map(x => `<span>${x}</span>`).join("");
+  $("#hl").textContent = DATA.half_life_days; $("#zh").textContent = DATA.thresholds.z_hot; $("#ms").textContent = DATA.thresholds.min_signals;
+  const kpi = [
+    [st.signals, "需求訊號"], [st.new_signals, "本週新增訊號"], [st.hot_cells, "熱點"], [st.warm_cells, "溫點"],
+    [st.grades.A, "A 級潛在客戶"], [st.grades.B, "B 級潛在客戶"], [st.leads, "已歸戶公司"],
+  ];
+  $("#stats").innerHTML = kpi.map(([v, l]) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+  // product tabs
+  $("#ptabs").innerHTML = products.map(p => `<button type="button" class="tab" data-p="${p}">${esc(L.products[p])} <span class="mono">${st.by_product[p] || 0}</span></button>`).join("");
+  $("#ptabs").addEventListener("click", e => { const b = e.target.closest("[data-p]"); if (!b) return; state.product = b.dataset.p; state.cell = null; renderAll(); });
+  document.querySelectorAll("[data-metric]").forEach(b => b.addEventListener("click", () => { state.metric = b.dataset.metric; renderMatrix(); }));
+
+  const ramp = ["--h0", "--h1", "--h2", "--h3", "--h4", "--h5"];
+  function shade(c, maxHeat) {
+    if (!c || !c.count) return null;
+    let t;
+    if (state.metric === "z") t = Math.max(0, Math.min(1, (c.z + 0.5) / 3.5));
+    else t = maxHeat ? Math.sqrt(c.heat / maxHeat) : 0;
+    const i = Math.min(ramp.length - 1, Math.max(1, Math.round(t * (ramp.length - 1))));
+    return {bg: `var(${ramp[i]})`, fg: i >= 4 ? "var(--on-accent)" : "var(--fg)"};
+  }
+  function renderMatrix() {
+    document.querySelectorAll("[data-metric]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.metric === state.metric)));
+    document.querySelectorAll("#ptabs .tab").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.p === state.product)));
+    const inds = L.product_industries[state.product];
+    const pc = DATA.cells.filter(c => c.product === state.product);
+    const maxHeat = Math.max(0, ...pc.map(c => c.heat));
+    const head = `<thead><tr><th scope="col">應用產業 \\ 地區</th>${regions.map(r => `<th scope="col">${esc(L.regions[r])}</th>`).join("")}</tr></thead>`;
+    const body = inds.map(i => `<tr><th scope="row">${esc(name("industries", i))}</th>${regions.map(r => {
+      const k = state.product + "|" + i + "|" + r, c = cells[k], s = shade(c, maxHeat);
+      if (!s) return `<td><div class="hc empty" aria-hidden="true">·</div></td>`;
+      const cls = c.level === "hot" ? " is-hot" : c.level === "warm" ? " is-warm" : "";
+      const label = `${name("industries", i)} × ${L.regions[r]}:熱度 ${c.heat.toFixed(1)},z ${c.z.toFixed(2)},${c.count} 則訊號,${L.levels[c.level]}${c.trend ? "、" + L.trends[c.trend] : ""}`;
+      const main = state.metric === "z" ? (c.z >= 0 ? "+" : "") + c.z.toFixed(1) : c.heat.toFixed(1);
+      return `<td><button type="button" class="hc${cls}" data-k="${esc(k)}" aria-pressed="${state.cell === k}" title="${esc(label)}" aria-label="${esc(label)}"
+        style="background:${s.bg};color:${s.fg}">${main}<small>${c.count} 則</small></button></td>`;
+    }).join("")}</tr>`).join("");
+    $("#matrix").innerHTML = head + "<tbody>" + body + "</tbody>";
+    $("#legend").innerHTML = `<span>${state.metric === "z" ? "Gi* z 低 → 高" : "熱度 低 → 高"} <span class="ramp">${ramp.slice(1).map(v => `<i style="background:var(${v})"></i>`).join("")}</span></span>
+      <span><i class="sw"></i>熱點(z ≥ ${DATA.thresholds.z_hot})</span><span><i class="sw w"></i>溫點(z ≥ ${DATA.thresholds.z_warm})</span><span>· 無訊號</span>`;
+  }
+  $("#matrix").addEventListener("click", e => {
+    const b = e.target.closest("[data-k]"); if (!b) return;
+    state.cell = state.cell === b.dataset.k ? null : b.dataset.k; state.shown = 30; state.shownSig = 40;
+    renderMatrix(); renderLeads(); renderSignals();
+    if (state.cell) $("#h-leads").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+
+  function spark(hist) {
+    if (!hist || hist.length < 2) return "";
+    const w = 96, h = 26, max = Math.max(...hist, 0.001);
+    const pts = hist.map((v, i) => [i * (w - 4) / (hist.length - 1) + 2, h - 3 - (v / max) * (h - 6)]);
+    const d = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("");
+    const last = pts[pts.length - 1];
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" role="img" aria-label="近 ${hist.length} 週熱度走勢"><path d="${d}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4"/></svg>`;
+  }
+  function renderHotspots() {
+    const list = DATA.hotspots.filter(c => c.product === state.product);
+    $("#hot-note").textContent = `${L.products[state.product]}:${list.length} 個`;
+    if (!list.length) { $("#hotspots").innerHTML = `<p class="empty-note">這條產品線本期沒有達到門檻的熱點,可切換「熱度」檢視訊號分布。</p>`; return; }
+    $("#hotspots").innerHTML = list.slice(0, 12).map(c => {
+      const titles = c.signal_ids.map(id => sigById[id]).filter(Boolean).slice(0, 3);
+      const lv = c.level === "hot" ? "hot" : c.level === "warm" ? "warm" : "";
+      return `<button type="button" class="hs" data-k="${esc(cellKey(c))}">
+        <div class="row"><span class="badge ${lv}">${esc(L.levels[c.level])}</span>${c.trend ? `<span class="badge ${c.trend === "new" ? "new" : ""}">${esc(L.trends[c.trend])}</span>` : ""}
+          <span class="mono">z ${c.z >= 0 ? "+" : ""}${c.z.toFixed(2)} · ${c.count} 則</span></div>
+        <div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="t" style="color:var(--fg)">${esc(name("industries", c.industry))} × ${esc(L.regions[c.region])}</span>${spark(c.history)}</div>
+        <ul>${titles.map(s => `<li>${esc(s.title_zh || s.title)}</li>`).join("")}</ul></button>`;
+    }).join("");
+  }
+  $("#hotspots").addEventListener("click", e => {
+    const b = e.target.closest("[data-k]"); if (!b) return;
+    state.cell = b.dataset.k; renderMatrix(); renderLeads(); renderSignals();
+    $("#h-leads").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+
+  // leads
+  $("#fprod").innerHTML = `<option value="">全部產品線</option>` + products.map(p => `<option value="${p}">${esc(L.products[p])}</option>`).join("");
+  const gradeVar = g => `var(--g${g})`;
+  function inCell(sig) {
+    const [p, i, r] = state.cell.split("|");
+    return sig && sig.products.includes(p) && sig.industries[p] === i && sig.region === r;
+  }
+  function filteredLeads() {
+    const q = $("#q").value.trim().toLowerCase(), g = $("#fgrade").value, p = $("#fprod").value;
+    return DATA.leads.filter(l =>
+      (!g || g.includes(l.grade)) && (!p || l.products.includes(p)) && (!$("#facc").checked || l.account) && (!$("#fnew").checked || l.new) &&
+      (!state.cell || l.evidence.some(id => inCell(sigById[id]))) &&
+      (!q || [l.org, l.need, name("industries", l.industry), name("regions", l.region), name("products", l.product), l.next_action,
+              ...l.evidence.map(id => (sigById[id] || {}).title || "")].join(" ").toLowerCase().includes(q)));
+  }
+  function renderLeads() {
+    const list = filteredLeads();
+    $("#lead-count").textContent = `${list.length} / ${DATA.leads.length} 家`;
+    if (state.cell) {
+      const [p, i, r] = state.cell.split("|");
+      $("#cellchip").innerHTML = `<span class="chip-filter">${esc(L.products[p])} · ${esc(name("industries", i))} · ${esc(L.regions[r])}<button type="button" aria-label="清除格子篩選" id="clearcell">×</button></span>`;
+      $("#clearcell").onclick = () => { state.cell = null; renderMatrix(); renderLeads(); renderSignals(); };
+    } else $("#cellchip").innerHTML = "";
+    if (!list.length) { $("#leads").innerHTML = `<p class="empty-note">沒有符合條件的公司。</p>`; $("#more").hidden = true; return; }
+    $("#leads").innerHTML = list.slice(0, state.shown).map(l => {
+      const ev = l.evidence.map(id => sigById[id]).filter(Boolean);
+      const hs = l.hotspot;
+      return `<details class="lead" style="--g:${gradeVar(l.grade)}"><summary>
+        <span class="grade" aria-label="${l.grade} 級">${l.grade}</span>
+        <div><div class="name">${esc(l.org)}${l.account ? '<span class="badge acc">目標客戶</span>' : ""}${l.new ? '<span class="badge new">新出現</span>' : ""}
+          ${hs.level === "hot" ? `<span class="badge hot">熱點${hs.trend ? "・" + esc(L.trends[hs.trend]) : ""}</span>` : hs.level === "warm" ? '<span class="badge warm">溫點</span>' : ""}</div>
+          <div class="sub"><span>${esc(L.products[l.product])}</span><span>${esc(name("industries", l.industry))}</span><span>${esc(L.regions[l.region])}</span>
+          <span>${l.top_intent ? esc(L.intents[l.top_intent]) : "一般動態"}</span><span class="mono">${l.signals} 則 · 最近 ${esc(l.last_signal)}</span></div></div>
+        <div class="score">${Math.round(l.score)}<small>分</small></div></summary>
+        <div class="body"><dl>
+          ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
+          <dt>建議行動</dt><dd>${esc(l.next_action)}</dd>
+          <dt>切入重點</dt><dd>${esc(l.pitch)}</dd>
+          ${l.products.length > 1 ? `<dt>其他產品線</dt><dd>${l.products.slice(1).map(p => esc(L.products[p])).join("、")}</dd>` : ""}
+          <dt>訊號類型</dt><dd>${l.intents.map(i => esc(L.intents[i])).join("、") || "—"}</dd></dl>
+          <ol class="ev">${ev.map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}
+            <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol></div></details>`;
+    }).join("");
+    $("#more").hidden = list.length <= state.shown;
+  }
+  ["#q", "#fgrade", "#fprod", "#facc", "#fnew"].forEach(s => $(s).addEventListener("input", () => { state.shown = 30; renderLeads(); }));
+  $("#more").onclick = () => { state.shown += 30; renderLeads(); };
+
+  // signals
+  function renderSignals() {
+    let list = DATA.signals;
+    if (state.cell) list = list.filter(inCell);
+    $("#sig-count").textContent = `${list.length} 則${state.cell ? "(已依格子篩選)" : ""}`;
+    $("#signals").innerHTML = list.length ? list.slice(0, state.shownSig).map(s => `<article class="sig">
+      <div class="t">${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}</div>
+      ${s.need ? `<div style="font-size:.84rem">${esc(s.need)}</div>` : ""}
+      <div class="row"><span class="mono">${esc(s.published)}</span><span>${esc(s.source)}</span>
+        ${s.intents.slice(0, 2).map(i => `<span class="badge${i === "tender" ? " hot" : ""}">${esc(L.intents[i])}</span>`).join("")}
+        <span>${s.products.map(p => esc(L.products[p]) + "/" + esc(name("industries", s.industries[p]))).join("、")}</span><span>${esc(L.regions[s.region] || s.region)}</span>
+        ${s.orgs.length ? `<span>→ ${s.orgs.slice(0, 3).map(esc).join("、")}</span>` : ""}</div></article>`).join("") : `<p class="empty-note">沒有訊號。</p>`;
+    $("#more-sig").hidden = list.length <= state.shownSig;
+  }
+  $("#more-sig").onclick = () => { state.shownSig += 40; renderSignals(); };
+
+  // CSV (raw data files are not published, so build it in the browser)
+  $("#csv").onclick = () => {
+    const cols = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "需求研判", "建議行動", "切入重點", "佐證連結"];
+    const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = filteredLeads().map(l => [l.grade, l.score, l.org, l.account ? "是" : "", L.products[l.product], name("industries", l.industry), L.regions[l.region],
+      l.top_intent ? L.intents[l.top_intent] : "", l.signals, l.last_signal, l.need, l.next_action, l.pitch,
+      l.evidence.map(id => (sigById[id] || {}).link).filter(Boolean).slice(0, 3).join(" ")]);
+    const blob = new Blob(["﻿" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
+    const a = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `潛在客戶-${DATA.asof}.csv`});
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+
+  function renderAll() { renderMatrix(); renderHotspots(); renderLeads(); renderSignals(); }
+  renderAll();
+})();
+</script>
+</body>
+</html>
