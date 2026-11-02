@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T08:28:20.007478+08:00",
+  "generated": "2026-11-02T09:00:24.920312+08:00",
   "days": 7,
   "digest": {
     "overview": "本期新聞量較少,焦點在記憶體與晶圓代工資本支出:SK海力士產能售罄至 2029 年,資本支出動向受關注;市場對台積電資本支出的疑慮則拖累美股晶片股。台灣方面,公股銀行以 500 億元支持 AI 產業,光洋科聯貸案完成簽約,可支應靶材與貴金屬回收擴產。貴金屬方面,金價跌破 3,900 美元、創一年多新低,但多家華爾街機構仍上調 2026 年底金價目標。",
@@ -17,6 +17,207 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "cd0a6d2fb0f03fb3",
+      "title": "先進封裝技術戰開打！台積電、三星、英特爾搶布局 日月光拚擴高階市場",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNYUN5M3dVWnFvdWdlaFdmdk5ydEJmUTVFV1ZzaUExM2tlZUdvY1g1aTJXWkxkWXNYcXFaS25ocldhWnQ0NkdlbHZjSnhJN0NlUWl4SEVJMHV5WUlTV09FQnlTU01WR25MaVFSaHk3cUkwQlVRVG8zdW5Ub0NfNFdDaVZB?oc=5",
+      "source": "壹蘋新聞網",
+      "published": "2026-11-01T08:58:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 4.7,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "先進封裝技術戰開打！臺積電、三星、英特爾搶佈局 日月光拚擴高階市場",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dd68a2103a13af25",
+      "title": "《盤前掃瞄-國內消息》日月光投控追加今年資本支出；國巨Q4大擴產",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeEVWUi1mVFVHVmdYTjA5S3FIRFBEVnhScG84dklocWxCbGpGbFd3UFpmRjZwcmtFYlY1NjhCQ3FFbFIxaE0wZGVtTGNmZGlrY3UzTHlhbUc0NEJtSDRfb2hEUDNyOHZGd25ZTW85eTNoc3hOUklVZ1VJems0c0FtSFNScVpKTm5Q?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-30T00:11:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.07,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "50ba8699169ed14a",
+      "title": "《半導體》日月光Q4營收估季增6-8% 再上修資本支出至115億美元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYmRPeF9Pay1HdlZOdmxDdS12eFRDU1NTSG44TEVQbXhtdzNQQ0xxNE43UlRCQUhob2wyLXgtc0tPUnExTkVUWDJ2SHVPdU0tWWdfVFFTWnZja1lMOHhWNnpBcUQtc3BXa09VcFVRWWlIUmQyTi11Yi1wY2lHQ0ZZaHFvUEJhQlcx?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-29T09:01:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "963090e13cd326a3",
+      "title": "Gold price prediction: Gold rate continues to fall or will bear movement end after US midterm elections re",
+      "link": "https://news.google.com/rss/articles/CBMisgJBVV95cUxOZm0wUUlYbHJqTGVZZEFqcVN3MWVPYzNST21JTGdubW42eWF1cFBxM2FpUW5LbUZNVmUyNGJkdUpKcEpuYjZOS2o5eGpqMzVic2txUlBaYmdIQXMzUjZyRFh1dlZGbHkzQV9QZ283Y3NPUktHNHpPUFJvU0R3OF96cEZfM3ZjMmxxdTVWNkkwSFNUTTk5WEFnUDBHLWdLdUJwaTA5ckdyOHhmQmZ5b2hUei1QRkdtT1I5eW1qcE1ZMGhvekhIZGY4QjE3akoxNGcweVV6SjNyNFlRaVlOR01IOHkyVTlMX3BtTHNiM3NaTzJpcHRSTXhKd0dGYjVRVU41V2RZMlp0eDgtdEtlQ3hqMVZLMkhrWHN3MkxSWDJGMDdpQXJ0Smc2bF8tUG5RTWFCY2fSAbcCQVVfeXFMUEt5YjYyRkwtVV9aV2Z2emY0dDNIMV9WZ0g2VlNRTVNXdHNjc2g4TFpiZVZfNHVqX1ZYbEFFbE52SWN5dllHT0REQWY1V24wRzl6dGMwUlNjTHQ5OUliNWs4a1ZPcGl6aEtFdFlRZ09pbS1WbGRjVTc5cTBDQXVCRmxMSXBHRGtWc040ZFZtRV9tQlpRSmR0azZ4U3ByRUlPM21Rc2xMaUQ1U1kyMDFqSGp0RUVCd21QVDJaeVFPdUxydW9YSEJiUlZHaFdfWkxISGVYYWlSNlhUVFRKeHRrdGhsRVVkRzl1Z0ViUXJWQjM2MFBublN6SklIaldnSTJKa2Z2Y0tJRVB4QXg5NDU2UXc0RXliUlRDOXJZUWVUZ0RXcE9SdW40V3VxVWFEM192YThhU08zQU0?oc=5",
+      "source": "The Economic Times",
+      "published": "2026-11-01T22:39:57+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "57284220a25ce682",
+      "title": "分析：黃金價格跌至年內低點 還將繼續下探",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1GLUdLT3JocW5VUkVZMGUwbzgyZlFYUG9xSHFlSnkwNUlpbm9Ud1JiUTU3MWliY1pxdkFtZHVqX1FpU2RxZG44Y3JoUkh2UWNkTm5HVFRuY3VyNFIwVjlva9IBZkFVX3lxTE5QZ3R0WlotVFAwbmstVEE4cGszVzk5Um11S1ZnMGt4Rm9YYlUyM0liOTdzZW1ZbkVBUjZLd2lQN0xpZVltR3VjNEV4NnpKNWNmbWVCQld1QkJGd0VBSWc4dDg1YTdfQQ?oc=5",
+      "source": "大紀元",
+      "published": "2026-11-01T19:42:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.27,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "36656a19ab6b6474",
+      "title": "Gold price outlook: Gold sliding along the 0.786 arc. Eyes on 3,720",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN1FUbGhvLUpObU1XQXZ2VTh0S191dDdNRlRZZ0JlTkVDWjBaODJuQ2FrRzlfakx2MXJwTGZSX0tCRS1wWWtNbmF3MFBnUTE2Nk85QVhFcWxRQ1ZDQWNQQ01zMVE5YWFBMndEMU5OWU1Cb0doVW9VM2ViRTI4RUJFYllCcnlsem5EMW1NOERLT3hldzVkZklPR2xpUUppYVdNajZoTWJPa2pSZ1QxNGlWUw?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-01T19:08:37+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2004f874fb5f73eb",
+      "title": "Gold Price Today: Why Gold Broke Below $4,000 and What Comes Next",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdkU5cU5ISkFqbmVmYnBqWjNlOVhCeFZ5UVhjZmpDWlNkUGo4czF0OU1Bc1owNDFHUlpxWGREQldUZHpiS05sVU1qNFlyc0pOckh0QnA4YTJRR1NLNVU2TWVjQmdpbUhzRmRaTFlzMk9TN196V2htZWkxZGE1M3EtYUJDZkNRVmttZG5SVUd3WUQyZ2lr?oc=5",
+      "source": "TOP1markets",
+      "published": "2026-11-01T16:47:21+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.25,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0ff0aaae2ae9da43",
+      "title": "《各報要聞》日月光投控 追加今年資本支出",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWkg1U3lGRHZUZlVqaUp0V0xrd2hwdVNXZVVqUE8yNFhQWDN3NkU0dkpqU3FXMzM3cEZ6dU9zTW1aUXo2YnZuWVNJd3lVbEtZNHg4cG9GTldoc1IzRHk3X3lTc0VBcXZST2I0WDEwUXVIcE03dVhCMEVTU1BEeFB2dlluVG5GdzN0?oc=5",
+      "source": "富聯網",
+      "published": "2026-10-29T23:36:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.56,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a5d0719e48b161ea",
+      "title": "아바코 (083930)",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBMTkRuakFGYUF2S2kyeTlJR0tVdHlHRVQ0YU82ek9OQjl1a1Q1Qzk0SVFtTjRzd2xZUTR4bmRQMEtlT08zWm9lQ1Nucw?oc=5",
+      "source": "ThinkPool",
+      "published": "2026-10-29T07:00:00+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "42f91477758b6910",
+      "title": "期交所3大黃金及非金電商品契約小型化 7月上路",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5RaHVqVjVnQmhWRklYZ2htaHBEMTl6Tm13YXNROExwOEluemVremFYdHpZNEZDSEJQS29sV0pmdUQyRnpkN1FmQ3kxczhvbDRReTFLWDh4WS02ektOU2Joa3JfYmw?oc=5",
+      "source": "TradingView",
+      "published": "2026-10-31T19:29:10+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.32,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "87b90dd910a3b54d",
       "title": "S&P 500, Nasdaq, Dow End Lower As Chip Stocks Slide On TSMC Capex Concerns — TSM, MU, NVDA, UNH, GOOGL In Focus",
@@ -292,42 +493,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3906.4,
+      "price": 3908.9,
       "prev": 3898.9,
       "date": "2026-11-02",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.19
+      "change_pct": 0.26
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 49.78,
+      "price": 49.87,
       "prev": 49.1,
       "date": "2026-11-02",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.38
+      "change_pct": 1.57
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1447.9,
+      "price": 1449.7,
       "prev": 1438.0,
       "date": "2026-11-02",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.69
+      "change_pct": 0.81
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 987.0,
+      "price": 989.5,
       "prev": 984.6,
       "date": "2026-11-02",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.24
+      "change_pct": 0.5
     }
   ],
   "papers": [
