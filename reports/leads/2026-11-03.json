@@ -1,0 +1,4979 @@
+{
+ "generated": "2026-11-02T17:24:51+00:00",
+ "asof": "2026-11-03",
+ "days": 30,
+ "half_life_days": 14.0,
+ "coverage_start": "2026-10-04",
+ "slices": [
+  "2026-11-03"
+ ],
+ "labels": {
+  "products": {
+   "target": "濺鍍靶材",
+   "titanium": "純鈦 / 鈦合金",
+   "nickel": "鎳基合金"
+  },
+  "industries": {
+   "semiconductor": "半導體",
+   "display": "顯示面板",
+   "solar": "太陽能",
+   "optical_coating": "光學與玻璃鍍膜",
+   "data_storage": "儲存媒體",
+   "hard_coating": "工具與裝飾鍍膜",
+   "aerospace": "航太",
+   "medical": "醫療器材",
+   "chemical": "化工石化",
+   "oil_gas": "油氣能源",
+   "power": "發電與燃氣輪機",
+   "hydrogen": "氫能與燃料電池",
+   "marine": "船舶與海水淡化",
+   "consumer": "消費電子",
+   "sports": "運動器材",
+   "additive": "積層製造(3D 列印)",
+   "other": "其他應用"
+  },
+  "regions": {
+   "TW": "台灣",
+   "CN": "中國大陸",
+   "JP": "日本",
+   "KR": "韓國",
+   "SEA": "東南亞與印度",
+   "US": "北美",
+   "EU": "歐洲",
+   "OTHER": "其他"
+  },
+  "intents": {
+   "tender": "招標採購",
+   "shortage": "缺料與交期",
+   "expansion": "擴產與新廠",
+   "contract": "訂單與專案",
+   "qualification": "認證與在地化",
+   "new_product": "新產品研發",
+   "hiring": "徵才擴編",
+   "policy": "政策與補助"
+  },
+  "levels": {
+   "hot": "熱點",
+   "warm": "溫點",
+   "neutral": "一般",
+   "cold": "冷點"
+  },
+  "trends": {
+   "new": "新興熱點",
+   "persistent": "持續熱點",
+   "intensifying": "升溫熱點",
+   "sporadic": "零星熱點",
+   "diminishing": "降溫",
+   "rising": "升溫中"
+  },
+  "product_industries": {
+   "target": [
+    "semiconductor",
+    "display",
+    "solar",
+    "optical_coating",
+    "data_storage",
+    "hard_coating",
+    "other"
+   ],
+   "titanium": [
+    "aerospace",
+    "medical",
+    "chemical",
+    "marine",
+    "consumer",
+    "sports",
+    "additive",
+    "hydrogen",
+    "other"
+   ],
+   "nickel": [
+    "aerospace",
+    "power",
+    "oil_gas",
+    "chemical",
+    "hydrogen",
+    "additive",
+    "semiconductor",
+    "other"
+   ]
+  }
+ },
+ "thresholds": {
+  "z_hot": 1.96,
+  "z_warm": 1.0,
+  "min_signals": 2,
+  "grades": {
+   "A": 70.0,
+   "B": 45.0,
+   "C": 25.0
+  }
+ },
+ "stats": {
+  "signals": 117,
+  "attributed": 18,
+  "new_signals": 34,
+  "hot_cells": 8,
+  "warm_cells": 15,
+  "leads": 11,
+  "grades": {
+   "A": 1,
+   "B": 0,
+   "C": 5,
+   "D": 5
+  },
+  "enriched": 0,
+  "by_product": {
+   "target": 13,
+   "titanium": 96,
+   "nickel": 9
+  }
+ },
+ "cells": [
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 0.801,
+   "count": 2,
+   "z": 2.17,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    0.801
+   ],
+   "signal_ids": [
+    "7a2355e3349126b5",
+    "d648e207568d450e"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "CN",
+   "heat": 0.743,
+   "count": 1,
+   "z": 1.39,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.743
+   ],
+   "signal_ids": [
+    "aecebe33130a6810"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "JP",
+   "heat": 0.354,
+   "count": 1,
+   "z": 0.18,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.354
+   ],
+   "signal_ids": [
+    "36c1748258e1d550"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "display",
+   "region": "TW",
+   "heat": 3.448,
+   "count": 1,
+   "z": 4.67,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    3.448
+   ],
+   "signal_ids": [
+    "d35b21acc9b2239c"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "display",
+   "region": "CN",
+   "heat": 0.862,
+   "count": 1,
+   "z": 2.47,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.862
+   ],
+   "signal_ids": [
+    "d82afa946af69f05"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "TW",
+   "heat": 0.748,
+   "count": 2,
+   "z": 2.79,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    0.748
+   ],
+   "signal_ids": [
+    "e3bc90bf3e81d714",
+    "bd895e95f9a7ce7c"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "CN",
+   "heat": 1.612,
+   "count": 3,
+   "z": 2.52,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.612
+   ],
+   "signal_ids": [
+    "fabcab502609c055",
+    "d37bd0a5ef7a7884",
+    "23c09dda4a0bc555"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "JP",
+   "heat": 0.525,
+   "count": 1,
+   "z": 0.93,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.525
+   ],
+   "signal_ids": [
+    "15ab8597b318d537"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "OTHER",
+   "heat": 0.552,
+   "count": 1,
+   "z": 0.81,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.552
+   ],
+   "signal_ids": [
+    "f1ef817a82daafa4"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "CN",
+   "heat": 1.725,
+   "count": 3,
+   "z": 0.61,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    1.725
+   ],
+   "signal_ids": [
+    "bffc9d40cd529610",
+    "8973229f4ea28e0f",
+    "e7aa545ecf75d9e1"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "US",
+   "heat": 0.276,
+   "count": 1,
+   "z": 0.02,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.276
+   ],
+   "signal_ids": [
+    "123e9f213b7185df"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "EU",
+   "heat": 14.301,
+   "count": 11,
+   "z": 1.42,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    14.301
+   ],
+   "signal_ids": [
+    "0202ec9e5df9da7f",
+    "6f9f837f6ee88039",
+    "494a5144668c2c7f",
+    "f4113ac34ee0ddc2",
+    "d91ca56d2ded99e7",
+    "02760181330f78e2",
+    "417550ea0c4ae30f",
+    "575689616fef2dff",
+    "a38ec81901c5204e",
+    "c96bf8d50ca7d715",
+    "7ff75774322e76e9"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "OTHER",
+   "heat": 2.143,
+   "count": 4,
+   "z": 2.17,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    2.143
+   ],
+   "signal_ids": [
+    "218054ebabb0368a",
+    "d6fa02c53ae04ed8",
+    "d20ee20c170e79e3",
+    "c9db7996c4928c0d"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "medical",
+   "region": "CN",
+   "heat": 1.0,
+   "count": 2,
+   "z": -0.14,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    1.0
+   ],
+   "signal_ids": [
+    "abab22516b994b1c",
+    "a42eede006581c35"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "medical",
+   "region": "OTHER",
+   "heat": 1.268,
+   "count": 2,
+   "z": 1.41,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    1.268
+   ],
+   "signal_ids": [
+    "4b9c13ca3f70f25f",
+    "091db5e513fc417e"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "chemical",
+   "region": "OTHER",
+   "heat": 0.39,
+   "count": 1,
+   "z": 1.28,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.39
+   ],
+   "signal_ids": [
+    "3162f4f9ca13516c"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "marine",
+   "region": "OTHER",
+   "heat": 0.595,
+   "count": 1,
+   "z": 1.3,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.595
+   ],
+   "signal_ids": [
+    "c364f2d60a5b56b8"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "consumer",
+   "region": "US",
+   "heat": 1.052,
+   "count": 2,
+   "z": -0.5,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    1.052
+   ],
+   "signal_ids": [
+    "2702c6590df26dff",
+    "726c3951231eafbe"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "consumer",
+   "region": "OTHER",
+   "heat": 4.545,
+   "count": 4,
+   "z": 1.75,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    4.545
+   ],
+   "signal_ids": [
+    "d1be55b0b5907184",
+    "5332b81968498cbe",
+    "33df202be56bbebc",
+    "87ec95a5ea1ef3a5"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "additive",
+   "region": "CN",
+   "heat": 4.866,
+   "count": 5,
+   "z": 0.23,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    4.866
+   ],
+   "signal_ids": [
+    "bd39707abca3e960",
+    "853208ccfc0e538c",
+    "0c1b89e8eb0f56a2",
+    "96767d6bbf4f4e20",
+    "58a1de68a019990b"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "additive",
+   "region": "OTHER",
+   "heat": 0.599,
+   "count": 2,
+   "z": 1.51,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.599
+   ],
+   "signal_ids": [
+    "ed009c6bbad63838",
+    "7caa5752b6e182d2"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "TW",
+   "heat": 0.673,
+   "count": 1,
+   "z": 1.23,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.673
+   ],
+   "signal_ids": [
+    "b4ca11d18311d907"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "CN",
+   "heat": 5.822,
+   "count": 5,
+   "z": 2.09,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    5.822
+   ],
+   "signal_ids": [
+    "4e6ee7ebbc7e05f9",
+    "64b0217a99c4e836",
+    "87b822443fb57076",
+    "c1dd2bc5bdbd51f8",
+    "862f4c13b1919782"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "US",
+   "heat": 0.5,
+   "count": 1,
+   "z": 1.27,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.5
+   ],
+   "signal_ids": [
+    "789558b3878fc90a"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "EU",
+   "heat": 0.725,
+   "count": 1,
+   "z": 1.86,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.725
+   ],
+   "signal_ids": [
+    "530b42a3b303aa61"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "OTHER",
+   "heat": 38.844,
+   "count": 50,
+   "z": 5.56,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    38.844
+   ],
+   "signal_ids": [
+    "230c0109ed616379",
+    "0b6eb6525af2c0e5",
+    "e21f5695d206051e",
+    "4bf01e1b0898969c",
+    "a2a38d797c3eb66e",
+    "6be88d4b2e8600e1",
+    "2a881fcf53dc733a",
+    "249735c2ee17525c",
+    "a7d10e25a9690907",
+    "057ff8741a92781c",
+    "faf9f2335e229177",
+    "e227ad47b1f8ee31",
+    "c454724875376cb8",
+    "6ce064bdefd849d5",
+    "a299e306bebe204a",
+    "1733d1b91344fd4a",
+    "84ecb2b6f5a01042",
+    "8096793033e6f5cb",
+    "45696662c40d4564",
+    "cc699fce30687a79",
+    "db4b2b8cd68acb58",
+    "a6afdebec8d1b494",
+    "55fcbe009f126f4a",
+    "c64c0d0a8450a774",
+    "86b2f863eb4fd220",
+    "8ba4da3393c1970b",
+    "2860c5d0795292df",
+    "3ed86e08e8d11c1d",
+    "97431ff9ffdbc969",
+    "b90d3c898fe4b353",
+    "86926f8df1007b84",
+    "3b273ed31eb92ad0",
+    "0d3d73ceefc635bb",
+    "1d731c6d554790df",
+    "d58566ccdde4efd2",
+    "4d79c3d91a4ffc42",
+    "0894b2713827811d",
+    "8ca553cc55463a12",
+    "5f4242158fb0612e",
+    "52fc6a834f65e961",
+    "be0dc869c6dceeb4",
+    "aec692e957758bfd",
+    "e504025aacde1205",
+    "5db9fd7b62682130",
+    "f252f27be4384dc7",
+    "3fe6246453f33a39",
+    "ade9442cd49d6d3b",
+    "5a20b552aedf6347",
+    "07b3cfe4cf04d920",
+    "b922f4adecd0f1b2"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "aerospace",
+   "region": "CN",
+   "heat": 1.0,
+   "count": 2,
+   "z": 2.86,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.0
+   ],
+   "signal_ids": [
+    "bffc9d40cd529610",
+    "47a1086f5bd6372b"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "chemical",
+   "region": "CN",
+   "heat": 0.862,
+   "count": 1,
+   "z": 2.63,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.862
+   ],
+   "signal_ids": [
+    "a1c24e8886242139"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "additive",
+   "region": "CN",
+   "heat": 0.58,
+   "count": 1,
+   "z": 2.16,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.58
+   ],
+   "signal_ids": [
+    "80446b9db65ee07e"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "other",
+   "region": "CN",
+   "heat": 0.525,
+   "count": 1,
+   "z": 3.5,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.525
+   ],
+   "signal_ids": [
+    "88cf902d12d5bdf8"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "other",
+   "region": "OTHER",
+   "heat": 1.982,
+   "count": 4,
+   "z": 4.19,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.982
+   ],
+   "signal_ids": [
+    "bf9514d71685378d",
+    "d609d41e6b84c1bc",
+    "8cc78f14b789f1cb",
+    "82f606aaa1b0a031"
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "OTHER",
+   "heat": 38.844,
+   "count": 50,
+   "z": 5.56,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    38.844
+   ],
+   "signal_ids": [
+    "230c0109ed616379",
+    "0b6eb6525af2c0e5",
+    "e21f5695d206051e",
+    "4bf01e1b0898969c",
+    "a2a38d797c3eb66e",
+    "6be88d4b2e8600e1",
+    "2a881fcf53dc733a",
+    "249735c2ee17525c",
+    "a7d10e25a9690907",
+    "057ff8741a92781c",
+    "faf9f2335e229177",
+    "e227ad47b1f8ee31"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "other",
+   "region": "OTHER",
+   "heat": 1.982,
+   "count": 4,
+   "z": 4.19,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.982
+   ],
+   "signal_ids": [
+    "bf9514d71685378d",
+    "d609d41e6b84c1bc",
+    "8cc78f14b789f1cb",
+    "82f606aaa1b0a031"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "aerospace",
+   "region": "CN",
+   "heat": 1.0,
+   "count": 2,
+   "z": 2.86,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.0
+   ],
+   "signal_ids": [
+    "bffc9d40cd529610",
+    "47a1086f5bd6372b"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "TW",
+   "heat": 0.748,
+   "count": 2,
+   "z": 2.79,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    0.748
+   ],
+   "signal_ids": [
+    "e3bc90bf3e81d714",
+    "bd895e95f9a7ce7c"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "other",
+   "region": "CN",
+   "heat": 1.612,
+   "count": 3,
+   "z": 2.52,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    1.612
+   ],
+   "signal_ids": [
+    "fabcab502609c055",
+    "d37bd0a5ef7a7884",
+    "23c09dda4a0bc555"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "OTHER",
+   "heat": 2.143,
+   "count": 4,
+   "z": 2.17,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    2.143
+   ],
+   "signal_ids": [
+    "218054ebabb0368a",
+    "d6fa02c53ae04ed8",
+    "d20ee20c170e79e3",
+    "c9db7996c4928c0d"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 0.801,
+   "count": 2,
+   "z": 2.17,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    0.801
+   ],
+   "signal_ids": [
+    "7a2355e3349126b5",
+    "d648e207568d450e"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "CN",
+   "heat": 5.822,
+   "count": 5,
+   "z": 2.09,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    5.822
+   ],
+   "signal_ids": [
+    "4e6ee7ebbc7e05f9",
+    "64b0217a99c4e836",
+    "87b822443fb57076",
+    "c1dd2bc5bdbd51f8",
+    "862f4c13b1919782"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "display",
+   "region": "TW",
+   "heat": 3.448,
+   "count": 1,
+   "z": 4.67,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    3.448
+   ],
+   "signal_ids": [
+    "d35b21acc9b2239c"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "other",
+   "region": "CN",
+   "heat": 0.525,
+   "count": 1,
+   "z": 3.5,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.525
+   ],
+   "signal_ids": [
+    "88cf902d12d5bdf8"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "chemical",
+   "region": "CN",
+   "heat": 0.862,
+   "count": 1,
+   "z": 2.63,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.862
+   ],
+   "signal_ids": [
+    "a1c24e8886242139"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "display",
+   "region": "CN",
+   "heat": 0.862,
+   "count": 1,
+   "z": 2.47,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.862
+   ],
+   "signal_ids": [
+    "d82afa946af69f05"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "additive",
+   "region": "CN",
+   "heat": 0.58,
+   "count": 1,
+   "z": 2.16,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.58
+   ],
+   "signal_ids": [
+    "80446b9db65ee07e"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "EU",
+   "heat": 0.725,
+   "count": 1,
+   "z": 1.86,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.725
+   ],
+   "signal_ids": [
+    "530b42a3b303aa61"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "consumer",
+   "region": "OTHER",
+   "heat": 4.545,
+   "count": 4,
+   "z": 1.75,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    4.545
+   ],
+   "signal_ids": [
+    "d1be55b0b5907184",
+    "5332b81968498cbe",
+    "33df202be56bbebc",
+    "87ec95a5ea1ef3a5"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "additive",
+   "region": "OTHER",
+   "heat": 0.599,
+   "count": 2,
+   "z": 1.51,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.599
+   ],
+   "signal_ids": [
+    "ed009c6bbad63838",
+    "7caa5752b6e182d2"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "EU",
+   "heat": 14.301,
+   "count": 11,
+   "z": 1.42,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    14.301
+   ],
+   "signal_ids": [
+    "0202ec9e5df9da7f",
+    "6f9f837f6ee88039",
+    "494a5144668c2c7f",
+    "f4113ac34ee0ddc2",
+    "d91ca56d2ded99e7",
+    "02760181330f78e2",
+    "417550ea0c4ae30f",
+    "575689616fef2dff",
+    "a38ec81901c5204e",
+    "c96bf8d50ca7d715",
+    "7ff75774322e76e9"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "medical",
+   "region": "OTHER",
+   "heat": 1.268,
+   "count": 2,
+   "z": 1.41,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    1.268
+   ],
+   "signal_ids": [
+    "4b9c13ca3f70f25f",
+    "091db5e513fc417e"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "CN",
+   "heat": 0.743,
+   "count": 1,
+   "z": 1.39,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.743
+   ],
+   "signal_ids": [
+    "aecebe33130a6810"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "marine",
+   "region": "OTHER",
+   "heat": 0.595,
+   "count": 1,
+   "z": 1.3,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.595
+   ],
+   "signal_ids": [
+    "c364f2d60a5b56b8"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "chemical",
+   "region": "OTHER",
+   "heat": 0.39,
+   "count": 1,
+   "z": 1.28,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.39
+   ],
+   "signal_ids": [
+    "3162f4f9ca13516c"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "US",
+   "heat": 0.5,
+   "count": 1,
+   "z": 1.27,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.5
+   ],
+   "signal_ids": [
+    "789558b3878fc90a"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "TW",
+   "heat": 0.673,
+   "count": 1,
+   "z": 1.23,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.673
+   ],
+   "signal_ids": [
+    "b4ca11d18311d907"
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "org": "Rolls-Royce",
+   "account": true,
+   "score": 94.6,
+   "grade": "A",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "aerospace",
+   "region": "EU",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 7,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-31",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.42
+   },
+   "next_action": "鎖定得標方與其一階供應商",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "7ff75774322e76e9",
+    "d91ca56d2ded99e7",
+    "417550ea0c4ae30f",
+    "575689616fef2dff",
+    "a38ec81901c5204e",
+    "c96bf8d50ca7d715"
+   ]
+  },
+  {
+   "org": "Implantable Medical Technologies",
+   "account": false,
+   "score": 44.2,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "other",
+   "region": "OTHER",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-29",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.56
+   },
+   "next_action": "聯繫採購與廠務",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "4d79c3d91a4ffc42"
+   ]
+  },
+  {
+   "org": "Medical Grade Titanium Materials",
+   "account": false,
+   "score": 44.2,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "other",
+   "region": "OTHER",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-29",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.56
+   },
+   "next_action": "聯繫採購與廠務",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "4d79c3d91a4ffc42"
+   ]
+  },
+  {
+   "org": "Safran",
+   "account": true,
+   "score": 42.3,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "aerospace",
+   "region": "EU",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-16",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.42
+   },
+   "next_action": "鎖定得標方與其一階供應商",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "494a5144668c2c7f",
+    "f4113ac34ee0ddc2",
+    "0202ec9e5df9da7f",
+    "6f9f837f6ee88039"
+   ]
+  },
+  {
+   "org": "Aerolloy Technologies",
+   "account": false,
+   "score": 31.8,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "aerospace",
+   "region": "EU",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 3,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-16",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.42
+   },
+   "next_action": "鎖定得標方與其一階供應商",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "494a5144668c2c7f",
+    "f4113ac34ee0ddc2",
+    "6f9f837f6ee88039"
+   ]
+  },
+  {
+   "org": "PTC Industries",
+   "account": false,
+   "score": 25.9,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "aerospace",
+   "region": "EU",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-14",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.42
+   },
+   "next_action": "鎖定得標方與其一階供應商",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "c454724875376cb8",
+    "0202ec9e5df9da7f"
+   ]
+  },
+  {
+   "org": "国海化工",
+   "account": false,
+   "score": 18.2,
+   "grade": "D",
+   "product": "nickel",
+   "products": [
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "CN",
+   "top_intent": "",
+   "intents": [],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-31",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 2.63
+   },
+   "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "need": "",
+   "evidence": [
+    "a1c24e8886242139"
+   ]
+  },
+  {
+   "org": "华秦科技",
+   "account": false,
+   "score": 16.6,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "aerospace",
+   "region": "CN",
+   "top_intent": "",
+   "intents": [],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-20",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.61
+   },
+   "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "bffc9d40cd529610"
+   ]
+  },
+  {
+   "org": "融合未來科技",
+   "account": false,
+   "score": 8.9,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "other",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-26",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.23
+   },
+   "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "b4ca11d18311d907"
+   ]
+  },
+  {
+   "org": "拓荆科技",
+   "account": false,
+   "score": 6.4,
+   "grade": "D",
+   "product": "target",
+   "products": [
+    "target"
+   ],
+   "industry": "other",
+   "region": "CN",
+   "top_intent": "",
+   "intents": [],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-16",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 2.52
+   },
+   "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "d37bd0a5ef7a7884"
+   ]
+  },
+  {
+   "org": "China's LB Group",
+   "account": false,
+   "score": 4.3,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "other",
+   "region": "CN",
+   "top_intent": "",
+   "intents": [],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-09",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 2.09
+   },
+   "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "64b0217a99c4e836"
+   ]
+  }
+ ],
+ "signals": [
+  {
+   "id": "b922f4adecd0f1b2",
+   "title": "Cell Impact to evaluate NC titanium for undisclosed customers",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNR19Va2RTYnlNMi1JbHJZQVZTWTFNN2dELXRwdEJjZUhRU3FoZUFyUFA2T3lSR2JxZWhKVGhXTjMyQjhsR2JrLTI2dld2c3pNRkVUa19XOTBUUGxuTFVZeDhDOXNlN3k3UVotQTMydEQ1X2d2WjdsNmRkdGNWMWJUSlkwdkpITGpzYTlJTWlCNzFZZw?oc=5",
+   "source": "Macau Business",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.952
+  },
+  {
+   "id": "862f4c13b1919782",
+   "title": "Trump Hails Apple’s “100 Million Dollars” of Pennsylvania Titanium. Apple Pledged China $275 Billion",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQb1M3NkVGNlBmV2hpaXB1R0w1bmxZY01WbUo5bkMxY2lsUmtPUHNVWlJZQWdiYUNPUXFYZW5aT0lSMzRyY2xEQjN6NkExN0YyMWVRWVFZVUFpRVdid1JkSEpReFhBMzNTYzNIZHV5WVZyS2I2RmppYXBmdUh2YWxacGxVZTlJMDlJdVJvMk1EeUxrUTZCR0VWS3VsSU5FYk9Hd3NuWlJKWjhieTJCczJxaGFhanZCblI1dmFjdXBmYTZjUnc?oc=5",
+   "source": "TIKR.com",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.952
+  },
+  {
+   "id": "23c09dda4a0bc555",
+   "title": "北交所策略专题报告：后备军关注光通信芯片“小巨人”云岭光电，靶材单项冠军映日科技_趋势策略_研报",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAxNE55amI4QUJJamxQeVRhblhlU2wtUFZoX1ZjcWdwMzlXWlctaFluWkktZGFPVHR2WUxQUDFCN1pXT04zN2w0UHFZSmpCbTlXV3FGTkpMWkZ3RDNwb0FCd1ln?oc=5",
+   "source": "证券之星",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.952
+  },
+  {
+   "id": "07b3cfe4cf04d920",
+   "title": "Zyac’s Z01S Titanium Folder Changes Handle Length and Adds a Second Lock",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVnpiQ253eGRSSnVTMllrdi10a21MSUJuSmpHOGgzWjZUTF9JMGZKX0htQjRDNXl3RkdnODRjbTNNSGNub0ZxbFdGNGUyUkR3a0VGODNfZHBJQkY2VEgyZTh4V0w4dnlLdm9EY2E2SnFQdmpybjBERGZzOWxSSTAyQUdoT0tLcXluYlE?oc=5",
+   "source": "freeyork",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.952
+  },
+  {
+   "id": "5a20b552aedf6347",
+   "title": "Ceramic Vs Titanium Apple Watch: Which Material Is Better For Overall Durability?",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOY0UxaUhXYk9zeVhtWDkwV3RkT2ZDLVNwblJrVWtsMGQ3UnNfS0RBSTNPNzRaTEwtMjM3VG9WaU9vVzlPRW1QZmxGeXlGaU0yRVIySFhNYzE0T0h3Rnl3eVFQcTA3WWtFMVRUM2pubUVzTWIzUlNUUTA5UkZSLUhmUS1OWHVXbzlyVnVZUXV2cnVxdw?oc=5",
+   "source": "Yahoo Tech",
+   "published": "2026-11-01",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.906
+  },
+  {
+   "id": "d82afa946af69f05",
+   "title": "氧化铟锡靶材市场2035年预测：平板显示扩张推动需求加速- 新闻和统计",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxObWR2UlJGeUZmUUF1Nk4wUnFmUzJ1MjJ0N3gweklUTVlOTENjS0stN1BTbGVsVHg2UEEzUG05RlpaalgzdW9VWWptOTBYVUwwMUdEazVkTlpMel8tWjFTSWtYeU1NUjlJZmdBYjExMnlMTjJycUdKQlcyaDc0X21xUHNZTk1oYVd4OHEwaGJqMXlWM3RhV2ZDb1NXMmg2NXRpREV1RUFnaGV0TmhvSUtxRy04REN5UnFnZlhLY08ycmxFdHRUY2U0bXZlZ2w1bzFZQURMUlRn?oc=5",
+   "source": "IndexBox",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "display"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.862
+  },
+  {
+   "id": "d35b21acc9b2239c",
+   "title": "氧化銦錫濺鍍靶材市場2035年預測：平面顯示器擴產帶動需求加速- 新聞與統計",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNcWdYd1YzeldsWkJINXlnS1o2dmZrdUNya3R3WGhaeDlMMjkzdy1Ea1paTFBqWEF3U280eFY5VXpmaEg0WmI3bE5kc2RCem1Vbk1LV0tEWVdjQTBkSG1DbXI5dVlNbGY0RGFzcmRpMDBQcmxQUjcyVGNnM2twd3dZZFVkYXR4cnd6SjZVZWotTjRqWW1XRUF6NWE0TXJRNjJrSUIwRE1hMXNqWDhvWktRQ3dwaVg4b0VCX1RsOFpaa2l0elZ2Vjh4dVFkdldUdnMxVURKeF9B?oc=5",
+   "source": "IndexBox",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "display"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 3.448
+  },
+  {
+   "id": "ade9442cd49d6d3b",
+   "title": "Seiko’s New Astron Has a Titanium Redesign That Goes Beyond Looks",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZl9uU1E1dUFZdzNRc3FJdmJWSmdMRG8xckpycVIwZHRzeEkwVUxsdUVHZ2pocTJWZ0FvMmpFeUp0WlppODhrejlFUHI0cHI3Qy15SnNNZ0VnbkhqQUQ1bXJ5N19Rc1Bxbm9UMjdRQkhXOE5oZWJJV1pNU0w3ay1FQVN0eS0xc0UxTVFj?oc=5",
+   "source": "The Gadgeteer",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.862
+  },
+  {
+   "id": "a1c24e8886242139",
+   "title": "国海化工&新材料|隆达股份2026年三季报点评：营收规模快速提升，高温合金业务增长强劲",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxONEtYNC1xekFBT1Z2aGg1bHRWUkM4TEJBNDllSmI5ODJabXZIR0RHSUhuc3NkcEJnLW1rUTBZZ0ZjOHhQTnV1SWkzRlhzbkFrc0JRY1UycTRoU2VVU2ZLeE1zdXJndWNwTGJHemZ4blJySHZMV3ROR3ZyS3hyUGhua0JMdTBVcjcwQ1hTSA?oc=5",
+   "source": "搜狐网",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "chemical"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [
+    "国海化工"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.862
+  },
+  {
+   "id": "7ff75774322e76e9",
+   "title": "Norsk Titanium receives Rolls-Royce order for an RPD titanium engine component",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWWxKWkJHWktSck9mRnJFc0hUQURuSXRZb0FWYmZtR25tM0s1ZG1sYlRuTWxiTXlhUlZnZTl2Q3Q5R1dzOXppc2I5ZC1Wb2NITjFFWkxXNkdSRGJlOHJkMW9qWHZBLWtWNDhyVjNrVEM1WU1UUGlmTDAtZzhNUnMzZktKQ3RyOElQd1dZV002VHNfNFp3elVJSUJYeGx6S2lwWUFMZTUxeWRKc1Az0gGyAUFVX3lxTFBmZFJ2ZFBmU3lBekhuM0Y3ak0xeUVWWVFrQURZWDc2a0VfUkcyRTExMXBJTjB4dHZiTDRpQ2tFN2xQQU1Kcm1BU0J3OS1DVmNfRDZWRkdHd0xqQ3pTYzFpR0IybTJzSTNQTlFCcUJHOUdYa1ZrM1JuTzZhU2lsVjk2RTFtcVBzTHNjVEpVejhhNTZITThmVVNRYWVoRFVrQ2RiSUlDTndsalQ1MnU3b3F4eVE?oc=5",
+   "source": "VoxelMatters",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.586
+  },
+  {
+   "id": "f252f27be4384dc7",
+   "title": "September-October peak season disappoints, titanium market sees short-term tug-of-war between longs and shorts [SMM Analysis]",
+   "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOQ0JMWmRkOE9DR05FVUxvSjZDOWhQc1lWVUVDOHZCNmZVMXNocWdtdG14Rm1QRnZFZC0tSFF1VmtPVl9qbk5hVW05Sk1MakpaSmstcHJUSGY1ektqdU5NendiTzN0dXdkUVVIQ1Zza3lRMGVUWGt5cnNpMXM0a0t4eUN3dWk4OUlJemFPSWs1elZsVE1wT2xRclpSallrc0UxaXQyaFJNOHVZWFdsbXVNTk84WTNDZFFHaU44Q0E0UW9zUnRaQi11QXMtUmFTQkQ2SDJvckVIZVJYSEVLV3ZGd21kdVlpUnJwZHRCOTJZcDVZcG5kX0owM3Nxbw?oc=5",
+   "source": "Shanghai Metals Market",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "e504025aacde1205",
+   "title": "Tusker Minerals Advances Cameroon Titanium Projects and Sells Malawi Assets to AuKing",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTDBlZ095ZDV0V3ZqU3Q0V1ZmUTg5MXR2UGphNWRRNUtkWU5sbXY0bGxZTkQtMmpfSU5kZk9WTFlEYkdSNUFicTNrMkswcVhWcGNJNmtwYzlBQmVCNzcxZWRUTnhnejFubndsZXJQSmtJY1lqeEpaMmFfTW83MHZWX0FleUVWT2pnQjYydkVoc2ltcjhXV1NFMmJkMVpnLWt2ZjV5TlpPcWdfQWRIQ0lHdlJzQUNUMVBEa0lRdURkRjVxUUNGRE85SmhMMkFiVTJpRHVz?oc=5",
+   "source": "TipRanks",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "c96bf8d50ca7d715",
+   "title": "Rolls-Royce evaluates 3D-printed titanium component from Norsk Titanium for aircraft engines",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNc0NzcmtqdWh6MFdqSUdsb1BrTDNFbGt1WmRyWC1scnpYekYwWmdPTG5qX1VSMk5aZjIyc3liWXZCWFZ1NXVFRVpaajl3OGcxT19SaThsQWQxbVhaYk9hUzZrdmlPalo3NHZ3WkVMMXpHUGpTYXdmWWFsUjV6Ym5iZ0xQM3ZIWUVBRlh4bUlGT255T0UtMDZOclBkNW1zc1NLa25xS3dPc0ZkVWlRal80NksyN0FhWUtfWnRneHQ0RUhBc3JzOXJMWERQSQ?oc=5",
+   "source": "3Druck.com",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "be0dc869c6dceeb4",
+   "title": "Titanium Court Takes Its Weird Match-3 Adventure to Mobile and Consoles",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcWdXXy1zdUVLTERtelRyN3pOYWRPNV9kVG1PbEhaREkydDkwTDJBTVlreW84WlgtT1lVYzNIV0s4bjZ4Smh0VkIwTWpia0VaWTBlZjRkVWVtMHpBLUdBNjNtMUlucHZZNXR6T0t6OWNhbHlTTHRMdXJoR3FHdzdSZkZtSUNaalJJTi1Mak92cUsyZm52Ukw0ZTFra3hBbzktRExwWkJSQnE?oc=5",
+   "source": "COGconnected",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "aec692e957758bfd",
+   "title": "New release roundup: Monster Hunter Outlanders, No Man’s Sky, Titanium Court, and more",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWTlTeXFlY2RQQjhYcjJLcWt1Q3V6cEhPZGNEb1YtY2ZiU3BSLTBSMlBJYktJbmFYcGJVMUE0cnFwc3BueUFYM3lsSWVLRjVjQmRsWEI5dWt0RkxrWGFMSGhTWDRhczh0SmxYYUJ0d1F5T2pWTTdnbHNScl91MXpOdzVBV3F1aXk0azRvVW94YV9mTUtvZnk5NDNwQ2xIZ2c0REFkVFEyeFdsUG10Mm1n?oc=5",
+   "source": "PocketGamer.biz",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "a38ec81901c5204e",
+   "title": "Rolls-Royce评估Norsk Titanium为飞机发动机制造的3D打印钛部件",
+   "link": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxPVC1CZTVDMWlpNWNBMkZCRHZNS2doeHpEaERvdW5VUVhPZ3c1eXJwQ2NLX0lmUmpvcjZoUmxPOVF3VEI1eDRuX2U1UFo1bTZ5MUpiNmNxRElhWlFQUFpBSENWM1U5SHV6TVRjclZfamlaYnR6NW00R296RGE0UTVseHBGSndBZFdDbzFEN256Zlg5ODF0UmtLQ1IwTTlSLXhNWFZDQVFGMWpHRE8yMDZva25RVlRaM1BPY0l3aHZyYURGdGxhYmNudFFWSmxEWW9FS280anYyMmY3YWZzSVRpaURzSncwRnkwT3NqUkVHUk5obU1BRF9KUHZwS1VrY3BPQS1td2NNa2NXb1dJSE9uVmRzNVBFRWgyWFFDWUJkb3VWSHJpQUpwVWhJdXVJOEhZdUtoT3lUVWpvbVZOWXQ1SndsYld5WHU5YVlLdE9vb1piVkE2TU9lalVVV2NSU3c?oc=5",
+   "source": "3Druck.com",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "82f606aaa1b0a031",
+   "title": "IMI and TotalEnergies qualify printed nickel alloy trims for sour gas",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQSkxZVXYyZng3dXJFdmVoc1dFbHJOVDYtOU1pbWVNQzRSaXNucjhlSS10ODRCUi1YSkFNalgyQXZTajdwSHZYZHNkQW1YNXVyN1l1Z0NKbnZuZHp3ZW1rNUY1X09XME16S3RQU1RhSEpYNEM3VW5kWGJad0otOFFYWWdWdkF0UkFEWXBhajBMLTZybnBteTF5MXZQczF0WmE0ZUFFR0hyNFo1a2pvdXF1NE1Nbw?oc=5",
+   "source": "3D Printing Industry",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "5db9fd7b62682130",
+   "title": "On One Titanium Mtb - Titanium Not all its cracked up to be Mountain Bike Reviews Forum",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB2eHYyYXFfSkVycFFEb1VvajhJb2tfZkZGX0E1WEV0RUFvUEx4ZzdmeDAzZjE5Zk9CTXBCQUJ3UEo3N1Qta003UGdTMnRuamNGNDZZ?oc=5",
+   "source": "auroradesio.it",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "52fc6a834f65e961",
+   "title": "Today in Gear: The Kings of Titanium EDC Reimagine a Culinary Staple, and Your Kitchen May Never Be the Same",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPam1tS2NMckRpY0tjOTNRMXNrNVl0OTR0eVNwc3kzM3UyakdfNHJwbGxRUEVYUWJSX2JhZjNoZ1lwVng1ZXJ0TjlFc2pLQWswRzA5TVVPMENjWklfUFpQcWdyZVc4NExSR0FBVHBSdkFJTkp3RlpHbjhoSXNOU3Y3ZEtWekRpc0ZB?oc=5",
+   "source": "Gear Patrol",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "3fe6246453f33a39",
+   "title": "Short term long short game in the titanium market where gold, silver, and ten pairs fail",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQemdoc1hHcU9jV24wYjM0RS02U3lfc1ZXV1BOaDhvSUpGU2IxUy1STTlEb3A2eUtFU1BCaTg0V0ZGZ0VHaEotOVdpNUNZcjBaRGt3S2dzNUtnTnJtOUV3U2JQMnU4bTFzWkwxSVdkdDNLWVM3cmRKRE8zUVBqOFZOWHB0UWpuOC16UmZlMnEyZ042ZVczbHNzNWs0X2QtTEM0enR3V2dWcjB5SGFTZUFwNldJQ0M2UGt3T3psNHlCVmVxanRIRmV4V3d4UQ?oc=5",
+   "source": "Shanghai Metals Market",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.82
+  },
+  {
+   "id": "d91ca56d2ded99e7",
+   "title": "Rolls-Royce places purchase order with Norsk Titanium for 3D printed titanium part",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMlFPUVZEUWN2RDVBemdYRDFSMlFXWVo4NURsdlk3Uk1YSmw5cEYzSEhUYVlhOU5ucFdQeEZabU1jN2VOTTJ4emVOYnhtVldZRW81WHVOOWhpazFfWFVLYWJhR0JuX3Z6WXJQaFI3OUt3XzdTY3YyNU5mcFJtYzBsQktsNlM1QkZLN2RLaUE5UzVVbnh3OUZGakdRZkFzOEJabjg2VU5kT3FKc2hjbDRYYQ?oc=5",
+   "source": "TCT Magazine",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.342
+  },
+  {
+   "id": "c9db7996c4928c0d",
+   "title": "Norsk Titanium approved by aerospace jet engine giant Rolls Royce",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNSThKTGlwZEdRQlpHazVNMFBReHhQTVI0ZHBHdHFpaGVRbUZnRG15S1NoWmJZUUtJdExDT3M0SDdIZWs1Njc1VzhldkxuQWhPeXFYYVhHZFhfNzROYXNsS2Z1X0t6UUpJZ3VJdE9ORW9UTEpiMnFuQmtTZEFXa0RjbWVYZFpGSzdiajFsb0RmQ0hYZUpRbDBsQ2Jhbk5hQnBfSWNld3ltaHYxN3M?oc=5",
+   "source": "Sun Community News",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.781
+  },
+  {
+   "id": "c1dd2bc5bdbd51f8",
+   "title": "Norsk Titanium获罗尔斯·罗伊斯RPD钛结构件订单 - 新闻和统计",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaXYxcmZJQXVoS2VqSk9SOE54cGUwdllvQ25TNThvdVUwYmpnaFYzLUZtWDgyRFB6NFhtWXpmNU9oY2JTbTFCM1UwZjllNTdTYWZESy1uamlSSmhyeGlrY3M0TVBBYjdRMzVWdXZrdmQyQldLUm5uMWVhMEpESFpEbklWdEZQNnozR09YbWc1MzktV29hOTdWRHVEMjNLNHV6dVprSnRoZkVzYUtMRnNrYkdZNk5HNlF0NU55bw?oc=5",
+   "source": "IndexBox",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.342
+  },
+  {
+   "id": "8ca553cc55463a12",
+   "title": "Xiaomi Debuts Redmi Clip Neo: Open-Ear Buds With a Titanium Twist",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMmFvSWU5X29GMUxVc2FFN2dTbG16UGQxcnBnUFk0djR1ai1Tc3UxZjBCd1JaLS1FYmpWWlpWbHBRZWJXREoxT2JUcTlaTE1wMEJPSWgzenlFTmlpOGwzaHZOOGE3VFM1LTR0cHc3cGQ1STJmUXhESGFfYWZMTzdLRHlLV2c5aDB4ODk2am1BSnM?oc=5",
+   "source": "hi-Tech.ua",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.781
+  },
+  {
+   "id": "5f4242158fb0612e",
+   "title": "Titanium Court Is a Surreal Autobattler Strategy Game about Fighting a Pointless War, Out Now",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1UZFpiQzRwQWU2b0ZNdUVCZm1Oc1hYc2dvRHZtUWV4RGJrVkFqbmZMU1loNVdiM0szMVRUa0tpaFVoRlhXZ0ZrX2F4YV9EWkZ2dDh1UFoxVGhsT0N1?oc=5",
+   "source": "Droid Gamers",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.781
+  },
+  {
+   "id": "58a1de68a019990b",
+   "title": "编织镍钛合金3D打印用于定制血管器械",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQ0t5cF9OS1c3M3hvY09sV19JbWhLQ2pYYnZKLU9aMk10RTVHVG55QkMzYUVDeUR6amoyaDRjU1phOHVfU2N1NVZaT0VrX0dmenUwNHpkTFl4MVMwSW96V29ob1p2My1vQXpDM0M5Nk9yVzVhYXpuUk5DSVRHMXdwZzRUbXU5UUkzU2NvQmJDTHJhejRCSGdzZlhOaGxuWTdLZTE5cGdfVUJDMGhQZTY2WXJtQQ?oc=5",
+   "source": "Foro3D",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.781
+  },
+  {
+   "id": "575689616fef2dff",
+   "title": "Norsk Titanium Wins Rolls-Royce Order for 3D-Printed Engine Component",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNWkVQdG9IOUNuZWdaYjVwWm54VWc3cTA5bGdoZ051Z3A3RDMyQ3lsT01mZTF3TGp5dFFqYlR1dWRzN1NrZ0tYd0NPWnhUT09UX1h4RzNkbE1JY2dXLTV0ckVvSjVlZktvS0htQnMxeVBEUklSWmo2Mk53dThvUXpyQjZIR1J6WVJoLWlxT05IRlMxWTR0R1BWTjlyMmkzUkVIMlNtdl9uU3BoYjhMZ1dyVWZGNE9IWFNYeWJUcUt3?oc=5",
+   "source": "TipRanks",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.342
+  },
+  {
+   "id": "4d79c3d91a4ffc42",
+   "title": "Medical Grade Titanium Materials Market Expansion: Advancing the Future of Implantable Medical Technologies",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcXBRSENIM2hrQ0pIUDg5alpJanpRN2FGVXRuQy1INWhVWEcyT3B6YjRBXy1FNDZFbndMdDgtZV9hQXJlM1JBUXZOREJZVkVRMVRQVmJ0ZUVwaFlaUkFKWEZHWjQtdXhHb3ZTVTJBdTNJUzlNSmEyMDh3bVpybWtDM3U5ek1xZy1rc2FaZGJaZV9zQUczaF9Bd0tRbw?oc=5",
+   "source": "openPR.com",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "OTHER",
+   "orgs": [
+    "Medical Grade Titanium Materials",
+    "Implantable Medical Technologies"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 3.123
+  },
+  {
+   "id": "417550ea0c4ae30f",
+   "title": "Norsk Titanium Wins Rolls-Royce Order for RPD Titanium Component - News and Statistics",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSDZEZW9rcDZiczBEOUc4WV9TVGdzWmFPTTExWjVGbVZBTlJsRktZd0tUWFMwY3hwQ0MzYjBTQUNwUFB2TER3emNRM0hRajlFcTdkajgxcHlJZ3R0aWladDJacUVLUlFsYlpfTV9hWVhCelVpVzZWNThhMGR4Z1pwYy0tYVJ5dE5KV2xXQktsWGRGUDhPN0p0Wi0tNTUtOEw5dFNkYVgyN0Q3MmlsVlJtX0VB?oc=5",
+   "source": "IndexBox",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.342
+  },
+  {
+   "id": "0894b2713827811d",
+   "title": "Titanium Court - Official Console and Mobile Launch Trailer",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQandNZmsyRTRvdENqM3dRX19aS1E3RVpqTFQxemc5Z01jTHBFZWlQUlhudkhrY25MaUFJLWhZbmtzaHlZN1ZXSndmMHdRZ05DSnJpRTdneV85c2ZpZlJvc0V2ZDFaNDRxTlFNTnJ0dUdaTDlkbGhKT2JHSl9MMkZsc1RFR1JVZ0h6UHltQnR1UkVMRlhzOUlsV0pSN0pkb0k?oc=5",
+   "source": "IGN Africa",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.952
+  },
+  {
+   "id": "02760181330f78e2",
+   "title": "NTI: Norsk Titanium Approved Supplier for Rolls-Royce Development Activities",
+   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQZl84RFlLRm1IZWpMVHIxOVJUSnU1dTBQbFlJbUZZWlZsMW1xWTY1THJ5WXpSemo1ZUp1dDI2Y25fbF9QTHBVdUE3dHlHOGJlR1VUb1RPM0M5MElCcG03VU1VLTVWUXhBN0tmTnIxYU8zT3ROcVNnRFBKRHBPOTVnU3ZYRWhTOGtjNmxqSnduV3pqTnFBak0xZ3huOUhtYkJKWTBRV25BRS1ET1pZRDF1SGFjbjRfY2Q4c2JLbFlGMkJuZHNtNWNNck1yMzhqb3hhTHhjMDdPZ0JYOF9lcmp3NkxSRXRKd3NIbjZKMDltRGxxRDBrZnpMeg?oc=5",
+   "source": "Finansavisen",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.781
+  },
+  {
+   "id": "d58566ccdde4efd2",
+   "title": "Titanium Castings Market to Reach USD 7.19 Billion by 2033, Says Markntel Advisor",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQT2tfZGY5QTZ0MVN6ZTlBam81cklKSHFqWk83Q015clltQ2FpdE0zMmJLNkFYblpNMGNvLUZDeUotcGV2Tk52d3RsWEhndEpOZXFnc2ZzQWhkZ2lTU0NfLTB0Q1BTNU1MZnlYX2g4YlQ3cTB2Q3N3ZDhhdk5NQ1RSX3pIelBkMWQ1WmVScHZfV2tRbXZqbWVUM1kyZ3h1TVV5?oc=5",
+   "source": "openPR.com",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.743
+  },
+  {
+   "id": "aecebe33130a6810",
+   "title": "利好！半导体靶材龙头，前三季度净利翻倍了",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1PR2VxY2lNNnhtU0xORmZxanNHMFZGbWhCTi1QMUs3M2p6NzNUWGloeF9mWTZjdk84am02VFgxV3lsTWkwN0tQcGVWenlEajR0dW53?oc=5",
+   "source": "搜狐网",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.743
+  },
+  {
+   "id": "091db5e513fc417e",
+   "title": "Titanium particles from dental implants can trigger prolonged inflammation.",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQaDVHd0JZQkdveEZVaVR1NFdCWFZGUThRaTFMYXdCZU9abFFwVERvVTViYThrOWl5dnhvTGNfVEpxV2FlUlZpWTNWOXBrRldrWTVmS1hvOVhfTU94S2hEMVprLXdXTnVVMUcyTVlNdXp4Q2hTZFh2b1o3Q1o2ejJXQ0tHQlJLbXJa?oc=5",
+   "source": "Vietnam.vn",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "medical"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.743
+  },
+  {
+   "id": "e7aa545ecf75d9e1",
+   "title": "航空零部件用钛棒优质供应商合作实力参考",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5WY1RtWElQREpRd2ZuY0hqaEZaT1NFOTU3MDhqbjNHQ0lqTVg5UUgtR1lsQnFQUjluT1Z4c1gwWl9pakFxckZYbF9FbHp2YXM?oc=5",
+   "source": "凤凰网",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.673
+  },
+  {
+   "id": "bd895e95f9a7ce7c",
+   "title": "玻璃基板TGV金屬化全鏈路：從PVD種子層到電鍍填孔的微觀博弈",
+   "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1BeFFSbC1TRUp6LVZiSEtKWmNRemdibFFZMmpRUWZrb1dqSDFfakllMEwtMWoxSXZPVHZHejRYN2E3ZmlwTGs3Sw?oc=5",
+   "source": "鉅亨號",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.673
+  },
+  {
+   "id": "b4ca11d18311d907",
+   "title": "鈦合金智能眼鏡概念亮相 融合未來科技與工業設計",
+   "link": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxON216ZE5faVBsUHVGdUFQUGh3R1FZTThZVW5GTGU0SG1RVnRjeDR0Q3lQaC1saE5xb2haNHZCVnk2UWhXODFTaVhraE5LY0FRbzBQZEFabUFNc1N2XzNLZ1hSTmY5REVKQ0s1YXBkNnFDVV96RnJsTEdQRTI1OGJKWjlnb3dhakt4ckZ0LW03dU1RSTJmQjRBNzZRdG1TYzBGdUJ2eWJpRXItVW8yaUhMY2FETkZaY3BSckJnajY0YV9DeTZjTGYta0hQd3YzYzdRd3pURVBsNkJxQnZwbTVWV1F5NmpvY0hZSEkxelhXNFFKWHd6R1VkNUk4U3prVnF6ekNobll1cTNPSDdZcWlRdV9YZjZmci01eldjQU5MQWZ6WDh6NENNNFpGTVhFZVU5bVlHTUNHREtpUDNETi1VaGUzRHplX05QVjh3YU1HSnY?oc=5",
+   "source": "Life 生活網",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [
+    "融合未來科技"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.673
+  },
+  {
+   "id": "1d731c6d554790df",
+   "title": "Key plant producing 96% of Russia’s titanium hit by Ukrainian drones",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQYkpvSUFWUUhSRFc2N3FtSEJxdlVuNFFvRlk4QjZCQmVYVDVpc292WE5iV3JkOVlGR2FjZ1dLeE5BcnIyNVh5RlF0Z3J4dWNfdUtKUGg1S2dSZkhuR2c4THFCNGVfMTNfeUdiMXJ1YlRSa3RXenJRTHdndE9OOENSemE1THNXN0JuMmFpRnlodF9uR0JGS2M1Ng?oc=5",
+   "source": "Dagens.com",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.673
+  },
+  {
+   "id": "0d3d73ceefc635bb",
+   "title": "Ukrainian Drones Strike Core Russian Titanium Plant 870 Miles Inside Border",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQzVvN0RTcHp0eWR1emY4NVFWM09JVGpFWmJubklBN2czMXE1bHJHLVVvUzMxU3BQZWFTd0NEVlpQQ3pMSHNNTVppWFRWUmZEVXh4d1F1VVY4T0tDUG85Zy0tUGRqdHZWeTE4aDdyY1gtUEFLZFJHYTNFTmEwME9VcmVmTjRfckpya1JsTkw3cWwzSG1RM2RYdk9DeDAwdw?oc=5",
+   "source": "The SOFX Report",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.673
+  },
+  {
+   "id": "b90d3c898fe4b353",
+   "title": "Drones Strike Avisma Titanium Plant in Russia’s Perm Region",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9YLUdRcjNjY3h3Z2pkbzhubThaUFlFWnAtZ3M2d0dVVE5xRW45d1JSZnVzeEpDOWVqbHRMRHJYVkY3a3cxbWQzMjM3dw?oc=5",
+   "source": "Kyiv Post",
+   "published": "2026-10-25",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.64
+  },
+  {
+   "id": "96767d6bbf4f4e20",
+   "title": "BlackHeart Road Ti：钛金属、3D打印与三十五毫米轮胎空间",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPZ1RoSTk5aVlCMmVlN2NqVGNiSDNOd0pOMkVpTUwtZDRqYmhoSGp1X2xhWWhORy05UWJGeV81dWZ1bUQzX0EzY1g4bC00T1VlUUp1RkIxYk5BSm1rWGdlR0tkcFdNdUMtb1VhV2E4aGVCaU14cml3anJiNEdvcFRmcEVfbEJRbjhnZ2QtTndrRnNxTjcwU0VRTUs4M2wtbmpTN3JlRkI1Mlp4MU5VQXNLSVdyWQ?oc=5",
+   "source": "Foro3D",
+   "published": "2026-10-25",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.64
+  },
+  {
+   "id": "87ec95a5ea1ef3a5",
+   "title": "Apple commits up to $100 million to US titanium used in iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOOGJGRTI1Qk5SUkFEaDR4UTFMT3FocTJTWGp5UWZkMkhWempTY0JvamxYeWFJTEdFRWVqN0hjd3ZtNnEtYjNEZ1pQcWJLQTJCVG5pTWJoNFI5eEhQREhoVTBJaFE4TzdZOXEyVktUV2t5Sk0yWkM2dlI5b0xEZG45aA?oc=5",
+   "source": "MIXED News",
+   "published": "2026-10-25",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.64
+  },
+  {
+   "id": "86926f8df1007b84",
+   "title": "Drones Strike Russia’s Titanium Giant Supplying Su-34 Fighters and Iskander Missiles",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTEZDY0R0dkFnbFVEbXBwM3J6YURYQlphczdORWdhZUZRY05raFRQd0t4aDdmdUkzOUpyTlJYOWJHb3V1T3B5M1NTUUZJdGRBS1BEWnpkSkJpcTVKcnNEaXlkbHhRZHdZR1UxcXNGRDlERXFuU1NsRzdDeVdlSGhkODV5U3JfSVVQRldNTEdXQmZQSG55SW5zaEI5MG55VmNrV2hMUFBEVExnQkRxYkx0d0VrbzJfa21ES1RLMXd6azNxNE5rRm9nckl3?oc=5",
+   "source": "UNITED24 Media",
+   "published": "2026-10-25",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.64
+  },
+  {
+   "id": "3b273ed31eb92ad0",
+   "title": "Ukraine Strikes AVISMA Plant, Which Produces 96% of Russia’s Titanium Sponge",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZkI4dFdNd0hpM2VrOFI4bnVsSDI2bWZ4dGx0QlQ4S3phb1RSdGRUdG8xS0plQUdhY1RUX0hRMzZsMjQ1dHBuWERsS09QUW1LSlkyWGgteFNkX05SVGllYjFJb1hoeV82RmkwaGNFVUNsRlk0TEtBZ2lhSkU1WVc5aVdEbUVJYzZ0WmwxSEx3WU5lc0tWVUhKTkkyMVgzVnJGNGNocklMLVNJQQ?oc=5",
+   "source": "Мілітарний",
+   "published": "2026-10-25",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.64
+  },
+  {
+   "id": "33df202be56bbebc",
+   "title": "Western Pennsylvania company joins Apple supply chain for iPhone Duo titanium",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNU0Y0dV9oZ1dselZHVHIyaW0zb29yZlhFLUt3cEsya3d0eFI4QWZyTzFhSFpPbm4talh4RGR5SEVoYlFYMkFPREE2NWk2czJLTGYwSTJxVnQxaWlGaGFaRHJzVTN5aVBIWW5pXzFXcFpMUWRGWFFZRGcwT1RURVNfWmVDUDZBNm1tU0M2anBuM2c?oc=5",
+   "source": "WTAE",
+   "published": "2026-10-24",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.829
+  },
+  {
+   "id": "80446b9db65ee07e",
+   "title": "3D打印用高温合金粉末具有优异高温力学性能 我国布局企业不断增多",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9OQUNYaUFHUTRqNGROclNNVFV5Q1htSS1BSmxKcnFhZUdnbTVpdXJnRk5pdF9pQ3RzeFVJM211amJfVXFfd21IbmhJYWxxNnBEamtuZFpUWlFhUFBNMzdhUklfMWlOWWhWZmdKUERMZUlaN2UxdDJ5Rg?oc=5",
+   "source": "新思界产业研究中心",
+   "published": "2026-10-23",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "additive"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.58
+  },
+  {
+   "id": "0c1b89e8eb0f56a2",
+   "title": "薰风钛坦90：3D打印钛合金中管破局，羽毛球拍下一个时代来了",
+   "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE02d0dJR1hKblFmRGIzYVVzOXljUWIzMGdINFdjd3ZHVW80cnRFWkc0WEc5N2VqR3l4RF9uTEItTTlCY1llZzUzeDNyUFM?oc=5",
+   "source": "凤凰网",
+   "published": "2026-10-23",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.58
+  },
+  {
+   "id": "f1ef817a82daafa4",
+   "title": "Ultra-high Purity Aluminum Sputtering Target Market Growth",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOUWNQcDBWQks4aVFqTzUyN1kzNjdPRWlVdDloZGlFWFFLSW55clpFUnRwQ0ZyN1EzcXBSTFhJcUR1bkYxY0Fwc3VxTEdhMkZpRkpqU2NlRUpUa3RNZDRQNllwcE9uQ0lSUERFR3hqd0FDREY5V3AzaDcxNWx4N1piTVhlTnEwTzg0ZFZJOVZ2NTlobGM0QWc2eFhB?oc=5",
+   "source": "openPR.com",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.552
+  },
+  {
+   "id": "97431ff9ffdbc969",
+   "title": "Marathon's legendary military dive watch just got a titanium upgrade, and it's 30% lighter without sacrificing toughness",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTGtPZkRIYllpV1ZTel8xVC1PSVlGMlotaTRRR2RIb2MyV3hxRkl1RThWd3FzcUVlQy1xbDcwakNVVXBzQVVFOWFoMUpQeGktV1dHWmgxLVJBNlBUb2ViY2F2dXlSb3ltRW5fUmJ0OWRhSDFnTjRobzlsLUp5b2pVdVJR?oc=5",
+   "source": "T3",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.552
+  },
+  {
+   "id": "8ba4da3393c1970b",
+   "title": "PyroGenesis Announces Third Titanium Powder Order from Additive Industry OEM",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNTUdYWGMzQ2VaWmdNQVRvdjRESl9oczVrN3lNeVJBS0ZyLWhFSGZ5VEU1cVhfTUhXRVBWMmIwNXJhdjRaeTlKeW81QksxLU50WEVNUWUzNldPRDE4NUZoclBYR2Y1WGh5MFE1eHloaTcwQlR0STZjNldPWmpwekVoQlNmQQ?oc=5",
+   "source": "GlobeNewswire",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.656
+  },
+  {
+   "id": "8973229f4ea28e0f",
+   "title": "3D打印用高温钛合金粉末可制造航空发动机热端构件 我国具备研制能力",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA3RFJrNTZwOTJ6WnZwMy15N0VZbWVaRzdicWRqeTJ2eFhya2JiN3hQMlFRVmRTU2R1U0xYT2ZwR0pBWm1iWVhRdGFpU1FMTkZtYW9KdGtidWdOcTRWUEN0cGk5YlJKNTcyVG0tMy1OOUZuWDNZdXc1dg?oc=5",
+   "source": "新思界产业研究中心",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.552
+  },
+  {
+   "id": "86b2f863eb4fd220",
+   "title": "PyroGenesis Announces Third Titanium Powder Order From OEM",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOTUpTclo3aVVjVWxjTVJPOTRJeXRWTWdKWUJVdDFjVEw4Q2ltSXZNZTE4bTFITUxraXdELXo1Q2F5eVQ0QlFPRldsUGlwWWFSNnFzWVpqbnlyOWREMzFZTkhGNmFlT29wQWFZYnhzdWlwa2l2ZE9Ib05XeUp4cGpqaTlNdXVUbWJqXy1TcXlvT2U5OVRrQUctOTFpOFNveE5vRjQtR3AzdGE1cFBPMEF1WXFzWUk0MGp4RER3Ung5ZGg3Rl94bmk4?oc=5",
+   "source": "Canadian Manufacturing",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.656
+  },
+  {
+   "id": "853208ccfc0e538c",
+   "title": "3D打印用钛合金粉末应用领域持续拓展 我国产能持续扩张",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE00azdRZUtnc2xRYmdrWlNrNER6SzdveG13MjYyd29KTE5vV001RE80Z25xNDBIZlh3Vko5MFZMTTh0Sm9YdDlkM0M5aUJjSUh1YnFlMnJaNGZxRWp6SmRnMTY1SGdXOV8tUUN2Y2l3TjNONFJVd1hMeA?oc=5",
+   "source": "新思界产业研究中心",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.208
+  },
+  {
+   "id": "726c3951231eafbe",
+   "title": "Apple commits up to $100M to U.S. titanium supplier for iPhone models",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5MdUpQQ0lkazFiUGU0b25xZzEyczItWjg5WXNkYWJWbHJzNWhDUXByTWFsY0J1Tk9yU1dpenFZUml3RHFXMnBubFZWei1QRXVVcjgzcA?oc=5",
+   "source": "Trend News Agency",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.552
+  },
+  {
+   "id": "3ed86e08e8d11c1d",
+   "title": "Apple commits $100m to US titanium manufacturing",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNajJfOWJoZTVQQ0oyUUJsaWE4dGZXVVlmaElZYjlzdktRb05IR28zQ1JoWm5GVjNuZ18zQjl5U2ZDTjA3WXdCR3p0MnN2V1pIamFpMlFoMGxIamJnQXZ0bm9VVjBGNzNXMU1JbXhxQVZySjdQblVzd3JFZ3VMbzdacmZpT0lCOUh2eE9YcW1qSTBoQU0?oc=5",
+   "source": "The Manufacturer",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.552
+  },
+  {
+   "id": "2860c5d0795292df",
+   "title": "PyroGenesis secures third titanium powder order...",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQWjN6THNnWnh6dzRRQnNUUmxOZWROa0ZzR1cxeFVZejg1R190YkNQV21WOS1OY2Fkb01xVXZhWkJJNWpNcERLd1RwOC1US1A4eHpPQTFiWUVxSkVLcGQ2RkVFT3RIOWpYQ1VMN2l0NFpjN29qYl9YV1p4Tndfak1MRDZXYTY2X3JsNmJTUW5LMUg4azdYSy05VEhzLWhydE01eGVSWHlOTEhRbmM?oc=5",
+   "source": "Pluang",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.656
+  },
+  {
+   "id": "d20ee20c170e79e3",
+   "title": "Titanium Lightweighting Delivers 4x the Energy Density of Lithium-Ion... Drone Completes 918km Flight",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYkoxY1F3eWhaTnpKdzF2b1Yyam5aTzg0Q25neGVOVENUZHpYSmhMQURzTGZwTzlkZHpnc0FqQmU0dTdDcGtMYTNHQXllS0Y2cUdhVUVKV0V6c1N2TGhzMmhWampDZkpxMGZRTnpxaGRaVWNDMGc?oc=5",
+   "source": "BigGo Finance",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "c64c0d0a8450a774",
+   "title": "Apple commits $100 million for US titanium from Perryman Company",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNV0p4V0dIYkg5eTdzTGZTMUNOUXpyRlJTMXpad2hzR0g2YW14WDJhQVExMGxBS1ZMajQ5YzJXM3FzeWd6VmlELUhXSkdIYjRXNmlDc3I2ODVYSWQ0NXNSZ3ZMbnlsU2JrQzZIbnc4WFhzYmVTcmhvaTB6TGhnTDNsY2QxR2Q5WjlZTUg3UENSZ0JmWE1uNmpINzB5dHZmUUNKc0VwcHMtN3dJcWduNW9CYkpDTEtvdG1tRFBJOE5PNTB4STVwcFAtdVdnUmppQjdFZnNHMFVCZXJvRzJXT1pV0gHjAUFVX3lxTE4zWmE0SkhoV2JFWC12VDB6R0JEOU1VZllKeVFXVlptQ3h6ZjlYU3hjMlltc3NhU0xiU1ZFVUJyck1uWklrOGZiczZiT2Z3OS1KeFpHUFNkRFVNUEdWcEx6bVFJOUFiWTJ5d2R5eFFpbTRPVHZnMERWNVdmU0NGMS10TVVxZ1pjekV2ZUhRREV5YkVGUXF2aVlnOEd6WDhZRnlOTlNsUWFIQno5N29QYV9CbDE3M3FMMHdzLVhMWUFfalUyV1F0OHItMHFKVEVyU1poMWtVMEJORVE5RXV5MnJkU2Zn?oc=5",
+   "source": "electronics.economictimes.indiatimes.com",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "88cf902d12d5bdf8",
+   "title": "高温合金业务营收增长强劲，多赛道业务收入大增，隆达股份前三季净利最高预增97%",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQbWprTWxETlRTQ3VSN1JfSFZib0tjYzJrbHAwYnRVaDR4YmFNVE9tRm9UUURHWTlLSkx6a01LQ19mQU4wQnBBSWhpTllMZUJ6bzZzaUpXVEszbFhiZldhRTF1RWFVY3lua21JeEh3dUE3WGhvMHhFN1Z3Q2VYWVhCZVNPT0dEdnk5WF9XQg?oc=5",
+   "source": "搜狐网",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "55fcbe009f126f4a",
+   "title": "Mewtwo gets a $134.99 titanium ring for Pokémon’s 30th anniversary",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMFJCZXZMc3FiVGl4SXJUekExd0FqeEY0YTk4WjZwa0taM3pCYW1KMzBOUUtGQ3NRanhUaUY1dlBVeHlPQ0NnWmpoNTVRdjljcmRxNzkwYXZUWV9EQVd2TUtkUTdkMzRsOGxoYkhVb2NQTmZJd09RdzluZVFMeTFPZEMzQ29peHVQdDhreg?oc=5",
+   "source": "eGamers.io",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "5332b81968498cbe",
+   "title": "Apple Signs Up to US$100 million Titanium Deal for Products Including the iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNTTg4NVcwMkc4VGw4U2xibkc4cHgyelBlV0Ffc01IM1BuRG0zblBNT3ZfSzlnX1lJTmU2R3NjdV82WS1lak5MRmNicFg4UEdPMTBDWDM3N1F4VkpMM0NCYUtnMUxkREZib01hazEzYUxQZGhLRzBkejhsVXNtcmt3Q1IxQ1hHcE5XT2w3VUdveGVaNGFhX29XU1k3ZXlKUjk0Yk55LWtOOWNwR0kwTTFxQ3NJLWFMV1Jk?oc=5",
+   "source": "Apple World Today",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.576
+  },
+  {
+   "id": "4b9c13ca3f70f25f",
+   "title": "DMC&H achieves historic medical milestone: DMC&H Ludhiana performs Punjab’s first customised 3d-printed titanium bone implant surgery",
+   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPeUxLSm1iRFEzcl9vaE9wdlQxOWhibW9OMFMyTE91S0ZOZ1JBeTZVT2JvMTkzbkZ4NVB6UFFfeFU0ZnNzb1NkbzJoZlBjT1RBNTQ3RU51dkVPQTR1ZzkwTFAzUHh1aWxtX0dkd2VpX2J0TS1yS0RzbHVDWUd0a0hrcno4aGJxU0tNa2tVU2ZWb3VkbjkyMVF3a1ZvMmV5TVJ2aGh1VnMyOGdmVGZxak16bDB2dVV0YzRzZ0NFNkZTT1hVU0FPNjdvb2RBSHZQWEFwS3B4NHRqdGlzOFNNNXdOZDhLNGFkR3BOS0RsZWE5SjE1OWd6clBVVQ?oc=5",
+   "source": "Cityairnews",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "medical"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "15ab8597b318d537",
+   "title": "PVDコーティング装置の世界市場規模：2026年は9385百万米ドルに達する見込み｜QYResearch",
+   "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9LbzlDMmNlOHVoV0NYLWh6Tm9FZHR5OFI0Zy1vbGc4c2x3c1N5cGlfQ3IxNmV5b2htRWZoUWFpUGdack5XSFd4ZEdHZDBVZ0hQWDEyVzFITQ?oc=5",
+   "source": "note",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "ja",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "JP",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "db4b2b8cd68acb58",
+   "title": "Spine Innovation Announces First Surgery with LOGIC™ Titanium Expandable Interbody System",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPU016SzAyMTZSdEQzazhMTEo4SlBZc2IxVm5NcHNxaFBrWXdacm5ZelU0cHJ0SlRQeVhlOElCV05XRi1oSFYwTEJXVG05cWc5djg0bXh0ZEJZcHFUdzdJMlpFSG5mRXV1STBVNmduMGJ6d1dJZFBMaEEzYlFkSnQxa1VxSEZDbDBPZ2h2YWRWeGgyWjJsb1hfcXE0cGN0Z0FWWXJVUTlPd0c2dWhDdXFQVFNMcGJDajd0R2ZFa283MmRuckdMNGc?oc=5",
+   "source": "Ortho Spine News",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "d6fa02c53ae04ed8",
+   "title": "Novel High Temperature Aluminum Alloys Target Titanium Replacement in Aerospace",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1iS1dWS0VnbVVIcENSX3FzalliaXZoMklQQnhqMjJoRkNJcnByR0ZING83X2lWdHNmN29uVGlxajU4S1g3LUFlT3B5QkZKVWlRU09PMU1B?oc=5",
+   "source": "AZoM",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "d1be55b0b5907184",
+   "title": "Apple names Perryman titanium, Qnity films as new US iPhone component suppliers",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZUNxUEZuWDc0Nm42WDh3dUlTV2ktanhobzFobWZxcWdVNUNyYVNtR21jeDNKZU9CQkV3alREdVpHRWpMcHNSYV9NSTRyZ2NRSkxjWkdaVjJjZ0dXVVo2LWxwNEFIYld0SkZaTzdQbTVWS1N4NVN5aHhiTVR5bUR2blJ1VlV3djhoMlNIRnhmUHJRSEp5OTNVcGhja0xpYm80dU1oREhSVmxwbWc1bWwzdjlSdnV1MGhoU25qWW1B?oc=5",
+   "source": "Telecompaper",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "cc699fce30687a79",
+   "title": "Washington County firm lands $100M deal with Apple to produce titanium for new iPhones",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE80c1JwaWJnY0RJZ1ZCODFndjRfbmtFdk1sVjc4U1FHUWJkYTl3R3FKc2QxSkMyV21zcGU5SW1YeHI3eDBNZlZDTDlqb09QZktNZl8wSV9n?oc=5",
+   "source": "TribLIVE.com",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.5
+  },
+  {
+   "id": "bffc9d40cd529610",
+   "title": "华秦科技(688281.SH)：华秦智造已掌握针对钛合金、高温合金等难加工材料的航空发动机、燃气轮机零部件加工技术",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9vNlhKeXBrVlgzSW9jdlJkLWlFWUstMHMxaENmQ2xGTVJ5Z2R4N1c3aGVXQkMtN2tTWGhXOFZHSVhUWW0tRDJnRjZLY0k1YlpDUVdtdmthWnc3dGhKbkZjQV9NME4?oc=5",
+   "source": "证券之星",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "aerospace",
+    "nickel": "aerospace"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [
+    "华秦科技"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "abab22516b994b1c",
+   "title": "利用镍钛合金进行3D打印，可制造出针对患者个体化的血管植入物",
+   "link": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNdUZMeHY5Qlo0U05oWDZuTGFUV3ZuSndhSklycEE2Nlo1Y241MXlnNERyUWJmakdRQi16YUZuQkluWWVZZzJBbVp2VVQ0dkdYdmNBczYzYmZkMXYwNnhpa3dvdXMtUTBDTzV0SHpSZjZVbm94WnRJNVhLb0Z4LVRMOWxtUHNJQW1oVGJjSzFUN3RVak0wWFQ5OHQ2WHBDSmVkbDRxclgyRFlLMDVueDdlSXVQZDdYd2pCSFkxYmVLMEdQQzNtWjg2TDhORU5sQ1F5a1JTR0czQV9yQkNoWDZtS1djVVNJbHRHbXM2WVUzOVVFWnktQWJiZnJJOUNZNVdqV0F4cFRFbENUOU1YUEx4R1FmTHNsUHk1OTRsRnF6TURNSm5VUURBZ1UwLXNSX1VPUWQ3OEpzZUJrUFZ5dHB2M0pTSnFSRHZ0TzdSOUFXaTA2dW1Sbk5KNWNKajZib00?oc=5",
+   "source": "3Druck.com",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "medical"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "a6afdebec8d1b494",
+   "title": "Apple commits up to $100 million for US titanium in domestic manufacturing push",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPRWlydUhmVG5DM2VQb1ZfbGw2TGZUVHVMYTZ0aEZuRkozNXM0NnNLSE5pbkVUalRFZGtqRFFvVkVDMkVxS2ZiMjQ5YkZ3ek9fRXRkZ20xTHkxRDhSQXBfSDgydDYzTDhLVzFtVG1HRXlfOWdqenM4TldoSlF2cUV3eG9ZUldCMkhvVFRjRndxQXdIT0tQYWo0RXlfdml4dFAzRnRvMDFZN1hOQjhxNVRIWHZ1MFd5VS15TDdYa0drbHE0OUFHdTJYbGh0TnNkQjN1N0F5aUp3Q1ZWNFZaMlhVTzQxZVF1ZDDSAewBQVVfeXFMTnltclhqemdUYmprT2NUcE5SbnVIX2ltMlFVVzR6Q2d3YnlzUDRjUDNCaDJJNGdkelpqNlhtXzFFSjN0R3RTcV9UVENKc0diUnBKYmNMWno1emFUekNyYmg1MXlyaUk0ajZwRFgxclJhMGpscW1lczhkSXBpUkJiNldrNzN4MFBzWGozMVdiZGhxYjViSS0zWkdWVUk3TF83TnVsRHUyTmxjaG9LeDFLY1JtUDBiY1Q3MEtGa2R6OHNLNFFnOUhvZ0RvMEI1YUdZQUpySTFCYzNwQnk3UURFRnh4QjN3UW1LRFRIZEE?oc=5",
+   "source": "ET Manufacturing",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "a42eede006581c35",
+   "title": "我国医用钛合金丝材相关规范标准日益完善 骨科植入是最大下游赛道",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5Zb1RXYWRuMHFXSUh1VFRQUjI1YTZHSThyTWN2NHc2Mnhoa0ozal9CVFVnRmRFNUlVejlPQ1d0MGF3Q2ZZZ0xQai1Oa3lRYlFta2JtTmY4MDVRTzRvWWllQkM1Nk9wVmxxYWt0OWNwckdJcF9ZNFE?oc=5",
+   "source": "新思界产业研究中心",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "medical"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "87b822443fb57076",
+   "title": "Chinese Firm Files US$576M Plan for 25,000 Tonnes of Titanium Sponge Capacity",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZmpNLVY0SHZfYnFWSDNqMF96amNBdGJSR0thY2NuMWZ3b0ZHcTNlSUpZeUpLU2tkNGJwNGFWYVhLWHlGMm9WdlBqRkZwcUQ2LTBubWc1T2tFMlFLM1F4STNlZjN1WVctTDJqRjA4NVc0T2FOMUdscE5RMVhORl9VLWxHWUVSYUNkR0dhRTVsakhXTW9zbHNIcjgzVTRTR24tYmRHd01oNVI3NS1TTjc1anhtX1prT3hDak5F?oc=5",
+   "source": "3D Printing Industry",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
+   "id": "789558b3878fc90a",
+   "title": "Apple Pledges $100 Million for U.S. Titanium Supply as Domestic Production Drive Expands",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdGZvSVFRTmV3clZTR0Zsd2U5cXA0aUNiQk5Td0RTV1dnOFRLOUVDOWdfNFFGWEtPZkdJY0plSkpwQWtCWTlHaGU4Y291V1EzLWhZcUdNNUNBdGhIUndnbUd0NWpnX1lLTmtyMmJzRnkzd0tnUXRVTXNpQWNVaFFJcVRibEZhU1hwRUJ5U1NFQnNqNlFtUEk0NEVzaVVJYmRUeWl3OXVkenNTV240eFY4?oc=5",
+   "source": "Belaaz",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "47a1086f5bd6372b",
+   "title": "中國隆達股份前三季淨利最高預增97%，高溫合金業務成主引擎",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9oRElEaEJhWU5MMVpwM19NVEYzYlB4a0I3dWJwYUFwWGdiaEVqNHZ2eklET3BEUDVQN2U2SXJ0bnFybDVXb1RjYS00RC1UNUxwckNIMko5eDdGMV9CUjh5ZUdweXlyMjhsSldCZ2ZZTFRpTFl6YU5Yb29R?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "aerospace"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "2702c6590df26dff",
+   "title": "Apple adds U.S. titanium supplier for iPhone Duo as supply stays tight",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQN19fYVdtTnlOSmxoWTFGV1hra0RLYmh3TzVpdWhnU2o2LWZoZTlPQ2EtQjgtdjFxZTJaWWk0RXRfYXE2Vnp1dVpjT3RiOUNvWWFCWWpCbG1yLWUzN1BvWEVNUGRReDZwRVI0SWVPTF9JOW9tbGJtakhwOWY1VWpoQlhiTDdWWG1CaUk00gGQAUFVX3lxTFBNTUZtQjdTa0NoSWZEME05SG5FOGctVTRjX3ZhMWdZNUhEQ3hCVHB6WnB6ak94YlAtaldiM0FfY0ZadWNyclNiRjJpOF9oeTZnMjAzT0ZkRjJkUHBjaEtPMGdVM3o5Y0NLSS1aNEtqa0ZveV9OLTJBQk90ckIxREpVOWQxUkpKeEdacWt6VXNocA?oc=5",
+   "source": "CNBC",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.5
+  },
+  {
+   "id": "8cc78f14b789f1cb",
+   "title": "Hammered at Room Temperature: Simple Surface Treatment Slashes Wear in a Workhorse Superalloy",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOek9Rb3RJWF9jRm5tX3B3NXcybzIwNERsOGRJdFEwSjdRTUV4SU1hb3c0c0l6VW5QcEUtR0NYMGJpWTZPcGx4YTItcDlBVzJDY3RRTDNtWTFrYnRvcnRSNHBnc0pXWHFWc3Q5dWdra0d6WmZ3TjZSa2RRWnUxNldoOUc4YnZjc2MzdXhObDZzZ1I1YkJSN1JjeVpQNm44cklfdkFidVBmWjh4MlJ6TVF1NldxajhRV2ct?oc=5",
+   "source": "Bioengineer.org",
+   "published": "2026-10-17",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.431
+  },
+  {
+   "id": "45696662c40d4564",
+   "title": "9to5Toys Steals Weekly – Grade 5 titanium Apple Watch band $62.50, magnetic MagSafe accessory $20, desk mat $10, more",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1MSjdCejZBZ0FnUUNaRHFBN2EwQmFERDl1NkdzYVNEaVRNUWNQZTFubTBPMzI1b0V5Q0xsX2ZBcXVjaGFHbFNBMU4wZmpCYzRoZkJXdWc2YUpWUkViSlBuMmN5VQ?oc=5",
+   "source": "9to5Toys",
+   "published": "2026-10-17",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.431
+  },
+  {
+   "id": "f4113ac34ee0ddc2",
+   "title": "Aerolloy Technologies Selected by Safran Aircraft Engines for Titanium Components for LEAP Engine Programme",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPazA2WnFuWkR1ZExJaDYzcW4tRTlra0hWYnFlOG14dVhaM1E5SWU1X3FGd1NvVDBzb0NHb29ZWXpDcWp4dHFna2pDTG5MWV9UYi1rbXAzSGVwVEp2bko4cV9xZ0VYQUk0Q1FRZS1FRVBxY1RTUGlnQVZHTTNzOFlsbTJuYWtLV0VjeWtRbEJpMWRFMHVrZlpTT3kyOVJ6LVFxRDFIN016X1pQN1lBT1FkTWs1RTRsellWdVJOcmQ2RjZkOUFxYWNVYVZNT2xQdUFNTjA4M0x6b1g?oc=5",
+   "source": "Machine Maker",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Safran",
+    "Aerolloy Technologies"
+   ],
+   "accounts": [
+    "Safran"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "d648e207568d450e",
+   "title": "熱門股－鑫科 半導體靶材受矚",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aSkxXVWVzN2RCMmFBdzhtTEtFT3RuaGliMGJ2THRxX3VBbkNZMTNYSFVGTzZzTW1mSXd0UEJJNzY0dFU3bUJtamxtU2lLMjBNWVR1TEdlakdKblJ4TDRvTnozbDlNc0J0MnBv?oc=5",
+   "source": "中時新聞網",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "d609d41e6b84c1bc",
+   "title": "Smart Temperature Control Brings Friction Stir Welding to Superalloy Inconel 718",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcko0Vy1LNzJKSEpmNHZjS1p1ZzEyMWxQT2tzVk9XeEdtRXJJUHhFcXJGcFYyUVBqa3BaRlUyVzZKU0UwRmRTUzFmdDVJSWNqVFpWdUpOUS1pX1hfaUpKQ3R0U0ZrRlg4RWdMeUZ1VEk5SmNiSjItaGdaQzdxaFBsdmNGTG94emN4ZWVTSG5XVnYwb3hfUldWNzFKU1hNT19fREd4UnVWbnk?oc=5",
+   "source": "Bioengineer.org",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "d37bd0a5ef7a7884",
+   "title": "拓荆科技拟25亿元收购无锡尚积，补齐PVD与刻蚀短板",
+   "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE9mOFdlOGxMdWdQTDhqYy1UVmhRT2xBMjVabWsyWDcweGtfQWVsTlJiekFOVUpOWjVvRDVaMnBjanNPa1Rz?oc=5",
+   "source": "芯智讯",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [
+    "拓荆科技"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "84ecb2b6f5a01042",
+   "title": "New game digest: Titanium Court, No Man’s Sky, Sifu, Vampire Crawlers and many more",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQXd6SFBXbDhaTG9rNXVpU2tYUXJBY2RDNFZCc3NTVTkySm92NjVZMVhTR1ZsZ0RBRGVRSkpHN1pDT3V1Q1ludHptNTA0WUd6VFA2X1V5eFJnZVd6SXZsNjRNUHFLdHIzcnN3dFFmRUo1Ym9Fb1lrUjZwZHY5T2ZsRGhEUTNRXzhfMjhLWWhpbGZNYktaS1RqbUJsOTdWRzd1TkVCLTlB?oc=5",
+   "source": "Mobilegamer.biz",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "8096793033e6f5cb",
+   "title": "Titanium Market Weekly in the Doldrums, Industry Chain Divergence Continues [SMM Titanium Weekly Review]",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQRFRwczBkUzR4UTFvaFl2ZnFBbXB5WVdXcy1JRTg3X0NSakx6WXhfamJfU0QyWUs0MzVZS1l4WVhkTmUzX1NFM3JTZmdQUVRsQ3lSSU9lQWt4UUVkUlNMVllHYkhVcEJYTlVacUVkcU43U0lsbWVycGsyak1Cc3FjRmJSa3U2TmJHcmZtckpQejdNYnVkeWgtNTF4SVJHTm9FaHR6N1lxeXRMTkMyNzJSQk5sU0dLZVBjbWZxbVR1eTRCTHVsYzZISGxacmFGb1VodERHWWtBRXltZkJHM3dV?oc=5",
+   "source": "Shanghai Metals Market",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "1733d1b91344fd4a",
+   "title": "Kobe Steel begins mass production of titanium forged parts for Airbus A350 XWB landing gears",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE42c0xzMHRUVXBReHhmbGNtckx2OVlZdlRZRE1zRUN6UnR6WUU1WWJ6QWNKTnE1SklVSFVIVjJUaEZBb1BSbXc4d205UnlTWGJJZTRhOVZUTDBja2YxRzNPNldoTGh1NmM1cHJ6VEowWEJVT2tkYXlwX1BpTlNtczg?oc=5",
+   "source": "Aerospace Manufacturing",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
+  },
+  {
+   "id": "a299e306bebe204a",
+   "title": "Dutch Zoo Fits a Hornbill with Titanium Printed Beak",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOanVTbXFnS0N0SUJPZm9NazVmem9SLVZmLXZWWmE2RU1HSzR2Y01IUXVRZ3dJR0VjR1dVYnZXRWtYQl9wY2JNZHRIX1ZqSC1jSnhKQ0xFMU1HOFVaemlPcWlEVUh1N2hQNzM5cU13dks3QnNRaVRjSjl0eGdtQndKcFpEMndwNGpz?oc=5",
+   "source": "https://3dprinting.com/",
+   "published": "2026-10-15",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.39
+  },
+  {
+   "id": "7a2355e3349126b5",
+   "title": "【11:01 即時新聞】鑫科(3663)小漲守在近月高檔，FOPLP與半導體靶材受關注",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNnRjRHpNVklycmFjRzZBUXNGM1plY0ZRYV9KcVZiZmhHenFvZnVsTU1WU0RURHZnemtBUWlDR2Rsc0h2c2ZJWUxTa3lGMHNaaDQwUzRjVkVsbFdidlJ3WGZmU2RqbVFyeDk2SE44TzZ5a21HRGlIUFphR3dscWs5UEk0RUxUYmMzYUhURnhn?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-10-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.39
+  },
+  {
+   "id": "6ce064bdefd849d5",
+   "title": "Reducing Import Dependency, BRIN Develops Titanium Alloy for Medical Implants - BRIN - Badan Riset dan Inovasi Nasional",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPd2pjVGRSM3ZoaGloTk45TkYxaHZ5ZXZpSmgxWUM4bWhHakZ2cTlQMzJYMGNDdktyblc5Z01DSWtRVjJELVYtU0lzUmt3LUxtVVd5V2VOZ2g2RXV6UjdkUWRzQVhhUUZ1aE5qXzMweGRqMURuQzNxcmpBZEVuQkR5cTRHZlVpd09rZFlaSl9CU09oNlM1Zm9EU1dfUGZLTU9WXzQ0emQ4LXJOb2J1S1U4OGYwTnA?oc=5",
+   "source": "BRIN - Badan Riset dan Inovasi Nasional",
+   "published": "2026-10-15",
+   "snippet": "Reducing Import Dependency, BRIN Develops Titanium Alloy for Medical Implants BRIN - Badan Riset dan Inovasi Nasional",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.39
+  },
+  {
+   "id": "3162f4f9ca13516c",
+   "title": "Annealing Trick Lets Titanium Alloy Foils Choose Between Strength and Corrosion Shield",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPb1E2VzlnSk8zMEdyM3c0VDd5WjhHRjBDbnRNd1RjeDQybGdaQ0JQdm5QWmJBaXpzMUlybDExM1hVTnQxVDh0aV8tZU4xX0Ria3l3NDFDX2pnT1pfcHcyMXhaTUI0UWhoWU50UmZORnRGanhlcy1GU1lJTklvdTBlV3JYamFhdExuOUZLQ3hsUzNEMml1dTNMeDBOb0pMaVlHM0t4Vkxuckx6Skl2c2M3VQ?oc=5",
+   "source": "Bioengineer.org",
+   "published": "2026-10-15",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "chemical"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.39
+  },
+  {
+   "id": "faf9f2335e229177",
+   "title": "The titanium Revel Ranger MTB is heavier and more expensive... and \"bizarrely awesome\"",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdWV1cVNQWTNjd1Z0Nlo3TXFMaVk5enJEek5rZERBMmxuOWxaQThCM0tab2JZWTVEbWJ3LXFSdjdBUDlVWXFpbmM0Q3JXYnctTnk5RDhCaEtSRk9sU2pabV9RTTB5T0FEaE55bUlINVppQ1BiN3FfOHlIMDBuYkNHd0ZqQlVrajI5NURzeWlFbnVqRHRMeUlQR21vcmtlaTFoX2RPbUNGY1Z2M3BZSHo3Y2lCSUtIQQ?oc=5",
+   "source": "Singletracks Mountain Bike News",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "e227ad47b1f8ee31",
+   "title": "Best gravel bikes in 2026: top-rated carbon, aluminium, titanium and steel gravel bikes reviewed",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1rVW5Sa1RkSHc0QW9hWENZNnU3QTJ5dG1oUXViZnNreDR5cG10OFB4RjB4TXJQcGNrVXlvUmZNbHBqNU52OFdpOGJlYXhfX3doeEs3OW95ZFVXNV9ta3ExdjJsUEZLUDB0RUFGX1gyM1FBZw?oc=5",
+   "source": "BikeRadar",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "c454724875376cb8",
+   "title": "PTC Industries secures critical titanium castings order for LEAP engine programme",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbGdSTzdhNkFnWU1KNnJUZGIxaVdrbVQwSEZ0OGo1d2FZcHg4OWFMTGZEWURFbFZKbGZNRWNHT0NwaFUwaU5iWXVSV1N3UHhyb3U0RkgyT1VIelc3ejJYMmduSlU3cTBqQnpkWV9NUzRFOHBNVHhfS1JXb2dEckRPc01OM2Rnb2Voa2NlSXRqUE5pWk5RN19fNEpra2R5ZWhjbmdsSHJrZzJibl9maWQ4ZU9aZjU4cl96UEE?oc=5",
+   "source": "Business Upturn",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [
+    "PTC Industries"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.114
+  },
+  {
+   "id": "a7d10e25a9690907",
+   "title": "Titanium Court coming to PS5, Switch 2, Switch, iOS, and Android on October 29",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdzlFVUEzbXJleG92WmhVNnYyVnloTk9VNEhEdlR6OEs0WC1OdzAzdTBLZVdSdTA3dmoxbmN5eXJNRnNyX0U3NTVjSkdLLVhQXzFoUmZ2MDJsLVl0UEg2dkUxZTZ0TFRUT2JOcUdLcVQ2Qlk0N0VyUElMR1dNV3JwMVpGU1JjUUpfZ0xpWVRPQnhJOFMwV3g0RXdQcHZEVEp2YmF4SGhVdTllQQ?oc=5",
+   "source": "Gematsu",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "6f9f837f6ee88039",
+   "title": "Aerolloy Technologies Selected by Safran Aircraft Engines for Critical Titanium Castings for the LEAP Engine Programme",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQNUZvT3R1Rmk5SUY1LTZHeU9rc2M2dmZDNW5KeTc3LXRqa1k1M3pmQWM0bmRneXJEbGNDV1Z0RmRseEZNRXVlb01KVGl2c1poX3ozSkFLSm5MS01xUXdfVzZmWkFNMGFaVDRyNnNrTEVJOUdtZEd3MUZCS19DWGpwZFlCeXhvR0tNQmVkUVYyekNJeE1JT3p1cTN4UXZhelloeEZrRUp0VXRXVlpUaU9KOG1kSVJGWk5YRHJn?oc=5",
+   "source": "EquityBulls",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Safran",
+    "Aerolloy Technologies"
+   ],
+   "accounts": [
+    "Safran"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "494a5144668c2c7f",
+   "title": "Aerolloy Technologies Wins Safran Order for Critical Titanium Castings for LEAP Engines",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQb0M1dEFXdTV6cG9ta1VOeUR4NjhXODVTSW5MYmtRQjdlUXhuY3U2Wl80UTdVdkZscHRweDgyVEFGTEdkTUtUNEMzLVR3WXpNdEhkSnBZY0wxUVh6dmpkVmk5VXhoVm15cU1YMHhOM3FWSUdLendRa2Qxc3BERERMQndnZHFqMXU2S0ZZejgzdmgwQmJhWWxORmhaeGxodFlQYjFHbFo1ZTRyQks4eW5mbDJfcjRhc3Jha0dIUHFzLVpQcGFmWkRJ?oc=5",
+   "source": "PSU Connect",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Safran",
+    "Aerolloy Technologies"
+   ],
+   "accounts": [
+    "Safran"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.114
+  },
+  {
+   "id": "249735c2ee17525c",
+   "title": "Luxurious gold & titanium Apple Watch Series 10 with GPS and cellular connectivity gets $120 price drop in Amazon Prime deal",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQUVZpRWhyWUJvTnUyQUxaMHJVV3lPU25iNC1ZUjdtYkxsNnJHd2wyU3o3MXZiendzUnhpbVF2UVladTRYXzlBZTZESXhleVZFMThzcnpTbm52VFhBdlBmZmluZkNYNHlHTFZCNHZWMU1YR0p0RjVEbmU4UThXYWVrcC05TjlHZnBQZ1ZpNnY0eEhEbGFaM1p3TzVCZVkwbGRyLTJYeFZON0l1NHNfT0FtT3JSbWtidGVIMWxhakZTX3VJaVhHNFZkcENVQmFPaEpSWUZzZXozTEZvdVUxSnBPOFdmRlpJc0k?oc=5",
+   "source": "PC Guide",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.114
+  },
+  {
+   "id": "057ff8741a92781c",
+   "title": "Titanium Court prepares to conquer hearts and minds on consoles and mobile this month",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5IZlQxbHREaktDVElqUzZKZHpRY1JxVG5zd3RaLVdfTUp2MWwzTWdSZnlsOHF0T3lNRHU1akJrU3lOLUU4V1k4ak9oMVZsZ1Q0WENIS3lJZHpuSzM4Z1ZYLTY5TXNQOEU0ZDZZazlRbTNlTUZU?oc=5",
+   "source": "Rogueliker",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "0202ec9e5df9da7f",
+   "title": "PTC Industries Subsidiary Selected By Safran For LEAP Engine Titanium Cast Components",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSVIyUEEwLTJpdE42M2Y2MXdxc1pTVmxsQ0Z5WmtYYVAzZnIzb2s3QUFSY2o3TG5GdDA5UWFUVVZEWVAzVE5JOTFjS29maTRsM2xaUFhRZ0RlNTFGUTYyYVhUcEVtc1Z6RVl6aXBaY3hlWHpyVDVvNlVyenlGREt3UEhWMDBBNzdhTjRzZXgtQWZuVzhMeEI2aDNrRmVYbDBSaG5kMkM3U05rNFIweHJ0Sg?oc=5",
+   "source": "Sahi",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "EU",
+   "orgs": [
+    "Safran",
+    "PTC Industries"
+   ],
+   "accounts": [
+    "Safran"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "36c1748258e1d550",
+   "title": "「半導体用高純度銅スパッタリングターゲット材料の世界市場」市場規模・動向・予測レポートを発行、年平均6.6%で成長する見込み",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IY2o1MkJ1N3I4SzhhcjR2ZFcxS2Q0cDliZ1QyY3VMM3ZKU2NybzhERnNUSW1sTWRUaS05MTFqdjFEQ21TYUdPWnhvU3BTRlNMcFhv?oc=5",
+   "source": "ドリームニュース",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "ja",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [],
+   "region": "JP",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.354
+  },
+  {
+   "id": "2a881fcf53dc733a",
+   "title": "Hands-On Debut: Garmin Launches Third Generation Premium-Positioned Titanium & Ceramic MARQ Smartwatches",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPaHZRZE1lUks4SG82QzBYMXpzWi01MmpNaGYxd2dUWWRhcE5kS0lQakltaFBUc1ZYOXQtVEN0b0JwSXM1MVE0QW1uSHB4dGlydDViNEpQejU1VjZRLTJuVk1mRGQ3S3dmWGRYN2ZoNmtHUWpZUWRKS05HMmRtNDd1djhQUHVTZVI1QTBPRlZUZW1JakdYOHd2NlpfcGdzRTVhVG1sTHdEMjI0c25IWlI5dUtyNmFOZUU?oc=5",
+   "source": "aBlogtoWatch",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.354
+  },
+  {
+   "id": "7caa5752b6e182d2",
+   "title": "Engo Uses Metal 3D Printing for Titanium Temples on New AR Running Glasses",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWWdnaVFTQ1VPWkdYVWRFNGVETkl4blk1TEtaYnNOc3lsWVQwY2ptWm15bWJWVk55Y3lMS3FzaFFZd2k3dmM1UzBKdjh3RGhEc1pabzRrREJmckJrWHVCb0J5WXNCSkpyakpGYW5WYlVnWkhpWkJuVDQtbzcybVFjdmdnc1EyeE1mYjBvdzdyWFE2clVxX0k4QjI4TXVVOVVMbVhfTkVRWUpyS0RGalM1d3g3d010RWJqYnc?oc=5",
+   "source": "3D Printing Industry",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.336
+  },
+  {
+   "id": "218054ebabb0368a",
+   "title": "Nigeria targets aircraft-materials market with $362 million titanium project and US-built processing plant",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOWjRrQzd4aHl4Y2VXcmRoTVdLT1hsNjZOcDYxNXE3eFpOZTVZTnp1VWJwSDA3SDJBOUNUU1lnUUR1SUFycUtVaUZwbXUtb1Jzay1BMHV3dDM5dTBtQWNZSXA4cUNwM0F2OXVwMVZ0SGRneGRnZUJMcUtPdzJwb3k5SVl0Z0x6WFFGVGZFTFlwVDktMlhXaUFfOUp1RnRhUk92bEg4ZjZXYm1VTnpRSXd0a3JSMGlRd25lcGxqSFc5QTRHSElibXI2QUdwdmNCYlAybjJweVNFa21PUQ?oc=5",
+   "source": "Business Insider Africa",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.336
+  },
+  {
+   "id": "bf9514d71685378d",
+   "title": "HAL's 2,000th Aero-Engine Milestone Puts Spotlight on MIDHANI's Indigenous Superalloy Push",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbEo5VmZyNDBWN0sxbVJQWVVEa2JXTXMxZkV2ZkNGTEhHUjZXTFNtWWhrLWczUmd6TEFlODdzVXNZeXl1bC0zVFhGNmxQLU1GNFU3MGVsTmJVMXZmVE1jNUxlaEkyYTkyWWxPLXRIRlEyajFOcmxxTGZBVHhSMlRqdThHcWM2MnBzZGFZckFmb2dWeW5mcFZnQk05SlFJbW9YNWV5U1QxeWgyaFN1QzJmMkJLWE45c0gxdEJ1OF9NUQ?oc=5",
+   "source": "Defence.in",
+   "published": "2026-10-11",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.32
+  },
+  {
+   "id": "6be88d4b2e8600e1",
+   "title": "This One-Off Titanium Recumbent Bike Is Built To Last Through the Ages and Folds Like a Brompton",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNaEZKSHFSODJQY0RraHpWa3lrbERFNi16M296RzM2TkVxQ0d5TndDRVZUTUhEZFJjd3NXZ3BjZHhNd1NvRl9WSF9GWmRsanlYNXNBYXBkNXp1YnFONW5Oa2JDc3hWNHI3cE8yN3o4a0xSWFZudnhsMmwzaFk2Um1od2tnQU8xci1TU3g4b0Ywb0F3UmJnWVgybEIxSlFFbDJmdmpsZzFHbXhlUmEza3M2cW9ybk8wckRNRlcxWTM4VFdGNTBQSjI5Ul9mMjhCYWFKSXRhTGhyRVQwSmM?oc=5",
+   "source": "autoevolution",
+   "published": "2026-10-11",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.32
+  },
+  {
+   "id": "a2a38d797c3eb66e",
+   "title": "Solar Atmospheres of Western PA expands titanium processing capabilities",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVURPVEpMN0hLZ1FpSFFPMWQtaThGSTZCelpWWmdKcF9OZklza2U3WHFYWWE3X3lnNTNUYm5lYWNuclJxekVKZzFBaWEzSUNOaE91TUtLX25YdGdtUG5nTmF2M3NzLUdBV0ZnWnRrZlVVVXRnVzFTbnp0akF1LVNaWjd0a19SemxmRFp2ek1WMEh1SDhGMnVJdDBWT0hlWmZZNmxxUTJ6azlzNWJ3MUJLNmE2ay1oOXV5eF9wczdFeDQ?oc=5",
+   "source": "Aerospace Manufacturing and Design",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.29
+  },
+  {
+   "id": "64b0217a99c4e836",
+   "title": "China's LB Group revives idle UK titanium plant, creating 150 jobs",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMXlJTUh6cmZuSXhqdFFpZkVoamMxMG5KY191ejNUZS1raFBNNEFfbFBhZXFMdlYtRjU5S3FET3pqTlZCZ2MzTE9ybTJ0MDZobWJxWWk0TXBIWmtBcE5wNUk2SThGRWtZdTZWRVlhTGdMOE9RQ0lpdkhrc0JUUWY3dFgwT1Vib2FlU2U3ZXZGNk9tWFJ5eVdXMFpCTWNuSTJU?oc=5",
+   "source": "Dealroom",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [
+    "China's LB Group"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.29
+  },
+  {
+   "id": "530b42a3b303aa61",
+   "title": "整线出海｜晟成光伏助力欧洲客户打造钙钛矿研发平台",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5OZTBPRUhkbWpNWk1GMk42YTZKVlYyYi1WQjRpaE5UbEdVbjNmMDJUVldsUjQwdkRyblJBSzVGS3FwcjJEUHRMUHZyX0hxY0czdFJGbTkyWVFJRV9O?oc=5",
+   "source": "国际太阳能光伏网",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "EU",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.725
+  },
+  {
+   "id": "e21f5695d206051e",
+   "title": "CERATIZIT's CTC5240 carbide grade is designed for high-performance titanium milling",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOdXRiOGtBWDZxRUxFVkZNSFdUQ29kNDdpdXUwLXFoQzY2TEFBNWFZNE96U2JSOU5LX05zNVV6eHhNOXpqcWxWdVhuYkpGZ0M3M1BsSzJ5WW5LZjhVbVNEaE94UEYzWVV6b1dWeHJJZWpra2s2WVdDVjJGVmJRTlVOaGZOZkVoNlBLbnd6cGZYTkYyQ1gtNUJja2RET0dMUzR3empWckRodVFGdTNZRmxLbHJYSnVaSzM5TXh3d3JkaUQyQlBBLVBBNTFveXFSbmJqUjJka2dLQQ?oc=5",
+   "source": "www.machinery.co.uk",
+   "published": "2026-10-08",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
+  },
+  {
+   "id": "4bf01e1b0898969c",
+   "title": "Crystal Dial Watches: Seiko Coats Astron GPS Solar Watches in Black Titanium",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1UeWpXRDAwcVVGOFY4UEZnYVFsVkxFcjBKTFRnRkdvbElhMHBtVXlCMEx2OVZQWnRrdXQzbXE5UTlMenJ0elRadU4yM0ozV2Jmc1RESjJtVmNzTlZjR3VOaHY3TjRDZw?oc=5",
+   "source": "Trend Hunter",
+   "published": "2026-10-08",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
+  },
+  {
+   "id": "123e9f213b7185df",
+   "title": "America Did Not Have Enough High-Grade Titanium to Build the USAF SR-71 Blackbird, So the CIA Bought It From the Soviet Union Through Shell Companies in Neutral Countries. The Airframe Was 85 to 90 Percent Titanium, and Much of the Ore Came Out",
+   "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxNNHZtX0RkdWNMdG5GV3g4eGZOWjFtQTYwZHoyb2FCTlh3MDZpel82TDdWVVR5TDBVVDRxUUl5TVBGYlh1NXhoM1NVRE9IZ2dYSlo3MG4ybEdHUUVWWjgxYkxEOVpOeEgzdlJVUEpCbnFlX1VUdWtGc2I0VEpEcWhicnZEUzZ6YVhYbWJNUV9yWFJfT3Y0c2dCSk5TWWNOZVBWUG94aElObVV3c0lRck1hT2ZyMm1adVBNcUFFbklrQlJuYVo5YmJWNUFCLS0xaFpmejdoT1J1UGoxQVlRbFBPZ0JFSGxHVjZFOUZwMWpFVWFNaFNXWFlfbmlhV2FkbmJ3d0FNYy1hWVBPazZhckdPVDJodWZPUlpmUWRrVl9fWll6ejVva0lycDQzLVRmeWpWaTBtSXU1S0dxWHJoblpfeTlpaXh5VzV6dDBFR1ZCRVZxV0RpUEE?oc=5",
+   "source": "19FortyFive",
+   "published": "2026-10-08",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
+  },
+  {
+   "id": "ed009c6bbad63838",
+   "title": "ENGO turns to titanium additive manufacturing for its lightest AR running glasses yet",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSTRad0s1X2I0cVFhVFlSbnZRZ3RvUjJzbGdEajBxaVJXSHhYR3RhdEhodE15OTlwSWtVenl3Q2NmNWY2aFRrTmo1ZGZNZlJPbk93Y3ozZExQZjNDcTgxcnFjNTlmdzNfX25RdDNPbjBQdVh4WjBTekFGQWt4Tl84VGl2a3NudUNETTl6MzR2RXdBVGdMSm9MWW13WXlKZlZUU1otM0JZX0ZMQQ?oc=5",
+   "source": "3d adept",
+   "published": "2026-10-07",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.263
+  },
+  {
+   "id": "bd39707abca3e960",
+   "title": "Engo推出3D打印钛合金AR跑步眼镜，号称“史上最轻”",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZmtXc0ZzMnd0ZG5NbkN1eVpvTDBoOWlzRUFTV1BMMngzeDgzMU5iR1ZVMmwyajd2M01TTnN4NjhTbE13ajNNWFg0VUlfa203bGNER0hVdTFBOUQ1dFFRVV9aQjBnejNJZFc1SjBmM3N0WmFIWDI5VTljNW45bER0S2EwVWo1UGhs?oc=5",
+   "source": "搜狐网",
+   "published": "2026-10-07",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "additive"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.657
+  },
+  {
+   "id": "fabcab502609c055",
+   "title": "溅射靶材：钨、钽、钴、铜，撑起HBM与先进封装的薄膜基石（附中外核心企业）",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE95ZkU5d0JFUHhScFQ0NzFCNjFDZDFKeGp3SXRfbnBOQVdhQnMwbnpWMGd3RTBOX3pMY1g2bDZVYVE1eXc1N0FjdkwyTVd2WHk2d21xc3NCaVdERWJSR2JwMTk2N3g2UUpNc0dF?oc=5",
+   "source": "财富号",
+   "published": "2026-10-06",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "e3bc90bf3e81d714",
+   "title": "焦點股》光洋科：貴金屬、靶材雙題材 股價大漲",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE50SGFuWkNWemdldUJYUlBzbXR6YzEzZERFYTRJTmFXR0owNG5MMlVvUGpkNEhnVkh3RDBFc1BlYndDMl8zVWVXVVl0aWd0N1A4Q3IyaUVrZFJMZkxXbE5F0gFkQVVfeXFMUHlVSnVhT0VXRWZmOTNCdXhYODdfNHN2RGhLWlU1aTRLSk8tSGlLLU5TRzVKZktOVkV1WU8zazM1QlcyekYzZnJsa1pDV1ZxWmNoVzNEd3VITmxkaVE3Q0xDZnhwZw?oc=5",
+   "source": "自由財經",
+   "published": "2026-10-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "other"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.075
+  },
+  {
+   "id": "0b6eb6525af2c0e5",
+   "title": "Abu Dhabi Royal’s Firm Eyes Titanium Play With Kenmare Bid",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONWVfTnRpanJHLTBWSWtybHo4V0lHWnZnX1oxNmljYWlPYllwbG15N2lhYjdJSmJfUTBTWl9MQXVwSno3Mjh6bnJVT0lNSV9MblNjSVBJTjJWVHV2bm1mdzVXY2ZsWHRVREVfU0l5N3RNV2dWTjhwVngtSlVJTzluenpObHRfaTVuekg2Q1dtMmRTYllWcy1lWVNBbVJDcmhpUS16Uk9xYnF5UzhORkwxdA?oc=5",
+   "source": "Bloomberg.com",
+   "published": "2026-10-06",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [
+    "tender"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.25
+  },
+  {
+   "id": "c364f2d60a5b56b8",
+   "title": "破裂也不沉，澳洲團隊開發新型鈦合金材料，解決海洋工程浮力難題",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9PMWRLZWNwbjA3QWtUZW9KOHQxeVVYUDlvVTJwaVFjdjdXOTlGYXl2V3M0Wk1XQUZ2d3dfamxzNlZROEFiSUhOTUxwaW00UVN0Ti15eEoyVTNCcld1SFE4VUM3aG8yNW8?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "marine"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.595
+  },
+  {
+   "id": "4e6ee7ebbc7e05f9",
+   "title": "钛市场规模、行业份额、2034 年预测",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE05VjRycVBMYVlYTlYwUlZ2QXJfc1Nld0FGWUlLS1RRb2l1Q3RZdW5ZWHhXVkZtb0JmNWlLSHZ1MmJodXRENUdCOHNDR3JqaDV2aFNWZ3NCNEtMaUlnSmQwdzRSQkt5cmV6TUppQmUyVWp2THc?oc=5",
+   "source": "Fortune Business Insights",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-CN",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "CN",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.238
+  },
+  {
+   "id": "230c0109ed616379",
+   "title": "Apiar’s new Carbon01 OG watch features 3D printed CF-PEEK and titanium",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOYkFfT3ItVkZVV21ORFVycEtmbFFTcXJqQWh2akJYT0tnQ2JqVTk4WVJvbnlPSDRBUzNEalBYRGRadklScl9qNEE3V2p1eWVDeVBoLTZaTEhqVC0yblV6LS13dWRHUUg5QTYwUkQzTkFBaXdWSmxRN2xNWHhRdjZndGlTX3l1NXYtMjdNNFM4NVR2dzJUSXRKZ2o3M3VpWkoy0gGmAUFVX3lxTFBVLUcwNUpWeDVQX0xIWXVYTGlCOXQzaDUySFctdHJ4bXI4QWpXRXgtTkJ2cTgtLUVuYjVSb2hWMTViVkxtT0VaZXNPMW1RWDFWc3BHajlPT2dhOGV3OGNNcU9Yd1lFay04QUpJak9BeUNsZjVlS0hsWTRFTzNwSTNnWGhMSkRLSGFyTXJudDViOF8wVGVSUmdiT3ZwUmlqZHU5VDFmZ2c?oc=5",
+   "source": "VoxelMatters",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "other"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.238
+  }
+ ]
+}
