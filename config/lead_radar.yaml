@@ -1,0 +1,184 @@
+# 商機雷達(lead_radar):製造業首次業務開發 — 找出「正在尋找」靶材、純鈦 / 鈦合金、鎳基合金的潛在客戶
+#
+# 概念:把每一則公開資訊(新聞、標案、展會、詢價紀錄)當成一個「需求訊號」,
+# 依「產品線 × 應用產業 × 地區」落到熱度網格上,用熱點分析(Getis-Ord Gi*)找出需求集中的區塊,
+# 再把訊號歸到具體公司,依「意圖強度 × 產業適配 × 熱點加權 × 時間衰減」排出 A/B/C/D 級名單。
+#
+# 本檔可自由增刪:產品關鍵字、應用產業、需求訊號類型與權重、地區、目標客戶清單。
+# 關鍵字比對不分大小寫,英文字詞以單字邊界比對("Ti" 不會比對到 "Time")。
+
+settings:
+  days: 30                 # 蒐集最近 N 天的新聞,也是熱度計算的時間窗
+  half_life_days: 14       # 時間衰減半衰期:14 天前的訊號權重剩一半
+  history_weeks: 8         # 回看幾週的熱度,判斷新興 / 持續 / 升溫 / 降溫
+  request_delay: 0.6       # 每次抓取間隔秒數
+  default_editions: [zh-TW, en]
+  google_news: true
+  bing_news: false
+  feeds: []                # 自訂 RSS(例如標案、展會、產業公會新聞稿):- {name: "...", url: "https://...", edition: zh-TW}
+  hotspot:
+    z_hot: 1.96            # Gi* z ≥ 1.96(95% 信心)為熱點
+    z_warm: 1.0            # Gi* z ≥ 1.0 為溫點(值得留意)
+    min_signals: 2         # 熱點至少要有幾則訊號,避免單一新聞撐出熱點
+    neighbor_weight: 0.3   # 鄰格權重(自己 = 1):同產業其他地區、同地區其他產業;1 = 標準二元 Gi*
+  grades: {A: 70, B: 45, C: 25}   # 潛在客戶分數門檻(0–100)
+  # 標題命中這些字詞多半是股市行情或股價新聞,權重 × noise_factor
+  noise_terms: [股價, 漲停, 跌停, 目標價, 法說, 外資, 收盤, 盤中, 股東會, stock price, shares rose, shares fell, price target, 株価]
+  noise_factor: 0.3
+  # 自家公司與同業:不列為潛在客戶(新聞仍計入市場熱度)
+  exclude_orgs: [鑫科, 鑫科材料, TTMC, 光洋科, Solar Applied, JX金屬, JX Advanced Metals, Materion, Plansee, 東曹, Tosoh, Honeywell, Solstice,
+                 寶鈦, 宝钛, 西部超導, 西部超导, TIMET, VSMPO, ATI, Haynes, Special Metals, 撫順特鋼, 抚顺特钢, 鋼研高納, 钢研高纳, 中鋼, 中钢, 大同特殊鋼]
+
+  editions:
+    zh-TW: {hl: zh-TW, gl: TW, ceid: "TW:zh-Hant", region: TW}
+    zh-CN: {hl: zh-CN, gl: CN, ceid: "CN:zh-Hans", region: CN}
+    en:    {hl: en-US, gl: US, ceid: "US:en"}
+    ja:    {hl: ja,    gl: JP, ceid: "JP:ja", region: JP}
+    ko:    {hl: ko,    gl: KR, ceid: "KR:ko", region: KR}
+
+# ── 產品線 ───────────────────────────────────────────────────────────────
+# keywords   本地比對:新聞必須提到其中之一才算這條產品線的訊號
+# search     搜尋用的精簡字詞(會與各應用產業的 search 字詞組成查詢)
+# industries 這條產品線的目標應用產業(對應下方 industries 的 key);落在這些產業的公司「產業適配」最高
+# pitch      業務切入話術重點(報告與名單的建議行動會帶出)
+products:
+  - key: target
+    name: 濺鍍靶材
+    editions: [zh-TW, zh-CN, en, ja, ko]
+    keywords: [靶材, 濺鍍, 濺射, 溅射, 磁控濺鍍, sputtering, sputter target, PVD, 物理氣相沉積, 物理气相沉积, 鍍膜, 镀膜, 薄膜沉積, thin film deposition,
+               スパッタ, スパッタリングターゲット, 스퍼터링, ITO, IGZO, 旋轉靶, 旋转靶, rotary target]
+    search: [靶材, 濺鍍, 溅射靶材, sputtering target, PVD]
+    industries: [semiconductor, display, solar, optical_coating, data_storage, hard_coating]
+    pitch: 高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收
+
+  - key: titanium
+    name: 純鈦 / 鈦合金
+    editions: [zh-TW, zh-CN, en]
+    keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
+    search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
+    exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白]   # 媒體名稱與顏料不是鈦金屬
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen]
+    pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
+
+  - key: nickel
+    name: 鎳基合金
+    editions: [zh-TW, zh-CN, en]
+    keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
+               "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
+    search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor]
+    pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
+
+# ── 應用產業 ─────────────────────────────────────────────────────────────
+# keywords  本地比對(判斷訊號屬於哪個產業);search 搜尋用(取 2–4 個最具代表性的字)
+industries:
+  semiconductor:   {name: 半導體,       search: [半導體, 晶圓廠, semiconductor, fab],
+                    keywords: [半導體, 半导体, 晶圓, 晶圆, 晶圓廠, 封裝, 先進封裝, 封测, semiconductor, wafer, foundry, fab, chipmaker, packaging, 半導体, 반도체, 웨이퍼]}
+  display:         {name: 顯示面板,     search: [面板, 顯示器, OLED, display panel],
+                    keywords: [面板, 顯示器, 显示, 顯示, OLED, LCD, AMOLED, Micro LED, display, panel maker, ディスプレイ, 디스플레이, 패널]}
+  solar:           {name: 太陽能,       search: [太陽能, 光伏, solar, photovoltaic],
+                    keywords: [太陽能, 太阳能, 光伏, 光電, 太陽電池, solar, photovoltaic, PV module, HJT, TOPCon, perovskite, 鈣鈦礦, 钙钛矿, 太陽光, 태양광]}
+  optical_coating: {name: 光學與玻璃鍍膜, search: [光學鍍膜, 低輻射玻璃, optical coating, low-e glass],
+                    keywords: [光學鍍膜, 光学镀膜, 光學, 光学薄膜, 鍍膜玻璃, 镀膜玻璃, low-e, 建築玻璃, 汽車玻璃, optical coating, optical filter, 濾光片, 滤光片, 光学]}
+  data_storage:    {name: 儲存媒體,     search: [硬碟, HDD, hard disk drive],
+                    keywords: [硬碟, 硬盘, HDD, hard disk, 磁記錄, magnetic recording, 光碟, ハードディスク]}
+  hard_coating:    {name: 工具與裝飾鍍膜, search: [刀具鍍膜, 裝飾鍍膜, hard coating, decorative coating],
+                    keywords: [刀具, 工具鍍膜, 硬質塗層, 硬质涂层, 裝飾鍍膜, 装饰镀膜, 五金鍍膜, cutting tool, hard coating, decorative coating, DLC, 工具]}
+  aerospace:       {name: 航太,         search: [航太, 航空發動機, aerospace, jet engine],
+                    keywords: [航太, 航空, 航天, 飛機, 飞机, 發動機, 发动机, 引擎, 無人機, 无人机, 衛星, 卫星, aerospace, aircraft, jet engine, airframe, satellite, drone, defense, 국방, 航空機, 항공]}
+  medical:         {name: 醫療器材,     search: [醫療器材, 植入物, medical implant, orthopedic],
+                    keywords: [醫療, 医疗, 植入物, 植入, 人工關節, 骨科, 牙科, 齒科, 手術器械, implant, orthopedic, dental, medical device, surgical, 医療機器, 의료기기]}
+  chemical:        {name: 化工石化,     search: [化工, 熱交換器, chemical plant, heat exchanger],
+                    keywords: [化工, 石化, 熱交換器, 换热器, 熱交換, 反應器, 反应器, 耐腐蝕, 耐腐蚀, 氯鹼, 氯碱, 電鍍, 电镀, chemical, petrochemical, heat exchanger, reactor vessel, corrosion, 化学プラント]}
+  oil_gas:         {name: 油氣能源,     search: [油氣, 天然氣, oil and gas, LNG],
+                    keywords: [石油, 天然氣, 天然气, 油氣, 油气, LNG, 海上鑽井, 钻井, 煉油, 炼油, oil and gas, offshore, subsea, pipeline, refinery, downhole]}
+  power:           {name: 發電與燃氣輪機, search: [燃氣輪機, 核電, gas turbine, power plant],
+                    keywords: [燃氣輪機, 燃气轮机, 燃機, 渦輪, 涡轮, 電廠, 电厂, 發電, 核電, 核电, 汽輪機, gas turbine, turbine, power plant, nuclear, 発電, ガスタービン, 발전]}
+  hydrogen:        {name: 氫能與燃料電池, search: [氫能, 電解槽, electrolyzer, fuel cell],
+                    keywords: [氫能, 氢能, 氫氣, 氢气, 電解槽, 电解槽, 燃料電池, 燃料电池, 雙極板, 双极板, PEM, electrolyzer, electrolyser, fuel cell, bipolar plate, hydrogen, 水素, 수소]}
+  marine:          {name: 船舶與海水淡化, search: [造船, 海水淡化, shipbuilding, desalination],
+                    keywords: [船舶, 造船, 海洋工程, 海工, 海水淡化, 潛艦, 潜艇, shipbuilding, shipyard, desalination, marine, submarine, 造船所, 조선]}
+  consumer:        {name: 消費電子,     search: [手機, 筆電, smartphone, wearable],
+                    keywords: [手機, 手机, 筆電, 笔电, 平板, 穿戴, 手錶, 手表, 中框, 消費電子, 消费电子, smartphone, iPhone, laptop, wearable, smartwatch, スマホ, 스마트폰]}
+  sports:          {name: 運動器材,     search: [高爾夫球頭, 自行車, golf club, bicycle],
+                    keywords: [高爾夫, 高尔夫, 球頭, 球头, 球桿, 自行車, 自行车, 單車, 運動器材, golf, bicycle, e-bike, sporting goods, ゴルフ, 골프]}
+  additive:        {name: 積層製造(3D 列印), search: [3D列印, 積層製造, additive manufacturing, 3D printing],
+                    keywords: [3D列印, 3D打印, 積層製造, 增材制造, 增材, 金屬粉末, 金属粉末, additive manufacturing, 3D printing, metal powder, LPBF, 積層造形, 적층제조]}
+
+# ── 需求訊號(意圖)──────────────────────────────────────────────────────
+# weight  意圖強度:招標採購最強(明確在找供應商),政策補助最弱(只是可能)
+# action  對應的業務下一步(名單上的「建議行動」)
+intents:
+  tender:        {name: 招標採購,   weight: 5.0, action: 立即索取標案 / RFQ 規格,確認投標資格、交期與截止日,
+                  keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid, 入札, 調達, 입찰, 구매]}
+  shortage:      {name: 缺料與交期, weight: 4.0, action: 主動提出可交貨量、交期與替代牌號 / 規格方案,
+                  keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 漲價, 涨价, 去中化, shortage, supply crunch, lead time, supply constraint, tight supply, 品薄, 부족]}
+  expansion:     {name: 擴產與新廠, weight: 4.0, action: 聯繫採購與廠務,提案新產線材料認證並安排送樣,
+                  keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
+                             expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, 増産, 新工場, 증설, 신공장]}
+  contract:      {name: 訂單與專案, weight: 3.0, action: 鎖定得標方與其一階供應商,提案配套材料與備料,
+                  keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, order, contract, awarded, deal, backlog, program, 受注, 수주]}
+  qualification: {name: 認證與在地化, weight: 3.0, action: 準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格,
+                  keywords: [認證, 认证, 驗證, 验证, 合格供應商, 供應鏈, 供应链, 在地化, 國產化, 国产化, 第二供應商, qualification, qualified supplier, supply chain, localization,
+                             second source, dual source, AS9100, NADCAP, ISO 13485, 国産化, 국산화]}
+  new_product:   {name: 新產品研發, weight: 2.5, action: 安排研發端技術拜訪,提供試樣與材料數據,
+                  keywords: [研發, 研发, 新產品, 新产品, 新品, 開發, 开发, 推出, 發表, 量試, 試產, R&D, launch, unveil, prototype, develop, next-generation, 開発, 개발]}
+  hiring:        {name: 徵才擴編,   weight: 1.5, action: 從新設部門或新任主管切入,建立聯繫窗口,
+                  keywords: [徵才, 招募, 招聘, 擴編, 人才, hiring, recruit, job opening, 採用, 채용]}
+  policy:        {name: 政策與補助, weight: 1.0, action: 追蹤補助計畫名單與執行單位,提早布局,
+                  keywords: [補助, 补贴, 政策, 計畫, 计划, 獎勵, 法案, subsidy, grant, incentive, policy, CHIPS Act, 補助金, 보조금]}
+
+# ── 地區(本地比對,命中最多者為訊號地區;都沒命中時用新聞版本的預設地區)───────────
+regions:
+  TW:    {name: 台灣,     keywords: [台灣, 臺灣, 台湾, 新竹, 竹科, 台中, 中科, 台南, 南科, 高雄, 桃園, 屏東, Taiwan, Hsinchu, Taichung, Tainan, Kaohsiung, 대만]}
+  CN:    {name: 中國大陸, keywords: [中國, 中国, 大陸, 大陆, 上海, 江蘇, 江苏, 浙江, 廣東, 广东, 深圳, 四川, 陝西, 陕西, 寶雞, 宝鸡, 西安, 北京, China, Chinese, Shanghai, Shenzhen, 中国]}
+  JP:    {name: 日本,     keywords: [日本, 東京, 东京, 大阪, 九州, 熊本, 北海道, Japan, Japanese, Tokyo, Kumamoto, 일본]}
+  KR:    {name: 韓國,     keywords: [韓國, 韩国, 南韓, 首爾, 平澤, Korea, Korean, Seoul, Pyeongtaek, 韓国, 한국]}
+  SEA:   {name: 東南亞與印度, keywords: [越南, 泰國, 泰国, 馬來西亞, 马来西亚, 新加坡, 印尼, 菲律賓, 印度, Vietnam, Thailand, Malaysia, Singapore, Indonesia, Philippines, India, Penang, 檳城]}
+  US:    {name: 北美,     keywords: [美國, 美国, 加拿大, 墨西哥, 亞利桑那, 德州, 俄亥俄, United States, U.S., USA, America, American, Arizona, Texas, Ohio, Canada, Mexico, 米国, 미국]}
+  EU:    {name: 歐洲,     keywords: [歐洲, 欧洲, 德國, 德国, 法國, 法国, 英國, 英国, 義大利, 西班牙, 荷蘭, 瑞典, 波蘭, Europe, European, Germany, German, France, French, UK, Britain, Italy, Spain, Netherlands, Sweden, Poland, 欧州, 유럽]}
+  OTHER: {name: 其他,     keywords: [中東, 沙烏地, 阿聯, 以色列, 土耳其, 巴西, 澳洲, Middle East, Saudi, UAE, Israel, Turkey, Brazil, Australia]}
+
+# ── 目標客戶清單(選填)──────────────────────────────────────────────────
+# 已知的潛在客戶或想主攻的對象:會額外以「名稱 + 產品字詞」搜尋,命中時歸戶到這家公司,產業適配加權。
+# products 留空 = 依新聞內容判斷。以下為公開資訊中的產業代表性公司,請依業務實際主攻名單調整。
+accounts:
+  # 鈦 / 鎳:航太、醫材、運動器材、氫能
+  - {name: 漢翔航空,   aliases: [漢翔, 汉翔, AIDC],                      industry: aerospace, region: TW, products: [titanium, nickel]}
+  - {name: 長榮航太,   aliases: [長榮航太, EGAT],                        industry: aerospace, region: TW, products: [titanium, nickel]}
+  - {name: 晟田科技,   aliases: [晟田],                                 industry: aerospace, region: TW, products: [titanium, nickel]}
+  - {name: 寶一科技,   aliases: [寶一, 宝一],                            industry: aerospace, region: TW, products: [titanium, nickel]}
+  - {name: 中國商飛,   aliases: [中國商飛, 中国商飞, COMAC],             industry: aerospace, region: CN, products: [titanium]}
+  - {name: Safran,     aliases: [Safran, 賽峰, 赛峰],                    industry: aerospace, region: EU, products: [titanium, nickel]}
+  - {name: GE Aerospace, aliases: [GE Aerospace, 奇異航太, GE航空],       industry: aerospace, region: US, products: [nickel, titanium]}
+  - {name: Rolls-Royce, aliases: [Rolls-Royce, 勞斯萊斯],                industry: aerospace, region: EU, products: [nickel, titanium]}
+  - {name: Pratt & Whitney, aliases: [Pratt & Whitney, 普惠],            industry: aerospace, region: US, products: [nickel, titanium]}
+  - {name: 大田精密,   aliases: [大田精密, OTO],                         industry: sports,    region: TW, products: [titanium]}
+  - {name: 復盛應用,   aliases: [復盛應用, 复盛应用, Fusheng Precision], industry: sports,    region: TW, products: [titanium]}
+  - {name: 明安國際,   aliases: [明安, Advanced International Multitech], industry: sports,  region: TW, products: [titanium]}
+  - {name: 鉅明,       aliases: [鉅明, Sinomax],                         industry: sports,    region: TW, products: [titanium]}
+  - {name: 巨大機械,   aliases: [巨大機械, Giant Manufacturing],         industry: sports,    region: TW, products: [titanium]}
+  - {name: 聯合骨科,   aliases: [聯合骨科, United Orthopedic],           industry: medical,   region: TW, products: [titanium]}
+  - {name: 寶楠生技,   aliases: [寶楠],                                 industry: medical,   region: TW, products: [titanium]}
+  - {name: Stryker,    aliases: [Stryker, 史賽克],                        industry: medical,   region: US, products: [titanium]}
+  - {name: Zimmer Biomet, aliases: [Zimmer Biomet, 捷邁],                 industry: medical,   region: US, products: [titanium]}
+  - {name: 台塑,       aliases: [台塑, 台塑化, 南亞塑膠],                industry: chemical,  region: TW, products: [titanium, nickel]}
+  - {name: 中油,       aliases: [台灣中油, 中油公司, CPC Corporation],   industry: oil_gas,   region: TW, products: [nickel, titanium]}
+  - {name: 台電,       aliases: [台電, 台灣電力, Taipower],              industry: power,     region: TW, products: [nickel]}
+  - {name: Siemens Energy, aliases: [Siemens Energy, 西門子能源],         industry: power,     region: EU, products: [nickel]}
+  - {name: 三菱重工,   aliases: [三菱重工, Mitsubishi Heavy],            industry: power,     region: JP, products: [nickel, titanium]}
+  - {name: 台灣國際造船, aliases: [台船, 台灣國際造船, CSBC],            industry: marine,    region: TW, products: [titanium, nickel]}
+  - {name: 東元,       aliases: [東元電機, TECO],                         industry: hydrogen,  region: TW, products: [titanium]}
+  # 靶材:面板、太陽能、光學、硬碟、記憶體與晶圓代工(新聞量大,只收錄同時提到產品字詞的新聞)
+  - {name: 友達光電,   aliases: [友達, 友达, AUO],                       industry: display,   region: TW, products: [target]}
+  - {name: 群創光電,   aliases: [群創, 群创, Innolux],                   industry: display,   region: TW, products: [target]}
+  - {name: 京東方,     aliases: [京東方, 京东方, BOE],                   industry: display,   region: CN, products: [target]}
+  - {name: 華星光電,   aliases: [華星光電, 华星光电, CSOT],              industry: display,   region: CN, products: [target]}
+  - {name: 聯合再生,   aliases: [聯合再生, 联合再生, URE],               industry: solar,     region: TW, products: [target]}
+  - {name: 隆基綠能,   aliases: [隆基, LONGi],                           industry: solar,     region: CN, products: [target]}
+  - {name: 大立光,     aliases: [大立光, Largan],                        industry: optical_coating, region: TW, products: [target]}
+  - {name: 玉晶光,     aliases: [玉晶光, GSEO],                          industry: optical_coating, region: TW, products: [target]}
+  - {name: 台積電,     aliases: [台積電, 台积电, TSMC],                  industry: semiconductor, region: TW, products: [target, nickel]}
+  - {name: 美光,       aliases: [美光, Micron],                          industry: semiconductor, region: US, products: [target]}
+  - {name: 力積電,     aliases: [力積電, PSMC],                          industry: semiconductor, region: TW, products: [target]}
+  - {name: Seagate,    aliases: [Seagate, 希捷],                          industry: data_storage, region: US, products: [target]}

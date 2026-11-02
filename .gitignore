@@ -6,3 +6,6 @@ reports/demo/
 site/
 build/
 data/metal_alert/latest.json
+# 商機雷達:自行匯入的詢價 / 展會名單等私有訊號請放在本機資料庫,不要 commit(repo 是公開的)
+data/lead_radar/local*.sqlite3
+data/lead_radar/private/
