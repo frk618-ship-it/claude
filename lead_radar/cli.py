@@ -98,6 +98,7 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("site", help="用各客群最新一份報告產生網頁:主要客群在 <out>/,其他客群在 <out>/<key>/")
     s.add_argument("-i", "--input", default="reports/leads/segments", help="各客群報告的上層資料夾")
     s.add_argument("-o", "--out", default="site/leads")
+    s.add_argument("--report", default="reports/leads/business_report.md", help="業務報告 Markdown;產生 <out>/report/")
 
     d = sub.add_parser("demo", help="用虛構示範資料產生報告與網頁(離線)")
     d.add_argument("--csv", default="examples/lead_radar_demo.csv")
@@ -137,6 +138,10 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         for page in write_segment_sites(reports, args.out):
             print(page)
+        from .business_report import write_report_page
+
+        page = write_report_page(args.report, Path(args.out) / "report")
+        print(page or f"(沒有業務報告 {args.report},略過)")
         return 0
 
     if args.command == "demo":

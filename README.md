@@ -446,7 +446,8 @@ python -m lead_radar demo                                 # 離線示範(虛構�
 - **種子訊號**:`data/lead_radar/seeds/` 是整理好的公開報導(有日期與連結),新客群可先匯入,之後由每週排程補充。
 - **CSV 匯入欄位**(UTF-8,第一列為欄名,`#` 開頭為註解):`date, org, title, product, industry, region, intent, note, link, source, weight`。指定了 `org` 的列不再猜公司名,也不當成股市雜訊。
 - **Claude 判讀**(選用,設定 `ANTHROPIC_API_KEY`):逐則判斷買方與供應商、產品線、意圖、急迫度 1–5,並寫一句需求研判;預設 `claude-opus-5-5`(`--model` 或 `LEAD_RADAR_MODEL`)。沒有金鑰時全部用關鍵字規則。
-- **網頁**(與其他頁面一樣受 `SITE_PATH` / `SITE_PASSWORD` 保護):客群頁籤、本期概況、次產業 × 產品線熱點矩陣(點格子篩選名單與訊號)、目標客戶開發順序(展開看推估理由與佐證)、需求訊號列表;「下載開發名單 CSV」在瀏覽器產生 Excel 可開的檔案。
+- **網頁**(與其他頁面一樣受 `SITE_PATH` / `SITE_PASSWORD` 保護):客群頁籤、本期概況、次產業 × 產品線熱點矩陣(點格子篩選名單與訊號)、**目標客戶開發順序**(唯一的公司清單:搜尋、分級、產品線與「本週新出現」篩選;點列展開分數組成、需求研判、推估理由、切入重點與規格依據、佐證報導)、其他被提及公司(未評估適配)、需求訊號列表;「下載開發名單 CSV」依目前篩選在瀏覽器產生 Excel 可開的檔案。
+- **業務報告**:頁首「業務報告」按鈕連到 `<網站>/leads/report/`,只需網站密碼、不需登入 Claude 即可閱讀。內容來自 `reports/leads/business_report.md`(由 claude.ai 上的業務報告文件匯出;報告改版時重新匯出並 commit),`python -m lead_radar site` 會一併產生這一頁。頁首連結在設定檔 `settings.links` 設定:`page` = 網站內頁、`url` = 外部網址。
 - **每週自動執行**:`.github/workflows/lead-radar.yml` 每週一台北時間 06:23 跑全部客群,commit 報告與訊號資料庫,再呼叫「發布網站」;也可在 Actions 頁面手動執行。其他會重建網站的 workflow 都以 `python -m lead_radar site -o site/leads` 帶上全部客群頁。
 - **新增客群**:在 `segments` 加一段(名稱、產業、地區、時間窗、搜尋字詞、次產業),在 `accounts` 為每家公司填 `segment`、`subsegment`、`fit`(0–3)與 `note`。`fit` 與 `note` 是業務假設,請依拜訪結果修正。
 - 設定檔中含半形逗號的值(例如 `note`、`action`)必須加引號,否則 YAML 會把逗號後的文字切成另一個欄位;讀取時會檢查並報錯。

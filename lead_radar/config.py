@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -149,6 +150,18 @@ def _check_keys(raw: dict) -> None:
                                  "a value containing a half-width comma must be quoted, e.g. note: \"A,B\"")
 
 
+def _link(l) -> dict[str, str] | None:
+    """A header link: an external http(s) url, or a page of the radar site (`page: report` →
+    <site>/leads/report/), which needs only the site password."""
+    if not isinstance(l, dict) or not l.get("name"):
+        return None
+    page = str(l.get("page", "") or "")
+    if page and re.fullmatch(r"[a-z0-9_-]+", page):
+        return {"name": str(l["name"]), "page": page}
+    url = str(l.get("url", "") or "")
+    return {"name": str(l["name"]), "url": url} if url.startswith(("https://", "http://")) else None
+
+
 def load_config(path: str | Path) -> Config:
     raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
     _check_keys(raw)
@@ -173,8 +186,7 @@ def load_config(path: str | Path) -> Config:
         noise_factor=float(s.get("noise_factor", 0.3)),
         drop_terms=[str(t) for t in s.get("drop_terms", []) or []],
         primary_segment=str(s.get("primary_segment", "") or ""),
-        links=[{"name": str(l["name"]), "url": str(l["url"])} for l in s.get("links", []) or []
-               if isinstance(l, dict) and l.get("name") and str(l.get("url", "")).startswith(("https://", "http://"))],
+        links=[_link(l) for l in s.get("links", []) or [] if _link(l)],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
     )
     industries = {
