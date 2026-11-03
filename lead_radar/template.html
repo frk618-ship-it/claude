@@ -457,11 +457,15 @@ const DATA = /*__DATA__*/null;
   // segment view (客群分析)
   const SEG = DATA.segment;
   // configured links (e.g. the business report), opened in a new tab
-  const links = (DATA.links || []).filter(l => /^https?:\/\//.test(l.url || ""));
+  const onPrimary = ((DATA.segment_pages || []).find(p => p.key === (DATA.segment || {}).key) || {primary: true}).primary;
+  const linkHref = l => l.page ? (onPrimary ? `${l.page}/index.html` : `../${l.page}/index.html`) : l.url;
+  const links = (DATA.links || []).filter(l => (l.page && /^[a-z0-9_-]+$/.test(l.page)) || /^https?:\/\//.test(l.url || ""));
   if (links.length) {
     const ext = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
     $("#extlinks").hidden = false;
-    $("#extlinks").innerHTML = links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}${ext}<span class="sr-only">(在新分頁開啟)</span></a>`).join("");
+    $("#extlinks").innerHTML = links.map(l => l.page
+      ? `<a href="${esc(linkHref(l))}">${esc(l.name)}</a>`
+      : `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}${ext}<span class="sr-only">(在新分頁開啟)</span></a>`).join("");
   }
   // segment tabs: the primary segment's page is /leads/index.html, the others /leads/<key>/index.html
   const pages = (SEG && DATA.segment_pages) || [];

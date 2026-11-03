@@ -455,14 +455,14 @@ def test_header_links_reach_every_segment_page(cfg, tmp_path):
     from lead_radar.page import render_page
     from lead_radar.segment import build_segment_report
 
-    assert cfg.settings.links and cfg.settings.links[0]["name"] == "業務報告"
+    assert cfg.settings.links == [{"name": "業務報告", "page": "report"}]           # a site page: site password only, no Claude login
     rep = build_segment_report(load_csv(PROD_SEEDS, cfg), cfg, "tw_semi_production", date(2026, 11, 3))
-    assert rep["links"] == cfg.settings.links
-    assert '"links": [{"name": "業務報告", "url": "https://claude.ai/artifact/' in render_page(rep)
-    bad = CONFIG.read_text(encoding="utf-8").replace('url: "https://claude.ai/artifact/VvYqgocKyKDSSMUfKgcg1c"', 'url: "javascript:alert(1)"')
-    p = tmp_path / "c.yaml"
-    p.write_text(bad, encoding="utf-8")
-    assert load_config(p).settings.links == []                                    # only http(s) links are shown
+    assert rep["links"] == cfg.settings.links and '"links": [{"name": "業務報告", "page": "report"}]' in render_page(rep)
+    text = CONFIG.read_text(encoding="utf-8")
+    for bad in ('page: "../x"', 'url: "javascript:alert(1)"'):
+        p = tmp_path / "c.yaml"
+        p.write_text(text.replace("page: report", bad), encoding="utf-8")
+        assert load_config(p).settings.links == []                                    # only slugs and http(s) urls
 
 
 def test_signal_with_two_products_counts_once(cfg):
@@ -530,3 +530,24 @@ def test_segment_page_has_one_company_list(cfg):
     # the card list is hidden on segment pages; filters and other companies move to the table
     assert '$("#leads-sec").hidden = true' in html and 'appendChild(document.querySelector("#leads-sec .filters"))' in html
     assert "if (SEGMODE) { renderAccRows(list); renderOthers(); return; }" in html
+
+
+
+def test_business_report_page(tmp_path, monkeypatch):
+    from lead_radar.business_report import markdown_to_html, write_report_page
+    from lead_radar.cli import main
+
+    h = markdown_to_html("# 標題\n\n段落 **粗體** [連結](https://example.com)\n\n| a | b |\n| --- | --- |\n| 1 | 2 |\n\n- [ ] 待辦\n- 項目\n\n1. 一\n2. 二")
+    assert "<h1>標題</h1>" in h and "<strong>粗體</strong>" in h and 'href="https://example.com"' in h
+    assert "<table>" in h and "<td>2</td>" in h and 'class="task"' in h and "<ol><li>一</li>" in h
+    assert "<script" not in markdown_to_html("<script>alert(1)</script> [x](javascript:alert(1))")   # escaped; non-http links stay text
+    assert write_report_page(tmp_path / "missing.md", tmp_path / "out") is None
+    monkeypatch.chdir(ROOT)
+    db = tmp_path / "s.sqlite3"
+    assert main(["--db", str(db), "import", "--no-llm", str(SEEDS)]) == 0
+    out = tmp_path / "seg"
+    assert main(["--db", str(db), "analyze", "--asof", "2026-11-03", "-o", str(out)]) == 0
+    site = tmp_path / "site"
+    assert main(["site", "-i", str(out), "-o", str(site)]) == 0
+    page = (site / "report" / "index.html").read_text(encoding="utf-8")
+    assert "半導體客群商機開發業務報告" in page and 'href="../index.html"' in page and 'href="../../news/index.html"' in page
