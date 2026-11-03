@@ -21,7 +21,7 @@ def build_report(signals: list[Signal], config: Config, asof: date, *, coverage_
     window = [sig for sig in signals if signal_heat(sig, config, asof) > 0]
     grid = analyse(signals, config, asof, coverage_start)
     cells = grid["cells"]
-    leads = build_leads(window, cells, config, asof, first_seen)
+    leads = build_leads(window, cells, config, asof, first_seen, grid["factors"])
     hot = hotspots(cells)
     used = {sid for c in cells if c["count"] for sid in c["signal_ids"]}
     rows = []
@@ -38,6 +38,7 @@ def build_report(signals: list[Signal], config: Config, asof: date, *, coverage_
         "coverage_start": coverage_start.isoformat() if coverage_start else None,
         "slices": grid["slices"],
         "labels": labels(config),
+        "segment_pages": [{"key": k, "name": v.name} for k, v in config.segments.items()],   # links to 客群分析 pages
         "thresholds": {"z_hot": s.z_hot, "z_warm": s.z_warm, "min_signals": s.min_signals, "grades": s.grades},
         "stats": {
             "signals": len(window),

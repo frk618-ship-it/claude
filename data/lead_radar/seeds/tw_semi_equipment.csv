@@ -1,0 +1,14 @@
+# 台灣半導體設備廠客群的種子訊號:2026-11-03 以網路搜尋整理的公開報導(標題為報導重點摘錄,日期取自報導網址或內文所述日期)。
+# 匯入:python -m lead_radar import data/lead_radar/seeds/tw_semi_equipment.csv
+date,org,title,product,industry,region,intent,note,link,source,weight
+2026-08-03,帆宣系統,台積擴產 帆宣、弘塑沾光 廠務與設備訂單增加,,semi_equipment,TW,contract,報導指帆宣在手訂單逾千億元,https://www.ctee.com.tw/news/20260803700211-439901,工商時報,
+2026-08-03,弘塑科技,台積擴產 弘塑沾光 先進封裝濕製程設備擴產,,semi_equipment,TW,expansion,香山二期投產、台中增加租賃廠房,https://www.ctee.com.tw/news/20260803700211-439901,工商時報,
+2026-08-07,京鼎精密,京鼎董事會通過 2.34 億美元泰國二期投資 擴建羅永與春武里廠區,,semi_equipment,TW,expansion,資金於 2026–2028 年分期投入;台灣同步擴產,https://ieknet.iek.org.tw/ieknews/news_open.aspx?nsl_id=308cb850368e4a54bb4c219937cc3e61,IEK 產業情報網,
+2026-08-26,千附精密,千附精密法說:嘉義新廠預計第四季取得使用執照 產能吃緊擴廠因應,,semi_equipment,TW,expansion,"半導體營收占比近四成,客戶含 ASML、應材、Lam;上半年營收年增 43%",https://blog.fugle.tw/post/earnings-call-6829-2026-08-26,富果研究(法說紀錄),
+2026-09-03,,金屬中心建議機械業從零件與模組切入半導體設備供應鏈 推動設備零組件國產化,titanium/nickel,semi_equipment,TW,qualification,,https://www.ctee.com.tw/news/20260903701023-430503,工商時報,
+2026-09-09,天虹科技,天虹科技法說:310mm 面板級封裝 PVD 設備一至三號機獲重複訂單 購置湖口新廠擴產,target,semi_equipment,TW,expansion,董事會通過 6.98 億元購置新竹湖口廠房;PVD 占設備營收七成以上,https://blog.fugle.tw/post/earnings-call-6937-2026-09-09,富果研究(法說紀錄),
+2026-09-11,,半導體設備廠加碼投資 擴產與研發雙軌並進,titanium/nickel,semi_equipment,TW,expansion,產業分析,https://www.ctee.com.tw/news/20260911700769-430702,工商時報,
+2026-10-06,家登精密,家登美國亞利桑那產線落成啟用 零件精密加工服務半導體與航太客戶,titanium,semi_equipment,TW,expansion,初期以零件精密加工與品質檢測為主,https://ec.ltn.com.tw/article/breakingnews/5598283,自由財經,
+2026-10-21,巧新科技,巧新以鍛造切入沉積與蝕刻設備腔體關鍵零件 半導體零組件進入試量產,,semi_equipment,TW,qualification,已完成國際客戶產品驗證,https://www.cna.com.tw/news/afe/202610210147.aspx,中央社,
+2026-10-21,倉佑實業,倉佑以高精密金屬加工切入半導體設備關鍵零組件 半導體營收占比升至 14%,,semi_equipment,TW,new_product,馬來西亞新廠量產爬坡,https://www.cna.com.tw/news/afe/202610210147.aspx,中央社,
+2026-10-29,漢民科技,漢民科技:設備零組件八成已國產化 剩餘兩成進口零組件占整機成本七成 推動關鍵零組件國產化,,semi_equipment,TW,qualification,TSIA 30 週年年會;閥門等仍依賴進口,https://news.nextapple.com/finance/20261029/9573A822DBE216036592AB8B847D51D2,壹蘋新聞網,

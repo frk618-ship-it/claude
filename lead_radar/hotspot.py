@@ -23,7 +23,14 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from .config import Config
-from .signals import OTHER, Signal
+from difflib import SequenceMatcher
+
+from target_news_agent.processing import normalize_title
+
+from .signals import OTHER, UNKNOWN_REGION, Signal
+
+ECHO = 0.25          # weight of further reports of a story already counted
+STORY_DAYS = 10
 
 LEVELS = {"hot": "熱點", "warm": "溫點", "neutral": "一般", "cold": "冷點"}
 TRENDS = {
@@ -54,7 +61,7 @@ def signal_heat(sig: Signal, config: Config, asof: date) -> float:
         base = sig.weight_hint
     else:
         weights = [config.intents[i].weight for i in sig.intents if i in config.intents]
-        base = max(weights, default=1.0) + 0.25 * max(len(weights) - 1, 0)   # several intents = clearer need
+        base = max(weights, default=0.5) + 0.25 * max(len(weights) - 1, 0)   # several intents = clearer need
     heat = base * sig.relevance
     if sig.noise:
         heat *= s.noise_factor
@@ -78,14 +85,58 @@ class Cell:
         return (self.product, self.industry, self.region)
 
 
-def build_grid(signals: list[Signal], config: Config, asof: date) -> dict[tuple[str, str, str], Cell]:
+def story_factors(signals: list[Signal], config: Config) -> dict[str, float]:
+    """Many outlets repeat one story (zh-TW / zh-CN / English, wire reprints). Group signals
+    of the same story — same product, within STORY_DAYS, and either the same organisation and
+    intent or near-identical headlines — and count only the strongest report fully; the
+    other reports add ECHO each (wide coverage is a little extra heat, not a new signal)."""
+    sigs = [s for s in signals if s.day]
+    parent = list(range(len(sigs)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    norms = [normalize_title(s.title) for s in sigs]
+    order = sorted(range(len(sigs)), key=lambda i: sigs[i].day)
+    for a_pos, a in enumerate(order):
+        for b in order[a_pos + 1:]:
+            sa, sb = sigs[a], sigs[b]
+            if (sb.day - sa.day).days > STORY_DAYS:
+                break
+            if not set(sa.products) & set(sb.products):
+                continue
+            same_org = bool(set(sa.orgs) & set(sb.orgs)) and sa.intents[:1] == sb.intents[:1]
+            if same_org or SequenceMatcher(None, norms[a], norms[b]).ratio() >= 0.75:
+                parent[find(a)] = find(b)
+    groups: dict[int, list[int]] = {}
+    for i in range(len(sigs)):
+        groups.setdefault(find(i), []).append(i)
+    factors = {}
+    for members in groups.values():
+        def strength(i):
+            s = sigs[i]
+            w = max((config.intents[k].weight for k in s.intents if k in config.intents), default=0.5)
+            return (w * s.relevance * (s.urgency or 3), s.day)
+        lead = max(members, key=strength)
+        for i in members:
+            factors[sigs[i].id] = 1.0 if i == lead else ECHO
+    return factors
+
+
+def build_grid(signals: list[Signal], config: Config, asof: date,
+               factors: dict[str, float] | None = None) -> dict[tuple[str, str, str], Cell]:
     grid: dict[tuple[str, str, str], Cell] = {}
     for p in config.products:
         for ind in industry_keys(config, p.key):
             for reg in config.region_keys:
                 grid[(p.key, ind, reg)] = Cell(p.key, ind, reg)
+    factors = factors if factors is not None else story_factors(signals, config)
     for sig in signals:
-        h = signal_heat(sig, config, asof)
+        f = factors.get(sig.id, 1.0)
+        h = signal_heat(sig, config, asof) * f
         if h <= 0:
             continue
         for p in sig.products:
@@ -93,7 +144,7 @@ def build_grid(signals: list[Signal], config: Config, asof: date) -> dict[tuple[
             if cell is None:
                 continue
             cell.heat += h
-            cell.count += 1
+            cell.count += 1 if f == 1.0 and not sig.noise else 0   # count stories, not reprints or stock chatter
             cell.signal_ids.append(sig.id)
     for p in config.products:
         getis_ord(grid, industry_keys(config, p.key), config.region_keys, p.key, config.settings.neighbor_weight)
@@ -124,7 +175,11 @@ def getis_ord(grid: dict, industries: list[str], regions: list[str], product: st
 
 
 def level_of(cell: Cell, config: Config) -> str:
+    """Catch-all cells (industry "other", region unknown) still feed the statistics but are never
+    reported as hot / warm: there is no market to point a salesperson at."""
     s = config.settings
+    if cell.industry == OTHER or cell.region == UNKNOWN_REGION:
+        return "cold" if cell.z <= -s.z_hot else "neutral"
     if cell.z >= s.z_hot and cell.count >= s.min_signals:
         return "hot"
     if cell.z >= s.z_warm and cell.count >= 1:
@@ -158,13 +213,14 @@ def analyse(signals: list[Signal], config: Config, asof: date, coverage_start: d
     """Current grid + weekly history. History slices whose window starts before the data
     coverage are skipped (they would look artificially cold)."""
     s = config.settings
-    current = build_grid(signals, config, asof)
+    factors = story_factors(signals, config)
+    current = build_grid(signals, config, asof, factors)
     slices: list[date] = []
     for k in range(s.history_weeks, 0, -1):
         t = asof - timedelta(weeks=k)
         if coverage_start is None or t - timedelta(days=s.days) >= coverage_start:
             slices.append(t)
-    past = [build_grid(signals, config, t) for t in slices]
+    past = [build_grid(signals, config, t, factors) for t in slices]
 
     cells = []
     for key, c in current.items():
@@ -183,7 +239,7 @@ def analyse(signals: list[Signal], config: Config, asof: date, coverage_start: d
             "history": [round(h, 3) for h in past_heat] + [round(c.heat, 3)],
             "signal_ids": c.signal_ids,
         })
-    return {"cells": cells, "slices": [t.isoformat() for t in slices] + [asof.isoformat()]}
+    return {"cells": cells, "slices": [t.isoformat() for t in slices] + [asof.isoformat()], "factors": factors}
 
 
 def hotspots(cells: list[dict], limit: int = 30) -> list[dict]:

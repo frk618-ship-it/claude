@@ -92,7 +92,7 @@ _JP_ORG = re.compile(r"(株式会社[぀-ヿ一-鿿A-Za-z]{2,10}|[぀-ヿ一-鿿
 # Generic words that look like a company name prefix but are not one.
 _GENERIC = re.compile(
     r"^(台灣|臺灣|台湾|中國|中国|國內|国内|全球|美國|美国|日本|韓國|韩国|歐洲|欧洲|我國|我国|國產|国产|本土|大陸|大陆|"
-    r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家)"
+    r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家|零件|零组件|零組件|設備|设备|製程|制程|關鍵|关键|高階|高阶|先進|先进|半導體|半导体|機械|机械)"
 )
 _EN_GENERIC = {"The", "A", "An", "New", "Global", "US", "U.S.", "China", "Taiwan", "Japan", "Korea", "Europe"}
 
@@ -141,7 +141,11 @@ def classify(
     edition: str = "",
     origin: str = "news",
 ) -> Signal | None:
-    """Place one item on the grid; None when it mentions none of the product lines."""
+    """Place one item on the grid. None when it is not a demand signal: no product line named,
+    a drop term in the headline (market-report ads, games, reviews), or — for news — no
+    application industry and no watch-list account (a bare mention such as a titanium watch)."""
+    if _hits(title.lower(), config.settings.drop_terms):
+        return None
     raw = f"{title}\n{snippet}"
     products, relevance = [], 0.6
     for p in config.products:
@@ -150,12 +154,16 @@ def classify(
             products.append(p.key)
             if _hits(_strip(title, p.exclude).lower(), p.keywords):
                 relevance = 1.0
-    if not products:
-        return None
-
     low = raw.lower()
     title_low = title.lower()
     accounts = match_accounts(low, config.accounts)
+    if not products:
+        # Equipment makers' news rarely names a material ("京鼎擴建泰國二期"): for accounts with a
+        # judged product fit, the products they are likely to buy (fit ≥ 2) stand in, at lower relevance.
+        inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
+        if not inferred:
+            return None
+        products, relevance = inferred, 0.6
 
     # Industry per product: title hits count double; a matched account's industry wins.
     industries: dict[str, str] = {}
@@ -171,6 +179,8 @@ def classify(
         }
         best = max(scores, key=lambda i: scores[i], default="")
         industries[key] = best if best and scores[best] > 0 else OTHER
+    if origin != "manual" and not accounts and all(v == OTHER for v in industries.values()):
+        return None
 
     intents = [k for k, it in sorted(config.intents.items(), key=lambda kv: -kv[1].weight) if _hits(low, it.keywords)]
 
@@ -191,6 +201,9 @@ def classify(
         if not _is_excluded(o, excluded) and not any(o in x or x in o for x in orgs):
             orgs.append(o)
     orgs = [o for o in orgs if not _is_excluded(o, excluded)]
+    noise = _hits(title_low, config.settings.noise_terms) > 0
+    if noise:
+        orgs = [a.name for a in accounts]   # stock chatter: no leads from broker / ticker names
 
     if isinstance(published, datetime):
         pub = published.astimezone(timezone.utc).date().isoformat() if published.tzinfo else published.date().isoformat()
@@ -215,8 +228,20 @@ def classify(
         orgs=orgs,
         accounts=[a.name for a in accounts],
         relevance=relevance,
-        noise=_hits(title_low, config.settings.noise_terms) > 0,
+        noise=noise,
     )
+
+
+def reclassify(sig: Signal, config: Config) -> Signal | None:
+    """Re-run the current rules on a stored news signal, so config changes apply to history.
+    Manual rows and Claude-enriched signals are kept as they are."""
+    if sig.origin == "manual" or sig.enriched:
+        return sig
+    new = classify(config, title=sig.title, snippet=sig.snippet, link=sig.link, source=sig.source,
+                   published=sig.published, edition=sig.edition, origin=sig.origin)
+    if new is not None:
+        new.id = sig.id
+    return new
 
 
 def dedupe(signals: list[Signal]) -> list[Signal]:

@@ -54,15 +54,15 @@ class SignalStore:
         self.conn.execute("INSERT OR REPLACE INTO meta (key, value) VALUES (?, ?)", (key, value))
         self.conn.commit()
 
-    def mark_coverage(self, run_day: date, days: int) -> date:
+    def mark_coverage(self, run_day: date, days: int, key: str = "coverage_start") -> date:
         """News searches reach `days` back, so data is complete from (first run − days) on."""
         from datetime import timedelta
 
         start = run_day - timedelta(days=days)
-        old = self.get_meta("coverage_start")
+        old = self.get_meta(key)
         if old and date.fromisoformat(old) <= start:
             return date.fromisoformat(old)
-        self.set_meta("coverage_start", start.isoformat())
+        self.set_meta(key, start.isoformat())
         return start
 
     def close(self) -> None:
