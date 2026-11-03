@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T04:35:04+00:00",
+ "generated": "2026-11-03T04:42:28+00:00",
  "asof": "2026-11-03",
  "days": 30,
  "half_life_days": 14.0,
@@ -120,22 +120,22 @@
   }
  },
  "stats": {
-  "signals": 58,
-  "attributed": 32,
-  "new_signals": 15,
+  "signals": 100,
+  "attributed": 73,
+  "new_signals": 17,
   "hot_cells": 3,
   "warm_cells": 2,
-  "leads": 11,
+  "leads": 12,
   "grades": {
    "A": 2,
    "B": 3,
-   "C": 4,
-   "D": 2
+   "C": 3,
+   "D": 4
   },
   "enriched": 0,
   "by_product": {
    "target": 3,
-   "titanium": 51,
+   "titanium": 93,
    "nickel": 6
   }
  },
@@ -179,7 +179,7 @@
    "region": "CN",
    "heat": 0.862,
    "count": 3,
-   "z": 1.45,
+   "z": 1.02,
    "level": "warm",
    "trend": "",
    "history": [
@@ -197,7 +197,7 @@
    "region": "US",
    "heat": 0.138,
    "count": 1,
-   "z": 1.96,
+   "z": 2.0,
    "level": "warm",
    "trend": "",
    "history": [
@@ -211,13 +211,13 @@
    "product": "titanium",
    "industry": "aerospace",
    "region": "EU",
-   "heat": 15.981,
+   "heat": 16.567,
    "count": 7,
-   "z": 4.26,
+   "z": 3.33,
    "level": "hot",
    "trend": "new",
    "history": [
-    15.981
+    16.567
    ],
    "signal_ids": [
     "0202ec9e5df9da7f",
@@ -229,6 +229,7 @@
     "02760181330f78e2",
     "417550ea0c4ae30f",
     "575689616fef2dff",
+    "7b01fe731a42a76c",
     "a38ec81901c5204e",
     "c96bf8d50ca7d715",
     "7ff75774322e76e9"
@@ -240,7 +241,7 @@
    "region": "OTHER",
    "heat": 3.023,
    "count": 4,
-   "z": 1.67,
+   "z": 1.21,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -259,7 +260,7 @@
    "region": "CN",
    "heat": 0.5,
    "count": 2,
-   "z": -0.31,
+   "z": -0.4,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -276,7 +277,7 @@
    "region": "OTHER",
    "heat": 0.634,
    "count": 2,
-   "z": -0.34,
+   "z": -0.41,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -293,7 +294,7 @@
    "region": "OTHER",
    "heat": 0.195,
    "count": 1,
-   "z": -0.48,
+   "z": -0.51,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -309,7 +310,7 @@
    "region": "OTHER",
    "heat": 0.595,
    "count": 1,
-   "z": -0.39,
+   "z": -0.45,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -323,30 +324,84 @@
    "product": "titanium",
    "industry": "consumer",
    "region": "US",
-   "heat": 11.705,
-   "count": 6,
-   "z": 2.61,
+   "heat": 19.761,
+   "count": 4,
+   "z": 3.83,
    "level": "hot",
    "trend": "new",
    "history": [
-    11.705
+    19.761
    ],
    "signal_ids": [
+    "2986d68d220bab35",
+    "ff5133467de114d5",
+    "de921a20a2bdb278",
+    "de9a05990d59bf6a",
     "249735c2ee17525c",
+    "f4f3c33ceb462657",
     "45696662c40d4564",
     "cc699fce30687a79",
     "2702c6590df26dff",
     "789558b3878fc90a",
     "a6afdebec8d1b494",
     "d1be55b0b5907184",
+    "0ccf12c363d2cd5b",
+    "8d0a8212d2dd807f",
+    "00e97cab2bf1a121",
+    "acc8909b2351dd66",
+    "7e375378ee2d4464",
+    "9ea4b645415f4ae3",
+    "ac0a988fd509650a",
+    "7c050f7f2bc011a2",
+    "59390433316da8c1",
+    "f7cb65c3546f2ff0",
+    "0c453799bb9da701",
+    "93dfadff01e1fdf8",
+    "598b317dd3cb6516",
+    "6b1a5122f2e76238",
+    "d2763a51304aafef",
+    "f0e13b77e372c8ba",
+    "7b9304d9176bdfec",
+    "647a60db062cfe5d",
+    "b32311bd5eaaa91b",
     "5332b81968498cbe",
     "c64c0d0a8450a774",
+    "747c44dbb1c930bb",
+    "0b35a7dd84c88da5",
+    "4e3b75bec61d87d0",
+    "cc1cd124d523be44",
+    "c220f4e23419b4ee",
+    "a262992669b53fae",
+    "89bcf23fc85d0ef5",
+    "b559e0205c9e001d",
     "3ed86e08e8d11c1d",
     "726c3951231eafbe",
+    "898743cae1ca40e8",
+    "e148da1d2f5144df",
+    "11a6dec6bf90d122",
+    "4b43a36723f46429",
     "33df202be56bbebc",
+    "b2db8d772596cc5c",
     "87ec95a5ea1ef3a5",
+    "e1e8e212b1eb81df",
     "5a20b552aedf6347",
     "862f4c13b1919782"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "consumer",
+   "region": "OTHER",
+   "heat": 0.25,
+   "count": 1,
+   "z": 0.91,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.25
+   ],
+   "signal_ids": [
+    "312e563bdc3289e3"
    ]
   },
   {
@@ -355,7 +410,7 @@
    "region": "CN",
    "heat": 3.866,
    "count": 5,
-   "z": 0.37,
+   "z": 0.14,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -375,7 +430,7 @@
    "region": "OTHER",
    "heat": 0.3,
    "count": 2,
-   "z": -0.1,
+   "z": -0.22,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -390,16 +445,18 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.466,
+   "heat": 5.653,
    "count": 3,
-   "z": 0.71,
+   "z": 0.44,
    "level": "neutral",
    "trend": "",
    "history": [
-    5.466
+    5.653
    ],
    "signal_ids": [
     "m-a8eb9bfb6bcf0df5",
+    "974e5e2fa43b9658",
+    "b83859b48638a5cb",
     "m-cdb24ef5cf41e816",
     "m-cbd216dba1d22c62"
    ]
@@ -491,15 +548,42 @@
   },
   {
    "product": "titanium",
-   "industry": "aerospace",
-   "region": "EU",
-   "heat": 15.981,
-   "count": 7,
-   "z": 4.26,
+   "industry": "consumer",
+   "region": "US",
+   "heat": 19.761,
+   "count": 4,
+   "z": 3.83,
    "level": "hot",
    "trend": "new",
    "history": [
-    15.981
+    19.761
+   ],
+   "signal_ids": [
+    "2986d68d220bab35",
+    "ff5133467de114d5",
+    "de921a20a2bdb278",
+    "de9a05990d59bf6a",
+    "249735c2ee17525c",
+    "f4f3c33ceb462657",
+    "45696662c40d4564",
+    "cc699fce30687a79",
+    "2702c6590df26dff",
+    "789558b3878fc90a",
+    "a6afdebec8d1b494",
+    "d1be55b0b5907184"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "EU",
+   "heat": 16.567,
+   "count": 7,
+   "z": 3.33,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    16.567
    ],
    "signal_ids": [
     "0202ec9e5df9da7f",
@@ -511,36 +595,9 @@
     "02760181330f78e2",
     "417550ea0c4ae30f",
     "575689616fef2dff",
+    "7b01fe731a42a76c",
     "a38ec81901c5204e",
-    "c96bf8d50ca7d715",
-    "7ff75774322e76e9"
-   ]
-  },
-  {
-   "product": "titanium",
-   "industry": "consumer",
-   "region": "US",
-   "heat": 11.705,
-   "count": 6,
-   "z": 2.61,
-   "level": "hot",
-   "trend": "new",
-   "history": [
-    11.705
-   ],
-   "signal_ids": [
-    "249735c2ee17525c",
-    "45696662c40d4564",
-    "cc699fce30687a79",
-    "2702c6590df26dff",
-    "789558b3878fc90a",
-    "a6afdebec8d1b494",
-    "d1be55b0b5907184",
-    "5332b81968498cbe",
-    "c64c0d0a8450a774",
-    "3ed86e08e8d11c1d",
-    "726c3951231eafbe",
-    "33df202be56bbebc"
+    "c96bf8d50ca7d715"
    ]
   },
   {
@@ -549,7 +606,7 @@
    "region": "US",
    "heat": 0.138,
    "count": 1,
-   "z": 1.96,
+   "z": 2.0,
    "level": "warm",
    "trend": "",
    "history": [
@@ -565,7 +622,7 @@
    "region": "CN",
    "heat": 0.862,
    "count": 3,
-   "z": 1.45,
+   "z": 1.02,
    "level": "warm",
    "trend": "",
    "history": [
@@ -580,9 +637,48 @@
  ],
  "leads": [
   {
+   "org": "Apple",
+   "account": true,
+   "score": 100.0,
+   "grade": "A",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "consumer",
+   "region": "US",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "qualification",
+    "shortage"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-11-02",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 3.83
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "87ec95a5ea1ef3a5",
+    "2702c6590df26dff",
+    "33df202be56bbebc",
+    "898743cae1ca40e8",
+    "3ed86e08e8d11c1d",
+    "726c3951231eafbe"
+   ]
+  },
+  {
    "org": "Rolls-Royce",
    "account": true,
-   "score": 98.7,
+   "score": 98.6,
    "grade": "A",
    "product": "titanium",
    "products": [
@@ -603,7 +699,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 4.26
+    "z": 3.33
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -618,48 +714,9 @@
    ]
   },
   {
-   "org": "Apple",
-   "account": true,
-   "score": 98.6,
-   "grade": "A",
-   "product": "titanium",
-   "products": [
-    "titanium"
-   ],
-   "industry": "consumer",
-   "region": "US",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "contract",
-    "shortage",
-    "qualification"
-   ],
-   "signals": 6,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-11-02",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 2.61
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "87ec95a5ea1ef3a5",
-    "2702c6590df26dff",
-    "33df202be56bbebc",
-    "5332b81968498cbe",
-    "3ed86e08e8d11c1d",
-    "726c3951231eafbe"
-   ]
-  },
-  {
    "org": "倉佑實業",
    "account": true,
-   "score": 66.3,
+   "score": 64.9,
    "grade": "B",
    "product": "titanium",
    "products": [
@@ -680,7 +737,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.71
+    "z": 0.44
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -692,7 +749,7 @@
   {
    "org": "Safran",
    "account": true,
-   "score": 65.6,
+   "score": 63.2,
    "grade": "B",
    "product": "titanium",
    "products": [
@@ -712,7 +769,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 4.26
+    "z": 3.33
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -756,9 +813,43 @@
    ]
   },
   {
+   "org": "巧新科技",
+   "account": true,
+   "score": 43.3,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "expansion"
+   ],
+   "signals": 3,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-21",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.44
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "m-cdb24ef5cf41e816",
+    "974e5e2fa43b9658",
+    "b83859b48638a5cb"
+   ]
+  },
+  {
    "org": "Aerolloy Technologies",
    "account": false,
-   "score": 43.0,
+   "score": 40.9,
    "grade": "C",
    "product": "titanium",
    "products": [
@@ -778,7 +869,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 4.26
+    "z": 3.33
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -790,41 +881,9 @@
    ]
   },
   {
-   "org": "巧新科技",
-   "account": true,
-   "score": 41.9,
-   "grade": "C",
-   "product": "titanium",
-   "products": [
-    "titanium"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "qualification",
-   "intents": [
-    "qualification",
-    "expansion"
-   ],
-   "signals": 1,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-21",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": 0.71
-   },
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "m-cdb24ef5cf41e816"
-   ]
-  },
-  {
    "org": "Airbus",
    "account": true,
-   "score": 40.8,
+   "score": 38.9,
    "grade": "C",
    "product": "titanium",
    "products": [
@@ -843,7 +902,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 4.26
+    "z": 3.33
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -855,8 +914,8 @@
   {
    "org": "PTC Industries",
    "account": false,
-   "score": 25.7,
-   "grade": "C",
+   "score": 24.3,
+   "grade": "D",
    "product": "titanium",
    "products": [
     "titanium"
@@ -874,7 +933,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 4.26
+    "z": 3.33
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -886,7 +945,7 @@
   {
    "org": "家登精密",
    "account": true,
-   "score": 19.9,
+   "score": 19.2,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -905,7 +964,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.71
+    "z": 0.44
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -917,7 +976,7 @@
   {
    "org": "华秦科技",
    "account": false,
-   "score": 9.6,
+   "score": 9.2,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -935,7 +994,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.45
+    "z": 1.02
    },
    "next_action": "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -943,13 +1002,44 @@
    "evidence": [
     "bffc9d40cd529610"
    ]
+  },
+  {
+   "org": "台積電",
+   "account": true,
+   "score": 8.6,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium"
+   ],
+   "industry": "consumer",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-21",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.93
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "747c44dbb1c930bb"
+   ]
   }
  ],
  "signals": [
   {
    "id": "862f4c13b1919782",
    "title": "Trump Hails Apple’s “100 Million Dollars” of Pennsylvania Titanium. Apple Pledged China $275 Billion",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQb1M3NkVGNlBmV2hpaXB1R0w1bmxZY01WbUo5bkMxY2lsUmtPUHNVWlJZQWdiYUNPUXFYZW5aT0lSMzRyY2xEQjN6NkExN0YyMWVRWVFZVUFpRVdid1JkSEpReFhBMzNTYzNIZHV5WVZyS2I2RmppYXBmdUh2YWxacGxVZTlJMDlJdVJvMk1EeUxrUTZCR0VWS3VsSU5FYk9Hd3NuWlJKWjhieTJCczJxaGFhanZCblI1dmFjdXBmYTZjUnc?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcXh0aDNrVmF0T0xmUWRTYzR5bWVOVndld0lTUkZ6X3J2TUVzc3hfSm1hSmxPVUFvZFU1MjB6S1dIc05LX1lJLTlMOUdmUXV1VUxwcTJ6bnJRN0t4MG52ZkxqS2ZxcXYxWEZ2RGU1cG9fUjRVOWMxZG40dVpnNGYtZHQ4ZnNOV1VEeXJKQzU5MmFybkJWMmczZ0pQM2duYzNlZGxjSjE3QmNwbTZRU0RrenYzSGJQbjlYcXUwTlBJVUpZUQ?oc=5",
    "source": "TIKR.com",
    "published": "2026-11-02",
    "snippet": "",
@@ -982,8 +1072,8 @@
   {
    "id": "5a20b552aedf6347",
    "title": "Ceramic Vs Titanium Apple Watch: Which Material Is Better For Overall Durability?",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOY0UxaUhXYk9zeVhtWDkwV3RkT2ZDLVNwblJrVWtsMGQ3UnNfS0RBSTNPNzRaTEwtMjM3VG9WaU9vVzlPRW1QZmxGeXlGaU0yRVIySFhNYzE0T0h3Rnl3eVFQcTA3WWtFMVRUM2pubUVzTWIzUlNUUTA5UkZSLUhmUS1OWHVXbzlyVnVZUXV2cnVxdw?oc=5",
-   "source": "Yahoo Tech",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWjBkZ09KbGdIWHlaTW9YRjlVMUtERzVJX2tqSnFqMnhBaHlVenB5aUdqUkp6YUYzZk50dlNkLTZsN2Q5VGl6a0cyR2FTa2NxWk5VQjZBT0ZMTVdINC1sd3p4ekYwSThUbmVLYkdPQ0xHd1hBTkhLVndHNXNkTXgyNjIxdjkwUTFzWWx1UTJrX3hWM2dpTUt3VUpBcEpTT2VmbVp2Rzc5d2h6bW5fWEE?oc=5",
+   "source": "Engadget",
    "published": "2026-11-01",
    "snippet": "",
    "edition": "en",
@@ -1046,6 +1136,39 @@
    "title_zh": "",
    "enriched": false,
    "heat": 2.586
+  },
+  {
+   "id": "e1e8e212b1eb81df",
+   "title": "Titanium meets carbon fiber in Pitaka’s stunning new Apple Watch bracelet",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPQk03SEVFSnJBcDJfVklsVTlHeVFHbjdZeUtqWnBpYnU1eVVKX083UVVHR25YUHg4YWM4dHh6MFFKeWZSYkduZkxpZWFqMFViNE1ieEtZT09hbGFGY3A3XzBQRVdSeTc0VTdnazV1ZUlHdGdrSGdjamdjZVV4SmlBY3FoLU91WkotNXktZFFPQW93cWF2dWNvaENVaXlWWWtnNVk1T0VmMFU0Wm5aSmxFRXZmNA?oc=5",
+   "source": "Absolute Geeks",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.41
   },
   {
    "id": "c96bf8d50ca7d715",
@@ -1207,6 +1330,41 @@
    "region": "OTHER",
    "orgs": [],
    "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.342
+  },
+  {
+   "id": "7b01fe731a42a76c",
+   "title": "Norsk Titanium 奪 Rolls-Royce 訂單 將以 RPD 生產鈦合金零件 - 新聞與統計",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOLTNqOF9SQUl4QTNTcTQxNTBsVTBpTUF5SjFTRTFpQVVrWk9XN3pMNENJUW5DbFhvUEZNNVMyRXpnamUyaExEakVUQVJOT2NEWEFIbUVOZHVMa2hPZC1QMEtxbW5PTUFtZVd3NjhIMmhpNHh4RldjM3FaZ2NVejFqWFVJQjQ4MFlaWVkwWF9VQ1VCdlRqa0J0ek1HLUxjOFloLU1wSnd3M2hIUUV1MXhDS3FLdk9PQUJoNzg2MQ?oc=5",
+   "source": "IndexBox",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce"
+   ],
+   "accounts": [
+    "Rolls-Royce"
+   ],
    "relevance": 1.0,
    "noise": false,
    "weight_hint": 0.0,
@@ -1474,6 +1632,39 @@
    "heat": 2.562
   },
   {
+   "id": "b2db8d772596cc5c",
+   "title": "Grade 5 titanium Apple Watch band with tool-free adjustability returns to $70",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE84TUJnY0xhSHF6X2wtbzVSM0lLc2RQYUttTTd6SkhfcUxRV04ybGxUa1NwbDJGM1k2Sk94bC1UN2pRcDlCcHBMR2V1LXZuSThWWUM2SGlvdlppRnhrdUxpWk5pVFFSTjF3QXlESjFaWmRuUWxQR1poQ293?oc=5",
+   "source": "9to5Toys",
+   "published": "2026-10-24",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.305
+  },
+  {
    "id": "33df202be56bbebc",
    "title": "Western Pennsylvania company joins Apple supply chain for iPhone Duo titanium",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNU0Y0dV9oZ1dselZHVHIyaW0zb29yZlhFLUt3cEsya3d0eFI4QWZyTzFhSFpPbm4talh4RGR5SEVoYlFYMkFPREE2NWk2czJLTGYwSTJxVnQxaWlGaGFaRHJzVTN5aVBIWW5pXzFXcFpMUWRGWFFZRGcwT1RURVNfWmVDUDZBNm1tU0M2anBuM2c?oc=5",
@@ -1565,6 +1756,74 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.29
+  },
+  {
+   "id": "e148da1d2f5144df",
+   "title": "Trump hints at Apple’s $100M Pennsylvania titanium investment for new iPhone",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPT3B5SW1WUEdNdnp4VFVDczB3OGFpNWRLZGs5V0M3NUFIQU9GajBSVUlwU1oxU3plY1RERUlGQ0RHM2pWbjdJcmg1X0NkNDZ0cl9BWjBCOXhVeFZCYldfNHMwM3NaODJ0MFZmZzc3WHdTWlI3OXAxWVpfQmx2OVNHVTdKMXA1RElHbWZwanhkbHJsYXNHZmFKVjJhTkFoSkRlVktDWg?oc=5",
+   "source": "Crypto Briefing",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
+  },
+  {
+   "id": "898743cae1ca40e8",
+   "title": "Trump promotes Apple's $100 million titanium deal to support the American economy",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORVU0RGlCTW81RmptTTB1UWJOeTVLWEdEMzlPSmZtbTBlTmhLaU9vZlV5aGY5eTE3MGNCZ05PaElaeVh3Rk4wYlFvSHNvYzdLbU9mNHgxMzFKME1vcUdsM3dBaEdGbzh1SU1UNW1NNWR4Q1J6OE1iOThXUXFIMk1uNF9FbHIweDRzR0xwQnlENElFNlZfZVJOZU5adG1aYXlNenBoMUh1T0tWaS1lY3c0TTI1akpxVHhuQmtrXzdFMXJ3LWVsbDBFZk8yWQ?oc=5",
+   "source": "المتداول العربي",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.656
   },
   {
    "id": "8973229f4ea28e0f",
@@ -1662,6 +1921,39 @@
    "heat": 2.208
   },
   {
+   "id": "4b43a36723f46429",
+   "title": "'American Manufacturing is BOOMING': Trump praises $100M Apple commitment to U.S. titanium supplier",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbXZEZTJJekEwTzA3aGt5T2hWMk1HMTZTbzZldFN0WlhGT1VzOHBEYlA5eHRaXy1DLXBPS19xOEZ6X2JHRFFjZmRUOU85ZmNVSXhPcU5GZ2VUQjE4a0l5STFTeFE1UWpUNjIzV1k4X0E5cWkyQjhhZ2twSnBOcHJfdkVTMjdWRnIwdlI4YTc0VGtQOGpGZW5TX1c3U1VCTTdoRnZPVW9waU5jaGxrQ2hEMEFyYUVjSVltbW1RMUZQZ2lTXzA?oc=5",
+   "source": "One America News Network",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
+  },
+  {
    "id": "3ed86e08e8d11c1d",
    "title": "Apple commits $100m to US titanium manufacturing",
    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNajJfOWJoZTVQQ0oyUUJsaWE4dGZXVVlmaElZYjlzdktRb05IR28zQ1JoWm5GVjNuZ18zQjl5U2ZDTjA3WXdCR3p0MnN2V1pIamFpMlFoMGxIamJnQXZ0bm9VVjBGNzNXMU1JbXhxQVZySjdQblVzd3JFZ3VMbzdacmZpT0lCOUh2eE9YcW1qSTBoQU0?oc=5",
@@ -1695,6 +1987,39 @@
    "title_zh": "",
    "enriched": false,
    "heat": 2.208
+  },
+  {
+   "id": "11a6dec6bf90d122",
+   "title": "Apple pledges US$100m for US-made iPhone Duo titanium",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNS3dDeEI0WERrOEp4dEJUbTl3YUZkajhHSE5aMnlmTzJVdUN0cEQ2SWVDSWJKYVAwSTRZenhTQzVFcjlLZ2N1eXhGYUpEZTE4ejVHSG93WGVyRjB6ci1sQjExOU81UWs0Qm40cUxRTjRkSG9MdUpoWkI0NXE2VzJ3Qmk5TVk?oc=5",
+   "source": "News Ghana",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.276
   },
   {
    "id": "m-cdb24ef5cf41e816",
@@ -1800,6 +2125,41 @@
    "heat": 0.263
   },
   {
+   "id": "cc1cd124d523be44",
+   "title": "Apple commits up to $100m to Perryman for iPhone Duo titanium",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZUlCWEVVWmdsSFhsX3Z1N1BrbVZBenF0NHI4RGMtbkp2cF9LaGR0WHU1aFR5UnRzc1ozLVE4VUVfQVhPNHJHSXQzT1JhRW8zb3ZxOEVjcGk0U2loM3BhOWFoSTdsNFVOX1ZoYTRGUUgwT0JzeTd3UHNPa1FGcC1oUFF4eGQ?oc=5",
+   "source": "PPC Land",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.102
+  },
+  {
    "id": "c64c0d0a8450a774",
    "title": "Apple commits $100 million for US titanium from Perryman Company",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNV0p4V0dIYkg5eTdzTGZTMUNOUXpyRlJTMXpad2hzR0g2YW14WDJhQVExMGxBS1ZMajQ5YzJXM3FzeWd6VmlELUhXSkdIYjRXNmlDc3I2ODVYSWQ0NXNSZ3ZMbnlsU2JrQzZIbnc4WFhzYmVTcmhvaTB6TGhnTDNsY2QxR2Q5WjlZTUg3UENSZ0JmWE1uNmpINzB5dHZmUUNKc0VwcHMtN3dJcWduNW9CYkpDTEtvdG1tRFBJOE5PNTB4STVwcFAtdVdnUmppQjdFZnNHMFVCZXJvRzJXT1pV0gHjAUFVX3lxTE4zWmE0SkhoV2JFWC12VDB6R0JEOU1VZllKeVFXVlptQ3h6ZjlYU3hjMlltc3NhU0xiU1ZFVUJyck1uWklrOGZiczZiT2Z3OS1KeFpHUFNkRFVNUEdWcEx6bVFJOUFiWTJ5d2R5eFFpbTRPVHZnMERWNVdmU0NGMS10TVVxZ1pjekV2ZUhRREV5YkVGUXF2aVlnOEd6WDhZRnlOTlNsUWFIQno5N29QYV9CbDE3M3FMMHdzLVhMWUFfalUyV1F0OHItMHFKVEVyU1poMWtVMEJORVE5RXV5MnJkU2Zn?oc=5",
@@ -1833,6 +2193,177 @@
    "title_zh": "",
    "enriched": false,
    "heat": 2.102
+  },
+  {
+   "id": "c220f4e23419b4ee",
+   "title": "Apple taps Perryman titanium and Qnity films for iPhone Duo and iPhone 18 Pro",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNQzV1Zk5VUlJvYjhYWllLeHpoMUU1cWZZeWk2X0EzZ0JxaVBBS0NnV2RYRWlObUtQaWRqQS1MTGRpd1FPQmM4MmR2ZmtueUNnbWZtT0JPcGk1QUdEckJ1akVMSmtEd2M4aFRieTMzNW5HVDVEYnJJTkE4dGNUU3B1cHB3?oc=5",
+   "source": "The Mac Observer",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.263
+  },
+  {
+   "id": "b559e0205c9e001d",
+   "title": "Apple will allocate up to US$ 100 million to titanium for the iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOXR3OG5LeXZlQnBueEdDbGVtZUtHX3dPcklEUUJ0dXFvakRtSnBTOEx6alUzZHNDdTUzVEM2Z1RRZmFicWUxTEVtd29jUFdCM0JvbmwtQ2dfSmlZV3Q1RmljUHpyVm93SzZpRUhDME9sZGVKcEFCbjJNLWVhdGYxaGsyYnhCazVKVzFzT2JhVVRlMDV4TzN0VXA0QlNJZzhFZllFOA?oc=5",
+   "source": "portalcripto.com.br",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.263
+  },
+  {
+   "id": "a262992669b53fae",
+   "title": "Apple commits up to US$100 million to US titanium supplier",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQb2ltaE1QX0Q4SFVhS1UtM3RLclVfMEUwajRIMnlmLXhHTmFvLVctT2NhbUVwZkxlaDJScVJodmJVY2Q5TF9XSFBWSXl1ZmlGakw3LXBkcEVTM1NoVzA3MTJHWExjOVk4TGlabGdzUE5FRS00S0o2UEw3NXJxZ2lnZ1NPTThzb3VlSThvcEZyLTNyVVBqeFUyZDMyMDlqcHpjU2k0QQ?oc=5",
+   "source": "Shanghai Metals Market",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.102
+  },
+  {
+   "id": "89bcf23fc85d0ef5",
+   "title": "Technology 24h: Apple invests in titanium, OpenAI deeply penetrates the pharmaceutical industry",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNd3NCOWQ2R2xxYVN5dnhuTWxkS1ZCN3RfSjJuYXRzV2taMW1mUHZOanZyQTg1S3hvSTlTbm9aQ3FldllvUFFRSnl4enNpeWZPamdIbjJxa3JucDJJejV2SWpwRy1Ld09GSmVTc3k5bmlHNTcyRVFuajRSTE1kaU1HNWhoR3BFb3ZYbHZNd1ctVlVXLXQ1STV1TkJ3YlZrOUthZ1AySEFZVVBzNHZSNnhZNkxR?oc=5",
+   "source": "Laodong.vn",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.263
+  },
+  {
+   "id": "747c44dbb1c930bb",
+   "title": "[News] Apple Signs Up to US$100M Titanium Deal for Products Including iPhone Duo; TSMC Arizona to Supply 100M+ Chips",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOUjFnQk9jb2loT0NudDd1Tjc0NHctdkJTMG1rRmo3VGdrWExoU01LanhFa3JZYzZSaVJBSGh2Y01TTlp6MlpnMEVzeHR5X3J4aFhsb3UxSmJESkQ0RGVSQUlZdnZjRjZ2ZVdud0tqbGhhbTNDbEM0aDJVdG9zTTVBV1BjZGJnWDZLX3cxQjZLRTl3RXNFY1R0UDJyU0liM2J0Q3dTY0hWWTU1TzBrVFZiaEtNNjJtNWdleWkyNlc5Qy04YXBIa2Q1dHlUR1lxc0ZqS0VieVZPazRsamJwSm5pMnNhNzlWT0VBazYw?oc=5",
+   "source": "TrendForce",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple",
+    "台積電"
+   ],
+   "accounts": [
+    "Apple",
+    "台積電"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.576
   },
   {
    "id": "5332b81968498cbe",
@@ -1870,6 +2401,41 @@
    "heat": 1.576
   },
   {
+   "id": "4e3b75bec61d87d0",
+   "title": "Apple commits $100M to Pennsylvania titanium maker for foldable iPhone",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNY0RFWkNMbWo5NzJVaV9FZEFFVGhteFNadmNyOFd0SVBKMUhPNVZzZ0FZVmdKWlR6U0lmekhQckZyT2Z5R2Zmb1dNMWJ1eEZyd0lUTmR3Q1VuZkdlTnpNbElab2xuWnpHcmZ1M1pqeGlXZmwyRGJhTzNqR0l0bWF5V3piam44OFg3UTRPSzQ2V0c1el9rU3FzMXVva0ZVMEQzQ09EaDN3?oc=5",
+   "source": "Dealroom",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.102
+  },
+  {
    "id": "4b9c13ca3f70f25f",
    "title": "DMC&H achieves historic medical milestone: DMC&H Ludhiana performs Punjab’s first customised 3d-printed titanium bone implant surgery",
    "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPeUxLSm1iRFEzcl9vaE9wdlQxOWhibW9OMFMyTE91S0ZOZ1JBeTZVT2JvMTkzbkZ4NVB6UFFfeFU0ZnNzb1NkbzJoZlBjT1RBNTQ3RU51dkVPQTR1ZzkwTFAzUHh1aWxtX0dkd2VpX2J0TS1yS0RzbHVDWUd0a0hrcno4aGJxU0tNa2tVU2ZWb3VkbjkyMVF3a1ZvMmV5TVJ2aGh1VnMyOGdmVGZxak16bDB2dVV0YzRzZ0NFNkZTT1hVU0FPNjdvb2RBSHZQWEFwS3B4NHRqdGlzOFNNNXdOZDhLNGFkR3BOS0RsZWE5SjE1OWd6clBVVQ?oc=5",
@@ -1899,6 +2465,109 @@
    "heat": 0.263
   },
   {
+   "id": "0b35a7dd84c88da5",
+   "title": "Apple commits to recycled-content titanium",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYmdUZFdMRzBfX0hLZkxUWFJxanBDdVlZWVBXM00xaXdlUlVmQjZIRW1jdUFHbDVMVGVjNE9KbGljbEV0WWM3ZjRkSU1BT3dqbVhsR29HUlhqa21MRWl5SWRmWUpfb3NpMnJXdm04NmwxMGlPa29GUmtybW9oUENpMEhfSTdrVGh2bzk4WEtUUnV3UjZuMnlqZklSSVJwT2M?oc=5",
+   "source": "Recycling Today",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.102
+  },
+  {
+   "id": "f7cb65c3546f2ff0",
+   "title": "Apple Pours Up to $100M Into Pennsylvania Titanium Maker for iPhone Duo Parts",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPTUgyY01MWUlEMkZjMlRNdEdWR1YxcHkzMEJPWVhSbzFHRWpLWGhxRi04cjBoMDBrNXhHdnBUaTZKY0ZfRHFBLTVkNGU1ekYydjVhT0E5ZlFzYnhQLWpEVHBqcXYybVdPeENtckpQTk1oejhQTmNsM3NaOUc3T1FpSERaamxxc1dGWlVmZ2pHRlJZN3dIVFV4NjAyRmVvdnZlcmdpVUJnc2RBQQ?oc=5",
+   "source": "Hoodline",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "f0e13b77e372c8ba",
+   "title": "Apple Commits Up to $100 Million to US Titanium for iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFByUWdBWmtLeHZZa01vN0dheVV4X0pwYXpUZEh0VmtnRXdQMzJ3S1c4OE5uU2xpT0R0WWxIQ0RrZUFxN0VKM0lGZE95bXctRUxsV1llRGhKRUUwei1fVFFZb215Mnd3RlpLNEJ4WmZFZk0yajR1VW9N?oc=5",
+   "source": "iThinkDifferent",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
    "id": "d6fa02c53ae04ed8",
    "title": "Novel High Temperature Aluminum Alloys Target Titanium Replacement in Aerospace",
    "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1iS1dWS0VnbVVIcENSX3FzalliaXZoMklQQnhqMjJoRkNJcnByR0ZING83X2lWdHNmN29uVGlxajU4S1g3LUFlT3B5QkZKVWlRU09PMU1B?oc=5",
@@ -1926,6 +2595,41 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.25
+  },
+  {
+   "id": "d2763a51304aafef",
+   "title": "Perryman wins up to $100 million Apple deal for iPhone Duo titanium",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9RN1JNSWtfRTZVaU5BMjdkZUREYjBlTE5VRDJKZ1gxcFF1UEo1eEdJZVA1Z1cwaU9NdmVEejVaMzB5eW9RX0hYbk5OZ0NKeVRyeWE5YWQ1MnFCMVF0S0FQSWVsc0R3V2U1X09GOEZaekRDUDMySDdVR3pR?oc=5",
+   "source": "Cryptopolitan",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.5
   },
   {
    "id": "d1be55b0b5907184",
@@ -2018,6 +2722,107 @@
     "华秦科技"
    ],
    "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "b32311bd5eaaa91b",
+   "title": "Apple Commits $100 Million to U.S. Titanium Supplier amid iPhone Duo Shortages",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdS1WYU5BS2JLNTZJQV92SkVzWVd3MmQ2bC0zLXNtNkk0NHctdHpzY3p6TkJldnYxT09jT0FNdVUzeFQydVZnUFRjaTBvbHJIZU91M29HQU1waDRSbi1JYk8tWjFmZnMxZlUyY2hJYkRSSlJsYnhYUTljMm9WdzFhNzZQSDdyQ2UtbGpodGZSNHJhb1NtVkpuZU1pS3NmUUh5dkFVRk9Fc2FfUQ?oc=5",
+   "source": "TipRanks",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
+   "id": "acc8909b2351dd66",
+   "title": "Apple will commit up to $100 million to a U.S. titanium supplier for foldable iPhone",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1UTlVKY3NfajFycHE1VXBrbFprS05ZanJvZndJd2xlTE9vamdEUHRyTjBNUUg5SW9GVkNRclJJZi1LcnRyU1hqWnR3dk9kVUR0Y3hiS3piOW9SNkRaNkJBcm9fZGF3bld1X3hSV2c1d0Q1RWM?oc=5",
+   "source": "Quartz",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "ac0a988fd509650a",
+   "title": "Apple to spend up to $100 million on U.S.-made titanium for iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTkh0eENlYnU4Z2hyUmg5RGRGREF3MHk2OHJhSUhvTEM2RFhueG5JOEV3QlVTVG9mUHh6d1JZY2k1c0tXN0FxdHU1M1JYMVc3WFZFUUpkUzBodDFIeW8yM3pWWWRNYVNtMm14R2JZam1tdTh2X1ZCWDVZYXVkQ3lmYTJITmg3YlM4cTRCNU1mUnJqNGhPRnFFSG9weV9oVVhabV9LZk90MExLckcwN1BtcWxGaElfQdIBuwFBVV95cUxNeTYza2ZwdVdWcWFlOEN0QVMyRXJMWDNYQ1VLZGZGOUY5TzZBeE5vZWx3ejVDXzRLMmNXNEJVX2VwWEtKbzRycVhOd3NiMUcyTGJzR1lMOWtRX29uVmNDSkt1a0VKQmU3VkZGVFZ5M20xTkFaTmxEQVFCRGVNV2N3dTEyaElUby1ldl9JdU9YN2hicTgwMHZzSmUtSF94VU8ydk1HV1BoS2Z6XzVTbi1jcEh4dmZxSWpnMG5V?oc=5",
+   "source": "The Apple Post",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
    "relevance": 1.0,
    "noise": false,
    "weight_hint": 0.0,
@@ -2122,10 +2927,348 @@
    "heat": 0.25
   },
   {
+   "id": "9ea4b645415f4ae3",
+   "title": "Apple pledges up to $100 million for US titanium as it expands domestic manufacturing",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxObGhEZDN3ZFBOZjF3ZzdwWDFtZVlOMW0tYUUxWm8yaXlhcFJCZXZxb3BaVHI1Z2ZhaUdzRFhfZDRFNWJiaG4wVDV1TlpGTlU2NktVRTN3VkRoWjhTbmNBaXR0TDZQT0pHYkk5cWZfaDJQSnpsOXMwYXNxUmJrdGdPMg?oc=5",
+   "source": "Mezha.net",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "93dfadff01e1fdf8",
+   "title": "Apple Partners with US Titanium Suppliers for iPhone Duo Production",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1vQ091cWN1RUR3VFhlbkNCWVdpU3o0WnJBcWk2NG5vbHVTOHNFeHprNkE3d1ExZ0dZQU9lb1E1Uk1zV1oxOXJhUEkwUdIBQkFVX3lxTFAxM0FTREZiNlhXd0NzcjFscGI0Q1drcG56NkdYcmcxUDRkQ3RxVFVxcUtmcll5bUE4azY5dDZXelJpdw?oc=5",
+   "source": "VOI.ID",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "8d0a8212d2dd807f",
+   "title": "Apple pledges $100M to US titanium supplier for iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZjJ6SUxfa2VoeGNsMThHV2prZWh1eWpHWmhpSk5KaTAxYW96MnhrQ3hHc2NJNUZraGZHNzB0VU82Mlg4VGdQa1RjMmIwc2xIOVVSN1p0Mld0OWdxLWJ5SHRDbERiQ0I2WE9MUkRvaW1lTDR5bVVLX0JsQmY3WWVUWFVVSlZKUkVjS28xWFpIX0xLcFp4ZDlGSzFfMFU?oc=5",
+   "source": "Mobile World Live",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "7e375378ee2d4464",
+   "title": "Pittsburgh-area company to supply titanium for Apple’s new iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQRkdrS2k4bDJ4VFNsLWh5MS1YWFNOZzFuVGxQWjZZYjJpa3F0dWJGbHpac2J6bUxtOWFoV2o1QnZDS0lUXzlpUmt1Vm1icUluSHVhWWZ5VzA0Nm1zVmxNUlVHcWVBSmZwRkRvSDF4U0lPaHJvQlBzSDB2eUVhdXkwVDg3ZmFMSmdLUF83STBIenppUjZndlVVaXM3MmVBaTEzYk13U0NBTmRpVm1XQ292bUJhWDl5aTZzRUc4OG9R0gHSAUFVX3lxTE8zbXpRM1RRVFZ0czhsaTBQUlRjNi1KcEtlTnAxTFJ2djJhQ1VIWjFZTkhTdkstV1pKc2NoUzZCUTE5NjFZSnYwWExTa1BaMTFxSlR4RFpaY3RIalhnWnFkR3NjejkxM3gzb284aG43ZUZ3R0VKX0pPaEhVN0c3aGgxMm5BYmx3NzhkR0NudURiamFtMS1ub1dzTHhXY21jRWxRcXN5T29FT2J2cmZ6ZDZWNVdvb1ZJekNiOU1aQURYeHN5dWhxSmtGcDhwTzZGTVZEZw?oc=5",
+   "source": "WPXI",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "7c050f7f2bc011a2",
+   "title": "Apple Inks $100 Million Deal for US Titanium to Build the iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE84TEJsX2ktSnZQemdFOGcwenNOa1RtM3FQTDREMllRRUNTaGxZTk1IZWItWlNPek1xcVlEUjFoVnFNOGNoYVdOUjNuODQyYjIwX05pVFhjZjZzd0FJRHhqLUR3SC1KNjc1eTlYTmw2b0dVREtNdHBPWGViclBsSlE?oc=5",
+   "source": "Android Headlines",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.5
+  },
+  {
+   "id": "7b9304d9176bdfec",
+   "title": "Apple to Invest in American Titanium Producer for iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQeHNXUlp5SHh6NDQ0Wm5HWG1DblN4aGhYU28tQnhNS0lWUmdFcVBiOXhjajd1OXFzVTA3OGFEaTlMbHk3Nk1CY3NkNDN4UmRtTEVhNEpkQklEUllJWVZxWVhpNGVIc0xUSlhoaFhqd1ZpaFFkSC0yVDBFYnhLRzNwbDhQdzYxb0NhbDhCQmhlN0U2MGcyTThHcjJ2M1ViYWE3SnlN?oc=5",
+   "source": "NTD News",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
    "id": "789558b3878fc90a",
    "title": "Apple Pledges $100 Million for U.S. Titanium Supply as Domestic Production Drive Expands",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdGZvSVFRTmV3clZTR0Zsd2U5cXA0aUNiQk5Td0RTV1dnOFRLOUVDOWdfNFFGWEtPZkdJY0plSkpwQWtCWTlHaGU4Y291V1EzLWhZcUdNNUNBdGhIUndnbUd0NWpnX1lLTmtyMmJzRnkzd0tnUXRVTXNpQWNVaFFJcVRibEZhU1hwRUJ5U1NFQnNqNlFtUEk0NEVzaVVJYmRUeWl3OXVkenNTV240eFY4?oc=5",
    "source": "Belaaz",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "6b1a5122f2e76238",
+   "title": "Apple Taps US Titanium Maker for iPhone Duo, Expands Camera Deal",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVlpHZVg1bGJ3LXNBTDV2bVE4VVlzT2wzNjVmZGVoazl3MXNuTHlMV3Y5bXl3WUtkRjFicUNRdTdDZl9udFRjbEhySExWVmpaVzhGanZHOTJaa21LSjh1eVJYSU1VS3FGVFNXajZEQWpEOUFLbUxWUGp5MlYtZ2p2RzNiZm1YNXB5cDJ4TVQ2N3JKS2d2aW9Kd2Q5bTFQX1k?oc=5",
+   "source": "iPhone in Canada",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.5
+  },
+  {
+   "id": "647a60db062cfe5d",
+   "title": "Apple Pledges $100 Million For US Titanium Supply Chain",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNOV9fdEJXOTg4cFV6dk82MUhub0xTWmMwSUhXcTd6cFVBWG5uRkloVS0wNWY2ajlYeENaenZIdmpoLXlyTTRfTktTbVB0RnJZZzFuc1pXX0JQTlZRa2lWN0p5ZDEwd2ZPUWFQSkRETmVwa2N1cFVtZzhFSWctbGY3ZjlMZ0ZLdkE?oc=5",
+   "source": "tippinsights",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.5
+  },
+  {
+   "id": "598b317dd3cb6516",
+   "title": "Apple to buy up to $100M of US titanium for the iPhone Duo",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZ044cTBPbFRmemhlVE5QS0ZiU0dhc2oxVmt3dDRIaWdnUXlKUGJkRHNvVWU2cVd5MkI0Q05KMGRCc1U1aEFPVEpDdVBpWk11dXlMRVpGc1JKWmx5UVc2bF9HdjNhLWt1OThSWXFPSHN5X3h5QzI1V0h4SzNyWDVxTFJGdExMRHVVWGsxbQ?oc=5",
+   "source": "Apple Must",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "59390433316da8c1",
+   "title": "Apple Taps Pennsylvania's Perryman for Up to $100 Million in Titanium as iPhone Duo Supply Runs Thin",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1JU3AxOTk2YkNXNWtpbmo5bXRfUjQ1bENraUV4d3BqV1R2aXl0eFFQbWQ0S0VMQjNjT1FrYUx5akVHMEtSV1c0WlRHQk81TlMybU0zYkY4TmsxRzVzV1lTalhVbGNadkFpUjlHODJXdkJqMUJCYXc?oc=5",
+   "source": "BigGo Finance",
    "published": "2026-10-20",
    "snippet": "",
    "edition": "en",
@@ -2184,6 +3327,35 @@
    "heat": 0.075
   },
   {
+   "id": "312e563bdc3289e3",
+   "title": "iPhone camera and titanium chassis manufacturing expands in US",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUWEwV2gyZlRVRWpWWnFYQ3N0Ry1KeGFJM0tsUWw2ejJCQkwwLXYwb29yWlBrS3lFcVR4LTFHak5sSlR3MkxrNjlqSllGX3Z2YTQ4cFJkZkFQazhkRFV5Y2hINmsyM1VpQ003bHNHcnBaSmc2ZmRUYXB3dmJEbnVTb0VvbUdRUGU3UFFacy1QMllKRGswVWwySW1XUzJMVUhlRGlFQ182cnc?oc=5",
+   "source": "AppleInsider",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
    "id": "2702c6590df26dff",
    "title": "Apple adds U.S. titanium supplier for iPhone Duo as supply stays tight",
    "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQN19fYVdtTnlOSmxoWTFGV1hra0RLYmh3TzVpdWhnU2o2LWZoZTlPQ2EtQjgtdjFxZTJaWWk0RXRfYXE2Vnp1dVpjT3RiOUNvWWFCWWpCbG1yLWUzN1BvWEVNUGRReDZwRVI0SWVPTF9JOW9tbGJtakhwOWY1VWpoQlhiTDdWWG1CaUk00gGQAUFVX3lxTFBNTUZtQjdTa0NoSWZEME05SG5FOGctVTRjX3ZhMWdZNUhEQ3hCVHB6WnB6ak94YlAtaldiM0FfY0ZadWNyclNiRjJpOF9oeTZnMjAzT0ZkRjJkUHBjaEtPMGdVM3o5Y0NLSS1aNEtqa0ZveV9OLTJBQk90ckIxREpVOWQxUkpKeEdacWt6VXNocA?oc=5",
@@ -2200,6 +3372,109 @@
    },
    "intents": [
     "shortage"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
+   "id": "0ccf12c363d2cd5b",
+   "title": "Apple Bets $100 Million on U.S. Titanium Supply for Its Next iPhones",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOc2VFdUtpY1VmLXVwXy13UFY1UG5BdmhzTmZHd24wS2t4S21uY3N0c29XR05BcF9sZEZ1OWstblFOMDBmVktUUVEyc0pzTFRDWXN0NW0ySHlTTF9yU0xJOWdWU29JVUZRNFJSSmVDQ3VxV3NybzdzYmY4bzNncGZ1UFhPZnJUM2hEeHpVcTln?oc=5",
+   "source": "Yahoo Finance",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
+  },
+  {
+   "id": "0c453799bb9da701",
+   "title": "Apple commits up to $100 million for US titanium as it expands domestic manufacturing",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQN2Z3RTE1NTRGTXNCejVsWEw2cUdxbWZ0R29PY2stMXVJdEp2bC1NRjg2ZEFiSzE4ejkyZGIwUXFSSVdrMEFfWGVZQzZ0N3pOa0dkN0pTcEpWaHlUMHQyNlVLeG1OczFTZ2lTcHhhUnpVa0k2NDdBcjJKT0c1ZTc2R2VrSWNsQzJMcnEwWVFCSG5TU0NHRHBCTEpDRUFnN1dKM3R1WG0zYmdsRVVmelFnTlg3OGMzT2ZMbkRVek1WX2JkOEtpbTVBNdIBzgFBVV95cUxOZHN6TVllNUppSTZfSzhhTFlrYlUteUVxaVdZai1CX0R1RnpJUEFsbmhQRFEzeldrME83bm54ZjJHZE5LQ25KdXZvUE80d0JycVlvakR2cHItR1psU3h1bVFVb2Y2dG1YeTFQZVZkMWZWR1FWd0pVNlNqanhSMUJuY1h4MTI3MFZBWW1CcF9FNDF0bnF6UHpuLWN5QlF0VFUyZVpVUjd5dHFMUGh3VGd5ZDVUVTRsS0xUTXJETTRXRmE1TlRzaE94akdrOTNPQQ?oc=5",
+   "source": "Firstpost",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.0
+  },
+  {
+   "id": "00e97cab2bf1a121",
+   "title": "Apple commits up to $100M to Washington County titanium supplier",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQeXBOMEJXbVdBa2pMdFJiUmZ1RXdXeUJLZEtzWmw4Q2lMWTVSWWo3OHVxQVJOcGQwLWhKb0phSTFqQk1jNHFNYTBMZ2ppTTcxRXpub1dxVG9mdlRZdlAweFdpdy1ZdmxWVFhpT01OTFVvODVBRlBjLVRjV3VHdTAwT0dPaTFvRkNzSHZEd3JR?oc=5",
+   "source": "The Business Journals",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "expansion"
    ],
    "region": "US",
    "orgs": [
@@ -2322,6 +3597,39 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.641
+  },
+  {
+   "id": "f4f3c33ceb462657",
+   "title": "Grade 5 titanium Apple Watch band drops to $62.50",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPd2FjNHBEc1p6VTNBSGc1SmxFRC15aDRyVXRhZjZLNXlFV3I4dkVlVTdlSTRrLUxDUEl1NEVxTG9YX01QQmRJVGlqUmg1RmFONzNDdjBNY2NZYXdYZE5HZjBGTEwtUFBTQnRvYlQ0OFo3OGxkMzAzemVzOVFJcDRHUg?oc=5",
+   "source": "9to5Toys",
+   "published": "2026-10-15",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.195
   },
   {
    "id": "3162f4f9ca13516c",
@@ -2497,6 +3805,74 @@
    "heat": 1.114
   },
   {
+   "id": "de9a05990d59bf6a",
+   "title": "Clearance deal on Black Titanium Apple Watch Ultra 3 with Milanese Loop live again at $199 off",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1nWXVYblpEOG1BRjhIeWZkZVZCenh6bngyOFlfRXV6SjNQenVfR1M3Z0hBdlYyQjV2Q1ZQTmk5ODUwOXl0c0wyVTRBejZQTDdDeXdrSkhubHJTLTRTZ0pJUG9Rem5sMnBIZU9aSGpsQk5XcS1lbnJRNlpCdU1TUQ?oc=5",
+   "source": "9to5Toys",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.061
+  },
+  {
+   "id": "b83859b48638a5cb",
+   "title": "焦點股》巧新：9月營收創單月新高 股價強漲",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSkhJcjhUX1A5cXNmV2ltUEpSOHpUdFZyeU56QmN3aElBSDE0a1hqWFJYS3RoQWNOaU5JcWdGX05ibERfbmoxZy1FUGZfakN1WlZTU2ctZUU?oc=5",
+   "source": "自由時報",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "semi_equipment"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [
+    "巧新科技"
+   ],
+   "accounts": [
+    "巧新科技"
+   ],
+   "relevance": 0.6,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.03
+  },
+  {
    "id": "7caa5752b6e182d2",
    "title": "Engo Uses Metal 3D Printing for Titanium Temples on New AR Running Glasses",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWWdnaVFTQ1VPWkdYVWRFNGVETkl4blk1TEtaYnNOc3lsWVQwY2ptWm15bWJWVk55Y3lMS3FzaFFZd2k3dmM1UzBKdjh3RGhEc1pabzRrREJmckJrWHVCb0J5WXNCSkpyakpGYW5WYlVnWkhpWkJuVDQtbzcybVFjdmdnc1EyeE1mYjBvdzdyWFE2clVxX0k4QjI4TXVVOVVMbVhfTkVRWUpyS0RGalM1d3g3d010RWJqYnc?oc=5",
@@ -2553,6 +3929,107 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.168
+  },
+  {
+   "id": "ff5133467de114d5",
+   "title": "A comprehensive comparison of the materials used in the Apple Watch Series 12: aluminum, titanium, and ceramic... Which one is worth buying?",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRjY5bzdDQU11ZzJTUWt2MkxoSnNFbmpXSjVvWmtvMHNiSEpOSUU3SFFBSXZXZk1wcWxqRjhoQncyd0FtSElVQkZsSV8xUVFUdE4xc3RMNzgwNW5uY29yTWZhMTZIMHdvNnVvaEZzb2d5UTczSG02aGRnT1RnYUpGY3RLQ0xjZmpMVG83U2ZDS3BsdmUtZEkxMVRCd19hQmVUUEE?oc=5",
+   "source": "آي-فون إسلام",
+   "published": "2026-10-10",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.152
+  },
+  {
+   "id": "de921a20a2bdb278",
+   "title": "A Comprehensive Comparison of Apple Watch Series 12 Materials: Aluminum, Titanium, and Ceramic.. Which One Is Worth Buying?",
+   "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQc3FRQzg5cWhxS0FtNTJReUpfWkhtU1FNb0t5cXhmQjhFejhqeFlnSGtOX3FlcWZGcFdOUFpNY1dGNjJrRlBDSHRlV2MyWEdINnpESjBTOFpOdkJ6OG1FYncxZ1NnZ3RqSmZLU0JGTWZsUVNXMXJReExBZWlEYk10LWRfaXNMbE1Gck9wVWxYTExXc1lVcHlQVnRXajhNZDcxcTROQ1E0WmhVeVptQ2RnbXdXZ3NXSkVZNWFESUNYeEo0VmE3a3c2dXcwMjFXRmtKQVp3M2VDRzFfc0NZUWZZVnpYRTUtNWFtcml3OG4yZjVCZllpelFtaUFWR1Q?oc=5",
+   "source": "آي-فون إسلام",
+   "published": "2026-10-10",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.152
+  },
+  {
+   "id": "974e5e2fa43b9658",
+   "title": "〈熱門股〉巧新營收創高 切入半導體設備供應鏈 股價挑戰前高",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5HYVB6S000cVZOS3g1bVBnTUpSUHhaUGVudWh3TndvLTlmZGNxVzBFdUQ2STM4V3dsTm1BRUNZMElmOWROOUgtaFN3ajVtUXc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "semi_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "巧新科技"
+   ],
+   "accounts": [
+    "巧新科技"
+   ],
+   "relevance": 0.6,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.157
   },
   {
    "id": "123e9f213b7185df",
@@ -2642,6 +4119,39 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.657
+  },
+  {
+   "id": "2986d68d220bab35",
+   "title": "Already-affordable grade 5 titanium Apple Watch band is now less for Prime Day, snag it at $59.50",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9XRDNGRUxMVk9uQlNTd0g4bFVLcU83MXpFLURocTdXQVFVbjU3X1lLekFUZEIzcGF6MlBSUDVaOWk1UWZHMlhMVEJ1cS10ZkdDbzFZeHhjQVhvSG1tcmRIU25tWENuYkxFd0t2dXBEQ2hJUVpwNTJB?oc=5",
+   "source": "9to5Toys",
+   "published": "2026-10-07",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "consumer"
+   },
+   "intents": [],
+   "region": "US",
+   "orgs": [
+    "Apple"
+   ],
+   "accounts": [
+    "Apple"
+   ],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.131
   },
   {
    "id": "m-a8eb9bfb6bcf0df5",
