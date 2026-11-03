@@ -124,7 +124,7 @@ intents:
                   keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid,
                              purchase order, seeks supplier, seeking suppliers, 入札, 調達, 입찰, 구매]}
   shortage:      {name: 缺料與交期, weight: 4.0, action: "主動提出可交貨量、交期與替代牌號 / 規格方案",
-                  keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 漲價, 涨价, 去中化, 吃緊, 吃紧, shortage, supply crunch, lead time, supply constraint, tight supply,
+                  keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 去中化, 吃緊, 吃紧, shortage, supply crunch, lead time, supply constraint, tight supply,
                              supply stays tight, supply remains tight, supply chain disruption, 品薄, 부족]}
   expansion:     {name: 擴產與新廠, weight: 4.0, action: "聯繫採購與廠務,提案新產線材料認證並安排送樣",
                   keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
