@@ -388,7 +388,8 @@ def test_segment_scores_do_not_saturate(cfg):
     stories = [sig(seg_cfg, t, days_ago=d) for t, d in [("京鼎泰國二期擴產 新廠動工", 5), ("京鼎接獲設備模組訂單", 30), ("京鼎缺料 交期吃緊", 60)]]
     cells = analyse(stories, seg_cfg, ASOF)["cells"]
     lead = next(l for l in build_leads(stories, cells, seg_cfg, ASOF) if l["org"] == "京鼎精密")
-    assert 40 < lead["score"] < 95                                                     # three stories: strong, not maxed out
+    # three stories: clearly scored, not maxed out (each story counts once, not once per inferred product)
+    assert 25 < lead["score"] < 95
 
 
 
@@ -462,3 +463,16 @@ def test_header_links_reach_every_segment_page(cfg, tmp_path):
     p = tmp_path / "c.yaml"
     p.write_text(bad, encoding="utf-8")
     assert load_config(p).settings.links == []                                    # only http(s) links are shown
+
+
+def test_signal_with_two_products_counts_once(cfg):
+    # 京鼎 (fit titanium 2, nickel 3) gets both products inferred; the same news for a
+    # one-product account must score the same, not half
+    two = sig(cfg, "京鼎董事會通過泰國二期投資 擴建新廠", days_ago=3)
+    one = sig(cfg, "京鼎董事會通過泰國二期投資 擴建新廠", days_ago=3)
+    assert set(two.products) == {"titanium", "nickel"}
+    one.products, one.industries = ["nickel"], {"nickel": two.industries["nickel"]}
+    score = lambda s: next(l for l in build_leads([s], analyse([s], cfg, ASOF)["cells"], cfg, ASOF) if l["org"] == "京鼎精密")
+    l2, l1 = score(two), score(one)
+    assert l2["score"] == pytest.approx(l1["score"], abs=0.5)
+    assert l2["product"] == "titanium" or l2["product"] == "nickel"

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T15:45:03+00:00",
+ "generated": "2026-11-03T16:39:13+00:00",
  "asof": "2026-11-03",
  "days": 120,
  "half_life_days": 45.0,
@@ -133,10 +133,10 @@
   "warm_cells": 1,
   "leads": 39,
   "grades": {
-   "A": 1,
-   "B": 7,
-   "C": 7,
-   "D": 24
+   "A": 0,
+   "B": 2,
+   "C": 11,
+   "D": 26
   },
   "enriched": 0,
   "by_product": {
@@ -146,9 +146,9 @@
   },
   "accounts": 22,
   "tiers": {
-   "優先開發": 3,
-   "積極經營": 8,
-   "持續觀察": 11
+   "優先開發": 0,
+   "積極經營": 10,
+   "持續觀察": 12
   }
  },
  "cells": [
@@ -766,206 +766,9 @@
  ],
  "leads": [
   {
-   "org": "弘塑科技",
-   "account": true,
-   "score": 74.1,
-   "grade": "A",
-   "product": "nickel",
-   "products": [
-    "titanium",
-    "nickel",
-    "target"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract",
-    "shortage",
-    "expansion",
-    "qualification",
-    "hiring"
-   ],
-   "signals": 13,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-28",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.71
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "need": "",
-   "evidence": [
-    "2035d0e314a24625",
-    "228f48fd8c197103",
-    "f27f5cafbe1b8b08",
-    "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad",
-    "e1deac2e1e00ef84"
-   ]
-  },
-  {
-   "org": "日月光投控",
-   "account": true,
-   "score": 69.5,
-   "grade": "B",
-   "product": "target",
-   "products": [
-    "target",
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract",
-    "expansion",
-    "tender"
-   ],
-   "signals": 6,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-28",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.61
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "e1deac2e1e00ef84",
-    "66138b52b06c3af7",
-    "329a986b0b73d256",
-    "ccb944fc5014f49b",
-    "e381d0a8a6185832",
-    "ccd42e7ec7666cef"
-   ]
-  },
-  {
-   "org": "京鼎精密",
-   "account": true,
-   "score": 63.1,
-   "grade": "B",
-   "product": "nickel",
-   "products": [
-    "titanium",
-    "nickel",
-    "target"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "contract",
-    "qualification",
-    "policy"
-   ],
-   "signals": 7,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-15",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.71
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "need": "",
-   "evidence": [
-    "00f090dbc48de15f",
-    "5a4b5e29a9fd824e",
-    "m-81e4fcd170195f9d",
-    "be41efd49998b54f",
-    "a1feb9f8c0e2ceef",
-    "1d005d752b866391"
-   ]
-  },
-  {
-   "org": "倉佑實業",
-   "account": true,
-   "score": 62.9,
-   "grade": "B",
-   "product": "titanium",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "new_product"
-   ],
-   "signals": 2,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-21",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "m-cbd216dba1d22c62",
-    "88e752098d61efe7"
-   ]
-  },
-  {
-   "org": "千附精密",
-   "account": true,
-   "score": 57.7,
-   "grade": "B",
-   "product": "titanium",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "shortage",
-    "contract",
-    "qualification"
-   ],
-   "signals": 7,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-16",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "m-799397f8690b2681",
-    "64e7711dc2a46723",
-    "2c95d321a90bb454",
-    "c05bb4471227a26c",
-    "7d4024611afd4ce1",
-    "4ef1f13550862cd6"
-   ]
-  },
-  {
    "org": "家登精密",
    "account": true,
-   "score": 52.8,
+   "score": 50.0,
    "grade": "B",
    "product": "titanium",
    "products": [
@@ -1004,127 +807,45 @@
    ]
   },
   {
-   "org": "台積電",
+   "org": "弘塑科技",
    "account": true,
-   "score": 52.7,
+   "score": 48.4,
    "grade": "B",
-   "product": "target",
+   "product": "nickel",
    "products": [
-    "target",
+    "titanium",
     "nickel",
-    "titanium"
+    "target"
    ],
-   "industry": "semiconductor",
+   "industry": "semi_equipment",
    "region": "TW",
    "top_intent": "contract",
    "intents": [
     "contract",
+    "shortage",
+    "expansion",
     "qualification",
-    "expansion",
-    "shortage",
-    "hiring",
-    "new_product"
-   ],
-   "signals": 11,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-15",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.61
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "697265169036c55a",
-    "411c2a725ed623a4",
-    "460ed1d6e334da2d",
-    "c678815b9c34c77c",
-    "a227fc29b166d7cc",
-    "d82c45aebb9dc651"
-   ]
-  },
-  {
-   "org": "帆宣系統",
-   "account": true,
-   "score": 48.7,
-   "grade": "B",
-   "product": "nickel",
-   "products": [
-    "nickel",
-    "titanium",
-    "target"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "contract",
-    "shortage",
-    "qualification"
+    "hiring"
    ],
    "signals": 13,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-10-20",
+   "last_signal": "2026-10-28",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
     "z": 5.71
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
    "need": "",
    "evidence": [
-    "ccb9fcec687bf3db",
-    "m-8ce210ed0fb1e64d",
-    "4b331a6d2589695f",
-    "00f090dbc48de15f",
-    "4cf163ce91a51b61",
-    "5b970057501c5096"
-   ]
-  },
-  {
-   "org": "辛耘企業",
-   "account": true,
-   "score": 44.7,
-   "grade": "C",
-   "product": "nickel",
-   "products": [
-    "titanium",
-    "nickel",
-    "target"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "contract",
-    "policy"
-   ],
-   "signals": 8,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-18",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.71
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "need": "",
-   "evidence": [
-    "f19d649c38a57f11",
-    "75e969bfbc21d223",
-    "b5837696839c3e9d",
-    "329a986b0b73d256",
-    "4301e37dad66046b",
-    "d82c45aebb9dc651"
+    "2035d0e314a24625",
+    "228f48fd8c197103",
+    "f27f5cafbe1b8b08",
+    "m-2fe80f11f577d5f7",
+    "5e7395fe7e2df6ad",
+    "e1deac2e1e00ef84"
    ]
   },
   {
@@ -1167,9 +888,125 @@
    ]
   },
   {
+   "org": "倉佑實業",
+   "account": true,
+   "score": 39.1,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-21",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "m-cbd216dba1d22c62",
+    "88e752098d61efe7"
+   ]
+  },
+  {
+   "org": "京鼎精密",
+   "account": true,
+   "score": 38.7,
+   "grade": "C",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel",
+    "target"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "qualification",
+    "policy"
+   ],
+   "signals": 7,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-15",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.71
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "need": "",
+   "evidence": [
+    "00f090dbc48de15f",
+    "5a4b5e29a9fd824e",
+    "m-81e4fcd170195f9d",
+    "be41efd49998b54f",
+    "a1feb9f8c0e2ceef",
+    "1d005d752b866391"
+   ]
+  },
+  {
+   "org": "帆宣系統",
+   "account": true,
+   "score": 38.3,
+   "grade": "C",
+   "product": "nickel",
+   "products": [
+    "nickel",
+    "titanium",
+    "target"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "shortage",
+    "qualification"
+   ],
+   "signals": 13,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-20",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.71
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "need": "",
+   "evidence": [
+    "ccb9fcec687bf3db",
+    "m-8ce210ed0fb1e64d",
+    "4b331a6d2589695f",
+    "00f090dbc48de15f",
+    "4cf163ce91a51b61",
+    "5b970057501c5096"
+   ]
+  },
+  {
    "org": "亞翔工程",
    "account": true,
-   "score": 38.0,
+   "score": 37.8,
    "grade": "C",
    "product": "nickel",
    "products": [
@@ -1207,123 +1044,83 @@
    ]
   },
   {
-   "org": "萬潤科技",
+   "org": "日月光投控",
    "account": true,
-   "score": 38.0,
-   "grade": "C",
-   "product": "titanium",
-   "products": [
-    "target",
-    "nickel",
-    "titanium"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "qualification",
-   "intents": [
-    "qualification",
-    "expansion",
-    "new_product",
-    "tender",
-    "contract"
-   ],
-   "signals": 4,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-08",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "460ed1d6e334da2d",
-    "3d0106d7d8885b33",
-    "7d859caae43a9b27",
-    "ccb944fc5014f49b",
-    "4600c1fa15817d84",
-    "1eddc02da3abc624"
-   ]
-  },
-  {
-   "org": "美光台灣",
-   "account": true,
-   "score": 34.1,
+   "score": 36.3,
    "grade": "C",
    "product": "target",
    "products": [
     "target",
-    "nickel",
-    "titanium"
+    "titanium",
+    "nickel"
    ],
    "industry": "semiconductor",
    "region": "TW",
-   "top_intent": "expansion",
+   "top_intent": "contract",
    "intents": [
+    "contract",
     "expansion",
-    "qualification",
-    "contract"
+    "tender"
    ],
-   "signals": 2,
+   "signals": 6,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-10-02",
+   "last_signal": "2026-10-28",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
     "z": 5.61
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "4cf163ce91a51b61",
-    "8f0016a8fd512ac6",
-    "cadd6d674c7cd6a2",
-    "616806023e62cc77",
-    "1d2a963d4b19f6b5",
-    "e478629860a3adc2"
-   ]
-  },
-  {
-   "org": "天虹科技",
-   "account": true,
-   "score": 32.8,
-   "grade": "C",
-   "product": "target",
-   "products": [
-    "target",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract",
-    "expansion",
-    "new_product"
-   ],
-   "signals": 4,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-29",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 2.56
-   },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
    "need": "",
    "evidence": [
-    "m-d07a015033fdb0cb",
-    "a227fc29b166d7cc",
-    "091841dbcbb31750",
-    "6d5236e4ef09889f",
-    "4a2d9f541a428f3f"
+    "e1deac2e1e00ef84",
+    "66138b52b06c3af7",
+    "329a986b0b73d256",
+    "ccb944fc5014f49b",
+    "e381d0a8a6185832",
+    "ccd42e7ec7666cef"
+   ]
+  },
+  {
+   "org": "千附精密",
+   "account": true,
+   "score": 34.9,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "shortage",
+    "contract",
+    "qualification"
+   ],
+   "signals": 7,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-09-16",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "m-799397f8690b2681",
+    "64e7711dc2a46723",
+    "2c95d321a90bb454",
+    "c05bb4471227a26c",
+    "7d4024611afd4ce1",
+    "4ef1f13550862cd6"
    ]
   },
   {
@@ -1365,6 +1162,169 @@
    ]
   },
   {
+   "org": "台積電",
+   "account": true,
+   "score": 26.6,
+   "grade": "C",
+   "product": "target",
+   "products": [
+    "target",
+    "nickel",
+    "titanium"
+   ],
+   "industry": "semiconductor",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "qualification",
+    "expansion",
+    "shortage",
+    "hiring",
+    "new_product"
+   ],
+   "signals": 11,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-15",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.61
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "697265169036c55a",
+    "411c2a725ed623a4",
+    "460ed1d6e334da2d",
+    "c678815b9c34c77c",
+    "a227fc29b166d7cc",
+    "d82c45aebb9dc651"
+   ]
+  },
+  {
+   "org": "天虹科技",
+   "account": true,
+   "score": 26.6,
+   "grade": "C",
+   "product": "target",
+   "products": [
+    "target",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion",
+    "new_product"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-09-29",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 2.56
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "m-d07a015033fdb0cb",
+    "a227fc29b166d7cc",
+    "091841dbcbb31750",
+    "6d5236e4ef09889f",
+    "4a2d9f541a428f3f"
+   ]
+  },
+  {
+   "org": "萬潤科技",
+   "account": true,
+   "score": 25.3,
+   "grade": "C",
+   "product": "titanium",
+   "products": [
+    "target",
+    "nickel",
+    "titanium"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "expansion",
+    "new_product",
+    "tender",
+    "contract"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-08",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "460ed1d6e334da2d",
+    "3d0106d7d8885b33",
+    "7d859caae43a9b27",
+    "ccb944fc5014f49b",
+    "4600c1fa15817d84",
+    "1eddc02da3abc624"
+   ]
+  },
+  {
+   "org": "辛耘企業",
+   "account": true,
+   "score": 24.4,
+   "grade": "D",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel",
+    "target"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "policy"
+   ],
+   "signals": 8,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-18",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.71
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "need": "",
+   "evidence": [
+    "f19d649c38a57f11",
+    "75e969bfbc21d223",
+    "b5837696839c3e9d",
+    "329a986b0b73d256",
+    "4301e37dad66046b",
+    "d82c45aebb9dc651"
+   ]
+  },
+  {
    "org": "漢民科技",
    "account": true,
    "score": 24.2,
@@ -1396,43 +1356,49 @@
    ]
   },
   {
-   "org": "日月光半導體",
-   "account": false,
-   "score": 19.0,
+   "org": "美光台灣",
+   "account": true,
+   "score": 18.8,
    "grade": "D",
    "product": "target",
    "products": [
     "target",
-    "titanium",
-    "nickel"
+    "nickel",
+    "titanium"
    ],
    "industry": "semiconductor",
    "region": "TW",
-   "top_intent": "contract",
+   "top_intent": "expansion",
    "intents": [
+    "expansion",
+    "qualification",
     "contract"
    ],
-   "signals": 1,
+   "signals": 2,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-10-28",
+   "last_signal": "2026-10-02",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
     "z": 5.61
    },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
    "need": "",
    "evidence": [
-    "e1deac2e1e00ef84",
-    "4600c1fa15817d84"
+    "4cf163ce91a51b61",
+    "8f0016a8fd512ac6",
+    "cadd6d674c7cd6a2",
+    "616806023e62cc77",
+    "1d2a963d4b19f6b5",
+    "e478629860a3adc2"
    ]
   },
   {
    "org": "漢唐集成",
    "account": true,
-   "score": 13.1,
+   "score": 12.0,
    "grade": "D",
    "product": "nickel",
    "products": [
@@ -1470,7 +1436,7 @@
   {
    "org": "志聖工業",
    "account": true,
-   "score": 12.4,
+   "score": 8.2,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1506,17 +1472,17 @@
    ]
   },
   {
-   "org": "中砂",
-   "account": true,
-   "score": 10.1,
+   "org": "日月光半導體",
+   "account": false,
+   "score": 6.9,
    "grade": "D",
-   "product": "titanium",
+   "product": "target",
    "products": [
     "target",
-    "nickel",
-    "titanium"
+    "titanium",
+    "nickel"
    ],
-   "industry": "semi_equipment",
+   "industry": "semiconductor",
    "region": "TW",
    "top_intent": "contract",
    "intents": [
@@ -1524,20 +1490,19 @@
    ],
    "signals": 1,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-10-13",
+   "last_signal": "2026-10-28",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.84
+    "z": 5.61
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
    "need": "",
    "evidence": [
-    "697265169036c55a",
-    "64766cba7ef4024f",
-    "9ece520123e7162f"
+    "e1deac2e1e00ef84",
+    "4600c1fa15817d84"
    ]
   },
   {
@@ -1604,39 +1569,6 @@
    ]
   },
   {
-   "org": "汎銓打造半導體",
-   "account": false,
-   "score": 4.3,
-   "grade": "D",
-   "product": "target",
-   "products": [
-    "target",
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "hiring",
-   "intents": [
-    "hiring"
-   ],
-   "signals": 1,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-03",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.61
-   },
-   "next_action": "從新設部門或新任主管切入,建立聯繫窗口",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "0be31479b3f1cbc6"
-   ]
-  },
-  {
    "org": "南亞科",
    "account": true,
    "score": 4.1,
@@ -1665,6 +1597,41 @@
    "need": "",
    "evidence": [
     "3d0106d7d8885b33"
+   ]
+  },
+  {
+   "org": "中砂",
+   "account": true,
+   "score": 3.5,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "target",
+    "nickel",
+    "titanium"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-13",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "697265169036c55a",
+    "64766cba7ef4024f",
+    "9ece520123e7162f"
    ]
   },
   {
@@ -1699,9 +1666,75 @@
    ]
   },
   {
+   "org": "汎銓打造半導體",
+   "account": false,
+   "score": 1.4,
+   "grade": "D",
+   "product": "target",
+   "products": [
+    "target",
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semiconductor",
+   "region": "TW",
+   "top_intent": "hiring",
+   "intents": [
+    "hiring"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-09-03",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.61
+   },
+   "next_action": "從新設部門或新任主管切入,建立聯繫窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "0be31479b3f1cbc6"
+   ]
+  },
+  {
+   "org": "美光把台灣半導體",
+   "account": false,
+   "score": 1.2,
+   "grade": "D",
+   "product": "target",
+   "products": [
+    "target",
+    "nickel"
+   ],
+   "industry": "semiconductor",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-01",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.61
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "cadd6d674c7cd6a2"
+   ]
+  },
+  {
    "org": "京元電子",
    "account": true,
-   "score": 3.0,
+   "score": 1.0,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1732,9 +1765,41 @@
    ]
   },
   {
+   "org": "直擊半導體",
+   "account": false,
+   "score": 1.0,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-09-02",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "ff9ee52834bfa325"
+   ]
+  },
+  {
    "org": "Apple",
    "account": true,
-   "score": 2.7,
+   "score": 0.9,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1766,108 +1831,9 @@
    ]
   },
   {
-   "org": "美光把台灣半導體",
-   "account": false,
-   "score": 2.3,
-   "grade": "D",
-   "product": "target",
-   "products": [
-    "target",
-    "nickel"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "qualification"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-01",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.61
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "cadd6d674c7cd6a2"
-   ]
-  },
-  {
-   "org": "均華精密",
-   "account": true,
-   "score": 2.2,
-   "grade": "D",
-   "product": "titanium",
-   "products": [
-    "target",
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-08-28",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "b941bb37db7f7a7f",
-    "a6ab8ad7399906f8"
-   ]
-  },
-  {
-   "org": "直擊半導體",
-   "account": false,
-   "score": 1.9,
-   "grade": "D",
-   "product": "titanium",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-02",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "ff9ee52834bfa325"
-   ]
-  },
-  {
    "org": "家碩科技",
    "account": true,
-   "score": 1.8,
+   "score": 0.9,
    "grade": "D",
    "product": "target",
    "products": [
@@ -1894,71 +1860,6 @@
    "need": "",
    "evidence": [
     "08069dd88e394fb0"
-   ]
-  },
-  {
-   "org": "弘塑集團",
-   "account": false,
-   "score": 1.4,
-   "grade": "D",
-   "product": "titanium",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "qualification",
-   "intents": [
-    "qualification"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-08-11",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.84
-   },
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "2acdccc482655407"
-   ]
-  },
-  {
-   "org": "汎銓共同打造半導體",
-   "account": false,
-   "score": 1.1,
-   "grade": "D",
-   "product": "target",
-   "products": [
-    "target",
-    "titanium",
-    "nickel"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "hiring",
-   "intents": [
-    "hiring"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-03",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "new",
-    "z": 5.61
-   },
-   "next_action": "從新設部門或新任主管切入,建立聯繫窗口",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "need": "",
-   "evidence": [
-    "b4f66b4b3d0385b8"
    ]
   },
   {
@@ -1994,7 +1895,41 @@
    ]
   },
   {
-   "org": "佳霖攜手青輝半導體",
+   "org": "均華精密",
+   "account": true,
+   "score": 0.7,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "target",
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-08-28",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "b941bb37db7f7a7f",
+    "a6ab8ad7399906f8"
+   ]
+  },
+  {
+   "org": "弘塑集團",
    "account": false,
    "score": 0.7,
    "grade": "D",
@@ -2022,7 +1957,7 @@
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "need": "",
    "evidence": [
-    "4fbe23f7bac9126f"
+    "2acdccc482655407"
    ]
   },
   {
@@ -2058,35 +1993,68 @@
    ]
   },
   {
-   "org": "翔名科技",
-   "account": true,
-   "score": 0.2,
+   "org": "汎銓共同打造半導體",
+   "account": false,
+   "score": 0.4,
    "grade": "D",
-   "product": "nickel",
+   "product": "target",
+   "products": [
+    "target",
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semiconductor",
+   "region": "TW",
+   "top_intent": "hiring",
+   "intents": [
+    "hiring"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-09-03",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.61
+   },
+   "next_action": "從新設部門或新任主管切入,建立聯繫窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "need": "",
+   "evidence": [
+    "b4f66b4b3d0385b8"
+   ]
+  },
+  {
+   "org": "佳霖攜手青輝半導體",
+   "account": false,
+   "score": 0.3,
+   "grade": "D",
+   "product": "titanium",
    "products": [
     "titanium",
     "nickel"
    ],
    "industry": "semi_equipment",
    "region": "TW",
-   "top_intent": "expansion",
+   "top_intent": "qualification",
    "intents": [
-    "expansion"
+    "qualification"
    ],
    "signals": 0,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-07-16",
+   "last_signal": "2026-08-11",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.71
+    "z": 5.84
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "need": "",
    "evidence": [
-    "6e001e18bac0b34f"
+    "4fbe23f7bac9126f"
    ]
   },
   {
@@ -2150,6 +2118,38 @@
    "need": "",
    "evidence": [
     "710d9d6ddd6abae8"
+   ]
+  },
+  {
+   "org": "翔名科技",
+   "account": true,
+   "score": 0.1,
+   "grade": "D",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-07-16",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.71
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "need": "",
+   "evidence": [
+    "6e001e18bac0b34f"
    ]
   }
  ],
@@ -10883,12 +10883,12 @@
     "titanium": 6.16,
     "nickel": 6.16
    },
-   "signal_score": 63.1,
+   "signal_score": 38.7,
    "signals": 7,
    "top_intent": "expansion",
    "last_signal": "2026-10-15",
-   "opportunity": 77.9,
-   "tier": "優先開發",
+   "opportunity": 63.2,
+   "tier": "積極經營",
    "best_product": "nickel",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -10899,72 +10899,6 @@
     "be41efd49998b54f",
     "a1feb9f8c0e2ceef",
     "1d005d752b866391"
-   ]
-  },
-  {
-   "org": "千附精密",
-   "ticker": "6829",
-   "subsegment": "parts",
-   "fit": {
-    "target": 0,
-    "titanium": 3,
-    "nickel": 3
-   },
-   "note": "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接",
-   "heat": {
-    "target": 0.0,
-    "titanium": 5.82,
-    "nickel": 5.82
-   },
-   "signal_score": 57.7,
-   "signals": 7,
-   "top_intent": "expansion",
-   "last_signal": "2026-09-16",
-   "opportunity": 74.6,
-   "tier": "優先開發",
-   "best_product": "titanium",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "evidence": [
-    "m-799397f8690b2681",
-    "64e7711dc2a46723",
-    "2c95d321a90bb454",
-    "c05bb4471227a26c",
-    "7d4024611afd4ce1",
-    "4ef1f13550862cd6"
-   ]
-  },
-  {
-   "org": "弘塑科技",
-   "ticker": "3131",
-   "subsegment": "front_end",
-   "fit": {
-    "target": 0,
-    "titanium": 2,
-    "nickel": 2
-   },
-   "note": "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃",
-   "heat": {
-    "target": 1.79,
-    "titanium": 11.38,
-    "nickel": 11.38
-   },
-   "signal_score": 74.1,
-   "signals": 13,
-   "top_intent": "contract",
-   "last_signal": "2026-10-28",
-   "opportunity": 71.1,
-   "tier": "優先開發",
-   "best_product": "titanium",
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "evidence": [
-    "2035d0e314a24625",
-    "228f48fd8c197103",
-    "f27f5cafbe1b8b08",
-    "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad",
-    "e1deac2e1e00ef84"
    ]
   },
   {
@@ -10982,11 +10916,11 @@
     "titanium": 2.87,
     "nickel": 10.57
    },
-   "signal_score": 48.7,
+   "signal_score": 38.3,
    "signals": 13,
    "top_intent": "expansion",
    "last_signal": "2026-10-20",
-   "opportunity": 69.2,
+   "opportunity": 63.0,
    "tier": "積極經營",
    "best_product": "nickel",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -11001,64 +10935,36 @@
    ]
   },
   {
-   "org": "倉佑實業",
-   "ticker": "1568",
+   "org": "千附精密",
+   "ticker": "6829",
    "subsegment": "parts",
    "fit": {
     "target": 0,
-    "titanium": 2,
-    "nickel": 2
+    "titanium": 3,
+    "nickel": 3
    },
-   "note": "高精密金屬加工轉進前段設備零組件,馬來西亞新廠量產爬坡;需要穩定的特殊合金原料來源",
+   "note": "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接",
    "heat": {
     "target": 0.0,
-    "titanium": 4.88,
-    "nickel": 4.88
+    "titanium": 5.82,
+    "nickel": 5.82
    },
-   "signal_score": 62.9,
-   "signals": 2,
+   "signal_score": 34.9,
+   "signals": 7,
    "top_intent": "expansion",
-   "last_signal": "2026-10-21",
-   "opportunity": 64.4,
+   "last_signal": "2026-09-16",
+   "opportunity": 60.9,
    "tier": "積極經營",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "evidence": [
-    "m-cbd216dba1d22c62",
-    "88e752098d61efe7"
-   ]
-  },
-  {
-   "org": "天虹科技",
-   "ticker": "6937",
-   "subsegment": "front_end",
-   "fit": {
-    "target": 3,
-    "titanium": 1,
-    "nickel": 1
-   },
-   "note": "國產 PVD / ALD 與面板級封裝 PVD 設備商:製程開發、客戶 demo 與驗收都要用靶材,可談設備搭配靶材的配套供應",
-   "heat": {
-    "target": 3.63,
-    "titanium": 0.0,
-    "nickel": 1.22
-   },
-   "signal_score": 32.8,
-   "signals": 4,
-   "top_intent": "contract",
-   "last_signal": "2026-09-29",
-   "opportunity": 59.7,
-   "tier": "積極經營",
-   "best_product": "target",
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "evidence": [
-    "m-d07a015033fdb0cb",
-    "a227fc29b166d7cc",
-    "091841dbcbb31750",
-    "6d5236e4ef09889f",
-    "4a2d9f541a428f3f"
+    "m-799397f8690b2681",
+    "64e7711dc2a46723",
+    "2c95d321a90bb454",
+    "c05bb4471227a26c",
+    "7d4024611afd4ce1",
+    "4ef1f13550862cd6"
    ]
   },
   {
@@ -11076,11 +10982,11 @@
     "titanium": 10.93,
     "nickel": 1.36
    },
-   "signal_score": 52.8,
+   "signal_score": 50.0,
    "signals": 9,
    "top_intent": "expansion",
    "last_signal": "2026-10-16",
-   "opportunity": 58.3,
+   "opportunity": 56.7,
    "tier": "積極經營",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -11092,6 +10998,71 @@
     "00f090dbc48de15f",
     "0366df1e550e062e",
     "409b00de49ad74bd"
+   ]
+  },
+  {
+   "org": "天虹科技",
+   "ticker": "6937",
+   "subsegment": "front_end",
+   "fit": {
+    "target": 3,
+    "titanium": 1,
+    "nickel": 1
+   },
+   "note": "國產 PVD / ALD 與面板級封裝 PVD 設備商:製程開發、客戶 demo 與驗收都要用靶材,可談設備搭配靶材的配套供應",
+   "heat": {
+    "target": 3.63,
+    "titanium": 0.0,
+    "nickel": 1.22
+   },
+   "signal_score": 26.6,
+   "signals": 4,
+   "top_intent": "contract",
+   "last_signal": "2026-09-29",
+   "opportunity": 56.0,
+   "tier": "積極經營",
+   "best_product": "target",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "evidence": [
+    "m-d07a015033fdb0cb",
+    "a227fc29b166d7cc",
+    "091841dbcbb31750",
+    "6d5236e4ef09889f",
+    "4a2d9f541a428f3f"
+   ]
+  },
+  {
+   "org": "弘塑科技",
+   "ticker": "3131",
+   "subsegment": "front_end",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2
+   },
+   "note": "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃",
+   "heat": {
+    "target": 1.79,
+    "titanium": 11.38,
+    "nickel": 11.38
+   },
+   "signal_score": 48.4,
+   "signals": 13,
+   "top_intent": "contract",
+   "last_signal": "2026-10-28",
+   "opportunity": 55.7,
+   "tier": "積極經營",
+   "best_product": "titanium",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "evidence": [
+    "2035d0e314a24625",
+    "228f48fd8c197103",
+    "f27f5cafbe1b8b08",
+    "m-2fe80f11f577d5f7",
+    "5e7395fe7e2df6ad",
+    "e1deac2e1e00ef84"
    ]
   },
   {
@@ -11120,39 +11091,6 @@
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
    "evidence": [
     "m-eab18e505444be96"
-   ]
-  },
-  {
-   "org": "辛耘企業",
-   "ticker": "3583",
-   "subsegment": "front_end",
-   "fit": {
-    "target": 0,
-    "titanium": 2,
-    "nickel": 2
-   },
-   "note": "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應",
-   "heat": {
-    "target": 0.93,
-    "titanium": 4.78,
-    "nickel": 4.78
-   },
-   "signal_score": 44.7,
-   "signals": 8,
-   "top_intent": "expansion",
-   "last_signal": "2026-10-18",
-   "opportunity": 53.5,
-   "tier": "積極經營",
-   "best_product": "titanium",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "evidence": [
-    "f19d649c38a57f11",
-    "75e969bfbc21d223",
-    "b5837696839c3e9d",
-    "329a986b0b73d256",
-    "4301e37dad66046b",
-    "d82c45aebb9dc651"
    ]
   },
   {
@@ -11189,6 +11127,35 @@
    ]
   },
   {
+   "org": "倉佑實業",
+   "ticker": "1568",
+   "subsegment": "parts",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2
+   },
+   "note": "高精密金屬加工轉進前段設備零組件,馬來西亞新廠量產爬坡;需要穩定的特殊合金原料來源",
+   "heat": {
+    "target": 0.0,
+    "titanium": 4.88,
+    "nickel": 4.88
+   },
+   "signal_score": 39.1,
+   "signals": 2,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-21",
+   "opportunity": 50.1,
+   "tier": "積極經營",
+   "best_product": "titanium",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "evidence": [
+    "m-cbd216dba1d22c62",
+    "88e752098d61efe7"
+   ]
+  },
+  {
    "org": "亞翔工程",
    "ticker": "6139",
    "subsegment": "facility",
@@ -11203,11 +11170,11 @@
     "titanium": 0.0,
     "nickel": 7.9
    },
-   "signal_score": 38.0,
+   "signal_score": 37.8,
    "signals": 10,
    "top_intent": "contract",
    "last_signal": "2026-10-05",
-   "opportunity": 49.5,
+   "opportunity": 49.3,
    "tier": "積極經營",
    "best_product": "nickel",
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
@@ -11255,6 +11222,39 @@
    ]
   },
   {
+   "org": "辛耘企業",
+   "ticker": "3583",
+   "subsegment": "front_end",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2
+   },
+   "note": "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應",
+   "heat": {
+    "target": 0.93,
+    "titanium": 4.78,
+    "nickel": 4.78
+   },
+   "signal_score": 24.4,
+   "signals": 8,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-18",
+   "opportunity": 41.3,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "evidence": [
+    "f19d649c38a57f11",
+    "75e969bfbc21d223",
+    "b5837696839c3e9d",
+    "329a986b0b73d256",
+    "4301e37dad66046b",
+    "d82c45aebb9dc651"
+   ]
+  },
+  {
    "org": "翔名科技",
    "ticker": "8091",
    "subsegment": "parts",
@@ -11269,7 +11269,7 @@
     "titanium": 0.01,
     "nickel": 0.01
    },
-   "signal_score": 0.2,
+   "signal_score": 0.1,
    "signals": 0,
    "top_intent": "expansion",
    "last_signal": "2026-07-16",
@@ -11309,39 +11309,6 @@
    "evidence": []
   },
   {
-   "org": "萬潤科技",
-   "ticker": "6187",
-   "subsegment": "packaging",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0
-   },
-   "note": "先進封裝點膠、貼合等設備",
-   "heat": {
-    "target": 2.36,
-    "titanium": 0.55,
-    "nickel": 1.25
-   },
-   "signal_score": 38.0,
-   "signals": 4,
-   "top_intent": "qualification",
-   "last_signal": "2026-10-08",
-   "opportunity": 36.1,
-   "tier": "持續觀察",
-   "best_product": "titanium",
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "evidence": [
-    "460ed1d6e334da2d",
-    "3d0106d7d8885b33",
-    "7d859caae43a9b27",
-    "ccb944fc5014f49b",
-    "4600c1fa15817d84",
-    "1eddc02da3abc624"
-   ]
-  },
-  {
    "org": "漢唐集成",
    "ticker": "2404",
    "subsegment": "facility",
@@ -11356,11 +11323,11 @@
     "titanium": 0.0,
     "nickel": 1.43
    },
-   "signal_score": 13.1,
+   "signal_score": 12.0,
    "signals": 3,
    "top_intent": "expansion",
    "last_signal": "2026-10-02",
-   "opportunity": 34.5,
+   "opportunity": 33.9,
    "tier": "持續觀察",
    "best_product": "nickel",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -11371,6 +11338,39 @@
     "e717441d62ca4f03",
     "3a3bafb3c208cd37",
     "17612b5a1bffffe4"
+   ]
+  },
+  {
+   "org": "萬潤科技",
+   "ticker": "6187",
+   "subsegment": "packaging",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0
+   },
+   "note": "先進封裝點膠、貼合等設備",
+   "heat": {
+    "target": 2.36,
+    "titanium": 0.55,
+    "nickel": 1.25
+   },
+   "signal_score": 25.3,
+   "signals": 4,
+   "top_intent": "qualification",
+   "last_signal": "2026-10-08",
+   "opportunity": 28.5,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "evidence": [
+    "460ed1d6e334da2d",
+    "3d0106d7d8885b33",
+    "7d859caae43a9b27",
+    "ccb944fc5014f49b",
+    "4600c1fa15817d84",
+    "1eddc02da3abc624"
    ]
   },
   {
@@ -11388,11 +11388,11 @@
     "titanium": 0.05,
     "nickel": 0.9
    },
-   "signal_score": 12.4,
+   "signal_score": 8.2,
    "signals": 3,
    "top_intent": "contract",
    "last_signal": "2026-09-03",
-   "opportunity": 20.8,
+   "opportunity": 18.3,
    "tier": "持續觀察",
    "best_product": "nickel",
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
@@ -11434,35 +11434,6 @@
    ]
   },
   {
-   "org": "均華精密",
-   "ticker": "6640",
-   "subsegment": "packaging",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0
-   },
-   "note": "先進封裝黏晶 / 撿晶設備",
-   "heat": {
-    "target": 0.08,
-    "titanium": 0.08,
-    "nickel": 0.08
-   },
-   "signal_score": 2.2,
-   "signals": 0,
-   "top_intent": "expansion",
-   "last_signal": "2026-08-28",
-   "opportunity": 14.7,
-   "tier": "持續觀察",
-   "best_product": "titanium",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "evidence": [
-    "b941bb37db7f7a7f",
-    "a6ab8ad7399906f8"
-   ]
-  },
-  {
    "org": "家碩科技",
    "ticker": "6953",
    "subsegment": "carrier",
@@ -11477,17 +11448,46 @@
     "titanium": 0.0,
     "nickel": 0.11
    },
-   "signal_score": 1.8,
+   "signal_score": 0.9,
    "signals": 0,
    "top_intent": "contract",
    "last_signal": "2026-10-12",
-   "opportunity": 14.4,
+   "opportunity": 13.9,
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "evidence": [
     "08069dd88e394fb0"
+   ]
+  },
+  {
+   "org": "均華精密",
+   "ticker": "6640",
+   "subsegment": "packaging",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0
+   },
+   "note": "先進封裝黏晶 / 撿晶設備",
+   "heat": {
+    "target": 0.08,
+    "titanium": 0.08,
+    "nickel": 0.08
+   },
+   "signal_score": 0.7,
+   "signals": 0,
+   "top_intent": "expansion",
+   "last_signal": "2026-08-28",
+   "opportunity": 13.8,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "evidence": [
+    "b941bb37db7f7a7f",
+    "a6ab8ad7399906f8"
    ]
   },
   {
