@@ -489,3 +489,34 @@ def test_pitch_shows_its_spec_source(cfg):
     assert "規格依據:" in render_markdown(rep) or not rep["leads"]
     assert '"pitch_source": "一般產業常見規格' in render_page(rep)
     assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"
+
+
+def test_segment_page_uses_one_overall_score(cfg):
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+
+    rows = load_csv(SEEDS, cfg) + [sig(cfg, "台積電擴產 帆宣受惠 廠務訂單", days_ago=2), sig(cfg, "Apple titanium iPhone supply deal", days_ago=2)]
+    rep = build_segment_report(rows, cfg, "tw_semi_equipment", date(2026, 11, 3))
+    members = {a.name for a in cfg.accounts if a.segment == "tw_semi_equipment"}
+    accounts = {a["org"]: a for a in rep["accounts"]}
+    # the lead list is the segment's accounts, scored by the overall score with its parts
+    assert {l["org"] for l in rep["leads"]} == members
+    for l in rep["leads"]:
+        a = accounts[l["org"]]
+        assert l["score"] == a["opportunity"] and l["grade"] == a["tier"]
+        assert l["fit_part"] + l["signal_part"] == pytest.approx(l["score"], abs=0.2)
+    # companies outside the list only keep their signal strength
+    others = {o["org"] for o in rep["other_mentions"]}
+    assert others and not others & members and "台積電" in others
+    assert render_csv(rep).splitlines()[0].startswith("﻿分級,綜合分數,公司")
+    assert render_accounts_csv(rep).splitlines()[0].startswith("﻿順位,公司,代號,次產業,綜合分數,產品適配分,訊號分,分級")
+
+
+def test_segment_lead_hotspot_is_the_segment_cell(cfg):
+    from lead_radar.segment import build_segment_report
+
+    rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
+    cells = {(c["subsegment"], c["product"]): c for c in rep["segment_cells"]}
+    accs = {a["org"]: a for a in rep["accounts"]}
+    for l in rep["leads"]:
+        a = accs[l["org"]]
+        assert l["hotspot"]["level"] == cells[(a["subsegment"], a["best_product"])]["level"]

@@ -213,7 +213,7 @@ def _summary(rep: dict) -> None:
     hot = sorted((c for c in rep["segment_cells"] if c["level"] in ("hot", "warm")), key=lambda c: -c["z"])
     lines += [f"| {seg['subsegments'].get(c['subsegment'], c['subsegment'])} × {lab['products'][c['product']]} | {lab['levels'][c['level']]} "
               f"| {c['z']:+.2f} | {c['count']} |" for c in hot] or ["| (本期沒有熱點) | | | |"]
-    lines += ["", "| # | 公司 | 機會分數 | 分級 | 主推產品 |", "|---:|---|---:|---|---|"]
+    lines += ["", "| # | 公司 | 綜合分數 | 分級 | 主推產品 |", "|---:|---|---:|---|---|"]
     lines += [f"| {i} | {a['org']} | {a['opportunity']:.0f} | {a['tier']} | {lab['products'][a['best_product']]} |"
               for i, a in enumerate(rep["accounts"][:12], 1)]
     text = "\n".join(lines)
