@@ -25,6 +25,10 @@
 --gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.seg-acc .parts{display:block;white-space:nowrap}
+.acc-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0}
+.acc-dl dt{color:var(--muted);font-size:.8rem;white-space:nowrap}.acc-dl dd{margin:0;color:var(--fg)}
+#acc-filters .filters{margin-bottom:10px}
 .others{border:1px dashed var(--line);border-radius:8px;padding:10px 14px;background:var(--surface)}
 .others>summary{cursor:pointer;font-weight:600;font-size:.92rem}
 .others-note{font-size:.82rem;color:var(--muted);margin:8px 0}
@@ -177,9 +181,11 @@ details.lead>summary::-webkit-details-marker{display:none}
     <div class="bar"><h3 style="font-size:1rem">次產業 × 產品線熱點 <small style="font-weight:400;color:var(--muted)">點格子可篩選下方名單與訊號</small></h3></div>
     <div class="matrix-wrap"><table class="matrix" id="seg-matrix" style="min-width:520px"></table></div>
     <div class="legend" id="seg-legend"></div>
-    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small style="font-weight:400;color:var(--muted)">綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度;點列可展開推估理由與佐證</small></h3>
+    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small id="acc-count" style="font-weight:400;color:var(--muted)"></small> <small style="font-weight:400;color:var(--muted)">綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度;點列可展開需求研判、切入重點與佐證</small></h3>
       <button type="button" class="btn ghost" id="acc-csv">下載開發名單 CSV</button></div>
+    <div id="acc-filters"></div>
     <div class="table-wrap"><table class="seg-acc" id="seg-acc"></table></div>
+    <div id="acc-others"></div>
   </section>
 
   <section aria-labelledby="h-map" id="map-sec">
@@ -200,7 +206,7 @@ details.lead>summary::-webkit-details-marker{display:none}
     <div class="hs-grid" id="hotspots"></div>
   </section>
 
-  <section aria-labelledby="h-leads">
+  <section aria-labelledby="h-leads" id="leads-sec">
     <div class="bar">
       <h2 id="h-leads">潛在客戶名單 <small id="lead-count"></small></h2>
       <button type="button" class="btn ghost" id="csv">下載名單 CSV</button>
@@ -348,6 +354,7 @@ const DATA = /*__DATA__*/null;
   }
   // segment pages: one overall score (= opportunity) and the tier scale; general pages keep A–D
   const SEGMODE = !!DATA.segment;
+  let renderAccRows = () => {};
   const TIER_COLOR = {"優先開發": "var(--gA)", "積極經營": "var(--gB)", "持續觀察": "var(--gD)"};
   const TIER_SHORT = {"優先開發": "優", "積極經營": "積", "持續觀察": "觀"};
   if (SEGMODE) {
@@ -375,6 +382,7 @@ const DATA = /*__DATA__*/null;
       $("#cellchip").innerHTML = `<span class="chip-filter">${esc(label)}<button type="button" aria-label="清除格子篩選" id="clearcell">×</button></span>`;
       $("#clearcell").onclick = () => { state.cell = null; DATA.segment ? $("#seg-matrix").querySelectorAll("[aria-pressed]").forEach(b => b.setAttribute("aria-pressed", "false")) : renderMatrix(); renderLeads(); renderSignals(); };
     } else $("#cellchip").innerHTML = "";
+    if (SEGMODE) { renderAccRows(list); renderOthers(); return; }   // segment pages: one table, no cards
     if (!list.length) { $("#leads").innerHTML = `<p class="empty-note">沒有符合條件的公司。</p>`; $("#more").hidden = true; return; }
     $("#leads").innerHTML = list.slice(0, state.shown).map(l => {
       const ev = l.evidence.map(id => sigById[id]).filter(Boolean);
@@ -495,29 +503,45 @@ const DATA = /*__DATA__*/null;
       const b = e.target.closest("[data-sk]"); if (!b) return;
       state.cell = state.cell === b.dataset.sk ? null : b.dataset.sk; state.shown = 30; state.shownSig = 40;
       renderSegMatrix(); renderLeads(); renderSignals();
-      if (state.cell) $("#h-leads").scrollIntoView({behavior: "smooth", block: "start"});
+      if (state.cell) $("#acc-filters").scrollIntoView({behavior: "smooth", block: "start"});
     });
     const FIT_LABEL = {target: "靶", titanium: "鈦", nickel: "鎳"};
     const dots = n => `<span class="dots" aria-label="適配 ${n} / 3">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
     const tierCls = t => ({"優先開發": "t1", "積極經營": "t2"})[t] || "t3";
-    $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>綜合分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
-      DATA.accounts.map((a, i) => `<tr class="row" data-i="${i}" tabindex="0" aria-expanded="false"><td class="num">${i + 1}</td>
-        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}</td>
-        <td>${esc(SEG.subsegments[a.subsegment] || a.subsegment)}</td>
+    const accByOrg = Object.fromEntries(DATA.accounts.map((a, i) => [a.org, {a, rank: i + 1}]));
+    renderAccRows = list => {
+      const shown = list.map(l => accByOrg[l.org]).filter(Boolean);
+      $("#acc-count").textContent = `${shown.length} / ${DATA.accounts.length} 家`;
+      $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>綜合分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
+        (shown.length ? "" : `<tr><td colspan="9" class="empty-note">沒有符合條件的公司。</td></tr>`) +
+        shown.map(({a, rank}) => { const l = DATA.leads.find(x => x.org === a.org) || {}; const i = rank - 1; return `<tr class="row" data-i="${i}" tabindex="0" aria-expanded="false"><td class="num">${rank}</td>
+        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}${l.new ? ' <span class="badge new">新出現</span>' : ""}</td>
+        <td>${esc(SEG.subsegments[a.subsegment] || a.subsegment)}${l.hotspot && l.hotspot.level === "hot" ? ' <span class="badge hot">熱點</span>' : l.hotspot && l.hotspot.level === "warm" ? ' <span class="badge warm">溫點</span>' : ""}</td>
         <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}</span></td>
         <td><span class="tier ${tierCls(a.tier)}">${esc(a.tier)}</span></td><td>${esc(L.products[a.best_product])}</td>
         <td><span class="fitcell">${products.map(p => `<span>${esc(FIT_LABEL[p] || L.products[p])} ${dots(a.fit[p] || 0)}</span>`).join("")}</span></td>
         <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則 · ${esc(a.last_signal)}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
         <td>${esc(a.next_action)}</td></tr>
-        <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><b>推估理由:</b>${esc(a.note)}<br><b>切入重點:</b>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span>
-          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`).join("") + "</tbody>";
+        <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><dl class="acc-dl">
+          <dt>分數組成</dt><dd>產品適配 ${Math.max(...Object.values(a.fit), 0)}/3 → ${Math.round(a.fit_part)} 分,訊號強度 ${Math.round(a.signal_score)} → ${Math.round(a.signal_part)} 分</dd>
+          ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
+          <dt>推估理由</dt><dd>${esc(a.note)}</dd>
+          <dt>切入重點</dt><dd>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span></dd>
+          ${(l.intents || []).length ? `<dt>訊號類型</dt><dd>${l.intents.map(k => esc(L.intents[k])).join("、")}</dd>` : ""}</dl>
+          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`; }).join("") + "</tbody>";
+    };
+    // one list on segment pages: filters and the other-companies list move to the table; the card list is hidden
+    $("#acc-filters").appendChild(document.querySelector("#leads-sec .filters"));
+    $("#acc-others").appendChild($("#others"));
+    $("#leads-sec").hidden = true;
     const toggle = tr => { const d = $(`[data-d="${tr.dataset.i}"]`); d.hidden = !d.hidden; tr.setAttribute("aria-expanded", String(!d.hidden)); };
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
       const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
-      const rows = DATA.accounts.map((a, i) => [i + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
+      const keep = new Set(filteredLeads().map(l => l.org));
+      const rows = DATA.accounts.filter(a => keep.has(a.org)).map(a => [DATA.accounts.indexOf(a) + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
         a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});

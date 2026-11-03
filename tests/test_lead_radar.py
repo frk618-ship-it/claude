@@ -520,3 +520,13 @@ def test_segment_lead_hotspot_is_the_segment_cell(cfg):
     for l in rep["leads"]:
         a = accs[l["org"]]
         assert l["hotspot"]["level"] == cells[(a["subsegment"], a["best_product"])]["level"]
+
+
+def test_segment_page_has_one_company_list(cfg):
+    from lead_radar.page import render_page
+    from lead_radar.segment import build_segment_report
+
+    html = render_page(build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3)))
+    # the card list is hidden on segment pages; filters and other companies move to the table
+    assert '$("#leads-sec").hidden = true' in html and 'appendChild(document.querySelector("#leads-sec .filters"))' in html
+    assert "if (SEGMODE) { renderAccRows(list); renderOthers(); return; }" in html
