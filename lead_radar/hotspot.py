@@ -92,29 +92,34 @@ def story_factors(signals: list[Signal], config: Config) -> dict[str, float]:
     intent or near-identical headlines — and count only the strongest report fully; the
     other reports add ECHO each (wide coverage is a little extra heat, not a new signal)."""
     sigs = [s for s in signals if s.day]
-    parent = list(range(len(sigs)))
-
-    def find(i):
-        while parent[i] != i:
-            parent[i] = parent[parent[i]]
-            i = parent[i]
-        return i
-
     norms = [normalize_title(s.title) for s in sigs]
     order = sorted(range(len(sigs)), key=lambda i: sigs[i].day)
-    for a_pos, a in enumerate(order):
-        for b in order[a_pos + 1:]:
-            sa, sb = sigs[a], sigs[b]
-            if (sb.day - sa.day).days > STORY_DAYS:
-                break
-            if not set(sa.products) & set(sb.products):
+    # Greedy, not transitive: a report joins a story only while it is within STORY_DAYS of the
+    # story's FIRST report. Chaining pairs (A~B, B~C, …) would fold a company's steady stream of
+    # expansion news over months into one "story" and undercount exactly the busiest accounts.
+    stories: list[list[int]] = []
+    for i in order:
+        si = sigs[i]
+        home = None
+        for members in reversed(stories):
+            first = sigs[members[0]]
+            if (si.day - first.day).days > STORY_DAYS:
                 continue
-            same_org = bool(set(sa.orgs) & set(sb.orgs)) and sa.intents[:1] == sb.intents[:1]
-            if same_org or SequenceMatcher(None, norms[a], norms[b]).ratio() >= 0.75:
-                parent[find(a)] = find(b)
-    groups: dict[int, list[int]] = {}
-    for i in range(len(sigs)):
-        groups.setdefault(find(i), []).append(i)
+            for j in members:
+                sj = sigs[j]
+                if not set(si.products) & set(sj.products):
+                    continue
+                same_org = bool(set(si.orgs) & set(sj.orgs)) and si.intents[:1] == sj.intents[:1]
+                if same_org or SequenceMatcher(None, norms[i], norms[j]).ratio() >= 0.75:
+                    home = members
+                    break
+            if home is not None:
+                break
+        if home is None:
+            stories.append([i])
+        else:
+            home.append(i)
+    groups = {k: members for k, members in enumerate(stories)}
     factors = {}
     for members in groups.values():
         def strength(i):

@@ -131,6 +131,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
         "days": cfg.settings.days, "half_life_days": cfg.settings.half_life_days,
     }
     order = cfg.segment_order
+    rep["links"] = cfg.settings.links
     rep["segment_pages"] = [{"key": k, "name": cfg.segments[k].name, "primary": i == 0} for i, k in enumerate(order)]
     rep["accounts"] = accounts
     rep["segment_cells"] = seg_cells

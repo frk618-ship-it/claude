@@ -10,6 +10,9 @@
 
 settings:
   primary_segment: tw_semi_equipment   # 商機雷達的主要客群(網站首頁)
+  # 每個商機雷達頁面頁首的連結按鈕(例如業務報告);url 必須是 http(s) 網址
+  links:
+    - {name: 業務報告, url: "https://claude.ai/artifact/VvYqgocKyKDSSMUfKgcg1c"}
   days: 30                 # 蒐集最近 N 天的新聞,也是熱度計算的時間窗
   half_life_days: 14       # 時間衰減半衰期:14 天前的訊號權重剩一半
   history_weeks: 8         # 回看幾週的熱度,判斷新興 / 持續 / 升溫 / 降溫

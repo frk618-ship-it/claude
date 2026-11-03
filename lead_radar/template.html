@@ -25,6 +25,7 @@
 --gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px;display:grid;gap:36px}
 a{color:var(--accent);text-underline-offset:3px}
@@ -48,6 +49,10 @@ section{display:grid;gap:14px;min-width:0}
 .tabs{display:flex;flex-wrap:wrap;gap:6px}
 .tab{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
 a.tab{text-decoration:none;color:var(--fg)}a.tab:hover{border-color:var(--accent)}
+.extlinks{display:flex;flex-wrap:wrap;gap:8px}
+.extlinks a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--accent);color:var(--on-accent);border-radius:6px;padding:7px 14px;font-size:.88rem;font-weight:600}
+.extlinks a:hover{background:var(--accent-2)}
+.extlinks svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 a.tab[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
@@ -150,6 +155,7 @@ details.lead>summary::-webkit-details-marker{display:none}
     <p class="lede">把每一則公開資訊當成需求訊號,落在「產品線 × 應用產業 × 地區」的熱度網格上;以熱點分析找出需求集中的區塊,再把訊號歸到具體公司排出開發名單。</p>
     <div class="meta" id="meta"></div>
     <nav class="tabs" id="seglinks" aria-label="客群分析" hidden></nav>
+    <div class="extlinks" id="extlinks" hidden></div>
   </header>
 
   <section aria-labelledby="h-kpi">
@@ -404,6 +410,13 @@ const DATA = /*__DATA__*/null;
 
   // segment view (客群分析)
   const SEG = DATA.segment;
+  // configured links (e.g. the business report), opened in a new tab
+  const links = (DATA.links || []).filter(l => /^https?:\/\//.test(l.url || ""));
+  if (links.length) {
+    const ext = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+    $("#extlinks").hidden = false;
+    $("#extlinks").innerHTML = links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}${ext}<span class="sr-only">(在新分頁開啟)</span></a>`).join("");
+  }
   // segment tabs: the primary segment's page is /leads/index.html, the others /leads/<key>/index.html
   const pages = (SEG && DATA.segment_pages) || [];
   if (pages.length > 1) {
