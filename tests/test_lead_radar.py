@@ -355,3 +355,30 @@ def test_cli_segment_analyze(tmp_path, monkeypatch):
     page = (out / "site" / "index.html").read_text(encoding="utf-8")
     assert '"segment": {"key": "tw_semi_equipment"' in page
     assert main(["analyze", "--segment", "nope"]) == 2
+
+
+def test_inferred_products_need_a_demand_intent(cfg):
+    assert classify(cfg, title="弘塑展望佳 早盤逆勢走揚") is None                        # stock chatter, no material word
+    assert classify(cfg, title="帆宣(6196) 個股概覽") is None
+    s = sig(cfg, "日月光半導體向弘塑取得機器設備,計約10億元")
+    assert s.orgs[0] == "弘塑科技" and s.intents[0] == "contract"
+    noisy = sig(cfg, "目標價喊1170元!帆宣在手訂單看到3年後")
+    assert noisy.noise and noisy.orgs == ["帆宣系統"]
+
+
+def test_reprint_echo_is_capped(cfg):
+    from lead_radar.hotspot import ECHO_CAP, story_factors
+
+    reprints = [sig(cfg, f"家登9月營收創高 拿下韓系大廠先進封裝載具訂單 版本{i}", days_ago=1 + i % 3) for i in range(12)]
+    f = story_factors(reprints, cfg)
+    assert sorted(f.values())[-1] == 1.0 and sum(f.values()) == pytest.approx(1.0 + ECHO_CAP)
+
+
+def test_segment_scores_do_not_saturate(cfg):
+    from lead_radar.segment import segment_config
+
+    seg_cfg = segment_config(cfg, "tw_semi_equipment")
+    stories = [sig(seg_cfg, t, days_ago=d) for t, d in [("京鼎泰國二期擴產 新廠動工", 5), ("京鼎接獲設備模組訂單", 30), ("京鼎缺料 交期吃緊", 60)]]
+    cells = analyse(stories, seg_cfg, ASOF)["cells"]
+    lead = next(l for l in build_leads(stories, cells, seg_cfg, ASOF) if l["org"] == "京鼎精密")
+    assert 40 < lead["score"] < 95                                                     # three stories: strong, not maxed out

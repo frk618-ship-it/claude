@@ -24,6 +24,7 @@ settings:
   grades: {A: 70, B: 45, C: 25}   # 潛在客戶分數門檻(0–100)
   # 標題命中這些字詞多半是股市行情或股價新聞,權重 × noise_factor
   noise_terms: [股價, 漲停, 跌停, 目標價, 外資, 收盤, 盤中, 股東會, 熱門股, 小漲, 小跌, 即時新聞, 利好, 龍頭, 龙头, 淨利, 净利, 預增, 预增, 三季報, 三季报, 年報, 年报, 研報, 研报, 點評, 点评, 概念股,
+                股市, 個股, 早盤, 盤前, 尾盤, 走揚, 上漲, 大漲, 漲勢, 漲幅, 亮燈, 千金股, 看盤, 估值, EPS, 存股, 爆料, 投顧, 選股, 成分股, 剔除, 波段, 操盤, 股倉, 誰更有戲, 誰先吃,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
@@ -127,7 +128,7 @@ intents:
                   keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
                              expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, commits, mass production, 増産, 新工場, 증설, 신공장]}
   contract:      {name: 訂單與專案, weight: 3.0, action: "鎖定得標方與其一階供應商,提案配套材料與備料",
-                  keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, order, contract, awarded, deal, backlog, program, programme, 受注, 수주]}
+                  keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, 取得機器設備, 取得設備, order, contract, awarded, deal, backlog, program, programme, 受注, 수주]}
   qualification: {name: 認證與在地化, weight: 3.0, action: "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
                   keywords: [認證, 认证, 驗證, 验证, 合格供應商, 供應鏈, 供应链, 在地化, 國產化, 国产化, 第二供應商, 選定, 入選, qualification, qualified supplier, approved supplier, supply chain,
                              localization, second source, dual source, selected by, approved by, evaluates, evaluate, new supplier, AS9100, NADCAP, ISO 13485, 国産化, 국산화]}

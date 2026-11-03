@@ -29,7 +29,8 @@ from target_news_agent.processing import normalize_title
 
 from .signals import OTHER, UNKNOWN_REGION, Signal
 
-ECHO = 0.25          # weight of further reports of a story already counted
+ECHO = 0.25          # weight of further reports of a story already counted …
+ECHO_CAP = 0.5       # … but all reprints of one story together add at most this much
 STORY_DAYS = 10
 
 LEVELS = {"hot": "熱點", "warm": "溫點", "neutral": "一般", "cold": "冷點"}
@@ -121,8 +122,9 @@ def story_factors(signals: list[Signal], config: Config) -> dict[str, float]:
             w = max((config.intents[k].weight for k in s.intents if k in config.intents), default=0.5)
             return (w * s.relevance * (s.urgency or 3), s.day)
         lead = max(members, key=strength)
+        echo = min(ECHO, ECHO_CAP / max(len(members) - 1, 1))
         for i in members:
-            factors[sigs[i].id] = 1.0 if i == lead else ECHO
+            factors[sigs[i].id] = 1.0 if i == lead else echo
     return factors
 
 

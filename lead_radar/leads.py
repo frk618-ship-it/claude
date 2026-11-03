@@ -15,6 +15,7 @@ from .hotspot import LEVELS, TRENDS, signal_heat, story_factors
 from .signals import OTHER, Signal
 
 SCALE = 6.0
+BASE_HALF_LIFE = 14.0
 
 
 def _grade(score: float, grades: dict[str, float]) -> str:
@@ -65,7 +66,10 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
         hot_boost = 1 + 0.15 * min(z, 4.0)
         diversity = 1 + min(0.1 * (len(intent_heat) - 1), 0.4) if intent_heat else 1.0
         raw = sum(per_product.values()) * fit * hot_boost * diversity
-        score = round(100 * (1 - math.exp(-raw / SCALE)), 1)
+        # Longer half-lives (segments: 45 d) accumulate proportionally more heat; scale with it so
+        # scores stay comparable instead of all saturating near 100.
+        scale = SCALE * config.settings.half_life_days / BASE_HALF_LIFE
+        score = round(100 * (1 - math.exp(-raw / scale)), 1)
 
         days = sorted(sig.published for sig, _ in items if sig.published)
         firsts = sorted(first_seen.get(sig.id, sig.published) for sig, _ in items)
