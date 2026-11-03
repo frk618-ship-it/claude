@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 from .analysis import analyze
 from .commentary import Commentary, Commentator, llm_available, llm_payload
 from .config import Company, FinConfig, load_fin_config
-from .dashboard import build_dashboard_data, write_dashboard
+from .dashboard import build_dashboard_data, refresh_switcher, write_dashboard
 from .logos import fetch_logos
 from .models import load_company, save_company
 from .report import write_reports
@@ -133,6 +133,12 @@ def cmd_logos(args, cfg: FinConfig) -> int:
     return 0
 
 
+def cmd_switcher(args, cfg: FinConfig) -> int:
+    for path in args.html:
+        print(f"{path}: {'page switcher refreshed' if refresh_switcher(path) else 'no switcher markers, left as is'}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="fin_analyzer", description="靶材製造商財務指標儀表板與財報分析工具")
     p.add_argument("-v", "--verbose", action="store_true")
@@ -156,6 +162,10 @@ def main(argv: list[str] | None = None) -> int:
     lg.add_argument("-c", "--config", default=DEFAULT_CONFIG)
     lg.add_argument("--force", action="store_true", help="已有圖示的公司也重新下載")
 
+    sw = sub.add_parser("switcher", help="把已產生的儀表板 HTML 的切換頁面按鈕換成網站目前的頁面清單(發布時用)")
+    sw.add_argument("html", nargs="+", help="儀表板 index.html(同資料夾需有 dashboard.json)")
+    sw.add_argument("-c", "--config", default=DEFAULT_CONFIG)
+
     an = sub.add_parser("analyze", help="針對單一公司產生深度財報分析報告(Markdown)")
     an.add_argument("-c", "--config", default=DEFAULT_CONFIG)
     an.add_argument("--target", help="覆寫分析對象代號(預設 focus)")
@@ -171,7 +181,8 @@ def main(argv: list[str] | None = None) -> int:
     cfg = load_fin_config(args.config)
     if getattr(args, "data_dir", None):
         cfg.data_dir = args.data_dir
-    return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos}[args.command](args, cfg)
+    return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos,
+            "switcher": cmd_switcher}[args.command](args, cfg)
 
 
 if __name__ == "__main__":

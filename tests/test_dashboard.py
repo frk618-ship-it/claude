@@ -305,3 +305,24 @@ def test_fetch_keeps_quarters_yahoo_no_longer_serves():
     d = fetch_yahoo("5016.T", ticker_factory=FakeTicker, previous=prev)
     assert d.quarters["2025Q1"]["revenue"] == 900  # Yahoo's window moved past it; kept from storage
     assert "2025Q3" in d.note and "推得" in d.note
+
+
+def test_refresh_switcher_swaps_in_the_current_page_list(tmp_path):
+    from fin_analyzer.dashboard import FAB_END, FAB_START, refresh_switcher
+
+    cfg = load_fin_config(ROOT / "config" / "target_makers.yaml")
+    data = build_dashboard_data([analyze(make_company(), cfg)], cfg, NOW)
+    html = render_html(data)
+    assert html.count(FAB_START) == 1 and html.count(FAB_END) == 1
+    start, end = html.index(FAB_START) + len(FAB_START), html.index(FAB_END)
+    stale = html[:start] + '<nav id="fabnav">舊的按鈕</nav>' + html[end:]  # built before a page was added
+    page = tmp_path / "index.html"
+    page.write_text(stale, encoding="utf-8")
+    (tmp_path / "dashboard.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+    assert refresh_switcher(page)
+    out = page.read_text(encoding="utf-8")
+    assert "舊的按鈕" not in out and out == html  # the rest of the page is untouched
+    bare = tmp_path / "bare" / "index.html"
+    bare.parent.mkdir()
+    bare.write_text("<p>no markers</p>", encoding="utf-8")
+    assert not refresh_switcher(bare)
