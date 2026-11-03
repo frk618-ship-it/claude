@@ -195,7 +195,26 @@ def render_html(data: dict) -> str:
             .replace("__DESCRIPTION__", _html_escape(description(data)))
             .replace("<!--__SHARE_META__-->", share_meta(data))
             .replace("/*__DATA__*/null", payload)
-            .replace("<!--__FAB__-->", page_switcher(data)))
+            .replace("<!--__FAB__-->", FAB_START + page_switcher(data) + FAB_END))
+
+
+# The switcher sits between these markers so a later deploy can swap in the current page list
+# (refresh_switcher) without rebuilding the dashboard from its data.
+FAB_START, FAB_END = "<!--fabnav-->", "<!--/fabnav-->"
+
+
+def refresh_switcher(html_path: str | Path) -> bool:
+    """Replace the page switcher in a built dashboard with one listing the site's current pages.
+    Reads news_url from dashboard.json next to the page. Returns False when there is nothing to swap."""
+    html_path = Path(html_path)
+    page = html_path.read_text(encoding="utf-8")
+    start, end = page.find(FAB_START), page.find(FAB_END)
+    data_path = html_path.with_name("dashboard.json")
+    if start < 0 or end < start or not data_path.exists():
+        return False
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    html_path.write_text(page[:start] + FAB_START + page_switcher(data) + page[end:], encoding="utf-8")
+    return True
 
 
 def page_switcher(data: dict) -> str:

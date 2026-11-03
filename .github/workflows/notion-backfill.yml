@@ -1,0 +1,53 @@
+name: Notion 補同步舊報告
+# 手動執行:把指定日期範圍的每日報告(新聞 / 技術文獻)補寫進 Notion。已存在的資料列不會重複新增,
+# 還沒有重要度的資料列會補上摘要。最後再同步最新一份報告,讓「追蹤公司」的本期則數回到最新。
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "起始日期(含),YYYY-MM-DD"
+        required: true
+      until:
+        description: "結束日期(含),YYYY-MM-DD"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notion-sync
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      NOTION_PAPERS_DATABASE_ID: ${{ secrets.NOTION_PAPERS_DATABASE_ID }}
+      NOTION_COMPANIES_DATABASE_ID: ${{ secrets.NOTION_COMPANIES_DATABASE_ID }}
+      SINCE: ${{ github.event.inputs.since }}
+      UNTIL: ${{ github.event.inputs.until }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Sync reports to Notion
+        run: |
+          if [ -z "$NOTION_TOKEN" ]; then echo "NOTION_TOKEN 未設定"; exit 1; fi
+          for r in $(ls reports/????-??-??.json | sort); do
+            d=$(basename "$r" .json)
+            if [[ "$d" < "$SINCE" || "$d" > "$UNTIL" ]]; then continue; fi
+            python -m target_news_agent notion-sync "$r"
+          done
+          # 追蹤公司資料庫回到最新一份報告的則數
+          python -m target_news_agent notion-sync

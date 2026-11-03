@@ -27,6 +27,7 @@ python3 -m target_news_agent site -i reports -o "$BUILD/site/news" --root-redire
 if [ -f reports/dashboard/index.html ]; then
   mkdir -p "$BUILD/site/financials"
   cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png "$BUILD/site/financials/"
+  python3 -m fin_analyzer switcher "$BUILD/site/financials/index.html"
 fi
 python3 -m target_news_agent intranet --src "$BUILD/site" --out "$BUILD/intranet"
 
