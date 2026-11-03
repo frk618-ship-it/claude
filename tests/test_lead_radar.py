@@ -435,3 +435,16 @@ def test_news_volume_has_diminishing_returns(cfg):
     s1, s10 = score(one), score(many)
     assert s10 > s1 and s10 < 100 * (1 - math.exp(-sum(DECAY ** k for k in range(10)) * 4 / 6)) + 1   # bounded by the geometric sum
     assert classify(cfg, title="台積電明年全面漲價 晶圓代工喊漲3-6%") is None or "shortage" not in classify(cfg, title="台積電明年全面漲價 晶圓代工喊漲3-6%").intents
+
+
+def test_steady_news_is_not_chained_into_one_story(cfg):
+    from lead_radar.hotspot import STORY_DAYS, story_factors
+
+    # one expansion report every 8 days for 4 months: each pair is "same company, same intent,
+    # within STORY_DAYS", but chaining them would make one 120-day story
+    stream = [sig(cfg, f"華邦電擴產計畫第{i}階段 新廠設備進駐", days_ago=i * 8) for i in range(15)]
+    f = story_factors(stream, cfg)
+    full = sum(1 for v in f.values() if v == 1.0)
+    assert full >= 15 * 8 // (STORY_DAYS + 8)                                       # a new story at least every STORY_DAYS
+    days = sorted(s.day for s in stream if f[s.id] == 1.0)
+    assert all((b - a).days > 0 for a, b in zip(days, days[1:]))
