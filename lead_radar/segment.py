@@ -98,6 +98,8 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "top_intent": lead["top_intent"] if lead else "",
             "last_signal": lead["last_signal"] if lead else "",
             "opportunity": opp,
+            "fit_part": round(0.4 * fit_pct, 1),        # the overall score's two parts
+            "signal_part": round(0.6 * sig_score, 1),
             "tier": _tier(opp),
             "best_product": best,
             "next_action": action,
@@ -135,10 +137,48 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     rep["links"] = cfg.settings.links
     rep["segment_pages"] = [{"key": k, "name": cfg.segments[k].name, "primary": i == 0} for i, k in enumerate(order)]
     rep["accounts"] = accounts
+    # One score on the page: the lead list shows the segment's accounts with the overall score
+    # (= opportunity) and its parts; companies the news names that are not on the segment list
+    # keep only their signal strength, in a separate list (their product fit was never judged).
+    cell_of = {(c["subsegment"], c["product"]): c for c in seg_cells}
+    rep["leads"] = [_overall_lead(a, leads.get(a["org"]), seg, cell_of.get((a["subsegment"], a["best_product"]))) for a in accounts]
+    rep["other_mentions"] = [
+        {"org": l["org"], "signal_score": l["score"], "signals": l["signals"], "last_signal": l["last_signal"],
+         "product": l["product"], "evidence": l["evidence"][:3]}
+        for l in sorted(leads.values(), key=lambda l: -l["score"]) if l["org"] not in members
+    ]
+    rep["stats"]["leads"] = len(rep["leads"])
+    rep["stats"]["other_mentions"] = len(rep["other_mentions"])
     rep["segment_cells"] = seg_cells
     rep["stats"]["accounts"] = len(accounts)
     rep["stats"]["tiers"] = {name: sum(1 for a in accounts if a["tier"] == name) for _, name in TIERS}
     return rep
+
+
+def _overall_lead(a: dict, lead: dict | None, seg: Segment, cell: dict | None = None) -> dict:
+    """A lead-list row for one account, scored by the overall score instead of signal strength."""
+    row = dict(lead) if lead else {
+        "org": a["org"], "products": [a["best_product"]], "industry": (seg.industries or [OTHER])[0],
+        "region": (seg.regions or ["OTHER"])[0], "top_intent": "", "intents": [], "signals": 0, "first_seen": "",
+        "last_signal": "", "new": False, "hotspot": {"level": "neutral", "trend": "", "z": 0.0}, "need": "", "evidence": [],
+    }
+    row.update({
+        "account": True,
+        "score": a["opportunity"],            # overall score
+        "grade": a["tier"],                   # 優先開發 / 積極經營 / 持續觀察
+        "signal_score": a["signal_score"],
+        "fit_max": max(a["fit"].values(), default=0),
+        "fit_part": a["fit_part"],
+        "signal_part": a["signal_part"],
+        "product": a["best_product"],
+        "next_action": a["next_action"],
+        "pitch": a["pitch"],
+        "pitch_source": a["pitch_source"],
+        "evidence": a["evidence"] or row.get("evidence", []),
+        # the segment's own hotspot: this account's sub-segment x lead product cell
+        "hotspot": {"level": cell["level"] if cell else "neutral", "trend": "", "z": cell["z"] if cell else 0.0},
+    })
+    return row
 
 
 def render_segment_markdown(rep: dict) -> str:
@@ -166,12 +206,12 @@ def render_segment_markdown(rep: dict) -> str:
             row.append(f"{c['z']:+.1f}({c['count']}){mark}" if c and c["heat"] else "·")
         out.append(f"| {name} | " + " | ".join(row) + " |")
     out += ["", "格內為 Gi* z 值(訊號數);🔥 熱點、▲ 溫點。", "", "## 目標客戶開發順序", "",
-            "| 順位 | 公司 | 代號 | 次產業 | 機會分數 | 分級 | 主推產品 | 適配(靶/鈦/鎳) | 近期訊號 | 建議行動 |",
+            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳) | 近期訊號 | 建議行動 |",
             "|---:|---|---|---|---:|---|---|---|---|---|"]
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
         intent = lab["intents"].get(a["top_intent"], "—") if a["signals"] else "—"
-        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f} "
+        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}) "
                    f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a['next_action']} |")
     out += ["", "適配度為依公開業務內容推估的初步假設(0–3),請依拜訪結果在 `config/lead_radar.yaml` 修正。", ""]
     return "\n".join(out) + "\n"
@@ -181,9 +221,9 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據"])
     for i, a in enumerate(rep["accounts"], 1):
-        w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["tier"],
+        w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["fit_part"], a["signal_part"], a["tier"],
                     lab["products"][a["best_product"]], a["fit"].get("target", 0), a["fit"].get("titanium", 0), a["fit"].get("nickel", 0),
                     a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", "")])
     return "﻿" + buf.getvalue()

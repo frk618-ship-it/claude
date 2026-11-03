@@ -117,7 +117,9 @@ def render_csv(rep: dict) -> str:
     sig_by_id = {s["id"]: s for s in rep["signals"]}
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(CSV_COLUMNS)
+    segment = "segment" in rep
+    # segment reports: the list is the segment's accounts, scored by the overall score
+    w.writerow(["分級", "綜合分數", *CSV_COLUMNS[2:]] if segment else CSV_COLUMNS)
     for l in rep["leads"]:
         links = [sig_by_id[i]["link"] for i in l["evidence"] if i in sig_by_id and sig_by_id[i]["link"]]
         hs = l["hotspot"]

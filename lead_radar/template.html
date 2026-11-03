@@ -25,6 +25,13 @@
 --gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.others{border:1px dashed var(--line);border-radius:8px;padding:10px 14px;background:var(--surface)}
+.others>summary{cursor:pointer;font-weight:600;font-size:.92rem}
+.others-note{font-size:.82rem;color:var(--muted);margin:8px 0}
+.others ol{margin:0;padding-left:1.4em;display:grid;gap:4px;font-size:.86rem}
+.others .src{color:var(--muted);font-size:.78rem}
+.score .parts{display:block;font-size:.68rem;font-weight:400;color:var(--muted);font-family:var(--font);white-space:nowrap}
+.grade.tier{font-size:.86rem;font-weight:800}
 .src-note{display:block;margin-top:2px;font-size:.78rem;color:var(--warm)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6}
@@ -170,7 +177,7 @@ details.lead>summary::-webkit-details-marker{display:none}
     <div class="bar"><h3 style="font-size:1rem">次產業 × 產品線熱點 <small style="font-weight:400;color:var(--muted)">點格子可篩選下方名單與訊號</small></h3></div>
     <div class="matrix-wrap"><table class="matrix" id="seg-matrix" style="min-width:520px"></table></div>
     <div class="legend" id="seg-legend"></div>
-    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small style="font-weight:400;color:var(--muted)">機會分數 = 0.4 × 產品適配 + 0.6 × 近期訊號;點列可展開推估理由與佐證</small></h3>
+    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small style="font-weight:400;color:var(--muted)">綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度;點列可展開推估理由與佐證</small></h3>
       <button type="button" class="btn ghost" id="acc-csv">下載開發名單 CSV</button></div>
     <div class="table-wrap"><table class="seg-acc" id="seg-acc"></table></div>
   </section>
@@ -202,12 +209,13 @@ details.lead>summary::-webkit-details-marker{display:none}
       <input type="search" id="q" placeholder="搜尋公司、需求、產業…" aria-label="搜尋潛在客戶">
       <select id="fgrade" aria-label="等級"><option value="">全部等級</option><option value="AB">A + B 級</option><option>A</option><option>B</option><option>C</option><option>D</option></select>
       <select id="fprod" aria-label="產品線"></select>
-      <label><input type="checkbox" id="facc"> 只看目標客戶</label>
+      <label id="facc-wrap"><input type="checkbox" id="facc"> 只看目標客戶</label>
       <label><input type="checkbox" id="fnew"> 本週新出現</label>
       <span id="cellchip"></span>
     </div>
     <div class="leads" id="leads"></div>
     <button type="button" class="btn ghost more" id="more" hidden>顯示更多</button>
+    <details class="others" id="others" hidden><summary></summary><p class="others-note">這些公司出現在本客群的新聞中,但不在客群名單內,沒有產品適配評估,只列訊號強度。值得開發的公司請加入設定檔的客群名單。</p><ol id="others-list"></ol></details>
   </section>
 
   <section aria-labelledby="h-sig">
@@ -338,10 +346,21 @@ const DATA = /*__DATA__*/null;
     const [p, i, r] = state.cell.split("|");
     return sig.products.includes(p) && sig.industries[p] === i && sig.region === r;
   }
+  // segment pages: one overall score (= opportunity) and the tier scale; general pages keep A–D
+  const SEGMODE = !!DATA.segment;
+  const TIER_COLOR = {"優先開發": "var(--gA)", "積極經營": "var(--gB)", "持續觀察": "var(--gD)"};
+  const TIER_SHORT = {"優先開發": "優", "積極經營": "積", "持續觀察": "觀"};
+  if (SEGMODE) {
+    $("#fgrade").innerHTML = `<option value="">全部分級</option>` + Object.keys(TIER_COLOR).map(t => `<option>${t}</option>`).join("");
+    $("#fgrade").setAttribute("aria-label", "分級");
+    $("#facc-wrap").hidden = true;
+    $("#h-leads").firstChild.textContent = "客戶明細(依綜合分數) ";
+    $("#q").placeholder = "搜尋公司、需求、次產業…";
+  }
   function filteredLeads() {
     const q = $("#q").value.trim().toLowerCase(), g = $("#fgrade").value, p = $("#fprod").value;
     return DATA.leads.filter(l =>
-      (!g || g.includes(l.grade)) && (!p || l.products.includes(p)) && (!$("#facc").checked || l.account) && (!$("#fnew").checked || l.new) &&
+      (!g || (SEGMODE ? l.grade === g : g.includes(l.grade))) && (!p || l.products.includes(p)) && (!$("#facc").checked || l.account) && (!$("#fnew").checked || l.new) &&
       (!state.cell || l.evidence.some(id => inCell(sigById[id]))) &&
       (!q || [l.org, l.need, name("industries", l.industry), name("regions", l.region), name("products", l.product), l.next_action,
               ...l.evidence.map(id => (sigById[id] || {}).title || "")].join(" ").toLowerCase().includes(q)));
@@ -360,15 +379,21 @@ const DATA = /*__DATA__*/null;
     $("#leads").innerHTML = list.slice(0, state.shown).map(l => {
       const ev = l.evidence.map(id => sigById[id]).filter(Boolean);
       const hs = l.hotspot;
-      return `<details class="lead" style="--g:${gradeVar(l.grade)}"><summary>
-        <span class="grade" aria-label="${l.grade} 級">${l.grade}</span>
-        <div><div class="name">${esc(l.org)}${l.account ? '<span class="badge acc">目標客戶</span>' : ""}${l.new ? '<span class="badge new">新出現</span>' : ""}
+      const gColor = SEGMODE ? (TIER_COLOR[l.grade] || "var(--gD)") : gradeVar(l.grade);
+      const badge = SEGMODE ? `<span class="grade tier" aria-label="${esc(l.grade)}">${TIER_SHORT[l.grade] || "觀"}</span>` : `<span class="grade" aria-label="${l.grade} 級">${l.grade}</span>`;
+      const scoreBox = SEGMODE
+        ? `<div class="score" title="綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度">${Math.round(l.score)}<small>綜合分數</small><span class="parts">適配 ${Math.round(l.fit_part)} + 訊號 ${Math.round(l.signal_part)}</span></div>`
+        : `<div class="score">${Math.round(l.score)}<small>分</small></div>`;
+      return `<details class="lead" style="--g:${gColor}"><summary>
+        ${badge}
+        <div><div class="name">${esc(l.org)}${l.account && !SEGMODE ? '<span class="badge acc">目標客戶</span>' : ""}${l.new ? '<span class="badge new">新出現</span>' : ""}
           ${hs.level === "hot" ? `<span class="badge hot">熱點${hs.trend ? "・" + esc(L.trends[hs.trend]) : ""}</span>` : hs.level === "warm" ? '<span class="badge warm">溫點</span>' : ""}</div>
           <div class="sub"><span>${esc(L.products[l.product])}</span><span>${esc(name("industries", l.industry))}</span><span>${esc(L.regions[l.region])}</span>
           <span>${l.top_intent ? esc(L.intents[l.top_intent]) : "一般動態"}</span><span class="mono">${l.signals} 則 · 最近 ${esc(l.last_signal)}</span></div></div>
-        <div class="score">${Math.round(l.score)}<small>分</small></div></summary>
+        ${scoreBox}</summary>
         <div class="body"><dl>
           ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
+          ${SEGMODE ? `<dt>分數組成</dt><dd>${esc(l.grade)}:產品適配 ${l.fit_max}/3 → ${Math.round(l.fit_part)} 分,訊號強度 ${Math.round(l.signal_score)} → ${Math.round(l.signal_part)} 分</dd>` : ""}
           <dt>建議行動</dt><dd>${esc(l.next_action)}</dd>
           <dt>切入重點</dt><dd>${esc(l.pitch)}<span class="src-note">規格依據:${esc(l.pitch_source || "未標示")}</span></dd>
           ${l.products.length > 1 ? `<dt>其他產品線</dt><dd>${l.products.slice(1).map(p => esc(L.products[p])).join("、")}</dd>` : ""}
@@ -377,6 +402,18 @@ const DATA = /*__DATA__*/null;
             <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol></div></details>`;
     }).join("");
     $("#more").hidden = list.length <= state.shown;
+    renderOthers();
+  }
+  function renderOthers() {
+    const others = DATA.other_mentions || [];
+    if (!SEGMODE || !others.length) { $("#others").hidden = true; return; }
+    $("#others").hidden = false;
+    $("#others > summary").textContent = `其他被提及公司(未評估適配)${others.length} 家`;
+    $("#others-list").innerHTML = others.slice(0, 40).map(o => {
+      const s = sigById[o.evidence[0]];
+      return `<li><b>${esc(o.org)}</b> <span class="mono">訊號強度 ${Math.round(o.signal_score)} · ${o.signals} 則 · 最近 ${esc(o.last_signal)}</span>
+        ${s ? `<br><span class="src">${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} · ${esc(s.source)}</span>` : ""}</li>`;
+    }).join("");
   }
   ["#q", "#fgrade", "#fprod", "#facc", "#fnew"].forEach(s => $(s).addEventListener("input", () => { state.shown = 30; renderLeads(); }));
   $("#more").onclick = () => { state.shown += 30; renderLeads(); };
@@ -399,7 +436,7 @@ const DATA = /*__DATA__*/null;
 
   // CSV (raw data files are not published, so build it in the browser)
   $("#csv").onclick = () => {
-    const cols = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "需求研判", "建議行動", "切入重點", "規格依據", "佐證連結"];
+    const cols = [SEGMODE ? "分級" : "等級", SEGMODE ? "綜合分數" : "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "需求研判", "建議行動", "切入重點", "規格依據", "佐證連結"];
     const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const rows = filteredLeads().map(l => [l.grade, l.score, l.org, l.account ? "是" : "", L.products[l.product], name("industries", l.industry), L.regions[l.region],
       l.top_intent ? L.intents[l.top_intent] : "", l.signals, l.last_signal, l.need, l.next_action, l.pitch, l.pitch_source || "",
@@ -463,11 +500,11 @@ const DATA = /*__DATA__*/null;
     const FIT_LABEL = {target: "靶", titanium: "鈦", nickel: "鎳"};
     const dots = n => `<span class="dots" aria-label="適配 ${n} / 3">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
     const tierCls = t => ({"優先開發": "t1", "積極經營": "t2"})[t] || "t3";
-    $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>機會分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
+    $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>綜合分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
       DATA.accounts.map((a, i) => `<tr class="row" data-i="${i}" tabindex="0" aria-expanded="false"><td class="num">${i + 1}</td>
         <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}</td>
         <td>${esc(SEG.subsegments[a.subsegment] || a.subsegment)}</td>
-        <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span></td>
+        <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}</span></td>
         <td><span class="tier ${tierCls(a.tier)}">${esc(a.tier)}</span></td><td>${esc(L.products[a.best_product])}</td>
         <td><span class="fitcell">${products.map(p => `<span>${esc(FIT_LABEL[p] || L.products[p])} ${dots(a.fit[p] || 0)}</span>`).join("")}</span></td>
         <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則 · ${esc(a.last_signal)}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
@@ -478,9 +515,9 @@ const DATA = /*__DATA__*/null;
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
-      const cols = ["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據"];
+      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
-      const rows = DATA.accounts.map((a, i) => [i + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.tier, L.products[a.best_product],
+      const rows = DATA.accounts.map((a, i) => [i + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
         a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
