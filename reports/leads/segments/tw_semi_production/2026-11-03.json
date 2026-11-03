@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T07:56:10+00:00",
+ "generated": "2026-11-03T15:39:21+00:00",
  "asof": "2026-11-03",
  "days": 120,
  "half_life_days": 45.0,
@@ -24579,6 +24579,12 @@
   "days": 120,
   "half_life_days": 45.0
  },
+ "links": [
+  {
+   "name": "業務報告",
+   "url": "https://claude.ai/artifact/VvYqgocKyKDSSMUfKgcg1c"
+  }
+ ],
  "accounts": [
   {
    "org": "台積電",

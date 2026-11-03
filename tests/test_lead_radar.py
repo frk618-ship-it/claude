@@ -448,3 +448,17 @@ def test_steady_news_is_not_chained_into_one_story(cfg):
     assert full >= 15 * 8 // (STORY_DAYS + 8)                                       # a new story at least every STORY_DAYS
     days = sorted(s.day for s in stream if f[s.id] == 1.0)
     assert all((b - a).days > 0 for a, b in zip(days, days[1:]))
+
+
+def test_header_links_reach_every_segment_page(cfg, tmp_path):
+    from lead_radar.page import render_page
+    from lead_radar.segment import build_segment_report
+
+    assert cfg.settings.links and cfg.settings.links[0]["name"] == "業務報告"
+    rep = build_segment_report(load_csv(PROD_SEEDS, cfg), cfg, "tw_semi_production", date(2026, 11, 3))
+    assert rep["links"] == cfg.settings.links
+    assert '"links": [{"name": "業務報告", "url": "https://claude.ai/artifact/' in render_page(rep)
+    bad = CONFIG.read_text(encoding="utf-8").replace('url: "https://claude.ai/artifact/VvYqgocKyKDSSMUfKgcg1c"', 'url: "javascript:alert(1)"')
+    p = tmp_path / "c.yaml"
+    p.write_text(bad, encoding="utf-8")
+    assert load_config(p).settings.links == []                                    # only http(s) links are shown

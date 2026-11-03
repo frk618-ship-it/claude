@@ -94,6 +94,7 @@ class Settings:
     noise_factor: float = 0.3
     drop_terms: list[str] = field(default_factory=list)
     primary_segment: str = ""        # the radar's main page (/leads/); empty = the first segment
+    links: list[dict[str, str]] = field(default_factory=list)   # [{name, url}] shown as buttons on every page
     exclude_orgs: list[str] = field(default_factory=list)
 
 
@@ -171,6 +172,8 @@ def load_config(path: str | Path) -> Config:
         noise_factor=float(s.get("noise_factor", 0.3)),
         drop_terms=[str(t) for t in s.get("drop_terms", []) or []],
         primary_segment=str(s.get("primary_segment", "") or ""),
+        links=[{"name": str(l["name"]), "url": str(l["url"])} for l in s.get("links", []) or []
+               if isinstance(l, dict) and l.get("name") and str(l.get("url", "")).startswith(("https://", "http://"))],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
     )
     industries = {
