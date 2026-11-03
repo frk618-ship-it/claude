@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T04:50:13+00:00",
+ "generated": "2026-11-03T04:55:46+00:00",
  "asof": "2026-11-03",
  "days": 30,
  "half_life_days": 14.0,
@@ -197,7 +197,7 @@
    "region": "US",
    "heat": 0.138,
    "count": 1,
-   "z": 1.66,
+   "z": 1.65,
    "level": "warm",
    "trend": "",
    "history": [
@@ -239,13 +239,13 @@
    "product": "titanium",
    "industry": "aerospace",
    "region": "OTHER",
-   "heat": 3.023,
+   "heat": 3.01,
    "count": 4,
    "z": 1.58,
    "level": "neutral",
    "trend": "",
    "history": [
-    3.023
+    3.01
    ],
    "signal_ids": [
     "218054ebabb0368a",
@@ -701,7 +701,7 @@
    "region": "US",
    "heat": 0.138,
    "count": 1,
-   "z": 1.66,
+   "z": 1.65,
    "level": "warm",
    "trend": "",
    "history": [
@@ -2576,35 +2576,6 @@
    "heat": 2.233
   },
   {
-   "id": "d20ee20c170e79e3",
-   "title": "Titanium Lightweighting Delivers 4x the Energy Density of Lithium-Ion... Drone Completes 918km Flight",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYkoxY1F3eWhaTnpKdzF2b1Yyam5aTzg0Q25neGVOVENUZHpYSmhMQURzTGZwTzlkZHpnc0FqQmU0dTdDcGtMYTNHQXllS0Y2cUdhVUVKV0V6c1N2TGhzMmhWampDZkpxMGZRTnpxaGRaVWNDMGc?oc=5",
-   "source": "BigGo Finance",
-   "published": "2026-10-21",
-   "snippet": "",
-   "edition": "en",
-   "origin": "news",
-   "products": [
-    "titanium"
-   ],
-   "industries": {
-    "titanium": "aerospace"
-   },
-   "intents": [],
-   "region": "OTHER",
-   "orgs": [],
-   "accounts": [],
-   "relevance": 1.0,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.263
-  },
-  {
    "id": "cc1cd124d523be44",
    "title": "Apple commits up to $100m to Perryman for iPhone Duo titanium",
    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZUlCWEVVWmdsSFhsX3Z1N1BrbVZBenF0NHI4RGMtbkp2cF9LaGR0WHU1aFR5UnRzc1ozLVE4VUVfQVhPNHJHSXQzT1JhRW8zb3ZxOEVjcGk0U2loM3BhOWFoSTdsNFVOX1ZoYTRGUUgwT0JzeTd3UHNPa1FGcC1oUFF4eGQ?oc=5",
@@ -3110,6 +3081,35 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.5
+  },
+  {
+   "id": "d20ee20c170e79e3",
+   "title": "Titanium Lightweighting Delivers 4x the Energy Density of Lithium-Ion... Drone Completes 918km Flight",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYkoxY1F3eWhaTnpKdzF2b1Yyam5aTzg0Q25neGVOVENUZHpYSmhMQURzTGZwTzlkZHpnc0FqQmU0dTdDcGtMYTNHQXllS0Y2cUdhVUVKV0V6c1N2TGhzMmhWampDZkpxMGZRTnpxaGRaVWNDMGc?oc=5",
+   "source": "BigGo Finance",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "en",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "aerospace"
+   },
+   "intents": [],
+   "region": "OTHER",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.25
   },
   {
    "id": "d1be55b0b5907184",

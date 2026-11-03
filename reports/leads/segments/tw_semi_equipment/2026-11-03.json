@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T04:50:14+00:00",
+ "generated": "2026-11-03T04:56:12+00:00",
  "asof": "2026-11-03",
  "days": 120,
  "half_life_days": 45.0,
@@ -120,23 +120,23 @@
   }
  },
  "stats": {
-  "signals": 209,
-  "attributed": 207,
+  "signals": 218,
+  "attributed": 216,
   "new_signals": 2,
   "hot_cells": 3,
   "warm_cells": 2,
-  "leads": 32,
+  "leads": 33,
   "grades": {
    "A": 2,
-   "B": 8,
-   "C": 2,
-   "D": 20
+   "B": 9,
+   "C": 1,
+   "D": 21
   },
   "enriched": 0,
   "by_product": {
    "target": 5,
-   "titanium": 121,
-   "nickel": 164
+   "titanium": 128,
+   "nickel": 173
   },
   "accounts": 22,
   "tiers": {
@@ -185,32 +185,34 @@
    "product": "titanium",
    "industry": "consumer",
    "region": "US",
-   "heat": 0.105,
+   "heat": 0.042,
    "count": 0,
-   "z": -0.44,
+   "z": -0.45,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.105
+    0.042
    ],
    "signal_ids": [
-    "a6ab8ad7399906f8"
+    "a6ab8ad7399906f8",
+    "b941bb37db7f7a7f"
    ]
   },
   {
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 45.896,
-   "count": 36,
+   "heat": 44.884,
+   "count": 35,
    "z": 5.84,
    "level": "hot",
    "trend": "new",
    "history": [
-    45.896
+    44.884
    ],
    "signal_ids": [
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "06464f6e41dfa5f9",
     "11e91f7884249cc0",
     "1d005d752b866391",
@@ -235,15 +237,19 @@
     "9b30302e942c3ba2",
     "6a2f81b53d4783ca",
     "d55e2dd6e13cc8b1",
+    "3216b6e1538b7195",
     "10ac1d542243c179",
     "42750a8bd5ed971d",
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
     "2acdccc482655407",
     "000b55cef8dfbccd",
+    "4fbe23f7bac9126f",
     "47a2c5b07c04d787",
+    "59c3473c95cb7d20",
     "be41efd49998b54f",
     "ffe1c96ff811a1bc",
+    "9addd2dad8476d33",
     "ce1e66d38beeb676",
     "1eddc02da3abc624",
     "7d859caae43a9b27",
@@ -251,6 +257,7 @@
     "bf3e4efe0bab8514",
     "c05bb4471227a26c",
     "669d141852d7f11e",
+    "f1a9a550826866ce",
     "ee9dc9650c6a900d",
     "02b91ac28a43fc43",
     "1bb6fc8e9c279996",
@@ -336,13 +343,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 3.316,
+   "heat": 3.3,
    "count": 4,
    "z": 1.76,
    "level": "warm",
    "trend": "",
    "history": [
-    3.316
+    3.3
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -368,33 +375,35 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "US",
-   "heat": 0.105,
+   "heat": 0.042,
    "count": 0,
-   "z": -0.35,
+   "z": -0.36,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.105
+    0.042
    ],
    "signal_ids": [
-    "a6ab8ad7399906f8"
+    "a6ab8ad7399906f8",
+    "b941bb37db7f7a7f"
    ]
   },
   {
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 47.298,
-   "count": 37,
-   "z": 5.73,
+   "heat": 46.632,
+   "count": 36,
+   "z": 5.74,
    "level": "hot",
    "trend": "new",
    "history": [
-    47.298
+    46.632
    ],
    "signal_ids": [
     "829b4af6e6a3883b",
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "2f6807ecd776b9ff",
     "11e91f7884249cc0",
     "1d005d752b866391",
@@ -403,6 +412,7 @@
     "1fa3d3faab076efa",
     "6e001e18bac0b34f",
     "d162a400cb332cf9",
+    "bf62c26abec832a7",
     "7d4024611afd4ce1",
     "713c7ab991339c73",
     "1c452d271dd96a82",
@@ -436,13 +446,17 @@
     "9b30302e942c3ba2",
     "6a2f81b53d4783ca",
     "d55e2dd6e13cc8b1",
+    "3216b6e1538b7195",
     "10ac1d542243c179",
     "520a11e500143adb",
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
     "2acdccc482655407",
+    "4fbe23f7bac9126f",
     "47a2c5b07c04d787",
+    "59c3473c95cb7d20",
     "be41efd49998b54f",
+    "9addd2dad8476d33",
     "ce1e66d38beeb676",
     "690d807c0a9a7aaa",
     "f7c6b8bcf4459de8",
@@ -461,6 +475,7 @@
     "c05bb4471227a26c",
     "669d141852d7f11e",
     "03c556a060ca8cb2",
+    "f1a9a550826866ce",
     "ee9dc9650c6a900d",
     "02b91ac28a43fc43",
     "1bb6fc8e9c279996",
@@ -470,6 +485,7 @@
     "56379a143e25a044",
     "5e7395fe7e2df6ad",
     "4ef96e9baf885af3",
+    "0c26edd7dc128a47",
     "bc9d70f70f72bb9b",
     "7939b1e7b141b490",
     "ff9ee52834bfa325",
@@ -562,16 +578,17 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 45.896,
-   "count": 36,
+   "heat": 44.884,
+   "count": 35,
    "z": 5.84,
    "level": "hot",
    "trend": "new",
    "history": [
-    45.896
+    44.884
    ],
    "signal_ids": [
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "06464f6e41dfa5f9",
     "11e91f7884249cc0",
     "1d005d752b866391",
@@ -581,25 +598,25 @@
     "d82c45aebb9dc651",
     "9ece520123e7162f",
     "ca1dbd2251f1725e",
-    "7d4024611afd4ce1",
-    "5eb0b150df9c7ed4"
+    "7d4024611afd4ce1"
    ]
   },
   {
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 47.298,
-   "count": 37,
-   "z": 5.73,
+   "heat": 46.632,
+   "count": 36,
+   "z": 5.74,
    "level": "hot",
    "trend": "new",
    "history": [
-    47.298
+    46.632
    ],
    "signal_ids": [
     "829b4af6e6a3883b",
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "2f6807ecd776b9ff",
     "11e91f7884249cc0",
     "1d005d752b866391",
@@ -608,8 +625,7 @@
     "1fa3d3faab076efa",
     "6e001e18bac0b34f",
     "d162a400cb332cf9",
-    "7d4024611afd4ce1",
-    "713c7ab991339c73"
+    "bf62c26abec832a7"
    ]
   },
   {
@@ -651,13 +667,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 3.316,
+   "heat": 3.3,
    "count": 4,
    "z": 1.76,
    "level": "warm",
    "trend": "",
    "history": [
-    3.316
+    3.3
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -679,7 +695,7 @@
   {
    "org": "弘塑科技",
    "account": true,
-   "score": 95.5,
+   "score": 93.7,
    "grade": "A",
    "product": "nickel",
    "products": [
@@ -692,18 +708,18 @@
    "intents": [
     "contract",
     "expansion",
-    "qualification",
     "shortage",
+    "qualification",
     "hiring"
    ],
-   "signals": 10,
+   "signals": 9,
    "first_seen": "2026-11-03",
    "last_signal": "2026-10-28",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -714,13 +730,13 @@
     "f27f5cafbe1b8b08",
     "m-8ce210ed0fb1e64d",
     "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad"
+    "31120842ead5b26b"
    ]
   },
   {
    "org": "千附精密",
    "account": true,
-   "score": 73.4,
+   "score": 77.8,
    "grade": "A",
    "product": "titanium",
    "products": [
@@ -733,9 +749,10 @@
    "intents": [
     "expansion",
     "contract",
-    "shortage"
+    "shortage",
+    "qualification"
    ],
-   "signals": 6,
+   "signals": 7,
    "first_seen": "2026-11-03",
    "last_signal": "2026-09-16",
    "new": true,
@@ -753,13 +770,13 @@
     "2c95d321a90bb454",
     "c05bb4471227a26c",
     "7d4024611afd4ce1",
-    "d55e2dd6e13cc8b1"
+    "4ef1f13550862cd6"
    ]
   },
   {
    "org": "家登精密",
    "account": true,
-   "score": 68.8,
+   "score": 68.3,
    "grade": "B",
    "product": "titanium",
    "products": [
@@ -799,7 +816,7 @@
   {
    "org": "京鼎精密",
    "account": true,
-   "score": 66.0,
+   "score": 65.7,
    "grade": "B",
    "product": "nickel",
    "products": [
@@ -822,7 +839,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -895,7 +912,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -912,7 +929,7 @@
   {
    "org": "台積電",
    "account": true,
-   "score": 61.5,
+   "score": 60.7,
    "grade": "B",
    "product": "target",
    "products": [
@@ -978,7 +995,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1017,7 +1034,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1073,8 +1090,8 @@
   {
    "org": "印能科技",
    "account": true,
-   "score": 44.0,
-   "grade": "C",
+   "score": 45.4,
+   "grade": "B",
    "product": "nickel",
    "products": [
     "nickel"
@@ -1094,7 +1111,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1167,7 +1184,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1232,7 +1249,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1266,7 +1283,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1330,7 +1347,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.35
+    "z": -0.36
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1345,7 +1362,7 @@
   {
    "org": "志聖工業",
    "account": true,
-   "score": 7.8,
+   "score": 7.7,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1464,7 +1481,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1474,9 +1491,9 @@
    ]
   },
   {
-   "org": "均華精密",
-   "account": true,
-   "score": 2.1,
+   "org": "佳霖攜手青輝半導體",
+   "account": false,
+   "score": 1.4,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1485,30 +1502,30 @@
    ],
    "industry": "semi_equipment",
    "region": "TW",
-   "top_intent": "expansion",
+   "top_intent": "qualification",
    "intents": [
-    "expansion"
+    "qualification"
    ],
    "signals": 0,
    "first_seen": "2026-11-03",
-   "last_signal": "2026-08-27",
+   "last_signal": "2026-08-11",
    "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "new",
     "z": 5.84
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "need": "",
    "evidence": [
-    "a6ab8ad7399906f8"
+    "4fbe23f7bac9126f"
    ]
   },
   {
    "org": "弘塑集團",
    "account": false,
-   "score": 2.0,
+   "score": 1.4,
    "grade": "D",
    "product": "titanium",
    "products": [
@@ -1567,38 +1584,6 @@
    "need": "",
    "evidence": [
     "b4f66b4b3d0385b8"
-   ]
-  },
-  {
-   "org": "Apple",
-   "account": true,
-   "score": 1.3,
-   "grade": "D",
-   "product": "titanium",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industry": "consumer",
-   "region": "US",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-08-27",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": -0.44
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "need": "",
-   "evidence": [
-    "a6ab8ad7399906f8"
    ]
   },
   {
@@ -1666,6 +1651,39 @@
    ]
   },
   {
+   "org": "均華精密",
+   "account": true,
+   "score": 0.8,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-08-28",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "new",
+    "z": 5.84
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "b941bb37db7f7a7f",
+    "a6ab8ad7399906f8"
+   ]
+  },
+  {
    "org": "帶動半導體",
    "account": false,
    "score": 0.6,
@@ -1688,7 +1706,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1698,9 +1716,42 @@
    ]
   },
   {
+   "org": "Apple",
+   "account": true,
+   "score": 0.5,
+   "grade": "D",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "consumer",
+   "region": "US",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-08-28",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.45
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "need": "",
+   "evidence": [
+    "b941bb37db7f7a7f",
+    "a6ab8ad7399906f8"
+   ]
+  },
+  {
    "org": "翔名科技",
    "account": true,
-   "score": 0.4,
+   "score": 0.3,
    "grade": "D",
    "product": "nickel",
    "products": [
@@ -1720,7 +1771,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1752,7 +1803,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1783,7 +1834,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "new",
-    "z": 5.73
+    "z": 5.74
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -2782,8 +2833,8 @@
   {
    "id": "4fc33fe26652679b",
    "title": "家登美國新廠啟用 Q4投產",
-   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE8zWldINDZzTS1Xc1UwbmtxMnpEVkt3SzU5TUt4aThNcGFuLVJGNXFnUXNNR2lYWWZDcnp0QzFydjdwR0NfbU9UVFNXN0hjME5YY0hFWWtNaTFWTk5FTndzNDVfRnNablJGaEhJ?oc=5",
-   "source": "中時新聞網",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE0zZ0I4TGMxOUZPVjZleHFRSGNMNGRFQlJ1ajlaZGt5YzA2ZVJDN0UwTV9FZ1psdmxnZU9qLWNDdk1fZnIxM25BMnF2eW1KSG11OUdSZ2lwS0hEYjVMbEs4?oc=5",
+   "source": "工商時報",
    "published": "2026-10-08",
    "snippet": "",
    "edition": "zh-TW",
@@ -5263,8 +5314,8 @@
   {
    "id": "4b331a6d2589695f",
    "title": "帆宣在手訂單衝1351億新高！董座高新明：看好建廠動能旺5年",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5OaHFVV3puWTk5blJKYmNnYm9hWlNLNkJUN0hJdC1UbFgyeTVoREVkV20tU2p3LTgyZVRRRWdPa3lJNU1kLTZyaU51U3FKMUppWHJITTItZkY3Zw?oc=5",
-   "source": "信傳媒",
+   "link": "https://news.google.com/rss/articles/CBMi8AJBVV95cUxQdHdTV2hYNU11dzBzTE9aMFdYVWRFS1JxOWItZnlPYTY1WVZKZHFTVzJWV2kyM0FKQUhrU1pnd1o0elVkMHFhSDdjVm01SUIyYTQ5M0dZOUx3OHlBNXhlMjVXS3BBNUVhOWV4bDdnNDZLYnZxRlJkWER5b3FfZDQwWTNaSlJXMHpTZmUwR3BrYWRzaFVON2FGNjVQVWJOQkJtSHppOFZ6T3VsWHlUOExacVNCSTBkVDBpWUpsWWh2Rkl2M1Fkek55N1pIanJzbXBJRmJzb3NSdzVOcGkxczNldWRwZjh3SVBuYlh5QVJiUVR2Rkc4SUtmM1pjdnhKQVBGLVRnVG9tNkgzeFRDYWV4dUIyWmhia2xBc3ZVdTVBSFU2WGtPUU5WWjZ1M1NYRGlvcVktV0dEVkJpak92THZ2Wng0TDY3UXVkMjZXRkFzTTV5SUdvYVZMR29EeWhTN2xEb1VQWGNDUGV4cFN0UE5zMw?oc=5",
+   "source": "Yahoo新聞",
    "published": "2026-09-03",
    "snippet": "",
    "edition": "zh-TW",
@@ -5594,9 +5645,9 @@
   },
   {
    "id": "bc9d70f70f72bb9b",
-   "title": "英特爾擴建 EMIB 先進封裝產線 印能、鈦昇搶搭設備商機",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBKRGVjYnNSTnJKWE12bG5OVlVhaHE3YkhCMU5HY0t5S2RRSzNqWDNrRGpxNFdMNVR5djNsWGlGUGVwcEVsdXpuMVFTcmlZMzN2NWhia1RTc1Exd9IBX0FVX3lxTE9IWmhfcnBWVFdFLUlXTENiSm1fbGZnSFRaZ3VoOWhZc1NRdHM4ZHQ5UFVYNHNxblNkNDZ5aFFBWkxRM3B1cEJsM1g1cVhYVWJVV1BsMzIzb0NHMjg1Umd3?oc=5",
-   "source": "經濟日報",
+   "title": "英特爾擴建EMIB先進封裝產線 印能、鈦昇搶搭設備商機",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1MWTNOUWxwRl95YkFLYmFYdkZ5ZVIyNEpVdFlFR1NRbkE1RjBYRnhjMjJtZUlmaDdaZHcxTXdoQTZRUFVrbDV2UkdnMnNMTnUx0gFWQVVfeXFMUFVGOUpBQVE0cm1CUGJqaWFRUmtNeTItZDdsTnFUR1ZZZWstc2dTVElpYWFmTE1KaURJc2t5UldyNjIzdHdVUUdMN3dKdmhuMjA1ODZOaEE?oc=5",
+   "source": "UDN",
    "published": "2026-08-31",
    "snippet": "",
    "edition": "zh-TW",
@@ -5773,6 +5824,49 @@
    "heat": 0.896
   },
   {
+   "id": "b941bb37db7f7a7f",
+   "title": "蘋果M6掀先進封裝商機！台積電備戰擴產 弘塑、均華、長興等台鏈受惠",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9PRXBPTU10SmxZenVJWnBjLWs0MmNwaTdFUXdCVVVWYVNHaFFYRm1DWTMzN0Vub2NKT1JDTkRmdFNHa3I2VW5jeVU1X3JjT1h1U1B3ekNpUkpaQkNBcWhZb3ZaS0xtLU5rX3RGbkxZRU9MajlhakRTVGQ5dw?oc=5",
+   "source": "財訊",
+   "published": "2026-08-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "consumer",
+    "nickel": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "US",
+   "orgs": [
+    "Apple",
+    "台積電",
+    "弘塑科技",
+    "均華精密"
+   ],
+   "accounts": [
+    "Apple",
+    "台積電",
+    "弘塑科技",
+    "均華精密"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.855
+  },
+  {
    "id": "8042ae63db1b80b2",
    "title": "家登美國鳳凰城新廠 Q4 投產 資本支出估上看 25 億",
    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONHBkb0xKekJYS21VVWtfOVZyRWRaTVM1eVRLUEJHNlpvUFlJRTY4N2gyYVFYOU5qa2l4aUxOcmIyck1uakVNVjVkT0Z5NjZlWjhjMkdzaG5DWlZka0pFNDgzZ3RsaU1RcFdRMkZCa1VNNUN2UnRGVFFnb2pvUEFXaFZuYjlTdw?oc=5",
@@ -5906,6 +6000,41 @@
    ],
    "accounts": [
     "辛耘企業"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.855
+  },
+  {
+   "id": "0c26edd7dc128a47",
+   "title": "(7734)印能科技法說會 2026/08、印能科技財報、印能科技展望、印能科技財報投資亮點｜理柴知道:法說最速報! - 方格子",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE90bEpqQXZyUk9DR3VNWllGWHdsbDZEMmdCaW1USkZKNXQzeXVGZndlZFlKb1dMdWl6V2w3VGQzeDBuR3gwSHdNdjNYWExBdVM5LWFFYl81RjlMVFZGMFHSAWNBVV95cUxNWnh2dGJvWGVkVk5SZkpUMzI0MmNvV0NKN0Rid2dZcTM0UVZPTzB6WE1hYzVmRHV2ZUlkcWlmUUZsandRemdhOFlyT1FmLW9Ud3g0U2E4T0FNbXpZcGhaN1BPc1U?oc=5",
+   "source": "Vocus",
+   "published": "2026-08-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "印能科技"
+   ],
+   "accounts": [
+    "印能科技"
    ],
    "relevance": 0.6,
    "noise": false,
@@ -6073,8 +6202,8 @@
   {
    "id": "7804721807cfc8da",
    "title": "家登估EUV Pod全年出貨增逾50% 下半年營運逐季走揚 亞利桑那新廠Q4啟動試產",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9kb0hxNVZCeFdEWlFyN0lwaXl2N3lQNklqU0NMUjNUYjloMUJoMDlDenlaT2NrWlFSRVBBRDBodlhpeGFNc1NvRE5TQnlGSVE5MG1XYVp3?oc=5",
-   "source": "優分析UAnalyze",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1SUnZrRXNyZ3lfVUlha1ZaUHZDellZNFNZd2FSNHNZdlZyME1IMkp4R1pNUkpjYW5SVEtrUXFXWUJaZ2ZaeW10cFlocFpKS0k?oc=5",
+   "source": "鉅亨網",
    "published": "2026-08-27",
    "snippet": "",
    "edition": "zh-TW",
@@ -6431,6 +6560,43 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.468
+  },
+  {
+   "id": "f1a9a550826866ce",
+   "title": "【千附實業FY2026 H1 法說會】上半年營收24.14億創新高、EPS 2.66元年增144%，訂單能見度逾12個月",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1GQ21RNWk1LW9Xcng4QTJLNVRkeXZLa2hrN2FsR1hhak5FcktzZWdTaWlhcmYwNktZeUxkb1E4WURVajBwZW1jWkdwSHo0VWpPZW14REVLV29Hak1HTlZlSjZ5dEFpUQ?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-08-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "千附精密"
+   ],
+   "accounts": [
+    "千附精密"
+   ],
+   "relevance": 0.6,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.187
   },
   {
    "id": "c05bb4471227a26c",
@@ -7193,6 +7359,80 @@
    "heat": 0.517
   },
   {
+   "id": "9addd2dad8476d33",
+   "title": "【11:15 即時新聞】千附精密(6829)股價上漲逾7%，量子低溫＋軍工訂單成長題材帶動買盤，搭配法人與主力同步偏多結構",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOVVWbFluZmluaTk3X1l6eHV6M3J1X3BveWZ5bTVtWWRyWFVMQWVPVkRLZmw1UkxpemV3NTFuaXF3Z2xWWXdnRDIxLVhiX1VaLWk4NzNRYkRvS1NrdVdtUjA5MHk1TE1SM19vcjNjNGFySjBHejk2LTluamVVUzdBN3lDdTlacUxMY3EzNlN3?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "千附精密"
+   ],
+   "accounts": [
+    "千附精密"
+   ],
+   "relevance": 0.6,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.155
+  },
+  {
+   "id": "59c3473c95cb7d20",
+   "title": "千附精密量子真空腔體出貨，軍工訂單動能回溫",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPb2VjckRvc2RlTERJSGVNMnJKdUJDRGxQX1ItN0JIbjU4VHZhbkhfVzNUOHVYaVFWRmFkUDdVT210STJRYnJUeWl2anNCX3k3bFRpbmhSTFlSX3ctT0hXQ2NXRWF3QXNIekVkd0dENEVFUTRYSWJNNFEzYVFXQUtRNTkwMllISjI1bVN6R250NjFVdw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "千附精密"
+   ],
+   "accounts": [
+    "千附精密"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.509
+  },
+  {
    "id": "091841dbcbb31750",
    "title": "天虹科技兩項技術第一拚從追隨躍升市場領先，訂單能見度到明年第一季",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTVNnZWg4bU1CdE1XcDhCWW9VMkNyMnJCTDFsZWowOG1mUXdmN3VFaUUxbjZ6cnc1WXYwSHJsNXozZVk4OWduYUVpZXFad0xPcjNObUo4UHktaUxadW1SMG0zUDc3WVhVeWY0b2VCdG9YUWlvNGpMZjVlX1czLThHal9JOTlKU0psSktlU2Iwb090OUZOekJvOVAyLUhlYWdrU1dadUkyOHdwakxZQjlj?oc=5",
@@ -7287,6 +7527,44 @@
    "region": "TW",
    "orgs": [
     "弘塑科技"
+   ],
+   "accounts": [
+    "弘塑科技"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.494
+  },
+  {
+   "id": "4fbe23f7bac9126f",
+   "title": "弘塑、佳霖攜手青輝半導體 推動台灣先進封裝鍵合設備在地化",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9JdWc4T3BmUjVpeWxlT1BRbXltVjhHMEItMjJ4UkFQM1BiT0dyYjJrZ191My1oTVUtUmZSR0k2U1dvMDI0MFJnMjM4MjZaRW9Q0gFWQVVfeXFMTmhIa2pQQThtWXA0eWN4SXVhR00wTzNGS0lRb2xNNW15cHpxSGVYUVM3N05wMFpLY2pwTGxMUnpmWnpEbmQtbUJ2c1cwaW9UcldiZkVGRkE?oc=5",
+   "source": "UDN",
+   "published": "2026-08-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "弘塑科技",
+    "佳霖攜手青輝半導體"
    ],
    "accounts": [
     "弘塑科技"
@@ -7779,6 +8057,43 @@
    "heat": 0.619
   },
   {
+   "id": "3216b6e1538b7195",
+   "title": "京鼎董事會通過泰國二期投資2.34億美元 續強化全球製造布局",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1ldVBlMkRXckZXaXpwQ0t2emZJajdlbUFsYzJzdmdOc0xJd29Pc1JILWtYemhRWXZNTWlFTTRtUlhxc0RVaDRjaHJucEI0Z3g2R0JuNTdoelh0d9IBX0FVX3lxTE96bVBjTkpjWU16c1MzNmVpLVh1VUxpNTZwWmw2M3ZtQ2llZ01xaVZ2RVdJMmxaM19iWXhOR2pIMDVOZHFpeTg0eUp6R3JVXzR3RzItOVJoX0I2TW9nLW44?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "京鼎精密"
+   ],
+   "accounts": [
+    "京鼎精密"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
    "id": "0328b749efa504e5",
    "title": "京鼎投資75億 泰國擴廠",
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4wNS01TEdHTXFHUWVFQmtHR1p0bWpnZUY1QjZ1NXAyOGpmUlh5YWZjNnMzVVJYdmg2ajRpVkFUcXVPYlR2M1NuM2h5OVVRdy15Q2VOT1VxODE2d9IBX0FVX3lxTFBPdW5TRWJ4NmhVejFLa0w4SldwUUh2Rjc1SGl0WWtON0FKaEdoM1NSd09BNXFDQW9jSlJ0UVlRSks2NDZOZndMbHZRMG5FRXMtX2hhTURTSkI0U1RaN19n?oc=5",
@@ -7888,9 +8203,9 @@
   {
    "id": "1dce3cc33afa0e75",
    "title": "半導體擴廠列車開動！帆宣手握千億訂單 AI封裝商機助攻獲利大增",
-   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9TZEROeFdLYkdEdVhhaGZ1RFhIVzhWM09zVW9Wcm03YnlzVXBPZHdWanpOdFpCMGN5cjlpVjBndjJaTzM2TW44Z1BKVzRhRnRsVlI2ZUtkWF96aVBhWG5ORQ?oc=5",
-   "source": "民視新聞網",
-   "published": "2026-08-05",
+   "link": "https://news.google.com/rss/articles/CBMipANBVV95cUxQeWVkbjZjWWY1M3otZDk2NGZaUkhmZ0ZoTXJwSHVzZXd0NExTamg2RDUzT0VLUm0taGtPZldkcF9tek50MVd6YzhnYzJiOWR2UzNTLVUtdW1ZRTNzZHlEQnFwSkNGR0dLM181Vk5QS1dCM29BR1Rod1VBQjVVWmpmVDBJckFyR1k5ZGJqMVp3dDNSWXdfYlg0eENnbUp0QU9BTkN0YkJzMlFWVW9iR3VtdXBPemxyZTZTUzQ5WFlFVnUyNC1VLUVMVm5vRlpkb3VZU3NZbkt0WklDVFJ3TXBGa0tIVHpYT3VfWlhXLTFmR05zVG40dTBWNDgwakhBWmJrY0pmZkN4cjI1X29Zd280Sm9ZdUVDM1RQMDRZc3dlUFgtNS1QcFRzU1ZuM0hidmtuVUY0TjBzRkxjblc3QlZucHpKMU05V0RKNXdDTDhjTV9va3AwVW0ydC1zN29JckdzQnhZbXkyQkFxT3dzWmViMkZ5VjN0dEJ0RUY3LXRIRGVMbndKcGFQaXg4bzk0c3FyLVBmTmZQWWVIeVpRTDEwU0NfeUo?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-04",
    "snippet": "",
    "edition": "zh-TW",
    "origin": "news",
@@ -7918,7 +8233,7 @@
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 0.45
+   "heat": 0.443
   },
   {
    "id": "m-8ce210ed0fb1e64d",
@@ -8825,8 +9140,8 @@
   {
    "id": "ca1dbd2251f1725e",
    "title": "13座新廠連環開！看懂台積電「資本支出」密碼：漢唐、弘塑、家登...三階段受惠名單大公開",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54bzZGYUYxZGJCUFItREpBakY5MVlLQ1RjX0c1akE3c21XTzV6dVpaZjkwUWVlQXpGU3FCbnBSZW94OUdlRm1rRUE2M0dCck5oMWVUSTJ3?oc=5",
-   "source": "優分析UAnalyze",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1GMHpIQThYb2s0VEdIQ2gxeVhMb0REVzVHS0lfVDhWNWh2TmdncktyakxVSV9FMWJrNjllOXF1YkJUMFFXNXVzcktPLXY0NFk?oc=5",
+   "source": "鉅亨網",
    "published": "2026-07-23",
    "snippet": "",
    "edition": "zh-TW",
@@ -8988,6 +9303,43 @@
    "title": "半導體擴產潮 亞翔、帆宣吃補",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wZDNJbXkyR0Jmbm9oQnJCN3RQY3hsaHVfeThhN2ZZSjNzbXFDVVlkR3JTVE41bzg5ckN3RUNDUF9FY0VkUTBHRFh6eFhNMXBYeXhSdWZISTk2aXUzME1ESVVkdDVkRmxTLXow?oc=5",
    "source": "中時新聞網",
+   "published": "2026-07-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "帆宣系統",
+    "亞翔工程"
+   ],
+   "accounts": [
+    "帆宣系統",
+    "亞翔工程"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.441
+  },
+  {
+   "id": "bf62c26abec832a7",
+   "title": "半導體擴產潮亞翔、帆宣吃補- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5nTzZDOGp6VEtRbFpkbVY0SzA5VjBWZVRaV3FSbWwySUtKYTN3YWNtWHp5SlRwam1sSXdDZmw4LVRybklSSExhNllEbU1vZjNzZVl0MWZKUlpJcHJxaTR3?oc=5",
+   "source": "工商時報",
    "published": "2026-07-16",
    "snippet": "",
    "edition": "zh-TW",
@@ -9354,6 +9706,43 @@
    "heat": 0.297
   },
   {
+   "id": "4ef1f13550862cd6",
+   "title": "千附6月營收暴衝200%創雙高 無塵室管材打進美國供應鏈",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5LdTV3TVp1TGhzT0hibkQ0Rm54dTdqcWdHMzR4c2plRVVfTkxjQk9aTTdTSFZfUmNla0tMN1FCSDRGVEY5d3g1aVFlMHlJVDdwczltX3VCWHFNWlZyMXdhdTZBZ2RTd3FYTTZNQmhUcC1iZGc4d2NHdzZR?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-07-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "千附精密"
+   ],
+   "accounts": [
+    "千附精密"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.292
+  },
+  {
    "id": "07aa65281527a708",
    "title": "京鼎 訂單看至2027",
    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBoTUMycnV3dDZmMFRqQVQzSDlOV3ZvbGdGb1JZWDhCLWdBVzRINnBuMnkydVVxRXNyZVJMdXlJRTRXSFNpUVphRXc0TU0wdy05bFI2VUpqb1h0Q0ljSWw4?oc=5",
@@ -9454,14 +9843,14 @@
    "note": "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接",
    "heat": {
     "target": 0.0,
-    "titanium": 5.54,
-    "nickel": 5.54
+    "titanium": 5.82,
+    "nickel": 5.82
    },
-   "signal_score": 73.4,
-   "signals": 6,
+   "signal_score": 77.8,
+   "signals": 7,
    "top_intent": "expansion",
    "last_signal": "2026-09-16",
-   "opportunity": 84.0,
+   "opportunity": 86.7,
    "tier": "優先開發",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -9472,7 +9861,7 @@
     "2c95d321a90bb454",
     "c05bb4471227a26c",
     "7d4024611afd4ce1",
-    "d55e2dd6e13cc8b1"
+    "4ef1f13550862cd6"
    ]
   },
   {
@@ -9487,14 +9876,14 @@
    "note": "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃",
    "heat": {
     "target": 0.0,
-    "titanium": 11.14,
-    "nickel": 11.14
+    "titanium": 9.93,
+    "nickel": 9.93
    },
-   "signal_score": 95.5,
-   "signals": 10,
+   "signal_score": 93.7,
+   "signals": 9,
    "top_intent": "contract",
    "last_signal": "2026-10-28",
-   "opportunity": 84.0,
+   "opportunity": 82.9,
    "tier": "優先開發",
    "best_product": "titanium",
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
@@ -9505,7 +9894,7 @@
     "f27f5cafbe1b8b08",
     "m-8ce210ed0fb1e64d",
     "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad"
+    "31120842ead5b26b"
    ]
   },
   {
@@ -9520,14 +9909,14 @@
    "note": "國際設備大廠的模組與腔體零件代工,台灣與泰國同步擴產;高溫 / 耐蝕零件適合鎳基合金,真空與製程零件可用鈦材",
    "heat": {
     "target": 0.0,
-    "titanium": 4.16,
-    "nickel": 4.16
+    "titanium": 4.14,
+    "nickel": 4.14
    },
-   "signal_score": 66.0,
+   "signal_score": 65.7,
    "signals": 5,
    "top_intent": "expansion",
    "last_signal": "2026-10-15",
-   "opportunity": 79.6,
+   "opportunity": 79.4,
    "tier": "優先開發",
    "best_product": "nickel",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -9554,7 +9943,7 @@
    "heat": {
     "target": 0.0,
     "titanium": 1.93,
-    "nickel": 5.11
+    "nickel": 5.12
    },
    "signal_score": 59.8,
    "signals": 5,
@@ -9586,14 +9975,14 @@
    "note": "EUV 光罩盒與晶圓載具,美國亞利桑那據點兼做航太精密加工;精密零件與航太鈦材",
    "heat": {
     "target": 0.0,
-    "titanium": 8.78,
-    "nickel": 0.23
+    "titanium": 8.66,
+    "nickel": 0.21
    },
-   "signal_score": 68.8,
+   "signal_score": 68.3,
    "signals": 6,
    "top_intent": "expansion",
    "last_signal": "2026-10-16",
-   "opportunity": 67.9,
+   "opportunity": 67.6,
    "tier": "積極經營",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -9649,7 +10038,7 @@
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 7.93
+    "nickel": 7.94
    },
    "signal_score": 64.2,
    "signals": 10,
@@ -9808,13 +10197,13 @@
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 4.85
+    "nickel": 5.06
    },
-   "signal_score": 44.0,
+   "signal_score": 45.4,
    "signals": 6,
    "top_intent": "new_product",
    "last_signal": "2026-10-12",
-   "opportunity": 53.1,
+   "opportunity": 53.9,
    "tier": "積極經營",
    "best_product": "nickel",
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
@@ -9843,7 +10232,7 @@
     "titanium": 0.02,
     "nickel": 0.02
    },
-   "signal_score": 0.4,
+   "signal_score": 0.3,
    "signals": 0,
    "top_intent": "expansion",
    "last_signal": "2026-07-16",
@@ -9957,7 +10346,7 @@
     "titanium": 0.02,
     "nickel": 0.72
    },
-   "signal_score": 7.8,
+   "signal_score": 7.7,
    "signals": 1,
    "top_intent": "contract",
    "last_signal": "2026-09-03",
@@ -10012,19 +10401,20 @@
    "note": "先進封裝黏晶 / 撿晶設備",
    "heat": {
     "target": 0.0,
-    "titanium": 0.11,
-    "nickel": 0.11
+    "titanium": 0.04,
+    "nickel": 0.04
    },
-   "signal_score": 2.1,
+   "signal_score": 0.8,
    "signals": 0,
    "top_intent": "expansion",
-   "last_signal": "2026-08-27",
-   "opportunity": 14.6,
+   "last_signal": "2026-08-28",
+   "opportunity": 13.8,
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "evidence": [
+    "b941bb37db7f7a7f",
     "a6ab8ad7399906f8"
    ]
   },
@@ -10113,7 +10503,7 @@
    "product": "target",
    "heat": 3.627,
    "count": 3,
-   "z": -0.56,
+   "z": -0.63,
    "level": "neutral",
    "signal_ids": [
     "091841dbcbb31750",
@@ -10126,9 +10516,9 @@
   {
    "subsegment": "front_end",
    "product": "titanium",
-   "heat": 14.715,
-   "count": 13,
-   "z": 1.82,
+   "heat": 13.498,
+   "count": 12,
+   "z": 1.69,
    "level": "warm",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -10142,15 +10532,15 @@
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
     "2acdccc482655407",
-    "47a2c5b07c04d787"
+    "4fbe23f7bac9126f"
    ]
   },
   {
    "subsegment": "front_end",
    "product": "nickel",
-   "heat": 17.492,
-   "count": 14,
-   "z": 2.18,
+   "heat": 16.276,
+   "count": 13,
+   "z": 2.07,
    "level": "hot",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -10164,7 +10554,7 @@
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
     "2acdccc482655407",
-    "47a2c5b07c04d787"
+    "4fbe23f7bac9126f"
    ]
   },
   {
@@ -10172,7 +10562,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -2.03,
+   "z": -2.02,
    "level": "cold",
    "signal_ids": []
   },
@@ -10190,13 +10580,14 @@
   {
    "subsegment": "packaging",
    "product": "nickel",
-   "heat": 4.85,
+   "heat": 5.064,
    "count": 6,
-   "z": 0.21,
+   "z": 0.25,
    "level": "neutral",
    "signal_ids": [
     "520a11e500143adb",
     "6de30c9dfad2d930",
+    "0c26edd7dc128a47",
     "bc9d70f70f72bb9b",
     "7939b1e7b141b490",
     "72b50002b46324a9",
@@ -10209,19 +10600,20 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.82,
+   "z": -0.77,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "parts",
    "product": "titanium",
-   "heat": 19.792,
+   "heat": 20.041,
    "count": 15,
-   "z": 2.04,
+   "z": 2.12,
    "level": "hot",
    "signal_ids": [
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "11e91f7884249cc0",
     "1d005d752b866391",
     "750d41ae35451a35",
@@ -10231,19 +10623,19 @@
     "m-81e4fcd170195f9d",
     "0328b749efa504e5",
     "4af88b0afdc74e65",
-    "65b3fe54f361313f",
-    "5450751efdac3cd1"
+    "65b3fe54f361313f"
    ]
   },
   {
    "subsegment": "parts",
    "product": "nickel",
-   "heat": 14.601,
+   "heat": 14.85,
    "count": 12,
-   "z": 1.96,
-   "level": "warm",
+   "z": 2.05,
+   "level": "hot",
    "signal_ids": [
     "07aa65281527a708",
+    "4ef1f13550862cd6",
     "11e91f7884249cc0",
     "1d005d752b866391",
     "750d41ae35451a35",
@@ -10253,8 +10645,7 @@
     "m-81e4fcd170195f9d",
     "0328b749efa504e5",
     "4af88b0afdc74e65",
-    "65b3fe54f361313f",
-    "5450751efdac3cd1"
+    "65b3fe54f361313f"
    ]
   },
   {
@@ -10278,9 +10669,9 @@
   {
    "subsegment": "facility",
    "product": "nickel",
-   "heat": 11.062,
+   "heat": 11.07,
    "count": 7,
-   "z": 0.79,
+   "z": 0.82,
    "level": "neutral",
    "signal_ids": [
     "829b4af6e6a3883b",
@@ -10288,13 +10679,13 @@
     "cc9985b62e01a5b4",
     "1fa3d3faab076efa",
     "d162a400cb332cf9",
+    "bf62c26abec832a7",
     "bcad501a49c2fafe",
     "713c7ab991339c73",
     "1c452d271dd96a82",
     "9391d34793b2a387",
     "a4166d52600656bd",
-    "927821762ccd0ef2",
-    "1e8dce35f242cc4f"
+    "927821762ccd0ef2"
    ]
   },
   {
@@ -10302,16 +10693,16 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.91,
+   "z": -1.92,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "carrier",
    "product": "titanium",
-   "heat": 8.082,
+   "heat": 7.975,
    "count": 5,
-   "z": 0.3,
+   "z": 0.29,
    "level": "neutral",
    "signal_ids": [
     "6d8eb175aca54369",
@@ -10333,7 +10724,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": 0.05,
+   "z": 0.06,
    "level": "neutral",
    "signal_ids": []
   },
@@ -10363,7 +10754,7 @@
    "product": "nickel",
    "heat": 2.94,
    "count": 2,
-   "z": 0.13,
+   "z": 0.14,
    "level": "neutral",
    "signal_ids": [
     "m-13f1e263778f0282",
