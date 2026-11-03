@@ -98,7 +98,7 @@ def render_markdown(rep: dict) -> str:
         out.append(f"### {l['org']}({l['grade']} 級,{l['score']:.0f} 分)")
         if l["need"]:
             out.append(f"- 需求研判:{l['need']}")
-        out.append(f"- 切入重點:{l['pitch']}")
+        out.append(f"- 切入重點:{l['pitch']}(規格依據:{l.get('pitch_source') or '未標示'})")
         for sid in l["evidence"][:4]:
             s = sig_by_id.get(sid)
             if s:
@@ -109,7 +109,7 @@ def render_markdown(rep: dict) -> str:
     return "\n".join(out) + "\n"
 
 
-CSV_COLUMNS = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "熱點", "需求研判", "建議行動", "切入重點", "佐證連結"]
+CSV_COLUMNS = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "熱點", "需求研判", "建議行動", "切入重點", "規格依據", "佐證連結"]
 
 
 def render_csv(rep: dict) -> str:
@@ -125,7 +125,7 @@ def render_csv(rep: dict) -> str:
             l["grade"], l["score"], l["org"], "是" if l["account"] else "", _name(lab, "products", l["product"]),
             _name(lab, "industries", l["industry"]), _name(lab, "regions", l["region"]),
             _name(lab, "intents", l["top_intent"]) if l["top_intent"] else "", l["signals"], l["last_signal"],
-            f"{lab['levels'][hs['level']]} {lab['trends'].get(hs['trend'], '')}".strip(), l["need"], l["next_action"], l["pitch"], " ".join(links[:3]),
+            f"{lab['levels'][hs['level']]} {lab['trends'].get(hs['trend'], '')}".strip(), l["need"], l["next_action"], l["pitch"], l.get("pitch_source", ""), " ".join(links[:3]),
         ])
     return "﻿" + buf.getvalue()   # BOM so Excel opens UTF-8 correctly
 

@@ -25,6 +25,7 @@
 --gA:#ef6b6b;--gB:#f39043;--gC:#4a8ad6;--gD:#888889;--on-accent:#0f1319;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.src-note{display:block;margin-top:2px;font-size:.78rem;color:var(--warm)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px;display:grid;gap:36px}
@@ -369,7 +370,7 @@ const DATA = /*__DATA__*/null;
         <div class="body"><dl>
           ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
           <dt>建議行動</dt><dd>${esc(l.next_action)}</dd>
-          <dt>切入重點</dt><dd>${esc(l.pitch)}</dd>
+          <dt>切入重點</dt><dd>${esc(l.pitch)}<span class="src-note">規格依據:${esc(l.pitch_source || "未標示")}</span></dd>
           ${l.products.length > 1 ? `<dt>其他產品線</dt><dd>${l.products.slice(1).map(p => esc(L.products[p])).join("、")}</dd>` : ""}
           <dt>訊號類型</dt><dd>${l.intents.map(i => esc(L.intents[i])).join("、") || "—"}</dd></dl>
           <ol class="ev">${ev.map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}
@@ -398,10 +399,10 @@ const DATA = /*__DATA__*/null;
 
   // CSV (raw data files are not published, so build it in the browser)
   $("#csv").onclick = () => {
-    const cols = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "需求研判", "建議行動", "切入重點", "佐證連結"];
+    const cols = ["等級", "分數", "公司", "目標客戶", "產品線", "應用產業", "地區", "主要訊號", "訊號數", "最近訊號", "需求研判", "建議行動", "切入重點", "規格依據", "佐證連結"];
     const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const rows = filteredLeads().map(l => [l.grade, l.score, l.org, l.account ? "是" : "", L.products[l.product], name("industries", l.industry), L.regions[l.region],
-      l.top_intent ? L.intents[l.top_intent] : "", l.signals, l.last_signal, l.need, l.next_action, l.pitch,
+      l.top_intent ? L.intents[l.top_intent] : "", l.signals, l.last_signal, l.need, l.next_action, l.pitch, l.pitch_source || "",
       l.evidence.map(id => (sigById[id] || {}).link).filter(Boolean).slice(0, 3).join(" ")]);
     const blob = new Blob(["﻿" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
     const a = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `潛在客戶-${DATA.asof}.csv`});
@@ -471,16 +472,16 @@ const DATA = /*__DATA__*/null;
         <td><span class="fitcell">${products.map(p => `<span>${esc(FIT_LABEL[p] || L.products[p])} ${dots(a.fit[p] || 0)}</span>`).join("")}</span></td>
         <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則 · ${esc(a.last_signal)}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
         <td>${esc(a.next_action)}</td></tr>
-        <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><b>推估理由:</b>${esc(a.note)}<br><b>切入重點:</b>${esc(a.pitch)}
+        <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><b>推估理由:</b>${esc(a.note)}<br><b>切入重點:</b>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span>
           ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`).join("") + "</tbody>";
     const toggle = tr => { const d = $(`[data-d="${tr.dataset.i}"]`); d.hidden = !d.hidden; tr.setAttribute("aria-expanded", String(!d.hidden)); };
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
-      const cols = ["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由"];
+      const cols = ["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
       const rows = DATA.accounts.map((a, i) => [i + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.tier, L.products[a.best_product],
-        a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note]);
+        a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
       el.click(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);

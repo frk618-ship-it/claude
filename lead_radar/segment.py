@@ -102,6 +102,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "best_product": best,
             "next_action": action,
             "pitch": cfg.product(best).pitch,
+            "pitch_source": cfg.product(best).pitch_source,
             "evidence": [sid for _, sid in sorted(evidence[name], reverse=True)[:6]],
         })
     accounts.sort(key=lambda x: (-x["opportunity"], x["org"]))
@@ -180,9 +181,9 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點"])
+    w.writerow(["順位", "公司", "代號", "次產業", "機會分數", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據"])
     for i, a in enumerate(rep["accounts"], 1):
         w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["tier"],
                     lab["products"][a["best_product"]], a["fit"].get("target", 0), a["fit"].get("titanium", 0), a["fit"].get("nickel", 0),
-                    a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"]])
+                    a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", "")])
     return "﻿" + buf.getvalue()

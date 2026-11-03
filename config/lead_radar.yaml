@@ -52,6 +52,7 @@ settings:
 # search     搜尋用的精簡字詞(會與各應用產業的 search 字詞組成查詢)
 # industries 這條產品線的目標應用產業(對應下方 industries 的 key);落在這些產業的公司「產業適配」最高
 # pitch      業務切入話術重點(報告與名單的建議行動會帶出)
+# pitch_source 切入重點的規格依據(例如「公司型錄 2026 版」);網頁、CSV 與報告會在切入重點旁顯示
 products:
   - key: target
     name: 濺鍍靶材
@@ -61,6 +62,7 @@ products:
     search: [靶材, 濺鍍, 溅射靶材, sputtering target, PVD]
     industries: [semiconductor, semi_equipment, display, solar, optical_coating, data_storage, hard_coating]
     pitch: 高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收
+    pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"   # 切入重點的規格依據;換成公司型錄後請改寫
 
   - key: titanium
     name: 純鈦 / 鈦合金
@@ -70,6 +72,7 @@ products:
     exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
     industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
+    pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
   - key: nickel
     name: 鎳基合金
@@ -79,6 +82,7 @@ products:
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
     industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment]
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
+    pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
 # ── 應用產業 ─────────────────────────────────────────────────────────────
 # keywords  本地比對(判斷訊號屬於哪個產業);search 搜尋用(取 2–4 個最具代表性的字)

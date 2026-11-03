@@ -90,7 +90,9 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
         z = max(cell.get("z", 0.0), 0.0)
         hot_boost = 1 + 0.15 * min(z, 4.0)
         diversity = 1 + min(0.1 * (len(intent_heat) - 1), 0.4) if intent_heat else 1.0
-        raw = sum(per_product.values()) * fit * hot_boost * diversity
+        # Each signal counts once, however many product lines it touches; per_product only picks
+        # the lead product (summing it would count a signal inferred as "titanium + nickel" twice).
+        raw = sum(h for _, h in items) * fit * hot_boost * diversity
         # Longer half-lives (segments: 45 d) accumulate proportionally more heat; scale with it so
         # scores stay comparable instead of all saturating near 100.
         scale = SCALE * config.settings.half_life_days / BASE_HALF_LIFE
@@ -118,6 +120,7 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
             "hotspot": {"level": cell.get("level", "neutral"), "trend": cell.get("trend", ""), "z": cell.get("z", 0.0)},
             "next_action": intent.action if intent else "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
             "pitch": p.pitch,
+            "pitch_source": p.pitch_source,
             "need": next((sig.need for sig, _ in evidence if sig.need), ""),
             "evidence": [sig.id for sig, _ in evidence],
         })
