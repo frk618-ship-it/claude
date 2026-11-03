@@ -2,19 +2,22 @@
   "generated": "2026-11-03T08:28:44.406832+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 29 則,其中新聞與公司公告 19 則;報導最多的是 台積電(5 則)、SK海力士(2 則)、江豐電子(2 則)、聯電(1 則)。依主題:擴產與投資 9 則、產業動態 7 則、客戶與供應鏈 1 則、技術與新產品 1 則、營收與財報 1 則。",
+    "overview": "本期焦點為晶圓廠與記憶體擴產:傳台積電評估在德州雪曼擴建晶圓廠,潛在投資依來源為 450 億至 1,200 億美元;鎧俠 2027 年產能已售罄、需加快設備投資,南亞科砸近 70 億元擴產,SK海力士則否認對美投資 60 兆韓元傳聞。聯電新加坡廠擴產 44%,Amkor 先進封裝推升毛利率至 18.3%。設備與材料方面,Von Ardenne 瞄準面板級封裝玻璃基板鍍膜,Furuya 金屬展開不相溶金屬奈米合金化量產技術。貴金屬自一年低點反彈,金價回升約 1.7%、銀價約 3.5%。",
     "key_trends": [
-      "擴產與投資(9 則):[News] TSMC Reportedly Eyes Potential US$45B Fab Expansion in Sherman, Texas, Raising Stakes for Samsung",
-      "產業動態(7 則):江豐電子：截至10月31日尚未實施股份回購",
-      "客戶與供應鏈(1 則):SPCX Stock Jumps Overnight: Musk Reportedly Revives TSMC Terafab Talks — Says Capex Efficiency Is ‘Greatly Underestimated’",
-      "技術與新產品(1 則):「混ざらない金屬」をナノ合金化、フルヤ金屬が量産技術を本格展開 | TECH+（テックプラス）"
+      "晶圓廠擴產:傳台積電德州雪曼擴建,聯電新加坡廠擴產 44%",
+      "記憶體產能吃緊:鎧俠 2027 年售罄、南亞科擴產,有利 W、Ti、Cu 靶材",
+      "面板級封裝:Von Ardenne 切入玻璃基板鍍膜,帶動大面積濺鍍需求",
+      "靶材廠新技術:Furuya 金屬不相溶金屬奈米合金化",
+      "貴金屬自低點反彈,印度白銀進口需求可望增加"
     ],
     "watch_points": [
-      "[News] TSMC Reportedly Eyes Potential US$45B Fab Expansion in Sherman, Texas, Raising Stakes for Samsung(TrendForce)",
-      "臺積電連爆重大職災致6死 勞動部將啟動高科技建廠專案檢查(自由財經)",
-      "SK海力士記憶體還能漲？擴產與HBM三問(口袋證券)"
+      "台積電德州擴建是否正式定案與時程",
+      "鎧俠、南亞科擴產對 W、Ti 靶材拉貨的影響",
+      "玻璃基板封裝導入對靶材尺寸與材料的需求",
+      "Materion 11 月 4 日財報",
+      "美國期中選舉後金銀價格走勢"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,9 +36,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "報導指台積電考慮在德州雪曼擴建晶圓廠,潛在投資達 450 億美元,對三星形成壓力。美國新晶圓廠將帶動 PVD 機台與半導體靶材需求。",
+      "importance": 5,
+      "title_zh": "傳台積電評估於德州雪曼擴建晶圓廠,潛在投資 450 億美元,三星壓力升高",
       "snippet_zh": ""
     },
     {
@@ -50,12 +53,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電連續發生重大職災致 6 人死亡,勞動部將啟動高科技建廠專案檢查。可能影響建廠進度。",
+      "importance": 2,
       "title_zh": "臺積電連爆重大職災致6死 勞動部將啟動高科技建廠專案檢查",
       "snippet_zh": ""
     },
@@ -75,8 +79,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析 SK海力士記憶體價格、擴產與 HBM 三大問題。記憶體擴產有利 Cu、Ta、W 靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -96,8 +100,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電斥資 2,650 億美元在美建廠,帶動鳳凰城郊區房地產市場。顯示美國晶圓廠投資規模龐大。",
+      "importance": 2,
       "title_zh": "臺積電斥資2650億美元在美建廠 帶動鳳凰城郊區房地產市場",
       "snippet_zh": ""
     },
@@ -117,8 +121,8 @@
         "技術與新產品"
       ],
       "score": 5.18,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電矽光子訂單傳捷報,新加坡廠擴產 44%,400G 技術同步推進。新加坡擴產將增加當地 PVD 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -138,8 +142,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.07,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擬在美國德州雪曼擴建晶圓廠,潛在投資上看 1,200 億美元。與同期報導為同一事件,金額依來源不同。",
+      "importance": 4,
       "title_zh": "臺積電擬在美德州雪曼擴建晶圓廠 潛在投資上看1,200億美元",
       "snippet_zh": ""
     },
@@ -159,9 +163,9 @@
         "客戶與供應鏈"
       ],
       "score": 4.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SK海力士否認對美投資 60 兆韓元的傳聞,表示 Solidigm 擴產尚未確定。顯示美國擴產計畫仍未定案。",
+      "importance": 3,
+      "title_zh": "SK海力士否認「對美投資 60 兆韓元」傳聞:Solidigm 擴產尚未確定",
       "snippet_zh": ""
     },
     {
@@ -179,8 +183,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "南亞科砸近 70 億元擴產。DRAM 擴產將增加相關靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -199,9 +203,9 @@
         "擴產與投資"
       ],
       "score": 4.34,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "鎧俠表示 2027 年產能已售罄,需加快設備投資。NAND 擴產將推升 W、Ti 等靶材需求。",
+      "importance": 4,
+      "title_zh": "鎧俠「必須加快設備投資」:2027 年產能已售罄,記憶體供給能否跟上",
       "snippet_zh": ""
     },
     {
@@ -216,12 +220,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "併購與合作",
         "客戶與供應鏈"
       ],
       "score": 3.84,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "報導指馬斯克重啟與台積電的 Terafab 合作討論,並稱資本支出效率被嚴重低估。屬市場傳聞。",
+      "importance": 2,
+      "title_zh": "SPCX 股價夜盤大漲:傳馬斯克重啟與台積電 Terafab 洽談,稱資本支出效率「被大幅低估」",
       "snippet_zh": ""
     },
     {
@@ -239,9 +244,9 @@
         "技術與新產品"
       ],
       "score": 3.69,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬全面展開「不相溶金屬」奈米合金化量產技術。Furuya 為貴金屬靶材廠,新合金技術可能延伸至新型靶材材料。",
+      "importance": 4,
+      "title_zh": "Furuya 金屬全面展開「不相溶金屬」奈米合金化量產技術",
       "snippet_zh": ""
     },
     {
@@ -259,9 +264,9 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "油價走軟,金價自一年低點反彈逾 2%,市場關注美國期中選舉。金價影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "油價走軟,金價自一年低點反彈逾 2%;市場關注美國期中選舉",
       "snippet_zh": ""
     },
     {
@@ -279,9 +284,9 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金銀價格在大跌後急漲;賀利氏指印度將擴大白銀進口至 2027 年。白銀需求影響 Ag 靶材原料價格。",
+      "importance": 3,
+      "title_zh": "金銀價格急跌後反彈,賀利氏:印度將擴大白銀進口至 2027 年",
       "snippet_zh": ""
     },
     {
@@ -299,8 +304,8 @@
         "營收與財報"
       ],
       "score": 3.05,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 先進封裝推升毛利率至 18.3%,預估第四季運算業務營收年增逾五成。先進封裝成長有利 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "討論牆 | Amkor先進封裝拉昇毛利率至18.3%，第四季運算業務營收估年增逾五成",
       "snippet_zh": ""
     },
@@ -316,11 +321,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告截至 10 月 31 日尚未實施股份回購。",
+      "importance": 2,
       "title_zh": "江豐電子：截至10月31日尚未實施股份回購",
       "snippet_zh": ""
     },
@@ -336,11 +342,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子:尚未實施回購。與同期公告重複。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -356,11 +363,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 10 月 30 日股東戶數 3.84 萬戶,較上期減少 0.79%。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "阿石創(300706)10月30日股東戶數3.84萬戶，較上期減少0.79%",
       "snippet_zh": ""
     },
@@ -376,11 +384,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 2 日上漲 5.61%,稀土 ETF 重倉該股。屬股價行情。",
+      "importance": 1,
       "title_zh": "11月2日有研新材漲5.61%，稀土ETF嘉實基金重倉該股",
       "snippet_zh": ""
     },
@@ -396,11 +405,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創截至 10 月 30 日股東戶數 3.84 萬戶。與同期資訊重複。",
+      "importance": 1,
       "title_zh": "阿石創：截至10月30日最新股東戶數3.84萬戶，較上期減少0.79%",
       "snippet_zh": ""
     },
@@ -416,11 +426,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創截至 2026 年 10 月 30 日股東人數 38,446 戶。與同期資訊重複。",
+      "importance": 1,
       "title_zh": "阿石創：截至2026年10月30日股東人數為38,446戶_公司新聞",
       "snippet_zh": ""
     },
@@ -436,12 +447,13 @@
         "VON ARDENNE"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Von Ardenne 瞄準面板級封裝的玻璃基板鍍膜。濺鍍設備商切入玻璃基板封裝,將帶動大面積濺鍍靶材需求。",
+      "importance": 4,
+      "title_zh": "Von Ardenne 瞄準面板級封裝的玻璃基板鍍膜",
       "snippet_zh": ""
     },
     {
@@ -456,12 +468,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.52,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日股技術分析影片,提及藤倉、JX金屬等。屬股市評論。",
+      "importance": 1,
+      "title_zh": "【明日關注個股】指數與個股圖表分析:藤倉、JX金屬、助川電氣、IHI",
       "snippet_zh": ""
     },
     {
@@ -476,11 +489,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "研究以控制 O2:Ar 比例與缺陷工程,調控磁控濺鍍 ZnO 薄膜結構與紫外光敏性能。屬濺鍍製程研究,可供 ZnO 靶材應用參考。",
+      "importance": 2,
       "title_zh": "氧控O2:Ar比例與缺陷工程調控磁控濺射ZnO薄膜結構及紫外光敏性能",
       "snippet_zh": ""
     },
@@ -496,11 +510,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "通膨疑慮降溫,COMEX 黃金上漲 1.8%。金價回升影響 Au 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -516,12 +531,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "油價下跌,金銀價格自 10 月重挫中回升,但聯準會緊縮預期仍在。",
+      "importance": 2,
+      "title_zh": "油價下跌,金銀自 10 月重挫中回升,聯準會緊縮預期仍在",
       "snippet_zh": ""
     },
     {
@@ -536,11 +552,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀重回每盎司 50 美元上方,但看跌趨勢仍在。銀價影響 Ag 靶材成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -556,12 +573,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.44,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價在期中選舉前重挫 11% 後反彈近 75 美元,白銀也回升。",
+      "importance": 2,
+      "title_zh": "金價在期中選舉前重挫 11% 後反彈近 75 美元,白銀回升",
       "snippet_zh": ""
     },
     {
@@ -576,11 +594,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市賣壓引發變現需求,金價摔至一年新低。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -596,12 +615,13 @@
         "設備綜合:スパッタ装置"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場報告整理 2026 年全球磁控濺鍍光學鍍膜設備市場規模,依直流、射頻等類型分類。屬市場研究,細節需參閱原報告。",
+      "importance": 3,
+      "title_zh": "2026 年全球磁控濺鍍光學鍍膜設備市場規模(直流濺鍍、射頻濺鍍等)",
       "snippet_zh": ""
     }
   ],

@@ -33,8 +33,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.7,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電、三星、英特爾搶布局先進封裝技術,日月光力拚擴大高階市場。先進封裝競賽擴大 PVD 製程需求,有利 Ti、Cu 靶材。",
+      "importance": 4,
       "title_zh": "先進封裝技術戰開打！臺積電、三星、英特爾搶佈局 日月光拚擴高階市場",
       "snippet_zh": ""
     },
@@ -53,8 +53,8 @@
         "擴產與投資"
       ],
       "score": 4.07,
-      "summary": "",
-      "importance": 0,
+      "summary": "盤前消息:日月光投控追加今年資本支出,國巨第四季大擴產。與前幾日日月光法說報導相關。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -73,8 +73,8 @@
         "營收與財報"
       ],
       "score": 3.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光預估第四季營收季增 6% 至 8%,資本支出再上修至 115 億美元。與前幾日法說報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -93,9 +93,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "印度媒體分析美國期中選舉後金價是否續跌。金價走勢影響 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "金價預測:美國期中選舉後金價續跌,還是空頭將結束?",
       "snippet_zh": ""
     },
     {
@@ -113,8 +113,8 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析指金價跌至年內低點,可能繼續下探。貴金屬下行有利 Au 靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -133,9 +133,9 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "技術分析指金價沿 0.786 弧線下滑,目標看向 3,720 美元。屬金價技術評論。",
+      "importance": 1,
+      "title_zh": "金價展望:沿 0.786 弧線下滑,瞄準 3,720 美元",
       "snippet_zh": ""
     },
     {
@@ -153,9 +153,9 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析金價跌破 4,000 美元的原因與後續走勢。屬金價評論。",
+      "importance": 1,
+      "title_zh": "今日金價:為何跌破 4,000 美元,接下來怎麼走",
       "snippet_zh": ""
     },
     {
@@ -170,11 +170,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.56,
-      "summary": "",
-      "importance": 0,
+      "summary": "各報要聞:日月光投控追加今年資本支出。與同期報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -190,12 +191,13 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓國 AVACO(083930)個股資料頁。AVACO 為顯示器濺鍍設備商,此則僅為股價資訊。",
+      "importance": 1,
+      "title_zh": "AVACO(083930)",
       "snippet_zh": ""
     },
     {
@@ -210,11 +212,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.32,
-      "summary": "",
-      "importance": 0,
+      "summary": "期交所三大黃金及非金電商品契約將小型化,7 月上路。屬期貨商品制度,與靶材關聯薄弱。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
