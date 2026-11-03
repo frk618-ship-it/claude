@@ -424,3 +424,14 @@ def test_headline_subject_gets_the_signal(cfg):
     w = org_weights(s, cfg)
     assert w["漢唐集成"] == SUBJECT and w["帆宣系統"] == MENTIONED and w["台積電"] == MENTIONED
     assert w.get("京鼎精密", SNIPPET_ONLY) == SNIPPET_ONLY
+
+
+def test_news_volume_has_diminishing_returns(cfg):
+    from lead_radar.leads import DECAY
+
+    one = [sig(cfg, "南亞科 5A 新廠擴產", days_ago=1)]
+    many = one + [sig(cfg, f"南亞科第{i}座新廠擴建 產能擴充計畫{i}號", days_ago=1 + i * 11) for i in range(1, 10)]
+    score = lambda sigs: next(l for l in build_leads(sigs, analyse(sigs, cfg, ASOF)["cells"], cfg, ASOF) if l["org"] == "南亞科")["score"]
+    s1, s10 = score(one), score(many)
+    assert s10 > s1 and s10 < 100 * (1 - math.exp(-sum(DECAY ** k for k in range(10)) * 4 / 6)) + 1   # bounded by the geometric sum
+    assert classify(cfg, title="台積電明年全面漲價 晶圓代工喊漲3-6%") is None or "shortage" not in classify(cfg, title="台積電明年全面漲價 晶圓代工喊漲3-6%").intents

@@ -16,6 +16,7 @@ from .signals import OTHER, Signal
 
 SCALE = 6.0
 SUBJECT, MENTIONED, SNIPPET_ONLY = 1.0, 0.5, 0.3
+DECAY = 0.75   # a company's k-th strongest signal counts DECAY**k: more coverage, diminishing returns
 
 
 def _title_pos(org: str, title: str, config: Config) -> int:
@@ -61,6 +62,10 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
     first_seen = first_seen or {}
     for org, items in by_org.items():
         account = config.account(org)
+        # Diminishing returns: large listed companies get many reports; the strongest counts fully,
+        # each further one DECAY times the one before, so volume alone cannot max out the score.
+        items = sorted(items, key=lambda t: -t[1])
+        items = [(sig, h * DECAY ** k) for k, (sig, h) in enumerate(items)]
         per_product: Counter = Counter()
         for sig, h in items:
             for p in sig.products:
