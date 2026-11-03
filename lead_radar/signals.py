@@ -161,8 +161,8 @@ def classify(
         # Equipment makers' news rarely names a material ("京鼎擴建泰國二期"): for accounts with a
         # judged product fit, the products they are likely to buy (fit ≥ 2) stand in, at lower relevance.
         inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
-        if not inferred:
-            return None
+        if not inferred or not any(_hits(low, it.keywords) for it in config.intents.values()):
+            return None     # without a material word, only demand news counts (擴產、訂單、缺料…), not stock chatter
         products, relevance = inferred, 0.6
 
     # Industry per product: title hits count double; a matched account's industry wins.
