@@ -18,6 +18,7 @@ class Product:
     editions: list[str] = field(default_factory=list)
     exclude: list[str] = field(default_factory=list)
     pitch: str = ""
+    pitch_source: str = ""            # where the pitch's specs come from (catalogue, or "general industry specs")
 
 
 @dataclass
@@ -127,7 +128,7 @@ class Config:
 
 
 ALLOWED = {
-    "products": {"key", "name", "keywords", "search", "industries", "editions", "exclude", "pitch"},
+    "products": {"key", "name", "keywords", "search", "industries", "editions", "exclude", "pitch", "pitch_source"},
     "industries": {"name", "keywords", "search"},
     "intents": {"name", "weight", "keywords", "action"},
     "regions": {"name", "keywords"},
@@ -195,6 +196,7 @@ def load_config(path: str | Path) -> Config:
                 editions=list(p.get("editions", []) or settings.default_editions),
                 exclude=[str(x) for x in p.get("exclude", []) or []],
                 pitch=p.get("pitch", ""),
+                pitch_source=p.get("pitch_source", "") or "未標示",
             )
         )
     intents = {

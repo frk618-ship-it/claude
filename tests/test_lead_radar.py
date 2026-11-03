@@ -476,3 +476,16 @@ def test_signal_with_two_products_counts_once(cfg):
     l2, l1 = score(two), score(one)
     assert l2["score"] == pytest.approx(l1["score"], abs=0.5)
     assert l2["product"] == "titanium" or l2["product"] == "nickel"
+
+
+def test_pitch_shows_its_spec_source(cfg):
+    from lead_radar.page import render_page
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+
+    assert all(p.pitch_source.startswith("一般產業常見規格") for p in cfg.products)
+    rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
+    assert all(a["pitch_source"] for a in rep["accounts"]) and all(l["pitch_source"] for l in rep["leads"])
+    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據")
+    assert "規格依據:" in render_markdown(rep) or not rep["leads"]
+    assert '"pitch_source": "一般產業常見規格' in render_page(rep)
+    assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"

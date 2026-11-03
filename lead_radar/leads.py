@@ -120,6 +120,7 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
             "hotspot": {"level": cell.get("level", "neutral"), "trend": cell.get("trend", ""), "z": cell.get("z", 0.0)},
             "next_action": intent.action if intent else "以產品型錄與應用案例做首次接觸,確認需求窗口(採購 / 研發 / 廠務)",
             "pitch": p.pitch,
+            "pitch_source": p.pitch_source,
             "need": next((sig.need for sig, _ in evidence if sig.need), ""),
             "evidence": [sig.id for sig, _ in evidence],
         })
