@@ -48,6 +48,7 @@ section{display:grid;gap:14px;min-width:0}
 .tabs{display:flex;flex-wrap:wrap;gap:6px}
 .tab{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
 a.tab{text-decoration:none;color:var(--fg)}a.tab:hover{border-color:var(--accent)}
+a.tab[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .seg button{border:0;background:var(--surface);padding:4px 10px;font-size:.82rem;cursor:pointer}
@@ -403,15 +404,19 @@ const DATA = /*__DATA__*/null;
 
   // segment view (客群分析)
   const SEG = DATA.segment;
-  if (SEG) { $("#seglinks").hidden = false; $("#seglinks").innerHTML = `<a class="tab" href="../index.html">← 商機雷達總覽</a>`; }
-  else if ((DATA.segment_pages || []).length) {
+  // segment tabs: the primary segment's page is /leads/index.html, the others /leads/<key>/index.html
+  const pages = (SEG && DATA.segment_pages) || [];
+  if (pages.length > 1) {
+    const herePrimary = (pages.find(p => p.key === SEG.key) || {}).primary;
+    const href = p => herePrimary ? (p.primary ? "index.html" : `${p.key}/index.html`) : (p.primary ? "../index.html" : `../${p.key}/index.html`);
     $("#seglinks").hidden = false;
-    $("#seglinks").innerHTML = `<span style="font-size:.84rem;color:var(--muted);align-self:center">客群分析:</span>` +
-      DATA.segment_pages.map(s => `<a class="tab" href="${esc(s.key)}/index.html">${esc(s.name)}</a>`).join("");
+    $("#seglinks").innerHTML = `<span style="font-size:.84rem;color:var(--muted);align-self:center">客群:</span>` +
+      pages.map(p => p.key === SEG.key ? `<a class="tab" aria-current="page" href="${esc(href(p))}">${esc(p.name)}</a>` : `<a class="tab" href="${esc(href(p))}">${esc(p.name)}</a>`).join("");
   }
   if (SEG) {
     $("#seg-sec").hidden = false; $("#map-sec").hidden = true; $("#hot-sec").hidden = true;
-    document.querySelector("h1").textContent = `客群分析:${SEG.name}`;
+    document.querySelector("h1").textContent = `商機雷達:${SEG.name}`;
+    document.title = `商機雷達:${SEG.name}`;
     $("#seg-name").textContent = SEG.name;
     $("#seg-note").textContent = `最近 ${SEG.days} 天 · 半衰期 ${SEG.half_life_days} 天`;
     $("#seg-desc").hidden = true;
@@ -433,7 +438,7 @@ const DATA = /*__DATA__*/null;
             style="background:var(${ramp[i]});color:${i >= 4 ? "var(--on-accent)" : "var(--fg)"}">${c.z >= 0 ? "+" : ""}${c.z.toFixed(1)}<small>${c.count} 則</small></button></td>`;
         }).join("")}</tr>`).join("") + "</tbody>";
       $("#seg-legend").innerHTML = `<span>Gi* z 低 → 高 <span class="ramp">${ramp.slice(1).map(v => `<i style="background:var(${v})"></i>`).join("")}</span></span>
-        <span><i class="sw"></i>熱點</span><span><i class="sw w"></i>溫點</span><span>「其他設備業者」= 未歸戶到名單公司的設備產業新聞,不標熱點</span>`;
+        <span><i class="sw"></i>熱點</span><span><i class="sw w"></i>溫點</span><span>「其他未歸戶業者」= 未歸戶到名單公司的產業新聞,參與統計但不標熱點</span>`;
     };
     $("#seg-matrix").addEventListener("click", e => {
       const b = e.target.closest("[data-sk]"); if (!b) return;

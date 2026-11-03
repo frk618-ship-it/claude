@@ -1,13 +1,15 @@
 # 商機雷達(lead_radar):製造業首次業務開發 — 找出「正在尋找」靶材、純鈦 / 鈦合金、鎳基合金的潛在客戶
 #
-# 概念:把每一則公開資訊(新聞、標案、展會、詢價紀錄)當成一個「需求訊號」,
-# 依「產品線 × 應用產業 × 地區」落到熱度網格上,用熱點分析(Getis-Ord Gi*)找出需求集中的區塊,
-# 再把訊號歸到具體公司,依「意圖強度 × 產業適配 × 熱點加權 × 時間衰減」排出 A/B/C/D 級名單。
+# 概念:以「客群」(segments)為單位,把每一則公開資訊(新聞、標案、展會、詢價紀錄)當成一個「需求訊號」,
+# 落到客群的「次產業 × 產品線」熱度網格上,用熱點分析(Getis-Ord Gi*)找出需求集中的區塊,
+# 再把訊號歸到客群內的公司,依「產品適配 × 近期訊號」排出開發順序。
+# 主要客群(primary_segment)是網站 /leads/ 的首頁;其他客群在 /leads/<key>/。
 #
 # 本檔可自由增刪:產品關鍵字、應用產業、需求訊號類型與權重、地區、目標客戶清單。
 # 關鍵字比對不分大小寫,英文字詞以單字邊界比對("Ti" 不會比對到 "Time")。
 
 settings:
+  primary_segment: tw_semi_equipment   # 商機雷達的主要客群(網站首頁)
   days: 30                 # 蒐集最近 N 天的新聞,也是熱度計算的時間窗
   half_life_days: 14       # 時間衰減半衰期:14 天前的訊號權重剩一半
   history_weeks: 8         # 回看幾週的熱度,判斷新興 / 持續 / 升溫 / 降溫
@@ -158,7 +160,7 @@ regions:
 #   - 熱點:在「次產業 × 產品線」網格上做 Gi* 熱點分析(例如「零組件與模組 × 鎳基合金」)
 #   query_terms 搜尋公司新聞時附加的字詞;設備廠新聞很少直接提到材料,所以用擴產、訂單等字詞找動態
 segments:
-  tw_semi_equipment:
+  tw_semi_equipment:        # 主要客群
     name: 台灣半導體設備廠
     description: 台灣半導體前段設備、先進封裝設備、關鍵零組件 / 模組、廠務與氣化系統、載具廠商;在 AI 與先進封裝擴產、設備國產化政策下持續擴廠
     industries: [semi_equipment]
@@ -174,9 +176,26 @@ segments:
       facility: 廠務與氣化系統
       carrier: 載具與自動化
 
-# ── 目標客戶清單(選填)──────────────────────────────────────────────────
-# 已知的潛在客戶或想主攻的對象:會額外以「名稱 + 產品字詞」搜尋,命中時歸戶到這家公司,產業適配加權。
-# products 留空 = 依新聞內容判斷。以下為公開資訊中的產業代表性公司,請依業務實際主攻名單調整。
+  tw_semi_production:
+    name: 半導體生產供應鏈
+    description: 台灣晶圓製造(晶圓代工、記憶體)、晶圓減薄與再生、封裝與測試廠商;先進製程、先進封裝(CoWoS、面板級封裝)與記憶體擴產帶動 PVD 濺鍍與廠務需求
+    industries: [semiconductor]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 擴廠, 資本支出, 先進封裝, 訂單, 量產, 建廠]
+    subsegments:
+      foundry: 晶圓代工
+      memory: 記憶體
+      thinning: 晶圓減薄與再生
+      packaging: 封裝
+      testing: 測試
+
+# ── 目標客戶清單 ──────────────────────────────────────────────────────
+# 有 segment 的公司屬於該客群,每週以「公司名稱 + 客群搜尋字詞」搜尋並排入開發名單。
+# 沒有 segment 的公司(航太、醫材、面板等)目前不在任何客群中,不會被搜尋;保留作為日後新增客群的起點,
+# 新聞中提到它們時仍會歸戶。
 accounts:
   # 鈦 / 鎳:航太、醫材、運動器材、氫能
   - {name: 漢翔航空,   aliases: [漢翔, 汉翔, AIDC],                      industry: aerospace, region: TW, products: [titanium, nickel]}
@@ -216,9 +235,6 @@ accounts:
   - {name: 隆基綠能,   aliases: [隆基, LONGi],                           industry: solar,     region: CN, products: [target]}
   - {name: 大立光,     aliases: [大立光, Largan],                        industry: optical_coating, region: TW, products: [target]}
   - {name: 玉晶光,     aliases: [玉晶光, GSEO],                          industry: optical_coating, region: TW, products: [target]}
-  - {name: 台積電,     aliases: [台積電, 台积电, TSMC],                  industry: semiconductor, region: TW, products: [target, nickel]}
-  - {name: 美光,       aliases: [美光, Micron],                          industry: semiconductor, region: US, products: [target]}
-  - {name: 力積電,     aliases: [力積電, PSMC],                          industry: semiconductor, region: TW, products: [target]}
   - {name: Seagate,    aliases: [Seagate, 希捷],                          industry: data_storage, region: US, products: [target]}
 
   # ── 台灣半導體設備廠(segment: tw_semi_equipment)──
@@ -290,3 +306,57 @@ accounts:
   - {name: 家碩科技, aliases: [家碩], ticker: "6953", segment: tw_semi_equipment, subsegment: carrier,
      industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
      note: "光罩 / 載具清洗與自動化設備,南科新廠 2027 年投產"}
+
+  # ── 半導體生產供應鏈(segment: tw_semi_production)──
+  # 晶圓製造:前段金屬化(Ti / TiN、Ta、Cu、Al、Co、W 等 PVD 靶材)是靶材的核心用量;廠務特氣與化學品系統用耐蝕合金。
+  - {name: 台積電, aliases: [台積電, 台积电, TSMC], ticker: "2330", segment: tw_semi_production, subsegment: foundry,
+     industry: semiconductor, region: TW, products: [target, nickel], fit: {target: 3, titanium: 1, nickel: 2},
+     note: "先進製程與 CoWoS / SoIC 先進封裝都大量使用 PVD 靶材;新廠的特氣與化學品供應系統用耐蝕合金。在地化與第二供應商計畫是切入點"}
+  - {name: 聯電, aliases: [聯電, 联电, UMC], ticker: "2303", segment: tw_semi_production, subsegment: foundry,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "成熟製程晶圓代工,台南新廠與新加坡擴建;Al、Ti / TiN 等金屬化靶材"}
+  - {name: 世界先進, aliases: [世界先進, VIS], ticker: "5347", segment: tw_semi_production, subsegment: foundry,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "特殊製程與電源管理晶圓代工,新加坡 12 吋廠 2027 年投產;金屬化與背面金屬靶材"}
+  - {name: 力積電, aliases: [力積電, PSMC], ticker: "6770", segment: tw_semi_production, subsegment: foundry,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "記憶體與邏輯代工,轉型 3D AI Foundry(晶圓堆疊);金屬化靶材"}
+  - {name: 南亞科, aliases: [南亞科, Nanya Technology], ticker: "2408", segment: tw_semi_production, subsegment: memory,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "DRAM;2026–2029 年資本支出上限 3,466 億元,5A 新廠導入 EUV。新廠建置期是靶材認證的時間窗"}
+  - {name: 華邦電, aliases: [華邦電, 华邦电, Winbond], ticker: "2344", segment: tw_semi_production, subsegment: memory,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "利基型 DRAM 與 Flash;金屬化靶材"}
+  - {name: 美光台灣, aliases: [美光, Micron], segment: tw_semi_production, subsegment: memory,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 0, nickel: 1},
+     note: "台中、桃園 DRAM / HBM 廠;靶材多由總部統籌採購,需經台灣廠製程端引薦"}
+  # 晶圓減薄與再生:薄化後的背面金屬化(Ti / NiV / Ag 等濺鍍)用靶材;再生晶圓與研磨用耐蝕材料
+  - {name: 昇陽半導體, aliases: [昇陽半導體, 昇陽半, Phoenix Silicon], ticker: "8028", segment: tw_semi_production, subsegment: thinning,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1},
+     note: "再生晶圓與晶圓薄化(功率元件、12 吋與 SiC),台中港新廠;薄化後若接背面金屬化即用 Ti / NiV / Ag 靶,請確認其背金產能"}
+  - {name: 精材科技, aliases: [精材, Xintec], ticker: "3374", segment: tw_semi_production, subsegment: thinning,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 2, titanium: 0, nickel: 1},
+     note: "晶圓級封裝、TSV 與晶圓薄化;12 吋 CSP 產線擴產,製程含金屬化濺鍍"}
+  - {name: 中砂, aliases: [中砂, Kinik], ticker: "1560", segment: tw_semi_production, subsegment: thinning,
+     industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1},
+     note: "再生晶圓與鑽石碟;材料需求以研磨耗材為主,與三條產品線關聯較低"}
+  # 封裝:凸塊、重布線層(RDL)、扇出與面板級封裝的 UBM / 種子層濺鍍(Ti、TiW、Cu 靶),電鍍治具與陽極用鈦
+  - {name: 日月光投控, aliases: [日月光, ASE], ticker: "3711", segment: tw_semi_production, subsegment: packaging,
+     industry: semiconductor, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 1},
+     note: "全球最大封測廠,2026 年資本支出提高至 105 億美元,310x310mm 面板級封裝產線;UBM / RDL 濺鍍靶材與電鍍用鈦"}
+  - {name: 力成科技, aliases: [力成, Powertech], ticker: "6239", segment: tw_semi_production, subsegment: packaging,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 3, titanium: 1, nickel: 1},
+     note: "記憶體封測與 510x515mm 面板級扇出封裝,取得竹科廠房擴產;大面積 RDL 濺鍍用靶材"}
+  - {name: 頎邦科技, aliases: [頎邦, Chipbond], ticker: "6147", segment: tw_semi_production, subsegment: packaging,
+     industry: semiconductor, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 0},
+     note: "金凸塊(驅動 IC、光通訊),TiW / Au 種子層濺鍍用靶材,電鍍治具用鈦"}
+  - {name: 南茂科技, aliases: [南茂, ChipMOS], ticker: "8150", segment: tw_semi_production, subsegment: packaging,
+     industry: semiconductor, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 0},
+     note: "記憶體與驅動 IC 封測,含凸塊製程"}
+  # 測試:材料需求以測試介面與治具為主,與三條產品線關聯較低
+  - {name: 京元電子, aliases: [京元電, KYEC], ticker: "2449", segment: tw_semi_production, subsegment: testing,
+     industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1},
+     note: "最大專業測試廠,2026 年資本支出上修至約 500 億元;新廠廠務與治具,材料關聯較低"}
+  - {name: 欣銓科技, aliases: [欣銓, Ardentec], ticker: "3264", segment: tw_semi_production, subsegment: testing,
+     industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "晶圓測試;材料關聯較低"}

@@ -395,79 +395,72 @@ Email 設定範例:
 
 # 商機雷達:首次業務開發(`lead_radar`)
 
-找出**正在尋找**濺鍍靶材、純鈦 / 鈦合金、鎳基合金的潛在客戶。核心概念是**熱點分析**:把每一則公開資訊當成一個「需求訊號」,落到「產品線 × 應用產業 × 地區」的網格上,用 Getis-Ord Gi* 找出需求集中的區塊,再把訊號歸戶到具體公司,排出 A / B / C / D 級開發名單與建議行動。
+找出**正在尋找**濺鍍靶材、純鈦 / 鈦合金、鎳基合金的潛在客戶。商機雷達以**客群**(segment)為單位:每個客群有自己的目標公司、次產業與搜尋字詞,把公開資訊當成「需求訊號」落到「次產業 × 產品線」網格上,用 Getis-Ord Gi* 熱點分析找出需求集中的區塊,再依「產品適配 × 近期訊號」排出開發順序。
 
-## 架構
+目前的客群:
+
+| 客群 | key | 次產業 | 公司數 | 網頁 |
+|---|---|---|---:|---|
+| **台灣半導體設備廠**(主要客群) | `tw_semi_equipment` | 前段製程設備、先進封裝設備、關鍵零組件與模組、廠務與氣化系統、載具與自動化 | 22 | `<網站>/leads/` |
+| 半導體生產供應鏈 | `tw_semi_production` | 晶圓代工、記憶體、晶圓減薄與再生、封裝、測試 | 16 | `<網站>/leads/tw_semi_production/` |
+
+主要客群由設定檔 `settings.primary_segment` 指定,是網站 `/leads/` 的首頁;頁首的客群頁籤可切換。原本「產品線 × 應用產業 × 地區」的全市場商機總覽已移除(未屬於任何客群的公司不再搜尋)。
+
+## 流程
 
 ```
-① 訊號蒐集                      ② 網格定位(每則訊號)                 ③ 熱度
-產品字詞 × 應用產業字詞 ─┐      產品線:靶材 / 鈦 / 鎳(關鍵字;排除鈦白粉、鈦媒體…)   意圖權重(招標 5 > 缺料 / 擴產 4
-產品字詞 × 招標採購字詞 ─┼─►   應用產業:半導體、面板、航太、醫材、氫能…            > 訂單 / 認證 3 > 新品 2.5 > 徵才 > 政策)
-目標客戶名稱 × 產品字詞 ─┤      意圖:招標、缺料、擴產、訂單、認證、新品、徵才、政策    × 相關度(標題命中 1.0 / 內文 0.6)
-自訂 RSS(標案、公會)   ─┤      地區:台灣、中國、日本、韓國、東南亞、北美、歐洲      × 股價新聞降權 × Claude 急迫度
-CSV 匯入(展會、詢價、   ─┘      組織:目標客戶別名 → 公司名規則 →(選用)Claude     × 0.5^(天數 / 半衰期 14 天)
- 海關、標案網站)                      分辨買方與供應商                                     │
-                                                                                          ▼
-④ 熱點分析(每條產品線一張「應用產業 × 地區」網格)                     ⑤ 潛在客戶評分
-Gi* z:鄰域 = 自己(權重 1)+ 同產業其他地區 + 同地區其他產業(各 0.3)     Σ 訊號熱度 × 產業適配(目標客戶 1.2 / 目標產業 1.0 / 其他 0.7)
-z ≥ 1.96 且 ≥ 2 則訊號 = 熱點;z ≥ 1.0 = 溫點                           × 熱點加權(1 + 0.15·z)× 意圖多樣性
-逐週重算(過去 8 週)→ 新興 / 持續 / 升溫 / 零星 / 降溫熱點              → 0–100 分,A ≥ 70、B ≥ 45、C ≥ 25
-                                                                        → 建議行動(依主要意圖)+ 切入重點(依產品線)
-                                         │
-                                         ▼
-     reports/leads/YYYY-MM-DD.json / .md / -leads.csv(CRM 匯入用)· 網頁 <網站>/leads/ · data/lead_radar/signals.sqlite3
+① 訊號蒐集(每個客群)                   ② 定位                                 ③ 熱度
+客群公司名稱 × 客群字詞(擴產、訂單…) ─┐  產品線:靶材 / 鈦 / 鎳(關鍵字;         意圖權重(招標 5 > 缺料 / 擴產 4
+產品字詞 × 客群產業字詞             ─┼► 沒提到材料時以公司適配度 ≥ 2 代入,   > 訂單 / 認證 3 > 新品 2.5)
+CSV 匯入(種子報導、展會、詢價)      ─┘  且必須帶有需求意圖)                   × 相關度 × 股市雜訊降權
+                                         公司:標題主詞 1.0、標題提及 0.5、     × 同一事件轉載合計最多 +0.5
+                                         僅內文 0.3                              × 0.5^(天數 / 半衰期 45 天)
+                                                │
+                                                ▼
+④ 熱點:「次產業 × 產品線」網格的 Gi* z(自己 1 + 同列 / 同欄 0.3);z ≥ 1.96 且 ≥ 2 件事 = 熱點,z ≥ 1.0 = 溫點
+⑤ 開發順序:機會分數 = 0.4 × 產品適配(0–3)+ 0.6 × 近期訊號分數 → ≥ 70 優先開發、≥ 45 積極經營、其餘持續觀察
+                                                │
+                                                ▼
+   reports/leads/segments/<key>/YYYY-MM-DD.json / .md / -accounts.csv(開發名單)/ -leads.csv · 網頁 · data/lead_radar/signals.sqlite3
 ```
-
-為什麼用熱點分析而不是只看新聞量:單一則新聞可能是雜訊,但「航太用鈦」在台灣、歐洲、北美同時升溫,或「台灣」在航太、醫材、氫能都出現鈦材需求時,鄰域熱度會一起把 z 值推高 —— 這種**群聚**才是值得投入業務資源的市場。逐週比較則能分出剛出現的(新興)、一直都在的(持續)、正在變熱的(升溫)與退燒的(降溫)熱點,業務可優先開發新興 / 升溫熱點裡的 A 級公司。
 
 ## 使用方式
 
 ```bash
 pip install -r requirements.txt
 
-python -m lead_radar run                      # 蒐集 → 判讀 → 熱點分析 → 名單(reports/leads/)
-python -m lead_radar run --site site/leads    # 同時產生網頁
-python -m lead_radar run --days 60 --no-llm   # 改時間窗、不用 Claude
-python -m lead_radar import 展會名單.csv       # 匯入展會 / 詢價 / 標案 / 海關資料
-python -m lead_radar analyze                  # 不連網,用資料庫重新分析(--asof 2026-10-01 可回看)
-python -m lead_radar queries                  # 列出所有搜尋網址(約 120 個)
-python -m lead_radar site                     # 用最新報告產生 site/leads/index.html
-python -m lead_radar demo                     # 離線示範(虛構資料)→ examples/lead_radar_demo/
+python -m lead_radar run                                  # 全部客群:蒐集 → 判讀 → 熱點 → 開發名單(主要客群優先)
+python -m lead_radar run --segment tw_semi_production     # 只跑一個客群
+python -m lead_radar run --site site/leads                # 同時產生網頁
+python -m lead_radar analyze                              # 不連網,用資料庫重新分析(--asof 2026-10-01 可回看)
+python -m lead_radar import data/lead_radar/seeds/tw_semi_equipment.csv data/lead_radar/seeds/tw_semi_production.csv
+python -m lead_radar queries                              # 列出所有搜尋網址
+python -m lead_radar site                                 # 主要客群 → site/leads/index.html,其他 → site/leads/<key>/
+python -m lead_radar demo                                 # 離線示範(虛構資料)→ examples/lead_radar_demo/
 ```
 
-- **CSV 匯入欄位**(UTF-8,第一列為欄名,`#` 開頭為註解):`date, org, title, product, industry, region, intent, note, link, source, weight`。product 用 `target` / `titanium` / `nickel`(多個以 `/` 分隔),industry / region / intent 用設定檔中的 key;留空的欄位會依標題與備註自動判斷。weight 可直接指定熱度(例如已確認的詢價填 6)。範例:`examples/lead_radar_demo.csv`。
-- **Claude 判讀**(選用,設定 `ANTHROPIC_API_KEY`):逐則判斷買方與供應商(「A 取得 B 的鈦材訂單」→ B 才是客戶)、產品線、產業、意圖、地區、急迫度 1–5,並寫一句需求研判與標題譯文;結構化輸出,預設 `claude-opus-5-5`(`--model` 或 `LEAD_RADAR_MODEL`),已判讀的訊號不會重複送出。沒有金鑰時全部用關鍵字規則。
-- **網頁**(`<網站>/leads/`,與其他頁面一樣受 `SITE_PATH` / `SITE_PASSWORD` 保護):本期概況、可切換產品線的**需求熱度地圖**(依 Gi* z 或熱度著色,熱點實框、溫點虛框;點格子即篩選名單與訊號)、熱點卡片(近 9 週熱度走勢)、可搜尋 / 篩選的潛在客戶名單(展開看需求研判、建議行動、切入話術與佐證新聞)、需求訊號列表;「下載名單 CSV」在瀏覽器產生 Excel 可開的檔案。
-- **每週自動執行**:`.github/workflows/lead-radar.yml` 每週一台北時間 06:23 執行,commit 報告與訊號資料庫,再呼叫「發布網站」重新發布;也可在 Actions 頁面手動執行(可指定天數、關閉 Claude)。其他會重建網站的 workflow 都會帶上 `/leads/` 頁。
-
-## 客群分析(segment):例如台灣半導體設備廠
-
-針對單一客群深入分析,回答「這個客群裡先拜訪誰、主推哪個產品」:
-
-```bash
-python -m lead_radar run --segment tw_semi_equipment        # 只搜尋這個客群(各公司名稱 + 擴產 / 訂單 / 國產化等字詞)
-python -m lead_radar analyze --segment tw_semi_equipment    # 不連網,用資料庫重新分析
-python -m lead_radar import data/lead_radar/seeds/tw_semi_equipment.csv   # 種子訊號(已整理的公開報導)
-```
-
-- **目標客戶開發順序**:客群內每一家都會列出,沒有新聞也會依產品適配度排名。機會分數 = 0.4 × 產品適配(設定檔 `fit`,0–3 換算為 0–100)+ 0.6 × 近期訊號分數;≥ 70 優先開發、≥ 45 積極經營,其餘持續觀察。每家附主推產品、建議行動、推估理由(`note`)與佐證報導。
-- **次產業 × 產品線熱點**:在「前段製程設備 / 先進封裝設備 / 關鍵零組件與模組 / 廠務與氣化系統 / 載具與自動化 × 靶材 / 鈦 / 鎳基合金」網格上做 Gi* 熱點分析;未歸戶到名單公司的設備產業新聞歸入「其他設備業者」,參與統計但不標熱點。
-- 設備廠的新聞很少直接提到材料:名單公司的新聞若沒有產品字詞,以該公司適配度 ≥ 2 的產品線代入(相關度 0.6)。客群用較長的時間窗(120 天、半衰期 45 天),因為擴廠與認證週期長。
-- 報告:`reports/leads/segments/<key>/YYYY-MM-DD.json / .md / -leads.csv / -accounts.csv`(開發名單,可匯入 CRM);網頁 `<網站>/leads/<key>/`,總覽頁上方有連結。每週排程會在一般蒐集後跑每個客群。
-- 新增客群:在 `segments` 加一段(名稱、產業、地區、時間窗、搜尋字詞、次產業),在 `accounts` 為每家公司填 `segment`、`subsegment`、`fit` 與 `note`。`fit` 與 `note` 是業務假設,請依拜訪結果修正。
+- **開發順序**:客群內每一家都會列出,沒有新聞也會依產品適配度排名。每家附主推產品、建議行動、推估理由(`note`)與佐證報導;`-accounts.csv` 可直接匯入 CRM。
+- **公司歸屬**:一則新聞常同時提到供應商與客戶(「漢唐、帆宣卡位台積電赴美大單」),所以標題中第一個出現的公司(主詞)拿全部熱度,標題中其他公司拿一半,只出現在內文的拿 0.3。
+- **股市雜訊**:上市櫃公司的新聞多半是股市評論;沒有提到材料的公司新聞必須帶有需求意圖(擴產、訂單、缺料、認證…)才收錄,看盤、目標價、個股概覽等字詞降權且不計入熱點事件數。
+- **種子訊號**:`data/lead_radar/seeds/` 是整理好的公開報導(有日期與連結),新客群可先匯入,之後由每週排程補充。
+- **CSV 匯入欄位**(UTF-8,第一列為欄名,`#` 開頭為註解):`date, org, title, product, industry, region, intent, note, link, source, weight`。指定了 `org` 的列不再猜公司名,也不當成股市雜訊。
+- **Claude 判讀**(選用,設定 `ANTHROPIC_API_KEY`):逐則判斷買方與供應商、產品線、意圖、急迫度 1–5,並寫一句需求研判;預設 `claude-opus-5-5`(`--model` 或 `LEAD_RADAR_MODEL`)。沒有金鑰時全部用關鍵字規則。
+- **網頁**(與其他頁面一樣受 `SITE_PATH` / `SITE_PASSWORD` 保護):客群頁籤、本期概況、次產業 × 產品線熱點矩陣(點格子篩選名單與訊號)、目標客戶開發順序(展開看推估理由與佐證)、需求訊號列表;「下載開發名單 CSV」在瀏覽器產生 Excel 可開的檔案。
+- **每週自動執行**:`.github/workflows/lead-radar.yml` 每週一台北時間 06:23 跑全部客群,commit 報告與訊號資料庫,再呼叫「發布網站」;也可在 Actions 頁面手動執行。其他會重建網站的 workflow 都以 `python -m lead_radar site -o site/leads` 帶上全部客群頁。
+- **新增客群**:在 `segments` 加一段(名稱、產業、地區、時間窗、搜尋字詞、次產業),在 `accounts` 為每家公司填 `segment`、`subsegment`、`fit`(0–3)與 `note`。`fit` 與 `note` 是業務假設,請依拜訪結果修正。
 - 設定檔中含半形逗號的值(例如 `note`、`action`)必須加引號,否則 YAML 會把逗號後的文字切成另一個欄位;讀取時會檢查並報錯。
 
 ## 設定(`config/lead_radar.yaml`)
 
 | 區段 | 內容 |
 |---|---|
-| `segments` | 客群分析:名稱、產業、地區、時間窗、搜尋字詞、次產業 |
+| `segments` | 客群:名稱、產業、地區、時間窗、搜尋字詞、次產業;`settings.primary_segment` 指定主要客群 |
 | `products` | 三條產品線的比對字詞、搜尋字詞、排除字詞、目標應用產業、切入話術 |
 | `industries` | 16 個應用產業(半導體、面板、太陽能、光學鍍膜、儲存、工具鍍膜、航太、醫材、化工、油氣、發電、氫能、船舶、消費電子、運動器材、積層製造) |
 | `intents` | 8 種需求訊號的字詞、權重與建議行動 |
 | `regions` | 地區字詞(都沒命中時用新聞版本推定:繁中 → 台灣、日文 → 日本…) |
-| `accounts` | 目標客戶清單:別名、產業、地區、產品線;會額外以「名稱 + 產品字詞」搜尋,並得到產業適配加權 |
-| `settings` | 時間窗 `days`(30)、半衰期、回看週數、熱點門檻、鄰格權重 `neighbor_weight`、等級門檻、股價雜訊字詞、`exclude_orgs`(自家與同業,不列入名單) |
+| `accounts` | 目標客戶清單:別名、客群、次產業、產品適配 `fit`、推估理由 `note`;沒有 `segment` 的公司目前不搜尋 |
+| `settings` | 主要客群、熱點門檻、鄰格權重 `neighbor_weight`、股市雜訊與捨棄字詞、`exclude_orgs`(自家與同業,不列入名單);時間窗與半衰期由各客群設定 |
 
 ## 注意事項
 

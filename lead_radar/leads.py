@@ -15,6 +15,26 @@ from .hotspot import LEVELS, TRENDS, signal_heat, story_factors
 from .signals import OTHER, Signal
 
 SCALE = 6.0
+SUBJECT, MENTIONED, SNIPPET_ONLY = 1.0, 0.5, 0.3
+
+
+def _title_pos(org: str, title: str, config: Config) -> int:
+    """Where the company first appears in the headline (-1 = not in it); watch-list aliases count."""
+    acc = config.account(org)
+    names = (acc.aliases if acc else []) + [org]
+    low = title.lower()
+    hits = [low.find(n.lower()) for n in names if n and n.lower() in low]
+    return min(hits) if hits else -1
+
+
+def org_weights(sig: Signal, config: Config) -> dict[str, float]:
+    """How much of a signal belongs to each company it names. The headline's subject (the first
+    company in it) gets it all; a company the headline only mentions — usually the customer or
+    partner in "漢唐、帆宣卡位台積電赴美大單" — half; one named only in the snippet, 0.3."""
+    pos = {o: _title_pos(o, sig.title, config) for o in sig.orgs}
+    in_title = [p for p in pos.values() if p >= 0]
+    first = min(in_title) if in_title else None
+    return {o: (SNIPPET_ONLY if p < 0 else SUBJECT if p == first else MENTIONED) for o, p in pos.items()}
 BASE_HALF_LIFE = 14.0
 
 
@@ -34,8 +54,8 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
         h = signal_heat(sig, config, asof) * factors.get(sig.id, 1.0)
         if h <= 0:
             continue
-        for org in sig.orgs:
-            by_org[org].append((sig, h))
+        for org, w in org_weights(sig, config).items():
+            by_org[org].append((sig, h * w))
 
     leads = []
     first_seen = first_seen or {}

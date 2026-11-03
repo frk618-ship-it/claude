@@ -274,6 +274,7 @@ def test_reclassify_applies_current_rules(cfg):
 # ── segment analysis (台灣半導體設備廠) ──────────────────────────────────
 
 SEEDS = ROOT / "data" / "lead_radar" / "seeds" / "tw_semi_equipment.csv"
+PROD_SEEDS = ROOT / "data" / "lead_radar" / "seeds" / "tw_semi_production.csv"
 
 
 def test_segment_config(cfg):
@@ -348,12 +349,18 @@ def test_cli_segment_analyze(tmp_path, monkeypatch):
 
     monkeypatch.chdir(ROOT)
     db = tmp_path / "s.sqlite3"
-    assert main(["--db", str(db), "import", "--no-llm", str(SEEDS)]) == 0
-    out = tmp_path / "seg"
-    assert main(["--db", str(db), "analyze", "--segment", "tw_semi_equipment", "--asof", "2026-11-03", "-o", str(out), "--site", str(out / "site")]) == 0
-    assert (out / "2026-11-03-accounts.csv").exists() and "客群分析" in (out / "2026-11-03.md").read_text(encoding="utf-8")
-    page = (out / "site" / "index.html").read_text(encoding="utf-8")
-    assert '"segment": {"key": "tw_semi_equipment"' in page
+    assert main(["--db", str(db), "import", "--no-llm", str(SEEDS), str(PROD_SEEDS)]) == 0
+    out, site = tmp_path / "seg", tmp_path / "site"
+    assert main(["--db", str(db), "analyze", "--asof", "2026-11-03", "-o", str(out), "--site", str(site)]) == 0   # every segment
+    for key in ("tw_semi_equipment", "tw_semi_production"):
+        assert (out / key / "2026-11-03-accounts.csv").exists() and "客群分析" in (out / key / "2026-11-03.md").read_text(encoding="utf-8")
+    main_page = (site / "index.html").read_text(encoding="utf-8")            # the primary segment is the radar's front page
+    assert '"segment": {"key": "tw_semi_equipment"' in main_page and 'href="../news/index.html"' in main_page
+    other = (site / "tw_semi_production" / "index.html").read_text(encoding="utf-8")
+    assert '"segment": {"key": "tw_semi_production"' in other and 'href="../../news/index.html"' in other
+    rebuilt = tmp_path / "rebuilt"
+    assert main(["site", "-i", str(out), "-o", str(rebuilt)]) == 0
+    assert (rebuilt / "index.html").exists() and (rebuilt / "tw_semi_production" / "index.html").exists()
     assert main(["analyze", "--segment", "nope"]) == 2
 
 
@@ -382,3 +389,38 @@ def test_segment_scores_do_not_saturate(cfg):
     cells = analyse(stories, seg_cfg, ASOF)["cells"]
     lead = next(l for l in build_leads(stories, cells, seg_cfg, ASOF) if l["org"] == "京鼎精密")
     assert 40 < lead["score"] < 95                                                     # three stories: strong, not maxed out
+
+
+
+def test_primary_segment_and_production_segment(cfg):
+    assert cfg.settings.primary_segment == "tw_semi_equipment"
+    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production"]
+    prod = cfg.segments["tw_semi_production"]
+    assert set(prod.subsegments) == {"foundry", "memory", "thinning", "packaging", "testing"}
+    members = {a.name: a for a in cfg.accounts if a.segment == "tw_semi_production"}
+    assert {"台積電", "南亞科", "昇陽半導體", "日月光投控", "力成科技", "京元電子"} <= set(members)
+    assert all(a.subsegment in prod.subsegments for a in members.values())
+    assert sum(1 for a in cfg.accounts if a.name == "台積電") == 1                  # moved into the segment, not duplicated
+    s = sig(cfg, "南亞科 5A 新廠擴產 資本支出上修")
+    assert s.orgs[0] == "南亞科" and s.products == ["target"] and s.industries["target"] == "semiconductor"
+
+
+def test_production_segment_report(cfg):
+    from lead_radar.segment import build_segment_report
+
+    rep = build_segment_report(load_csv(PROD_SEEDS, cfg), cfg, "tw_semi_production", date(2026, 11, 3))
+    accs = {a["org"]: a for a in rep["accounts"]}
+    assert accs["南亞科"]["signals"] == 1 and accs["南亞科"]["best_product"] == "target"
+    assert accs["日月光投控"]["signals"] == 1 and accs["力成科技"]["signals"] == 1        # one report names three packagers
+    assert accs["欣銓科技"]["opportunity"] == pytest.approx(0.4 * 100 / 3, abs=0.1)        # fit 1, no news
+    assert [p["key"] for p in rep["segment_pages"]] == ["tw_semi_equipment", "tw_semi_production"]
+    assert rep["segment_pages"][0]["primary"] and not rep["segment_pages"][1]["primary"]
+
+
+def test_headline_subject_gets_the_signal(cfg):
+    from lead_radar.leads import MENTIONED, SNIPPET_ONLY, SUBJECT, org_weights
+
+    s = sig(cfg, "漢唐(2404)、帆宣(6196)卡位台積電赴美大單 在手訂單看到2028", snippet="京鼎也受惠")
+    w = org_weights(s, cfg)
+    assert w["漢唐集成"] == SUBJECT and w["帆宣系統"] == MENTIONED and w["台積電"] == MENTIONED
+    assert w.get("京鼎精密", SNIPPET_ONLY) == SNIPPET_ONLY

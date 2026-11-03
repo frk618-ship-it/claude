@@ -1,0 +1,6 @@
+# 半導體生產供應鏈客群的種子訊號:2026-11-03 以網路搜尋整理的公開報導(標題為報導重點摘錄,日期取自報導網址或內文所述日期)。
+# 匯入:python -m lead_radar import data/lead_radar/seeds/tw_semi_production.csv
+date,org,title,product,industry,region,intent,note,link,source,weight
+2026-08-06,南亞科,南亞科董事會核准 2026–2029 年資本支出上限 3466 億元 擴建 5A 新廠,,semiconductor,TW,expansion,"5A 新廠規劃月產能約 4.5 萬片並導入 EUV;2026 年資本支出由 520 億元提高至 697 億元",https://www.ctee.com.tw/news/20260806700062-430501,工商時報,
+2026-09-09,頎邦科技,頎邦法說:光通訊晶片金凸塊專案推進 矽光子業務開始貢獻營收,,semiconductor,TW,new_product,TIA 晶片金凸塊已量產;驅動 IC 仍占營收約六成,https://blog.fugle.tw/post/earnings-call-6147-2026-09-09,富果研究(法說紀錄),
+2026-09-29,日月光投控,先進封裝需求不能等 封測三雄日月光、力成、京元電擴產布局,,semiconductor,TW,expansion,京元電 2026 年資本支出上修;日月光面板級封裝產線布局,https://www.ctee.com.tw/news/20260929700197-439901,工商時報,

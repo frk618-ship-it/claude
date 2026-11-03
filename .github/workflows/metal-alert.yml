@@ -103,10 +103,7 @@ jobs:
             cp reports/dashboard/index.html reports/dashboard/dashboard.json reports/dashboard/comparison.csv fin_analyzer/assets/og.png site/financials/
           fi
           python -m metal_alert site -o site/metals
-          python -m lead_radar site -i reports/leads -o site/leads || echo "尚無商機雷達報告,略過"
-          for d in reports/leads/segments/*/; do
-            [ -d "$d" ] && python -m lead_radar site -i "$d" -o "site/leads/$(basename "$d")" --nav-root ../../ || true
-          done
+          python -m lead_radar site -o site/leads || echo "尚無商機雷達報告,略過"
 
       - uses: actions/configure-pages@v5
         if: steps.flags.outputs.publish == 'true'
