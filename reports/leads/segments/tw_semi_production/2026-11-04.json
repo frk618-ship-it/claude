@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T17:31:03+00:00",
+ "generated": "2026-11-03T17:36:27+00:00",
  "asof": "2026-11-04",
  "days": 120,
  "half_life_days": 45.0,
@@ -126,8 +126,8 @@
   }
  },
  "stats": {
-  "signals": 713,
-  "attributed": 708,
+  "signals": 715,
+  "attributed": 710,
   "new_signals": 123,
   "hot_cells": 4,
   "warm_cells": 1,
@@ -140,7 +140,7 @@
   },
   "enriched": 0,
   "by_product": {
-   "target": 712,
+   "target": 714,
    "titanium": 92,
    "nickel": 199
   },
@@ -157,13 +157,13 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 161.127,
+   "heat": 161.172,
    "count": 110,
    "z": 5.46,
    "level": "hot",
    "trend": "new",
    "history": [
-    161.127
+    161.172
    ],
    "signal_ids": [
     "4e951e744f4b51e3",
@@ -603,11 +603,11 @@
     "9f3caa0c5071ebe5",
     "83f064d81cc4f20c",
     "7c75f4295896f106",
+    "34b7cfd628862a3d",
     "d1555fdb9d63036e",
     "c9168a6fe09a4ca0",
     "c6e7b582f83d2c81",
     "383cabe6e28856b2",
-    "34b7cfd628862a3d",
     "22f7f42743292321",
     "f8fda8519e244c84",
     "2952e9bbfc6521be",
@@ -638,6 +638,7 @@
     "c78427400228c005",
     "0abb262bf052fffc",
     "3427e6622a3b4db4",
+    "954ee5a777bf21c8",
     "64766cba7ef4024f",
     "fe7ae0924db5939c",
     "a0e1f3db5fb1bb22",
@@ -730,6 +731,7 @@
     "8c3a3d6c4735daf7",
     "6baad8ac4edcbc63",
     "acfbb270b4704e1a",
+    "162ea30846090460",
     "16dae351494b66cf",
     "ee3c6db6f8b636ad",
     "2099025cd255d569",
@@ -1109,13 +1111,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 35.483,
+   "heat": 35.482,
    "count": 26,
    "z": 5.81,
    "level": "hot",
    "trend": "new",
    "history": [
-    35.483
+    35.482
    ],
    "signal_ids": [
     "4e951e744f4b51e3",
@@ -1219,8 +1221,8 @@
     "538d80e5307369b9",
     "9f3caa0c5071ebe5",
     "83f064d81cc4f20c",
-    "c9168a6fe09a4ca0",
     "34b7cfd628862a3d",
+    "c9168a6fe09a4ca0",
     "45b84c139fe7b5be",
     "1be26617a542e132",
     "460ed1d6e334da2d",
@@ -1370,13 +1372,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 35.483,
+   "heat": 35.482,
    "count": 26,
    "z": 5.81,
    "level": "hot",
    "trend": "new",
    "history": [
-    35.483
+    35.482
    ],
    "signal_ids": [
     "4e951e744f4b51e3",
@@ -1397,13 +1399,13 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 161.127,
+   "heat": 161.172,
    "count": 110,
    "z": 5.46,
    "level": "hot",
    "trend": "new",
    "history": [
-    161.127
+    161.172
    ],
    "signal_ids": [
     "4e951e744f4b51e3",
@@ -7564,6 +7566,41 @@
    "heat": 1.964
   },
   {
+   "id": "162ea30846090460",
+   "title": "AI訂單看到2028年！欣興、力積電、聯發科3檔後市看好| 財經",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ldENQRV9RTzZ4VnpfUGhYVjYzSm1GQTM5bFhZbE5EUkNSMC1SZWhybHlLZ1lCYUN0eUNDOHJmdlAxYnY2eXRySWNiY0g2MzRBRDZvazhWaVBYQTQ?oc=5",
+   "source": "Newtalk新聞",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "力積電"
+   ],
+   "accounts": [
+    "力積電"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.473
+  },
+  {
    "id": "01302d17d8311f3d",
    "title": "台積電資本支出強勁 法人點名這些廠務工程股可望受惠",
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8wWkhpUWh4TDczS2VQTWhFeXE4Y0h0Vlg0YXNJX21BbjBlVlNDRmNveWo0ZkR2TlIxQzVTcFB6SFJlbzRuME1lQldCQ2hnR3ZlbTBFS3BuQ0t5d9IBX0FVX3lxTFBORWZkR0JRUWhyZ0dTaEdYaGh6eDhsbTBxbG1YT0JsUkF0NFo1SHQ4TVpaYXQxMkVNYXJKYXJ4bl9xWHMzQl8zMjBscG5qRFM5eGF2ZC1IWFdTbnhsd3I0?oc=5",
@@ -8893,8 +8930,8 @@
   {
    "id": "86e125b8e97e24fe",
    "title": "晶圓代工漲價10%至15%！力積電Q3訂單投片比達1.4倍 自營商砸6,235萬元搶進",
-   "link": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxNcl83TThhMVlQNkRkR2VKWVAzLUVzZHRPNkQ0QmNya1NCUm1RUmlteDVvYzlWcVE4UWNuU0RrVUliNl9hVlJMTHZyODdXOFF5OTRjU3VZUjhfM2xBVDR5b3FDVWw5dmlER0VMS0NBZ1FXM3ZMTXdrVXF0clhWQTdETlpUQk5mNFJMOUNtbk9RcWJBbkR2N3dXSmZUZkF3VzN4YzlKbkJfeExkM25Rc2t3dERvUUdLZTkyZklPSldaOG5HTTVLa096R1c5WkVXdnZXRWZUNXMxYkswUGRtTkh5b3ZRMGZzTXctU3kxb1lWUXhMWUtkMnN4MVRSMldaZjBRMWM5bEtWamprUzZrZ1hZd2t4OUFhZElzS0ZvZHA5ck5SNUU2QXdXaS1RN09OWmxUc3lVYjB3Q0FCanczUTNsZXJJdDdENkZXZmRwbGNDVjQxLWFBTC1HYTlXQ2toWERLMVhvWDQ2ZmM?oc=5",
-   "source": "Yahoo股市",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1nTUVHdlBndWk2OFlKUjY3Nkd2anQ0dkxfUW9vODE5MVRzWXB0a1owcVB0Y1A5dFEyV2cydWxna3JXVnZxOTljQWZncw?oc=5",
+   "source": "FTNN 新聞網",
    "published": "2026-10-16",
    "snippet": "",
    "edition": "zh-TW",
@@ -10301,7 +10338,7 @@
   {
    "id": "20b56c42b4fe15dd",
    "title": "力成AMD專案明年H1試產，續整合CPO",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbzBrTGlIR19fOUxaT3Z6N213Ync0ZkRPR3QzRGNkRGJwbXBXam5rT2QzZFFGWG1yLWtQSElXTGszSmlkSk9LY3NIUGZOMUIwUHhaSnQ0OFAtYWtVRkpOX2VzcURUYWFsdmVzWi1BWWZLaGVxd2xzQVdfWnQ5MFRfNm8wVWVUTHdSQXdFTHlIUURrdw?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOaWJZNDZGdFFoQi1qczdoYlNvYVFseUh4Z2R4VVBPcTJGTVQzejJTbzg3X0licHdsUXdCbUt1cGl2alRnS3ppdnYxMmtlSVJWU1RkXzZLb3pQcTdUeGVRVXBrUlV1OXdjRmFfemVoeGdZdFMwLXJUc0RaVzJPcC1XNEh0dHBMdGJTSVhlNmE3a2txdw?oc=5",
    "source": "台視全球資訊網",
    "published": "2026-10-14",
    "snippet": "",
@@ -10770,6 +10807,41 @@
    "title": "【南亞科法說】新廠為何「棄雲林改屏東」 總座李培瑛細說分明| 政治焦點",
    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxcVR2R0FsQmVvN1VRQ01NVVFvek03YXR1OW5Zbm85S0ZOaE1SbVpXMVdBbkpEbDA2ZVRfSXJrMW12bHlzblJWLWduWnFGd2tGbHlmNk9UdS1menpU?oc=5",
    "source": "太報 TaiSounds",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "南亞科"
+   ],
+   "accounts": [
+    "南亞科"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.684
+  },
+  {
+   "id": "954ee5a777bf21c8",
+   "title": "南亞科宣布Q3獎金 屏東新產能規劃曝",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE00cS0tTS1rSVdaeGc2OHlZRkI3Z1BxOGZBYUItMkNCeUR3NDNFU1JXZDdIYmJkeTBIUDF5V1o4SjVlemUzdExjTEk1dw?oc=5",
+   "source": "三立新聞網SETN.com",
    "published": "2026-10-12",
    "snippet": "",
    "edition": "zh-TW",
@@ -11351,8 +11423,8 @@
   {
    "id": "c10efd7a515012b2",
    "title": "世界先進9月營收雙增 新加坡廠明年量產添助力",
-   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE95ckUzcnhPOTdnYlBfVDJBUzQxM29hbUNyamhXcHJGOHdzZ0JHdWdUMFdtSWhzWVgxS2JKZUZxQXVaUnhHMEhUMkRKSWp5QlIx0gFWQVVfeXFMT2RJVE5Qdl9fdUQtQkh3ZnhDN05vZUZsOVZrNVNFTUdiWVhJV25tM3NCbWY4WkJKcjJITUxIbWdHdWtaODVrTDJTWkdfbXNXYXlLbGRnS1E?oc=5",
-   "source": "UDN",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBBY3hpQ0R1SDFuLWRwUEFoenpFM3V3cTkydUg0dWdJMnJ1cnFGb2tSNjZiWjlOZWVwNkJaYWptYVJ3Q1pvd0hUUnIwRllEcEhEdmFQRTZScC1xbDDSAWBBVV95cUxNcWNhVE5BTXJBRVozQVFaODlUSmFQQ3lUYTRsT010NlNjMmpNMGF3aEZfaG1OWjQtX1RhZnhHQWExR0F5bk9id1RxTnJ5aVpRXzBpcXN3R3RYWWRmWkJKS1M?oc=5",
+   "source": "經濟日報",
    "published": "2026-10-08",
    "snippet": "",
    "edition": "zh-TW",
@@ -11664,45 +11736,6 @@
    ],
    "accounts": [
     "聯電"
-   ],
-   "relevance": 0.6,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.559
-  },
-  {
-   "id": "34b7cfd628862a3d",
-   "title": "世界先進大擴產3／20年前掌台積電新加坡廠 方略攜手恩智浦打造世界先進新局",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFB6QkhoRzg1Y1VVYTd1Qm1oYVg4YXFqYnNQMlV0c2tsWDlMek9xRmo0ZHdGRDZkbC1jU2VjQkpSc3VvR3Fnd2RCYXl6VQ?oc=5",
-   "source": "FTNN 新聞網",
-   "published": "2026-10-07",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電",
-    "世界先進"
-   ],
-   "accounts": [
-    "台積電",
-    "世界先進"
    ],
    "relevance": 0.6,
    "noise": false,
@@ -12030,6 +12063,45 @@
    ],
    "accounts": [
     "力成科技"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.535
+  },
+  {
+   "id": "34b7cfd628862a3d",
+   "title": "世界先進大擴產3／20年前掌台積電新加坡廠 方略攜手恩智浦打造世界先進新局",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4tbmt5MnBoSkQtb2k5ODN5T2NlVHU0bVNKUVBmbHUtdnRMSHFPLXVXTno4bDR6ckFvejM3d1pBSEFkLWMxbXJObXg0V2ZhSk1BTnF1NzhfQm5QR03SAWBBVV95cUxQUHlyTmRUS2VGZ01hcWUxQk9VTFJSSTV3LVZCVmNxazRDZ3N6eDlwRGRUcmJLY2o1MDhSaUJGdjVXbms2alNJY2VRSUYta1lxQ0UwNk5HQ1BmNEZfbzZRa3k?oc=5",
+   "source": "鏡週刊Mirror Media",
+   "published": "2026-10-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "世界先進"
+   ],
+   "accounts": [
+    "台積電",
+    "世界先進"
    ],
    "relevance": 0.6,
    "noise": false,
@@ -14689,8 +14761,8 @@
   {
    "id": "aacee00bd57dd9fe",
    "title": "法說倒數2週！傳台積電訂單直達2030年奪成交王「這檔」光模組、ABF雙題材獲法人喊目標價700元",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9lRWFKMkhRbU1DSDQ5SFFsdnZ3T2t4d1BDc21fM2tFQlc0aDI0dXNjS2pkM0ttbmdXVUNZM1ZTVmg0cWtPb3d2NzhfWQ?oc=5",
-   "source": "FTNN 新聞網",
+   "link": "https://news.google.com/rss/articles/CBMihwRBVV95cUxOVWpzUkd3cmJWemtLT2o2NGY1QmhpVWtkT1dPc2RpcEQ4b3Q0NzNHWWstT29PZHBVSmZMTVBPNkwwcVFYNzRQd1FCRW40MUU5emtLQUpwVjFNZ3B1b0dPWFhtazZmdUVCY2JvRVRTTHRQeWs4RzBYRkEwTV9BUGg4QXdRVHBrTjhrU3dFbi1yNHhGVk4wMHlXTUtlSER5VW1HVVlKaDBsbVFXbnFlNjJMOEFxVTU0X2t5SXZmX2l1RkRvUlQ5Q2ViUU9rNDljZWE4SFdqaVhodzNCUjE4dGNhMzdBYnhtTVVDOUFDcUNzblhRYUh3Z3lPSmRpUmRmWkVtWjRuYXpIaE1QSkQyakZtMkRkNVQyUnJRSlZTVjFvcUlCZlp5b20zRF9XSUpVXy0xZVZPaDgxenc2d0dNckduWXRYeEc5WFJVV0RyYzVNTzFNd0c4VS05YUgtVk1Qb1FLajhXM2xiUXNxZ3JpVWpLdTB0VnFLeXNKcERwSmY2dVZucjZMNVRuRmVWWEJHNk8tMVVxTXJRQ3lMcTF1aWVvZ0VhdTY0VVdvNXcyQjlVN1gxMmpDNGJ6X1NEY3IxcGNzRlpBMGowbXkwbTJuTXJqRy01R0wxOG5fNzctc1QyeWRhX3pfZ0dHYUE4SzNCOXdfTmxpbVVpem4yLVNNdTdBUGpkd0YxUHM?oc=5",
+   "source": "Yahoo股市",
    "published": "2026-09-29",
    "snippet": "",
    "edition": "zh-TW",
@@ -16803,7 +16875,7 @@
   {
    "id": "3653c7333439fa18",
    "title": "吃下台積電CoWoS外溢訂單！「這大廠」Q2獲利年增180% 目標價上看862元",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE13YjRuWjJyVlRhNm55ZXo2YWdsbF9WLWppbDlZOWVobUNEZHNSdmNPdTdFVnc1SnlMMDMwbUhnU2FnOW1aQ3BJYXR6Yw?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0zdHRZNW1LNTA1M2syZ0Z6RjNEUjY1RnRKeFdIajJOTEF2V1BhYU9KbjBZaUNJY1hxT2hEbEhKc2ZNVmJoVTE2YtIBTEFVX3lxTE1IbzZfWXJ2ZFItNmtHc082dk1jTk5VZjQ1LWpYb2tVUkYwN1QyOUNacDN2M3g5WElsYy1IV000SXRZNU5fRmhZS0ZhZl8?oc=5",
    "source": "三立新聞網SETN.com",
    "published": "2026-09-25",
    "snippet": "",
@@ -25770,8 +25842,8 @@
   {
    "id": "ca1dbd2251f1725e",
    "title": "13座新廠連環開！看懂台積電「資本支出」密碼：漢唐、弘塑、家登...三階段受惠名單大公開",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1GMHpIQThYb2s0VEdIQ2gxeVhMb0REVzVHS0lfVDhWNWh2TmdncktyakxVSV9FMWJrNjllOXF1YkJUMFFXNXVzcktPLXY0NFk?oc=5",
-   "source": "鉅亨網",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54bzZGYUYxZGJCUFItREpBakY5MVlLQ1RjX0c1akE3c21XTzV6dVpaZjkwUWVlQXpGU3FCbnBSZW94OUdlRm1rRUE2M0dCck5oMWVUSTJ3?oc=5",
+   "source": "優分析UAnalyze",
    "published": "2026-07-23",
    "snippet": "",
    "edition": "zh-TW",
@@ -28386,7 +28458,7 @@
    },
    "note": "DRAM;2026–2029 年資本支出上限 3,466 億元,5A 新廠導入 EUV。新廠建置期是靶材認證的時間窗",
    "heat": {
-    "target": 15.99,
+    "target": 16.0,
     "titanium": 0.0,
     "nickel": 0.01
    },
@@ -28422,7 +28494,7 @@
    },
    "note": "記憶體與邏輯代工,轉型 3D AI Foundry(晶圓堆疊);金屬化靶材",
    "heat": {
-    "target": 11.15,
+    "target": 11.18,
     "titanium": 0.0,
     "nickel": 0.0
    },
@@ -29078,7 +29150,7 @@
   {
    "subsegment": "foundry",
    "product": "target",
-   "heat": 71.278,
+   "heat": 71.308,
    "count": 55,
    "z": 3.14,
    "level": "hot",
@@ -29144,7 +29216,7 @@
   {
    "subsegment": "memory",
    "product": "target",
-   "heat": 45.301,
+   "heat": 45.316,
    "count": 26,
    "z": 1.76,
    "level": "warm",
