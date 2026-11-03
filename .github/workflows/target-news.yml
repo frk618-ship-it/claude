@@ -101,7 +101,11 @@ jobs:
 
       - name: Add lead radar page
         continue-on-error: true   # 還沒有商機雷達報告時略過
-        run: python -m lead_radar site -i reports/leads -o site/leads
+        run: |
+          python -m lead_radar site -i reports/leads -o site/leads
+          for d in reports/leads/segments/*/; do
+            [ -d "$d" ] && python -m lead_radar site -i "$d" -o "site/leads/$(basename "$d")" --nav-root ../../ || true
+          done
 
       - uses: actions/configure-pages@v5
 

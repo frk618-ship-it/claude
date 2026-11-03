@@ -13,7 +13,7 @@ def render_page(report: dict | None) -> str:
     return TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", data, 1)
 
 
-def write_site(report: dict | None, out_dir: str | Path, nav: bool = True) -> Path:
+def write_site(report: dict | None, out_dir: str | Path, nav: bool = True, root: str = "../") -> Path:
     """Static page for the published site (``site/leads/``), with the site's page switcher."""
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -21,7 +21,7 @@ def write_site(report: dict | None, out_dir: str | Path, nav: bool = True) -> Pa
     if nav:
         from target_news_agent.fabnav import fab_nav
 
-        html = html.replace("</body>", fab_nav("leads", "../") + "\n</body>", 1)
+        html = html.replace("</body>", fab_nav("leads", root) + "\n</body>", 1)
     page = out / "index.html"
     page.write_text(html, encoding="utf-8")
     return page

@@ -51,6 +51,27 @@ class Account:
     industry: str = ""
     region: str = ""
     products: list[str] = field(default_factory=list)
+    ticker: str = ""
+    segment: str = ""                 # key of a segment (see Segment) this account belongs to
+    subsegment: str = ""
+    fit: dict[str, int] = field(default_factory=dict)   # product key -> 0–3 judged product fit
+    note: str = ""                    # why it fits / what it might buy
+
+
+@dataclass
+class Segment:
+    """A customer group analysed on its own (e.g. Taiwan semiconductor equipment makers):
+    hotspots on a sub-segment × product grid and a ranked map of every account in it."""
+    key: str
+    name: str
+    description: str = ""
+    industries: list[str] = field(default_factory=list)
+    regions: list[str] = field(default_factory=list)
+    editions: list[str] = field(default_factory=list)
+    subsegments: dict[str, str] = field(default_factory=dict)   # key -> display name
+    query_terms: list[str] = field(default_factory=list)       # added to account-name searches
+    days: int = 0                     # 0 = settings.days; segments move slower, so a longer window helps
+    half_life_days: float = 0
 
 
 @dataclass
@@ -83,6 +104,7 @@ class Config:
     intents: dict[str, Intent]
     regions: dict[str, Region]
     accounts: list[Account]
+    segments: dict[str, Segment] = field(default_factory=dict)
 
     def product(self, key: str) -> Product | None:
         return next((p for p in self.products if p.key == key), None)
@@ -95,8 +117,31 @@ class Config:
         return list(self.regions)
 
 
+ALLOWED = {
+    "products": {"key", "name", "keywords", "search", "industries", "editions", "exclude", "pitch"},
+    "industries": {"name", "keywords", "search"},
+    "intents": {"name", "weight", "keywords", "action"},
+    "regions": {"name", "keywords"},
+    "accounts": {"name", "aliases", "industry", "region", "products", "ticker", "segment", "subsegment", "fit", "note"},
+}
+
+
+def _check_keys(raw: dict) -> None:
+    """A half-width comma inside a one-line {...} mapping silently splits a value into a new key
+    ("action: 先做 A,再做 B" → key "再做 B"); catch that instead of truncating the text."""
+    for section, allowed in ALLOWED.items():
+        entries = raw.get(section) or []
+        items = entries.items() if isinstance(entries, dict) else ((e.get("key") or e.get("name"), e) for e in entries)
+        for name, entry in items:
+            extra = set(entry or {}) - allowed
+            if extra:
+                raise ValueError(f"{section} {name}: unknown fields {sorted(extra)} — "
+                                 "a value containing a half-width comma must be quoted, e.g. note: \"A,B\"")
+
+
 def load_config(path: str | Path) -> Config:
     raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
+    _check_keys(raw)
     s = raw.get("settings", {}) or {}
     hs = s.get("hotspot", {}) or {}
     settings = Settings(
@@ -152,7 +197,32 @@ def load_config(path: str | Path) -> Config:
             industry=a.get("industry", ""),
             region=a.get("region", ""),
             products=list(a.get("products", []) or []),
+            ticker=str(a.get("ticker", "") or ""),
+            segment=a.get("segment", ""),
+            subsegment=a.get("subsegment", ""),
+            fit={k: int(v) for k, v in (a.get("fit") or {}).items()},
+            note=a.get("note", ""),
         )
         for a in raw.get("accounts", []) or []
     ]
-    return Config(settings, products, industries, intents, regions, accounts)
+    segments = {}
+    for k, v in (raw.get("segments") or {}).items():
+        unknown = [i for i in v.get("industries", []) if i not in industries]
+        if unknown:
+            raise ValueError(f"segment {k}: unknown industries {unknown}")
+        segments[k] = Segment(
+            key=k,
+            name=v["name"],
+            description=v.get("description", ""),
+            industries=list(v.get("industries", [])),
+            regions=list(v.get("regions", [])),
+            editions=list(v.get("editions", []) or settings.default_editions),
+            query_terms=[str(t) for t in v.get("query_terms", []) or []],
+            subsegments={sk: (sv["name"] if isinstance(sv, dict) else str(sv)) for sk, sv in (v.get("subsegments") or {}).items()},
+            days=int(v.get("days", 0) or 0),
+            half_life_days=float(v.get("half_life_days", 0) or 0),
+        )
+    for a in accounts:
+        if a.segment and a.segment not in segments:
+            raise ValueError(f"account {a.name}: unknown segment {a.segment}")
+    return Config(settings, products, industries, intents, regions, accounts, segments)

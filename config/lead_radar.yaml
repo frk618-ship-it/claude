@@ -23,7 +23,7 @@ settings:
     neighbor_weight: 0.3   # 鄰格權重(自己 = 1):同產業其他地區、同地區其他產業;1 = 標準二元 Gi*
   grades: {A: 70, B: 45, C: 25}   # 潛在客戶分數門檻(0–100)
   # 標題命中這些字詞多半是股市行情或股價新聞,權重 × noise_factor
-  noise_terms: [股價, 漲停, 跌停, 目標價, 法說, 外資, 收盤, 盤中, 股東會, 熱門股, 小漲, 小跌, 即時新聞, 利好, 龍頭, 龙头, 淨利, 净利, 預增, 预增, 三季報, 三季报, 年報, 年报, 研報, 研报, 點評, 点评, 概念股,
+  noise_terms: [股價, 漲停, 跌停, 目標價, 外資, 收盤, 盤中, 股東會, 熱門股, 小漲, 小跌, 即時新聞, 利好, 龍頭, 龙头, 淨利, 净利, 預增, 预增, 三季報, 三季报, 年報, 年报, 研報, 研报, 點評, 点评, 概念股,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
@@ -53,7 +53,7 @@ products:
     keywords: [靶材, 濺鍍, 濺射, 溅射, 磁控濺鍍, sputtering, sputter target, PVD, 物理氣相沉積, 物理气相沉积, 鍍膜, 镀膜, 薄膜沉積, thin film deposition,
                スパッタ, スパッタリングターゲット, 스퍼터링, ITO, IGZO, 旋轉靶, 旋转靶, rotary target]
     search: [靶材, 濺鍍, 溅射靶材, sputtering target, PVD]
-    industries: [semiconductor, display, solar, optical_coating, data_storage, hard_coating]
+    industries: [semiconductor, semi_equipment, display, solar, optical_coating, data_storage, hard_coating]
     pitch: 高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收
 
   - key: titanium
@@ -61,8 +61,8 @@ products:
     editions: [zh-TW, zh-CN, en]
     keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
     search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
-    exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白]   # 媒體名稱與顏料不是鈦金屬
-    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen]
+    exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
 
   - key: nickel
@@ -71,7 +71,7 @@ products:
     keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
-    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment]
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
 
 # ── 應用產業 ─────────────────────────────────────────────────────────────
@@ -79,6 +79,9 @@ products:
 industries:
   semiconductor:   {name: 半導體,       search: [半導體, 晶圓廠, semiconductor, fab],
                     keywords: [半導體, 半导体, 晶圓, 晶圆, 晶圓廠, 封裝, 先進封裝, 封测, semiconductor, wafer, foundry, fab, chipmaker, packaging, 半導体, 반도체, 웨이퍼]}
+  semi_equipment:  {name: 半導體設備與零組件, search: [半導體設備, 設備零組件, semiconductor equipment],
+                    keywords: [半導體設備, 半导体设备, 設備廠, 設備商, 设备厂, 设备商, 設備零組件, 零組件, 零部件, 腔體, 腔体, 製程套件, 特化管路, 氣體管路, 氣化系統, 供氣系統, 濕製程, 湿制程,
+                               先進封裝設備, 設備國產化, 设备国产化, 機台, semiconductor equipment, equipment maker, chamber, process kit, gas line, wafer fab equipment, 半導体製造装置, 반도체 장비]}
   display:         {name: 顯示面板,     search: [面板, 顯示器, OLED, display panel],
                     keywords: [面板, 顯示器, 显示, 顯示, OLED, LCD, AMOLED, Micro LED, display, panel maker, ディスプレイ, 디스플레이, 패널]}
   solar:           {name: 太陽能,       search: [太陽能, 光伏, solar, photovoltaic],
@@ -114,25 +117,25 @@ industries:
 # weight  意圖強度:招標採購最強(明確在找供應商),政策補助最弱(只是可能)
 # action  對應的業務下一步(名單上的「建議行動」)
 intents:
-  tender:        {name: 招標採購,   weight: 5.0, action: 立即索取標案 / RFQ 規格,確認投標資格、交期與截止日,
+  tender:        {name: 招標採購,   weight: 5.0, action: "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
                   keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid,
                              purchase order, seeks supplier, seeking suppliers, 入札, 調達, 입찰, 구매]}
-  shortage:      {name: 缺料與交期, weight: 4.0, action: 主動提出可交貨量、交期與替代牌號 / 規格方案,
+  shortage:      {name: 缺料與交期, weight: 4.0, action: "主動提出可交貨量、交期與替代牌號 / 規格方案",
                   keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 漲價, 涨价, 去中化, 吃緊, 吃紧, shortage, supply crunch, lead time, supply constraint, tight supply,
                              supply stays tight, supply remains tight, supply chain disruption, 品薄, 부족]}
-  expansion:     {name: 擴產與新廠, weight: 4.0, action: 聯繫採購與廠務,提案新產線材料認證並安排送樣,
+  expansion:     {name: 擴產與新廠, weight: 4.0, action: "聯繫採購與廠務,提案新產線材料認證並安排送樣",
                   keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
                              expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, commits, mass production, 増産, 新工場, 증설, 신공장]}
-  contract:      {name: 訂單與專案, weight: 3.0, action: 鎖定得標方與其一階供應商,提案配套材料與備料,
+  contract:      {name: 訂單與專案, weight: 3.0, action: "鎖定得標方與其一階供應商,提案配套材料與備料",
                   keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, order, contract, awarded, deal, backlog, program, programme, 受注, 수주]}
-  qualification: {name: 認證與在地化, weight: 3.0, action: 準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格,
+  qualification: {name: 認證與在地化, weight: 3.0, action: "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
                   keywords: [認證, 认证, 驗證, 验证, 合格供應商, 供應鏈, 供应链, 在地化, 國產化, 国产化, 第二供應商, 選定, 入選, qualification, qualified supplier, approved supplier, supply chain,
                              localization, second source, dual source, selected by, approved by, evaluates, evaluate, new supplier, AS9100, NADCAP, ISO 13485, 国産化, 국산화]}
-  new_product:   {name: 新產品研發, weight: 2.5, action: 安排研發端技術拜訪,提供試樣與材料數據,
+  new_product:   {name: 新產品研發, weight: 2.5, action: "安排研發端技術拜訪,提供試樣與材料數據",
                   keywords: [研發, 研发, 新產品, 新产品, 新品, 開發, 开发, 推出, 發表, 量試, 試產, R&D, launch, unveil, prototype, develop, next-generation, 開発, 개발]}
-  hiring:        {name: 徵才擴編,   weight: 1.5, action: 從新設部門或新任主管切入,建立聯繫窗口,
+  hiring:        {name: 徵才擴編,   weight: 1.5, action: "從新設部門或新任主管切入,建立聯繫窗口",
                   keywords: [徵才, 招募, 招聘, 擴編, 人才, hiring, recruit, job opening, 採用, 채용]}
-  policy:        {name: 政策與補助, weight: 1.0, action: 追蹤補助計畫名單與執行單位,提早布局,
+  policy:        {name: 政策與補助, weight: 1.0, action: "追蹤補助計畫名單與執行單位,提早布局",
                   keywords: [補助, 补贴, 政策, 計畫, 计划, 獎勵, 法案, subsidy, grant, incentive, policy, CHIPS Act, 補助金, 보조금]}
 
 # ── 地區(本地比對,命中最多者為訊號地區;都沒命中時用新聞版本的預設地區)───────────
@@ -147,6 +150,28 @@ regions:
   EU:    {name: 歐洲,     keywords: [歐洲, 欧洲, 德國, 德国, 法國, 法国, 英國, 英国, 義大利, 西班牙, 荷蘭, 瑞典, 波蘭, 挪威, Europe, European, Germany, German, France, French, UK, Britain, British, Italy, Spain,
                                    Netherlands, Dutch, Sweden, Norway, Norwegian, Poland, 欧州, 유럽]}
   OTHER: {name: 其他 / 未標示, keywords: [中東, 沙烏地, 阿聯, 以色列, 土耳其, 巴西, 澳洲, 俄羅斯, 俄罗斯, Middle East, Saudi, UAE, Israel, Turkey, Brazil, Australia, Russia, Ukraine, Africa]}
+
+# ── 客群分析(segment)────────────────────────────────────────────────────
+# 針對單一客群的深入分析:python -m lead_radar run --segment <key>
+#   - 名單:客群內每家目標客戶都會列出(沒有新聞也會依產品適配度排名),再疊加近期需求訊號
+#   - 熱點:在「次產業 × 產品線」網格上做 Gi* 熱點分析(例如「零組件與模組 × 鎳基合金」)
+#   query_terms 搜尋公司新聞時附加的字詞;設備廠新聞很少直接提到材料,所以用擴產、訂單等字詞找動態
+segments:
+  tw_semi_equipment:
+    name: 台灣半導體設備廠
+    description: 台灣半導體前段設備、先進封裝設備、關鍵零組件 / 模組、廠務與氣化系統、載具廠商;在 AI 與先進封裝擴產、設備國產化政策下持續擴廠
+    industries: [semi_equipment]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120              # 設備廠的擴產與認證週期長,用較長的時間窗
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 擴廠, 訂單, 設備, 零組件, 國產化, 法說]
+    subsegments:
+      front_end: 前段製程設備
+      packaging: 先進封裝設備
+      parts: 關鍵零組件與模組
+      facility: 廠務與氣化系統
+      carrier: 載具與自動化
 
 # ── 目標客戶清單(選填)──────────────────────────────────────────────────
 # 已知的潛在客戶或想主攻的對象:會額外以「名稱 + 產品字詞」搜尋,命中時歸戶到這家公司,產業適配加權。
@@ -194,3 +219,73 @@ accounts:
   - {name: 美光,       aliases: [美光, Micron],                          industry: semiconductor, region: US, products: [target]}
   - {name: 力積電,     aliases: [力積電, PSMC],                          industry: semiconductor, region: TW, products: [target]}
   - {name: Seagate,    aliases: [Seagate, 希捷],                          industry: data_storage, region: US, products: [target]}
+
+  # ── 台灣半導體設備廠(segment: tw_semi_equipment)──
+  # fit:產品適配度 0–3(3 = 核心用料、2 = 可能用料、1 = 少量 / 間接、0 = 無),依公開業務內容推估的初步假設,
+  #      請依實際拜訪結果修正;note 說明推估理由與切入點。
+  - {name: 天虹科技, aliases: [天虹科技, 天虹(6937), Skytech], ticker: "6937", segment: tw_semi_equipment, subsegment: front_end,
+     industry: semi_equipment, region: TW, products: [target, titanium], fit: {target: 3, titanium: 1, nickel: 1},
+     note: "國產 PVD / ALD 與面板級封裝 PVD 設備商:製程開發、客戶 demo 與驗收都要用靶材,可談設備搭配靶材的配套供應"}
+  - {name: 漢民科技, aliases: [漢民科技, 漢民集團, Hermes-Epitek], segment: tw_semi_equipment, subsegment: front_end,
+     industry: semi_equipment, region: TW, products: [nickel, target], fit: {target: 1, titanium: 1, nickel: 3},
+     note: "磊晶 / CVD 設備與代理;腐蝕性製程氣體的管路、閥件與腔體零件適合耐蝕鎳基合金(C-22 / C-276),且正推動零組件國產化"}
+  - {name: 弘塑科技, aliases: [弘塑, GPTC], ticker: "3131", segment: tw_semi_equipment, subsegment: front_end,
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 2, nickel: 2},
+     note: "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃"}
+  - {name: 辛耘企業, aliases: [辛耘, Scientech], ticker: "3583", segment: tw_semi_equipment, subsegment: front_end,
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 2, nickel: 2},
+     note: "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應"}
+  - {name: 京鼎精密, aliases: [京鼎, Foxsemicon], ticker: "3413", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 1, titanium: 2, nickel: 3},
+     note: "國際設備大廠的模組與腔體零件代工,台灣與泰國同步擴產;高溫 / 耐蝕零件適合鎳基合金,真空與製程零件可用鈦材"}
+  - {name: 千附精密, aliases: [千附], ticker: "6829", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3},
+     note: "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接"}
+  - {name: 翔名科技, aliases: [翔名], ticker: "8091", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [nickel, titanium, target], fit: {target: 1, titanium: 3, nickel: 3},
+     note: "製程零組件與先進製程特化管路;耐蝕管路與零件適合鎳基合金,真空零件可用鈦"}
+  - {name: 公準精密, aliases: [公準], ticker: "3178", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2},
+     note: "薄膜、微影、量測與封裝設備的精密零組件;精密加工用鈦材與耐熱合金"}
+  - {name: 巧新科技, aliases: [巧新], ticker: "1563", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 1},
+     note: "以鍛造切入 CVD / PVD、蝕刻腔體零件(主材為鋁);可提案鈦與耐熱合金零件的材料方案"}
+  - {name: 倉佑實業, aliases: [倉佑], ticker: "1568", segment: tw_semi_equipment, subsegment: parts,
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2},
+     note: "高精密金屬加工轉進前段設備零組件,馬來西亞新廠量產爬坡;需要穩定的特殊合金原料來源"}
+  - {name: 帆宣系統, aliases: [帆宣, Marketech], ticker: "6196", segment: tw_semi_equipment, subsegment: facility,
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 3},
+     note: "廠務、氣化 / 供氣系統與設備代工;腐蝕性特殊氣體的管路與閥件適合鎳基合金"}
+  - {name: 漢唐集成, aliases: [漢唐集成, 漢唐(2404), United Integrated Services], ticker: "2404", segment: tw_semi_equipment, subsegment: facility,
+     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2},
+     note: "無塵室與廠務統包工程;化學品 / 特氣供應系統的耐蝕材料"}
+  - {name: 亞翔工程, aliases: [亞翔, L&K Engineering], ticker: "6139", segment: tw_semi_equipment, subsegment: facility,
+     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2},
+     note: "無塵室與機電統包;海外廠務專案的耐蝕管材"}
+  - {name: 志聖工業, aliases: [志聖], ticker: "2467", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 1, titanium: 1, nickel: 1},
+     note: "先進封裝壓合、貼膜與電鍍前處理設備(G2C+ 聯盟);電鍍前處理可用鈦治具"}
+  - {name: 均豪精密, aliases: [均豪], ticker: "5443", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1},
+     note: "先進封裝研磨拋光與量測檢測設備"}
+  - {name: 均華精密, aliases: [均華], ticker: "6640", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "先進封裝黏晶 / 撿晶設備"}
+  - {name: 東捷科技, aliases: [東捷], ticker: "8064", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 0},
+     note: "封裝與面板級封裝設備,半導體營收比重提升"}
+  - {name: 萬潤科技, aliases: [萬潤], ticker: "6187", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "先進封裝點膠、貼合等設備"}
+  - {name: 印能科技, aliases: [印能], ticker: "7734", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 2},
+     note: "高壓真空除泡 / 回焊等先進封裝熱製程設備;高溫壓力腔體零件適合耐熱合金"}
+  - {name: 鈦昇科技, aliases: [鈦昇], ticker: "8027", segment: tw_semi_equipment, subsegment: packaging,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 1, titanium: 1, nickel: 0},
+     note: "雷射與玻璃基板設備(公司名含「鈦」,已排除在鈦材字詞比對之外)"}
+  - {name: 家登精密, aliases: [家登, Gudeng], ticker: "3680", segment: tw_semi_equipment, subsegment: carrier,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 2, nickel: 0},
+     note: "EUV 光罩盒與晶圓載具,美國亞利桑那據點兼做航太精密加工;精密零件與航太鈦材"}
+  - {name: 家碩科技, aliases: [家碩], ticker: "6953", segment: tw_semi_equipment, subsegment: carrier,
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "光罩 / 載具清洗與自動化設備,南科新廠 2027 年投產"}

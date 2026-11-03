@@ -92,7 +92,7 @@ _JP_ORG = re.compile(r"(株式会社[぀-ヿ一-鿿A-Za-z]{2,10}|[぀-ヿ一-鿿
 # Generic words that look like a company name prefix but are not one.
 _GENERIC = re.compile(
     r"^(台灣|臺灣|台湾|中國|中国|國內|国内|全球|美國|美国|日本|韓國|韩国|歐洲|欧洲|我國|我国|國產|国产|本土|大陸|大陆|"
-    r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家)"
+    r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家|零件|零组件|零組件|設備|设备|製程|制程|關鍵|关键|高階|高阶|先進|先进|半導體|半导体|機械|机械)"
 )
 _EN_GENERIC = {"The", "A", "An", "New", "Global", "US", "U.S.", "China", "Taiwan", "Japan", "Korea", "Europe"}
 
@@ -154,12 +154,16 @@ def classify(
             products.append(p.key)
             if _hits(_strip(title, p.exclude).lower(), p.keywords):
                 relevance = 1.0
-    if not products:
-        return None
-
     low = raw.lower()
     title_low = title.lower()
     accounts = match_accounts(low, config.accounts)
+    if not products:
+        # Equipment makers' news rarely names a material ("京鼎擴建泰國二期"): for accounts with a
+        # judged product fit, the products they are likely to buy (fit ≥ 2) stand in, at lower relevance.
+        inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
+        if not inferred:
+            return None
+        products, relevance = inferred, 0.6
 
     # Industry per product: title hits count double; a matched account's industry wins.
     industries: dict[str, str] = {}

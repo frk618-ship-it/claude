@@ -269,3 +269,89 @@ def test_reclassify_applies_current_rules(cfg):
     assert reclassify(kept, cfg).id == "keep-id"
     manual = Signal(id="m-1", title="Titanium Court", origin="manual")
     assert reclassify(manual, cfg) is manual
+
+
+# ── segment analysis (台灣半導體設備廠) ──────────────────────────────────
+
+SEEDS = ROOT / "data" / "lead_radar" / "seeds" / "tw_semi_equipment.csv"
+
+
+def test_segment_config(cfg):
+    seg = cfg.segments["tw_semi_equipment"]
+    members = [a for a in cfg.accounts if a.segment == "tw_semi_equipment"]
+    assert len(members) >= 20 and all(a.subsegment in seg.subsegments for a in members)
+    assert all(set(a.fit) <= {"target", "titanium", "nickel"} and all(0 <= v <= 3 for v in a.fit.values()) for a in members)
+    assert next(a for a in members if a.name == "京鼎精密").note.endswith("真空與製程零件可用鈦材")   # comma inside a quoted note survives
+    assert cfg.intents["qualification"].action.endswith("爭取第二供應商資格")
+
+
+def test_config_rejects_comma_split_fields(tmp_path):
+    bad = CONFIG.read_text(encoding="utf-8").replace('action: "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日"', "action: 立即索取標案,確認投標資格")
+    p = tmp_path / "bad.yaml"
+    p.write_text(bad, encoding="utf-8")
+    with pytest.raises(ValueError, match="must be quoted"):
+        load_config(p)
+
+
+def test_equipment_news_infers_products_from_fit(cfg):
+    s = sig(cfg, "京鼎董事會通過泰國二期投資 擴建廠區")
+    assert s.orgs[0] == "京鼎精密" and set(s.products) == {"titanium", "nickel"} and s.relevance == 0.6
+    assert s.industries == {"titanium": "semi_equipment", "nickel": "semi_equipment"}
+    assert classify(cfg, title="某設備廠擴建新廠") is None                           # no product, no fitted account
+    assert classify(cfg, title="鈦昇玻璃基板雷射設備 小量產") is None                  # 「鈦昇」 is a company name, not titanium
+
+
+def test_segment_jobs(cfg):
+    jobs = build_jobs(cfg, "tw_semi_equipment")
+    labels = {j.label for j in jobs}
+    assert "客戶:京鼎精密" in labels and all(j.edition == "zh-TW" for j in jobs)
+    q = next(j.query for j in jobs if j.label == "客戶:京鼎精密")
+    assert "Foxsemicon" in q and "擴產" in q
+    assert not any(j.label == "客戶:京鼎精密" for j in build_jobs(cfg))           # general run leaves segment accounts to the segment run
+
+
+def test_seed_csv_keeps_named_company(cfg):
+    rows = load_csv(SEEDS, cfg)
+    assert len(rows) == 11 and all(r.origin == "manual" and r.link.startswith("https://") for r in rows)
+    jd = next(r for r in rows if "泰國二期" in r.title)
+    assert jd.orgs == ["京鼎精密"] and jd.intents[0] == "expansion"
+    ld = next(r for r in rows if "亞利桑那" in r.title)
+    assert ld.orgs == ["家登精密"]                                                   # no guessed "零件精密"
+
+
+def test_segment_report_ranks_every_account(cfg):
+    from lead_radar.segment import build_segment_report, render_accounts_csv, render_segment_markdown
+
+    rows = load_csv(SEEDS, cfg)
+    noise = sig(cfg, "Boeing titanium aircraft order", days_ago=2)                    # outside the segment
+    rep = build_segment_report(rows + [noise], cfg, "tw_semi_equipment", date(2026, 11, 3))
+    members = [a.name for a in cfg.accounts if a.segment == "tw_semi_equipment"]
+    accs = {a["org"]: a for a in rep["accounts"]}
+    assert set(accs) == set(members) and rep["segment"]["days"] == 120
+    assert noise.id not in {s["id"] for s in rep["signals"]}
+    # fit alone: 0.4 × fit; news adds 0.6 × signal score
+    quiet = accs["公準精密"]
+    assert quiet["signals"] == 0 and quiet["opportunity"] == pytest.approx(40.0) and quiet["tier"] == "持續觀察"
+    assert accs["京鼎精密"]["signals"] >= 1 and accs["京鼎精密"]["opportunity"] > quiet["opportunity"]
+    assert accs["京鼎精密"]["best_product"] == "nickel" and accs["天虹科技"]["best_product"] == "target"
+    assert [a["opportunity"] for a in rep["accounts"]] == sorted((a["opportunity"] for a in rep["accounts"]), reverse=True)
+    cells = {(c["subsegment"], c["product"]): c for c in rep["segment_cells"]}
+    assert cells[("parts", "titanium")]["count"] >= 2
+    assert all(c["level"] in ("neutral", "cold") for c in rep["segment_cells"] if c["subsegment"] == "other")
+    md = render_segment_markdown(rep)
+    assert "## 次產業 × 產品線熱點" in md and "京鼎精密" in md
+    assert render_accounts_csv(rep).startswith("﻿順位,公司,代號")
+
+
+def test_cli_segment_analyze(tmp_path, monkeypatch):
+    from lead_radar.cli import main
+
+    monkeypatch.chdir(ROOT)
+    db = tmp_path / "s.sqlite3"
+    assert main(["--db", str(db), "import", "--no-llm", str(SEEDS)]) == 0
+    out = tmp_path / "seg"
+    assert main(["--db", str(db), "analyze", "--segment", "tw_semi_equipment", "--asof", "2026-11-03", "-o", str(out), "--site", str(out / "site")]) == 0
+    assert (out / "2026-11-03-accounts.csv").exists() and "客群分析" in (out / "2026-11-03.md").read_text(encoding="utf-8")
+    page = (out / "site" / "index.html").read_text(encoding="utf-8")
+    assert '"segment": {"key": "tw_semi_equipment"' in page
+    assert main(["analyze", "--segment", "nope"]) == 2

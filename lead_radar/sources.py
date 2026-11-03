@@ -35,7 +35,23 @@ def _or(terms: list[str]) -> str:
     return " OR ".join(f'"{t}"' if " " in t else t for t in terms)
 
 
-def build_jobs(config: Config) -> list[Job]:
+def build_jobs(config: Config, segment: str | None = None) -> list[Job]:
+    """All searches; with `segment`, only that customer group's: its industries × products, and
+    every account in it by name + the segment's query terms (擴產、訂單…), since equipment makers'
+    news rarely names the materials they buy."""
+    if segment:
+        seg = config.segments[segment]
+        jobs = []
+        for p in config.products:
+            for ind_key in [i for i in seg.industries if i in p.industries]:
+                ind = config.industries[ind_key]
+                q = f"({_or(p.search)}) ({_or(ind.search[:4] or ind.keywords[:4])})"
+                jobs += [Job(f"{seg.name}:{p.name} × {ind.name}", q, ed) for ed in seg.editions]
+        for a in config.accounts:
+            if a.segment == segment:
+                q = f"({_or(a.aliases)}) ({_or(seg.query_terms[:8])})" if seg.query_terms else _or(a.aliases)
+                jobs += [Job(f"客戶:{a.name}", q, ed) for ed in seg.editions]
+        return jobs
     jobs: list[Job] = []
     for p in config.products:
         prod = _or(p.search)
@@ -45,6 +61,8 @@ def build_jobs(config: Config) -> list[Job]:
             jobs += [Job(f"{p.name} × {ind.name}", q, ed) for ed in p.editions]
         jobs += [Job(f"{p.name} × 招標採購", f"({prod}) ({_or(TENDER_TERMS)})", ed) for ed in p.editions]
     for a in config.accounts:
+        if a.segment:
+            continue            # searched by the segment run (`run --segment`)
         terms: list[str] = []
         for key in a.products or [p.key for p in config.products]:
             p = config.product(key)
@@ -67,18 +85,19 @@ def feed_urls(config: Config, job: Job) -> list[tuple[str, str]]:
     return urls
 
 
-def iter_urls(config: Config):
-    for job in build_jobs(config):
+def iter_urls(config: Config, segment: str | None = None):
+    for job in build_jobs(config, segment):
         for url, label in feed_urls(config, job):
             yield job, url, label
-    for f in config.settings.feeds:
+    for f in [] if segment else config.settings.feeds:
         yield Job(f.get("name", "RSS"), "", f.get("edition", "")), f["url"], f.get("name", "RSS")
 
 
-def collect(config: Config, fetch: Fetcher = http_fetch, *, sleep: Callable[[float], None] = time.sleep) -> list[Signal]:
+def collect(config: Config, fetch: Fetcher = http_fetch, *, sleep: Callable[[float], None] = time.sleep,
+            segment: str | None = None) -> list[Signal]:
     """Run every search; return classified signals (items that name no product line are dropped)."""
     signals: list[Signal] = []
-    jobs = list(iter_urls(config))
+    jobs = list(iter_urls(config, segment))
     failures = 0
     for i, (job, url, label) in enumerate(jobs):
         if i and config.settings.request_delay:
@@ -148,13 +167,14 @@ def load_csv(path: str | Path, config: Config) -> list[Signal]:
                 sig.region = row["region"]
             if row.get("intent") in config.intents:
                 sig.intents = [row["intent"]] + [i for i in sig.intents if i != row["intent"]]
-            if org:
-                sig.orgs = [org] + [o for o in sig.orgs if o != org]
+            if org:   # the row names the company: keep it and matched accounts, skip name guessing
+                sig.orgs = [org] + [a for a in sig.accounts if a != org]
             try:
                 sig.weight_hint = float(row.get("weight") or 0)
             except ValueError:
                 sig.weight_hint = 0.0
             sig.relevance = 1.0
+            sig.noise = False          # rows are picked by a person, not stock chatter
             sig.id = "m-" + signal_id(f"{org}|{title}|{sig.published}")
             out.append(sig)
     return out
