@@ -93,6 +93,7 @@ class Settings:
     noise_terms: list[str] = field(default_factory=list)
     noise_factor: float = 0.3
     drop_terms: list[str] = field(default_factory=list)
+    primary_segment: str = ""        # the radar's main page (/leads/); empty = the first segment
     exclude_orgs: list[str] = field(default_factory=list)
 
 
@@ -105,6 +106,13 @@ class Config:
     regions: dict[str, Region]
     accounts: list[Account]
     segments: dict[str, Segment] = field(default_factory=dict)
+
+    @property
+    def segment_order(self) -> list[str]:
+        """Segments with the primary one (the radar's main page) first."""
+        keys = list(self.segments)
+        main = self.settings.primary_segment or (keys[0] if keys else "")
+        return [main] + [k for k in keys if k != main] if main else keys
 
     def product(self, key: str) -> Product | None:
         return next((p for p in self.products if p.key == key), None)
@@ -162,6 +170,7 @@ def load_config(path: str | Path) -> Config:
         noise_terms=[str(t) for t in s.get("noise_terms", []) or []],
         noise_factor=float(s.get("noise_factor", 0.3)),
         drop_terms=[str(t) for t in s.get("drop_terms", []) or []],
+        primary_segment=str(s.get("primary_segment", "") or ""),
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
     )
     industries = {
@@ -222,6 +231,8 @@ def load_config(path: str | Path) -> Config:
             days=int(v.get("days", 0) or 0),
             half_life_days=float(v.get("half_life_days", 0) or 0),
         )
+    if settings.primary_segment and settings.primary_segment not in segments:
+        raise ValueError(f"settings.primary_segment {settings.primary_segment}: no such segment")
     for a in accounts:
         if a.segment and a.segment not in segments:
             raise ValueError(f"account {a.name}: unknown segment {a.segment}")

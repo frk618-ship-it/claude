@@ -19,6 +19,7 @@ from datetime import date, datetime
 
 from .config import Config, Segment
 from .hotspot import Cell, getis_ord, level_of, signal_heat, story_factors
+from .leads import org_weights
 from .report import build_report
 from .signals import OTHER, Signal
 
@@ -65,11 +66,13 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     evidence: dict[str, list[tuple[float, str]]] = {n: [] for n in members}
     for s in window:
         h = signal_heat(s, cfg, asof) * factors.get(s.id, 1.0)
+        weights = org_weights(s, cfg)
         for org in set(s.orgs) | set(s.accounts):
             if org in members:
+                hw = h * weights.get(org, 0.5)
                 for p in s.products:
-                    heat[org][p] += h
-                evidence[org].append((h, s.id))
+                    heat[org][p] += hw
+                evidence[org].append((hw, s.id))
     leads = {l["org"]: l for l in rep["leads"]}
     accounts = []
     for name, a in members.items():
@@ -124,9 +127,11 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
 
     rep["segment"] = {
         "key": key, "name": seg.name, "description": seg.description,
-        "subsegments": {**seg.subsegments, OTHER: "其他設備業者"},
+        "subsegments": {**seg.subsegments, OTHER: "其他未歸戶業者"},
         "days": cfg.settings.days, "half_life_days": cfg.settings.half_life_days,
     }
+    order = cfg.segment_order
+    rep["segment_pages"] = [{"key": k, "name": cfg.segments[k].name, "primary": i == 0} for i, k in enumerate(order)]
     rep["accounts"] = accounts
     rep["segment_cells"] = seg_cells
     rep["stats"]["accounts"] = len(accounts)

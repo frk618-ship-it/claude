@@ -13,6 +13,17 @@ def render_page(report: dict | None) -> str:
     return TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", data, 1)
 
 
+def write_segment_sites(reports: list[dict], out_dir: str | Path) -> list[Path]:
+    """The radar's pages: the primary segment at <out>/index.html (the site's /leads/), every other
+    segment at <out>/<key>/index.html; the pages link to each other through the segment tabs."""
+    out = Path(out_dir)
+    pages = []
+    for rep in reports:
+        primary = next((p["primary"] for p in rep.get("segment_pages", []) if p["key"] == rep["segment"]["key"]), False)
+        pages.append(write_site(rep, out if primary else out / rep["segment"]["key"], root="../" if primary else "../../"))
+    return pages
+
+
 def write_site(report: dict | None, out_dir: str | Path, nav: bool = True, root: str = "../") -> Path:
     """Static page for the published site (``site/leads/``), with the site's page switcher."""
     out = Path(out_dir)

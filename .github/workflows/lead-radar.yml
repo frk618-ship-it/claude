@@ -1,7 +1,8 @@
 name: 商機雷達
-# 每週蒐集靶材、純鈦 / 鈦合金、鎳基合金的需求訊號(新聞、標案、擴產、缺料…),做熱點分析並產生潛在客戶名單;
-# 另對設定檔 segments 中的每個客群(例如台灣半導體設備廠)做客群分析 → reports/leads/segments/<key>/,網頁 <網站>/leads/<key>/。
-#   reports/leads/YYYY-MM-DD.json / .md / -leads.csv,訊號歷史存在 data/lead_radar/signals.sqlite3(用來比較逐週熱度)。
+# 每週對設定檔 segments 中的每個客群(主要客群:台灣半導體設備廠;另有半導體生產供應鏈)蒐集靶材、純鈦 / 鈦合金、
+# 鎳基合金的需求訊號(擴產、訂單、缺料、認證…),做熱點分析並產生開發名單 → reports/leads/segments/<key>/;
+# 網頁:主要客群在 <網站>/leads/,其他客群在 <網站>/leads/<key>/。
+# 訊號歷史存在 data/lead_radar/signals.sqlite3(用來比較逐週熱度)。
 # 完成後 commit 回 main,再呼叫「發布網站」workflow 重新發布(網頁在 <網站>/leads/;bot 的推送不會自動觸發它)。
 # 選填 secret:ANTHROPIC_API_KEY(Claude 判讀買方 / 供應商、需求摘要與急迫度;沒設時用關鍵字規則)。
 
@@ -45,7 +46,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Collect signals and build the prospect list
+      - name: Collect signals and build each segment's prospect list
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DAYS: ${{ inputs.days }}
@@ -54,18 +55,7 @@ jobs:
           args=""
           if [[ "$DAYS" =~ ^[0-9]+$ ]]; then args="$args --days $DAYS"; fi
           if [ "$NO_LLM" = "true" ]; then args="$args --no-llm"; fi
-          python -m lead_radar -v run $args
-
-      - name: Segment analysis (客群分析)
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          NO_LLM: ${{ inputs.no_llm }}
-        run: |
-          args=""
-          if [ "$NO_LLM" = "true" ]; then args="--no-llm"; fi
-          for seg in $(python -c "import yaml; print(' '.join((yaml.safe_load(open('config/lead_radar.yaml', encoding='utf-8')).get('segments') or {}).keys()))"); do
-            python -m lead_radar -v run --segment "$seg" $args
-          done
+          python -m lead_radar -v run $args   # 全部客群,主要客群優先
 
       - name: Commit report
         id: commit
