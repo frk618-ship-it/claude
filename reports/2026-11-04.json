@@ -2,19 +2,22 @@
   "generated": "2026-11-04T08:28:34.477464+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 57 則,其中新聞與公司公告 47 則;報導最多的是 華邦電(23 則)、SK海力士(4 則)、台積電(4 則)、Materion(4 則)。依主題:擴產與投資 23 則、產業動態 15 則、營收與財報 5 則、客戶與供應鏈 2 則、原物料與價格 1 則。",
+    "overview": "本期焦點為華邦電:第三季每股盈餘 7.58 元、毛利率突破 70%,董事會通過 731 億元資本支出擴建高雄 12 吋廠,預計 12 月底動工、2029 年下半年小量出貨,並與逾 10 家客戶洽談長約,看明年記憶體供給更吃緊。封裝端矽品砸千億元在中科二林擴產,長電科技追加 72 億元先進封裝投資並推進高深寬比 TSV。政策面,美國暫緩 SK海力士中國廠擴產設備進口,其赴美投資案也陷僵局。Materion 上調全年展望,即將公布第三季財報;貴金屬普遍下跌,鈀金跌逾 3%。",
     "key_trends": [
-      "擴產與投資(23 則):早安世界》華邦電擴大資本支出高雄新廠12月29日動工環球晶美光深化合作| 生活",
-      "產業動態(15 則):華邦電再砸731.63億 擴建高雄12吋廠",
-      "營收與財報(5 則):Materion, 사상 최대 실적 후 연간 전망 상향…3분기 실적 발표 앞둬",
-      "客戶與供應鏈(2 則):5年砸千億美元資本支出想挑戰臺積電 如今英特爾晶圓代工卻面臨考驗、股價1個月跌45％"
+      "記憶體擴產:華邦電 731 億元擴建高雄廠,客戶長約鎖定 2029~2032 年產能",
+      "先進封裝擴產:矽品中科二林千億元擴產,長電科技追加 72 億元",
+      "美中管制:美國暫緩 SK海力士中國廠設備進口",
+      "靶材相關市場:碳化鉻、ITO 濺鍍設備市場報告,高純鉻產能可依訂單調整",
+      "貴金屬回落,鉑、鈀跌幅較大"
     ],
     "watch_points": [
-      "早安世界》華邦電擴大資本支出高雄新廠12月29日動工環球晶美光深化合作| 生活(中央社 CNA)",
-      "속도보다 지속성...삼성전자·SK하이닉스, 증설 방법도 '유연성'에 집중(글로벌이코노믹)",
-      "【華邦電法說】第三季每股狂賺7.58元！毛利率突破70% 砸731億擴高雄新廠| 財經焦點(太報 TaiSounds)"
+      "華邦電高雄新廠動工後的設備與靶材採購時程",
+      "矽品、長電科技封裝擴產對 Ti、Cu 靶材的拉貨",
+      "SK海力士中國廠擴產受阻對記憶體供需與靶材需求的影響",
+      "Materion 第三季財報中的靶材業務",
+      "鉑、鈀價格下行對貴金屬靶材報價的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,8 +37,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電擴大資本支出,高雄新廠 12 月 29 日動工;環球晶與美光深化合作。與同期華邦電擴產報導相關。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -56,9 +59,9 @@
         "客戶與供應鏈"
       ],
       "score": 6.24,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "三星電子與 SK海力士擴產強調彈性與持續性而非速度。記憶體擴產節奏影響靶材拉貨。",
+      "importance": 3,
+      "title_zh": "速度不如持續:三星電子、SK海力士擴產也重視「彈性」",
       "snippet_zh": ""
     },
     {
@@ -73,13 +76,13 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
-        "擴產與投資",
         "營收與財報",
+        "擴產與投資",
         "技術與新產品"
       ],
       "score": 6.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電第三季每股盈餘 7.58 元、毛利率突破 70%,並砸 731 億元擴建高雄新廠。華邦電董事會通過 731 億元資本支出,擴建高雄 12 吋晶圓廠。記憶體擴產將帶動 PVD 機台與 Cu、Ti、W 等靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -95,13 +98,14 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美國阻擋 SK海力士中國廠擴產,450 億美元紐約投資也受影響。美中管制可能改變記憶體擴產地點與靶材供應鏈。",
+      "importance": 4,
+      "title_zh": "美國阻擋 SK海力士中國廠擴產,450 億美元紐約投資也受波及",
       "snippet_zh": ""
     },
     {
@@ -116,12 +120,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "SK海力士赴美投資案陷入僵局,中國廠擴產籌資遭美國商務部卡關。與同期報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -137,13 +142,14 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "路透報導美國暫緩 SK海力士中國廠擴產設備進口。設備受阻將影響其中國廠擴產與靶材需求。",
+      "importance": 4,
+      "title_zh": "路透:美國暫緩 SK海力士中國廠擴產設備進口",
       "snippet_zh": ""
     },
     {
@@ -162,8 +168,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電 731 億元擴建新廠,精選 10 家 PLTA 客戶鎖定 2029~2032 年產能。長約鎖定顯示擴產需求明確。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -183,8 +189,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電表示逾 10 家客戶洽談長約,不怕景氣反轉持續擴產。與同期報導相關。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -200,12 +206,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電第三季自由現金流近 300 億元,營運現金足以支應擴產。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -225,8 +231,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擴產消息支撐股價,但 4 檔概念股遭倒貨。屬股市行情。",
+      "importance": 2,
       "title_zh": "【即時新聞】臺積電(2330)擴產報喜股價有撐，這「4檔概念股」慘遭倒貨下殺！",
       "snippet_zh": ""
     },
@@ -242,12 +248,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.28,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電職災造成 6 人死亡,勞動部將啟動高科技建廠專案檢查。與前一日報導重複。",
+      "importance": 2,
       "title_zh": "臺積電爆職災釀6死 勞動部出手：將啟動高科技建廠專案檢查",
       "snippet_zh": ""
     },
@@ -267,8 +274,8 @@
         "擴產與投資"
       ],
       "score": 5.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽品砸千億元在中科二林擴產,日月光集團衝刺先進封裝。大規模封裝擴產將帶動 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -285,11 +292,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 4.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾計畫 5 年投入千億美元資本支出挑戰台積電,但晶圓代工面臨考驗,股價一個月跌 45%。英特爾擴產能否持續影響靶材需求。",
+      "importance": 3,
       "title_zh": "5年砸千億美元資本支出想挑戰臺積電 如今英特爾晶圓代工卻面臨考驗、股價1個月跌45％",
       "snippet_zh": ""
     },
@@ -309,8 +317,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 巨頭現金流轉負引發疑慮,聯發科、日月光重挫;分析師認為砍資本支出才危險。屬市場評論。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -330,8 +338,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "先進封裝與矽光子掀起擴產潮,封測廠砸千億元加碼,台積電領軍受惠。有利封裝用靶材需求。",
+      "importance": 3,
       "title_zh": "先進封裝與矽光子掀擴產潮！封測廠狂砸千億加碼，臺積電領軍受惠-財經焦點情報站",
       "snippet_zh": ""
     },
@@ -350,8 +358,8 @@
         "擴產與投資"
       ],
       "score": 4.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導整理金融資安風險與記憶體擴產潮,含華邦電 731 億元布局。與同期報導相關。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -370,8 +378,8 @@
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電董事會通過 731 億元資本支出,擴建高雄 12 吋晶圓廠。記憶體擴產將帶動 PVD 機台與 Cu、Ti、W 等靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -390,8 +398,8 @@
         "擴產與投資"
       ],
       "score": 4.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電砸 731 億元擴產。與同期報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -410,8 +418,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電通過 731 億元資本支出,高雄新廠擬 12 月 29 日動工。記憶體擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -430,8 +438,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電董事會通過南科高雄園區 12 吋晶圓廠擴建計畫及購買設備案,預計投資 731.63 億元。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -450,8 +458,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電看明後年記憶體供需維持緊張,砸 731 億元續擴產。供需吃緊支撐擴產與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -470,8 +478,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電再砸 731 億元資本支出擴建高雄新廠,預計年底動工。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -487,11 +495,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "記憶體產業復甦強勁,華邦電前三季大賺每股 15 元並砸 731 億元擴產。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -510,8 +519,8 @@
         "擴產與投資"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電稼動率回到 92%,分析 32 億美元擴產能否被長約吸收。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -530,9 +539,9 @@
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 在創紀錄單季後上調全年展望,即將公布第三季財報。可留意其靶材業務表現。",
+      "importance": 3,
+      "title_zh": "Materion 創紀錄後上調全年展望,即將公布第三季財報",
       "snippet_zh": ""
     },
     {
@@ -550,9 +559,9 @@
         "營收與財報"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 在創紀錄季度後上調財測,財報即將公布。與同期報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Materion 創紀錄季度後上調財測,財報即將公布",
       "snippet_zh": ""
     },
     {
@@ -570,8 +579,8 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電單季每股盈餘 7.58 元、毛利率衝破七成,再砸 731 億元擴建高雄 12 吋廠。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -587,13 +596,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "原物料與價格",
-        "回收與循環"
+        "回收與循環",
+        "原物料與價格"
       ],
       "score": 3.77,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬供應銅原料 100% 回收的壓延銅箔,用於軟性印刷電路板等。顯示其銅材循環能力。",
+      "importance": 3,
+      "title_zh": "JX金屬供應銅原料 100% 回收的壓延銅箔,用於軟性印刷電路板等",
       "snippet_zh": ""
     },
     {
@@ -611,8 +620,8 @@
         "技術與新產品"
       ],
       "score": 3.57,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技在高深寬比 TSV 研發取得進展。TSV 製程需 PVD 鍍製阻障與種子層,有利 Ta、Cu 靶材需求。",
+      "importance": 3,
       "title_zh": "長電科技：公司在高深寬比TSV研發取得積極進展",
       "snippet_zh": ""
     },
@@ -631,8 +640,8 @@
         "擴產與投資"
       ],
       "score": 3.56,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技追加 72 億元先進封裝產線投資。中國封測擴產將帶動 PVD 靶材需求。",
+      "importance": 4,
       "title_zh": "72億！長電科技追加先進封裝產線投資",
       "snippet_zh": ""
     },
@@ -651,9 +660,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元與殖利率走強,金價再度走低,市場關注美國期中選舉。屬金價評論。",
+      "importance": 1,
+      "title_zh": "美元、殖利率走強,金價再度走低;市場關注美國期中選舉",
       "snippet_zh": ""
     },
     {
@@ -671,8 +680,8 @@
         "原物料與價格"
       ],
       "score": 3.18,
-      "summary": "",
-      "importance": 0,
+      "summary": "大宗商品綜述:油價重挫,銅價與金價反彈。銅價影響 Cu 靶材原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -691,8 +700,8 @@
         "營收與財報"
       ],
       "score": 3.07,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子第三季淨利潤年增 83%、季減 17%。與前幾日財報報導相關。",
+      "importance": 3,
       "title_zh": "19:38:36【江豐電子：第三季度淨利潤同比增長83% 環比下降17%】",
       "snippet_zh": ""
     },
@@ -711,8 +720,8 @@
         "營收與財報"
       ],
       "score": 3.04,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 先進封裝推升毛利率至 18.3%。與前一日報導重複。",
+      "importance": 2,
       "title_zh": "Amkor先進封裝拉昇毛利率至18.3%，第四季運算業務營收估年增逾五成| 優分析",
       "snippet_zh": ""
     },
@@ -728,11 +737,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電再砸 731.63 億元擴建高雄 12 吋廠。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -748,11 +758,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "盤前要聞:華邦電斥資 731 億元擴建高雄廠,環球晶擬發行 5 億美元私募可轉債。",
+      "importance": 3,
       "title_zh": "〈臺股盤前要聞〉華邦電斥資731億元擴建高雄廠、環球晶擬發行5億美元私募可轉債",
       "snippet_zh": ""
     },
@@ -768,11 +779,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電通過 731 億元資本支出,高雄 Module B 年底動土,2029 年下半年起小量出貨。新產能時程可作為靶材供貨規劃參考。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -788,11 +800,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電法說指明年記憶體供給恐比今年更吃緊,斥資 731 億元擴建高雄廠。記憶體缺貨將支撐擴產與靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -808,11 +821,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電第三季獲利 354 億元,宣布再砸 731 億元擴建高雄廠。",
+      "importance": 3,
       "title_zh": "華邦電Q3賺354億 宣佈再砸731億擴建高雄廠",
       "snippet_zh": ""
     },
@@ -828,11 +842,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電迎戰記憶體大缺貨潮,731 億元擴建高雄廠,半年配息 2 元。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -848,11 +863,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11 月 3 日下跌 6.86%。屬股價行情。",
+      "importance": 1,
       "title_zh": "11月3日江豐電子跌6.86%，半導體設備ETF國泰基金重倉該股",
       "snippet_zh": ""
     },
@@ -868,11 +884,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電前三季每股盈餘 15.32 元,砸 731 億元擴建高雄廠,法說前夕股價跌停。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -888,11 +905,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電通過 731 億元資本支出案,高雄廠第二期預計 12 月底動工。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -908,11 +926,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電再砸 731 億元資本支出擴建高雄 12 吋廠。與同期報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -928,12 +947,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion(MTRN)選擇權報價頁。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(MTRN)選擇權報價",
       "snippet_zh": ""
     },
     {
@@ -948,11 +968,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創截至 10 月 30 日股東戶數 38,446 戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "阿石創：截至2026年10月30日股東戶數為38,446戶_公司新聞",
       "snippet_zh": ""
     },
@@ -968,11 +989,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子融資淨買入 975.55 萬元,融資餘額 12.67 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "江豐電子：融資淨買入975.55萬元，融資餘額12.67億元",
       "snippet_zh": ""
     },
@@ -988,11 +1010,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子(300666)股東人數資料頁。屬資料頁。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1008,11 +1031,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "研究以空氣退火誘導垂直元素梯度,調控圓柱靶(旋轉靶)濺鍍 ITO 薄膜的缺陷化學與光電性能。可供 ITO 旋轉靶應用參考。",
+      "importance": 3,
       "title_zh": "空氣退火誘導垂直元素梯度調控圓柱靶濺射ITO薄膜缺陷化學與光電性能",
       "snippet_zh": ""
     },
@@ -1028,12 +1052,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美國就業數據強勁推升殖利率,金銀價格在選舉日下跌。",
+      "importance": 2,
+      "title_zh": "美國就業數據強勁推升殖利率,選舉日金銀下跌",
       "snippet_zh": ""
     },
     {
@@ -1048,12 +1073,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "文章分析金價自歷史高點重挫近 30% 所反映的市場與經濟訊號。",
+      "importance": 2,
+      "title_zh": "金價自歷史高點重挫近 30%,透露了哪些市場與經濟訊號",
       "snippet_zh": ""
     },
     {
@@ -1068,12 +1094,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "選舉不確定性推升金價至 3,966 美元,白銀重回 50 美元。",
+      "importance": 2,
+      "title_zh": "選舉不確定性占上風:金價升至 3,966 美元,白銀重回 50 美元",
       "snippet_zh": ""
     },
     {
@@ -1088,11 +1115,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析期中選舉行情下金價能否翻身。屬金價評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1108,12 +1136,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion(MTRN)季節性報酬圖表。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(MTRN)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -1128,11 +1157,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析師認為貴金屬暴跌未必是基本面危機,可能是長期買入機會。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1148,11 +1178,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "印度今日金價下跌。屬地區金價資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1168,11 +1199,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.18,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子截至 10 月 20 日股東戶數 8.11 萬戶,較上期減少 1.13%。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "江豐電子：截至10月20日最新股東戶數8.11萬戶，較上期減少1.13%",
       "snippet_zh": ""
     }
