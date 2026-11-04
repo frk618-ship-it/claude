@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T08:28:34.477464+08:00",
+  "generated": "2026-11-04T09:38:23.407271+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為華邦電:第三季每股盈餘 7.58 元、毛利率突破 70%,董事會通過 731 億元資本支出擴建高雄 12 吋廠,預計 12 月底動工、2029 年下半年小量出貨,並與逾 10 家客戶洽談長約,看明年記憶體供給更吃緊。封裝端矽品砸千億元在中科二林擴產,長電科技追加 72 億元先進封裝投資並推進高深寬比 TSV。政策面,美國暫緩 SK海力士中國廠擴產設備進口,其赴美投資案也陷僵局。Materion 上調全年展望,即將公布第三季財報;貴金屬普遍下跌,鈀金跌逾 3%。",
@@ -20,6 +20,354 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "46adfa0ecdcd025b",
+      "title": "SK海力士大連廠擴產卡關牽動450億美元赴美建廠計畫",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE44cTJiX1I1WDh5azRuVDhackZkMVEtUXhRQ1JxNk1ZaVpnNEUtZE50Mm4yNmxPSFppYjNpcWRSZ0lEZmNudXhOMlJQMVd5bHc?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-04T00:30:06+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "703d88a606a07e7a",
+      "title": "美 상무부, SK하이닉스 中 다롄 공장 증설용 장비 허가 보류…뉴욕 투자에도 영향",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9yNFRqREJWRG5pTnVMVWpldUJsTUdqMkZjT3ZEaWRPVlU4ZWExM1lhRl9YLWplZmR3VXFHOTAtSGh4SVZvbVNHbWxSeTdKQQ?oc=5",
+      "source": "전자신문",
+      "published": "2026-11-04T00:20:47+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8cf898b296500a30",
+      "title": "國際產經：大連設備許可卡關，SK海力士450億美元紐約建廠案添變數",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUVpwcXJXYk55QVBaZ0Utdm9wUjdSUjF4a3N3N3ZkYWx5RmcxRU1nT1d0ZmZRd0VLalA0RFF3MUg3cTA1dVVsWmlsU01zN21jdmFQcHF4LTAzMUZES0FjX0dDYlhlV1hYaDhaVkgzUlFFdmpIclB6Vmh6b0NJZkJLT0Y4MFVfMU5G?oc=5",
+      "source": "富聯網",
+      "published": "2026-11-03T23:28:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "60544fc03971f2ed",
+      "title": "SK海力士赴美建廠傳卡關 因美限制中國擴產設備許可",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9SSXAxZ1VrQnl0dUljY21VMHBIZWtCcGhVV3JVdmVMb0FqeThmY3F0bFczOTJqenNWanA4Z1MxVUU3bWNzLTNRTWtLRWpsUHFZXzdWMm9sTDRZaV9fUFkyY2ZsTFUxZw?oc=5",
+      "source": "民視財經網",
+      "published": "2026-11-03T22:09:11+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4082bcf4cdf2b5c2",
+      "title": "美, SK하이닉스 中 공장 증설 제동…450억달러 뉴욕 투자도 차질",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE4yMVFucHp6ckdINlZIVnlBejhwSGgxN0ZRM0VxSGVveTRiWFppbS01c00wM3ExYk9qSDhuZFBydVRkV0hYaTJ6dktsR2FPYU1vRUhmbUZGdGRGRXJHMGRCRFB0MjBzMGli?oc=5",
+      "source": "www.ebn.co.kr",
+      "published": "2026-11-03T21:07:58+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0a4274556de385e7",
+      "title": "SK海力士在中國擴產設備許可未獲批，紐約建廠450億美元投資計畫遇變數",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPZ2xPaUJVWFBDdjEtaml6Q0R5cHhCR2lIZzlVWndFdldtOWR5TjlQMHdickZjdTc2dmJlU25FcUdrX0U5QjNORGlfS2NyVW85czNoT2VnVVJRWWlpMElLVEphYlRMRFIzUzhsSDhDZWgyTmZfVEZiaWQ2eE9zVHV5N0xxdEdPdkJvTURESm5UdFd4dm1IWS1JQ0tSMWFoVzJSdkRya3FEdXQ4ZkF1elpQc2FTZ3FQZjItUU0tU3BhNHFFTURLdXJuTVd6ZENuLUp4WlhieVQyUXRXdw?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-03T19:36:02+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b586c2323f1709f2",
+      "title": "JX金属、銅原料100%リサイクルの圧延銅箔を販売開始…独自の不純物分離技術を活用",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9JZUw3bHIxT3FxSV9KZUpIYlNGZE9vMG9Ncl9ibE85a09jSk0zbFc5OUYzbnQzcGxrbl9nN3BvLTgzOHNXbGExd09UNl9XUHZObkREei14ajlpb21VWG1r?oc=5",
+      "source": "レスポンス（Response.jp）",
+      "published": "2026-11-04T01:15:03+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "原物料與價格",
+        "技術與新產品",
+        "回收與循環"
+      ],
+      "score": 4.6,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8d55ec2c3b38b7e8",
+      "title": "華邦電砸731億擴產 法人估Q4記憶體最高漲幅20％ 曝攜手日韓MLCC大廠拓AI市場",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBCYktRUGh4eWxqSnhVa255V1M2QUhHa3ZFSVVvZ0tzZVcxZVdOa2dKWVlwdGZKS2huM0RFZGN6UlhmQnMydGEtbG8wUVVONVlBc3RHUTZHOXZ6bk1Md1E0?oc=5",
+      "source": "工商時報",
+      "published": "2026-11-03T19:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "華邦電 (Winbond)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8f0fd0afb964418f",
+      "title": "아바코 투자분석 2026. 11. 01",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1CNndtWkVBeU5FRUdkN0lvcU80ZTl1Z3dkZnBlYkh6THFEUks4ajRIOUJQbzRqRExUUF9kM3hILTVqTzRYWjEzSHdNbV8tMDhwYUd0VjFyTEI5VDFEX0tTUmZZbXptZ1NNQXFfZVZPUVJ6TWc?oc=5",
+      "source": "주달",
+      "published": "2026-11-01T09:29:17+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.12,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "54380db68572eb0b",
+      "title": "7~9月黃金投資需求下降14％",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMEJENGdBVTJneHIxdno3alFyM2VQdV9lOGstbUV6RHpxZkNvZDJOSGZ3QzhWclB6YTJ1Tm51TlU4T01VTjRkS0lvRlVOdzhMSUU3ZjVhd0FNd3JpZXlWVGxvcDJ6ckwwRmFmVnJMSDVmdzZTZnozX01YbXBRSGZ5MWlpRHlFZ0JnclE?oc=5",
+      "source": "日經中文網",
+      "published": "2026-11-04T01:22:45+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ca30f809edf91809",
+      "title": "華邦電法說會登場！Q3賺354億、EPS 7.58元 再砸731億擴建高雄廠",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9IQ1IzaWgwZksxOWc4OEJOX285S1VOdzMxZUZCQ1ppWmwwbE5GaEJqaEhHTzVVcVl0cE9vZnFwaUpOUFRIdHhyVGJMbWNGcEhldnfSAVJBVV95cUxPSENSM2loMGZLMTlnODhCTl9vOUtVTnczMWVGQkNaaVpsMGxORmhCamhIR081VXFZdHBPb2ZxcGlKTlBUSHR4clRiTG1jRnBIZXZ3?oc=5",
+      "source": "NOWnews今日新聞",
+      "published": "2026-11-03T10:29:32+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "華邦電 (Winbond)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a78fffd4df9fb365",
+      "title": "A Look at Materion Corp (MTRN) After 4.9% Gain -- GF Value $156.62 vs Price $227.43",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZzd4clJEcm9HcXNjbHptcFVyVzlHaWlhUkM3X2dZcF9IMU5wLVBrM3JHc3djSGlMSGo2NmRPTzBYcHZPVDJpcFNSaTVCSkd0aVJTU3Z0UVVFYjVNMURlaFBHR2RCbHdibU9ySk1WNDBrSGxsNEoxdmdUUEhSbTFGcEppTlJNX012ancxZkR5WjA3dk9kOEx4YkJNYk9fSG5DQnNva3FfQnlmQ3ZIOGwtMQ?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-11-04T00:35:20+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.79,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "89d6bd3fb2e45ad3",
+      "title": "TWA00 加權指數- 半導體多空交錯：聯電砸千億擴產，台達電遇壓- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1wLVZya1YzeWhTWG9OR21mRzRSaWd1a0toRG9uZlhzMmFWQXBDQUpfb3RGZExZNWd6UDMtRlR4WFJYcy1WVFZXb1NJaUFuNDM2cXl5Y2RZNTg?oc=5",
+      "source": "CMoney",
+      "published": "2026-10-28T17:33:06+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "聯電 (UMC)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.59,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "TWA00 加權指數- 半導體多空交錯：聯電砸千億擴產，臺達電遇壓- 股市爆料同學會",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4c54faa9d387d047",
+      "title": "有研新材（600206）11月3日主力资金净卖出2.06亿元_主力研究",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1pSnFWT01wNklQLU5HcHV2U1dCRXVKYTg0TzJ1T2Z1QjRVbl9EWGtpa1RHX0FSYW1jeFVEcEpjVm95RlMtUHZlS0U4Q0M4ei1GREFNbEthSE42YjIteVBtTA?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-04T01:09:25+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "有研新材（600206）11月3日主力資金淨賣出2.06億元_主力研究",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b1e5a54c1815ab8c",
+      "title": "11月2日江丰电子涨6.34%，半导体设备ETF国泰基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9mb1h2WUJFUGFZSWRibVFqejlndHVUOWI1OW9FdjEtN0syeDJOU0o1Q05UTGIwSjZnaXRUYUdvd2ZLQVE4bmM4Q1Y5b25nU3VndFE?oc=5",
+      "source": "搜狐网",
+      "published": "2026-11-02T09:27:52+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.76,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "11月2日江豐電子漲6.34%，半導體設備ETF國泰基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "079ad519b231a8a6",
+      "title": "江丰电子：关于向金融机构新增综合授信额度的公告",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQRThSdzB0VVhlUWRIaVV6ZWdZaE14TlhxNTV2Q0hCVTM3MDNuRFBDbUh0ZDhTekNoZktSOF92Nkd6ZlNzcTd6SjR6VEcxYS1YQ3JBRFBqQV94WG80c2NlZDc5UzBmSkpzWDNnUDlhVHpDOG50Q1I4RDE4YUxWbjJScllqSTFWSjJWSU9sRWQ0YjgxYzJkWm5uTXFpSVVUaHdMTkNfaDFoUFFWVDA1UFZmVFQwLXJYWnkyVENZOEF4UnlhSHZSZ2RsZg?oc=5",
+      "source": "Moomoo",
+      "published": "2026-10-31T05:46:42+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.45,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "江豐電子：關於向金融機構新增綜合授信額度的公告",
+      "snippet_zh": ""
+    },
+    {
+      "id": "281c46a97cc56ea3",
+      "title": "江丰电子：获不超9000万元股票回购专项贷款承诺",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBYdGh5eXhsVmw0NkxZdzBWMlNZTkt5R2cxdmxqckxUdE0zRnh5cWhINDVZRW5sLW4xa1hIRHdKNmhBWC1yS3lPMlg0Tjd6azNub0NpTg?oc=5",
+      "source": "富途牛牛",
+      "published": "2026-10-29T08:01:57+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.18,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "江豐電子：獲不超9000萬元股票回購專項貸款承諾",
+      "snippet_zh": ""
+    },
     {
       "id": "636cc0015cd69dc7",
       "title": "早安世界》華邦電擴大資本支出高雄新廠12月29日動工環球晶美光深化合作| 生活",
@@ -1213,42 +1561,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3946.3,
+      "price": 3965.5,
       "prev": 3969.6,
       "date": "2026-11-04",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.59
+      "change_pct": -0.1
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 49.76,
+      "price": 50.03,
       "prev": 50.72,
       "date": "2026-11-04",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.89
+      "change_pct": -1.36
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1422.5,
+      "price": 1427.2,
       "prev": 1459.0,
       "date": "2026-11-04",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -2.5
+      "change_pct": -2.18
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 934.5,
+      "price": 941.0,
       "prev": 965.1,
       "date": "2026-11-04",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -3.17
+      "change_pct": -2.5
     }
   ],
   "papers": [],
