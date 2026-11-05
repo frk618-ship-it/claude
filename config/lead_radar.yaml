@@ -61,7 +61,7 @@ products:
     keywords: [靶材, 濺鍍, 濺射, 溅射, 磁控濺鍍, sputtering, sputter target, PVD, 物理氣相沉積, 物理气相沉积, 鍍膜, 镀膜, 薄膜沉積, thin film deposition,
                スパッタ, スパッタリングターゲット, 스퍼터링, ITO, IGZO, 旋轉靶, 旋转靶, rotary target]
     search: [靶材, 濺鍍, 溅射靶材, sputtering target, PVD]
-    industries: [semiconductor, semi_equipment, display, solar, optical_coating, data_storage, hard_coating]
+    industries: [semiconductor, semi_equipment, display, display_equipment, solar, optical_coating, data_storage, hard_coating]
     pitch: 高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"   # 切入重點的規格依據;換成公司型錄後請改寫
 
@@ -71,7 +71,7 @@ products:
     keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
     search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
     exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
-    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment]
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -81,7 +81,7 @@ products:
     keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
-    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment]
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -93,6 +93,12 @@ industries:
   semi_equipment:  {name: 半導體設備與零組件, search: [半導體設備, 設備零組件, semiconductor equipment],
                     keywords: [半導體設備, 半导体设备, 設備廠, 設備商, 设备厂, 设备商, 設備零組件, 零組件, 零部件, 腔體, 腔体, 製程套件, 特化管路, 氣體管路, 氣化系統, 供氣系統, 濕製程, 湿制程,
                                先進封裝設備, 設備國產化, 设备国产化, 機台, semiconductor equipment, equipment maker, chamber, process kit, gas line, wafer fab equipment, 半導体製造装置, 반도체 장비]}
+  pcb_equipment:   {name: PCB 與載板設備, search: [PCB設備, 電路板設備, 載板設備, PCB equipment],
+                    keywords: [PCB設備, PCB 設備, 電路板設備, 载板设备, 載板設備, 印刷電路板, 印刷电路板, 電路板, 电路板, PCB, IC載板, ABF載板, 載板, 濕製程設備, 電鍍設備, 电镀设备,
+                               電鍍線, 垂直連續電鍍, 水平電鍍, 蝕刻線, 曝光機, 鑽孔機, 钻孔机, 壓合機, 成型機, PCB equipment, printed circuit board, plating line, 基板]}
+  display_equipment: {name: 面板與顯示設備, search: [面板設備, 顯示器設備, 蒸鍍機, display equipment],
+                    keywords: [面板設備, 面板设备, 顯示器設備, 顯示設備, 显示设备, 面板廠設備, 蒸鍍機, 蒸鍍設備, 蒸镀, Micro LED設備, 巨量轉移, 雷射修補, 觸控面板設備,
+                               display equipment, panel equipment, OLED equipment, 패널 장비]}
   display:         {name: 顯示面板,     search: [面板, 顯示器, OLED, display panel],
                     keywords: [面板, 顯示器, 显示, 顯示, OLED, LCD, AMOLED, Micro LED, display, panel maker, ディスプレイ, 디스플레이, 패널]}
   solar:           {name: 太陽能,       search: [太陽能, 光伏, solar, photovoltaic],
@@ -199,6 +205,38 @@ segments:
       thinning: 晶圓減薄與再生
       packaging: 封裝
       testing: 測試
+
+  tw_pcb_equipment:
+    name: 台灣 PCB 設備廠
+    description: 台灣印刷電路板與 IC 載板設備廠:濕製程與電鍍線、曝光 / 塗佈 / 壓合、鑽孔與成型、檢測、自動化;AI 伺服器板與 ABF 載板擴產帶動設備需求。電鍍與蝕刻線的掛具、陽極籃、加熱器與槽體用純鈦與耐蝕合金
+    industries: [pcb_equipment]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 擴廠, 訂單, 設備, 載板, 法說, 出貨]
+    subsegments:
+      wet: 濕製程與電鍍設備
+      imaging: 曝光、塗佈與壓合
+      drilling: 鑽孔與成型
+      inspection: 檢測設備
+      automation: 自動化與搬運
+
+  tw_display_equipment:
+    name: 台灣面板設備廠
+    description: 台灣顯示面板與 Micro LED 設備廠:濺鍍 / 電漿鍍膜、濕製程、雷射與 Micro LED、檢測、自動化搬運;面板廠轉型車用、Micro LED 與面板級封裝帶動設備更新。鍍膜設備與面板廠是 ITO、Mo、Al、Cu 等靶材的使用端
+    industries: [display_equipment]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 訂單, 設備, 面板, Micro LED, 法說, 出貨]
+    subsegments:
+      deposition: 鍍膜與電漿設備
+      wet: 濕製程設備
+      laser: 雷射與 Micro LED 設備
+      inspection: 檢測設備
+      automation: 自動化與搬運
 
 # ── 目標客戶清單 ──────────────────────────────────────────────────────
 # 有 segment 的公司屬於該客群,每週以「公司名稱 + 客群搜尋字詞」搜尋並排入開發名單。
@@ -368,3 +406,55 @@ accounts:
   - {name: 欣銓科技, aliases: [欣銓, Ardentec], ticker: "3264", segment: tw_semi_production, subsegment: testing,
      industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
      note: "晶圓測試;材料關聯較低"}
+
+  # ── 台灣 PCB 設備廠(segment: tw_pcb_equipment)──
+  # 濕製程與電鍍線是三條產品線中鈦與耐蝕合金的主要用量(掛具、陽極籃、加熱器、槽體與泵浦);其他設備的材料關聯較低。
+  # fit 為依公開業務內容推估的初步假設,請依拜訪結果修正。
+  - {name: 揚博科技, aliases: [揚博, 扬博], ticker: "2493", segment: tw_pcb_equipment, subsegment: wet,
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2},
+     note: "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點"}
+  - {name: 台灣上村, aliases: [台灣上村, 上村, Uyemura], segment: tw_pcb_equipment, subsegment: wet,
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2},
+     note: "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件"}
+  - {name: 群翊工業, aliases: [群翊], ticker: "6664", segment: tw_pcb_equipment, subsegment: imaging,
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1},
+     note: "PCB / 載板塗佈、烘烤與壓膜設備;高溫爐體零件或有耐熱合金需求,關聯較低"}
+  - {name: 科嶠工業, aliases: [科嶠], ticker: "4542", segment: tw_pcb_equipment, subsegment: imaging,
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1},
+     note: "PCB 壓合與真空壓膜設備;熱壓板與耐熱零件,關聯較低"}
+  - {name: 大量科技, aliases: [大量科技, 大量(3167)], ticker: "3167", segment: tw_pcb_equipment, subsegment: drilling,
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "PCB 鑽孔與成型機;材料關聯較低,可從設備結構件與治具了解需求"}
+  - {name: 由田新技, aliases: [由田], ticker: "3455", segment: tw_pcb_equipment, subsegment: inspection,
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "PCB、載板與面板 AOI 檢測設備;材料關聯較低"}
+  - {name: 牧德科技, aliases: [牧德], ticker: "3563", segment: tw_pcb_equipment, subsegment: inspection,
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "PCB 與載板 AOI 檢測設備;材料關聯較低"}
+  - {name: 迅得機械, aliases: [迅得], ticker: "6438", segment: tw_pcb_equipment, subsegment: automation,
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "PCB 與半導體自動化搬運設備;材料關聯較低"}
+
+  # ── 台灣面板設備廠(segment: tw_display_equipment)──
+  # 鍍膜設備是靶材的核心(ITO、Mo、Al、Cu、IGZO 等),腔體防著板與載具用鈦;濕製程設備用耐蝕合金與鈦。
+  - {name: 友威科技, aliases: [友威科], ticker: "3580", segment: tw_display_equipment, subsegment: deposition,
+     industry: display_equipment, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 1},
+     note: "真空濺鍍與電漿設備(面板、觸控、載板);整機驗證與客戶端製程都需要靶材,腔體防著板與載具用鈦"}
+  - {name: 馗鼎奈米, aliases: [馗鼎], segment: tw_display_equipment, subsegment: deposition,
+     industry: display_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 1},
+     note: "大氣電漿表面處理與鍍膜設備;電極與腔體零件,關聯中等偏低"}
+  - {name: 亞智科技, aliases: [亞智科技, 亞智, Manz Taiwan], segment: tw_display_equipment, subsegment: wet,
+     industry: display_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2},
+     note: "面板與載板濕製程、面板級封裝 RDL 設備(德商 Manz 在台子公司);濕製程槽體、加熱器與電鍍配件用鈦與耐蝕合金"}
+  - {name: 惠特科技, aliases: [惠特], ticker: "6706", segment: tw_display_equipment, subsegment: laser,
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "LED / Micro LED 檢測與雷射設備;材料關聯較低"}
+  - {name: 晶彩科技, aliases: [晶彩], ticker: "3535", segment: tw_display_equipment, subsegment: inspection,
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "面板 AOI 檢測設備;材料關聯較低"}
+  - {name: 盟立自動化, aliases: [盟立], ticker: "2464", segment: tw_display_equipment, subsegment: automation,
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "面板與半導體廠自動化搬運;材料關聯較低"}
+  - {name: 廣運機械, aliases: [廣運], ticker: "6125", segment: tw_display_equipment, subsegment: automation,
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0},
+     note: "面板與半導體自動化搬運、倉儲;材料關聯較低"}
