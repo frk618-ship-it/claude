@@ -395,7 +395,7 @@ def test_segment_scores_do_not_saturate(cfg):
 
 def test_primary_segment_and_production_segment(cfg):
     assert cfg.settings.primary_segment == "tw_semi_equipment"
-    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production"]
+    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment"]
     prod = cfg.segments["tw_semi_production"]
     assert set(prod.subsegments) == {"foundry", "memory", "thinning", "packaging", "testing"}
     members = {a.name: a for a in cfg.accounts if a.segment == "tw_semi_production"}
@@ -414,8 +414,8 @@ def test_production_segment_report(cfg):
     assert accs["南亞科"]["signals"] == 1 and accs["南亞科"]["best_product"] == "target"
     assert accs["日月光投控"]["signals"] == 1 and accs["力成科技"]["signals"] == 1        # one report names three packagers
     assert accs["欣銓科技"]["opportunity"] == pytest.approx(0.4 * 100 / 3, abs=0.1)        # fit 1, no news
-    assert [p["key"] for p in rep["segment_pages"]] == ["tw_semi_equipment", "tw_semi_production"]
-    assert rep["segment_pages"][0]["primary"] and not rep["segment_pages"][1]["primary"]
+    assert [p["key"] for p in rep["segment_pages"]][:2] == ["tw_semi_equipment", "tw_semi_production"]
+    assert rep["segment_pages"][0]["primary"] and not any(p["primary"] for p in rep["segment_pages"][1:])
 
 
 def test_headline_subject_gets_the_signal(cfg):
@@ -551,3 +551,28 @@ def test_business_report_page(tmp_path, monkeypatch):
     assert main(["site", "-i", str(out), "-o", str(site)]) == 0
     page = (site / "report" / "index.html").read_text(encoding="utf-8")
     assert "半導體客群商機開發業務報告" in page and 'href="../index.html"' in page and 'href="../../news/index.html"' in page
+
+
+def test_pcb_and_display_equipment_segments(cfg):
+    from lead_radar.segment import build_segment_report
+    from lead_radar.sources import build_jobs
+
+    for key, subs, names in [
+        ("tw_pcb_equipment", {"wet", "imaging", "drilling", "inspection", "automation"}, {"揚博科技", "群翊工業", "大量科技", "牧德科技"}),
+        ("tw_display_equipment", {"deposition", "wet", "laser", "inspection", "automation"}, {"友威科技", "亞智科技", "晶彩科技", "盟立自動化"}),
+    ]:
+        seg = cfg.segments[key]
+        members = {a.name: a for a in cfg.accounts if a.segment == key}
+        assert set(seg.subsegments) == subs and names <= set(members)
+        assert all(a.subsegment in subs for a in members.values())
+        assert any(j.label == f"客戶:{n}" for j in build_jobs(cfg, key) for n in names)
+    names = [a.name for a in cfg.accounts]
+    assert len(names) == len(set(names))                                           # one segment per company
+    s = sig(cfg, "揚博接獲載板濕製程設備大單 擴產新廠")
+    assert s.orgs[0] == "揚博科技" and s.industries["titanium"] == "pcb_equipment"
+    s = sig(cfg, "友威科濺鍍設備出貨 面板廠擴產")
+    assert s.orgs[0] == "友威科技" and s.products == ["target"] and s.industries["target"] == "display_equipment"
+    rep = build_segment_report([s], cfg, "tw_display_equipment", ASOF)
+    top = rep["accounts"][0]
+    assert top["org"] == "友威科技" and top["signals"] == 1
+
