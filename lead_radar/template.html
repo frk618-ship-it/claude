@@ -478,8 +478,8 @@ const DATA = /*__DATA__*/null;
   }
   if (SEG) {
     $("#seg-sec").hidden = false; $("#map-sec").hidden = true; $("#hot-sec").hidden = true;
-    document.querySelector("h1").textContent = `商機雷達:${SEG.name}`;
-    document.title = `商機雷達:${SEG.name}`;
+    document.querySelector("h1").textContent = `商機雷達:${DATA.title || SEG.name}`;
+    document.title = DATA.title && DATA.title !== SEG.name ? `商機雷達:${DATA.title} · ${SEG.name}` : `商機雷達:${SEG.name}`;
     $("#seg-name").textContent = SEG.name;
     $("#seg-note").textContent = `最近 ${SEG.days} 天 · 半衰期 ${SEG.half_life_days} 天`;
     $("#seg-desc").hidden = true;

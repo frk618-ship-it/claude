@@ -135,6 +135,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     }
     order = cfg.segment_order
     rep["links"] = cfg.settings.links
+    rep["title"] = cfg.settings.title
     rep["segment_pages"] = [{"key": k, "name": cfg.segments[k].name, "primary": i == 0} for i, k in enumerate(order)]
     rep["accounts"] = accounts
     # One score on the page: the lead list shows the segment's accounts with the overall score

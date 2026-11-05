@@ -10,6 +10,7 @@
 
 settings:
   primary_segment: tw_semi_equipment   # 商機雷達的主要客群(網站首頁)
+  title: 台灣設備廠                     # 頁面標題「商機雷達:<title>」;留空則顯示各客群名稱
   # 每個商機雷達頁面頁首的連結按鈕:url = 外部 http(s) 網址;page = 網站內頁(<網站>/leads/<page>/,只需網站密碼)
   # 業務報告:來源為 reports/leads/business_report.md(由 claude.ai 業務報告文件匯出),site 指令會產生 /leads/report/
   links:

@@ -130,7 +130,9 @@ def main(argv: list[str] | None = None) -> int:
         for key in cfg.segment_order:
             path = latest_report(Path(args.input) / key)
             if path:
-                reports.append(json.loads(path.read_text(encoding="utf-8")))
+                rep = json.loads(path.read_text(encoding="utf-8"))
+                rep["title"] = cfg.settings.title          # current setting, also for reports made before it existed
+                reports.append(rep)
             else:
                 log.warning("客群 %s 沒有報告,略過", key)
         if not reports:

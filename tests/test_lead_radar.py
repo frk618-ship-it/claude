@@ -361,6 +361,8 @@ def test_cli_segment_analyze(tmp_path, monkeypatch):
     rebuilt = tmp_path / "rebuilt"
     assert main(["site", "-i", str(out), "-o", str(rebuilt)]) == 0
     assert (rebuilt / "index.html").exists() and (rebuilt / "tw_semi_production" / "index.html").exists()
+    assert '"title": "台灣設備廠"' in (rebuilt / "tw_pcb_equipment" / "index.html").read_text(encoding="utf-8")
+    assert "DATA.title || SEG.name" in main_page
     assert main(["analyze", "--segment", "nope"]) == 2
 
 
