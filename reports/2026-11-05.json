@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-05T08:28:24.422339+08:00",
+  "generated": "2026-11-05T09:46:11.624182+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為 Materion 第三季財報:營收 5.67 億美元、年增 28%,每股盈餘 1.81 美元創紀錄,半導體相關銷售創高,並將 2026 年調整後每股盈餘展望上調至 7.10~7.40 美元;但營收不如市場預期,股價一度大跌逾 11%。美國商務部暫緩 SK海力士大連廠擴產設備的出口許可,連帶使其 450 億美元紐約建廠計畫出現變數。擴產面,傳矽品接手台積電集團二林用地砸千億元擴產,三星平澤 P5 二期明年 1 月動工,格芯公布 2027 年 40 億美元資本支出。民主黨贏得期中選舉後貴金屬大漲,金價升 3.7%、鈀金升 8%。",
@@ -19,6 +19,188 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "bd2210a6c03fbe97",
+      "title": "白宮未批准SK海力士擴大在大陸生產、紐約建廠計劃受阻- 國際",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE52aENkUVE3NUFQWF93TmI1bWhiZTBiY2pESVJ2b3g3d2JidUpnLTZteDFaUkZzU1plbmQySnJxQVhDU3RZN2pfSmVKaGMzQU01Qm5DZkNRWXM1amVZMTlNVndUZk9wRlRhZ2c?oc=5",
+      "source": "旺得富理財網",
+      "published": "2026-11-04T05:42:07+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.38,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "85d05f716e9c9a53",
+      "title": "矽品砸千億 中科二林擴產 日月光集團衝刺先進封裝 | 產業熱點 | 產業",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1zcHJXZklRalJpc1A4dFFSNjJfMXNYTmZLMmFWZldKM25iVXdPVEEyVm9UZG8zd21wT2lFWXJHaGdOenRIOEdqV18tUnFvbndkTC04eGtvSHRUd0p3ckJzbThfRGZmSnZaRVZUb1NaZmswMXJwamVMUUhR?oc=5",
+      "source": "經濟日報",
+      "published": "2026-11-02T08:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 5.11,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "23b4ab727899f506",
+      "title": "Materion Corp (MTRN) Q3 2026 Earnings Call Highlights: Record Sa",
+      "link": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxOVTZTTklCRnJDQ2FTSXBmZ1VOR1BiUDdDWlZ3UjNTdnNxMFI1X2FYQTlHYXJVSnZUemZ2MlhBQmpYOFZqU3doZWJIRTR4ellPZ0o5MnlFWEN5ZXpOQW9ycXN6a2cxTXV5XzV3RHpDNlU1OUJ6aHRzQUFKdkFsQmxqRVQyU3ZzQkw2WjI1UTJ0Z0VTa1NhSGpUaGpRRy1GRkhmbW82YzJKWHdkSWdHc0FQOEZodEVkU3NxQW5SbnRxcDRCU1JyX0FmV0dYUEpZeWN3M2poOUl5bEI2WkJseTh5eS1LR2o2aHRydEZWRk9YU2NXSWFtUFNMbWhBb0ZobHhtMmVHeXlGUVNCUmxkS3ViazFHbVVTaUZfRjFubC1GamJnbUIwMjIzUlp2OGc1RDRHd2JVcjV2SkNPTnJqOWRSeFVhQ0tNcEVteGp6MTh6OWxNb3pSaDYtc1ktX2R3cVJERFBkY0JEUDY?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-11-05T01:39:02+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "049e0e91be6d4ddc",
+      "title": "Earnings Flash (MTRN) Materion Corporation Posts Q3 Adjusted EPS $1.93 per Share, vs. FactSet Est of $1.91",
+      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPTzYtTEtGNEVRRjJIOC1LZ013M3pWdXZNelc0dWZBVWVkQTRJOW0tcVVSVTFkelhmbHpISFBWaFpJNFBwRE12ZXF5UklycldJbUxYUjZEVGNsNVdPZkViUUdBZzNfQ3Q3YXJ2cG55N3RRdXhoOUQtb0dxN3o4N3lyQnU2aEZHa05UaUJ0UzFnT1NpaVg2U3BZeF9LV3ZmV0ZHQUdBcmtnWXFRTVZ6RGx6bzJsLXA1emJlOV9tb1AyNWtaNmNYbnQ4X09CcEd4T0gyM2l6Z19XbUhtbUhiMVdpeGNR?oc=5",
+      "source": "marketscreener.com",
+      "published": "2026-11-04T12:22:43+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "509e1c176d4f0135",
+      "title": "Earnings Flash (MTRN) Materion Corporation Reports Q3 Revenue $567.3M, vs. FactSet Est of $611.4M",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPQTQ5Zzh1ckRmU1MxT3J0Tll2SjF1bGFDY2txal9QR3F4Rkg5T2ppRmhWUmVSdFpYZ1ZFQlcwSDI4NUNqQ2JPd0I3bWpTNWVtNVUxNzRITjhOWWgzMDNoOXVRbnFNUl91TFRxT3BSS0piUzFDVElMS0dzOEw0MW1FZFhYYnNqZXZ1NGN4Q0JsYzJacmFTNWM3STZEdWZnWmo4YnIwWjRrT1ptM0hhVWtHczVadjNUYW95T2MyZ0JWcW9icnFDUXA3U1QzczhfdEhtSEI4OFo0N3ZpeVVu?oc=5",
+      "source": "marketscreener.com",
+      "published": "2026-11-04T12:22:27+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "69cce1366a3c7b6c",
+      "title": "Gold price soars after Democrats sweep US midterm elections",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTmRyel9vZVU2TXQ2TmZwYldfWEk0UjFCMzFYTVlTTWR5Z1NuUWhqMEdFYkRabmZCZDRMSzBlVFItVFNZLWJFSURnZl9KNWRBRlE3dDZ5blVBX3ZqakI5cE1ZN1d1ZXlObWxlVU5LZDRBRFlRakdNdEM2bWpmU3M4cDZNRmRTUC1fSWc?oc=5",
+      "source": "Mining.com.au",
+      "published": "2026-11-05T01:30:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cfecfdb60584a8c8",
+      "title": "Singulus Technologies AG (SNG.HM) Seasonal Returns Chart - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9USGplelVDYzB0LThCWUQxX0dfS1ZyM0FSQzFHYjV1TzBTcTBsWjNWV3EzY18yRFJGam5DU0xNSUtreGhWS3hZYWtDbUxMQm9iMnBWaGVYVHE3ekpoVE1MWFd0b3Q?oc=5",
+      "source": "Yahoo! Finance Canada",
+      "published": "2026-11-04T01:44:22+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "29704266203b0d0f",
+      "title": "Gold surges above $4,050 as Democrats take control of Congress",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMVFPV2hZNmItMV9qeVNmdkRhMWxPZXNCeWc3TG1fc3hWc25ZLVlqN2hyXzNoMThRUTNfZjlMZHJmSXlBbUFlRlpSNXJQd1RiRk5vNE44V3A4b3pmRDZwOV9CRTE2QVZzTXFPVFNCVXZPdEFuOWNocS0zbnBYUFRTSjNjb3hlbGJRM090Znc2eXV4SXItemo1Q1FzSjQ0RUY0ZVlDZXZjRQ?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-04T23:21:20+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4427c8200c0e168a",
+      "title": "10月30日阿石创跌5.05%，中银先锋半导体混合发起A基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4yejM0RDNNVlNja2pKRk1Uc1Y0Yk5BTzBrV0FmUHJ2RU1qWUxKZVh5RnFaSW5tRDNyTU9RbF9RYWhaTjJ6NldWYzNZdFg?oc=5",
+      "source": "凤凰网",
+      "published": "2026-10-30T09:19:37+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.19,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "10月30日阿石創跌5.05%，中銀先鋒半導體混合發起A基金重倉該股",
+      "snippet_zh": ""
+    },
     {
       "id": "d16f3b608bd0cf1e",
       "title": "台積電、矽品重塑中台灣半導體版圖！千億擴產計畫浮現 工具機業迎新商機 | 產業熱點 | 產業",
@@ -1628,42 +1810,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4087.3,
-      "prev": 3940.4,
+      "price": 4134.6,
+      "prev": 4073.0,
       "date": "2026-11-05",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 3.73
+      "change_pct": 1.51
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 52.53,
+      "price": 52.9,
       "prev": 49.59,
       "date": "2026-11-05",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 5.93
+      "change_pct": 6.67
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1509.4,
+      "price": 1523.3,
       "prev": 1432.4,
       "date": "2026-11-05",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 5.38
+      "change_pct": 6.35
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1005.5,
+      "price": 1016.5,
       "prev": 930.0,
       "date": "2026-11-05",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 8.12
+      "change_pct": 9.3
     }
   ],
   "papers": [
