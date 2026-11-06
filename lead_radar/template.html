@@ -186,10 +186,6 @@ details.lead>summary::-webkit-details-marker{display:none}
     <div id="acc-filters"></div>
     <div class="table-wrap"><table class="seg-acc" id="seg-acc"></table></div>
     <div id="acc-others"></div>
-    <div id="proc-wrap" hidden>
-      <div class="bar"><h3 style="font-size:1rem" id="h-proc">公開採購公告 <small id="proc-count" style="font-weight:400;color:var(--muted)"></small> <small style="font-weight:400;color:var(--muted)">公告本身寫明要買什麼:政府電子採購網標案(標題含材料字詞)、上市櫃公司「取得機器設備 / 廠務工程」重大訊息</small></h3></div>
-      <div class="table-wrap"><table class="seg-acc" id="proc-table" aria-labelledby="h-proc"></table></div>
-    </div>
   </section>
 
   <section aria-labelledby="h-map" id="map-sec">
@@ -520,7 +516,7 @@ const DATA = /*__DATA__*/null;
         : b === "co_mention" ? `<span class="badge mat-i" title="報導提到材料,但主詞是其他公司">他公司提及:${terms}</span> `
         : b === "manual" ? `<span class="badge mat-m" title="人工整理,材料由整理者標註">人工標註</span> `
         : `<span class="badge mat-i" title="報導沒有提到材料,依公司產品適配度推估">材料推估</span> `; };
-    const FIT_LABEL = {target: "靶", titanium: "鈦", nickel: "鎳"};
+    const FIT_LABEL = {target: "靶", titanium: "鈦", nickel: "鎳", copper: "銅"};
     const dots = n => `<span class="dots" aria-label="適配 ${n} / 3">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
     const tierCls = t => ({"優先開發": "t1", "積極經營": "t2"})[t] || "t3";
     const accByOrg = Object.fromEntries(DATA.accounts.map((a, i) => [a.org, {a, rank: i + 1}]));
@@ -554,27 +550,15 @@ const DATA = /*__DATA__*/null;
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
-      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據"];
+      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", ...products.map(p => `${L.products[p]}適配`), "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
       const keep = new Set(filteredLeads().map(l => l.org));
       const rows = DATA.accounts.filter(a => keep.has(a.org)).map(a => [DATA.accounts.indexOf(a) + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
-        a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || "", a.material_summary || ""]);
+        ...products.map(p => a.fit[p] || 0), a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || "", a.material_summary || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
       el.click(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
     };
-    const PROC = DATA.procurement || [];
-    if (PROC.length) {
-      $("#proc-wrap").hidden = false;
-      $("#proc-count").textContent = `${PROC.length} 則`;
-      $("#proc-table").innerHTML = `<thead><tr><th>日期</th><th>來源</th><th>公告</th><th>產品線</th><th>材料字詞</th><th>相關公司</th></tr></thead><tbody>` +
-        PROC.slice(0, 60).map(r => `<tr><td class="mono">${esc(r.date)}</td>
-          <td><span class="badge${r.kind === "政府標案" ? " mat-x" : " mat-m"}">${esc(r.kind)}</span><br><span style="font-size:.76rem;color:var(--muted)">${esc(L.intents[r.intent] || "")}</span></td>
-          <td>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title)}${r.detail ? `<br><span style="font-size:.78rem;color:var(--muted)">${esc(r.detail)}</span>` : ""}</td>
-          <td>${r.products.map(p => esc(L.products[p] || p)).join("、")}</td>
-          <td>${r.terms.length ? `<span class="badge mat-x">${esc(r.terms.join("、"))}</span>` : '<span class="badge mat-i">未提材料</span>'}</td>
-          <td>${r.orgs.map(o => r.members.includes(o) ? `<b>${esc(o)}</b>` : esc(o)).join("、")}</td></tr>`).join("") + "</tbody>";
-    }
     renderSegMatrix();
   }
 
