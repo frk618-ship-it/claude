@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T09:17:04+00:00",
+ "generated": "2026-11-06T10:02:35+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -162,6 +162,7 @@
    "nickel": 12
   },
   "other_mentions": 3,
+  "procurement": 9,
   "accounts": 8,
   "tiers": {
    "優先開發": 0,
@@ -1903,6 +1904,203 @@
    "z": -0.85,
    "level": "neutral",
    "signal_ids": []
+  }
+ ],
+ "procurement": [
+  {
+   "id": "t-f868b1e9cfa0c3ac",
+   "date": "2026-10-30",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "臺北榮民總醫院 決標公告:鈦合金多角度鎖定加壓加長型橈骨骨板系統組等4項3年單價開口契約",
+   "detail": "得標廠商:博得瑞恩",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261030&fn=BDM-1-71317429.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "臺北榮民總醫院",
+    "博得瑞恩"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-139d305a00faa9eb",
+   "date": "2026-10-29",
+   "kind": "政府標案",
+   "intent": "tender",
+   "title": "國立中山大學 公開取得報價單或企劃書公告:鈦合金艙體零件供料加工(6件)",
+   "detail": "",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261029&fn=ttd-71365627.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "國立中山大學"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-4f15ae17d9a738ef",
+   "date": "2026-10-21",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "國立成功大學醫學院附設醫院 決標公告:鈦合金雙導引防剪切顯微鑷",
+   "detail": "得標廠商:曆嶸;預算金額:274800",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261021&fn=BDM-1-71311437.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "國立成功大學醫學院附設醫院",
+    "曆嶸"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-b33f504c42c857d1",
+   "date": "2026-10-19",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "衛生福利部金門醫院 決標公告:耐籠三維多孔鈦合金椎間融合器",
+   "detail": "得標廠商:寶楠生技;預算金額:7184400",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261019&fn=BDM-1-71308568.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "衛生福利部金門醫院",
+    "寶楠生技",
+    "寶楠生技"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-533eee274a861305",
+   "date": "2026-10-05",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "國防部軍醫局 決標公告:伽瑪三鈦合金股骨固定系統等3項",
+   "detail": "得標廠商:立遠生技;預算金額:9982296",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261005&fn=BDM-1-71297737.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "國防部軍醫局",
+    "立遠生技"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-0ee00c7924b30b16",
+   "date": "2026-10-05",
+   "kind": "政府標案",
+   "intent": "tender",
+   "title": "台灣中油股份有限公司煉製事業部 公開徵求廠商提供參考資料公告:大林廠烷化工場Monel 400合金管配件等一批",
+   "detail": "",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261005&fn=PPW-1-70118318.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "中油"
+   ],
+   "products": [
+    "nickel"
+   ],
+   "terms": [
+    "Monel"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-74547d61c1a486fe",
+   "date": "2026-09-23",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "臺北榮民總醫院 決標公告:鈦合金脛骨髓內釘組等3項3年單價開口契約",
+   "detail": "得標廠商:詠光生技;預算金額:3377250",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260923&fn=BDM-1-71289656.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "臺北榮民總醫院",
+    "詠光生技"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-9fec8a70bf1a8684",
+   "date": "2026-08-27",
+   "kind": "政府標案",
+   "intent": "tender",
+   "title": "台灣中油股份有限公司煉製研究所 公開徵求廠商提供參考資料公告:高純度碳材配方導入半導體物理氣相沉積製程用之石墨靶材測試工作",
+   "detail": "",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260827&fn=PPW-1-70114090.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "中油"
+   ],
+   "products": [
+    "target"
+   ],
+   "terms": [
+    "靶材",
+    "物理氣相沉積"
+   ],
+   "members": []
+  },
+  {
+   "id": "t-e5d12283d38b821c",
+   "date": "2026-08-12",
+   "kind": "政府標案",
+   "intent": "contract",
+   "title": "臺北榮民總醫院 決標公告:鈦合金遠端肱骨後側長型骨板系統組2年單價開口契約",
+   "detail": "得標廠商:博得瑞恩;預算金額:9360000",
+   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260812&fn=BDM-1-71256535.xml",
+   "source": "政府電子採購網",
+   "orgs": [
+    "臺北榮民總醫院",
+    "博得瑞恩"
+   ],
+   "products": [
+    "titanium"
+   ],
+   "terms": [
+    "鈦",
+    "鈦合金"
+   ],
+   "members": []
   }
  ],
  "signal_materials": {
