@@ -397,7 +397,7 @@ def test_segment_scores_do_not_saturate(cfg):
 
 def test_primary_segment_and_production_segment(cfg):
     assert cfg.settings.primary_segment == "tw_semi_equipment"
-    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment"]
+    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment", "tw_ai_server"]
     prod = cfg.segments["tw_semi_production"]
     assert set(prod.subsegments) == {"foundry", "memory", "thinning", "packaging", "testing"}
     members = {a.name: a for a in cfg.accounts if a.segment == "tw_semi_production"}
@@ -633,4 +633,21 @@ def test_copper_product_line(cfg):
     top = rep["accounts"][0]
     assert top["org"] == "亞智科技" and top["best_product"] == "copper" and top["material_basis"]["explicit"] == 1
     assert "銅材 / 銅合金適配" in render_accounts_csv(rep).splitlines()[0]
+
+
+def test_ai_server_segment(cfg):
+    from lead_radar.segment import build_segment_report
+
+    seg = cfg.segments["tw_ai_server"]
+    assert set(seg.subsegments) == {"odm", "cooling", "power", "chassis", "interconnect"}
+    members = {a.name: a for a in cfg.accounts if a.segment == "tw_ai_server"}
+    assert {"奇鋐", "雙鴻", "健策", "台達電", "廣達", "嘉澤"} <= set(members)
+    assert all(a.subsegment in seg.subsegments for a in members.values())
+    assert members["健策"].fit["copper"] == 3 and members["廣達"].fit["copper"] == 1
+    s = sig(cfg, "奇鋐水冷板訂單滿手 擴產越南新廠")
+    assert s.orgs[0] == "奇鋐" and s.products == ["copper"] and s.industries["copper"] == "ai_server"
+    assert classify(cfg, title="提高力道 擴產") is None                                 # 「高力」 alias is not matched loosely
+    assert classify(cfg, title="緯穎 法說 AI伺服器 出貨") is None                       # an ODM's news without a material word is not demand
+    rep = build_segment_report([s], cfg, "tw_ai_server", ASOF)
+    assert rep["accounts"][0]["org"] == "奇鋐" and rep["accounts"][0]["best_product"] == "copper"
 
