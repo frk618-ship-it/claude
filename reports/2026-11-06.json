@@ -2,19 +2,22 @@
   "generated": "2026-11-06T08:29:07.942406+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 69 則,其中新聞與公司公告 50 則;報導最多的是 美光(16 則)、日月光投控(10 則)、Materion(8 則)、JX金屬(6 則)。依主題:擴產與投資 33 則、產業動態 9 則、客戶與供應鏈 4 則、原物料與價格 2 則、營收與財報 1 則。",
+    "overview": "本期兩大焦點方向相反:日月光投資 1,237 億元擴充楠梓、南科高階封測產能並獲投資台灣核准,長電科技也擬定增 65 億元擴產先進封裝;但傳美光因勞資糾紛暫停桃園新廠擴建,投資最高約 45 億美元,股價重挫逾 10%。靶材廠方面,JX金屬將茨城 AI 半導體與 HBM 用高純度硫酸銅產能提高 50%;有研新材股價連續漲停,但第三季營收與淨利年減,並剝離稀土業務、終止定增。Materion 財報後評等分歧,Seaport 上調為買進、KeyBanc 下調目標價。東吳證券發布靶材深度報告,指國產化加速;金價升回 4,100 美元上方。",
     "key_trends": [
-      "擴產與投資(33 則):矽品傳接手臺積電二林用地！砸千億投資擴產搶AI封測大單",
-      "產業動態(9 則):11月5日有研新材漲10.00%，稀土ETF嘉實基金重倉該股",
-      "客戶與供應鏈(4 則):德州變天震撼AI交易！美光、SK海力士等記憶體類股齊崩 資料中心擴建添變數",
-      "原物料與價格(2 則):KeyBanc cuts Materion stock price target on valuation reset By Investing.com"
+      "封測擴產持續:日月光 1,237 億元、長電科技定增 65 億元",
+      "記憶體擴產變數:美光桃園新廠因勞資糾紛暫停,長江存儲 IPO 暫緩",
+      "JX金屬高純度硫酸銅增產 50%,呼應 AI 與 HBM 用銅材料需求",
+      "中國靶材國產化加速,有研新材業務重組",
+      "貴金屬反彈,金價回到 4,100 美元上方"
     ],
     "watch_points": [
-      "矽品傳接手臺積電二林用地！砸千億投資擴產搶AI封測大單(加密城市CryptoCity)",
-      "【23:46 即時新聞】Micron Technology(MU) 重挫逾15%／桃園新廠暫停與AI監管壓力雙重打擊(CMoney投資網誌)",
-      "【22:53 即時新聞】Micron Technology(MU) 重挫逾10%／桃園新廠暫停傳聞與AI監管壓力夾擊(美股放大鏡)"
+      "美光桃園新廠勞資協商結果與復工時程",
+      "日月光、長電科技新產能對 Ti、Cu 靶材的拉貨",
+      "有研新材剝離稀土後的靶材業務比重",
+      "Materion 評等分歧後的股價與靶材訂單",
+      "金價回升對 Au 靶材成本的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,8 +37,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳矽品接手台積電二林用地,砸千億元擴產搶 AI 封測訂單。與前幾日報導為同一事件。",
+      "importance": 3,
       "title_zh": "矽品傳接手臺積電二林用地！砸千億投資擴產搶AI封測大單",
       "snippet_zh": ""
     },
@@ -51,13 +54,13 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "技術與新產品",
-        "客戶與供應鏈"
+        "技術與新產品"
       ],
       "score": 6.25,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光股價重挫逾 15%,受桃園新廠暫停與 AI 監管壓力打擊。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -73,13 +76,13 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "技術與新產品",
-        "客戶與供應鏈"
+        "技術與新產品"
       ],
       "score": 6.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光股價重挫逾 10%,桃園新廠暫停傳聞與 AI 監管壓力夾擊。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -99,8 +102,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光因勞資爭議暫停台灣新廠工程,數十億美元投資生變。記憶體新廠延後將影響當地 PVD 機台與靶材採購時程。",
+      "importance": 4,
       "title_zh": "美光因勞資爭議暫停臺灣新廠工程 數十億美元投資案生變",
       "snippet_zh": ""
     },
@@ -120,8 +123,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠喊停,打亂在台投資布局。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "美光桃園新廠喊停 打亂在臺投資佈局",
       "snippet_zh": ""
     },
@@ -141,8 +144,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園廠擴建喊停,重新評估全球投資順序。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -162,8 +165,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光因勞資糾紛暫停建設桃園新廠。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -183,8 +186,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導分析台積電德州建廠目的之一是壓制三星,雙方將爭奪人才、補助與基礎設施。",
+      "importance": 2,
       "title_zh": "壓制對手三星是臺積電德州建廠目的之一兩家公司將上演人才、補助與基礎設施資源大戰｜鏡轉全球｜#鏡新聞",
       "snippet_zh": ""
     },
@@ -204,8 +207,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "外媒報導美光桃園新廠喊卡,經濟部發兩點回應。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -225,8 +228,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳美光因勞資糾紛暫停桃園新廠(11E)擴建工程,投資最高約 45 億美元。記憶體新廠延後將影響當地 PVD 機台與靶材採購時程。",
+      "importance": 5,
       "title_zh": "美光暫停臺灣45億美元新廠建設，勞資糾紛給AI記憶體擴產帶來變數，MU盤前跌近5%",
       "snippet_zh": ""
     },
@@ -246,8 +249,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳勞資糾紛導致美光在台建廠停工,經濟部出面協調。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "傳勞資糾紛釀「美光在臺建廠停工」 經濟部出手了",
       "snippet_zh": ""
     },
@@ -267,8 +270,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠傳暫緩施工,最高 45 億美元投資遇變數。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -288,8 +291,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳美光不滿勞資糾紛暫停新廠,經濟部未證實並表示協助溝通。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -309,8 +312,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "外媒爆美光桃園新廠停工,工會表示從未做出傷害公司的行為。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -330,8 +333,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光叫停台灣桃園記憶體新廠工程,傳因勞資糾紛。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "【數據中心產業鏈】美光叫停臺灣桃園記憶體新廠工程傳因「勞資糾紛」",
       "snippet_zh": ""
     },
@@ -351,8 +354,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "勞資爭議衝擊美光台灣布局,近 1,500 億元桃園新廠喊卡,勞資雙方將三度協商。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "勞資爭議衝擊美光臺灣佈局 近1500億桃園新廠喊卡！明勞資三度協商",
       "snippet_zh": ""
     },
@@ -368,12 +371,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材連續漲停,但第三季營收年減 14%、淨利年減 31%,並剝離稀土業務、終止定增計畫。靶材相關業者營運與資本結構調整值得留意。",
+      "importance": 4,
       "title_zh": "財報揭秘室｜有研新材連續漲停：三季度營收降14%、淨利降31%，剝離稀土業務，定增計劃終止",
       "snippet_zh": ""
     },
@@ -389,13 +392,13 @@
         "Materion"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.31,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 第三季簡報:獲利創紀錄、利潤率擴大,股價仍下跌。與前一日報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Materion 2026 年第三季簡報:獲利創紀錄、利潤率擴大,股價仍下跌",
       "snippet_zh": ""
     },
     {
@@ -414,8 +417,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光、SK海力士等記憶體類股重挫,資料中心擴建添變數。與前一日報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -434,8 +437,8 @@
         "擴產與投資"
       ],
       "score": 4.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資台灣再添千億元申請:日月光投資 1,237 億元擴充楠梓、南科高階封測產能,獲投資台灣方案核准,並增聘逾 3,000 人。封測擴產將帶動 PVD 機台與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "早安世界》投資臺灣再添千億申請日月光1237億擴充高階封測產能| 生活",
       "snippet_zh": ""
     },
@@ -454,9 +457,9 @@
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將投資十數億日圓,把茨城的 AI 半導體與 HBM 用高純度硫酸銅產能提高 50%。高純銅材料需求擴大,也呼應其 Cu 靶材與電鍍材料布局。",
+      "importance": 4,
+      "title_zh": "AI 半導體與 HBM 需求擴大,JX金屬將在茨城縣增產 50% 高純度硫酸銅",
       "snippet_zh": ""
     },
     {
@@ -474,8 +477,8 @@
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬將投資十數億日圓,把茨城的 AI 半導體與 HBM 用高純度硫酸銅產能提高 50%。高純銅材料需求擴大,也呼應其 Cu 靶材與電鍍材料布局。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -494,9 +497,9 @@
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬投資十數億日圓於茨城,增產 AI 半導體用高純度硫酸銅五成。與同期 JX金屬硫酸銅增產報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬 AI 半導體用高純度硫酸銅增產 5 成,茨城投資十數億日圓",
       "snippet_zh": ""
     },
     {
@@ -514,8 +517,8 @@
         "擴產與投資"
       ],
       "score": 4.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元擴產,衝刺高階封測產能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -534,8 +537,8 @@
         "擴產與投資"
       ],
       "score": 4.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光大手筆擴產,AI 晶片接單增添動能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -554,8 +557,8 @@
         "擴產與投資"
       ],
       "score": 4.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技擬以 65 億元定增擴產先進封裝,控股股東認購 22.53%,2026 年投資計畫升至 182 億元。中國封測擴產有利 PVD 靶材需求。",
+      "importance": 4,
       "title_zh": "長電科技擬65億元定增擴產先進封裝 控股股東認購22.53% 2026年投資計劃升至182億元",
       "snippet_zh": ""
     },
@@ -574,8 +577,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資台灣再添 3 案,日月光砸 1,237 億元擴充封測產能、增聘 3,553 人。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "投資臺灣再添3案！日月光砸1237億擴充封測產能、增聘3553人",
       "snippet_zh": ""
     },
@@ -594,8 +597,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資臺灣三大方案新增三案,日月光投資 1,237 億元擴充產能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -614,8 +617,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資台灣再添千億元申請,日月光 1,237 億元擴充高階封測產能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "投資臺灣再添千億申請日月光1237億擴充高階封測產能| 產經",
       "snippet_zh": ""
     },
@@ -634,8 +637,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資台灣再添 3 案,日月光砸 1,237 億元擴充高階封測產能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "投資臺灣再添3案日月光砸1237億元擴充高階封測產能| 財經焦點",
       "snippet_zh": ""
     },
@@ -654,8 +657,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光 1,237 億元投資過關,高雄、台南增聘逾 3,000 人。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "日月光擴產停不下來！1,237億投資過關、高雄臺南增聘逾3千人",
       "snippet_zh": ""
     },
@@ -674,8 +677,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "全球濺鍍靶材龍頭 JX金屬將高純度硫酸銅產能擴大 50%,受 AI 先進封裝與 HBM 需求帶動。與同期 JX金屬硫酸銅增產報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -694,8 +697,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光豪砸 1,237 億元擴充產能搶攻 AI 商機。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -714,8 +717,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元布局高階封測,擴充楠梓、南科園區產能。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -731,12 +734,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Seaport 以估值吸引力將 Materion 評等上調為買進。",
+      "importance": 2,
+      "title_zh": "Seaport 以估值吸引力將 Materion 評等上調為「買進」",
       "snippet_zh": ""
     },
     {
@@ -754,8 +758,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "長江存儲 IPO 暫緩,擴產資金來源成懸念。中國記憶體擴產資金受限可能影響當地靶材需求。",
+      "importance": 3,
       "title_zh": "存儲缺貨也難上市！長江存儲IPO暫緩：擴產資金成懸念",
       "snippet_zh": ""
     },
@@ -771,13 +775,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
-        "營收與財報",
-        "原物料與價格"
+        "原物料與價格",
+        "營收與財報"
       ],
       "score": 4.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AngloGold Ashanti 第三季獲利不如預期,但金價上漲支撐現金流,股價恢復上升趨勢。屬金礦業消息。",
+      "importance": 1,
+      "title_zh": "金價走高支撐現金流,AngloGold Ashanti 第三季獲利不如預期但股價恢復上漲",
       "snippet_zh": ""
     },
     {
@@ -792,11 +796,12 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園 11E 廠擴建工程喊停,經濟部回應。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -815,8 +820,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "專家指美國 45% 資料中心擴建恐延宕,點名台積電等 AI 供應鏈可能受衝擊。若需求放緩可能影響擴產節奏。",
+      "importance": 3,
       "title_zh": "美國45%資料中心擴建恐延宕 專家點名臺積電和這些AI供應鏈廠商恐受衝擊",
       "snippet_zh": ""
     },
@@ -832,11 +837,12 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光回應桃園廠擴建停工傳聞,表示有信心確保客戶需求不受影響。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -852,11 +858,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 5 日漲停,題材含大矽片、固態電池。屬股價行情。",
+      "importance": 1,
       "title_zh": "11月5日有研新材漲停：大硅片，固態電池，中芯國際概念股概念熱股_個股掘金",
       "snippet_zh": ""
     },
@@ -875,9 +882,9 @@
         "營收與財報"
       ],
       "score": 3.78,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 晶片材料銷售創單季新高。半導體材料需求強勁,有利其靶材業務。",
+      "importance": 4,
+      "title_zh": "Materion 晶片材料銷售創歷來單季新高",
       "snippet_zh": ""
     },
     {
@@ -892,12 +899,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.74,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "KeyBanc 因估值重設下調 Materion 目標價。",
+      "importance": 2,
+      "title_zh": "KeyBanc 因估值重設下調 Materion 目標價",
       "snippet_zh": ""
     },
     {
@@ -912,12 +920,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.71,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Seaport Global 將 Materion 評等由中立上調為買進,目標價 250 美元。",
+      "importance": 2,
+      "title_zh": "Seaport Global 將 Materion 由中立上調為買進,目標價 250 美元",
       "snippet_zh": ""
     },
     {
@@ -932,12 +941,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 3.36,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "QYResearch 發布 2026~2032 年全球碳化鈮濺鍍靶材市占、排名、銷售與需求預測報告。屬市場研究推廣內容。",
+      "importance": 3,
+      "title_zh": "碳化鈮濺鍍靶材:全球市占與排名、整體銷售與需求預測(2026~2032)|QYResearch",
       "snippet_zh": ""
     },
     {
@@ -955,9 +965,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價出現多頭反轉,挑戰下跌趨勢。屬金價技術分析。",
+      "importance": 1,
+      "title_zh": "金價(XAU/USD)預測:多頭反轉挑戰下跌趨勢",
       "snippet_zh": ""
     },
     {
@@ -975,9 +985,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "高盛因聯準會偏鷹展望下調金價預測。金價預期下修有利 Au 靶材成本規劃。",
+      "importance": 3,
+      "title_zh": "高盛因聯準會偏鷹展望下調金價預測",
       "snippet_zh": ""
     },
     {
@@ -995,8 +1005,8 @@
         "原物料與價格"
       ],
       "score": 3.25,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價衝破 4,100 美元、逼近 4,150 美元,非農數據可能引發大行情。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1015,8 +1025,8 @@
         "原物料與價格"
       ],
       "score": 3.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃金經歷最差單月表現,德國商業銀行認為支持金價上漲的理由仍然有效。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1032,11 +1042,12 @@
         "產業綜合:溅射靶材"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "東吳證券發布濺鍍靶材產業深度報告,指靶材為半導體 PVD 製程核心耗材,國產化進程加速。中國靶材國產化將影響競爭格局。",
+      "importance": 4,
       "title_zh": "東吳證券:《半導體行業深度報告：濺射靶材行業深度：半導體PVD工藝核心耗材，國產化進程加速》",
       "snippet_zh": ""
     },
@@ -1052,11 +1063,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 5 日主力資金淨買入 7.87 億元人民幣。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "有研新材（600206）11月5日主力資金淨買入7.87億元",
       "snippet_zh": ""
     },
@@ -1072,11 +1084,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 5 日上漲 10.00%。屬股價行情。",
+      "importance": 1,
       "title_zh": "11月5日有研新材漲10.00%，稀土ETF嘉實基金重倉該股",
       "snippet_zh": ""
     },
@@ -1092,11 +1105,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材二連板。屬股價行情。",
+      "importance": 1,
       "title_zh": "有研新材二連板、皇臺酒業反包漲停，週五盤前",
       "snippet_zh": ""
     },
@@ -1112,12 +1126,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬高純度硫酸銅產能增強 50%,因應先進半導體需求擴大。與同期 JX金屬硫酸銅增產報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬高純度硫酸銅產能增強 50%,因應先進半導體需求擴大(鐵鋼新聞)",
       "snippet_zh": ""
     },
     {
@@ -1132,12 +1147,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "KeyBanc 因估值重設下調 Materion 目標價。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "KeyBanc 因估值重設下調 Materion 目標價",
       "snippet_zh": ""
     },
     {
@@ -1152,12 +1168,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "有分析師轉而看好 Materion,列入週四前五大評等上調。",
+      "importance": 2,
+      "title_zh": "這位 Materion 分析師轉向看多:週四五大評等上調",
       "snippet_zh": ""
     },
     {
@@ -1172,11 +1189,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "上市公司解讀文章,介紹有研新材。屬投資評論。",
+      "importance": 1,
       "title_zh": "每天解讀一家上市公司：有研新材",
       "snippet_zh": ""
     },
@@ -1192,11 +1210,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材領漲口腔板塊,主力資金淨流入 6.52 億元。屬股市行情。",
+      "importance": 1,
       "title_zh": "口腔板塊11月5日漲1.39%，有研新材領漲，主力資金淨流入6.52億元",
       "snippet_zh": ""
     },
@@ -1212,11 +1231,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子上漲 5.32%。屬股價行情。",
+      "importance": 1,
       "title_zh": "江豐電子漲5.32%，開源證券二個月前給出“買入”評級",
       "snippet_zh": ""
     },
@@ -1232,11 +1252,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材二連板封住 38.39 元,股東戶數減少 3.45 萬戶。屬股市行情。",
+      "importance": 1,
       "title_zh": "“妖股”直擊：有研新材2連板封住38.39元，新材料央企平臺疊加供給優化與全球補庫共振，股東戶數減少3.45萬戶",
       "snippet_zh": ""
     },
@@ -1252,12 +1273,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Seaport 以估值將 Materion 評等上調為買進。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "Seaport 以估值將 Materion 評等上調為買進",
       "snippet_zh": ""
     },
     {
@@ -1272,12 +1294,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬 AI 半導體用硫酸銅產能增加五成。與同期 JX金屬硫酸銅增產報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬 AI 半導體用硫酸銅產能增加 5 成",
       "snippet_zh": ""
     },
     {
@@ -1292,12 +1315,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus Technologies 股價季節性報酬圖表。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies(SNG.MU)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -1312,11 +1336,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11 月 4 日觸及漲停。屬股價行情。",
+      "importance": 1,
       "title_zh": "異動快報：江豐電子（300666）11月4日14點22分觸及漲停板_股市直擊",
       "snippet_zh": ""
     },
@@ -1332,11 +1357,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "半導體指數大漲逾 4%,江豐電子等成分股領漲。屬股市行情。",
+      "importance": 1,
       "title_zh": "【半導體】指數爆拉超4%！半導體設備ETF招商(561980)成分江豐電子、華峰測控領銜，反轉來了？",
       "snippet_zh": ""
     },
@@ -1352,12 +1378,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "非農數據公布前金價升至 4,100 美元附近。",
+      "importance": 1,
+      "title_zh": "非農數據公布前,金價升至 4,100 美元附近",
       "snippet_zh": ""
     },
     {
@@ -1372,12 +1399,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場報告發布 2026~2032 年全球半導體用細晶粒鋁濺鍍靶材市場規模,依 5N、5N5、6N 純度分類。可作為 Al 靶材市場參考,細節需參閱原報告。",
+      "importance": 3,
+      "title_zh": "全球半導體用細晶粒鋁濺鍍靶材市場(2026~2032)規模(5N、5N5、6N 等)分析報告發布",
       "snippet_zh": ""
     },
     {
@@ -1392,11 +1420,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "美國選後美元走弱,金價迎反彈契機。屬金價評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1412,11 +1441,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價站回 4,100 美元上方,分析師提醒真正支撐尚未出現。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     }
@@ -1477,12 +1507,12 @@
       "doi": "10.13140/rg.2.2.28577.77922",
       "source": "OpenAlex",
       "topics": [
-        "粉末冶金與燒結",
-        "陶瓷與氧化物靶"
+        "陶瓷與氧化物靶",
+        "粉末冶金與燒結"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "應用說明文件,探討以高解析度粒徑分析最佳化 ITO 靶材的燒結密度。摘要未提供細節。",
+      "importance": 3,
+      "title_zh": "應用說明:以高解析度粒徑分析最佳化 ITO 靶材燒結密度",
       "abstract_zh": "",
       "tier": "core"
     },
@@ -1510,10 +1540,10 @@
       "topics": [
         "粉末冶金與燒結"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
-      "abstract_zh": "",
+      "summary": "比較一次粒徑 640 nm 與 50 nm 的 YBCO 粉末:細粉比表面積較大但成形性差,生胚密度較低,主燒結曲線顯示其表觀緻密化活化能較高;以粗粉製成的靶材密度達 5.92 g/cm3、室溫電阻率 0.89 mΩ·cm、抗彎強度 60.55 MPa。顯示粉末成形性與燒結活性需一併考量。",
+      "importance": 5,
+      "title_zh": "解耦 YBCO 粉末的成形性與燒結活性以製備高性能超導靶材",
+      "abstract_zh": "傳統上追求超細粉末以提升燒結活性,卻常忽略其成形性不足。本研究以一次粒徑差異明顯(640 nm 對 50 nm)、比表面積不同(1.41 對 11.84 m2/g)的粉末,系統研究 YBCO 超導靶材的燒結行為。細粉雖比表面積較高,壓實性能明顯較差,鬆裝密度較低(1.18 對 1.67 g/cm3),5 MPa 下生胚密度也較低(3.16 對 4.08 g/cm3)。透過多路徑成形與燒結實驗,分離出成形性與燒結活性各自的貢獻。主燒結曲線分析顯示,細粉成形性差使其表觀緻密化活化能較高(338~418 kJ/mol,粗粉為 313~382 kJ/mol),掩蓋了其本身的燒結優勢。結果以初始缺陷較少、生胚密度較高的粗粉製成的靶材性能較佳:密度 5.92 g/cm3、室溫電阻率 0.89 mΩ·cm、抗彎強度 60.55 MPa。",
       "tier": "core"
     },
     {
@@ -1538,11 +1568,12 @@
       "doi": "10.1016/j.cej.2026.183657",
       "source": "OpenAlex",
       "topics": [
+        "陶瓷與氧化物靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究 IZTO 靶材成分對射頻濺鍍薄膜的靶面形貌與載子傳輸路徑的影響。摘要未提供細節。",
+      "importance": 3,
+      "title_zh": "射頻濺鍍 IZTO 薄膜中與成分相關的靶材形貌及載子傳輸路徑",
       "abstract_zh": "",
       "tier": "related"
     }
