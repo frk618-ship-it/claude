@@ -33,7 +33,7 @@ def sig(cfg, title, days_ago=1, **kw):
 
 
 def test_config_loads(cfg):
-    assert [p.key for p in cfg.products] == ["target", "titanium", "nickel"]
+    assert [p.key for p in cfg.products] == ["target", "titanium", "nickel", "copper"]
     for p in cfg.products:
         assert all(i in cfg.industries for i in p.industries)
     assert cfg.intents["tender"].weight > cfg.intents["policy"].weight
@@ -281,8 +281,8 @@ def test_segment_config(cfg):
     seg = cfg.segments["tw_semi_equipment"]
     members = [a for a in cfg.accounts if a.segment == "tw_semi_equipment"]
     assert len(members) >= 20 and all(a.subsegment in seg.subsegments for a in members)
-    assert all(set(a.fit) <= {"target", "titanium", "nickel"} and all(0 <= v <= 3 for v in a.fit.values()) for a in members)
-    assert next(a for a in members if a.name == "京鼎精密").note.endswith("真空與製程零件可用鈦材")   # comma inside a quoted note survives
+    assert all(set(a.fit) <= {"target", "titanium", "nickel", "copper"} and all(0 <= v <= 3 for v in a.fit.values()) for a in members)
+    assert next(a for a in members if a.name == "京鼎精密").note.endswith("銅:模組與腔體零件含無氧銅冷卻板與導電件")   # comma inside a quoted note survives
     assert cfg.intents["qualification"].action.endswith("爭取第二供應商資格")
 
 
@@ -296,8 +296,8 @@ def test_config_rejects_comma_split_fields(tmp_path):
 
 def test_equipment_news_infers_products_from_fit(cfg):
     s = sig(cfg, "京鼎董事會通過泰國二期投資 擴建廠區")
-    assert s.orgs[0] == "京鼎精密" and set(s.products) == {"titanium", "nickel"} and s.relevance == 0.6
-    assert s.industries == {"titanium": "semi_equipment", "nickel": "semi_equipment"}
+    assert s.orgs[0] == "京鼎精密" and set(s.products) == {"titanium", "nickel", "copper"} and s.relevance == 0.6
+    assert s.industries == {"titanium": "semi_equipment", "nickel": "semi_equipment", "copper": "semi_equipment"}
     assert classify(cfg, title="某設備廠擴建新廠") is None                           # no product, no fitted account
     assert classify(cfg, title="鈦昇玻璃基板雷射設備 小量產") is None                  # 「鈦昇」 is a company name, not titanium
 
@@ -405,7 +405,7 @@ def test_primary_segment_and_production_segment(cfg):
     assert all(a.subsegment in prod.subsegments for a in members.values())
     assert sum(1 for a in cfg.accounts if a.name == "台積電") == 1                  # moved into the segment, not duplicated
     s = sig(cfg, "南亞科 5A 新廠擴產 資本支出上修")
-    assert s.orgs[0] == "南亞科" and s.products == ["target"] and s.industries["target"] == "semiconductor"
+    assert s.orgs[0] == "南亞科" and s.products == ["target", "copper"] and s.industries["target"] == "semiconductor"
 
 
 def test_production_segment_report(cfg):
@@ -415,7 +415,7 @@ def test_production_segment_report(cfg):
     accs = {a["org"]: a for a in rep["accounts"]}
     assert accs["南亞科"]["signals"] == 1 and accs["南亞科"]["best_product"] == "target"
     assert accs["日月光投控"]["signals"] == 1 and accs["力成科技"]["signals"] == 1        # one report names three packagers
-    assert accs["欣銓科技"]["opportunity"] == pytest.approx(0.4 * 100 / 3, abs=0.1)        # fit 1, no news
+    assert accs["欣銓科技"]["opportunity"] == pytest.approx(0.4 * 200 / 3, abs=0.1)        # fit 2 (copper), no news
     assert [p["key"] for p in rep["segment_pages"]][:2] == ["tw_semi_equipment", "tw_semi_production"]
     assert rep["segment_pages"][0]["primary"] and not any(p["primary"] for p in rep["segment_pages"][1:])
 
@@ -468,16 +468,16 @@ def test_header_links_reach_every_segment_page(cfg, tmp_path):
 
 
 def test_signal_with_two_products_counts_once(cfg):
-    # 京鼎 (fit titanium 2, nickel 3) gets both products inferred; the same news for a
+    # 京鼎 (fit titanium 2, nickel 3, copper 2) gets all three products inferred; the same news for a
     # one-product account must score the same, not half
     two = sig(cfg, "京鼎董事會通過泰國二期投資 擴建新廠", days_ago=3)
     one = sig(cfg, "京鼎董事會通過泰國二期投資 擴建新廠", days_ago=3)
-    assert set(two.products) == {"titanium", "nickel"}
+    assert set(two.products) == {"titanium", "nickel", "copper"}
     one.products, one.industries = ["nickel"], {"nickel": two.industries["nickel"]}
     score = lambda s: next(l for l in build_leads([s], analyse([s], cfg, ASOF)["cells"], cfg, ASOF) if l["org"] == "京鼎精密")
     l2, l1 = score(two), score(one)
     assert l2["score"] == pytest.approx(l1["score"], abs=0.5)
-    assert l2["product"] == "titanium" or l2["product"] == "nickel"
+    assert l2["product"] in ("titanium", "nickel", "copper")
 
 
 def test_pitch_shows_its_spec_source(cfg):
@@ -614,4 +614,23 @@ def test_material_evidence_is_labelled(cfg):
     assert "明確提及材料的來源" in render_accounts_csv(rep)
     labels = {j.label for j in build_jobs(cfg, "tw_display_equipment")}
     assert "材料:友威科技" in labels and "材料:晶彩科技" not in labels                     # only for fit ≥ 2
+
+
+def test_copper_product_line(cfg):
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+
+    cu = cfg.product("copper")
+    assert cu.name == "銅材 / 銅合金" and cu.pitch_source.startswith("一般產業常見規格")
+    assert all("copper" in a.fit for a in cfg.accounts if a.segment)                     # every segment company judged
+    s = sig(cfg, "揚博接獲PCB電鍍線訂單 磷銅陽極需求增")
+    assert s.orgs[0] == "揚博科技" and s.products == ["copper"] and s.industries["copper"] == "pcb_equipment"
+    s = sig(cfg, "台積電先進封裝銅柱凸塊 擴產")
+    assert s.products == ["copper"] and s.relevance == 1.0
+    for noise in ["銅價創新高 礦商受惠", "奧運銅牌選手凱旋"]:
+        assert classify(cfg, title=noise) is None
+    assert "nickel" not in (classify(cfg, title="日月光 銅鎳合金導線架 擴產") or sig(cfg, "日月光 擴產")).products  # cupronickel is copper
+    rep = build_segment_report([sig(cfg, "亞智科技面板級封裝電鍍銅設備訂單", days_ago=2)], cfg, "tw_display_equipment", ASOF)
+    top = rep["accounts"][0]
+    assert top["org"] == "亞智科技" and top["best_product"] == "copper" and top["material_basis"]["explicit"] == 1
+    assert "銅材 / 銅合金適配" in render_accounts_csv(rep).splitlines()[0]
 

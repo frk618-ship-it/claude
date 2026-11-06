@@ -255,7 +255,7 @@ def render_segment_markdown(rep: dict) -> str:
             row.append(f"{c['z']:+.1f}({c['count']}){mark}" if c and c["heat"] else "·")
         out.append(f"| {name} | " + " | ".join(row) + " |")
     out += ["", "格內為 Gi* z 值(訊號數);🔥 熱點、▲ 溫點。", "", "## 目標客戶開發順序", "",
-            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳) | 近期訊號 | 材料依據 | 建議行動 |",
+            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳/銅) | 近期訊號 | 材料依據 | 建議行動 |",
             "|---:|---|---|---|---:|---|---|---|---|---|---|"]
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
@@ -270,12 +270,12 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源"])
     links = {s["id"]: s.get("link", "") for s in rep.get("signals", [])}
 
     for i, a in enumerate(rep["accounts"], 1):
         w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["fit_part"], a["signal_part"], a["tier"],
-                    lab["products"][a["best_product"]], a["fit"].get("target", 0), a["fit"].get("titanium", 0), a["fit"].get("nickel", 0),
+                    lab["products"][a["best_product"]], *[a["fit"].get(p, 0) for p in lab["products"]],
                     a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", ""), a.get("material_summary", ""),
                     " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid))])
     return "﻿" + buf.getvalue()

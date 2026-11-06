@@ -65,7 +65,7 @@ def _out_dir(args, segment: str) -> Path:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="lead_radar", description="商機雷達:以客群熱點分析找出正在尋找靶材、純鈦 / 鈦合金、鎳基合金的潛在客戶")
+    p = argparse.ArgumentParser(prog="lead_radar", description="商機雷達:以客群熱點分析找出正在尋找靶材、純鈦 / 鈦合金、鎳基合金、銅材 / 銅合金的潛在客戶")
     p.add_argument("-c", "--config", default="config/lead_radar.yaml")
     p.add_argument("--db", default="data/lead_radar/signals.sqlite3", help="需求訊號資料庫")
     p.add_argument("-v", "--verbose", action="store_true")
