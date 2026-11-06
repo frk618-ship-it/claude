@@ -1,0 +1,45 @@
+name: 商機雷達:採購公告
+# 每天收集公開採購公告,存進商機雷達的訊號資料庫(data/lead_radar/signals.sqlite3):
+#   - 公開資訊觀測站重大訊息(上市、上櫃開放資料):「取得機器設備 / 廠務工程」公告,含交易相對人與金額。
+#     開放資料只保留前一個交易日,所以要每天收集,不然會漏。
+#   - 政府電子採購網標案(標題含靶材、鈦、鎳基合金等字詞),往回找各客群的時間窗。
+# 週一的「商機雷達」排程會把累積的公告納入分析與網頁。
+
+on:
+  schedule:
+    # 每天台北時間 21:41(UTC 13:41)
+    - cron: "41 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lead-radar
+  cancel-in-progress: false
+
+jobs:
+  procure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Collect procurement notices
+        run: python -m lead_radar -v procure
+
+      - name: Commit signal database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/lead_radar
+          git diff --cached --quiet && exit 0
+          git commit -m "leads: 採購公告 $(TZ=Asia/Taipei date +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
