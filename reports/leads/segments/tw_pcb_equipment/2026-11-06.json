@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T23:18:16+00:00",
+ "generated": "2026-11-06T09:17:04+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -143,8 +143,8 @@
   }
  },
  "stats": {
-  "signals": 18,
-  "attributed": 18,
+  "signals": 17,
+  "attributed": 17,
   "new_signals": 1,
   "hot_cells": 4,
   "warm_cells": 0,
@@ -153,13 +153,13 @@
    "A": 0,
    "B": 0,
    "C": 2,
-   "D": 5
+   "D": 4
   },
   "enriched": 0,
   "by_product": {
    "target": 8,
-   "titanium": 15,
-   "nickel": 13
+   "titanium": 14,
+   "nickel": 12
   },
   "other_mentions": 3,
   "accounts": 8,
@@ -197,13 +197,13 @@
    "product": "titanium",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 8.704,
-   "count": 9,
+   "heat": 8.427,
+   "count": 8,
    "z": 6.17,
    "level": "hot",
    "trend": "new",
    "history": [
-    8.704
+    8.427
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -216,7 +216,6 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
     "d2a3a491d1e92f43",
     "befab01641204245",
     "66138b52b06c3af7",
@@ -229,7 +228,7 @@
    "region": "TW",
    "heat": 2.059,
    "count": 2,
-   "z": 3.82,
+   "z": 3.93,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -245,13 +244,13 @@
    "product": "nickel",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 4.638,
-   "count": 6,
-   "z": 6.13,
+   "heat": 4.36,
+   "count": 5,
+   "z": 6.1,
    "level": "hot",
    "trend": "new",
    "history": [
-    4.638
+    4.36
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -260,7 +259,6 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
     "d2a3a491d1e92f43",
     "befab01641204245",
     "558f4e57497d9d46"
@@ -272,13 +270,13 @@
    "product": "titanium",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 8.704,
-   "count": 9,
+   "heat": 8.427,
+   "count": 8,
    "z": 6.17,
    "level": "hot",
    "trend": "new",
    "history": [
-    8.704
+    8.427
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -291,21 +289,21 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
-    "d2a3a491d1e92f43"
+    "d2a3a491d1e92f43",
+    "befab01641204245"
    ]
   },
   {
    "product": "nickel",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 4.638,
-   "count": 6,
-   "z": 6.13,
+   "heat": 4.36,
+   "count": 5,
+   "z": 6.1,
    "level": "hot",
    "trend": "new",
    "history": [
-    4.638
+    4.36
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -314,7 +312,6 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
     "d2a3a491d1e92f43",
     "befab01641204245",
     "558f4e57497d9d46"
@@ -349,7 +346,7 @@
    "region": "TW",
    "heat": 2.059,
    "count": 2,
-   "z": 3.82,
+   "z": 3.93,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -390,7 +387,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.88
+    "z": 1.8
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -402,7 +399,9 @@
     "038cbe742f88124f",
     "0b33886bf67223da",
     "befab01641204245",
-    "c42105f8961a8a70"
+    "c42105f8961a8a70",
+    "ab28e43d6f4d7d3b",
+    "f20d518ac1e87488"
    ],
    "signal_score": 33.1,
    "fit_max": 3,
@@ -411,40 +410,35 @@
   },
   {
    "org": "台灣上村",
-   "account": true,
-   "score": 41.6,
-   "grade": "持續觀察",
-   "product": "titanium",
    "products": [
-    "titanium",
-    "nickel"
+    "titanium"
    ],
    "industry": "pcb_equipment",
    "region": "TW",
-   "top_intent": "policy",
-   "intents": [
-    "policy"
-   ],
-   "signals": 1,
-   "first_seen": "2026-11-06",
-   "last_signal": "2026-09-17",
-   "new": true,
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.88
+    "z": 1.8
    },
-   "next_action": "追蹤補助計畫名單與執行單位,提早布局",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "need": "",
-   "evidence": [
-    "c397ad3503e3f7d5"
-   ],
-   "signal_score": 2.7,
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 1.6
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
   },
   {
    "org": "牧德科技",
@@ -470,7 +464,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.45
+    "z": 1.5
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -510,7 +504,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.07
+    "z": 0.08
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -542,7 +536,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.58
+    "z": -0.6
    },
    "need": "",
    "evidence": [],
@@ -574,7 +568,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.45
+    "z": 1.5
    },
    "need": "",
    "evidence": [],
@@ -606,7 +600,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.58
+    "z": -0.6
    },
    "need": "",
    "evidence": [],
@@ -638,7 +632,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.58
+    "z": -0.6
    },
    "need": "",
    "evidence": [],
@@ -996,43 +990,6 @@
    "heat": 0.278
   },
   {
-   "id": "c397ad3503e3f7d5",
-   "title": "台日「雙水上」締結友好都市 嘉義水上鄉與熊本水上村推地瓜葉計畫",
-   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5VMXZqNy1YXzFuUFdUeU92SXJXUHd4dV9OSUJzRXFpYVNCVVVHbE1jRDBYZ1NQY09xc25IYnBPT3pFRklvcFdSZmNYbzBBZzVE0gFWQVVfeXFMTndMUERnYVc1Y2pURExLaTBKSFZzZmgzR2pMWFNsMUVMTDJrb19TRFR5UWJadnNQMWxfemtyQzJEQ28wTWQwWDZBRU5RLXlfQWhvYlVWclE?oc=5",
-   "source": "UDN",
-   "published": "2026-09-17",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industries": {
-    "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
-   },
-   "intents": [
-    "policy"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台灣上村"
-   ],
-   "accounts": [
-    "台灣上村"
-   ],
-   "relevance": 0.6,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.278
-  },
-  {
    "id": "ab28e43d6f4d7d3b",
    "title": "〈焦點股〉揚博開發玻璃基板設備受矚目 股價開高走高攻漲停206.5元",
    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5JU09FaHYxSDhGMTJkbUJxcXNjYkZVNDJVekpNMjdOTUlxMjh3Wm1peENvbU5WaW5KUVdBRTI1b2lrbzVQYjd2NGktSXRXN28?oc=5",
@@ -1363,6 +1320,7 @@
    "page": "report"
   }
  ],
+ "title": "台灣設備廠",
  "accounts": [
   {
    "org": "揚博科技",
@@ -1397,8 +1355,28 @@
     "038cbe742f88124f",
     "0b33886bf67223da",
     "befab01641204245",
-    "c42105f8961a8a70"
-   ]
+    "c42105f8961a8a70",
+    "ab28e43d6f4d7d3b",
+    "f20d518ac1e87488"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 9
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 9 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "558f4e57497d9d46": "inferred",
+    "d2a3a491d1e92f43": "inferred",
+    "038cbe742f88124f": "inferred",
+    "0b33886bf67223da": "inferred",
+    "befab01641204245": "inferred",
+    "c42105f8961a8a70": "inferred",
+    "ab28e43d6f4d7d3b": "inferred",
+    "f20d518ac1e87488": "inferred"
+   }
   },
   {
    "org": "台灣上村",
@@ -1412,24 +1390,31 @@
    "note": "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件",
    "heat": {
     "target": 0.0,
-    "titanium": 0.28,
-    "nickel": 0.28
+    "titanium": 0.0,
+    "nickel": 0.0
    },
-   "signal_score": 2.7,
-   "signals": 1,
-   "top_intent": "policy",
-   "last_signal": "2026-09-17",
-   "opportunity": 41.6,
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
    "fit_part": 40.0,
-   "signal_part": 1.6,
+   "signal_part": 0.0,
    "tier": "持續觀察",
    "best_product": "titanium",
-   "next_action": "追蹤補助計畫名單與執行單位,提早布局",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "c397ad3503e3f7d5"
-   ]
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "牧德科技",
@@ -1463,7 +1448,21 @@
     "ccd42e7ec7666cef",
     "7451dbfe2f148c49",
     "a0453334e969c835"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "66138b52b06c3af7": "inferred",
+    "ccd42e7ec7666cef": "inferred",
+    "7451dbfe2f148c49": "inferred",
+    "a0453334e969c835": "inferred"
+   }
   },
   {
    "org": "迅得機械",
@@ -1496,7 +1495,20 @@
     "91ecba29de79183b",
     "ebb14cf8156c591c",
     "1245d198b101e6d0"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 3
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 3 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "91ecba29de79183b": "inferred",
+    "ebb14cf8156c591c": "inferred",
+    "1245d198b101e6d0": "inferred"
+   }
   },
   {
    "org": "大量科技",
@@ -1525,7 +1537,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "由田新技",
@@ -1554,7 +1575,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "科嶠工業",
@@ -1583,7 +1613,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "群翊工業",
@@ -1612,7 +1651,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   }
  ],
  "other_mentions": [
@@ -1657,16 +1705,16 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": 0.48,
+   "z": 0.46,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "wet",
    "product": "titanium",
-   "heat": 4.638,
-   "count": 6,
-   "z": 1.88,
+   "heat": 4.36,
+   "count": 5,
+   "z": 1.8,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1675,7 +1723,6 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
     "d2a3a491d1e92f43",
     "befab01641204245",
     "558f4e57497d9d46"
@@ -1684,9 +1731,9 @@
   {
    "subsegment": "wet",
    "product": "nickel",
-   "heat": 4.638,
-   "count": 6,
-   "z": 1.56,
+   "heat": 4.36,
+   "count": 5,
+   "z": 1.47,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1695,7 +1742,6 @@
     "f20d518ac1e87488",
     "ab28e43d6f4d7d3b",
     "c59faed8a48dda52",
-    "c397ad3503e3f7d5",
     "d2a3a491d1e92f43",
     "befab01641204245",
     "558f4e57497d9d46"
@@ -1706,7 +1752,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.99,
+   "z": -0.97,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1715,7 +1761,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.58,
+   "z": -0.6,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1724,7 +1770,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.9,
+   "z": -0.93,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1733,7 +1779,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.99,
+   "z": -0.97,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1742,7 +1788,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.58,
+   "z": -0.6,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1751,7 +1797,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.9,
+   "z": -0.93,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1760,7 +1806,7 @@
    "product": "target",
    "heat": 3.821,
    "count": 3,
-   "z": 1.04,
+   "z": 1.12,
    "level": "warm",
    "signal_ids": [
     "ccd42e7ec7666cef",
@@ -1774,7 +1820,7 @@
    "product": "titanium",
    "heat": 3.821,
    "count": 3,
-   "z": 1.45,
+   "z": 1.5,
    "level": "warm",
    "signal_ids": [
     "ccd42e7ec7666cef",
@@ -1788,7 +1834,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": 0.32,
+   "z": 0.33,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1797,7 +1843,7 @@
    "product": "target",
    "heat": 2.059,
    "count": 2,
-   "z": 0.1,
+   "z": 0.16,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -1810,7 +1856,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": 0.07,
+   "z": 0.08,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1819,7 +1865,7 @@
    "product": "nickel",
    "heat": 2.059,
    "count": 2,
-   "z": 0.19,
+   "z": 0.2,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -1832,7 +1878,7 @@
    "product": "target",
    "heat": 0.246,
    "count": 0,
-   "z": -0.86,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28"
@@ -1843,7 +1889,7 @@
    "product": "titanium",
    "heat": 0.246,
    "count": 0,
-   "z": -0.45,
+   "z": -0.46,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28"
@@ -1854,9 +1900,26 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.82,
+   "z": -0.85,
    "level": "neutral",
    "signal_ids": []
   }
- ]
+ ],
+ "signal_materials": {
+  "038cbe742f88124f": [],
+  "0b33886bf67223da": [],
+  "1245d198b101e6d0": [],
+  "558f4e57497d9d46": [],
+  "66138b52b06c3af7": [],
+  "7451dbfe2f148c49": [],
+  "91ecba29de79183b": [],
+  "a0453334e969c835": [],
+  "ab28e43d6f4d7d3b": [],
+  "befab01641204245": [],
+  "c42105f8961a8a70": [],
+  "ccd42e7ec7666cef": [],
+  "d2a3a491d1e92f43": [],
+  "ebb14cf8156c591c": [],
+  "f20d518ac1e87488": []
+ }
 }

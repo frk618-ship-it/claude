@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T23:17:47+00:00",
+ "generated": "2026-11-06T09:16:17+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -143,8 +143,8 @@
   }
  },
  "stats": {
-  "signals": 234,
-  "attributed": 232,
+  "signals": 235,
+  "attributed": 233,
   "new_signals": 4,
   "hot_cells": 5,
   "warm_cells": 0,
@@ -153,15 +153,15 @@
    "A": 0,
    "B": 2,
    "C": 10,
-   "D": 27
+   "D": 16
   },
   "enriched": 0,
   "by_product": {
    "target": 42,
-   "titanium": 135,
-   "nickel": 190
+   "titanium": 136,
+   "nickel": 191
   },
-  "other_mentions": 20,
+  "other_mentions": 9,
   "accounts": 22,
   "tiers": {
    "優先開發": 0,
@@ -278,13 +278,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 58.054,
+   "heat": 58.149,
    "count": 44,
    "z": 6.17,
    "level": "hot",
    "trend": "new",
    "history": [
-    58.054
+    58.149
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -300,6 +300,7 @@
     "7d4024611afd4ce1",
     "5eb0b150df9c7ed4",
     "e381d0a8a6185832",
+    "132574b93653e870",
     "d0ab505f4c42d32b",
     "cbf270d9bd29fe34",
     "m-8ce210ed0fb1e64d",
@@ -448,13 +449,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.042,
+   "heat": 66.137,
    "count": 52,
    "z": 6.13,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.042
+    66.137
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -489,6 +490,7 @@
     "307845647ba34d40",
     "afc1b74f9c25920a",
     "64f16f64fe62a61f",
+    "132574b93653e870",
     "d0ab505f4c42d32b",
     "cbf270d9bd29fe34",
     "f39d5b39d459ecf1",
@@ -663,13 +665,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 58.054,
+   "heat": 58.149,
    "count": 44,
    "z": 6.17,
    "level": "hot",
    "trend": "new",
    "history": [
-    58.054
+    58.149
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -690,13 +692,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.042,
+   "heat": 66.137,
    "count": 52,
    "z": 6.13,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.042
+    66.137
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -823,7 +825,9 @@
     "m-81e4fcd170195f9d",
     "be41efd49998b54f",
     "a1feb9f8c0e2ceef",
-    "1d005d752b866391"
+    "1d005d752b866391",
+    "3fc0e3ec357f578c",
+    "2c844922ea100720"
    ],
    "signal_score": 37.3,
    "fit_max": 3,
@@ -857,7 +861,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.04
+    "z": 1.03
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -869,7 +873,9 @@
     "4b331a6d2589695f",
     "00f090dbc48de15f",
     "4cf163ce91a51b61",
-    "5b970057501c5096"
+    "5b970057501c5096",
+    "26e6506576116a44",
+    "9899b8a19240b526"
    ],
    "signal_score": 37.0,
    "fit_max": 3,
@@ -904,7 +910,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.95
+    "z": 1.96
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -916,7 +922,9 @@
     "228f48fd8c197103",
     "f27f5cafbe1b8b08",
     "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad"
+    "5e7395fe7e2df6ad",
+    "e1deac2e1e00ef84",
+    "31120842ead5b26b"
    ],
    "signal_score": 55.2,
    "fit_max": 2,
@@ -960,7 +968,9 @@
     "2c95d321a90bb454",
     "c05bb4471227a26c",
     "7d4024611afd4ce1",
-    "fe338532692ae4a2"
+    "fe338532692ae4a2",
+    "ce1e66d38beeb676",
+    "669d141852d7f11e"
    ],
    "signal_score": 31.3,
    "fit_max": 3,
@@ -1006,7 +1016,9 @@
     "8b2ea987a879a85e",
     "ce86f1b3ee1e495c",
     "0366df1e550e062e",
-    "00f090dbc48de15f"
+    "00f090dbc48de15f",
+    "409b00de49ad74bd",
+    "5eb0b150df9c7ed4"
    ],
    "signal_score": 49.9,
    "fit_max": 2,
@@ -1078,7 +1090,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.58
+    "z": 2.59
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1201,7 +1213,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.04
+    "z": 1.03
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1213,7 +1225,9 @@
     "56379a143e25a044",
     "8cc00dd5d2f9641e",
     "b74e7cac7998f8d5",
-    "e008d7304f534c4b"
+    "e008d7304f534c4b",
+    "713c7ab991339c73",
+    "e26ecf6a2c4c1574"
    ],
    "signal_score": 36.4,
    "fit_max": 2,
@@ -1256,7 +1270,9 @@
     "0a1c547beaaa2c64",
     "72b50002b46324a9",
     "520a11e500143adb",
-    "6de30c9dfad2d930"
+    "6de30c9dfad2d930",
+    "7939b1e7b141b490",
+    "0c26edd7dc128a47"
    ],
    "signal_score": 28.0,
    "fit_max": 2,
@@ -1289,7 +1305,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.95
+    "z": 1.96
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -1301,7 +1317,9 @@
     "b5837696839c3e9d",
     "329a986b0b73d256",
     "4301e37dad66046b",
-    "d82c45aebb9dc651"
+    "d82c45aebb9dc651",
+    "a142b8467def29e5",
+    "a02ce1c757eed96a"
    ],
    "signal_score": 23.4,
    "fit_max": 2,
@@ -1404,7 +1422,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.04
+    "z": 1.03
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1903,8 +1921,7 @@
    "region": "TW",
    "orgs": [
     "弘塑科技",
-    "日月光投控",
-    "日月光半導體"
+    "日月光投控"
    ],
    "accounts": [
     "弘塑科技",
@@ -2825,8 +2842,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "家登精密",
-    "強化半導體"
+    "家登精密"
    ],
    "accounts": [
     "家登精密"
@@ -3112,8 +3128,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "家登精密",
-    "跨足半導體"
+    "家登精密"
    ],
    "accounts": [
     "家登精密"
@@ -3709,8 +3724,7 @@
    "orgs": [
     "帆宣系統",
     "亞翔工程",
-    "美光台灣",
-    "美光把台灣半導體"
+    "美光台灣"
    ],
    "accounts": [
     "帆宣系統",
@@ -4267,8 +4281,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "亞翔工程",
-    "帶動半導體"
+    "亞翔工程"
    ],
    "accounts": [
     "亞翔工程"
@@ -5337,8 +5350,7 @@
    "region": "TW",
    "orgs": [
     "弘塑科技",
-    "台積電",
-    "汎銓共同打造半導體"
+    "台積電"
    ],
    "accounts": [
     "弘塑科技",
@@ -5820,8 +5832,7 @@
    "region": "TW",
    "orgs": [
     "弘塑科技",
-    "台積電",
-    "汎銓打造半導體"
+    "台積電"
    ],
    "accounts": [
     "弘塑科技",
@@ -5894,8 +5905,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "辛耘企業",
-    "直擊半導體"
+    "辛耘企業"
    ],
    "accounts": [
     "辛耘企業"
@@ -7231,8 +7241,7 @@
    "region": "TW",
    "orgs": [
     "萬潤科技",
-    "日月光投控",
-    "日月光半導體"
+    "日月光投控"
    ],
    "accounts": [
     "萬潤科技",
@@ -8105,7 +8114,7 @@
    "region": "TW",
    "orgs": [
     "弘塑科技",
-    "佳霖攜手青輝半導體"
+    "青輝半導體"
    ],
    "accounts": [
     "弘塑科技"
@@ -8142,8 +8151,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "弘塑科技",
-    "弘塑集團"
+    "弘塑科技"
    ],
    "accounts": [
     "弘塑科技"
@@ -9076,6 +9084,43 @@
    "heat": 0.386
   },
   {
+   "id": "132574b93653e870",
+   "title": "CoWoS設備供應鏈爆洩密中國 弘塑前總座等5人起訴",
+   "link": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNaXE0eU9UMEI2QjJaMThsQmFCM1YzVmkzQUZYSm5YZm9YN3IzRXJsdGhxdlhXVHBQUEkwMDgwaW5kbWl4enViTjM2Y0FVdURVTnRJcG53Zkd5dGdkaE9qQkVhQ0RkbHZaSXg3SWRNbWliT2FlWV94Rl8wZnhQSG5rVnp5UHM3cmRXWVFEYVFCcHBUQzNuYjJTdEJhcHI3R3NiZ1Z2SXBBZGp4d2IxMWMtZlVmdS1nMWpqeWl2S1BOZkFxVlRKOGgtZFEyWVpZRzJnVDNITllIWDU5U2ZqU2twSDlQUU9TOFdiQ1dudWlXNjFvT250MFAySU9FU1Nsck5kUDhjMjc0VFBkYU4weWsxdm5pNTBLOWpjWHBqeTVvajRCMTM3azdDaERBWWxnZ3Fja0tXdjNLbW5oWG5FZ1lqVg?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-07-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "semi_equipment",
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "弘塑科技"
+   ],
+   "accounts": [
+    "弘塑科技"
+   ],
+   "relevance": 0.6,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.38
+  },
+  {
    "id": "afc1b74f9c25920a",
    "title": "亞翔前五大客戶持續擴產未來三年看好逐年成長- 新聞",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOVWw0cTZfdmFaeGZ1WDRhSEd4bmFiQlM0SnMzWm1pQTQzOFJzY1l0eEtYVm04eVNsT2dvbkZqUXNaZUoybVlST29EUnJ3VWU4QXFtR3ZpT18zY2JIWVZfN08zOFYyZnFyTWhKODFVWjFubnRLc0FxOG01M3pYZ2tGZW9CUFA2XzlVT1VqLWhoa3NwUQ?oc=5",
@@ -9356,8 +9401,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "亞翔工程",
-    "東協半導體"
+    "亞翔工程"
    ],
    "accounts": [
     "亞翔工程"
@@ -9536,8 +9580,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "亞翔工程",
-    "看旺新加坡半導體"
+    "亞翔工程"
    ],
    "accounts": [
     "亞翔工程"
@@ -10369,6 +10412,7 @@
    "page": "report"
   }
  ],
+ "title": "台灣設備廠",
  "accounts": [
   {
    "org": "京鼎精密",
@@ -10403,8 +10447,28 @@
     "m-81e4fcd170195f9d",
     "be41efd49998b54f",
     "a1feb9f8c0e2ceef",
-    "1d005d752b866391"
-   ]
+    "1d005d752b866391",
+    "3fc0e3ec357f578c",
+    "2c844922ea100720"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 19
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 19 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "00f090dbc48de15f": "inferred",
+    "5a4b5e29a9fd824e": "inferred",
+    "m-81e4fcd170195f9d": "manual",
+    "be41efd49998b54f": "inferred",
+    "a1feb9f8c0e2ceef": "inferred",
+    "1d005d752b866391": "inferred",
+    "3fc0e3ec357f578c": "inferred",
+    "2c844922ea100720": "inferred"
+   }
   },
   {
    "org": "帆宣系統",
@@ -10439,8 +10503,28 @@
     "4b331a6d2589695f",
     "00f090dbc48de15f",
     "4cf163ce91a51b61",
-    "5b970057501c5096"
-   ]
+    "5b970057501c5096",
+    "26e6506576116a44",
+    "9899b8a19240b526"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 54
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 54 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "ccb9fcec687bf3db": "inferred",
+    "m-8ce210ed0fb1e64d": "manual",
+    "4b331a6d2589695f": "inferred",
+    "00f090dbc48de15f": "inferred",
+    "4cf163ce91a51b61": "inferred",
+    "5b970057501c5096": "inferred",
+    "26e6506576116a44": "inferred",
+    "9899b8a19240b526": "inferred"
+   }
   },
   {
    "org": "弘塑科技",
@@ -10454,8 +10538,8 @@
    "note": "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃",
    "heat": {
     "target": 1.71,
-    "titanium": 14.35,
-    "nickel": 14.35
+    "titanium": 14.45,
+    "nickel": 14.45
    },
    "signal_score": 55.2,
    "signals": 14,
@@ -10475,8 +10559,28 @@
     "228f48fd8c197103",
     "f27f5cafbe1b8b08",
     "m-2fe80f11f577d5f7",
-    "5e7395fe7e2df6ad"
-   ]
+    "5e7395fe7e2df6ad",
+    "e1deac2e1e00ef84",
+    "31120842ead5b26b"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 2,
+    "inferred": 34
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 2 則、未提材料的公司動態 34 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "81ed2a4bf7d2714a": "inferred",
+    "2035d0e314a24625": "inferred",
+    "228f48fd8c197103": "inferred",
+    "f27f5cafbe1b8b08": "inferred",
+    "m-2fe80f11f577d5f7": "manual",
+    "5e7395fe7e2df6ad": "inferred",
+    "e1deac2e1e00ef84": "inferred",
+    "31120842ead5b26b": "inferred"
+   }
   },
   {
    "org": "千附精密",
@@ -10511,8 +10615,28 @@
     "2c95d321a90bb454",
     "c05bb4471227a26c",
     "7d4024611afd4ce1",
-    "fe338532692ae4a2"
-   ]
+    "fe338532692ae4a2",
+    "ce1e66d38beeb676",
+    "669d141852d7f11e"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 11
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 11 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "m-799397f8690b2681": "manual",
+    "64e7711dc2a46723": "inferred",
+    "2c95d321a90bb454": "inferred",
+    "c05bb4471227a26c": "inferred",
+    "7d4024611afd4ce1": "inferred",
+    "fe338532692ae4a2": "inferred",
+    "ce1e66d38beeb676": "inferred",
+    "669d141852d7f11e": "inferred"
+   }
   },
   {
    "org": "家登精密",
@@ -10547,8 +10671,28 @@
     "8b2ea987a879a85e",
     "ce86f1b3ee1e495c",
     "0366df1e550e062e",
-    "00f090dbc48de15f"
-   ]
+    "00f090dbc48de15f",
+    "409b00de49ad74bd",
+    "5eb0b150df9c7ed4"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 38
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 38 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "m-a8eb9bfb6bcf0df5": "manual",
+    "6eb798c3ca62830d": "inferred",
+    "8b2ea987a879a85e": "inferred",
+    "ce86f1b3ee1e495c": "inferred",
+    "0366df1e550e062e": "inferred",
+    "00f090dbc48de15f": "inferred",
+    "409b00de49ad74bd": "inferred",
+    "5eb0b150df9c7ed4": "inferred"
+   }
   },
   {
    "org": "天虹科技",
@@ -10583,7 +10727,24 @@
     "091841dbcbb31750",
     "6d5236e4ef09889f",
     "4a2d9f541a428f3f"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 1,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [
+    "PVD"
+   ],
+   "material_summary": "明確提及材料 1 則(PVD)、未提材料的公司動態 4 則",
+   "evidence_basis": {
+    "m-d07a015033fdb0cb": "explicit",
+    "a227fc29b166d7cc": "inferred",
+    "091841dbcbb31750": "inferred",
+    "6d5236e4ef09889f": "inferred",
+    "4a2d9f541a428f3f": "inferred"
+   }
   },
   {
    "org": "漢民科技",
@@ -10614,7 +10775,18 @@
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "evidence": [
     "m-eab18e505444be96"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "m-eab18e505444be96": "manual"
+   }
   },
   {
    "org": "巧新科技",
@@ -10650,7 +10822,23 @@
     "974e5e2fa43b9658",
     "000b55cef8dfbccd",
     "42750a8bd5ed971d"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 5
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 5 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "m-cdb24ef5cf41e816": "manual",
+    "02c693cbd0db8d95": "inferred",
+    "ffe1c96ff811a1bc": "inferred",
+    "974e5e2fa43b9658": "inferred",
+    "000b55cef8dfbccd": "inferred",
+    "42750a8bd5ed971d": "inferred"
+   }
   },
   {
    "org": "倉佑實業",
@@ -10682,7 +10870,19 @@
    "evidence": [
     "m-cbd216dba1d22c62",
     "88e752098d61efe7"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 1,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "人工整理 1 則、未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "m-cbd216dba1d22c62": "manual",
+    "88e752098d61efe7": "inferred"
+   }
   },
   {
    "org": "亞翔工程",
@@ -10717,8 +10917,28 @@
     "56379a143e25a044",
     "8cc00dd5d2f9641e",
     "b74e7cac7998f8d5",
-    "e008d7304f534c4b"
-   ]
+    "e008d7304f534c4b",
+    "713c7ab991339c73",
+    "e26ecf6a2c4c1574"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 35
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 35 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "d2dc28f6a9bacca0": "inferred",
+    "2c708030d53bb2cd": "inferred",
+    "56379a143e25a044": "inferred",
+    "8cc00dd5d2f9641e": "inferred",
+    "b74e7cac7998f8d5": "inferred",
+    "e008d7304f534c4b": "inferred",
+    "713c7ab991339c73": "inferred",
+    "e26ecf6a2c4c1574": "inferred"
+   }
   },
   {
    "org": "印能科技",
@@ -10753,8 +10973,28 @@
     "0a1c547beaaa2c64",
     "72b50002b46324a9",
     "520a11e500143adb",
-    "6de30c9dfad2d930"
-   ]
+    "6de30c9dfad2d930",
+    "7939b1e7b141b490",
+    "0c26edd7dc128a47"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 8
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 8 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "e5507caf6d6658a3": "inferred",
+    "bc9d70f70f72bb9b": "inferred",
+    "0a1c547beaaa2c64": "inferred",
+    "72b50002b46324a9": "inferred",
+    "520a11e500143adb": "inferred",
+    "6de30c9dfad2d930": "inferred",
+    "7939b1e7b141b490": "inferred",
+    "0c26edd7dc128a47": "inferred"
+   }
   },
   {
    "org": "辛耘企業",
@@ -10768,8 +11008,8 @@
    "note": "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應",
    "heat": {
     "target": 0.89,
-    "titanium": 4.56,
-    "nickel": 4.56
+    "titanium": 4.62,
+    "nickel": 4.62
    },
    "signal_score": 23.4,
    "signals": 8,
@@ -10789,8 +11029,28 @@
     "b5837696839c3e9d",
     "329a986b0b73d256",
     "4301e37dad66046b",
-    "d82c45aebb9dc651"
-   ]
+    "d82c45aebb9dc651",
+    "a142b8467def29e5",
+    "a02ce1c757eed96a"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 20
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 20 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "f19d649c38a57f11": "inferred",
+    "75e969bfbc21d223": "inferred",
+    "b5837696839c3e9d": "inferred",
+    "329a986b0b73d256": "inferred",
+    "4301e37dad66046b": "inferred",
+    "d82c45aebb9dc651": "inferred",
+    "a142b8467def29e5": "inferred",
+    "a02ce1c757eed96a": "inferred"
+   }
   },
   {
    "org": "翔名科技",
@@ -10822,7 +11082,19 @@
    "evidence": [
     "c6571236f1d10d5f",
     "6e001e18bac0b34f"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "c6571236f1d10d5f": "inferred",
+    "6e001e18bac0b34f": "inferred"
+   }
   },
   {
    "org": "公準精密",
@@ -10851,7 +11123,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "漢唐集成",
@@ -10886,7 +11167,22 @@
     "e717441d62ca4f03",
     "3a3bafb3c208cd37",
     "17612b5a1bffffe4"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 5
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 5 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "f39d5b39d459ecf1": "inferred",
+    "450eff6da38324f1": "inferred",
+    "e717441d62ca4f03": "inferred",
+    "3a3bafb3c208cd37": "inferred",
+    "17612b5a1bffffe4": "inferred"
+   }
   },
   {
    "org": "萬潤科技",
@@ -10922,7 +11218,23 @@
     "ccb944fc5014f49b",
     "4600c1fa15817d84",
     "1eddc02da3abc624"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 6
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "460ed1d6e334da2d": "inferred",
+    "3d0106d7d8885b33": "inferred",
+    "7d859caae43a9b27": "inferred",
+    "ccb944fc5014f49b": "inferred",
+    "4600c1fa15817d84": "inferred",
+    "1eddc02da3abc624": "inferred"
+   }
   },
   {
    "org": "志聖工業",
@@ -10956,7 +11268,21 @@
     "411c2a725ed623a4",
     "64f16f64fe62a61f",
     "06464f6e41dfa5f9"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "72b50002b46324a9": "inferred",
+    "411c2a725ed623a4": "inferred",
+    "64f16f64fe62a61f": "inferred",
+    "06464f6e41dfa5f9": "inferred"
+   }
   },
   {
    "org": "鈦昇科技",
@@ -10988,7 +11314,19 @@
    "evidence": [
     "bc9d70f70f72bb9b",
     "7939b1e7b141b490"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "bc9d70f70f72bb9b": "inferred",
+    "7939b1e7b141b490": "inferred"
+   }
   },
   {
    "org": "家碩科技",
@@ -11019,7 +11357,18 @@
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "evidence": [
     "08069dd88e394fb0"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "08069dd88e394fb0": "inferred"
+   }
   },
   {
    "org": "均華精密",
@@ -11051,7 +11400,19 @@
    "evidence": [
     "b941bb37db7f7a7f",
     "a6ab8ad7399906f8"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "b941bb37db7f7a7f": "inferred",
+    "a6ab8ad7399906f8": "inferred"
+   }
   },
   {
    "org": "均豪精密",
@@ -11080,7 +11441,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "東捷科技",
@@ -11109,7 +11479,16 @@
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   }
  ],
  "other_mentions": [
@@ -11150,27 +11529,6 @@
    ]
   },
   {
-   "org": "日月光半導體",
-   "signal_score": 6.6,
-   "signals": 1,
-   "last_signal": "2026-10-28",
-   "product": "target",
-   "evidence": [
-    "e1deac2e1e00ef84",
-    "4600c1fa15817d84"
-   ]
-  },
-  {
-   "org": "強化半導體",
-   "signal_score": 4.7,
-   "signals": 1,
-   "last_signal": "2026-10-08",
-   "product": "titanium",
-   "evidence": [
-    "8b2ea987a879a85e"
-   ]
-  },
-  {
    "org": "南亞科",
    "signal_score": 3.9,
    "signals": 1,
@@ -11203,26 +11561,6 @@
    ]
   },
   {
-   "org": "汎銓打造半導體",
-   "signal_score": 1.4,
-   "signals": 1,
-   "last_signal": "2026-09-03",
-   "product": "target",
-   "evidence": [
-    "0be31479b3f1cbc6"
-   ]
-  },
-  {
-   "org": "美光把台灣半導體",
-   "signal_score": 1.1,
-   "signals": 0,
-   "last_signal": "2026-10-01",
-   "product": "target",
-   "evidence": [
-    "cadd6d674c7cd6a2"
-   ]
-  },
-  {
    "org": "京元電子",
    "signal_score": 1.0,
    "signals": 0,
@@ -11244,83 +11582,13 @@
    ]
   },
   {
-   "org": "直擊半導體",
-   "signal_score": 0.9,
-   "signals": 0,
-   "last_signal": "2026-09-02",
-   "product": "titanium",
-   "evidence": [
-    "ff9ee52834bfa325"
-   ]
-  },
-  {
-   "org": "跨足半導體",
-   "signal_score": 0.7,
-   "signals": 0,
-   "last_signal": "2026-10-07",
-   "product": "titanium",
-   "evidence": [
-    "df5e255f431cca7a"
-   ]
-  },
-  {
-   "org": "弘塑集團",
-   "signal_score": 0.6,
-   "signals": 0,
-   "last_signal": "2026-08-11",
-   "product": "titanium",
-   "evidence": [
-    "2acdccc482655407"
-   ]
-  },
-  {
-   "org": "帶動半導體",
-   "signal_score": 0.5,
-   "signals": 0,
-   "last_signal": "2026-09-22",
-   "product": "nickel",
-   "evidence": [
-    "22f23ba8d0278c87"
-   ]
-  },
-  {
-   "org": "佳霖攜手青輝半導體",
+   "org": "青輝半導體",
    "signal_score": 0.3,
    "signals": 0,
    "last_signal": "2026-08-11",
    "product": "titanium",
    "evidence": [
     "4fbe23f7bac9126f"
-   ]
-  },
-  {
-   "org": "汎銓共同打造半導體",
-   "signal_score": 0.3,
-   "signals": 0,
-   "last_signal": "2026-09-03",
-   "product": "target",
-   "evidence": [
-    "b4f66b4b3d0385b8"
-   ]
-  },
-  {
-   "org": "東協半導體",
-   "signal_score": 0.1,
-   "signals": 0,
-   "last_signal": "2026-07-24",
-   "product": "nickel",
-   "evidence": [
-    "a4166d52600656bd"
-   ]
-  },
-  {
-   "org": "看旺新加坡半導體",
-   "signal_score": 0.1,
-   "signals": 0,
-   "last_signal": "2026-07-24",
-   "product": "nickel",
-   "evidence": [
-    "710d9d6ddd6abae8"
    ]
   }
  ],
@@ -11350,14 +11618,15 @@
   {
    "subsegment": "front_end",
    "product": "titanium",
-   "heat": 21.541,
+   "heat": 21.635,
    "count": 17,
-   "z": 1.95,
+   "z": 1.96,
    "level": "warm",
    "signal_ids": [
     "06464f6e41dfa5f9",
     "d82c45aebb9dc651",
     "ca1dbd2251f1725e",
+    "132574b93653e870",
     "d0ab505f4c42d32b",
     "cbf270d9bd29fe34",
     "m-8ce210ed0fb1e64d",
@@ -11365,21 +11634,21 @@
     "5034af645cfdecc8",
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
-    "2acdccc482655407",
-    "4fbe23f7bac9126f"
+    "2acdccc482655407"
    ]
   },
   {
    "subsegment": "front_end",
    "product": "nickel",
-   "heat": 25.358,
+   "heat": 25.453,
    "count": 19,
-   "z": 2.58,
+   "z": 2.59,
    "level": "hot",
    "signal_ids": [
     "06464f6e41dfa5f9",
     "d82c45aebb9dc651",
     "ca1dbd2251f1725e",
+    "132574b93653e870",
     "d0ab505f4c42d32b",
     "cbf270d9bd29fe34",
     "m-8ce210ed0fb1e64d",
@@ -11387,8 +11656,7 @@
     "5034af645cfdecc8",
     "90b943b2b6335f85",
     "0a012bbd953e7e75",
-    "2acdccc482655407",
-    "4fbe23f7bac9126f"
+    "2acdccc482655407"
    ]
   },
   {
@@ -11534,7 +11802,7 @@
    "product": "nickel",
    "heat": 17.389,
    "count": 12,
-   "z": 1.04,
+   "z": 1.03,
    "level": "warm",
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -11634,5 +11902,104 @@
     "m-33e2f50619cee757"
    ]
   }
- ]
+ ],
+ "signal_materials": {
+  "000b55cef8dfbccd": [],
+  "00f090dbc48de15f": [],
+  "02c693cbd0db8d95": [],
+  "0366df1e550e062e": [],
+  "06464f6e41dfa5f9": [],
+  "08069dd88e394fb0": [],
+  "091841dbcbb31750": [],
+  "0a1c547beaaa2c64": [],
+  "0c26edd7dc128a47": [],
+  "17612b5a1bffffe4": [],
+  "1d005d752b866391": [],
+  "1eddc02da3abc624": [],
+  "2035d0e314a24625": [],
+  "228f48fd8c197103": [],
+  "26e6506576116a44": [],
+  "2c708030d53bb2cd": [],
+  "2c844922ea100720": [],
+  "2c95d321a90bb454": [],
+  "31120842ead5b26b": [],
+  "329a986b0b73d256": [],
+  "3a3bafb3c208cd37": [],
+  "3d0106d7d8885b33": [],
+  "3fc0e3ec357f578c": [],
+  "409b00de49ad74bd": [],
+  "411c2a725ed623a4": [],
+  "42750a8bd5ed971d": [],
+  "4301e37dad66046b": [],
+  "450eff6da38324f1": [],
+  "4600c1fa15817d84": [],
+  "460ed1d6e334da2d": [],
+  "4a2d9f541a428f3f": [],
+  "4b331a6d2589695f": [],
+  "4cf163ce91a51b61": [],
+  "520a11e500143adb": [],
+  "56379a143e25a044": [],
+  "5a4b5e29a9fd824e": [],
+  "5b970057501c5096": [],
+  "5e7395fe7e2df6ad": [],
+  "5eb0b150df9c7ed4": [],
+  "64e7711dc2a46723": [],
+  "64f16f64fe62a61f": [],
+  "669d141852d7f11e": [],
+  "6d5236e4ef09889f": [],
+  "6de30c9dfad2d930": [],
+  "6e001e18bac0b34f": [],
+  "6eb798c3ca62830d": [],
+  "713c7ab991339c73": [],
+  "72b50002b46324a9": [],
+  "75e969bfbc21d223": [],
+  "7939b1e7b141b490": [],
+  "7d4024611afd4ce1": [],
+  "7d859caae43a9b27": [],
+  "81ed2a4bf7d2714a": [],
+  "88e752098d61efe7": [],
+  "8b2ea987a879a85e": [],
+  "8cc00dd5d2f9641e": [],
+  "974e5e2fa43b9658": [],
+  "9899b8a19240b526": [],
+  "a02ce1c757eed96a": [],
+  "a142b8467def29e5": [],
+  "a1feb9f8c0e2ceef": [],
+  "a227fc29b166d7cc": [],
+  "a6ab8ad7399906f8": [],
+  "b5837696839c3e9d": [],
+  "b74e7cac7998f8d5": [],
+  "b941bb37db7f7a7f": [],
+  "bc9d70f70f72bb9b": [],
+  "be41efd49998b54f": [],
+  "c05bb4471227a26c": [],
+  "c6571236f1d10d5f": [],
+  "ccb944fc5014f49b": [],
+  "ccb9fcec687bf3db": [],
+  "ce1e66d38beeb676": [],
+  "ce86f1b3ee1e495c": [],
+  "d2dc28f6a9bacca0": [],
+  "d82c45aebb9dc651": [],
+  "e008d7304f534c4b": [],
+  "e1deac2e1e00ef84": [],
+  "e26ecf6a2c4c1574": [],
+  "e5507caf6d6658a3": [],
+  "e717441d62ca4f03": [],
+  "f19d649c38a57f11": [],
+  "f27f5cafbe1b8b08": [],
+  "f39d5b39d459ecf1": [],
+  "fe338532692ae4a2": [],
+  "ffe1c96ff811a1bc": [],
+  "m-2fe80f11f577d5f7": [],
+  "m-799397f8690b2681": [],
+  "m-81e4fcd170195f9d": [],
+  "m-8ce210ed0fb1e64d": [],
+  "m-a8eb9bfb6bcf0df5": [],
+  "m-cbd216dba1d22c62": [],
+  "m-cdb24ef5cf41e816": [],
+  "m-d07a015033fdb0cb": [
+   "PVD"
+  ],
+  "m-eab18e505444be96": []
+ }
 }

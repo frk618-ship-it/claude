@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T23:18:25+00:00",
+ "generated": "2026-11-06T09:17:17+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -402,7 +402,9 @@
     "029c5ccead329cc4",
     "3cdbc5939243d36e",
     "e0ce00a0ba8e98ff",
-    "bf3837c4dec65dd1"
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "868f94e3ffda3c1d"
    ],
    "signal_score": 26.5,
    "fit_max": 2,
@@ -1187,6 +1189,7 @@
    "page": "report"
   }
  ],
+ "title": "台灣設備廠",
  "accounts": [
   {
    "org": "友威科技",
@@ -1220,7 +1223,21 @@
     "21087f09657387d9",
     "3bac8f9a8dc7e016",
     "413c048402bc797f"
-   ]
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "2a982fff737a3ef5": "inferred",
+    "21087f09657387d9": "inferred",
+    "3bac8f9a8dc7e016": "inferred",
+    "413c048402bc797f": "inferred"
+   }
   },
   {
    "org": "亞智科技",
@@ -1255,8 +1272,28 @@
     "029c5ccead329cc4",
     "3cdbc5939243d36e",
     "e0ce00a0ba8e98ff",
-    "bf3837c4dec65dd1"
-   ]
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "868f94e3ffda3c1d"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 12
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 12 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "30f509af6c584457": "inferred",
+    "1a1e1c42be8b6614": "inferred",
+    "029c5ccead329cc4": "inferred",
+    "3cdbc5939243d36e": "inferred",
+    "e0ce00a0ba8e98ff": "inferred",
+    "19cab28bdcc4c569": "inferred",
+    "bf3837c4dec65dd1": "inferred",
+    "868f94e3ffda3c1d": "inferred"
+   }
   },
   {
    "org": "廣運機械",
@@ -1285,7 +1322,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "惠特科技",
@@ -1314,7 +1360,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "晶彩科技",
@@ -1343,7 +1398,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "盟立自動化",
@@ -1372,7 +1436,16 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "馗鼎奈米",
@@ -1401,7 +1474,16 @@
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": []
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   }
  ],
  "other_mentions": [],
@@ -1604,5 +1686,19 @@
    "level": "neutral",
    "signal_ids": []
   }
- ]
+ ],
+ "signal_materials": {
+  "029c5ccead329cc4": [],
+  "19cab28bdcc4c569": [],
+  "1a1e1c42be8b6614": [],
+  "21087f09657387d9": [],
+  "2a982fff737a3ef5": [],
+  "30f509af6c584457": [],
+  "3bac8f9a8dc7e016": [],
+  "3cdbc5939243d36e": [],
+  "413c048402bc797f": [],
+  "868f94e3ffda3c1d": [],
+  "bf3837c4dec65dd1": [],
+  "e0ce00a0ba8e98ff": []
+ }
 }
