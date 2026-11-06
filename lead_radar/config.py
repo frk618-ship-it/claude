@@ -58,6 +58,9 @@ class Account:
     subsegment: str = ""
     fit: dict[str, int] = field(default_factory=dict)   # product key -> 0–3 judged product fit
     note: str = ""                    # why it fits / what it might buy
+    tier: int = 0                     # supply-chain position: 1 = tier-1 supplier of equipment makers (0 = not set)
+    customers: list[str] = field(default_factory=list)   # the equipment makers it supplies (may be outside the list)
+    chain_source: str = ""            # public source for tier / customers, "名稱 URL; 名稱 URL"
 
 
 @dataclass
@@ -134,7 +137,8 @@ ALLOWED = {
     "industries": {"name", "keywords", "search"},
     "intents": {"name", "weight", "keywords", "action"},
     "regions": {"name", "keywords"},
-    "accounts": {"name", "aliases", "industry", "region", "products", "ticker", "segment", "subsegment", "fit", "note"},
+    "accounts": {"name", "aliases", "industry", "region", "products", "ticker", "segment", "subsegment", "fit", "note",
+                 "tier", "customers", "chain_source"},
 }
 
 
@@ -230,6 +234,9 @@ def load_config(path: str | Path) -> Config:
             subsegment=a.get("subsegment", ""),
             fit={k: int(v) for k, v in (a.get("fit") or {}).items()},
             note=a.get("note", ""),
+            tier=int(a.get("tier", 0) or 0),
+            customers=[str(x) for x in a.get("customers", []) or []],
+            chain_source=str(a.get("chain_source", "") or ""),
         )
         for a in raw.get("accounts", []) or []
     ]

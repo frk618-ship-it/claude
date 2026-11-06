@@ -526,7 +526,7 @@ const DATA = /*__DATA__*/null;
       $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>綜合分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
         (shown.length ? "" : `<tr><td colspan="9" class="empty-note">沒有符合條件的公司。</td></tr>`) +
         shown.map(({a, rank}) => { const l = DATA.leads.find(x => x.org === a.org) || {}; const i = rank - 1; return `<tr class="row" data-i="${i}" tabindex="0" aria-expanded="false"><td class="num">${rank}</td>
-        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}${l.new ? ' <span class="badge new">新出現</span>' : ""}</td>
+        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}${l.new ? ' <span class="badge new">新出現</span>' : ""}${a.chain_tier ? ` <span class="badge acc" title="設備大廠${a.chain_tier === 1 ? "一" : "二"}階供應商">${a.chain_tier === 1 ? "一" : "二"}階</span>` : ""}</td>
         <td>${esc(SEG.subsegments[a.subsegment] || a.subsegment)}${l.hotspot && l.hotspot.level === "hot" ? ' <span class="badge hot">熱點</span>' : l.hotspot && l.hotspot.level === "warm" ? ' <span class="badge warm">溫點</span>' : ""}</td>
         <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}</span></td>
         <td><span class="tier ${tierCls(a.tier)}">${esc(a.tier)}</span></td><td>${esc(L.products[a.best_product])}</td>
@@ -536,6 +536,7 @@ const DATA = /*__DATA__*/null;
         <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><dl class="acc-dl">
           <dt>分數組成</dt><dd>產品適配 ${Math.max(...Object.values(a.fit), 0)}/3 → ${Math.round(a.fit_part)} 分,訊號強度 ${Math.round(a.signal_score)} → ${Math.round(a.signal_part)} 分</dd>
           ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
+          ${a.chain_tier ? `<dt>供應鏈位置</dt><dd>設備大廠${a.chain_tier === 1 ? "一" : "二"}階供應商(客戶:${esc((a.customers || []).join("、") || "客戶未公開")})${a.chain_source ? `<span class="src-note">來源:${a.chain_source.split(/;\s*/).map(x => { const m = x.match(/^(.*?)\s+(https?:\/\/\S+)$/); return m ? `<a href="${esc(m[2])}" target="_blank" rel="noopener">${esc(m[1])}</a>` : esc(x); }).join("、")}</span>` : ""}</dd>` : ""}
           <dt>材料依據</dt><dd>${esc(a.material_summary || "")}</dd>
           <dt>推估理由</dt><dd>${esc(a.note)}<span class="src-note">產品適配度依公開業務內容推估,尚未經拜訪確認</span></dd>
           <dt>切入重點</dt><dd>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span></dd>

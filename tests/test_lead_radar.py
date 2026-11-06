@@ -487,7 +487,7 @@ def test_pitch_shows_its_spec_source(cfg):
     assert all(p.pitch_source.startswith("一般產業常見規格") for p in cfg.products)
     rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
     assert all(a["pitch_source"] for a in rep["accounts"]) and all(l["pitch_source"] for l in rep["leads"])
-    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源")
+    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源,供應鏈位置,供應鏈來源")
     assert "規格依據:" in render_markdown(rep) or not rep["leads"]
     assert '"pitch_source": "一般產業常見規格' in render_page(rep)
     assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"
@@ -664,3 +664,18 @@ def test_inferred_material_is_not_credited_to_low_fit_companies(cfg):
     assert not foil.inferred and foil.orgs[0] == "金居"
     assert org_weights(foil, cfg)["廣達"] == 0.5                    # a partner, not the subject
     assert sig(cfg, "政治恐慌殺盤!台股血崩 緊盯台達電AI訂單").noise
+
+
+def test_tier1_suppliers_of_equipment_makers(cfg):
+    from lead_radar.segment import build_segment_report, chain_label, render_accounts_csv
+
+    tier1 = {a.name: a for a in cfg.accounts if a.tier == 1}
+    assert {"京鼎精密", "千附精密", "翔名科技", "公準精密", "巧新科技", "倉佑實業", "晟田科技", "家登精密", "帆宣系統"} <= set(tier1)
+    assert all(a.chain_source and "http" in a.chain_source for a in tier1.values())          # every position has a source
+    assert tier1["千附精密"].customers == ["應用材料", "科林研發", "艾司摩爾"]
+    assert tier1["晟田科技"].segment == "tw_semi_equipment" and tier1["晟田科技"].fit["nickel"] == 3
+    rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
+    acc = next(a for a in rep["accounts"] if a["org"] == "千附精密")
+    assert chain_label(acc) == "設備大廠一階供應商(客戶:應用材料、科林研發、艾司摩爾)"
+    assert chain_label(next(a for a in rep["accounts"] if a["org"] == "巧新科技")).endswith("(客戶:客戶未公開)")
+    assert "設備大廠一階供應商(客戶:應用材料)" in render_accounts_csv(rep)
