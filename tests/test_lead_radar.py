@@ -552,7 +552,7 @@ def test_business_report_page(tmp_path, monkeypatch):
     site = tmp_path / "site"
     assert main(["site", "-i", str(out), "-o", str(site)]) == 0
     page = (site / "report" / "index.html").read_text(encoding="utf-8")
-    assert "半導體客群商機開發業務報告" in page and 'href="../index.html"' in page and 'href="../../news/index.html"' in page
+    assert "台灣設備廠商機開發業務報告" in page and 'href="../index.html"' in page and 'href="../../news/index.html"' in page
 
 
 def test_pcb_and_display_equipment_segments(cfg):
