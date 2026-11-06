@@ -99,8 +99,6 @@ class Settings:
     title: str = ""                  # page heading after 「商機雷達:」; empty = the segment's name
     links: list[dict[str, str]] = field(default_factory=list)   # [{name, url}] shown as buttons on every page
     exclude_orgs: list[str] = field(default_factory=list)
-    # public procurement sources: {pcc: bool, pcc_queries: [...], mops: bool}
-    procurement: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -192,9 +190,6 @@ def load_config(path: str | Path) -> Config:
         title=str(s.get("title", "") or ""),
         links=[_link(l) for l in s.get("links", []) or [] if _link(l)],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
-        procurement={"pcc": bool((s.get("procurement") or {}).get("pcc", True)),
-                     "mops": bool((s.get("procurement") or {}).get("mops", True)),
-                     "pcc_queries": [str(q) for q in (s.get("procurement") or {}).get("pcc_queries", []) or []]},
     )
     industries = {
         k: Industry(key=k, name=v["name"], keywords=[str(x) for x in v.get("keywords", [])], search=[str(x) for x in v.get("search", [])])

@@ -42,15 +42,6 @@ settings:
   exclude_orgs: [鑫科, 鑫科材料, TTMC, 光洋科, Solar Applied, JX金屬, JX Advanced Metals, Materion, Plansee, 東曹, Tosoh, Honeywell, Solstice,
                  寶鈦, 宝钛, 西部超導, 西部超导, TIMET, VSMPO, ATI, Haynes, Special Metals, 撫順特鋼, 抚顺特钢, 鋼研高納, 钢研高纳, 中鋼, 中钢, 大同特殊鋼]
 
-  # 公開採購公告:比新聞更明確的需求來源(公告本身寫明要買什麼)
-  #   pcc   政府電子採購網(公營事業、研究機構、大學、醫院):標案名稱含下列材料字詞的招標 / 決標公告
-  #   mops  公開資訊觀測站重大訊息(上市、上櫃):「取得機器設備 / 廠務工程」公告,含交易相對人與金額;
-  #         開放資料只有當天,由「商機雷達:採購公告」workflow 每天收集
-  procurement:
-    pcc: true
-    mops: true
-    pcc_queries: [靶材, 濺鍍靶, 鈦合金, 純鈦, 鈦材, 鈦板, 鈦管, 鈦棒, 鎳基合金, 鎳合金, 高溫合金, 超合金, Inconel, Hastelloy, Incoloy, Monel]
-
   editions:
     zh-TW: {hl: zh-TW, gl: TW, ceid: "TW:zh-Hant", region: TW}
     zh-CN: {hl: zh-CN, gl: CN, ceid: "CN:zh-Hans", region: CN}
@@ -92,7 +83,6 @@ products:
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
     industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment]
-    exclude: [銅鎳合金, 铜镍合金, 銅鎳, 白銅, 鎳銀]           # 銅基合金(硬幣坯、冷凝管)不是鎳基合金
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -398,7 +388,7 @@ accounts:
      industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1},
      note: "再生晶圓與鑽石碟;材料需求以研磨耗材為主,與三條產品線關聯較低"}
   # 封裝:凸塊、重布線層(RDL)、扇出與面板級封裝的 UBM / 種子層濺鍍(Ti、TiW、Cu 靶),電鍍治具與陽極用鈦
-  - {name: 日月光投控, aliases: [日月光, ASE, 矽品, SPIL, 台灣福雷], ticker: "3711", segment: tw_semi_production, subsegment: packaging,
+  - {name: 日月光投控, aliases: [日月光, ASE], ticker: "3711", segment: tw_semi_production, subsegment: packaging,
      industry: semiconductor, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 1},
      note: "全球最大封測廠,2026 年資本支出提高至 105 億美元,310x310mm 面板級封裝產線;UBM / RDL 濺鍍靶材與電鍍用鈦"}
   - {name: 力成科技, aliases: [力成, Powertech], ticker: "6239", segment: tw_semi_production, subsegment: packaging,

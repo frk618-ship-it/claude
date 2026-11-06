@@ -101,7 +101,7 @@ _STOP = re.compile(
     r"打造|共同|攜手|携手|聯手|联手|帶動|带动|跨足|引爆|強化|强化|直擊|直击|看旺|看好|據報|据报|從未|从未|做好|承接|啟動|启动|牽動|牵动|"
     r"最新|歡迎|欢迎|所有|重量級|重量级|高純度|高纯度|財報|财报|傷害|伤害|推動|推动|布局|佈局|進軍|进军|切入|投入|加速|整合|發展|发展|"
     r"成為|成为|全面|旗下|入股|拿下|助攻|擴大|扩大|營收|营收|法說|個股|概念|族群|供應鏈|供应链|大廠|大厂|龍頭|龙头|廠商|厂商|業者|业者|"
-    r"一圖|看懂|受惠|搶進|抢进|轉型|转型|鎖定|锁定|瞄準|瞄准|迎來|迎来|衝刺|冲刺|挺進|挺进|深耕|攻進|攻进|導入|导入|供貨|供货|出貨|出货|"
+    r"受惠|搶進|抢进|轉型|转型|鎖定|锁定|瞄準|瞄准|迎來|迎来|衝刺|冲刺|挺進|挺进|深耕|攻進|攻进|導入|导入|供貨|供货|出貨|出货|"
     r"把|將|将|的|讓|让|被|向|對|对|為|为|從|从|於|于|在"
 )
 _EN_GENERIC = {"The", "A", "An", "New", "Global", "US", "U.S.", "China", "Taiwan", "Japan", "Korea", "Europe"}
@@ -196,8 +196,7 @@ def classify(
         # Equipment makers' news rarely names a material ("京鼎擴建泰國二期"): for accounts with a
         # judged product fit, the products they are likely to buy (fit ≥ 2) stand in, at lower relevance.
         inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
-        # (a filing that announces buying equipment / plant works is demand by itself)
-        if not inferred or (origin != "filing" and not any(_hits(low, it.keywords) for it in config.intents.values())):
+        if not inferred or not any(_hits(low, it.keywords) for it in config.intents.values()):
             return None     # without a material word, only demand news counts (擴產、訂單、缺料…), not stock chatter
         products, relevance = inferred, 0.6
 
@@ -215,9 +214,7 @@ def classify(
         }
         best = max(scores, key=lambda i: scores[i], default="")
         industries[key] = best if best and scores[best] > 0 else OTHER
-    # news needs an application industry or a listed company; a procurement notice that names the
-    # material is demand by itself (a hospital buying titanium implants, a refinery buying Inconel pipe)
-    if origin not in ("manual", "tender", "filing") and not accounts and all(v == OTHER for v in industries.values()):
+    if origin != "manual" and not accounts and all(v == OTHER for v in industries.values()):
         return None
 
     intents = [k for k, it in sorted(config.intents.items(), key=lambda kv: -kv[1].weight) if _hits(low, it.keywords)]
@@ -278,7 +275,7 @@ def classify(
 def reclassify(sig: Signal, config: Config) -> Signal | None:
     """Re-run the current rules on a stored news signal, so config changes apply to history.
     Manual rows and Claude-enriched signals are kept as they are."""
-    if sig.origin in ("manual", "tender", "filing") or sig.enriched:
+    if sig.origin == "manual" or sig.enriched:
         return sig
     new = classify(config, title=sig.title, snippet=sig.snippet, link=sig.link, source=sig.source,
                    published=sig.published, edition=sig.edition, origin=sig.origin)

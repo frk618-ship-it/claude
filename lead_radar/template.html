@@ -186,10 +186,6 @@ details.lead>summary::-webkit-details-marker{display:none}
     <div id="acc-filters"></div>
     <div class="table-wrap"><table class="seg-acc" id="seg-acc"></table></div>
     <div id="acc-others"></div>
-    <div id="proc-wrap" hidden>
-      <div class="bar"><h3 style="font-size:1rem" id="h-proc">公開採購公告 <small id="proc-count" style="font-weight:400;color:var(--muted)"></small> <small style="font-weight:400;color:var(--muted)">公告本身寫明要買什麼:政府電子採購網標案(標題含材料字詞)、上市櫃公司「取得機器設備 / 廠務工程」重大訊息</small></h3></div>
-      <div class="table-wrap"><table class="seg-acc" id="proc-table" aria-labelledby="h-proc"></table></div>
-    </div>
   </section>
 
   <section aria-labelledby="h-map" id="map-sec">
@@ -563,18 +559,6 @@ const DATA = /*__DATA__*/null;
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
       el.click(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
     };
-    const PROC = DATA.procurement || [];
-    if (PROC.length) {
-      $("#proc-wrap").hidden = false;
-      $("#proc-count").textContent = `${PROC.length} 則`;
-      $("#proc-table").innerHTML = `<thead><tr><th>日期</th><th>來源</th><th>公告</th><th>產品線</th><th>材料字詞</th><th>相關公司</th></tr></thead><tbody>` +
-        PROC.slice(0, 60).map(r => `<tr><td class="mono">${esc(r.date)}</td>
-          <td><span class="badge${r.kind === "政府標案" ? " mat-x" : " mat-m"}">${esc(r.kind)}</span><br><span style="font-size:.76rem;color:var(--muted)">${esc(L.intents[r.intent] || "")}</span></td>
-          <td>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : esc(r.title)}${r.detail ? `<br><span style="font-size:.78rem;color:var(--muted)">${esc(r.detail)}</span>` : ""}</td>
-          <td>${r.products.map(p => esc(L.products[p] || p)).join("、")}</td>
-          <td>${r.terms.length ? `<span class="badge mat-x">${esc(r.terms.join("、"))}</span>` : '<span class="badge mat-i">未提材料</span>'}</td>
-          <td>${r.orgs.map(o => r.members.includes(o) ? `<b>${esc(o)}</b>` : esc(o)).join("、")}</td></tr>`).join("") + "</tbody>";
-    }
     renderSegMatrix();
   }
 

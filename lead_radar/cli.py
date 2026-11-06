@@ -60,19 +60,6 @@ def _analyse_and_write(store: SignalStore, cfg, asof: date, segment: str, out: P
     return rep
 
 
-def _procure(store: SignalStore, cfg, days: int) -> int:
-    """Public procurement notices → the signal store (failures only log: news still runs)."""
-    from .procurement import collect_procurement
-
-    days = days or max([s.days for s in cfg.segments.values()] + [cfg.settings.days])
-    try:
-        sigs = collect_procurement(cfg, days, asof=_today())
-    except Exception as exc:
-        log.warning("procurement sources unavailable: %s", exc)
-        return 0
-    return store.upsert(sigs, _today())
-
-
 def _out_dir(args, segment: str) -> Path:
     return Path(args.out or "reports/leads/segments") / segment
 
@@ -104,9 +91,6 @@ def main(argv: list[str] | None = None) -> int:
     i.add_argument("csv", nargs="+")
     i.add_argument("--no-llm", action="store_true")
     i.add_argument("--model")
-
-    pr = sub.add_parser("procure", help="收集公開採購公告(政府電子採購網標案、上市櫃取得設備重大訊息)存入資料庫(每日排程用)")
-    pr.add_argument("--days", type=int, default=0, help="標案往回找 N 天(預設:各客群最長的時間窗)")
 
     qp = sub.add_parser("queries", help="列出會抓取的搜尋網址(不連網)")
     qp.add_argument("--segment", help=seg_help)
@@ -182,17 +166,11 @@ def main(argv: list[str] | None = None) -> int:
 
     store = SignalStore(args.db)
     try:
-        if args.command == "procure":
-            n = _procure(store, cfg, args.days)
-            print(f"公開採購公告:新增 {n} 則")
-            return 0
-
         if args.command == "run":
             from .sources import collect
 
             asof = _today()
             reports = []
-            _procure(store, cfg, 0)
             for key in segments:
                 seg_cfg = segment_config(cfg, key)
                 if args.days:

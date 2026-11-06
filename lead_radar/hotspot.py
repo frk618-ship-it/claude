@@ -109,8 +109,6 @@ def story_factors(signals: list[Signal], config: Config) -> dict[str, float]:
                 sj = sigs[j]
                 if not set(si.products) & set(sj.products):
                     continue
-                if si.origin in ("tender", "filing") and sj.origin in ("tender", "filing"):
-                    continue        # each procurement notice is its own purchase, not a reprint
                 same_org = bool(set(si.orgs) & set(sj.orgs)) and si.intents[:1] == sj.intents[:1]
                 if same_org or SequenceMatcher(None, norms[i], norms[j]).ratio() >= 0.75:
                     home = members
