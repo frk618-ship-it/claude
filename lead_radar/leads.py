@@ -35,7 +35,15 @@ def org_weights(sig: Signal, config: Config) -> dict[str, float]:
     pos = {o: _title_pos(o, sig.title, config) for o in sig.orgs}
     in_title = [p for p in pos.values() if p >= 0]
     first = min(in_title) if in_title else None
-    return {o: (SNIPPET_ONLY if p < 0 else SUBJECT if p == first else MENTIONED) for o, p in pos.items()}
+    weights = {o: (SNIPPET_ONLY if p < 0 else SUBJECT if p == first else MENTIONED) for o, p in pos.items()}
+    if sig.inferred:
+        # The material was inferred from some listed company's fit (台積電 → 靶材). A listed company
+        # whose own fit for those products is low (鴻海 in 「台積電、鴻海、日月光進駐園區」) gets none of it.
+        for o in weights:
+            acc = config.account(o)
+            if acc and acc.fit and max(acc.fit.get(p, 0) for p in sig.products) < 2:
+                weights[o] = 0.0
+    return weights
 BASE_HALF_LIFE = 14.0
 
 
@@ -56,7 +64,8 @@ def build_leads(signals: list[Signal], cells: list[dict], config: Config, asof: 
         if h <= 0:
             continue
         for org, w in org_weights(sig, config).items():
-            by_org[org].append((sig, h * w))
+            if w > 0:
+                by_org[org].append((sig, h * w))
 
     leads = []
     first_seen = first_seen or {}
