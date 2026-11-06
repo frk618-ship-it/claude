@@ -1,5 +1,28 @@
 [
  {
+  "id": "p-d733d03d9d222d5c",
+  "title": "APPLICATION NOTE Optimizing the Sintering Density of ITO Targets via High-Resolution Particle Size Analysis",
+  "link": "https://doi.org/10.13140/rg.2.2.28577.77922",
+  "published": "2026-11-04T00:00:00+00:00",
+  "venue": "",
+  "authors": [
+   "Weichen Gan"
+  ],
+  "abstract": "",
+  "doi": "10.13140/rg.2.2.28577.77922",
+  "source": "OpenAlex",
+  "topics": [
+   "粉末冶金與燒結",
+   "陶瓷與氧化物靶"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "core",
+  "collected": "2026-11-06"
+ },
+ {
   "id": "p-07e0ca731c48c6c2",
   "title": "Monolithic 4-Meter Rotary & High-Purity Planar PVD Sputtering Targets: Relative Density, GDMS Trace Analysis, and Ultrasonic C-Scan Bonding Benchmark (2026)",
   "link": "https://doi.org/10.5281/zenodo.23908776",
@@ -26,6 +49,37 @@
   "abstract_zh": "冶金與真空鍍膜實測基準資料集,評估材料利用率(4,000 mm 一體式旋轉管靶 80%~85%,平面靶 25%~35%)、冷均壓(CIP,300 MPa)後的燒結相對密度(ITO/AZO 陶瓷靶大於 99.5%)、73 元素輝光放電質譜(GDMS)微量雜質上限,以及 100% 水浸式超音波 C-scan 非破壞檢測(OFHC 無氧銅與鉬背管上的銦真空綁定覆蓋率大於 99%)。技術資料表與產業應用(Super Materials / ABLE TARGET LIMITED):高密度氧化銦錫(ITO,In2O3:SnO2 90:10)陶瓷靶規格;HJT/TOPCon 太陽能用一體式摻鋁氧化鋅(AZO)旋轉濺鍍靶;5N 高純半導體鉭(Ta)擴散阻障靶;CNC 刀具與模具用 TiAl 合金硬質耐磨 PVD 鍍膜靶;建築與車用 Low-E 玻璃鍍膜靶方案(最長 4,000 mm);真空冶金、五軸 CNC 精加工與超音波 C-scan 銦綁定。",
   "tier": "core",
   "collected": "2026-11-05"
+ },
+ {
+  "id": "p-47bde6d4fdeb9b01",
+  "title": "Decoupling the Formability and Sintering Activity of YBCO Powders for High‐Performance Superconducting Targets",
+  "link": "https://doi.org/10.1111/jace.71384",
+  "published": "2026-11-01T00:00:00+00:00",
+  "venue": "Journal of the American Ceramic Society",
+  "authors": [
+   "Wenyu Zhang",
+   "Xiaokai Liu",
+   "Benshuang Sun",
+   "Hetao Zhao",
+   "Nuo Cheng",
+   "Xina Liang",
+   "Wenhui Bi",
+   "Mingzhen Zhang",
+   "Yang Liu",
+   "Jilin He"
+  ],
+  "abstract": "ABSTRACT Traditionally, ultrafine powders are sought after for their enhanced sintering activity; however, their inadequate formability is frequently neglected. To disentangle these two critical factors, this study conducts a systematic investigation into the sintering behavior of YBCO superconducting targets utilizing powders with markedly different primary particle sizes (640 nm vs. 50 nm) and specific surface areas (1.41 m 2 /g vs. 11.84 m 2 /g). Despite its higher specific surface area, the finer powder demonstrated substantially inferior compaction performance, resulting in a lower apparent density (1.18 g/cm 3 compared to 1.67 g/cm 3 ) and green compact density (3.16 g/cm 3 at 5 MPa vs. 4.08 g/cm 3 for the coarser powder). Through the design of multi‐path molding and sintering experiments, we effectively isolated the individual contributions of formability and sintering activity. Master sintering curve analysis indicated that the poor formability of the fine powder resulted in a higher apparent densification activation energy (338 ± 5.07–418 ± 6.27 kJ/mol) relative to the coarser powder (313 ± 4.70–382 ± 5.73 kJ/mol), thereby obscuring its inherent sintering advantage. As a result, the target fabricated from the coarser powder, characterized by fewer initial defects and higher green density, exhibited superior final properties, including a density of 5.92 ± 0.22 g/cm 3 , a room‐temperature resistivity of 0.89 ± 0.13 mΩ·cm, and a flexural strength of 60.55 ± 0.91 MPa. This study demonstrates that, for YBCO targets, optimizing green body density through balanced powder characteristics is more crucial than merely pursuing ultra‐fine particle size. The findings offer a robust theoretical foundation for the selection of powder and the design of processes for high‐performance YBCO sputtering targets.",
+  "doi": "10.1111/jace.71384",
+  "source": "OpenAlex",
+  "topics": [
+   "粉末冶金與燒結"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "core",
+  "collected": "2026-11-06"
  },
  {
   "id": "p-32c3eb842ee7405c",
@@ -55,6 +109,37 @@
   "abstract_zh": "",
   "tier": "related",
   "collected": "2026-11-02"
+ },
+ {
+  "id": "p-9b8783b62255504d",
+  "title": "Composition-dependent target topology and carrier-transport pathways in RF-sputtered IZTO films",
+  "link": "https://doi.org/10.1016/j.cej.2026.183657",
+  "published": "2026-10-30T00:00:00+00:00",
+  "venue": "Chemical Engineering Journal",
+  "authors": [
+   "Xiaokai Liu",
+   "Wenyu Zhang",
+   "Guanghui Li",
+   "Benshuang Sun",
+   "Hetao Zhao",
+   "Nuo Cheng",
+   "Wenhui Bi",
+   "Mingzhen Zhang",
+   "Yang Liu",
+   "Jilin He"
+  ],
+  "abstract": "",
+  "doi": "10.1016/j.cej.2026.183657",
+  "source": "OpenAlex",
+  "topics": [
+   "其他靶材研究"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "related",
+  "collected": "2026-11-06"
  },
  {
   "id": "p-ef145b1630cbe27c",
