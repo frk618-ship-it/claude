@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T10:28:06+00:00",
+ "generated": "2026-11-06T10:53:37+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -18,6 +18,7 @@
    "semiconductor": "半導體",
    "semi_equipment": "半導體設備與零組件",
    "pcb_equipment": "PCB 與載板設備",
+   "ai_server": "AI 伺服器與散熱",
    "display_equipment": "面板與顯示設備",
    "display": "顯示面板",
    "solar": "太陽能",
@@ -94,6 +95,7 @@
     "semi_equipment",
     "pcb_equipment",
     "display_equipment",
+    "ai_server",
     "other"
    ],
    "nickel": [
@@ -107,6 +109,7 @@
     "semi_equipment",
     "pcb_equipment",
     "display_equipment",
+    "ai_server",
     "other"
    ],
    "copper": [
@@ -114,6 +117,7 @@
     "semi_equipment",
     "pcb_equipment",
     "display_equipment",
+    "ai_server",
     "display",
     "power",
     "consumer",
@@ -140,6 +144,11 @@
   {
    "key": "tw_display_equipment",
    "name": "台灣面板設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_ai_server",
+   "name": "台灣 AI 伺服器設備廠",
    "primary": false
   }
  ],
@@ -290,13 +299,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 58.149,
+   "heat": 58.154,
    "count": 44,
-   "z": 6.17,
+   "z": 6.32,
    "level": "hot",
    "trend": "new",
    "history": [
-    58.149
+    58.154
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -414,10 +423,10 @@
     "7be98e85aea78d84",
     "8b2ea987a879a85e",
     "974e5e2fa43b9658",
-    "d2c2566dcbca5774",
     "bb4bb46410b19fe7",
     "a9a3de2d97d5a798",
     "0c551f190b11a5aa",
+    "d2c2566dcbca5774",
     "228f48fd8c197103",
     "2035d0e314a24625",
     "2d1fe38d1823cc27",
@@ -441,7 +450,7 @@
    "region": "TW",
    "heat": 5.406,
    "count": 4,
-   "z": 1.98,
+   "z": 2.04,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -461,13 +470,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.137,
+   "heat": 66.142,
    "count": 52,
-   "z": 6.13,
+   "z": 6.29,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.137
+    66.142
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -660,7 +669,7 @@
    "region": "US",
    "heat": 0.162,
    "count": 0,
-   "z": 1.47,
+   "z": 1.52,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -677,7 +686,7 @@
    "region": "TW",
    "heat": 9.466,
    "count": 8,
-   "z": 2.87,
+   "z": 3.0,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -710,13 +719,13 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 30.146,
+   "heat": 30.151,
    "count": 25,
-   "z": 5.59,
+   "z": 5.82,
    "level": "hot",
    "trend": "new",
    "history": [
-    30.146
+    30.151
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -813,7 +822,7 @@
    "region": "US",
    "heat": 0.162,
    "count": 0,
-   "z": 1.12,
+   "z": 1.2,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -830,13 +839,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 58.149,
+   "heat": 58.154,
    "count": 44,
-   "z": 6.17,
+   "z": 6.32,
    "level": "hot",
    "trend": "new",
    "history": [
-    58.149
+    58.154
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -857,13 +866,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.137,
+   "heat": 66.142,
    "count": 52,
-   "z": 6.13,
+   "z": 6.29,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.137
+    66.142
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -911,13 +920,13 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 30.146,
+   "heat": 30.151,
    "count": 25,
-   "z": 5.59,
+   "z": 5.82,
    "level": "hot",
    "trend": "new",
    "history": [
-    30.146
+    30.151
    ],
    "signal_ids": [
     "c6571236f1d10d5f",
@@ -940,7 +949,7 @@
    "region": "TW",
    "heat": 9.466,
    "count": 8,
-   "z": 2.87,
+   "z": 3.0,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -987,7 +996,7 @@
    "region": "TW",
    "heat": 5.406,
    "count": 4,
-   "z": 1.98,
+   "z": 2.04,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -2874,9 +2883,9 @@
   {
    "id": "d2c2566dcbca5774",
    "title": "半導體設備需求大爆發！弘塑9月營收年增61.8%、Q3再創新高 訂單需求一路看到2030年",
-   "link": "https://news.google.com/rss/articles/CBMilANBVV95cUxQakNQaHFnM2owTmVSOW5xWWRRa2FHTTc4MTB5Q3c2VWdZUlUyQ1RNRHdubnlSNnhUSlZEZUZjNnF3Wm9DZmlnQWNFQjhCalROT2JtSlRhUGtuVFJxU2l2eUJzeEJ1RVZuZ1VuYnhlZ2ZPRDM1N3QzNkNaMmVaNW1PdHhLMzJsNUs1bGxCaGxzemNGNl9kUGJHYmR0ZFJRbDE0dWNUY3ZhUjdlMU9yTlpWcURtakZXODQzcEdrUTk0UGgtZkdRaEFKZmF6dVl0UjRPN1F5QWE0Z1MteEhtZThsN0dHVlVvMm4xQk5vZVVCbjNYSE1sN3BjcWNrNzAtcG9kbWkwSFlENzVRenFQODhpYzhCdHZfRUY3d2kwa1Z1SFJpajV1TDNxWDdBTjRRcklZNXBUcjZzYnVKS3R0VG5EbHBjeXI5U1d5Q3E3dExzTmwyQlY2QU1TeXhfeGpSX0ZoLVZyWl9WQUlLYWdJd05FTHQwNExveWRBbjFyazdOXzFDQ2gxbGQ2N0xRSjVhQnMtUEF5bw?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-10-09",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yWUFhVWZsYzd1Ym51WENKaVJudjBwRXZWSUdYYV83aHl0NGozLVNiel91dF9EWnVaaEhBblZuWFdHTTk4RkxKX1Badw?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-10-10",
    "snippet": "",
    "edition": "zh-TW",
    "origin": "news",
@@ -2908,7 +2917,7 @@
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 1.169
+   "heat": 1.188
   },
   {
    "id": "bb4bb46410b19fe7",
@@ -12111,7 +12120,7 @@
   {
    "subsegment": "front_end",
    "product": "titanium",
-   "heat": 21.635,
+   "heat": 21.64,
    "count": 17,
    "z": 2.49,
    "level": "hot",
@@ -12133,7 +12142,7 @@
   {
    "subsegment": "front_end",
    "product": "nickel",
-   "heat": 25.453,
+   "heat": 25.457,
    "count": 19,
    "z": 3.11,
    "level": "hot",
@@ -12155,7 +12164,7 @@
   {
    "subsegment": "front_end",
    "product": "copper",
-   "heat": 21.45,
+   "heat": 21.454,
    "count": 17,
    "z": 1.87,
    "level": "warm",
