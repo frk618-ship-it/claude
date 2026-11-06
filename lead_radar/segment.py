@@ -69,7 +69,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
         h = signal_heat(s, cfg, asof) * factors.get(s.id, 1.0)
         weights = org_weights(s, cfg)
         for org in set(s.orgs) | set(s.accounts):
-            if org in members:
+            if org in members and weights.get(org, 0.5) > 0:
                 hw = h * weights.get(org, 0.5)
                 for p in s.products:
                     heat[org][p] += hw
@@ -141,7 +141,8 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     for s in window:
         f = factors.get(s.id, 1.0)
         h = signal_heat(s, cfg, asof) * f
-        sub = next((members[o].subsegment for o in list(s.accounts) + list(s.orgs) if o in members), OTHER)
+        w = org_weights(s, cfg)
+        sub = next((members[o].subsegment for o in list(s.accounts) + list(s.orgs) if o in members and w.get(o, 0.5) > 0), OTHER)
         sub = sub if sub in seg.subsegments else OTHER
         for p in s.products:
             c = grid[("seg", sub, p)]

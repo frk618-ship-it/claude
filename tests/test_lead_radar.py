@@ -651,3 +651,16 @@ def test_ai_server_segment(cfg):
     rep = build_segment_report([s], cfg, "tw_ai_server", ASOF)
     assert rep["accounts"][0]["org"] == "奇鋐" and rep["accounts"][0]["best_product"] == "copper"
 
+
+
+def test_inferred_material_is_not_credited_to_low_fit_companies(cfg):
+    from lead_radar.leads import org_weights
+
+    s = sig(cfg, "白埔園區動土!台積電、鴻海、日月光等大咖雲集 南部先進封裝聚落成型")
+    assert s.inferred and "target" in s.products
+    w = org_weights(s, cfg)
+    assert w["台積電"] == 1.0 and w["鴻海"] == 0.0                 # 鴻海 has no fit for the inferred materials
+    foil = sig(cfg, "金居百億擴產不只為了高階銅箔!一款與廣達、英業達開發的材料埋下伏筆")
+    assert not foil.inferred and foil.orgs[0] == "金居"
+    assert org_weights(foil, cfg)["廣達"] == 0.5                    # a partner, not the subject
+    assert sig(cfg, "政治恐慌殺盤!台股血崩 緊盯台達電AI訂單").noise

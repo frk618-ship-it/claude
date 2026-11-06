@@ -32,6 +32,7 @@ settings:
   # 標題命中這些字詞多半是股市行情或股價新聞,權重 × noise_factor
   noise_terms: [股價, 漲停, 跌停, 目標價, 外資, 收盤, 盤中, 股東會, 熱門股, 小漲, 小跌, 即時新聞, 利好, 龍頭, 龙头, 淨利, 净利, 預增, 预增, 三季報, 三季报, 年報, 年报, 研報, 研报, 點評, 点评, 概念股,
                 股市, 個股, 早盤, 盤前, 尾盤, 走揚, 上漲, 大漲, 漲勢, 漲幅, 亮燈, 千金股, 看盤, 估值, EPS, 存股, 爆料, 投顧, 選股, 成分股, 剔除, 波段, 操盤, 股倉, 誰更有戲, 誰先吃,
+                台股, 大盤, 殺盤, 血崩, 權值股, 加權指數, 勁揚, 外銷訂單,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
@@ -315,6 +316,12 @@ accounts:
   - {name: 隆基綠能,   aliases: [隆基, LONGi],                           industry: solar,     region: CN, products: [target]}
   - {name: 大立光,     aliases: [大立光, Largan],                        industry: optical_coating, region: TW, products: [target]}
   - {name: 玉晶光,     aliases: [玉晶光, GSEO],                          industry: optical_coating, region: TW, products: [target]}
+  # 銅箔與銅箔基板(CCL)廠:不屬於任何客群,列入名單是為了讓「金居擴產…與廣達合作」這類新聞的主詞歸給它們,
+  # 不會把銅箔需求算到伺服器代工廠
+  - {name: 金居,       aliases: [金居, Co-Tech],                         region: TW, products: [copper]}
+  - {name: 台光電,     aliases: [台光電, EMC Elite Material],            region: TW, products: [copper]}
+  - {name: 聯茂,       aliases: [聯茂, ITEQ],                            region: TW, products: [copper]}
+  - {name: 台燿,       aliases: [台燿, TUC],                             region: TW, products: [copper]}
   - {name: Seagate,    aliases: [Seagate, 希捷],                          industry: data_storage, region: US, products: [target]}
 
   # ── 台灣半導體設備廠(segment: tw_semi_equipment)──

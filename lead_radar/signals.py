@@ -39,6 +39,7 @@ class Signal:
     orgs: list[str] = field(default_factory=list)              # buyer-side organisations (lead candidates)
     accounts: list[str] = field(default_factory=list)          # watch-list accounts matched
     relevance: float = 1.0              # 1.0 = product named in the headline, 0.6 = only in the snippet
+    inferred: bool = False              # products inferred from a listed company's fit (no material word)
     noise: bool = False                 # stock-market chatter
     weight_hint: float = 0.0            # manual signals: explicit weight (0 = from intents)
     # filled by the optional Claude enrichment
@@ -198,7 +199,9 @@ def classify(
         inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
         if not inferred or not any(_hits(low, it.keywords) for it in config.intents.values()):
             return None     # without a material word, only demand news counts (擴產、訂單、缺料…), not stock chatter
-        products, relevance = inferred, 0.6
+        products, relevance, was_inferred = inferred, 0.6, True
+    else:
+        was_inferred = False
 
     # Industry per product: title hits count double; a matched account's industry wins.
     industries: dict[str, str] = {}
@@ -269,6 +272,7 @@ def classify(
         accounts=[a.name for a in accounts],
         relevance=relevance,
         noise=noise,
+        inferred=was_inferred,
     )
 
 
