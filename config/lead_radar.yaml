@@ -72,7 +72,7 @@ products:
     keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
     search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
     exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
-    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment]
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment, ai_server]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -82,7 +82,7 @@ products:
     keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
-    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server]
     exclude: [銅鎳合金, 铜镍合金, 銅鎳, 白銅]           # 銅基合金,歸銅材產品線
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
@@ -96,7 +96,7 @@ products:
                copper alloy, oxygen-free copper, OFHC, "OFC copper", beryllium copper, phosphorized copper, copper anode, copper foil, copper pillar, C10100, C10200, C18150]
     search: [銅合金, 無氧銅, 磷銅陽極, 電鍍銅, copper alloy]
     exclude: [銅牌, 銅鑼, 銅像, 青銅器, 銅板價, 銅價]
-    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, display, power, consumer]
+    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer]
     pitch: 無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -111,6 +111,9 @@ industries:
   pcb_equipment:   {name: PCB 與載板設備, search: [PCB設備, 電路板設備, 載板設備, PCB equipment],
                     keywords: [PCB設備, PCB 設備, 電路板設備, 载板设备, 載板設備, 印刷電路板, 印刷电路板, 電路板, 电路板, PCB, IC載板, ABF載板, 載板, 濕製程設備, 電鍍設備, 电镀设备,
                                電鍍線, 垂直連續電鍍, 水平電鍍, 蝕刻線, 曝光機, 鑽孔機, 钻孔机, 壓合機, 成型機, PCB equipment, printed circuit board, plating line, 基板]}
+  ai_server:       {name: AI 伺服器與散熱, search: [AI伺服器, 液冷, 水冷板, AI server],
+                    keywords: [AI伺服器, AI 伺服器, 伺服器, 液冷, 水冷, 水冷板, 冷板, 均熱片, 均溫板, 熱管, 散熱模組, CDU, 機櫃, 快接頭, 匯流排, 電源供應器,
+                               GB200, GB300, NVL72, Rubin, AI server, server rack, liquid cooling, cold plate, vapor chamber, heat pipe, busbar]}
   display_equipment: {name: 面板與顯示設備, search: [面板設備, 顯示器設備, 蒸鍍機, display equipment],
                     keywords: [面板設備, 面板设备, 顯示器設備, 顯示設備, 显示设备, 面板廠設備, 蒸鍍機, 蒸鍍設備, 蒸镀, Micro LED設備, 巨量轉移, 雷射修補, 觸控面板設備,
                                display equipment, panel equipment, OLED equipment, 패널 장비]}
@@ -252,6 +255,22 @@ segments:
       laser: 雷射與 Micro LED 設備
       inspection: 檢測設備
       automation: 自動化與搬運
+
+  tw_ai_server:
+    name: 台灣 AI 伺服器設備廠
+    description: 台灣 AI 伺服器供應鏈:伺服器代工組裝、散熱與液冷(水冷板、均熱片、熱管、CDU)、電源與配電、機殼與滑軌、連接器與線材;GB200 / GB300 機櫃放量帶動液冷與高功率電源擴產。水冷板、均熱片、熱管與匯流排是銅材的大宗用量
+    industries: [ai_server]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 訂單, 液冷, 水冷板, GB300, 出貨, 法說]
+    subsegments:
+      odm: 伺服器代工組裝
+      cooling: 散熱與液冷
+      power: 電源與配電
+      chassis: 機殼與滑軌
+      interconnect: 連接器與線材
 
 # ── 目標客戶清單 ──────────────────────────────────────────────────────
 # 有 segment 的公司屬於該客群,每週以「公司名稱 + 客群搜尋字詞」搜尋並排入開發名單。
@@ -473,3 +492,57 @@ accounts:
   - {name: 廣運機械, aliases: [廣運], ticker: "6125", segment: tw_display_equipment, subsegment: automation,
      industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
      note: "面板與半導體自動化搬運、倉儲;材料關聯較低"}
+
+  # ── 台灣 AI 伺服器設備廠(segment: tw_ai_server)──
+  # 散熱與液冷(水冷板、均熱片、熱管)、匯流排與連接器是銅材的大宗用量;代工廠多採購模組,材料關聯較間接。
+  - {name: 鴻海, aliases: [鴻海, 鴻海精密, Foxconn], ticker: "2317", segment: tw_ai_server, subsegment: odm,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 0, copper: 1},
+     note: "AI 伺服器機櫃代工龍頭;散熱與電源多向模組廠採購,材料關聯間接,可了解自製機構件需求"}
+  - {name: 廣達, aliases: [廣達, 廣達電腦, Quanta], ticker: "2382", segment: tw_ai_server, subsegment: odm,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "AI 伺服器代工;材料多經散熱、電源模組廠間接採購"}
+  - {name: 緯創, aliases: [緯創, 緯創資通, Wistron], ticker: "3231", segment: tw_ai_server, subsegment: odm,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "AI 伺服器主機板與機櫃代工;材料關聯間接"}
+  - {name: 緯穎, aliases: [緯穎, Wiwynn], ticker: "6669", segment: tw_ai_server, subsegment: odm,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "雲端資料中心伺服器與液冷機櫃;材料關聯間接"}
+  - {name: 英業達, aliases: [英業達, Inventec], ticker: "2356", segment: tw_ai_server, subsegment: odm,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "AI 伺服器代工;材料關聯間接"}
+  - {name: 奇鋐, aliases: [奇鋐, AVC], ticker: "3017", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     note: "水冷板、均熱片、熱管與液冷機櫃;無氧銅板材與銅管是主要用料"}
+  - {name: 雙鴻, aliases: [雙鴻, Auras], ticker: "3324", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     note: "水冷板與液冷模組;無氧銅板材、銅管是主要用料"}
+  - {name: 健策, aliases: [健策, Jentech], ticker: "3653", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     note: "AI 晶片均熱片(IHS)與水冷板;高純度無氧銅板材是核心用料"}
+  - {name: 力致科技, aliases: [力致科技, 力致(3483)], ticker: "3483", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3},
+     note: "熱管與散熱模組;銅管與銅粉是主要用料"}
+  - {name: 高力熱處理, aliases: [高力熱處理, 高力(8996)], ticker: "8996", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper, titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     note: "液冷 CDU 與板式熱交換器;銅焊材、銅管,特殊冷卻液環境可能用到耐蝕合金"}
+  - {name: 建準, aliases: [建準, Sunon], ticker: "2421", segment: tw_ai_server, subsegment: cooling,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "伺服器風扇與液冷泵浦;馬達線圈用銅,關聯中等偏低"}
+  - {name: 台達電, aliases: [台達電, 台達電子, Delta Electronics], ticker: "2308", segment: tw_ai_server, subsegment: power,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     note: "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅"}
+  - {name: 光寶科, aliases: [光寶科, 光寶, Lite-On], ticker: "2301", segment: tw_ai_server, subsegment: power,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     note: "伺服器電源與機櫃電源架;匯流排、磁性元件用銅"}
+  - {name: 勤誠, aliases: [勤誠, Chenbro], ticker: "8210", segment: tw_ai_server, subsegment: chassis,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "伺服器機殼與機櫃;材料以鋼板為主,關聯較低"}
+  - {name: 川湖, aliases: [川湖, King Slide], ticker: "2059", segment: tw_ai_server, subsegment: chassis,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 0},
+     note: "伺服器滑軌;材料以鋼材為主,關聯低"}
+  - {name: 貿聯-KY, aliases: [貿聯, BizLink], ticker: "3665", segment: tw_ai_server, subsegment: interconnect,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     note: "高速銅纜與機櫃線束;銅導線為主要用料"}
+  - {name: 嘉澤, aliases: [嘉澤, Lotes], ticker: "3533", segment: tw_ai_server, subsegment: interconnect,
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3},
+     note: "CPU / GPU 插座與連接器;端子用鈹銅、磷青銅等銅合金"}
