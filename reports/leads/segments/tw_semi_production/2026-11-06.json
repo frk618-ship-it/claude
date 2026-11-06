@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T10:54:11+00:00",
+ "generated": "2026-11-06T11:35:13+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -163,8 +163,8 @@
   }
  },
  "stats": {
-  "signals": 850,
-  "attributed": 842,
+  "signals": 854,
+  "attributed": 846,
   "new_signals": 154,
   "hot_cells": 5,
   "warm_cells": 5,
@@ -173,16 +173,16 @@
    "A": 0,
    "B": 10,
    "C": 3,
-   "D": 28
+   "D": 20
   },
   "enriched": 0,
   "by_product": {
-   "target": 813,
+   "target": 816,
    "titanium": 106,
-   "nickel": 215,
-   "copper": 835
+   "nickel": 218,
+   "copper": 839
   },
-  "other_mentions": 25,
+  "other_mentions": 18,
   "accounts": 16,
   "tiers": {
    "優先開發": 8,
@@ -195,13 +195,13 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 173.684,
-   "count": 118,
+   "heat": 168.74,
+   "count": 113,
    "z": 5.7,
    "level": "hot",
    "trend": "new",
    "history": [
-    173.684
+    168.74
    ],
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -447,6 +447,7 @@
     "6ffa5e7774fafd6c",
     "18bffb13ed7548e9",
     "127f5f68e59a613e",
+    "519a5f4b8ab3831f",
     "0be31479b3f1cbc6",
     "b4f66b4b3d0385b8",
     "0f70f46a4a58ef11",
@@ -485,6 +486,7 @@
     "ce681429c3d5a8e9",
     "8405cb8a3c417558",
     "0fc546d91e8da38b",
+    "c3719ed7d674a88b",
     "21753ccebc21e5fd",
     "1f74890b7ea0e7d6",
     "74821da0a4db7845",
@@ -751,6 +753,7 @@
     "e23a1caf35a05e96",
     "84112e215bea5036",
     "db2c223ccecf99ae",
+    "64495a33309be7e9",
     "55bab70da8e5d646",
     "e8765fd20bad01a0",
     "5504a1c91b3b28a5",
@@ -1030,13 +1033,13 @@
    "product": "target",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 0.225,
+   "heat": 0.096,
    "count": 0,
    "z": 1.4,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.225
+    0.096
    ],
    "signal_ids": [
     "6d5236e4ef09889f",
@@ -1100,7 +1103,7 @@
    "region": "TW",
    "heat": 0.078,
    "count": 0,
-   "z": 1.94,
+   "z": 1.95,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1116,7 +1119,7 @@
    "region": "US",
    "heat": 2.38,
    "count": 1,
-   "z": 0.1,
+   "z": 0.13,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1132,13 +1135,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.173,
+   "heat": 5.169,
    "count": 5,
-   "z": 2.96,
+   "z": 3.03,
    "level": "hot",
    "trend": "new",
    "history": [
-    5.173
+    5.169
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -1170,7 +1173,7 @@
    "region": "TW",
    "heat": 0.888,
    "count": 0,
-   "z": 2.1,
+   "z": 2.12,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1188,13 +1191,13 @@
    "product": "titanium",
    "industry": "other",
    "region": "TW",
-   "heat": 22.963,
-   "count": 11,
+   "heat": 21.703,
+   "count": 10,
    "z": 6.52,
    "level": "neutral",
    "trend": "",
    "history": [
-    22.963
+    21.703
    ],
    "signal_ids": [
     "518dca1a89e1aacb",
@@ -1277,13 +1280,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 38.013,
-   "count": 29,
-   "z": 6.44,
+   "heat": 36.81,
+   "count": 28,
+   "z": 6.45,
    "level": "hot",
    "trend": "new",
    "history": [
-    38.013
+    36.81
    ],
    "signal_ids": [
     "4790de05eddf36c6",
@@ -1341,6 +1344,7 @@
     "697265169036c55a",
     "ebb14cf8156c591c",
     "b32ab1f45574d9be",
+    "519a5f4b8ab3831f",
     "c69b98b5d041930c",
     "ef6e406741411315",
     "8b69faeb2060d218",
@@ -1351,6 +1355,7 @@
     "2840f89ab9e61ad2",
     "6230a620b62c2875",
     "b9886285dc430b45",
+    "c3719ed7d674a88b",
     "fe0c09aee84ab024",
     "e574b96cb8fbc7d0",
     "5c7c653be4039eb3",
@@ -1424,6 +1429,7 @@
     "2e559e0b33239cb7",
     "0909966b8809be45",
     "e23a1caf35a05e96",
+    "64495a33309be7e9",
     "55bab70da8e5d646",
     "eef36543eabc85b8",
     "985cd176f9867aac",
@@ -1478,7 +1484,7 @@
    "region": "US",
    "heat": 2.784,
    "count": 1,
-   "z": 1.92,
+   "z": 1.93,
    "level": "warm",
    "trend": "",
    "history": [
@@ -1493,13 +1499,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.377,
+   "heat": 5.351,
    "count": 5,
-   "z": 2.36,
+   "z": 2.38,
    "level": "hot",
    "trend": "new",
    "history": [
-    5.377
+    5.351
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -1537,7 +1543,7 @@
    "region": "US",
    "heat": 0.035,
    "count": 0,
-   "z": -0.1,
+   "z": -0.09,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1552,13 +1558,13 @@
    "product": "copper",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 178.677,
-   "count": 119,
+   "heat": 173.751,
+   "count": 114,
    "z": 5.69,
    "level": "hot",
    "trend": "new",
    "history": [
-    178.677
+    173.751
    ],
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -1598,6 +1604,7 @@
     "d36db18c92b97edf",
     "ae4e0b290917e1b7",
     "4250a868c24a7131",
+    "8beee30be4b629e0",
     "b5c3dc3d7f8d255a",
     "a4c2f98c5814939a",
     "39f75807c0274ca9",
@@ -1810,6 +1817,7 @@
     "18bffb13ed7548e9",
     "127f5f68e59a613e",
     "432014fc5aa69c04",
+    "519a5f4b8ab3831f",
     "c69b98b5d041930c",
     "ef6e406741411315",
     "75956db97add3b56",
@@ -1844,6 +1852,7 @@
     "1f8e2df985ceed82",
     "ce681429c3d5a8e9",
     "8405cb8a3c417558",
+    "c3719ed7d674a88b",
     "21753ccebc21e5fd",
     "1f74890b7ea0e7d6",
     "74821da0a4db7845",
@@ -2114,6 +2123,7 @@
     "4b1249ad1773ee80",
     "84112e215bea5036",
     "db2c223ccecf99ae",
+    "64495a33309be7e9",
     "55bab70da8e5d646",
     "e8765fd20bad01a0",
     "5504a1c91b3b28a5",
@@ -2398,13 +2408,13 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 3.604,
+   "heat": 3.471,
    "count": 3,
    "z": 1.47,
    "level": "warm",
    "trend": "",
    "history": [
-    3.604
+    3.471
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -2449,13 +2459,13 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 38.013,
-   "count": 29,
-   "z": 6.44,
+   "heat": 36.81,
+   "count": 28,
+   "z": 6.45,
    "level": "hot",
    "trend": "new",
    "history": [
-    38.013
+    36.81
    ],
    "signal_ids": [
     "4790de05eddf36c6",
@@ -2476,13 +2486,13 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 173.684,
-   "count": 118,
+   "heat": 168.74,
+   "count": 113,
    "z": 5.7,
    "level": "hot",
    "trend": "new",
    "history": [
-    173.684
+    168.74
    ],
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -2503,13 +2513,13 @@
    "product": "copper",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 178.677,
-   "count": 119,
+   "heat": 173.751,
+   "count": 114,
    "z": 5.69,
    "level": "hot",
    "trend": "new",
    "history": [
-    178.677
+    173.751
    ],
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -2530,13 +2540,13 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.173,
+   "heat": 5.169,
    "count": 5,
-   "z": 2.96,
+   "z": 3.03,
    "level": "hot",
    "trend": "new",
    "history": [
-    5.173
+    5.169
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -2557,13 +2567,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.377,
+   "heat": 5.351,
    "count": 5,
-   "z": 2.36,
+   "z": 2.38,
    "level": "hot",
    "trend": "new",
    "history": [
-    5.377
+    5.351
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -2586,7 +2596,7 @@
    "region": "US",
    "heat": 2.784,
    "count": 1,
-   "z": 1.92,
+   "z": 1.93,
    "level": "warm",
    "trend": "",
    "history": [
@@ -2620,13 +2630,13 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 3.604,
+   "heat": 3.471,
    "count": 3,
    "z": 1.47,
    "level": "warm",
    "trend": "",
    "history": [
-    3.604
+    3.471
    ],
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -2685,7 +2695,7 @@
   {
    "org": "台積電",
    "account": true,
-   "score": 80.6,
+   "score": 80.5,
    "grade": "優先開發",
    "product": "target",
    "products": [
@@ -2713,7 +2723,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.92
+    "z": 2.94
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -2729,15 +2739,15 @@
     "26a09078fd7374b4",
     "6fd303869174d6eb"
    ],
-   "signal_score": 67.7,
+   "signal_score": 67.5,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 40.6
+   "signal_part": 40.5
   },
   {
    "org": "日月光投控",
    "account": true,
-   "score": 80.0,
+   "score": 79.9,
    "grade": "優先開發",
    "product": "target",
    "products": [
@@ -2780,10 +2790,10 @@
     "4b547e0958964324",
     "329a986b0b73d256"
    ],
-   "signal_score": 66.6,
+   "signal_score": 66.5,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 40.0
+   "signal_part": 39.9
   },
   {
    "org": "世界先進",
@@ -2813,7 +2823,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.92
+    "z": 2.94
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -2862,7 +2872,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.26
+    "z": 1.22
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -2886,7 +2896,7 @@
   {
    "org": "美光台灣",
    "account": true,
-   "score": 74.6,
+   "score": 72.8,
    "grade": "優先開發",
    "product": "target",
    "products": [
@@ -2901,8 +2911,8 @@
    "intents": [
     "expansion",
     "shortage",
-    "contract",
     "qualification",
+    "contract",
     "policy"
    ],
    "signals": 16,
@@ -2912,7 +2922,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.26
+    "z": 1.22
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -2920,18 +2930,18 @@
    "need": "",
    "evidence": [
     "10f78a2d0c55f0c0",
-    "5baef4f27d7c92cc",
     "46bc1765d231c8bc",
     "c016e1a3200aec0c",
-    "196d920042f96394",
     "db2c223ccecf99ae",
     "9b57be7020b9ae7f",
-    "1f74890b7ea0e7d6"
+    "1f74890b7ea0e7d6",
+    "3e9869b4f59aec12",
+    "4e7ab79a1e6fa131"
    ],
-   "signal_score": 57.6,
+   "signal_score": 54.7,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 34.6
+   "signal_part": 32.8
   },
   {
    "org": "聯電",
@@ -2961,7 +2971,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.92
+    "z": 2.94
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3011,7 +3021,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.26
+    "z": 1.22
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3085,7 +3095,7 @@
   {
    "org": "力積電",
    "account": true,
-   "score": 68.7,
+   "score": 68.6,
    "grade": "積極經營",
    "product": "target",
    "products": [
@@ -3110,7 +3120,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.92
+    "z": 2.94
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3124,17 +3134,17 @@
     "3bfef702c65fa615",
     "3b711c7cfb8e117d",
     "16de19d1816bfb55",
-    "d8c9f12d9b0a34a1"
+    "b5c3dc3d7f8d255a"
    ],
-   "signal_score": 47.9,
+   "signal_score": 47.7,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 28.7
+   "signal_part": 28.6
   },
   {
    "org": "京元電子",
    "account": true,
-   "score": 61.7,
+   "score": 60.5,
    "grade": "積極經營",
    "product": "copper",
    "products": [
@@ -3159,7 +3169,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.01
+    "z": -0.0
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -3169,16 +3179,16 @@
     "2291e03791461609",
     "659f9d0147713362",
     "55da103bce89a169",
-    "ffd4a3b97822b3dd",
     "092a312c09417665",
     "m-ecbddb7888495257",
     "24e9ac299ea9c559",
-    "5132eebd0f50eceb"
+    "5132eebd0f50eceb",
+    "20ab7c97e3b695c8"
    ],
-   "signal_score": 58.4,
+   "signal_score": 56.4,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 35.0
+   "signal_part": 33.8
   },
   {
    "org": "頎邦科技",
@@ -3296,7 +3306,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.14
+    "z": -0.13
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -3343,7 +3353,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.01
+    "z": -0.0
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -3410,49 +3420,35 @@
   },
   {
    "org": "中砂",
-   "account": true,
-   "score": 16.2,
-   "grade": "持續觀察",
-   "product": "nickel",
    "products": [
-    "target",
-    "nickel",
-    "copper",
     "titanium"
    ],
-   "industry": "semi_equipment",
+   "industry": "semiconductor",
    "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract",
-    "hiring",
-    "expansion"
-   ],
-   "signals": 2,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-13",
-   "new": true,
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.6
+    "z": -1.7
    },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "need": "",
-   "evidence": [
-    "697265169036c55a",
-    "556fc49d5655cbbe",
-    "64766cba7ef4024f",
-    "e8bff9c053e50d96",
-    "51e2c4900d864d96",
-    "9ece520123e7162f"
-   ],
-   "signal_score": 4.8,
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
    "fit_max": 1,
    "fit_part": 13.3,
-   "signal_part": 2.9
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
   }
  ],
  "signals": [
@@ -3488,14 +3484,15 @@
     "京元電子"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 1.8
+   "heat": 0.54
   },
   {
    "id": "fd11ecea5fa0f101",
@@ -3528,6 +3525,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3568,6 +3566,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3607,6 +3606,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3650,6 +3650,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3687,6 +3688,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3724,6 +3726,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3763,6 +3766,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3800,6 +3804,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3837,6 +3842,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3874,6 +3880,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3911,6 +3918,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3948,6 +3956,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3986,6 +3995,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4023,6 +4033,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4060,6 +4071,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4099,6 +4111,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4136,6 +4149,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4173,6 +4187,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4211,6 +4226,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4246,6 +4262,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4286,6 +4303,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4323,6 +4341,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4360,6 +4379,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4397,6 +4417,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4434,6 +4455,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4473,6 +4495,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4512,6 +4535,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4550,6 +4574,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4589,6 +4614,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4628,6 +4654,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4667,6 +4694,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4704,6 +4732,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4741,6 +4770,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4772,6 +4802,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4809,6 +4840,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4848,6 +4880,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4887,6 +4920,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4924,6 +4958,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4961,6 +4996,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4998,6 +5034,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5035,6 +5072,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5072,6 +5110,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5109,6 +5148,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5146,6 +5186,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5183,6 +5224,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5220,6 +5262,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5260,6 +5303,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5297,6 +5341,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5334,6 +5379,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5371,6 +5417,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5408,6 +5455,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5446,6 +5494,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5483,6 +5532,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5520,6 +5570,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5559,6 +5610,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5598,6 +5650,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5635,6 +5688,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5672,6 +5726,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5709,6 +5764,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5746,6 +5802,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5783,6 +5840,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5820,6 +5878,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5857,6 +5916,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5896,6 +5956,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5933,6 +5994,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5972,6 +6034,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6009,6 +6072,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6046,6 +6110,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6083,6 +6148,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6120,6 +6186,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6157,6 +6224,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6194,6 +6262,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6233,6 +6302,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6270,6 +6340,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6307,6 +6378,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6348,6 +6420,7 @@
     "鴻海"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6385,6 +6458,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6422,6 +6496,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6462,6 +6537,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6499,6 +6575,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6541,6 +6618,7 @@
     "廣達"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6578,6 +6656,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6615,6 +6694,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6654,6 +6734,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6691,6 +6772,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6728,6 +6810,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6767,6 +6850,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6804,6 +6888,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6844,6 +6929,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6881,6 +6967,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6920,6 +7007,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6958,6 +7046,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6997,6 +7086,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7034,6 +7124,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7071,6 +7162,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7110,6 +7202,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7149,6 +7242,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7186,6 +7280,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7223,6 +7318,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7260,6 +7356,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7297,6 +7394,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7334,6 +7432,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7371,6 +7470,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7408,6 +7508,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7445,6 +7546,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7482,6 +7584,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7521,6 +7624,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7558,6 +7662,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7595,6 +7700,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7634,6 +7740,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7673,6 +7780,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7710,6 +7818,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7747,6 +7856,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7786,6 +7896,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7825,6 +7936,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7862,6 +7974,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7901,6 +8014,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7940,6 +8054,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7977,6 +8092,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8017,6 +8133,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8054,6 +8171,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8097,6 +8215,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8137,6 +8256,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8176,6 +8296,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8216,6 +8337,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8254,6 +8376,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8291,6 +8414,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8329,6 +8453,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8369,6 +8494,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8412,6 +8538,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8451,6 +8578,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8491,6 +8619,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8528,6 +8657,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8566,6 +8696,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8607,6 +8738,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8648,6 +8780,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8688,6 +8821,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8729,6 +8863,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8766,6 +8901,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8804,6 +8940,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8841,6 +8978,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8878,6 +9016,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8915,6 +9054,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8952,6 +9092,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8991,6 +9132,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9028,6 +9170,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9067,6 +9210,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9104,6 +9248,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9142,6 +9287,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9181,6 +9327,7 @@
     "頎邦科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9220,6 +9367,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9257,6 +9405,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9294,6 +9443,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9333,6 +9483,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9372,6 +9523,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9409,6 +9561,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9449,6 +9602,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9488,6 +9642,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9530,6 +9685,7 @@
     "鴻海"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9569,6 +9725,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9608,6 +9765,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9645,6 +9803,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9682,6 +9841,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9721,6 +9881,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9762,6 +9923,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9805,6 +9967,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9842,6 +10005,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9881,6 +10045,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9918,6 +10083,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9957,6 +10123,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9996,6 +10163,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10033,6 +10201,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10072,6 +10241,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10109,6 +10279,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10148,6 +10319,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10187,6 +10359,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10224,6 +10397,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10263,6 +10437,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10303,6 +10478,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10342,6 +10518,7 @@
     "台達電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10379,6 +10556,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10416,6 +10594,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10453,6 +10632,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10490,6 +10670,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10527,6 +10708,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10570,6 +10752,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10607,6 +10790,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10644,6 +10828,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10681,6 +10866,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10718,6 +10904,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10755,6 +10942,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10792,6 +10980,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10833,6 +11022,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10870,6 +11060,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10907,6 +11098,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10944,6 +11136,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10981,6 +11174,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11018,6 +11212,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11055,6 +11250,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11092,6 +11288,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11129,6 +11326,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11166,6 +11364,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11203,6 +11402,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11240,6 +11440,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11277,6 +11478,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11314,6 +11516,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11351,6 +11554,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11388,6 +11592,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11425,6 +11630,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11462,6 +11668,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11500,6 +11707,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11539,6 +11747,7 @@
     "台達電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11576,6 +11785,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11613,6 +11823,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11650,6 +11861,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11687,6 +11899,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11724,6 +11937,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11761,6 +11975,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11798,6 +12013,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11835,6 +12051,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11872,6 +12089,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11907,6 +12125,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11946,6 +12165,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -11986,6 +12206,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12023,6 +12244,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -12060,6 +12282,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12095,6 +12318,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12134,6 +12358,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12171,14 +12396,15 @@
     "美光台灣"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 1.473
+   "heat": 0.442
   },
   {
    "id": "122789d53c5c20cf",
@@ -12208,6 +12434,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12248,14 +12475,15 @@
     "台積電"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 2.055
+   "heat": 0.617
   },
   {
    "id": "16dae351494b66cf",
@@ -12288,6 +12516,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12325,6 +12554,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -12364,6 +12594,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12403,6 +12634,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12440,6 +12672,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12481,6 +12714,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12520,6 +12754,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12559,6 +12794,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12596,6 +12832,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12635,6 +12872,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12672,6 +12910,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12709,6 +12948,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12750,6 +12990,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12791,6 +13032,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12826,6 +13068,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12863,6 +13106,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -12900,6 +13144,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12937,6 +13182,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -12974,6 +13220,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13012,6 +13259,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13049,6 +13297,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13086,6 +13335,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13123,6 +13373,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -13160,6 +13411,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13197,6 +13449,7 @@
     "台積電"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13234,6 +13487,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13273,6 +13527,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13312,6 +13567,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13349,6 +13605,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13388,6 +13645,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13425,6 +13683,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13462,6 +13721,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13499,6 +13759,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13536,6 +13797,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13575,6 +13837,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13583,6 +13846,50 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.847
+  },
+  {
+   "id": "64495a33309be7e9",
+   "title": "中美AI出口管制同步升溫，鴻海、廣達、台積電面臨哪些合規與訂單風險？｜股市話題｜豐雲學堂2026 年 11 月",
+   "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxPaGRiNm1hem9nVFM4S245YmdCT21RWTg4QUhCV09JNEhYV3ctUXBiSFl0eVhZbmh6U2tpMklDcW82bkNCdGRzck5wYXdXUTNoNXBNVk5fSi1rZ19GNWpoT3Y2S3ppc3J3QVhQTFc1LU85bV9KdDdOeG9xRjFmenZCZlVZS0haMmdWWG43dl9sWEtCTE5kTlZRamRIQTRDeFp2VS1iUHZuVUY3NGJPV0Q5QVBSZzZqRTlyZGtYbURiNVltTXQzZmg1QXlCVWkzd3NSUDZYdGYzcHFTN2xJZmhoN3FFOEhIcWw4ZHJRUlpHODhsUFozLUFuS1duNlJ4N0dncmtmR1lMR3hfVndlWE1HTjZTRVVkMGItb0hncENqXzVKZnBfcVVFVXEyOW5SaGFHLThWQnhZS09LVEEwb2VwRlBpMTBtVXBHb1p0SmpZUmoyV05tYl9RQ01XTHhTdjRDWFFJSkwwVlgzZWtZRXFNTzVJTGZua0FmSktzejFyZ1NrMzBGcjZTajN1QTBFQ0N3V1pSRnYwZmduUzRvV2FGZ3BBX0RfLUdpZ3Z0Q1VXWUwxaG85TVVVYnUxMHEtVkx0VkxsOHRwajdFODdaRXRVVVlVQW5UY0NGTmJtTGFTR280YkxTaXZEbXRwYjNfYkR5bE9xZ2FmQTR3d1I0VFg0YmFXVEZTdw?oc=5",
+   "source": "永豐金證券",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海",
+    "廣達"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海",
+    "廣達"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.416
   },
   {
    "id": "4b1249ad1773ee80",
@@ -13611,6 +13918,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -13646,6 +13954,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13685,6 +13994,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13724,6 +14034,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13763,6 +14074,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13800,6 +14112,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13839,6 +14152,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13876,6 +14190,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13913,6 +14228,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -13942,6 +14258,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -13981,6 +14298,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14020,6 +14338,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14059,6 +14378,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14096,6 +14416,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14136,6 +14457,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14173,6 +14495,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14210,6 +14533,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14253,6 +14577,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14290,14 +14615,15 @@
     "美光台灣"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 1.737
+   "heat": 0.521
   },
   {
    "id": "4b547e0958964324",
@@ -14329,6 +14655,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14366,6 +14693,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14405,6 +14733,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14442,6 +14771,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14481,6 +14811,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14520,6 +14851,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14557,6 +14889,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14594,6 +14927,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14633,6 +14967,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14672,6 +15007,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14711,6 +15047,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14748,6 +15085,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14785,6 +15123,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14824,6 +15163,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14861,6 +15201,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14898,6 +15239,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14938,6 +15280,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -14977,6 +15320,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15017,6 +15361,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15054,6 +15399,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15083,6 +15429,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -15122,6 +15469,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15160,6 +15508,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15197,6 +15546,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -15234,6 +15584,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15278,6 +15629,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -15318,6 +15670,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15356,6 +15709,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15393,6 +15747,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15432,6 +15787,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15469,6 +15825,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -15506,6 +15863,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15543,6 +15901,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15578,6 +15937,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15616,6 +15976,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15655,6 +16016,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15692,6 +16054,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15730,6 +16093,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15767,6 +16131,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -15806,6 +16171,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15841,6 +16207,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15880,6 +16247,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15917,6 +16285,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15952,6 +16321,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -15995,6 +16365,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -16031,6 +16402,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16069,6 +16441,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16106,6 +16479,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16141,6 +16515,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16178,6 +16553,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16215,6 +16591,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16252,6 +16629,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16289,6 +16667,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16326,6 +16705,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -16363,6 +16743,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16400,6 +16781,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16440,6 +16822,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16478,6 +16861,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16515,6 +16899,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -16552,6 +16937,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16591,6 +16977,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -16628,6 +17015,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16665,6 +17053,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16705,6 +17094,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16746,6 +17136,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16784,6 +17175,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16824,6 +17216,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16861,6 +17254,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -16900,6 +17294,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16939,6 +17334,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -16978,6 +17374,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17015,6 +17412,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17054,6 +17452,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17091,6 +17490,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17129,6 +17529,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17170,6 +17571,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17209,6 +17611,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17248,6 +17651,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17286,6 +17690,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17323,6 +17728,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17361,6 +17767,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17398,6 +17805,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17435,6 +17843,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17476,6 +17885,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17515,6 +17925,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17555,6 +17966,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17594,6 +18006,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17631,6 +18044,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17668,6 +18082,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17709,6 +18124,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17746,6 +18162,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17783,6 +18200,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17820,6 +18238,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17857,6 +18276,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17894,6 +18314,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -17931,6 +18352,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -17968,6 +18390,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18009,6 +18432,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18048,6 +18472,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18089,6 +18514,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18126,6 +18552,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -18163,6 +18590,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18200,6 +18628,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18237,6 +18666,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -18280,6 +18710,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18317,6 +18748,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18354,6 +18786,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18391,6 +18824,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -18428,6 +18862,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18469,6 +18904,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18506,6 +18942,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18545,6 +18982,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18582,6 +19020,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18623,6 +19062,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18660,6 +19100,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18699,6 +19140,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -18736,6 +19178,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18779,6 +19222,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18816,6 +19260,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18859,6 +19304,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -18896,6 +19342,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18934,6 +19381,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -18971,6 +19419,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19008,6 +19457,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19046,6 +19496,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19083,6 +19534,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19120,6 +19572,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19157,6 +19610,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19201,6 +19655,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19238,6 +19693,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19275,6 +19731,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19312,6 +19769,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19349,6 +19807,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19386,6 +19845,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19431,6 +19891,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19468,6 +19929,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -19509,6 +19971,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19546,6 +20009,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19588,6 +20052,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19625,6 +20090,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19664,6 +20130,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19701,6 +20168,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19738,6 +20206,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19775,6 +20244,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19814,6 +20284,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -19851,6 +20322,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19888,6 +20360,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19925,6 +20398,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -19963,6 +20437,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20004,6 +20479,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20041,6 +20517,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20082,6 +20559,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20119,6 +20597,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20156,6 +20635,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20193,6 +20673,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20222,6 +20703,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20261,6 +20743,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20298,6 +20781,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20335,6 +20819,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20376,6 +20861,7 @@
     "京元電子"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20417,6 +20903,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20454,6 +20941,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20491,6 +20979,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20530,6 +21019,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20568,6 +21058,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20607,6 +21098,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20648,6 +21140,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20685,6 +21178,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20728,6 +21222,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20767,6 +21262,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20806,6 +21302,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20843,6 +21340,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20886,6 +21384,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20924,6 +21423,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -20961,6 +21461,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -20998,6 +21499,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21037,6 +21539,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21074,6 +21577,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -21113,6 +21617,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21150,6 +21655,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21187,6 +21693,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -21224,6 +21731,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21263,6 +21771,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21302,6 +21811,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21341,6 +21851,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21378,6 +21889,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21415,6 +21927,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21454,6 +21967,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21491,6 +22005,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21528,6 +22043,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21565,6 +22081,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21605,6 +22122,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21642,6 +22160,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21679,6 +22198,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21716,6 +22236,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21753,6 +22274,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21790,6 +22312,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21827,6 +22350,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21865,6 +22389,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21908,6 +22433,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -21945,6 +22471,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -21983,6 +22510,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22022,6 +22550,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22063,6 +22592,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22100,6 +22630,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22138,6 +22669,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -22178,6 +22710,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22218,6 +22751,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22255,6 +22789,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22294,6 +22829,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22331,6 +22867,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22372,6 +22909,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22409,6 +22947,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22446,6 +22985,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22484,6 +23024,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22521,6 +23062,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22558,6 +23100,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22598,6 +23141,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22635,6 +23179,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22675,6 +23220,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -22715,6 +23261,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22757,6 +23304,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -22797,6 +23345,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22838,6 +23387,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22877,6 +23427,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -22916,6 +23467,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -22955,6 +23507,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -22995,6 +23548,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23032,6 +23586,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23071,6 +23626,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23106,6 +23662,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23141,6 +23698,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23182,6 +23740,7 @@
     "昇陽半導體"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23221,6 +23780,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23261,6 +23821,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23298,6 +23859,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23335,6 +23897,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23372,6 +23935,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23411,6 +23975,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23448,6 +24013,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23489,6 +24055,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23530,6 +24097,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23569,14 +24137,15 @@
     "台積電"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 1.2
+   "heat": 0.36
   },
   {
    "id": "261f00859cb8fb9e",
@@ -23606,6 +24175,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23643,6 +24213,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23682,6 +24253,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23719,6 +24291,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23758,6 +24331,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23797,6 +24371,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -23842,6 +24417,7 @@
     "鴻海"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23883,6 +24459,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23925,6 +24502,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -23966,6 +24544,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24001,6 +24580,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24036,6 +24616,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24077,6 +24658,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24116,6 +24698,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24153,6 +24736,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24188,6 +24772,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24225,6 +24810,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24266,6 +24852,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24274,6 +24861,48 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.077
+  },
+  {
+   "id": "c3719ed7d674a88b",
+   "title": "AI硬體出口創高，台積電與鴻海訂單能延續到明年嗎？-葉博金融研究院",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUm1lemNLMjRETHZ2eWRKU3JJbDRXd042X2ZjYVJQVzAyd0RYU0tpYlZYdS1kTlk2aDVwSnY1N0JTZFFZcDI2V2tKY0gyTW5kUFRhcXJDSERRaXNod0N6VnhFZXhidFVXdkZvOFN1SHA0OUpfRF9mVm1VOTlfM3VzVw?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.808
   },
   {
    "id": "8405cb8a3c417558",
@@ -24303,6 +24932,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24340,6 +24970,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24369,6 +25000,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24409,6 +25041,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24449,6 +25082,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24486,6 +25120,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24529,6 +25164,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24571,6 +25207,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24613,6 +25250,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24654,6 +25292,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24694,6 +25333,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24731,6 +25371,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24770,6 +25411,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24805,6 +25447,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -24844,6 +25487,7 @@
     "頎邦科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24885,6 +25529,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24924,6 +25569,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24961,6 +25607,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -24973,7 +25620,7 @@
   {
    "id": "5132eebd0f50eceb",
    "title": "AI測試訂單爆發 京元電子挑戰前高",
-   "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPWTdXSzkzUWpRV3NWVXpVRy1saWNWbUpRRFIxRXJibzNDdFVSaFA2NTFJUGpjLVRQeVVweW4xUGxMbjhkTkJUSmhSNWhsRWdWd2FQTGFNMm1YNzlYRGJBS0ZNMnZVRVdLaldobm5tdjZuRlhzR3pQb2o0MHlBejVSY0JpbXhraFMtMVFPUzVqQXF0SERObV9XT3JreTJYb2xkcDZVakYxV1pvVG5YaHNrVW0wNmM2a002bzJ0eWplRjF5TnpERS1oNjc0Q09PVk55ekUwWnVNRlFJTnVMQ18xTVNmSGw1aEkxWFBsbTNVVmpLM3JCTmtLbXFPOGU?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQeWFGeG94TUdOUnNuWnJ6WmlQUVBEY3Y1RFc0ZndBaEttcnc2RlFKUDdXZGxGZ282Mkhlbnl0R1JzVWpxdVR6VUdUMjBySlV1X2xOTm4wa2lKdHYteHF0LUFKM2ZucVEyazc3d29YOTkxYW9NUkIzNmVkYUtkUnhCRWl2dWZxVzQ2bkU0QUZPYnlHSl9qcFcxczNrQXVMQkZoRXE1LVJTZHlFWFNYMFlKa19yZmtXemRmS0pTS1o4bDNnaHdJQk1PSmk4UV9OX1RxM2VLbklnMnBjMGZsWEVlLXNUN3ptYnc4OW50Z2FVd0ZIX0VMUUxrQ0NzMFQ?oc=5",
    "source": "台灣好新聞",
    "published": "2026-09-09",
    "snippet": "",
@@ -24996,6 +25643,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25035,6 +25683,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25074,6 +25723,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25111,6 +25761,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25152,6 +25803,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25189,6 +25841,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25228,6 +25881,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25271,6 +25925,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25317,6 +25972,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25354,6 +26010,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25396,6 +26053,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -25433,6 +26091,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -25470,6 +26129,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25507,6 +26167,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25544,6 +26205,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -25581,6 +26243,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25618,6 +26281,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25657,6 +26321,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25700,6 +26365,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25743,6 +26409,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25786,6 +26453,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25825,6 +26493,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25864,6 +26533,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25872,6 +26542,48 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.882
+  },
+  {
+   "id": "519a5f4b8ab3831f",
+   "title": "台積電 AI 冷革命 散熱廠卡位 健策、一詮等研發微流道技術",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8zeG1ueC1qNWt6Q2Jld0dQVzNXNjFPMDVRczFuUDAzclR3UE5NVlNDYU4wa1RxOTdpbmIwQkhUTXI1WFJOa3hhM1ZCTnhlWW1CQmNjeG1CdjNEMDDSAWBBVV95cUxNSjZNdkRNT3dOTU9RbnFoa2dnQndsd2xWMGNKTWxEaFl6N3BvVXVkM1VKam9XUGxyZlRjQjVJSTAyLVVCdlpMNjRseFhseDNxRE5HZ3ExUmxDVW9rcGc5ZFg?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "健策"
+   ],
+   "accounts": [
+    "台積電",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.551
   },
   {
    "id": "432014fc5aa69c04",
@@ -25893,6 +26605,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25932,6 +26645,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -25972,6 +26686,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26009,6 +26724,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26050,6 +26766,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26087,6 +26804,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26128,6 +26846,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26173,6 +26892,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26212,6 +26932,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26253,6 +26974,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26290,6 +27012,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26331,6 +27054,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26369,6 +27093,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26416,6 +27141,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26453,6 +27179,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26490,6 +27217,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26527,6 +27255,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26566,6 +27295,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26603,6 +27333,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26640,6 +27371,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26678,6 +27410,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26725,6 +27458,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26762,6 +27496,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26800,6 +27535,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26837,6 +27573,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26876,6 +27613,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26913,6 +27651,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -26951,6 +27690,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -26990,6 +27730,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27027,6 +27768,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27064,6 +27806,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27101,6 +27844,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27140,6 +27884,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -27181,6 +27926,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27218,6 +27964,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27255,6 +28002,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27292,6 +28040,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27333,6 +28082,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27370,6 +28120,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27407,6 +28158,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27448,6 +28200,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -27485,6 +28238,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -27522,6 +28276,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -27559,6 +28314,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27597,6 +28353,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27634,6 +28391,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27672,6 +28430,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27711,6 +28470,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27748,6 +28508,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27789,6 +28550,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27826,6 +28588,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -27866,6 +28629,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27905,6 +28669,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27946,6 +28711,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -27985,6 +28751,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28032,6 +28799,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28069,6 +28837,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -28106,6 +28875,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -28145,6 +28915,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28186,6 +28957,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28223,6 +28995,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28260,6 +29033,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28301,6 +29075,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28338,6 +29113,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28375,6 +29151,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28412,6 +29189,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28449,6 +29227,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -28486,6 +29265,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28521,6 +29301,7 @@
     "昇陽半導體"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28556,6 +29337,7 @@
     "昇陽半導體"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28593,6 +29375,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28632,6 +29415,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28669,6 +29453,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28706,6 +29491,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28735,6 +29521,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28772,6 +29559,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28812,6 +29600,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -28849,6 +29638,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28885,6 +29675,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28925,6 +29716,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -28962,6 +29754,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29000,6 +29793,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29037,6 +29831,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29074,6 +29869,7 @@
     "南茂科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29111,6 +29907,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29149,6 +29946,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29184,6 +29982,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29221,6 +30020,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29258,14 +30058,15 @@
     "力積電"
    ],
    "relevance": 0.6,
-   "noise": false,
+   "inferred": true,
+   "noise": true,
    "weight_hint": 0.0,
    "need": "",
    "urgency": 0,
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 0.45
+   "heat": 0.135
   },
   {
    "id": "b65abbad9cf78376",
@@ -29297,6 +30098,7 @@
     "頎邦科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29334,6 +30136,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29371,6 +30174,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29409,6 +30213,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29446,6 +30251,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29485,6 +30291,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29522,6 +30329,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29557,6 +30365,7 @@
     "南亞科"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29586,6 +30395,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29624,6 +30434,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29661,6 +30472,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29698,6 +30510,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29737,6 +30550,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29774,6 +30588,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29811,6 +30626,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29848,6 +30664,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29887,6 +30704,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -29925,6 +30743,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -29962,6 +30781,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30001,6 +30821,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -30036,6 +30857,7 @@
     "精材科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30073,6 +30895,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -30112,6 +30935,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30149,6 +30973,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30188,6 +31013,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30225,6 +31051,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30262,6 +31089,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30300,6 +31128,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30338,6 +31167,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30375,6 +31205,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30413,6 +31244,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30452,6 +31284,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -30489,6 +31322,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30530,6 +31364,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30565,6 +31400,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30602,6 +31438,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30639,6 +31476,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30676,6 +31514,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30713,6 +31552,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30750,6 +31590,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30787,6 +31628,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30824,6 +31666,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30861,6 +31704,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30898,6 +31742,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30935,6 +31780,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -30972,6 +31818,7 @@
     "世界先進"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31011,6 +31858,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31050,6 +31898,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31087,6 +31936,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31124,6 +31974,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31163,6 +32014,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31198,6 +32050,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31235,6 +32088,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31272,6 +32126,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31311,6 +32166,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31350,6 +32206,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31389,6 +32246,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31424,6 +32282,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31465,6 +32324,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31508,6 +32368,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31547,6 +32408,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31586,6 +32448,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31623,6 +32486,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31663,6 +32527,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31702,6 +32567,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31739,6 +32605,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31778,6 +32645,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31815,6 +32683,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31852,6 +32721,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31889,6 +32759,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -31926,6 +32797,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -31963,6 +32835,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32006,6 +32879,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32043,6 +32917,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32080,6 +32955,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -32117,6 +32993,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32154,6 +33031,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32191,6 +33069,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32228,6 +33107,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32263,6 +33143,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32300,6 +33181,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32337,6 +33219,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32374,6 +33257,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32411,6 +33295,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32448,6 +33333,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32485,6 +33371,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -32527,6 +33414,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32564,6 +33452,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32601,6 +33490,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32642,6 +33532,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -32677,6 +33568,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32719,6 +33611,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -32759,6 +33652,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32802,6 +33696,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32841,6 +33736,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -32882,6 +33778,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32921,6 +33818,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32956,6 +33854,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -32995,6 +33894,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33035,6 +33935,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33077,6 +33978,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33112,6 +34014,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33147,6 +34050,7 @@
     "欣銓科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33186,6 +34090,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33231,6 +34136,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33271,6 +34177,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33310,6 +34217,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33350,6 +34258,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33387,6 +34296,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33428,6 +34338,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33465,6 +34376,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33512,6 +34424,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33558,6 +34471,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33598,6 +34512,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33639,6 +34554,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33679,6 +34595,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33716,6 +34633,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33759,6 +34677,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -33802,6 +34721,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33841,6 +34761,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33882,6 +34803,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33919,6 +34841,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33958,6 +34881,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -33997,6 +34921,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34035,6 +34960,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34072,6 +34998,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34111,6 +35038,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34148,6 +35076,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34187,6 +35116,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34226,6 +35156,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34265,6 +35196,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34304,6 +35236,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34341,6 +35274,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34382,6 +35316,7 @@
     "昇陽半導體"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -34421,6 +35356,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -34458,6 +35394,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34493,6 +35430,7 @@
     "昇陽半導體"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34534,6 +35472,7 @@
     "華邦電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34542,6 +35481,43 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.466
+  },
+  {
+   "id": "8beee30be4b629e0",
+   "title": "京元電子(2449)AI訂單滿載，資本支出加碼後真正受惠的是哪一段？-葉博金融研究院",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNOGUzclBoUWdzcVpYNFc4V25pWVBISG9oSzVzdHVfWjlnWTJ1MHBFdmYxMXgxcndUSXphWW5pOEFrS0Z5ZE9wZkIwYzdWdjRFMUh5a2xrNUdBOWFPdWlJbGlTTGJnVjVveG5EY0tvc0ZhWXpCUE0xYUF6bFMwemlsWQ?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-07-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "京元電子"
+   ],
+   "accounts": [
+    "京元電子"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.44
   },
   {
    "id": "4250a868c24a7131",
@@ -34571,6 +35547,7 @@
     "精材科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34608,6 +35585,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34645,6 +35623,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34684,6 +35663,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34721,6 +35701,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34758,6 +35739,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34795,6 +35777,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34832,6 +35815,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34869,6 +35853,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34908,6 +35893,7 @@
     "力積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34945,6 +35931,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -34982,6 +35969,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35019,6 +36007,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35056,6 +36045,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35095,6 +36085,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -35132,6 +36123,7 @@
     "聯電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35175,6 +36167,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35212,6 +36205,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35252,6 +36246,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35288,6 +36283,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35323,6 +36319,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35358,6 +36355,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35395,6 +36393,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35432,6 +36431,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35469,6 +36469,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35506,6 +36507,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35541,6 +36543,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35576,6 +36579,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35613,6 +36617,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35650,6 +36655,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35687,6 +36693,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35734,6 +36741,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35773,6 +36781,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -35815,6 +36824,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -35852,6 +36862,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -35897,18 +36908,18 @@
    },
    "note": "先進製程與 CoWoS / SoIC 先進封裝都大量使用 PVD 靶材;新廠的特氣與化學品供應系統用耐蝕合金。在地化與第二供應商計畫是切入點;銅:銅導線與先進封裝電鍍銅大量使用磷銅陽極 / 高純銅",
    "heat": {
-    "target": 41.51,
-    "titanium": 3.84,
-    "nickel": 41.51,
-    "copper": 41.51
+    "target": 40.18,
+    "titanium": 3.83,
+    "nickel": 40.18,
+    "copper": 40.18
    },
-   "signal_score": 67.7,
+   "signal_score": 67.5,
    "signals": 38,
    "top_intent": "expansion",
    "last_signal": "2026-11-06",
-   "opportunity": 80.6,
+   "opportunity": 80.5,
    "fit_part": 40.0,
-   "signal_part": 40.6,
+   "signal_part": 40.5,
    "tier": "優先開發",
    "best_product": "target",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -35928,10 +36939,10 @@
     "explicit": 0,
     "co_mention": 1,
     "manual": 0,
-    "inferred": 207
+    "inferred": 210
    },
    "material_terms": [],
-   "material_summary": "同篇提及材料但主詞為他公司 1 則、未提材料的公司動態 207 則;材料依產品適配度推估",
+   "material_summary": "同篇提及材料但主詞為他公司 1 則、未提材料的公司動態 210 則;材料依產品適配度推估",
    "evidence_basis": {
     "fd11ecea5fa0f101": "inferred",
     "19fe10bf3e4bbc34": "inferred",
@@ -35955,18 +36966,18 @@
    },
    "note": "全球最大封測廠,2026 年資本支出提高至 105 億美元,310x310mm 面板級封裝產線;UBM / RDL 濺鍍靶材與電鍍用鈦;銅:凸塊、銅柱、RDL 電鍍銅與導線架用銅合金",
    "heat": {
-    "target": 26.23,
-    "titanium": 26.23,
+    "target": 25.6,
+    "titanium": 25.6,
     "nickel": 1.95,
-    "copper": 24.0
+    "copper": 23.37
    },
-   "signal_score": 66.6,
+   "signal_score": 66.5,
    "signals": 16,
    "top_intent": "expansion",
    "last_signal": "2026-11-06",
-   "opportunity": 80.0,
+   "opportunity": 79.9,
    "fit_part": 40.0,
-   "signal_part": 40.0,
+   "signal_part": 39.9,
    "tier": "優先開發",
    "best_product": "target",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -36071,10 +37082,10 @@
    },
    "note": "利基型 DRAM 與 Flash;金屬化靶材;銅:銅導線電鍍",
    "heat": {
-    "target": 13.78,
+    "target": 13.77,
     "titanium": 0.0,
     "nickel": 0.01,
-    "copper": 13.78
+    "copper": 13.77
    },
    "signal_score": 58.4,
    "signals": 9,
@@ -36129,18 +37140,18 @@
    },
    "note": "台中、桃園 DRAM / HBM 廠;靶材多由總部統籌採購,需經台灣廠製程端引薦;銅:DRAM / HBM 銅導線與 TSV 電鍍",
    "heat": {
-    "target": 21.11,
+    "target": 18.85,
     "titanium": 0.02,
     "nickel": 0.81,
-    "copper": 21.11
+    "copper": 18.85
    },
-   "signal_score": 57.6,
+   "signal_score": 54.7,
    "signals": 16,
    "top_intent": "expansion",
    "last_signal": "2026-11-06",
-   "opportunity": 74.6,
+   "opportunity": 72.8,
    "fit_part": 40.0,
-   "signal_part": 34.6,
+   "signal_part": 32.8,
    "tier": "優先開發",
    "best_product": "target",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -36148,13 +37159,13 @@
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "evidence": [
     "10f78a2d0c55f0c0",
-    "5baef4f27d7c92cc",
     "46bc1765d231c8bc",
     "c016e1a3200aec0c",
-    "196d920042f96394",
     "db2c223ccecf99ae",
     "9b57be7020b9ae7f",
-    "1f74890b7ea0e7d6"
+    "1f74890b7ea0e7d6",
+    "3e9869b4f59aec12",
+    "4e7ab79a1e6fa131"
    ],
    "material_basis": {
     "explicit": 0,
@@ -36166,13 +37177,13 @@
    "material_summary": "未提材料的公司動態 162 則;材料依產品適配度推估",
    "evidence_basis": {
     "10f78a2d0c55f0c0": "inferred",
-    "5baef4f27d7c92cc": "inferred",
     "46bc1765d231c8bc": "inferred",
     "c016e1a3200aec0c": "inferred",
-    "196d920042f96394": "inferred",
     "db2c223ccecf99ae": "inferred",
     "9b57be7020b9ae7f": "inferred",
-    "1f74890b7ea0e7d6": "inferred"
+    "1f74890b7ea0e7d6": "inferred",
+    "3e9869b4f59aec12": "inferred",
+    "4e7ab79a1e6fa131": "inferred"
    }
   },
   {
@@ -36361,18 +37372,18 @@
    },
    "note": "記憶體與邏輯代工,轉型 3D AI Foundry(晶圓堆疊);金屬化靶材;銅:銅製程導線與晶圓堆疊",
    "heat": {
-    "target": 10.77,
+    "target": 10.45,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 10.77
+    "copper": 10.45
    },
-   "signal_score": 47.9,
+   "signal_score": 47.7,
    "signals": 15,
    "top_intent": "expansion",
    "last_signal": "2026-10-24",
-   "opportunity": 68.7,
+   "opportunity": 68.6,
    "fit_part": 40.0,
-   "signal_part": 28.7,
+   "signal_part": 28.6,
    "tier": "積極經營",
    "best_product": "target",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -36386,7 +37397,7 @@
     "3bfef702c65fa615",
     "3b711c7cfb8e117d",
     "16de19d1816bfb55",
-    "d8c9f12d9b0a34a1"
+    "b5c3dc3d7f8d255a"
    ],
    "material_basis": {
     "explicit": 0,
@@ -36404,7 +37415,7 @@
     "3bfef702c65fa615": "inferred",
     "3b711c7cfb8e117d": "inferred",
     "16de19d1816bfb55": "inferred",
-    "d8c9f12d9b0a34a1": "inferred"
+    "b5c3dc3d7f8d255a": "inferred"
    }
   },
   {
@@ -36419,18 +37430,18 @@
    },
    "note": "最大專業測試廠,2026 年資本支出上修至約 500 億元;新廠廠務與治具,材料關聯較低;銅:測試座與探針用鈹銅",
    "heat": {
-    "target": 6.31,
-    "titanium": 4.94,
-    "nickel": 0.03,
-    "copper": 13.58
+    "target": 5.04,
+    "titanium": 3.67,
+    "nickel": 0.02,
+    "copper": 12.33
    },
-   "signal_score": 58.4,
+   "signal_score": 56.4,
    "signals": 11,
    "top_intent": "expansion",
    "last_signal": "2026-11-06",
-   "opportunity": 61.7,
+   "opportunity": 60.5,
    "fit_part": 26.7,
-   "signal_part": 35.0,
+   "signal_part": 33.8,
    "tier": "積極經營",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -36440,29 +37451,29 @@
     "2291e03791461609",
     "659f9d0147713362",
     "55da103bce89a169",
-    "ffd4a3b97822b3dd",
     "092a312c09417665",
     "m-ecbddb7888495257",
     "24e9ac299ea9c559",
-    "5132eebd0f50eceb"
+    "5132eebd0f50eceb",
+    "20ab7c97e3b695c8"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 1,
-    "inferred": 28
+    "inferred": 29
    },
    "material_terms": [],
-   "material_summary": "人工整理 1 則、未提材料的公司動態 28 則;材料依產品適配度推估",
+   "material_summary": "人工整理 1 則、未提材料的公司動態 29 則;材料依產品適配度推估",
    "evidence_basis": {
     "2291e03791461609": "inferred",
     "659f9d0147713362": "inferred",
     "55da103bce89a169": "inferred",
-    "ffd4a3b97822b3dd": "inferred",
     "092a312c09417665": "inferred",
     "m-ecbddb7888495257": "manual",
     "24e9ac299ea9c559": "inferred",
-    "5132eebd0f50eceb": "inferred"
+    "5132eebd0f50eceb": "inferred",
+    "20ab7c97e3b695c8": "inferred"
    }
   },
   {
@@ -36757,53 +37768,39 @@
    },
    "note": "再生晶圓與鑽石碟;材料需求以研磨耗材為主,與三條產品線關聯較低",
    "heat": {
-    "target": 0.52,
-    "titanium": 0.33,
-    "nickel": 0.5,
-    "copper": 0.5
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
    },
-   "signal_score": 4.8,
-   "signals": 2,
-   "top_intent": "contract",
-   "last_signal": "2026-10-13",
-   "opportunity": 16.2,
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
    "fit_part": 13.3,
-   "signal_part": 2.9,
+   "signal_part": 0.0,
    "tier": "持續觀察",
-   "best_product": "nickel",
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "697265169036c55a",
-    "556fc49d5655cbbe",
-    "64766cba7ef4024f",
-    "e8bff9c053e50d96",
-    "51e2c4900d864d96",
-    "9ece520123e7162f"
-   ],
+   "evidence": [],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 6
+    "inferred": 0
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "697265169036c55a": "inferred",
-    "556fc49d5655cbbe": "inferred",
-    "64766cba7ef4024f": "inferred",
-    "e8bff9c053e50d96": "inferred",
-    "51e2c4900d864d96": "inferred",
-    "9ece520123e7162f": "inferred"
-   }
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   }
  ],
  "other_mentions": [
   {
    "org": "Apple",
-   "signal_score": 26.3,
+   "signal_score": 26.4,
    "signals": 2,
    "last_signal": "2026-11-06",
    "product": "titanium",
@@ -36811,18 +37808,6 @@
     "df6dbf951be17aaf",
     "747c44dbb1c930bb",
     "f04d0af68e2c28e4"
-   ]
-  },
-  {
-   "org": "萬潤科技",
-   "signal_score": 16.6,
-   "signals": 3,
-   "last_signal": "2026-10-08",
-   "product": "titanium",
-   "evidence": [
-    "460ed1d6e334da2d",
-    "4600c1fa15817d84",
-    "ccb944fc5014f49b"
    ]
   },
   {
@@ -36870,20 +37855,8 @@
    ]
   },
   {
-   "org": "鴻海",
-   "signal_score": 7.3,
-   "signals": 1,
-   "last_signal": "2026-11-04",
-   "product": "copper",
-   "evidence": [
-    "ef375a5ff7953a06",
-    "5c7c653be4039eb3",
-    "893b35d25ea0c716"
-   ]
-  },
-  {
    "org": "亞翔工程",
-   "signal_score": 6.9,
+   "signal_score": 7.0,
    "signals": 2,
    "last_signal": "2026-10-01",
    "product": "nickel",
@@ -36917,7 +37890,7 @@
   },
   {
    "org": "帆宣系統",
-   "signal_score": 5.8,
+   "signal_score": 5.7,
    "signals": 1,
    "last_signal": "2026-10-13",
    "product": "nickel",
@@ -36950,60 +37923,13 @@
    ]
   },
   {
-   "org": "牧德科技",
-   "signal_score": 3.2,
-   "signals": 0,
-   "last_signal": "2026-10-01",
-   "product": "titanium",
-   "evidence": [
-    "66138b52b06c3af7",
-    "ccd42e7ec7666cef",
-    "a0453334e969c835"
-   ]
-  },
-  {
-   "org": "志聖工業",
-   "signal_score": 1.9,
+   "org": "健策",
+   "signal_score": 2.1,
    "signals": 1,
-   "last_signal": "2026-08-31",
-   "product": "titanium",
+   "last_signal": "2026-09-02",
+   "product": "copper",
    "evidence": [
-    "64f16f64fe62a61f",
-    "411c2a725ed623a4",
-    "06464f6e41dfa5f9"
-   ]
-  },
-  {
-   "org": "天虹科技",
-   "signal_score": 1.7,
-   "signals": 1,
-   "last_signal": "2026-09-29",
-   "product": "target",
-   "evidence": [
-    "6d5236e4ef09889f",
-    "a227fc29b166d7cc"
-   ]
-  },
-  {
-   "org": "家碩科技",
-   "signal_score": 1.5,
-   "signals": 0,
-   "last_signal": "2026-10-12",
-   "product": "target",
-   "evidence": [
-    "08069dd88e394fb0"
-   ]
-  },
-  {
-   "org": "迅得機械",
-   "signal_score": 1.4,
-   "signals": 0,
-   "last_signal": "2026-11-02",
-   "product": "target",
-   "evidence": [
-    "91ecba29de79183b",
-    "1245d198b101e6d0",
-    "ebb14cf8156c591c"
+    "519a5f4b8ab3831f"
    ]
   },
   {
@@ -37017,13 +37943,14 @@
    ]
   },
   {
-   "org": "漢唐集成",
-   "signal_score": 0.6,
+   "org": "天虹科技",
+   "signal_score": 0.7,
    "signals": 0,
-   "last_signal": "2026-10-02",
-   "product": "nickel",
+   "last_signal": "2026-09-29",
+   "product": "target",
    "evidence": [
-    "e717441d62ca4f03"
+    "a227fc29b166d7cc",
+    "6d5236e4ef09889f"
    ]
   },
   {
@@ -37036,6 +37963,16 @@
     "6abf881cb21893f7",
     "a1feb9f8c0e2ceef",
     "9ece520123e7162f"
+   ]
+  },
+  {
+   "org": "漢唐集成",
+   "signal_score": 0.5,
+   "signals": 0,
+   "last_signal": "2026-10-02",
+   "product": "nickel",
+   "evidence": [
+    "e717441d62ca4f03"
    ]
   },
   {
@@ -37058,36 +37995,15 @@
     "01f21fd0b5f9aec6",
     "03d6494277c511b0"
    ]
-  },
-  {
-   "org": "均華精密",
-   "signal_score": 0.1,
-   "signals": 0,
-   "last_signal": "2026-08-28",
-   "product": "titanium",
-   "evidence": [
-    "b941bb37db7f7a7f",
-    "a6ab8ad7399906f8"
-   ]
-  },
-  {
-   "org": "廣達",
-   "signal_score": 0.1,
-   "signals": 0,
-   "last_signal": "2026-11-04",
-   "product": "copper",
-   "evidence": [
-    "56a6b5d6300bf389"
-   ]
   }
  ],
  "segment_cells": [
   {
    "subsegment": "foundry",
    "product": "target",
-   "heat": 80.309,
-   "count": 59,
-   "z": 2.92,
+   "heat": 78.765,
+   "count": 57,
+   "z": 2.94,
    "level": "hot",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -37107,9 +38023,9 @@
   {
    "subsegment": "foundry",
    "product": "titanium",
-   "heat": 5.152,
+   "heat": 5.148,
    "count": 4,
-   "z": 0.43,
+   "z": 0.44,
    "level": "neutral",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -37129,9 +38045,9 @@
   {
    "subsegment": "foundry",
    "product": "nickel",
-   "heat": 43.932,
-   "count": 32,
-   "z": 1.06,
+   "heat": 42.703,
+   "count": 31,
+   "z": 1.07,
    "level": "warm",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -37151,9 +38067,9 @@
   {
    "subsegment": "foundry",
    "product": "copper",
-   "heat": 80.309,
-   "count": 59,
-   "z": 2.96,
+   "heat": 78.765,
+   "count": 57,
+   "z": 2.99,
    "level": "hot",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -37173,9 +38089,9 @@
   {
    "subsegment": "memory",
    "product": "target",
-   "heat": 46.386,
-   "count": 28,
-   "z": 1.26,
+   "heat": 44.118,
+   "count": 26,
+   "z": 1.22,
    "level": "warm",
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -37197,7 +38113,7 @@
    "product": "titanium",
    "heat": 0.03,
    "count": 0,
-   "z": -0.85,
+   "z": -0.87,
    "level": "neutral",
    "signal_ids": [
     "518dca1a89e1aacb"
@@ -37208,7 +38124,7 @@
    "product": "nickel",
    "heat": 0.066,
    "count": 0,
-   "z": -0.74,
+   "z": -0.76,
    "level": "neutral",
    "signal_ids": [
     "cadd6d674c7cd6a2",
@@ -37220,9 +38136,9 @@
   {
    "subsegment": "memory",
    "product": "copper",
-   "heat": 45.416,
-   "count": 27,
-   "z": 1.29,
+   "heat": 43.148,
+   "count": 25,
+   "z": 1.25,
    "level": "warm",
    "signal_ids": [
     "3fa1515da1ffac11",
@@ -37266,7 +38182,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.71,
+   "z": -1.7,
    "level": "neutral",
    "signal_ids": []
   },
@@ -37284,7 +38200,7 @@
    "product": "copper",
    "heat": 3.926,
    "count": 2,
-   "z": -0.14,
+   "z": -0.13,
    "level": "neutral",
    "signal_ids": [
     "4250a868c24a7131",
@@ -37303,8 +38219,8 @@
   {
    "subsegment": "packaging",
    "product": "target",
-   "heat": 47.671,
-   "count": 27,
+   "heat": 46.411,
+   "count": 26,
    "z": 1.6,
    "level": "warm",
    "signal_ids": [
@@ -37325,9 +38241,9 @@
   {
    "subsegment": "packaging",
    "product": "titanium",
-   "heat": 30.715,
-   "count": 16,
-   "z": -0.1,
+   "heat": 29.455,
+   "count": 15,
+   "z": -0.11,
    "level": "neutral",
    "signal_ids": [
     "e0ad78e494ecffad",
@@ -37361,9 +38277,9 @@
   {
    "subsegment": "packaging",
    "product": "copper",
-   "heat": 43.602,
-   "count": 25,
-   "z": 1.59,
+   "heat": 42.342,
+   "count": 24,
+   "z": 1.58,
    "level": "warm",
    "signal_ids": [
     "e0ad78e494ecffad",
@@ -37403,16 +38319,16 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.57,
+   "z": -1.56,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "testing",
    "product": "copper",
-   "heat": 10.797,
+   "heat": 10.811,
    "count": 7,
-   "z": -0.01,
+   "z": -0.0,
    "level": "neutral",
    "signal_ids": [
     "4f7b90711afb3db3",
@@ -37420,13 +38336,13 @@
     "4c726a6d3932aa2c",
     "fef54acc08359486",
     "c4fa3466b57ab1f3",
+    "8beee30be4b629e0",
     "bcf2cbe1e4ee54f6",
     "ae84a905043eeee4",
     "f7adc03292bd2d0a",
     "655e72da32a7e729",
     "97a688027b17e4e5",
-    "9387831e626a68d6",
-    "767c8ba35f5f7223"
+    "9387831e626a68d6"
    ]
   },
   {
@@ -37469,7 +38385,7 @@
    "product": "copper",
    "heat": 0.184,
    "count": 1,
-   "z": -0.25,
+   "z": -0.24,
    "level": "neutral",
    "signal_ids": [
     "432014fc5aa69c04"
@@ -37487,12 +38403,12 @@
   "16de19d1816bfb55": [],
   "190059e0289b43aa": [],
   "1926243a8fa970e2": [],
-  "196d920042f96394": [],
   "19fe10bf3e4bbc34": [],
   "1bba8a2f4583867a": [],
   "1c5c33f71914ec55": [],
   "1f74890b7ea0e7d6": [],
   "1ffcae709c288963": [],
+  "20ab7c97e3b695c8": [],
   "20b56c42b4fe15dd": [],
   "2291e03791461609": [],
   "24884fc256c8317a": [],
@@ -37510,30 +38426,28 @@
   "39f75807c0274ca9": [],
   "3b711c7cfb8e117d": [],
   "3bfef702c65fa615": [],
+  "3e9869b4f59aec12": [],
   "46bc1765d231c8bc": [],
   "4b547e0958964324": [],
   "4e1eff61e1b37345": [],
+  "4e7ab79a1e6fa131": [],
   "502c94fa01b0b7c2": [],
   "5132eebd0f50eceb": [],
   "51e2c4900d864d96": [],
-  "556fc49d5655cbbe": [],
   "55bab70da8e5d646": [],
   "55da103bce89a169": [],
   "560cafd013bae8fa": [],
   "5970b244c1f20eed": [],
-  "5baef4f27d7c92cc": [],
   "604b31a3afc2097f": [],
   "613cf3970892ff86": [],
   "62b197f593cb5b80": [],
   "63722cd8c6a1067f": [],
-  "64766cba7ef4024f": [],
   "6495ed67d75ebc7e": [],
   "655e72da32a7e729": [],
   "659f9d0147713362": [],
   "6684f2be73919b5b": [],
   "67955d1b310fd539": [],
   "67a91338b01eebe8": [],
-  "697265169036c55a": [],
   "6b87c7288cff91d8": [],
   "6b89a866e0a92d2c": [],
   "6fd303869174d6eb": [],
@@ -37551,11 +38465,11 @@
   "97a688027b17e4e5": [],
   "9850c4856083be5d": [],
   "9b57be7020b9ae7f": [],
-  "9ece520123e7162f": [],
   "a0e1f3db5fb1bb22": [],
   "a759c580239dd516": [],
   "aa0b3f4a367b4507": [],
   "b34a4db383412758": [],
+  "b5c3dc3d7f8d255a": [],
   "b65abbad9cf78376": [],
   "b6f23410f0a6761a": [],
   "b7ad5a75c1e97387": [],
@@ -37569,7 +38483,6 @@
   "cfea5be577bc8bfa": [],
   "d46ad8f935793561": [],
   "d59a84c6a3670868": [],
-  "d8c9f12d9b0a34a1": [],
   "db2c223ccecf99ae": [],
   "dc6404283af26030": [],
   "ddf4776bcd00e806": [],
@@ -37586,7 +38499,6 @@
   "fd11ecea5fa0f101": [],
   "fe5239db0a617e7c": [],
   "ffa5dd8308c0a1d9": [],
-  "ffd4a3b97822b3dd": [],
   "m-4361b668826fe3f6": [],
   "m-ecbddb7888495257": [],
   "m-ff27f5fcc499979f": []

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T10:54:23+00:00",
+ "generated": "2026-11-06T11:35:27+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -173,7 +173,7 @@
    "A": 0,
    "B": 0,
    "C": 2,
-   "D": 4
+   "D": 2
   },
   "enriched": 0,
   "by_product": {
@@ -503,7 +503,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.89
+    "z": 1.53
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -540,7 +540,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.89
+    "z": 1.53
    },
    "need": "",
    "evidence": [],
@@ -555,88 +555,6 @@
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
-  },
-  {
-   "org": "牧德科技",
-   "account": true,
-   "score": 22.5,
-   "grade": "持續觀察",
-   "product": "titanium",
-   "products": [
-    "target",
-    "titanium",
-    "copper"
-   ],
-   "industry": "pcb_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "tender"
-   ],
-   "signals": 3,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-01",
-   "new": true,
-   "hotspot": {
-    "level": "warm",
-    "trend": "",
-    "z": 1.54
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "66138b52b06c3af7",
-    "ccd42e7ec7666cef",
-    "7451dbfe2f148c49",
-    "a0453334e969c835"
-   ],
-   "signal_score": 15.3,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 9.2
-  },
-  {
-   "org": "迅得機械",
-   "account": true,
-   "score": 18.1,
-   "grade": "持續觀察",
-   "product": "titanium",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "qualification",
-   "intents": [
-    "qualification"
-   ],
-   "signals": 3,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-11-02",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": -0.04
-   },
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "91ecba29de79183b",
-    "ebb14cf8156c591c",
-    "1245d198b101e6d0"
-   ],
-   "signal_score": 8.0,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 4.8
   },
   {
    "org": "大量科技",
@@ -654,7 +572,39 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.98
+    "z": -0.79
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "牧德科技",
+   "products": [
+    "titanium"
+   ],
+   "industry": "pcb_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.79
    },
    "need": "",
    "evidence": [],
@@ -684,9 +634,9 @@
    "last_signal": "",
    "new": false,
    "hotspot": {
-    "level": "warm",
+    "level": "neutral",
     "trend": "",
-    "z": 1.54
+    "z": -0.79
    },
    "need": "",
    "evidence": [],
@@ -718,7 +668,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.98
+    "z": -0.79
    },
    "need": "",
    "evidence": [],
@@ -750,7 +700,39 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.98
+    "z": -0.79
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "迅得機械",
+   "products": [
+    "titanium"
+   ],
+   "industry": "pcb_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.79
    },
    "need": "",
    "evidence": [],
@@ -800,6 +782,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -839,6 +822,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -880,6 +864,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -919,6 +904,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -960,6 +946,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -999,6 +986,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1038,6 +1026,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -1077,6 +1066,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -1116,6 +1106,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1155,6 +1146,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -1197,6 +1189,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1239,6 +1232,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -1280,6 +1274,7 @@
     "牧德科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1321,6 +1316,7 @@
     "力成科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1362,6 +1358,7 @@
     "迅得機械"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1401,6 +1398,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1441,6 +1439,7 @@
     "揚博科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -1573,104 +1572,6 @@
    "evidence_basis": {}
   },
   {
-   "org": "牧德科技",
-   "ticker": "3563",
-   "subsegment": "inspection",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0,
-    "copper": 0
-   },
-   "note": "PCB 與載板 AOI 檢測設備;材料關聯較低",
-   "heat": {
-    "target": 1.96,
-    "titanium": 1.96,
-    "nickel": 0.0,
-    "copper": 1.96
-   },
-   "signal_score": 15.3,
-   "signals": 3,
-   "top_intent": "expansion",
-   "last_signal": "2026-10-01",
-   "opportunity": 22.5,
-   "fit_part": 13.3,
-   "signal_part": 9.2,
-   "tier": "持續觀察",
-   "best_product": "titanium",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "66138b52b06c3af7",
-    "ccd42e7ec7666cef",
-    "7451dbfe2f148c49",
-    "a0453334e969c835"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 4
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "66138b52b06c3af7": "inferred",
-    "ccd42e7ec7666cef": "inferred",
-    "7451dbfe2f148c49": "inferred",
-    "a0453334e969c835": "inferred"
-   }
-  },
-  {
-   "org": "迅得機械",
-   "ticker": "6438",
-   "subsegment": "automation",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0,
-    "copper": 0
-   },
-   "note": "PCB 與半導體自動化搬運設備;材料關聯較低",
-   "heat": {
-    "target": 1.03,
-    "titanium": 0.0,
-    "nickel": 1.03,
-    "copper": 1.03
-   },
-   "signal_score": 8.0,
-   "signals": 3,
-   "top_intent": "qualification",
-   "last_signal": "2026-11-02",
-   "opportunity": 18.1,
-   "fit_part": 13.3,
-   "signal_part": 4.8,
-   "tier": "持續觀察",
-   "best_product": "titanium",
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "91ecba29de79183b",
-    "ebb14cf8156c591c",
-    "1245d198b101e6d0"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 3
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 3 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "91ecba29de79183b": "inferred",
-    "ebb14cf8156c591c": "inferred",
-    "1245d198b101e6d0": "inferred"
-   }
-  },
-  {
    "org": "大量科技",
    "ticker": "3167",
    "subsegment": "drilling",
@@ -1681,6 +1582,46 @@
     "copper": 0
    },
    "note": "PCB 鑽孔與成型機;材料關聯較低,可從設備結構件與治具了解需求",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "牧德科技",
+   "ticker": "3563",
+   "subsegment": "inspection",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "PCB 與載板 AOI 檢測設備;材料關聯較低",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
@@ -1829,6 +1770,46 @@
    "material_terms": [],
    "material_summary": "近期沒有新聞;材料依產品適配度推估",
    "evidence_basis": {}
+  },
+  {
+   "org": "迅得機械",
+   "ticker": "6438",
+   "subsegment": "automation",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "PCB 與半導體自動化搬運設備;材料關聯較低",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   }
  ],
  "other_mentions": [
@@ -1873,7 +1854,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": 0.66,
+   "z": 0.53,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1882,7 +1863,7 @@
    "product": "titanium",
    "heat": 4.36,
    "count": 5,
-   "z": 1.89,
+   "z": 1.53,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1901,7 +1882,7 @@
    "product": "nickel",
    "heat": 4.36,
    "count": 5,
-   "z": 1.59,
+   "z": 1.28,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1920,8 +1901,8 @@
    "product": "copper",
    "heat": 4.36,
    "count": 5,
-   "z": 2.21,
-   "level": "hot",
+   "z": 1.78,
+   "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
     "0b33886bf67223da",
@@ -1939,7 +1920,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.33,
+   "z": -1.07,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1948,7 +1929,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.98,
+   "z": -0.79,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1957,7 +1938,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.28,
+   "z": -1.03,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1966,7 +1947,7 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.66,
+   "z": -0.53,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1975,7 +1956,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.33,
+   "z": -1.07,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1984,7 +1965,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.98,
+   "z": -0.79,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1993,7 +1974,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.28,
+   "z": -1.03,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2002,67 +1983,121 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.66,
+   "z": -0.53,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "inspection",
    "product": "target",
-   "heat": 3.821,
-   "count": 3,
-   "z": 1.19,
-   "level": "warm",
-   "signal_ids": [
-    "ccd42e7ec7666cef",
-    "a0453334e969c835",
-    "7451dbfe2f148c49",
-    "66138b52b06c3af7"
-   ]
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.07,
+   "level": "neutral",
+   "signal_ids": []
   },
   {
    "subsegment": "inspection",
    "product": "titanium",
-   "heat": 3.821,
-   "count": 3,
-   "z": 1.54,
-   "level": "warm",
-   "signal_ids": [
-    "ccd42e7ec7666cef",
-    "a0453334e969c835",
-    "7451dbfe2f148c49",
-    "66138b52b06c3af7"
-   ]
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.79,
+   "level": "neutral",
+   "signal_ids": []
   },
   {
    "subsegment": "inspection",
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": 0.46,
+   "z": -1.03,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "inspection",
    "product": "copper",
-   "heat": 3.821,
-   "count": 3,
-   "z": 1.85,
-   "level": "warm",
-   "signal_ids": [
-    "ccd42e7ec7666cef",
-    "a0453334e969c835",
-    "7451dbfe2f148c49",
-    "66138b52b06c3af7"
-   ]
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.53,
+   "level": "neutral",
+   "signal_ids": []
   },
   {
    "subsegment": "automation",
    "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.07,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.79,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.03,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.53,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "target",
+   "heat": 6.125,
+   "count": 5,
+   "z": 2.18,
+   "level": "neutral",
+   "signal_ids": [
+    "ebb14cf8156c591c",
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "91ecba29de79183b",
+    "66138b52b06c3af7",
+    "1245d198b101e6d0"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "titanium",
+   "heat": 4.066,
+   "count": 3,
+   "z": 2.13,
+   "level": "neutral",
+   "signal_ids": [
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "66138b52b06c3af7"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "nickel",
    "heat": 2.059,
    "count": 2,
-   "z": 0.03,
+   "z": 1.55,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2071,98 +2106,32 @@
    ]
   },
   {
-   "subsegment": "automation",
-   "product": "titanium",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.04,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "automation",
-   "product": "nickel",
-   "heat": 2.059,
-   "count": 2,
-   "z": 0.07,
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 6.125,
+   "count": 5,
+   "z": 2.71,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
     "91ecba29de79183b",
+    "66138b52b06c3af7",
     "1245d198b101e6d0"
-   ]
-  },
-  {
-   "subsegment": "automation",
-   "product": "copper",
-   "heat": 2.059,
-   "count": 2,
-   "z": 0.69,
-   "level": "neutral",
-   "signal_ids": [
-    "ebb14cf8156c591c",
-    "91ecba29de79183b",
-    "1245d198b101e6d0"
-   ]
-  },
-  {
-   "subsegment": "other",
-   "product": "target",
-   "heat": 0.246,
-   "count": 0,
-   "z": -1.16,
-   "level": "neutral",
-   "signal_ids": [
-    "ac33cc8f2d5f0a28"
-   ]
-  },
-  {
-   "subsegment": "other",
-   "product": "titanium",
-   "heat": 0.246,
-   "count": 0,
-   "z": -0.81,
-   "level": "neutral",
-   "signal_ids": [
-    "ac33cc8f2d5f0a28"
-   ]
-  },
-  {
-   "subsegment": "other",
-   "product": "nickel",
-   "heat": 0.0,
-   "count": 0,
-   "z": -1.17,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "other",
-   "product": "copper",
-   "heat": 0.246,
-   "count": 0,
-   "z": -0.5,
-   "level": "neutral",
-   "signal_ids": [
-    "ac33cc8f2d5f0a28"
    ]
   }
  ],
  "signal_materials": {
   "038cbe742f88124f": [],
   "0b33886bf67223da": [],
-  "1245d198b101e6d0": [],
   "558f4e57497d9d46": [],
-  "66138b52b06c3af7": [],
-  "7451dbfe2f148c49": [],
-  "91ecba29de79183b": [],
-  "a0453334e969c835": [],
   "ab28e43d6f4d7d3b": [],
   "befab01641204245": [],
   "c42105f8961a8a70": [],
-  "ccd42e7ec7666cef": [],
   "d2a3a491d1e92f43": [],
-  "ebb14cf8156c591c": [],
   "f20d518ac1e87488": []
  }
 }

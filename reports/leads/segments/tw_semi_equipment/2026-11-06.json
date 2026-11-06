@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T10:53:37+00:00",
+ "generated": "2026-11-06T11:34:39+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -163,8 +163,8 @@
   }
  },
  "stats": {
-  "signals": 235,
-  "attributed": 233,
+  "signals": 236,
+  "attributed": 234,
   "new_signals": 4,
   "hot_cells": 7,
   "warm_cells": 0,
@@ -173,16 +173,16 @@
    "A": 0,
    "B": 2,
    "C": 10,
-   "D": 16
+   "D": 10
   },
   "enriched": 0,
   "by_product": {
    "target": 42,
    "titanium": 136,
-   "nickel": 191,
+   "nickel": 192,
    "copper": 108
   },
-  "other_mentions": 9,
+  "other_mentions": 8,
   "accounts": 22,
   "tiers": {
    "優先開發": 1,
@@ -470,13 +470,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.142,
+   "heat": 66.144,
    "count": 52,
    "z": 6.29,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.142
+    66.144
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -507,6 +507,7 @@
     "42fb1638b872cb08",
     "646cba173b722ce7",
     "c678815b9c34c77c",
+    "566cb5ec0e0bf6f5",
     "e381d0a8a6185832",
     "307845647ba34d40",
     "afc1b74f9c25920a",
@@ -866,13 +867,13 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 66.142,
+   "heat": 66.144,
    "count": 52,
    "z": 6.29,
    "level": "hot",
    "trend": "new",
    "history": [
-    66.142
+    66.144
    ],
    "signal_ids": [
     "2f6807ecd776b9ff",
@@ -1237,7 +1238,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.21
+    "z": 0.23
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -1324,7 +1325,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.11
+    "z": 3.1
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1493,7 +1494,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.22
+    "z": -0.18
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
@@ -1679,211 +1680,36 @@
    "signal_part": 6.9
   },
   {
-   "org": "萬潤科技",
-   "account": true,
-   "score": 27.9,
-   "grade": "持續觀察",
-   "product": "copper",
-   "products": [
-    "target",
-    "copper",
-    "nickel",
-    "titanium"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "qualification",
-   "intents": [
-    "qualification",
-    "expansion",
-    "new_product",
-    "tender",
-    "contract"
-   ],
-   "signals": 4,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-08",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": -1.0
-   },
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "460ed1d6e334da2d",
-    "3d0106d7d8885b33",
-    "7d859caae43a9b27",
-    "ccb944fc5014f49b",
-    "4600c1fa15817d84",
-    "1eddc02da3abc624"
-   ],
-   "signal_score": 24.3,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 14.6
-  },
-  {
-   "org": "志聖工業",
-   "account": true,
-   "score": 18.1,
-   "grade": "持續觀察",
-   "product": "nickel",
-   "products": [
-    "nickel",
-    "target",
-    "copper",
-    "titanium"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract",
-    "qualification",
-    "expansion"
-   ],
-   "signals": 3,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-09-03",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": 0.22
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "72b50002b46324a9",
-    "411c2a725ed623a4",
-    "64f16f64fe62a61f",
-    "06464f6e41dfa5f9"
-   ],
-   "signal_score": 7.9,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 4.7
-  },
-  {
-   "org": "鈦昇科技",
-   "account": true,
-   "score": 16.3,
-   "grade": "持續觀察",
-   "product": "target",
-   "products": [
-    "nickel"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion"
-   ],
-   "signals": 1,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-08-31",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": -1.72
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "bc9d70f70f72bb9b",
-    "7939b1e7b141b490"
-   ],
-   "signal_score": 4.9,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 2.9
-  },
-  {
-   "org": "家碩科技",
-   "account": true,
-   "score": 13.9,
-   "grade": "持續觀察",
-   "product": "titanium",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industry": "semi_equipment",
-   "region": "TW",
-   "top_intent": "contract",
-   "intents": [
-    "contract"
-   ],
-   "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-10-12",
-   "new": true,
-   "hotspot": {
-    "level": "neutral",
-    "trend": "",
-    "z": 0.21
-   },
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "08069dd88e394fb0"
-   ],
-   "signal_score": 0.9,
-   "fit_max": 1,
-   "fit_part": 13.3,
-   "signal_part": 0.5
-  },
-  {
    "org": "均華精密",
-   "account": true,
-   "score": 13.8,
-   "grade": "持續觀察",
-   "product": "titanium",
    "products": [
-    "target",
-    "titanium",
-    "nickel",
-    "copper"
+    "titanium"
    ],
    "industry": "semi_equipment",
    "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion"
-   ],
+   "top_intent": "",
+   "intents": [],
    "signals": 0,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-08-28",
-   "new": true,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.48
+    "z": -0.84
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "need": "",
-   "evidence": [
-    "b941bb37db7f7a7f",
-    "a6ab8ad7399906f8"
-   ],
-   "signal_score": 0.7,
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
    "fit_max": 1,
    "fit_part": 13.3,
-   "signal_part": 0.4
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
   },
   {
    "org": "均豪精密",
@@ -1901,7 +1727,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.48
+    "z": -0.84
    },
    "need": "",
    "evidence": [],
@@ -1918,6 +1744,70 @@
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
   },
   {
+   "org": "家碩科技",
+   "products": [
+    "titanium"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.23
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "志聖工業",
+   "products": [
+    "target"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "cold",
+    "trend": "",
+    "z": -2.17
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
    "org": "東捷科技",
    "products": [
     "target"
@@ -1931,9 +1821,73 @@
    "last_signal": "",
    "new": false,
    "hotspot": {
+    "level": "cold",
+    "trend": "",
+    "z": -2.17
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "萬潤科技",
+   "products": [
+    "titanium"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.72
+    "z": -0.84
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "鈦昇科技",
+   "products": [
+    "target"
+   ],
+   "industry": "semi_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "cold",
+    "trend": "",
+    "z": -2.17
    },
    "need": "",
    "evidence": [],
@@ -1981,6 +1935,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2020,6 +1975,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2059,6 +2015,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2102,6 +2059,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2137,6 +2095,7 @@
     "漢民科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2180,6 +2139,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2216,6 +2176,7 @@
     "巧新科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2254,6 +2215,7 @@
     "倉佑實業"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2295,6 +2257,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2334,6 +2297,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2369,6 +2333,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2404,6 +2369,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2439,6 +2405,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2475,6 +2442,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2510,6 +2478,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2550,6 +2519,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2594,6 +2564,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2634,6 +2605,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2677,6 +2649,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2720,6 +2693,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2755,6 +2729,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2791,6 +2766,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -2832,6 +2808,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2871,6 +2848,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2910,6 +2888,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2945,6 +2924,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -2980,6 +2960,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3015,6 +2996,7 @@
     "巧新科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3050,6 +3032,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3085,6 +3068,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3120,6 +3104,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3155,6 +3140,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3191,6 +3177,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3226,6 +3213,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3267,6 +3255,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3302,6 +3291,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3337,6 +3327,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3372,6 +3363,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3408,6 +3400,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3443,6 +3436,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3478,6 +3472,7 @@
     "家登精密"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3513,6 +3508,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3548,6 +3544,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3584,6 +3581,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3620,6 +3618,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3655,6 +3654,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3692,6 +3692,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3731,6 +3732,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3774,6 +3776,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3809,6 +3812,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3847,6 +3851,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -3888,6 +3893,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3931,6 +3937,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -3974,6 +3981,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4018,6 +4026,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4063,6 +4072,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4105,6 +4115,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4146,6 +4157,7 @@
     "美光台灣"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4181,6 +4193,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4216,6 +4229,7 @@
     "漢唐集成"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4251,6 +4265,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4286,6 +4301,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4327,6 +4343,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4364,6 +4381,7 @@
     "倉佑實業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4399,6 +4417,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4442,6 +4461,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4477,6 +4497,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4512,6 +4533,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4547,6 +4569,7 @@
     "漢唐集成"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4583,6 +4606,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4620,6 +4644,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4660,6 +4685,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4701,6 +4727,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -4741,6 +4768,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4780,6 +4808,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4813,6 +4842,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4848,6 +4878,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4883,6 +4914,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4922,6 +4954,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4957,6 +4990,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -4993,6 +5027,7 @@
     "天虹科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5032,6 +5067,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5067,6 +5103,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5106,6 +5143,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5143,6 +5181,7 @@
     "天虹科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5182,6 +5221,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -5221,6 +5261,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5260,6 +5301,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5303,6 +5345,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5349,6 +5392,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5385,6 +5429,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5427,6 +5472,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5466,6 +5512,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5499,6 +5546,7 @@
    "orgs": [],
    "accounts": [],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5534,6 +5582,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5569,6 +5618,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5608,6 +5658,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5644,6 +5695,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5687,6 +5739,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5726,6 +5779,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5761,6 +5815,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5800,6 +5855,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5837,6 +5893,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5876,6 +5933,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5913,6 +5971,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5952,6 +6011,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -5987,6 +6047,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6026,6 +6087,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6062,6 +6124,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6097,6 +6160,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6140,6 +6204,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6183,6 +6248,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6218,6 +6284,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6257,6 +6324,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6292,6 +6360,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6327,6 +6396,7 @@
     "巧新科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6368,6 +6438,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -6413,6 +6484,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6450,6 +6522,7 @@
     "鈦昇科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6486,6 +6559,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6523,6 +6597,7 @@
     "鈦昇科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6564,6 +6639,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6599,6 +6675,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6634,6 +6711,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6681,6 +6759,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6716,6 +6795,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6756,6 +6836,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6791,6 +6872,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6830,6 +6912,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6865,6 +6948,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6905,6 +6989,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6952,6 +7037,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -6991,6 +7077,7 @@
     "辛耘企業"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7026,6 +7113,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7062,6 +7150,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7097,6 +7186,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7133,6 +7223,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7172,6 +7263,7 @@
     "南亞科"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7207,6 +7299,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7246,6 +7339,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7281,6 +7375,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7316,6 +7411,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7356,6 +7452,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7395,6 +7492,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7433,6 +7531,7 @@
     "千附精密"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7472,6 +7571,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -7511,6 +7611,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7550,6 +7651,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7589,6 +7691,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7630,6 +7733,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7665,6 +7769,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7700,6 +7805,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7736,6 +7842,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7771,6 +7878,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7806,6 +7914,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7841,6 +7950,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7877,6 +7987,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7912,6 +8023,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7947,6 +8059,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -7982,6 +8095,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8017,6 +8131,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8053,6 +8168,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8088,6 +8204,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8125,6 +8242,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8172,6 +8290,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8211,6 +8330,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8246,6 +8366,7 @@
     "巧新科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8287,6 +8408,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8326,6 +8448,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8365,6 +8488,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8402,6 +8526,7 @@
     "天虹科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8441,6 +8566,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8480,6 +8606,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8520,6 +8647,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8559,6 +8687,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8598,6 +8727,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8633,6 +8763,7 @@
     "巧新科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8668,6 +8799,7 @@
     "巧新科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -8703,6 +8835,7 @@
     "印能科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8742,6 +8875,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8779,6 +8913,7 @@
     "京鼎精密"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8818,6 +8953,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8858,6 +8994,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8897,6 +9034,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8936,6 +9074,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -8975,6 +9114,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9014,6 +9154,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9053,6 +9194,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9092,6 +9234,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9127,6 +9270,7 @@
     "漢唐集成"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9162,6 +9306,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9197,6 +9342,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9237,6 +9383,7 @@
     "帆宣系統"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9274,6 +9421,7 @@
     "弘塑科技"
    ],
    "relevance": 1.0,
+   "inferred": false,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9315,6 +9463,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9350,6 +9499,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9385,6 +9535,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9420,6 +9571,7 @@
     "漢唐集成"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9463,6 +9615,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9502,6 +9655,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9541,6 +9695,7 @@
     "弘塑科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9576,6 +9731,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9618,6 +9774,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9653,6 +9810,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9696,6 +9854,7 @@
     "日月光投控"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9731,6 +9890,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9773,6 +9933,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9808,6 +9969,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -9843,6 +10005,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9878,6 +10041,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9913,6 +10077,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9953,6 +10118,7 @@
     "千附精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -9988,6 +10154,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10024,6 +10191,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10059,6 +10227,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10094,6 +10263,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10102,6 +10272,42 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.476
+  },
+  {
+   "id": "566cb5ec0e0bf6f5",
+   "title": "亞翔：在手訂單4400億元 未來3年營運一年比一年好",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9oNm5lWkRScHJleGJoU212ZV9zWW5SY2xOR3h1T1g3Rk55cGZGc0EwNjVfNXBENWQ3UVpaNVQwRnkwdDFqM2E3TVZKVmlwWTJxbm9zRWU5cXpvd9IBX0FVX3lxTE92QXZnXzZhdEg5TFltX3N3MjRFbmk1RU9YNUdoZklOOENLZXdkWU1neHA0aTMtR2JPMnBDSjdBS1hybzI0SlpkMU1RSHhLaGhacHJJd1BEdTJ6U1EyWnIw?oc=5",
+   "source": "經濟日報",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞翔工程"
+   ],
+   "accounts": [
+    "亞翔工程"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.357
   },
   {
    "id": "42fb1638b872cb08",
@@ -10130,6 +10336,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10165,6 +10372,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10200,6 +10408,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10245,6 +10454,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10292,6 +10502,7 @@
     "中砂"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10338,6 +10549,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10379,6 +10591,7 @@
     "台積電"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10416,6 +10629,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10453,6 +10667,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10496,6 +10711,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10531,6 +10747,7 @@
     "亞翔工程"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10566,6 +10783,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10601,6 +10819,7 @@
     "家登精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10640,6 +10859,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10679,6 +10899,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10718,6 +10939,7 @@
     "京鼎精密"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10765,6 +10987,7 @@
     "京元電子"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -10804,6 +11027,7 @@
     "翔名科技"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": true,
    "weight_hint": 0.0,
    "need": "",
@@ -10839,6 +11063,7 @@
     "帆宣系統"
    ],
    "relevance": 0.6,
+   "inferred": true,
    "noise": false,
    "weight_hint": 0.0,
    "need": "",
@@ -11403,10 +11628,10 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 35
+    "inferred": 36
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 35 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 36 則;材料依產品適配度推估",
    "evidence_basis": {
     "d2dc28f6a9bacca0": "inferred",
     "2c708030d53bb2cd": "inferred",
@@ -11673,200 +11898,6 @@
    }
   },
   {
-   "org": "萬潤科技",
-   "ticker": "6187",
-   "subsegment": "packaging",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0,
-    "copper": 1
-   },
-   "note": "先進封裝點膠、貼合等設備",
-   "heat": {
-    "target": 2.26,
-    "titanium": 0.53,
-    "nickel": 1.2,
-    "copper": 2.26
-   },
-   "signal_score": 24.3,
-   "signals": 4,
-   "top_intent": "qualification",
-   "last_signal": "2026-10-08",
-   "opportunity": 27.9,
-   "fit_part": 13.3,
-   "signal_part": 14.6,
-   "tier": "持續觀察",
-   "best_product": "copper",
-   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
-   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "460ed1d6e334da2d",
-    "3d0106d7d8885b33",
-    "7d859caae43a9b27",
-    "ccb944fc5014f49b",
-    "4600c1fa15817d84",
-    "1eddc02da3abc624"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 6
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "460ed1d6e334da2d": "inferred",
-    "3d0106d7d8885b33": "inferred",
-    "7d859caae43a9b27": "inferred",
-    "ccb944fc5014f49b": "inferred",
-    "4600c1fa15817d84": "inferred",
-    "1eddc02da3abc624": "inferred"
-   }
-  },
-  {
-   "org": "志聖工業",
-   "ticker": "2467",
-   "subsegment": "packaging",
-   "fit": {
-    "target": 1,
-    "titanium": 1,
-    "nickel": 1,
-    "copper": 1
-   },
-   "note": "先進封裝壓合、貼膜與電鍍前處理設備(G2C+ 聯盟);電鍍前處理可用鈦治具",
-   "heat": {
-    "target": 0.53,
-    "titanium": 0.05,
-    "nickel": 0.86,
-    "copper": 0.53
-   },
-   "signal_score": 7.9,
-   "signals": 3,
-   "top_intent": "contract",
-   "last_signal": "2026-09-03",
-   "opportunity": 18.1,
-   "fit_part": 13.3,
-   "signal_part": 4.7,
-   "tier": "持續觀察",
-   "best_product": "nickel",
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "72b50002b46324a9",
-    "411c2a725ed623a4",
-    "64f16f64fe62a61f",
-    "06464f6e41dfa5f9"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 4
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "72b50002b46324a9": "inferred",
-    "411c2a725ed623a4": "inferred",
-    "64f16f64fe62a61f": "inferred",
-    "06464f6e41dfa5f9": "inferred"
-   }
-  },
-  {
-   "org": "鈦昇科技",
-   "ticker": "8027",
-   "subsegment": "packaging",
-   "fit": {
-    "target": 1,
-    "titanium": 1,
-    "nickel": 0,
-    "copper": 1
-   },
-   "note": "雷射與玻璃基板設備(公司名含「鈦」,已排除在鈦材字詞比對之外)",
-   "heat": {
-    "target": 0.0,
-    "titanium": 0.0,
-    "nickel": 0.53,
-    "copper": 0.0
-   },
-   "signal_score": 4.9,
-   "signals": 1,
-   "top_intent": "expansion",
-   "last_signal": "2026-08-31",
-   "opportunity": 16.3,
-   "fit_part": 13.3,
-   "signal_part": 2.9,
-   "tier": "持續觀察",
-   "best_product": "target",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "bc9d70f70f72bb9b",
-    "7939b1e7b141b490"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 2
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "bc9d70f70f72bb9b": "inferred",
-    "7939b1e7b141b490": "inferred"
-   }
-  },
-  {
-   "org": "家碩科技",
-   "ticker": "6953",
-   "subsegment": "carrier",
-   "fit": {
-    "target": 0,
-    "titanium": 1,
-    "nickel": 0,
-    "copper": 0
-   },
-   "note": "光罩 / 載具清洗與自動化設備,南科新廠 2027 年投產",
-   "heat": {
-    "target": 0.1,
-    "titanium": 0.0,
-    "nickel": 0.1,
-    "copper": 0.1
-   },
-   "signal_score": 0.9,
-   "signals": 0,
-   "top_intent": "contract",
-   "last_signal": "2026-10-12",
-   "opportunity": 13.9,
-   "fit_part": 13.3,
-   "signal_part": 0.5,
-   "tier": "持續觀察",
-   "best_product": "titanium",
-   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
-   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "08069dd88e394fb0"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 1
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "08069dd88e394fb0": "inferred"
-   }
-  },
-  {
    "org": "均華精密",
    "ticker": "6640",
    "subsegment": "packaging",
@@ -11878,39 +11909,33 @@
    },
    "note": "先進封裝黏晶 / 撿晶設備",
    "heat": {
-    "target": 0.08,
-    "titanium": 0.08,
-    "nickel": 0.08,
-    "copper": 0.08
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
    },
-   "signal_score": 0.7,
+   "signal_score": 0.0,
    "signals": 0,
-   "top_intent": "expansion",
-   "last_signal": "2026-08-28",
-   "opportunity": 13.8,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
    "fit_part": 13.3,
-   "signal_part": 0.4,
+   "signal_part": 0.0,
    "tier": "持續觀察",
    "best_product": "titanium",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "b941bb37db7f7a7f",
-    "a6ab8ad7399906f8"
-   ],
+   "evidence": [],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 2
+    "inferred": 0
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "b941bb37db7f7a7f": "inferred",
-    "a6ab8ad7399906f8": "inferred"
-   }
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "均豪精密",
@@ -11953,6 +11978,86 @@
    "evidence_basis": {}
   },
   {
+   "org": "家碩科技",
+   "ticker": "6953",
+   "subsegment": "carrier",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "光罩 / 載具清洗與自動化設備,南科新廠 2027 年投產",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "志聖工業",
+   "ticker": "2467",
+   "subsegment": "packaging",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "先進封裝壓合、貼膜與電鍍前處理設備(G2C+ 聯盟);電鍍前處理可用鈦治具",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
    "org": "東捷科技",
    "ticker": "8064",
    "subsegment": "packaging",
@@ -11963,6 +12068,86 @@
     "copper": 1
    },
    "note": "封裝與面板級封裝設備,半導體營收比重提升",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "萬潤科技",
+   "ticker": "6187",
+   "subsegment": "packaging",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "先進封裝點膠、貼合等設備",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "鈦昇科技",
+   "ticker": "8027",
+   "subsegment": "packaging",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "雷射與玻璃基板設備(公司名含「鈦」,已排除在鈦材字詞比對之外)",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
@@ -12038,18 +12223,6 @@
    "product": "target",
    "evidence": [
     "3d0106d7d8885b33"
-   ]
-  },
-  {
-   "org": "中砂",
-   "signal_score": 3.4,
-   "signals": 1,
-   "last_signal": "2026-10-13",
-   "product": "titanium",
-   "evidence": [
-    "697265169036c55a",
-    "64766cba7ef4024f",
-    "9ece520123e7162f"
    ]
   },
   {
@@ -12144,7 +12317,7 @@
    "product": "nickel",
    "heat": 25.457,
    "count": 19,
-   "z": 3.11,
+   "z": 3.1,
    "level": "hot",
    "signal_ids": [
     "06464f6e41dfa5f9",
@@ -12186,75 +12359,54 @@
   {
    "subsegment": "packaging",
    "product": "target",
-   "heat": 3.271,
-   "count": 3,
-   "z": -1.72,
-   "level": "neutral",
-   "signal_ids": [
-    "64f16f64fe62a61f",
-    "4600c1fa15817d84",
-    "3d0106d7d8885b33",
-    "411c2a725ed623a4",
-    "ccb944fc5014f49b",
-    "460ed1d6e334da2d"
-   ]
+   "heat": 0.0,
+   "count": 0,
+   "z": -2.17,
+   "level": "cold",
+   "signal_ids": []
   },
   {
    "subsegment": "packaging",
    "product": "titanium",
-   "heat": 0.967,
-   "count": 1,
-   "z": -0.48,
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.84,
    "level": "neutral",
-   "signal_ids": [
-    "7d859caae43a9b27",
-    "4600c1fa15817d84",
-    "ccb944fc5014f49b"
-   ]
+   "signal_ids": []
   },
   {
    "subsegment": "packaging",
    "product": "nickel",
-   "heat": 6.787,
-   "count": 8,
-   "z": 0.22,
+   "heat": 4.835,
+   "count": 6,
+   "z": -0.18,
    "level": "neutral",
    "signal_ids": [
-    "64f16f64fe62a61f",
     "520a11e500143adb",
     "6de30c9dfad2d930",
     "0c26edd7dc128a47",
     "bc9d70f70f72bb9b",
     "7939b1e7b141b490",
-    "411c2a725ed623a4",
     "72b50002b46324a9",
     "0a1c547beaaa2c64",
-    "460ed1d6e334da2d",
     "e5507caf6d6658a3"
    ]
   },
   {
    "subsegment": "packaging",
    "product": "copper",
-   "heat": 3.271,
-   "count": 3,
-   "z": -1.0,
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.45,
    "level": "neutral",
-   "signal_ids": [
-    "64f16f64fe62a61f",
-    "4600c1fa15817d84",
-    "3d0106d7d8885b33",
-    "411c2a725ed623a4",
-    "ccb944fc5014f49b",
-    "460ed1d6e334da2d"
-   ]
+   "signal_ids": []
   },
   {
    "subsegment": "parts",
    "product": "target",
    "heat": 0.58,
    "count": 0,
-   "z": -0.78,
+   "z": -0.77,
    "level": "neutral",
    "signal_ids": [
     "9ece520123e7162f",
@@ -12362,7 +12514,7 @@
   {
    "subsegment": "facility",
    "product": "nickel",
-   "heat": 17.389,
+   "heat": 17.391,
    "count": 12,
    "z": 0.98,
    "level": "neutral",
@@ -12404,27 +12556,27 @@
   {
    "subsegment": "carrier",
    "product": "target",
-   "heat": 3.089,
+   "heat": 2.987,
    "count": 2,
    "z": -1.5,
    "level": "neutral",
    "signal_ids": [
     "697265169036c55a",
     "8b69faeb2060d218",
-    "08069dd88e394fb0",
     "ce86f1b3ee1e495c"
    ]
   },
   {
    "subsegment": "carrier",
    "product": "titanium",
-   "heat": 11.674,
-   "count": 8,
-   "z": 0.21,
+   "heat": 12.125,
+   "count": 9,
+   "z": 0.23,
    "level": "neutral",
    "signal_ids": [
     "6d8eb175aca54369",
     "5eb0b150df9c7ed4",
+    "7d859caae43a9b27",
     "97587c7f1fb6664f",
     "3985172068b90f5f",
     "1f189ef1f51138c9",
@@ -12433,79 +12585,98 @@
     "56f5fd8215bf358e",
     "8042ae63db1b80b2",
     "0366df1e550e062e",
-    "a7677faed1d921c4",
-    "409b00de49ad74bd"
+    "a7677faed1d921c4"
    ]
   },
   {
    "subsegment": "carrier",
    "product": "nickel",
-   "heat": 3.089,
+   "heat": 2.987,
    "count": 2,
    "z": 0.27,
    "level": "neutral",
    "signal_ids": [
     "697265169036c55a",
     "8b69faeb2060d218",
-    "08069dd88e394fb0",
     "ce86f1b3ee1e495c"
    ]
   },
   {
    "subsegment": "carrier",
    "product": "copper",
-   "heat": 3.089,
+   "heat": 2.987,
    "count": 2,
    "z": -0.78,
    "level": "neutral",
    "signal_ids": [
     "697265169036c55a",
     "8b69faeb2060d218",
-    "08069dd88e394fb0",
     "ce86f1b3ee1e495c"
    ]
   },
   {
    "subsegment": "other",
    "product": "target",
-   "heat": 0.0,
-   "count": 0,
-   "z": -2.15,
-   "level": "cold",
-   "signal_ids": []
+   "heat": 3.373,
+   "count": 3,
+   "z": -1.69,
+   "level": "neutral",
+   "signal_ids": [
+    "64f16f64fe62a61f",
+    "4600c1fa15817d84",
+    "3d0106d7d8885b33",
+    "411c2a725ed623a4",
+    "ccb944fc5014f49b",
+    "460ed1d6e334da2d",
+    "08069dd88e394fb0"
+   ]
   },
   {
    "subsegment": "other",
    "product": "titanium",
-   "heat": 2.808,
+   "heat": 3.323,
    "count": 2,
-   "z": -0.69,
+   "z": -0.36,
    "level": "neutral",
    "signal_ids": [
+    "4600c1fa15817d84",
     "m-13f1e263778f0282",
-    "m-33e2f50619cee757"
+    "m-33e2f50619cee757",
+    "ccb944fc5014f49b"
    ]
   },
   {
    "subsegment": "other",
    "product": "nickel",
-   "heat": 2.808,
-   "count": 2,
-   "z": -0.25,
+   "heat": 4.862,
+   "count": 4,
+   "z": 0.15,
    "level": "neutral",
    "signal_ids": [
+    "64f16f64fe62a61f",
+    "411c2a725ed623a4",
     "m-13f1e263778f0282",
-    "m-33e2f50619cee757"
+    "m-33e2f50619cee757",
+    "460ed1d6e334da2d",
+    "08069dd88e394fb0"
    ]
   },
   {
    "subsegment": "other",
    "product": "copper",
-   "heat": 0.0,
-   "count": 0,
-   "z": -1.43,
+   "heat": 3.373,
+   "count": 3,
+   "z": -0.97,
    "level": "neutral",
-   "signal_ids": []
+   "signal_ids": [
+    "64f16f64fe62a61f",
+    "4600c1fa15817d84",
+    "3d0106d7d8885b33",
+    "411c2a725ed623a4",
+    "ccb944fc5014f49b",
+    "460ed1d6e334da2d",
+    "08069dd88e394fb0"
+   ]
   }
  ],
  "signal_materials": {
@@ -12513,14 +12684,11 @@
   "00f090dbc48de15f": [],
   "02c693cbd0db8d95": [],
   "0366df1e550e062e": [],
-  "06464f6e41dfa5f9": [],
-  "08069dd88e394fb0": [],
   "091841dbcbb31750": [],
   "0a1c547beaaa2c64": [],
   "0c26edd7dc128a47": [],
   "17612b5a1bffffe4": [],
   "1d005d752b866391": [],
-  "1eddc02da3abc624": [],
   "2035d0e314a24625": [],
   "228f48fd8c197103": [],
   "26e6506576116a44": [],
@@ -12530,15 +12698,11 @@
   "31120842ead5b26b": [],
   "329a986b0b73d256": [],
   "3a3bafb3c208cd37": [],
-  "3d0106d7d8885b33": [],
   "3fc0e3ec357f578c": [],
   "409b00de49ad74bd": [],
-  "411c2a725ed623a4": [],
   "42750a8bd5ed971d": [],
   "4301e37dad66046b": [],
   "450eff6da38324f1": [],
-  "4600c1fa15817d84": [],
-  "460ed1d6e334da2d": [],
   "4a2d9f541a428f3f": [],
   "4b331a6d2589695f": [],
   "4cf163ce91a51b61": [],
@@ -12549,7 +12713,6 @@
   "5e7395fe7e2df6ad": [],
   "5eb0b150df9c7ed4": [],
   "64e7711dc2a46723": [],
-  "64f16f64fe62a61f": [],
   "669d141852d7f11e": [],
   "6d5236e4ef09889f": [],
   "6de30c9dfad2d930": [],
@@ -12560,7 +12723,6 @@
   "75e969bfbc21d223": [],
   "7939b1e7b141b490": [],
   "7d4024611afd4ce1": [],
-  "7d859caae43a9b27": [],
   "81ed2a4bf7d2714a": [],
   "88e752098d61efe7": [],
   "8b2ea987a879a85e": [],
@@ -12571,15 +12733,12 @@
   "a142b8467def29e5": [],
   "a1feb9f8c0e2ceef": [],
   "a227fc29b166d7cc": [],
-  "a6ab8ad7399906f8": [],
   "b5837696839c3e9d": [],
   "b74e7cac7998f8d5": [],
-  "b941bb37db7f7a7f": [],
   "bc9d70f70f72bb9b": [],
   "be41efd49998b54f": [],
   "c05bb4471227a26c": [],
   "c6571236f1d10d5f": [],
-  "ccb944fc5014f49b": [],
   "ccb9fcec687bf3db": [],
   "ce1e66d38beeb676": [],
   "ce86f1b3ee1e495c": [],
