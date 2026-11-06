@@ -15,7 +15,7 @@ from __future__ import annotations
 import copy
 import csv
 import io
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 from .config import Config, Segment
 from .hotspot import Cell, getis_ord, level_of, signal_heat, story_factors
@@ -177,11 +177,39 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     rep["stats"]["leads"] = len(rep["leads"])
     rep["stats"]["other_mentions"] = len(rep["other_mentions"])
     rep["segment_cells"] = seg_cells
+    rep["procurement"] = procurement_rows(signals, cfg, seg, asof)
+    rep["stats"]["procurement"] = len(rep["procurement"])
     rep["signal_materials"] = {sid: [t for ts in named[sid].values() for t in ts][:4]
                                for sid in sorted({sid for a in accounts for sid in a["evidence"]})}
     rep["stats"]["accounts"] = len(accounts)
     rep["stats"]["tiers"] = {name: sum(1 for a in accounts if a["tier"] == name) for _, name in TIERS}
     return rep
+
+
+PROCUREMENT_KINDS = {"tender": "政府標案", "filing": "上市櫃重訊"}
+
+
+def procurement_rows(signals: list[Signal], cfg: Config, seg: Segment, asof: date) -> list[dict]:
+    """Public procurement notices in the segment's window: every government tender that names one of
+    our materials (direct demand, whoever the buyer), and listed companies' purchase filings that
+    involve this segment's companies."""
+    since = (asof - timedelta(days=cfg.settings.days)).isoformat()
+    rows = []
+    for s in signals:
+        if s.origin not in PROCUREMENT_KINDS or not s.published or not (since <= s.published <= asof.isoformat()):
+            continue
+        if s.origin == "filing" and not in_segment(s, cfg, seg):
+            continue
+        terms = material_terms(cfg, s)
+        rows.append({
+            "id": s.id, "date": s.published, "kind": PROCUREMENT_KINDS[s.origin], "intent": (s.intents or [""])[0],
+            "title": s.title, "detail": s.snippet, "link": s.link, "source": s.source, "orgs": s.orgs[:4],
+            "products": s.products, "terms": [t for ts in terms.values() for t in ts][:4],
+            "members": [o for o in s.orgs if any(a.name == o and a.segment == seg.key for a in cfg.accounts)],
+        })
+    rows.sort(key=lambda r: r["date"], reverse=True)          # newest first,
+    rows.sort(key=lambda r: not r["members"])                  # this segment's companies on top
+    return rows
 
 
 BASES = ("explicit", "co_mention", "manual", "inferred")
@@ -263,6 +291,13 @@ def render_segment_markdown(rep: dict) -> str:
         out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}) "
                    f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a.get('material_summary', '')} | {a['next_action']} |")
     out += ["", "適配度為依公開業務內容推估的初步假設(0–3),請依拜訪結果在 `config/lead_radar.yaml` 修正。", ""]
+    proc = rep.get("procurement") or []
+    if proc:
+        out += ["## 公開採購公告", "", "| 日期 | 來源 | 公告 | 產品線 | 材料字詞 |", "|---|---|---|---|---|"]
+        for r in proc[:40]:
+            title = f"[{r['title']}]({r['link']})" if r["link"] else r["title"]
+            out.append(f"| {r['date']} | {r['kind']} | {title} | {'、'.join(prod.get(p, p) for p in r['products'])} | {'、'.join(r['terms']) or '未提材料'} |")
+        out.append("")
     return "\n".join(out) + "\n"
 
 

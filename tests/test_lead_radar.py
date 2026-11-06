@@ -615,3 +615,69 @@ def test_material_evidence_is_labelled(cfg):
     labels = {j.label for j in build_jobs(cfg, "tw_display_equipment")}
     assert "材料:友威科技" in labels and "材料:晶彩科技" not in labels                     # only for fit ≥ 2
 
+
+
+FIX = ROOT / "tests" / "fixtures"
+
+
+def test_government_tenders(cfg):
+    import json as _json
+    from lead_radar.procurement import PCC_SEARCH, fetch_tenders
+
+    data = (FIX / "pcc_search.json").read_bytes()
+    cfg.settings.procurement["pcc_queries"] = ["鈦合金"]
+    sigs = fetch_tenders(cfg, 120, lambda url: data, asof=date(2026, 11, 6), sleep=lambda s: None)
+    by_title = {s.title.split(":", 1)[1]: s for s in sigs}
+    # one signal per case (unit + job number): the Monel case had 6 notices, only the latest in the window is kept
+    assert sum("Monel 400" in t for t in by_title) == 1
+    monel = next(s for t, s in by_title.items() if "Monel 400" in t)
+    assert monel.published == "2026-10-05" and monel.orgs[0] == "中油" and monel.products == ["nickel"]
+    assert monel.intents[0] == "tender" and monel.origin == "tender" and monel.link.startswith("https://web.pcc.gov.tw/")
+    cabin = next(s for t, s in by_title.items() if "艙體零件" in t)
+    assert cabin.orgs == ["國立中山大學"] and cabin.products == ["titanium"]            # no account, no industry: kept
+    award = next(s for t, s in by_title.items() if "脛骨髓內釘" in t)
+    assert award.intents[0] == "contract" and "得標廠商" in award.snippet
+    assert all(s.published >= "2026-07-09" for s in sigs)                           # 120-day window
+    assert "%" in PCC_SEARCH.format(q=__import__("urllib.parse").parse.quote("鈦合金"), page=1)
+
+
+def test_cupronickel_is_not_nickel_alloy(cfg):
+    assert classify(cfg, title="臺灣銀行 決標公告:銅鎳合金光餅495公噸", origin="tender") is None
+
+
+def test_company_purchase_filings(cfg):
+    import json as _json
+    from lead_radar.procurement import fetch_filings
+
+    data = (FIX / "mops_filings.json").read_bytes()
+    sigs = fetch_filings(cfg, lambda url: data if "twse" in url else b"[]")
+    titles = [s.title for s in sigs]
+    assert len(sigs) == 2                                    # not: board reports, selling land, moving machines to a subsidiary
+    assert all(t.startswith("日月光投控(3711):矽品") for t in titles)
+    plant = next(s for s in sigs if "廠務工程" in s.title)
+    assert plant.orgs == ["日月光投控", "聖暉工程科技"] and "NTD 1,256,168,000" in plant.snippet
+    assert plant.published == "2026-11-05" and plant.intents[0] == "contract" and plant.origin == "filing"
+    tool = next(s for s in sigs if "機器設備" in s.title)
+    assert "愛德萬測試" in tool.orgs and tool.products            # inferred from 日月光投控's fit, no material word needed
+
+
+def test_procurement_in_segment_report(cfg):
+    import json as _json
+    from lead_radar.procurement import fetch_filings, fetch_tenders
+    from lead_radar.segment import build_segment_report, render_segment_markdown
+
+    cfg.settings.procurement["pcc_queries"] = ["鈦合金"]
+    tenders = fetch_tenders(cfg, 120, lambda url: (FIX / "pcc_search.json").read_bytes(), asof=date(2026, 11, 6), sleep=lambda s: None)
+    filings = fetch_filings(cfg, lambda url: (FIX / "mops_filings.json").read_bytes() if "twse" in url else b"[]")
+    rep = build_segment_report(tenders + filings, cfg, "tw_semi_production", date(2026, 11, 6))
+    rows = rep["procurement"]
+    kinds = {r["kind"] for r in rows}
+    assert kinds == {"政府標案", "上市櫃重訊"}
+    assert rows[0]["kind"] == "上市櫃重訊" and rows[0]["members"] == ["日月光投控"]       # the segment's own companies first
+    monel = next(r for r in rows if "Monel" in r["title"])
+    assert monel["terms"] and monel["products"] == ["nickel"]
+    ase = next(a for a in rep["accounts"] if a["org"] == "日月光投控")
+    assert ase["signals"] >= 2                                                      # the filings count as its signals
+    assert "## 公開採購公告" in render_segment_markdown(rep)
+    other = build_segment_report(tenders + filings, cfg, "tw_pcb_equipment", date(2026, 11, 6))
+    assert all(r["kind"] == "政府標案" for r in other["procurement"])                # filings only where the companies belong
