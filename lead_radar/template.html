@@ -102,7 +102,7 @@ table.matrix{border-collapse:separate;border-spacing:3px;width:100%;min-width:72
 .hs ul li{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
 .badge{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 .badge.hot{background:var(--hot-soft);color:var(--hot)}.badge.warm{background:var(--warm-soft);color:var(--warm)}
-.badge.new{background:var(--ok-soft);color:var(--ok)}.badge.acc{background:transparent;border:1px solid var(--brand-orange-ink);color:var(--brand-orange-ink)}
+.badge.new{background:var(--ok-soft);color:var(--ok)}.badge.mat-x{background:var(--ok-soft);color:var(--ok)}.badge.mat-m{background:var(--accent-soft);color:var(--accent)}.badge.mat-i{background:transparent;border:1px solid var(--line);color:var(--muted);font-weight:500}.badge.acc{background:transparent;border:1px solid var(--brand-orange-ink);color:var(--brand-orange-ink)}
 .spark{width:96px;height:26px;flex:none}
 .spark path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
 .spark circle{fill:var(--accent)}
@@ -509,6 +509,13 @@ const DATA = /*__DATA__*/null;
       renderSegMatrix(); renderLeads(); renderSignals();
       if (state.cell) $("#acc-filters").scrollIntoView({behavior: "smooth", block: "start"});
     });
+    const MATS = DATA.signal_materials || {};
+    const matTag = (id, a) => { const b = (a.evidence_basis || {})[id]; if (!b) return "";
+      const terms = esc((MATS[id] || []).join("、"));
+      return b === "explicit" ? `<span class="badge mat-x" title="報導以這家公司為主詞,並提到材料字詞">明確提及:${terms}</span> `
+        : b === "co_mention" ? `<span class="badge mat-i" title="報導提到材料,但主詞是其他公司">他公司提及:${terms}</span> `
+        : b === "manual" ? `<span class="badge mat-m" title="人工整理,材料由整理者標註">人工標註</span> `
+        : `<span class="badge mat-i" title="報導沒有提到材料,依公司產品適配度推估">材料推估</span> `; };
     const FIT_LABEL = {target: "靶", titanium: "鈦", nickel: "鎳"};
     const dots = n => `<span class="dots" aria-label="適配 ${n} / 3">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
     const tierCls = t => ({"優先開發": "t1", "積極經營": "t2"})[t] || "t3";
@@ -524,15 +531,16 @@ const DATA = /*__DATA__*/null;
         <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}</span></td>
         <td><span class="tier ${tierCls(a.tier)}">${esc(a.tier)}</span></td><td>${esc(L.products[a.best_product])}</td>
         <td><span class="fitcell">${products.map(p => `<span>${esc(FIT_LABEL[p] || L.products[p])} ${dots(a.fit[p] || 0)}</span>`).join("")}</span></td>
-        <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則 · ${esc(a.last_signal)}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
+        <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則 · ${esc(a.last_signal)}</span><br>${(a.material_basis || {}).explicit ? `<span class="badge mat-x">材料明確 ${a.material_basis.explicit} 則</span>` : (a.material_basis || {}).manual ? '<span class="badge mat-m">人工標註</span>' : '<span class="badge mat-i">材料推估</span>'}` : '<span style="color:var(--muted)">—</span>'}</td>
         <td>${esc(a.next_action)}</td></tr>
         <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><dl class="acc-dl">
           <dt>分數組成</dt><dd>產品適配 ${Math.max(...Object.values(a.fit), 0)}/3 → ${Math.round(a.fit_part)} 分,訊號強度 ${Math.round(a.signal_score)} → ${Math.round(a.signal_part)} 分</dd>
           ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
-          <dt>推估理由</dt><dd>${esc(a.note)}</dd>
+          <dt>材料依據</dt><dd>${esc(a.material_summary || "")}</dd>
+          <dt>推估理由</dt><dd>${esc(a.note)}<span class="src-note">產品適配度依公開業務內容推估,尚未經拜訪確認</span></dd>
           <dt>切入重點</dt><dd>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span></dd>
           ${(l.intents || []).length ? `<dt>訊號類型</dt><dd>${l.intents.map(k => esc(L.intents[k])).join("、")}</dd>` : ""}</dl>
-          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`; }).join("") + "</tbody>";
+          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${matTag(s.id, a)}${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`; }).join("") + "</tbody>";
     };
     // one list on segment pages: filters and the other-companies list move to the table; the card list is hidden
     $("#acc-filters").appendChild(document.querySelector("#leads-sec .filters"));
@@ -542,11 +550,11 @@ const DATA = /*__DATA__*/null;
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
-      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據"];
+      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
       const keep = new Set(filteredLeads().map(l => l.org));
       const rows = DATA.accounts.filter(a => keep.has(a.org)).map(a => [DATA.accounts.indexOf(a) + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
-        a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || ""]);
+        a.fit.target || 0, a.fit.titanium || 0, a.fit.nickel || 0, a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || "", a.material_summary || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
       el.click(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
