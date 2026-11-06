@@ -114,6 +114,9 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "subsegment": a.subsegment,
             "fit": fit,
             "note": a.note,
+            "chain_tier": a.tier,
+            "customers": a.customers,
+            "chain_source": a.chain_source,
             "heat": {p: round(v, 2) for p, v in heat[name].items()},
             "signal_score": sig_score,
             "signals": lead["signals"] if lead else 0,
@@ -186,6 +189,14 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
 
 
 BASES = ("explicit", "co_mention", "manual", "inferred")
+
+
+def chain_label(a: dict) -> str:
+    """「一階供應商(客戶:應用材料、科林研發)」; empty when the position is not set."""
+    if not a.get("chain_tier"):
+        return ""
+    who = "、".join(a.get("customers") or []) or "客戶未公開"
+    return f"設備大廠{'一' if a['chain_tier'] == 1 else '二'}階供應商(客戶:{who})"
 
 
 def _material_summary(basis: dict, terms: list[str]) -> str:
@@ -271,12 +282,13 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源", "供應鏈位置", "供應鏈來源"])
     links = {s["id"]: s.get("link", "") for s in rep.get("signals", [])}
 
     for i, a in enumerate(rep["accounts"], 1):
         w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["fit_part"], a["signal_part"], a["tier"],
                     lab["products"][a["best_product"]], *[a["fit"].get(p, 0) for p in lab["products"]],
                     a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", ""), a.get("material_summary", ""),
-                    " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid))])
+                    " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid)),
+                    chain_label(a), a.get("chain_source", "")])
     return "﻿" + buf.getvalue()

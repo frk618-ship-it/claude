@@ -201,7 +201,7 @@ segments:
     editions: [zh-TW]
     days: 120              # 設備廠的擴產與認證週期長,用較長的時間窗
     half_life_days: 45
-    query_terms: [擴產, 新廠, 擴廠, 訂單, 設備, 零組件, 國產化, 法說]
+    query_terms: [擴產, 新廠, 訂單, 零組件, 國產化, 法說, 應材, ASML]   # 應材、ASML:找「設備大廠擴產帶旺台鏈」這類一階供應商新聞
     subsegments:
       front_end: 前段製程設備
       packaging: 先進封裝設備
@@ -281,7 +281,6 @@ accounts:
   # 鈦 / 鎳:航太、醫材、運動器材、氫能
   - {name: 漢翔航空,   aliases: [漢翔, 汉翔, AIDC],                      industry: aerospace, region: TW, products: [titanium, nickel]}
   - {name: 長榮航太,   aliases: [長榮航太, EGAT],                        industry: aerospace, region: TW, products: [titanium, nickel]}
-  - {name: 晟田科技,   aliases: [晟田],                                 industry: aerospace, region: TW, products: [titanium, nickel]}
   - {name: 寶一科技,   aliases: [寶一, 宝一],                            industry: aerospace, region: TW, products: [titanium, nickel]}
   - {name: 中國商飛,   aliases: [中國商飛, 中国商飞, COMAC],             industry: aerospace, region: CN, products: [titanium]}
   - {name: Safran,     aliases: [Safran, 賽峰, 赛峰],                    industry: aerospace, region: EU, products: [titanium, nickel]}
@@ -339,25 +338,36 @@ accounts:
   - {name: 辛耘企業, aliases: [辛耘, Scientech], ticker: "3583", segment: tw_semi_equipment, subsegment: front_end,
      industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 2},
      note: "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應;銅:濕製程與電鍍相關設備用銅陽極與導電件"}
-  - {name: 京鼎精密, aliases: [京鼎, Foxsemicon], ticker: "3413", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 京鼎精密, aliases: [京鼎, Foxsemicon], ticker: "3413", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料],
+     chain_source: "DA Labs https://dalabs.org/guide/tw-stock-guide/what-is-3413-doing/; 經濟日報(2026-08-14) https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0ZEtwM3BCZGVZMWtmTlU3WG5hdEluQjVIT0NuTmxnMnItV24xVG5GRERWUDRuVlVOUURrd1kyRnFMMk1fdnFxWlRZdzBTeXVxNzNUcl9GWTdjUdIBX0FVX3lxTE16a3lHVjNlS1p1QW5weXp5SlkycG52eXoyUUJxU2w3WUdEOVdVNk90THdSOWVYQ0NVeW14SVh6aDU5R0hxRHhUekpUT0NLdUFpTHJWODZxeDFYQlhqcG93?oc=5; 工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5",
      industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 1, titanium: 2, nickel: 3, copper: 2},
      note: "國際設備大廠的模組與腔體零件代工,台灣與泰國同步擴產;高溫 / 耐蝕零件適合鎳基合金,真空與製程零件可用鈦材;銅:模組與腔體零件含無氧銅冷卻板與導電件"}
-  - {name: 千附精密, aliases: [千附], ticker: "6829", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 千附精密, aliases: [千附精密, 千附(6829)], ticker: "6829", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料, 科林研發, 艾司摩爾],
+     chain_source: "今周刊 https://www.businesstoday.com.tw/article/category/183015/post/202203160042/",
      industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 3, copper: 2},
      note: "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接;銅:精密腔體零件加工可延伸無氧銅零件"}
-  - {name: 翔名科技, aliases: [翔名], ticker: "8091", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 翔名科技, aliases: [翔名], ticker: "8091", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料, 艾司摩爾],
+     chain_source: "優分析 https://uanalyze.com.tw/articles/704435890; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
      industry: semi_equipment, region: TW, products: [nickel, titanium, target, copper], fit: {target: 1, titanium: 3, nickel: 3, copper: 2},
      note: "製程零組件與先進製程特化管路;耐蝕管路與零件適合鎳基合金,真空零件可用鈦;銅:離子植入與製程零件含銅合金導電件"}
-  - {name: 公準精密, aliases: [公準], ticker: "3178", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 公準精密, aliases: [公準], ticker: "3178", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [國際設備大廠(在地供應鏈)],
+     chain_source: "今周刊 https://www.businesstoday.com.tw/article/category/183015/post/202203160042/",
      industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 2},
      note: "薄膜、微影、量測與封裝設備的精密零組件;精密加工用鈦材與耐熱合金;銅:精密零件加工可延伸無氧銅零件"}
-  - {name: 巧新科技, aliases: [巧新], ticker: "1563", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 巧新科技, aliases: [巧新], ticker: "1563", segment: tw_semi_equipment, subsegment: parts, tier: 1,
+     chain_source: "中央社(2026-10-21) https://www.cna.com.tw/news/afe/202610210147.aspx",
      industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 1, copper: 1},
      note: "以鍛造切入 CVD / PVD、蝕刻腔體零件(主材為鋁);可提案鈦與耐熱合金零件的材料方案"}
-  - {name: 倉佑實業, aliases: [倉佑], ticker: "1568", segment: tw_semi_equipment, subsegment: parts,
+  - {name: 倉佑實業, aliases: [倉佑], ticker: "1568", segment: tw_semi_equipment, subsegment: parts, tier: 1,
+     chain_source: "中央社(2026-10-21) https://www.cna.com.tw/news/afe/202610210147.aspx",
      industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1},
      note: "高精密金屬加工轉進前段設備零組件,馬來西亞新廠量產爬坡;需要穩定的特殊合金原料來源"}
-  - {name: 帆宣系統, aliases: [帆宣, Marketech], ticker: "6196", segment: tw_semi_equipment, subsegment: facility,
+  - {name: 晟田科技, aliases: [晟田], ticker: "4541", segment: tw_semi_equipment, subsegment: parts, tier: 1,
+     chain_source: "TechNews 公司資料 https://info.technews.tw/company/86263092-%E6%99%9F%E7%94%B0%E7%A7%91%E6%8A%80%E5%B7%A5%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+     industry: aerospace, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     note: "航太發動機機匣與起落架零件(漢翔主要協力廠),營業項目含半導體與面板製程設備、管路設備零組件;已具航太級鈦與鎳基合金加工與材證經驗,可同時談航太與半導體零件用料"}
+  - {name: 帆宣系統, aliases: [帆宣, Marketech], ticker: "6196", segment: tw_semi_equipment, subsegment: facility, tier: 1, customers: [艾司摩爾],
+     chain_source: "工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
      industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 3, copper: 1},
      note: "廠務、氣化 / 供氣系統與設備代工;腐蝕性特殊氣體的管路與閥件適合鎳基合金"}
   - {name: 漢唐集成, aliases: [漢唐集成, 漢唐(2404), United Integrated Services], ticker: "2404", segment: tw_semi_equipment, subsegment: facility,
@@ -387,7 +397,8 @@ accounts:
   - {name: 鈦昇科技, aliases: [鈦昇], ticker: "8027", segment: tw_semi_equipment, subsegment: packaging,
      industry: semi_equipment, region: TW, products: [titanium], fit: {target: 1, titanium: 1, nickel: 0, copper: 1},
      note: "雷射與玻璃基板設備(公司名含「鈦」,已排除在鈦材字詞比對之外)"}
-  - {name: 家登精密, aliases: [家登, Gudeng], ticker: "3680", segment: tw_semi_equipment, subsegment: carrier,
+  - {name: 家登精密, aliases: [家登, Gudeng], ticker: "3680", segment: tw_semi_equipment, subsegment: carrier, tier: 1, customers: [艾司摩爾],
+     chain_source: "工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
      industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 2, nickel: 0, copper: 0},
      note: "EUV 光罩盒與晶圓載具,美國亞利桑那據點兼做航太精密加工;精密零件與航太鈦材"}
   - {name: 家碩科技, aliases: [家碩], ticker: "6953", segment: tw_semi_equipment, subsegment: carrier,
