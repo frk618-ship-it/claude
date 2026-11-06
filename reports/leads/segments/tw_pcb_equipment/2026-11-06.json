@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T10:02:35+00:00",
+ "generated": "2026-11-06T10:28:50+00:00",
  "asof": "2026-11-06",
  "days": 120,
  "half_life_days": 45.0,
@@ -11,7 +11,8 @@
   "products": {
    "target": "濺鍍靶材",
    "titanium": "純鈦 / 鈦合金",
-   "nickel": "鎳基合金"
+   "nickel": "鎳基合金",
+   "copper": "銅材 / 銅合金"
   },
   "industries": {
    "semiconductor": "半導體",
@@ -107,6 +108,16 @@
     "pcb_equipment",
     "display_equipment",
     "other"
+   ],
+   "copper": [
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "display",
+    "power",
+    "consumer",
+    "other"
    ]
   }
  },
@@ -146,7 +157,7 @@
   "signals": 17,
   "attributed": 17,
   "new_signals": 1,
-  "hot_cells": 4,
+  "hot_cells": 6,
   "warm_cells": 0,
   "leads": 8,
   "grades": {
@@ -159,10 +170,10 @@
   "by_product": {
    "target": 8,
    "titanium": 14,
-   "nickel": 12
+   "nickel": 12,
+   "copper": 17
   },
   "other_mentions": 3,
-  "procurement": 9,
   "accounts": 8,
   "tiers": {
    "優先開發": 0,
@@ -264,6 +275,53 @@
     "befab01641204245",
     "558f4e57497d9d46"
    ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 6.125,
+   "count": 5,
+   "z": 5.21,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    6.125
+   ],
+   "signal_ids": [
+    "ebb14cf8156c591c",
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "91ecba29de79183b",
+    "66138b52b06c3af7",
+    "1245d198b101e6d0"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "pcb_equipment",
+   "region": "TW",
+   "heat": 4.36,
+   "count": 5,
+   "z": 4.23,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.36
+   ],
+   "signal_ids": [
+    "038cbe742f88124f",
+    "0b33886bf67223da",
+    "c42105f8961a8a70",
+    "f20d518ac1e87488",
+    "ab28e43d6f4d7d3b",
+    "c59faed8a48dda52",
+    "d2a3a491d1e92f43",
+    "befab01641204245",
+    "558f4e57497d9d46"
+   ]
   }
  ],
  "hotspots": [
@@ -342,6 +400,53 @@
    ]
   },
   {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 6.125,
+   "count": 5,
+   "z": 5.21,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    6.125
+   ],
+   "signal_ids": [
+    "ebb14cf8156c591c",
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "91ecba29de79183b",
+    "66138b52b06c3af7",
+    "1245d198b101e6d0"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "pcb_equipment",
+   "region": "TW",
+   "heat": 4.36,
+   "count": 5,
+   "z": 4.23,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.36
+   ],
+   "signal_ids": [
+    "038cbe742f88124f",
+    "0b33886bf67223da",
+    "c42105f8961a8a70",
+    "f20d518ac1e87488",
+    "ab28e43d6f4d7d3b",
+    "c59faed8a48dda52",
+    "d2a3a491d1e92f43",
+    "befab01641204245",
+    "558f4e57497d9d46"
+   ]
+  },
+  {
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
@@ -369,7 +474,8 @@
    "product": "titanium",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industry": "pcb_equipment",
    "region": "TW",
@@ -388,7 +494,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.8
+    "z": 1.89
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -425,7 +531,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.8
+    "z": 1.89
    },
    "need": "",
    "evidence": [],
@@ -449,7 +555,8 @@
    "product": "titanium",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industry": "pcb_equipment",
    "region": "TW",
@@ -465,7 +572,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.5
+    "z": 1.54
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -490,7 +597,8 @@
    "product": "titanium",
    "products": [
     "target",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industry": "semiconductor",
    "region": "TW",
@@ -505,7 +613,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.08
+    "z": -0.04
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -537,7 +645,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.6
+    "z": -0.98
    },
    "need": "",
    "evidence": [],
@@ -569,7 +677,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.5
+    "z": 1.54
    },
    "need": "",
    "evidence": [],
@@ -601,7 +709,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.6
+    "z": -0.98
    },
    "need": "",
    "evidence": [],
@@ -633,7 +741,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.6
+    "z": -0.98
    },
    "need": "",
    "evidence": [],
@@ -662,11 +770,13 @@
    "origin": "news",
    "products": [
     "target",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "nickel": "semiconductor"
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
    },
    "intents": [
     "qualification"
@@ -701,11 +811,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "expansion"
@@ -738,11 +850,13 @@
    "origin": "news",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "titanium": "pcb_equipment"
+    "titanium": "pcb_equipment",
+    "copper": "semiconductor"
    },
    "intents": [
     "expansion"
@@ -777,11 +891,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "expansion"
@@ -814,11 +930,13 @@
    "origin": "news",
    "products": [
     "target",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "nickel": "semiconductor"
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
    },
    "intents": [
     "qualification"
@@ -853,11 +971,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "contract"
@@ -890,11 +1010,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "contract"
@@ -927,11 +1049,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "contract"
@@ -964,11 +1088,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "policy"
@@ -1001,11 +1127,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "new_product"
@@ -1038,11 +1166,13 @@
    "origin": "news",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "titanium": "pcb_equipment"
+    "titanium": "pcb_equipment",
+    "copper": "semiconductor"
    },
    "intents": [
     "tender",
@@ -1078,11 +1208,13 @@
    "origin": "news",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "titanium": "pcb_equipment"
+    "titanium": "pcb_equipment",
+    "copper": "semiconductor"
    },
    "intents": [
     "tender",
@@ -1118,11 +1250,13 @@
    "origin": "news",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "titanium": "pcb_equipment"
+    "titanium": "pcb_equipment",
+    "copper": "semiconductor"
    },
    "intents": [
     "expansion"
@@ -1157,11 +1291,13 @@
    "origin": "news",
    "products": [
     "target",
-    "titanium"
+    "titanium",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "titanium": "pcb_equipment"
+    "titanium": "pcb_equipment",
+    "copper": "semiconductor"
    },
    "intents": [
     "expansion"
@@ -1196,11 +1332,13 @@
    "origin": "news",
    "products": [
     "target",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "target": "semiconductor",
-    "nickel": "semiconductor"
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
    },
    "intents": [
     "qualification"
@@ -1235,11 +1373,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "expansion"
@@ -1272,11 +1412,13 @@
    "origin": "news",
    "products": [
     "titanium",
-    "nickel"
+    "nickel",
+    "copper"
    ],
    "industries": {
     "titanium": "pcb_equipment",
-    "nickel": "pcb_equipment"
+    "nickel": "pcb_equipment",
+    "copper": "pcb_equipment"
    },
    "intents": [
     "tender",
@@ -1330,13 +1472,15 @@
    "fit": {
     "target": 0,
     "titanium": 3,
-    "nickel": 2
+    "nickel": 2,
+    "copper": 3
    },
-   "note": "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點",
+   "note": "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點;銅:PCB 電鍍線用磷銅球 / 銅陽極",
    "heat": {
     "target": 0.0,
     "titanium": 4.36,
-    "nickel": 4.36
+    "nickel": 4.36,
+    "copper": 4.36
    },
    "signal_score": 33.1,
    "signals": 6,
@@ -1386,13 +1530,15 @@
    "fit": {
     "target": 0,
     "titanium": 3,
-    "nickel": 2
+    "nickel": 2,
+    "copper": 3
    },
-   "note": "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件",
+   "note": "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件;銅:電鍍銅藥水與電鍍設備,搭配磷銅陽極",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1424,13 +1570,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 0
+    "nickel": 0,
+    "copper": 0
    },
    "note": "PCB 與載板 AOI 檢測設備;材料關聯較低",
    "heat": {
     "target": 1.96,
     "titanium": 1.96,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 1.96
    },
    "signal_score": 15.3,
    "signals": 3,
@@ -1472,13 +1620,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 0
+    "nickel": 0,
+    "copper": 0
    },
    "note": "PCB 與半導體自動化搬運設備;材料關聯較低",
    "heat": {
     "target": 1.03,
     "titanium": 0.0,
-    "nickel": 1.03
+    "nickel": 1.03,
+    "copper": 1.03
    },
    "signal_score": 8.0,
    "signals": 3,
@@ -1518,13 +1668,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 0
+    "nickel": 0,
+    "copper": 0
    },
    "note": "PCB 鑽孔與成型機;材料關聯較低,可從設備結構件與治具了解需求",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1556,13 +1708,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 0
+    "nickel": 0,
+    "copper": 0
    },
    "note": "PCB、載板與面板 AOI 檢測設備;材料關聯較低",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1594,13 +1748,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 1
+    "nickel": 1,
+    "copper": 1
    },
    "note": "PCB 壓合與真空壓膜設備;熱壓板與耐熱零件,關聯較低",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1632,13 +1788,15 @@
    "fit": {
     "target": 0,
     "titanium": 1,
-    "nickel": 1
+    "nickel": 1,
+    "copper": 1
    },
    "note": "PCB / 載板塗佈、烘烤與壓膜設備;高溫爐體零件或有耐熱合金需求,關聯較低",
    "heat": {
     "target": 0.0,
     "titanium": 0.0,
-    "nickel": 0.0
+    "nickel": 0.0,
+    "copper": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1706,108 +1864,182 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
+   "z": 0.66,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "wet",
+   "product": "titanium",
+   "heat": 4.36,
+   "count": 5,
+   "z": 1.89,
+   "level": "warm",
+   "signal_ids": [
+    "038cbe742f88124f",
+    "0b33886bf67223da",
+    "c42105f8961a8a70",
+    "f20d518ac1e87488",
+    "ab28e43d6f4d7d3b",
+    "c59faed8a48dda52",
+    "d2a3a491d1e92f43",
+    "befab01641204245",
+    "558f4e57497d9d46"
+   ]
+  },
+  {
+   "subsegment": "wet",
+   "product": "nickel",
+   "heat": 4.36,
+   "count": 5,
+   "z": 1.59,
+   "level": "warm",
+   "signal_ids": [
+    "038cbe742f88124f",
+    "0b33886bf67223da",
+    "c42105f8961a8a70",
+    "f20d518ac1e87488",
+    "ab28e43d6f4d7d3b",
+    "c59faed8a48dda52",
+    "d2a3a491d1e92f43",
+    "befab01641204245",
+    "558f4e57497d9d46"
+   ]
+  },
+  {
+   "subsegment": "wet",
+   "product": "copper",
+   "heat": 4.36,
+   "count": 5,
+   "z": 2.21,
+   "level": "hot",
+   "signal_ids": [
+    "038cbe742f88124f",
+    "0b33886bf67223da",
+    "c42105f8961a8a70",
+    "f20d518ac1e87488",
+    "ab28e43d6f4d7d3b",
+    "c59faed8a48dda52",
+    "d2a3a491d1e92f43",
+    "befab01641204245",
+    "558f4e57497d9d46"
+   ]
+  },
+  {
+   "subsegment": "imaging",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.33,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "imaging",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.98,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "imaging",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.28,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "imaging",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.66,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "drilling",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.33,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "drilling",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.98,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "drilling",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.28,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "drilling",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.66,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "target",
+   "heat": 3.821,
+   "count": 3,
+   "z": 1.19,
+   "level": "warm",
+   "signal_ids": [
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "66138b52b06c3af7"
+   ]
+  },
+  {
+   "subsegment": "inspection",
+   "product": "titanium",
+   "heat": 3.821,
+   "count": 3,
+   "z": 1.54,
+   "level": "warm",
+   "signal_ids": [
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "66138b52b06c3af7"
+   ]
+  },
+  {
+   "subsegment": "inspection",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
    "z": 0.46,
    "level": "neutral",
    "signal_ids": []
   },
   {
-   "subsegment": "wet",
-   "product": "titanium",
-   "heat": 4.36,
-   "count": 5,
-   "z": 1.8,
-   "level": "warm",
-   "signal_ids": [
-    "038cbe742f88124f",
-    "0b33886bf67223da",
-    "c42105f8961a8a70",
-    "f20d518ac1e87488",
-    "ab28e43d6f4d7d3b",
-    "c59faed8a48dda52",
-    "d2a3a491d1e92f43",
-    "befab01641204245",
-    "558f4e57497d9d46"
-   ]
-  },
-  {
-   "subsegment": "wet",
-   "product": "nickel",
-   "heat": 4.36,
-   "count": 5,
-   "z": 1.47,
-   "level": "warm",
-   "signal_ids": [
-    "038cbe742f88124f",
-    "0b33886bf67223da",
-    "c42105f8961a8a70",
-    "f20d518ac1e87488",
-    "ab28e43d6f4d7d3b",
-    "c59faed8a48dda52",
-    "d2a3a491d1e92f43",
-    "befab01641204245",
-    "558f4e57497d9d46"
-   ]
-  },
-  {
-   "subsegment": "imaging",
-   "product": "target",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.97,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "imaging",
-   "product": "titanium",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.6,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "imaging",
-   "product": "nickel",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.93,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "drilling",
-   "product": "target",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.97,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "drilling",
-   "product": "titanium",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.6,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
-   "subsegment": "drilling",
-   "product": "nickel",
-   "heat": 0.0,
-   "count": 0,
-   "z": -0.93,
-   "level": "neutral",
-   "signal_ids": []
-  },
-  {
    "subsegment": "inspection",
-   "product": "target",
+   "product": "copper",
    "heat": 3.821,
    "count": 3,
-   "z": 1.12,
+   "z": 1.85,
    "level": "warm",
    "signal_ids": [
     "ccd42e7ec7666cef",
@@ -1815,36 +2047,13 @@
     "7451dbfe2f148c49",
     "66138b52b06c3af7"
    ]
-  },
-  {
-   "subsegment": "inspection",
-   "product": "titanium",
-   "heat": 3.821,
-   "count": 3,
-   "z": 1.5,
-   "level": "warm",
-   "signal_ids": [
-    "ccd42e7ec7666cef",
-    "a0453334e969c835",
-    "7451dbfe2f148c49",
-    "66138b52b06c3af7"
-   ]
-  },
-  {
-   "subsegment": "inspection",
-   "product": "nickel",
-   "heat": 0.0,
-   "count": 0,
-   "z": 0.33,
-   "level": "neutral",
-   "signal_ids": []
   },
   {
    "subsegment": "automation",
    "product": "target",
    "heat": 2.059,
    "count": 2,
-   "z": 0.16,
+   "z": 0.03,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -1857,7 +2066,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": 0.08,
+   "z": -0.04,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1866,7 +2075,20 @@
    "product": "nickel",
    "heat": 2.059,
    "count": 2,
-   "z": 0.2,
+   "z": 0.07,
+   "level": "neutral",
+   "signal_ids": [
+    "ebb14cf8156c591c",
+    "91ecba29de79183b",
+    "1245d198b101e6d0"
+   ]
+  },
+  {
+   "subsegment": "automation",
+   "product": "copper",
+   "heat": 2.059,
+   "count": 2,
+   "z": 0.69,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -1879,7 +2101,7 @@
    "product": "target",
    "heat": 0.246,
    "count": 0,
-   "z": -0.84,
+   "z": -1.16,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28"
@@ -1890,7 +2112,7 @@
    "product": "titanium",
    "heat": 0.246,
    "count": 0,
-   "z": -0.46,
+   "z": -0.81,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28"
@@ -1901,206 +2123,20 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.85,
+   "z": -1.17,
    "level": "neutral",
    "signal_ids": []
-  }
- ],
- "procurement": [
-  {
-   "id": "t-f868b1e9cfa0c3ac",
-   "date": "2026-10-30",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "臺北榮民總醫院 決標公告:鈦合金多角度鎖定加壓加長型橈骨骨板系統組等4項3年單價開口契約",
-   "detail": "得標廠商:博得瑞恩",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261030&fn=BDM-1-71317429.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "臺北榮民總醫院",
-    "博得瑞恩"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
   },
   {
-   "id": "t-139d305a00faa9eb",
-   "date": "2026-10-29",
-   "kind": "政府標案",
-   "intent": "tender",
-   "title": "國立中山大學 公開取得報價單或企劃書公告:鈦合金艙體零件供料加工(6件)",
-   "detail": "",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261029&fn=ttd-71365627.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "國立中山大學"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-4f15ae17d9a738ef",
-   "date": "2026-10-21",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "國立成功大學醫學院附設醫院 決標公告:鈦合金雙導引防剪切顯微鑷",
-   "detail": "得標廠商:曆嶸;預算金額:274800",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261021&fn=BDM-1-71311437.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "國立成功大學醫學院附設醫院",
-    "曆嶸"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-b33f504c42c857d1",
-   "date": "2026-10-19",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "衛生福利部金門醫院 決標公告:耐籠三維多孔鈦合金椎間融合器",
-   "detail": "得標廠商:寶楠生技;預算金額:7184400",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261019&fn=BDM-1-71308568.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "衛生福利部金門醫院",
-    "寶楠生技",
-    "寶楠生技"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-533eee274a861305",
-   "date": "2026-10-05",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "國防部軍醫局 決標公告:伽瑪三鈦合金股骨固定系統等3項",
-   "detail": "得標廠商:立遠生技;預算金額:9982296",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261005&fn=BDM-1-71297737.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "國防部軍醫局",
-    "立遠生技"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-0ee00c7924b30b16",
-   "date": "2026-10-05",
-   "kind": "政府標案",
-   "intent": "tender",
-   "title": "台灣中油股份有限公司煉製事業部 公開徵求廠商提供參考資料公告:大林廠烷化工場Monel 400合金管配件等一批",
-   "detail": "",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20261005&fn=PPW-1-70118318.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "中油"
-   ],
-   "products": [
-    "nickel"
-   ],
-   "terms": [
-    "Monel"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-74547d61c1a486fe",
-   "date": "2026-09-23",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "臺北榮民總醫院 決標公告:鈦合金脛骨髓內釘組等3項3年單價開口契約",
-   "detail": "得標廠商:詠光生技;預算金額:3377250",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260923&fn=BDM-1-71289656.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "臺北榮民總醫院",
-    "詠光生技"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-9fec8a70bf1a8684",
-   "date": "2026-08-27",
-   "kind": "政府標案",
-   "intent": "tender",
-   "title": "台灣中油股份有限公司煉製研究所 公開徵求廠商提供參考資料公告:高純度碳材配方導入半導體物理氣相沉積製程用之石墨靶材測試工作",
-   "detail": "",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260827&fn=PPW-1-70114090.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "中油"
-   ],
-   "products": [
-    "target"
-   ],
-   "terms": [
-    "靶材",
-    "物理氣相沉積"
-   ],
-   "members": []
-  },
-  {
-   "id": "t-e5d12283d38b821c",
-   "date": "2026-08-12",
-   "kind": "政府標案",
-   "intent": "contract",
-   "title": "臺北榮民總醫院 決標公告:鈦合金遠端肱骨後側長型骨板系統組2年單價開口契約",
-   "detail": "得標廠商:博得瑞恩;預算金額:9360000",
-   "link": "https://web.pcc.gov.tw/prkms/tender/common/noticeDate/redirectPublic?ds=20260812&fn=BDM-1-71256535.xml",
-   "source": "政府電子採購網",
-   "orgs": [
-    "臺北榮民總醫院",
-    "博得瑞恩"
-   ],
-   "products": [
-    "titanium"
-   ],
-   "terms": [
-    "鈦",
-    "鈦合金"
-   ],
-   "members": []
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 0.246,
+   "count": 0,
+   "z": -0.5,
+   "level": "neutral",
+   "signal_ids": [
+    "ac33cc8f2d5f0a28"
+   ]
   }
  ],
  "signal_materials": {
