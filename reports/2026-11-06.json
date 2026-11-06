@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06T08:29:07.942406+08:00",
+  "generated": "2026-11-06T09:47:35.371563+08:00",
   "days": 7,
   "digest": {
     "overview": "本期兩大焦點方向相反:日月光投資 1,237 億元擴充楠梓、南科高階封測產能並獲投資台灣核准,長電科技也擬定增 65 億元擴產先進封裝;但傳美光因勞資糾紛暫停桃園新廠擴建,投資最高約 45 億美元,股價重挫逾 10%。靶材廠方面,JX金屬將茨城 AI 半導體與 HBM 用高純度硫酸銅產能提高 50%;有研新材股價連續漲停,但第三季營收與淨利年減,並剝離稀土業務、終止定增。Materion 財報後評等分歧,Seaport 上調為買進、KeyBanc 下調目標價。東吳證券發布靶材深度報告,指國產化加速;金價升回 4,100 美元上方。",
@@ -20,6 +20,167 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "1fcc337695fa9df5",
+      "title": "勞資爭議衝擊擴產？外媒爆美光暫停桃園新廠工程 工會：沒有理由放緩",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE84bXAxV19sVnloZHRPRldZS3ppYkxLODhkWVBYSGlQVG1OckVsTGdvem9yLUR1TnpnSnFSaEhSa293UlJMZ2p0cFh2SjRnMWhXM1E?oc=5",
+      "source": "鏡報",
+      "published": "2026-11-05T22:55:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1e280cb1df5bb841",
+      "title": "砸1.4兆德州建2晶圓廠? 台積電：不評論傳聞| 科技",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5aU1VXclg4TVZjQWExblZhLW8xc0ptWGo5bVI2aXJPVUpGRTFUaURRR1ItVDNkMWZ1ejh5aXlWWC1QU2lpQlRMeTdCRjh6aWkybENPYllSX24ydlE?oc=5",
+      "source": "非凡新聞台",
+      "published": "2026-11-05T10:05:36+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "砸1.4兆德州建2晶圓廠? 臺積電：不評論傳聞| 科技",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c8c4857941e73930",
+      "title": "Seaport將Materion股票評級上調至買入，看好估值前景 作者 Investing.com - Investing.com 香港 - 股市報價& 財經新聞",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1mblpjbWJCTTR1MFJYYzlEZTFYVUJHS3RiTlhqNGpHNXdTamhzVE4wc3hrbUZlZmw2Tk9fT0wxd0NTdEk4T0xKMHNYUHptMTAtM0Y1c1Z5TG1xbFEzamJkLTJQVXczT3FGLW5hQ1huWnV4LW9s?oc=5",
+      "source": "Investing.com 香港 - 股市報價& 財經新聞",
+      "published": "2026-11-05T07:39:11+00:00",
+      "snippet": "Seaport將Materion股票評級上調至買入，看好估值前景 作者 Investing.com Investing.com 香港 - 股市報價& 財經新聞",
+      "edition": "zh-TW",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.69,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c648eeac7748a4a6",
+      "title": "Allied Gold (TSX:AAUC) Could Be 32% Undervalued After Its Q3 Profit Swing",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQRHAtMzFoQVFuY1AzUVYtdnFRWlBWajgzU25HSERaU21YZk9JXzRDNkxpUWdpYU04TkJxY3NQa0dyMzlEbFZRQXFkVnZfeUJHdkRNMDRGZndIamNtRTVwWFR5RHN4X2U5c1A2ajg4dnhMbHNxLVNQWmhLZzNLRlZrUA?oc=5",
+      "source": "Yahoo Finance Singapore",
+      "published": "2026-11-06T00:20:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d349348e27296c8c",
+      "title": "Gold Price Surges Back Above $4,000 – Is This the Start of a Much Bigger Rally?",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTnI0QklSODR0U05pcVVsYV9FLUV5ejR3NFAwNmYtSHBhZG1uNVBOS2NMSG5Qc3k0ODFSTVByUFBhYUNLMmYwSDVweEdlbzZYZTg5bldGS2pCR3RCWEhsR3RrUmNtRU5rRnF5bVhQTS1pc2dGZE5FRkR4UTVfVFY0R091dllNU25xZzdEVW5TZnJPV09TOVJQbGNKSEkybUEwcnZiVERVZDZmR1Q2S3RDcHppTV8xeWQxR3FpMGxsWTJwMlk?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-06T01:03:45+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9075e0127fac6432",
+      "title": "11月6日早评 利欧股份 有研新材 东山精密",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPc1hPclRMLXZPdFcyVzZ0RmkxTzdYMEQwMzRQVnhJMnE2VVNRaUw3akNLOGlZNnNBNURoYW1XSzBCeVpQSlVrTTdkalkzcU9yMERrZ19jSzAxQlRYOEhqYktMYnpnZlhyWmdYcF9GTFB2TkJfaW5lSnd4TnBQb3ZsancxVkFyeEltSlRvc0F3ZUtVTmRZbGEtMVpyWVoycXFURnlqTkpITkV0Ry1rMGFsbERhN19laW1yR0FlYnhsSjFXTkZpekNBVy1yVHNOZXdjcUk4TEF1NDYwcXJwb3BQNDNlcWxlR2Q0YlV5REhpWjhTbXNrZVBOd3lHU2pvVnc?oc=5",
+      "source": "财富号",
+      "published": "2026-11-06T00:32:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "11月6日早評 利歐股份 有研新材 東山精密",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f753bdda039d071f",
+      "title": "金價反彈迎來考驗，美債收益率有所回落",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE52M3RYSWxlRGNfUVFmaG5pdzRYZXF5SVpPR3pKcDZad3F0WGhPa3NxaXRfOWNoc0RmZHFpXzBqRWdOb3I0dzRaNE4xRmE2bU5udHQ5Z19mSVhNNkJD?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-06T01:01:58+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "da43a779c444d159",
+      "title": "京蓝科技：高密度ITO靶材获智能建筑幕墙订单 稳步拓展建筑节能镀膜市场",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE8tdFo2NVBKcEV2V2FEbkFSLS16cjJUWlJnMnRRdWF4Yl9jRHMtWXMyTzZDM3BCRV8tMjI4cE5IZ0JDeTdNZ29YYXlVeUpnTnpFVFpGQy1odFNjZ0F3Nl9lZmgtX2RaZw?oc=5",
+      "source": "东方财富",
+      "published": "2026-11-05T22:23:17+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "產業綜合:溅射靶材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "京藍科技：高密度ITO靶材獲智能建築幕牆訂單 穩步拓展建築節能鍍膜市場",
+      "snippet_zh": ""
+    },
     {
       "id": "ef4fe025371e6d0e",
       "title": "矽品傳接手台積電二林用地！砸千億投資擴產搶AI封測大單",
@@ -1455,42 +1616,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4111.7,
+      "price": 4082.4,
       "prev": 4073.0,
       "date": "2026-11-06",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.95
+      "change_pct": 0.23
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 52.03,
+      "price": 51.92,
       "prev": 52.12,
       "date": "2026-11-06",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.17
+      "change_pct": -0.38
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1518.9,
+      "price": 1519.8,
       "prev": 1501.1,
       "date": "2026-11-06",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.19
+      "change_pct": 1.25
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1035.5,
+      "price": 1027.5,
       "prev": 999.8,
       "date": "2026-11-06",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 3.57
+      "change_pct": 2.77
     }
   ],
   "papers": [
