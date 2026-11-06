@@ -92,7 +92,17 @@ _JP_ORG = re.compile(r"(株式会社[぀-ヿ一-鿿A-Za-z]{2,10}|[぀-ヿ一-鿿
 # Generic words that look like a company name prefix but are not one.
 _GENERIC = re.compile(
     r"^(台灣|臺灣|台湾|中國|中国|國內|国内|全球|美國|美国|日本|韓國|韩国|歐洲|欧洲|我國|我国|國產|国产|本土|大陸|大陆|"
+    r"東協|东协|東南亞|东南亚|新加坡|馬來西亞|越南|泰國|印度|歐美|欧美|高科技|"
     r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家|零件|零组件|零組件|設備|设备|製程|制程|關鍵|关键|高階|高阶|先進|先进|半導體|半导体|機械|机械)"
+)
+# Verbs / connectors inside a candidate: the name, if any, is what follows the last one
+# ("汎銓打造半導體" → none, "佳霖攜手青輝半導體" → 青輝半導體, "據報美光科技" → 美光科技).
+_STOP = re.compile(
+    r"打造|共同|攜手|携手|聯手|联手|帶動|带动|跨足|引爆|強化|强化|直擊|直击|看旺|看好|據報|据报|從未|从未|做好|承接|啟動|启动|牽動|牵动|"
+    r"最新|歡迎|欢迎|所有|重量級|重量级|高純度|高纯度|財報|财报|傷害|伤害|推動|推动|布局|佈局|進軍|进军|切入|投入|加速|整合|發展|发展|"
+    r"成為|成为|全面|旗下|入股|拿下|助攻|擴大|扩大|營收|营收|法說|個股|概念|族群|供應鏈|供应链|大廠|大厂|龍頭|龙头|廠商|厂商|業者|业者|"
+    r"受惠|搶進|抢进|轉型|转型|鎖定|锁定|瞄準|瞄准|迎來|迎来|衝刺|冲刺|挺進|挺进|深耕|攻進|攻进|導入|导入|供貨|供货|出貨|出货|"
+    r"把|將|将|的|讓|让|被|向|對|对|為|为|從|从|於|于|在"
 )
 _EN_GENERIC = {"The", "A", "An", "New", "Global", "US", "U.S.", "China", "Taiwan", "Japan", "Korea", "Europe"}
 
@@ -102,8 +112,10 @@ def extract_orgs(text: str) -> list[str]:
     found: list[str] = []
     for m in _CN_ORG.finditer(text):
         name = m.group(1)
+        parts = _STOP.split(name)
+        name = parts[-1]
         stem = re.sub(rf"(?:{_CN_SUFFIX})$", "", name)
-        if len(stem) >= 2 and not _GENERIC.match(name):
+        if len(stem) >= 2 and not _GENERIC.match(name) and not _GENERIC.match(stem):
             found.append(name)
     for m in _EN_ORG.finditer(text):
         words = m.group(1).rstrip(".").split()
@@ -122,6 +134,29 @@ def extract_orgs(text: str) -> list[str]:
 def _is_excluded(org: str, excluded: list[str]) -> bool:
     low = org.lower()
     return any(e.lower() in low for e in excluded)
+
+
+def account_in_name(name: str, accounts: list[Account]) -> Account | None:
+    """The listed company a looser name refers to: 「弘塑集團」 contains the alias 弘塑 → 弘塑科技.
+    Only CJK aliases of 2+ characters, so short Latin tickers do not match inside words."""
+    low = name.lower()
+    for a in accounts:
+        if a.name == name or any(len(al) >= 2 and re.search(r"[一-鿿]", al) and al.lower() in low for al in a.aliases):
+            return a
+    return None
+
+
+def material_terms(config: Config, sig: "Signal") -> dict[str, list[str]]:
+    """Material words the item itself names, per product line ({"target": ["靶材", "PVD"]}).
+    Empty when the product line was inferred from the company's judged fit."""
+    raw = f"{sig.title}\n{sig.snippet}"
+    out: dict[str, list[str]] = {}
+    for p in config.products:
+        text = _strip(raw, p.exclude).lower()
+        hits = [k for k in p.keywords if _contains(text, k)]
+        if hits:
+            out[p.key] = hits[:3]
+    return out
 
 
 def match_accounts(text_lower: str, accounts: list[Account]) -> list[Account]:
@@ -198,6 +233,11 @@ def classify(
     excluded = config.settings.exclude_orgs
     orgs = [a.name for a in accounts]
     for o in extract_orgs(raw):
+        acc = account_in_name(o, config.accounts)
+        if acc:                       # 弘塑集團 / 日月光半導體 / 美光科技 → the listed company
+            if acc.name not in orgs:
+                orgs.append(acc.name)
+            continue
         if not _is_excluded(o, excluded) and not any(o in x or x in o for x in orgs):
             orgs.append(o)
     orgs = [o for o in orgs if not _is_excluded(o, excluded)]

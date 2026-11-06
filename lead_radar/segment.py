@@ -19,9 +19,9 @@ from datetime import date, datetime
 
 from .config import Config, Segment
 from .hotspot import Cell, getis_ord, level_of, signal_heat, story_factors
-from .leads import org_weights
+from .leads import SUBJECT, org_weights
 from .report import build_report
-from .signals import OTHER, Signal
+from .signals import OTHER, Signal, material_terms
 
 TIERS = [(70, "優先開發"), (45, "積極經營"), (0, "持續觀察")]
 
@@ -64,6 +64,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     # account map
     heat = {n: {p: 0.0 for p in products} for n in members}
     evidence: dict[str, list[tuple[float, str]]] = {n: [] for n in members}
+    subject: dict[tuple[str, str], bool] = {}        # (company, signal) -> the company is the headline's subject
     for s in window:
         h = signal_heat(s, cfg, asof) * factors.get(s.id, 1.0)
         weights = org_weights(s, cfg)
@@ -73,7 +74,19 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
                 for p in s.products:
                     heat[org][p] += hw
                 evidence[org].append((hw, s.id))
+                subject[(org, s.id)] = weights.get(org, 0.5) >= SUBJECT
     leads = {l["org"]: l for l in rep["leads"]}
+    # what each piece of evidence says about this company's materials: the report names a material and
+    # the company is its subject (explicit); names one but is about another company (co_mention, e.g.
+    # "Apple signs titanium deal; TSMC Arizona…"); a person picked it (manual CSV row); or no material
+    # word at all, so the material is inferred from the company's judged fit
+    by_id = {s.id: s for s in window}
+    named = {s.id: material_terms(cfg, s) for s in window}
+
+    def basis_of(org: str, sid: str) -> str:
+        if named.get(sid):
+            return "explicit" if subject.get((org, sid)) else "co_mention"
+        return "manual" if by_id[sid].origin == "manual" else "inferred"
     accounts = []
     for name, a in members.items():
         fit = {p: a.fit.get(p, 0) for p in products}
@@ -86,6 +99,15 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             action = lead["next_action"]
         else:
             action = f"首次拜訪:以{cfg.product(best).name}的應用案例切入,確認採購與研發窗口"
+        ev = sorted(evidence[name], key=lambda e: (basis_of(name, e[1]) != "explicit", -e[0]))
+        terms = []
+        for _, sid in ev:
+            if basis_of(name, sid) != "explicit":
+                continue
+            for t in (t for ts in named.get(sid, {}).values() for t in ts):
+                if t not in terms:
+                    terms.append(t)
+        basis = {k: sum(1 for _, sid in ev if basis_of(name, sid) == k) for k in BASES}
         accounts.append({
             "org": name,
             "ticker": a.ticker,
@@ -105,7 +127,11 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "next_action": action,
             "pitch": cfg.product(best).pitch,
             "pitch_source": cfg.product(best).pitch_source,
-            "evidence": [sid for _, sid in sorted(evidence[name], reverse=True)[:6]],
+            "evidence": [sid for _, sid in ev[:8]],
+            "material_basis": basis,           # evidence counts by how the material is known
+            "material_terms": terms[:6],       # material words the explicit evidence uses
+            "material_summary": _material_summary(basis, terms),
+            "evidence_basis": {sid: basis_of(name, sid) for _, sid in ev[:8]},
         })
     accounts.sort(key=lambda x: (-x["opportunity"], x["org"]))
 
@@ -135,6 +161,7 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     }
     order = cfg.segment_order
     rep["links"] = cfg.settings.links
+    rep["title"] = cfg.settings.title
     rep["segment_pages"] = [{"key": k, "name": cfg.segments[k].name, "primary": i == 0} for i, k in enumerate(order)]
     rep["accounts"] = accounts
     # One score on the page: the lead list shows the segment's accounts with the overall score
@@ -150,9 +177,31 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
     rep["stats"]["leads"] = len(rep["leads"])
     rep["stats"]["other_mentions"] = len(rep["other_mentions"])
     rep["segment_cells"] = seg_cells
+    rep["signal_materials"] = {sid: [t for ts in named[sid].values() for t in ts][:4]
+                               for sid in sorted({sid for a in accounts for sid in a["evidence"]})}
     rep["stats"]["accounts"] = len(accounts)
     rep["stats"]["tiers"] = {name: sum(1 for a in accounts if a["tier"] == name) for _, name in TIERS}
     return rep
+
+
+BASES = ("explicit", "co_mention", "manual", "inferred")
+
+
+def _material_summary(basis: dict, terms: list[str]) -> str:
+    """One line on where the material behind this company's opportunity comes from."""
+    if not any(basis.values()):
+        return "近期沒有新聞;材料依產品適配度推估"
+    parts = []
+    if basis["explicit"]:
+        parts.append(f"明確提及材料 {basis['explicit']} 則(" + "、".join(terms[:4]) + ")")
+    if basis["manual"]:
+        parts.append(f"人工整理 {basis['manual']} 則")
+    if basis["co_mention"]:
+        parts.append(f"同篇提及材料但主詞為他公司 {basis['co_mention']} 則")
+    if basis["inferred"]:
+        parts.append(f"未提材料的公司動態 {basis['inferred']} 則")
+    tail = "" if basis["explicit"] else ";材料依產品適配度推估"
+    return "、".join(parts) + tail
 
 
 def _overall_lead(a: dict, lead: dict | None, seg: Segment, cell: dict | None = None) -> dict:
@@ -206,13 +255,13 @@ def render_segment_markdown(rep: dict) -> str:
             row.append(f"{c['z']:+.1f}({c['count']}){mark}" if c and c["heat"] else "·")
         out.append(f"| {name} | " + " | ".join(row) + " |")
     out += ["", "格內為 Gi* z 值(訊號數);🔥 熱點、▲ 溫點。", "", "## 目標客戶開發順序", "",
-            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳) | 近期訊號 | 建議行動 |",
-            "|---:|---|---|---|---:|---|---|---|---|---|"]
+            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳) | 近期訊號 | 材料依據 | 建議行動 |",
+            "|---:|---|---|---|---:|---|---|---|---|---|---|"]
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
         intent = lab["intents"].get(a["top_intent"], "—") if a["signals"] else "—"
         out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}) "
-                   f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a['next_action']} |")
+                   f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a.get('material_summary', '')} | {a['next_action']} |")
     out += ["", "適配度為依公開業務內容推估的初步假設(0–3),請依拜訪結果在 `config/lead_radar.yaml` 修正。", ""]
     return "\n".join(out) + "\n"
 
@@ -221,9 +270,12 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", "靶材適配", "鈦適配", "鎳基適配", "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源"])
+    links = {s["id"]: s.get("link", "") for s in rep.get("signals", [])}
+
     for i, a in enumerate(rep["accounts"], 1):
         w.writerow([i, a["org"], a["ticker"], seg["subsegments"].get(a["subsegment"], ""), a["opportunity"], a["fit_part"], a["signal_part"], a["tier"],
                     lab["products"][a["best_product"]], a["fit"].get("target", 0), a["fit"].get("titanium", 0), a["fit"].get("nickel", 0),
-                    a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", "")])
+                    a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", ""), a.get("material_summary", ""),
+                    " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid))])
     return "﻿" + buf.getvalue()

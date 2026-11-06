@@ -10,6 +10,7 @@
 
 settings:
   primary_segment: tw_semi_equipment   # 商機雷達的主要客群(網站首頁)
+  title: 台灣設備廠                     # 頁面標題「商機雷達:<title>」;留空則顯示各客群名稱
   # 每個商機雷達頁面頁首的連結按鈕:url = 外部 http(s) 網址;page = 網站內頁(<網站>/leads/<page>/,只需網站密碼)
   # 業務報告:來源為 reports/leads/business_report.md(由 claude.ai 業務報告文件匯出),site 指令會產生 /leads/report/
   links:
@@ -413,7 +414,7 @@ accounts:
   - {name: 揚博科技, aliases: [揚博, 扬博], ticker: "2493", segment: tw_pcb_equipment, subsegment: wet,
      industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2},
      note: "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點"}
-  - {name: 台灣上村, aliases: [台灣上村, 上村, Uyemura], segment: tw_pcb_equipment, subsegment: wet,
+  - {name: 台灣上村, aliases: [台灣上村, Uyemura], segment: tw_pcb_equipment, subsegment: wet,
      industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2},
      note: "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件"}
   - {name: 群翊工業, aliases: [群翊], ticker: "6664", segment: tw_pcb_equipment, subsegment: imaging,

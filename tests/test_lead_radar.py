@@ -361,6 +361,8 @@ def test_cli_segment_analyze(tmp_path, monkeypatch):
     rebuilt = tmp_path / "rebuilt"
     assert main(["site", "-i", str(out), "-o", str(rebuilt)]) == 0
     assert (rebuilt / "index.html").exists() and (rebuilt / "tw_semi_production" / "index.html").exists()
+    assert '"title": "台灣設備廠"' in (rebuilt / "tw_pcb_equipment" / "index.html").read_text(encoding="utf-8")
+    assert "DATA.title || SEG.name" in main_page
     assert main(["analyze", "--segment", "nope"]) == 2
 
 
@@ -485,7 +487,7 @@ def test_pitch_shows_its_spec_source(cfg):
     assert all(p.pitch_source.startswith("一般產業常見規格") for p in cfg.products)
     rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
     assert all(a["pitch_source"] for a in rep["accounts"]) and all(l["pitch_source"] for l in rep["leads"])
-    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據")
+    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源")
     assert "規格依據:" in render_markdown(rep) or not rep["leads"]
     assert '"pitch_source": "一般產業常見規格' in render_page(rep)
     assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"
@@ -575,4 +577,41 @@ def test_pcb_and_display_equipment_segments(cfg):
     rep = build_segment_report([s], cfg, "tw_display_equipment", ASOF)
     top = rep["accounts"][0]
     assert top["org"] == "友威科技" and top["signals"] == 1
+
+
+def test_org_names_are_companies_not_phrases(cfg):
+    from lead_radar.signals import extract_orgs
+
+    for phrase in ["材料分析,汎銓打造半導體", "東協半導體 新廠", "看旺新加坡半導體", "美光把台灣半導體", "最新財報牽動科技",
+                   "歡迎所有科技", "重量級半導體", "強化半導體", "高純度半導體", "從未做傷害公司"]:
+        assert extract_orgs(phrase) == [], phrase
+    assert extract_orgs("佳霖攜手青輝半導體 擴產") == ["青輝半導體"]                       # the name after the verb
+    assert sig(cfg, "弘塑集團 擴產新廠 訂單").orgs == ["弘塑科技"]                          # group name → listed company
+    assert sig(cfg, "據報美光科技 擴產台中 靶材").orgs == ["美光台灣"]
+    assert "日月光半導體" not in sig(cfg, "日月光半導體 向弘塑取得設備").orgs
+
+
+def test_material_evidence_is_labelled(cfg):
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+    from lead_radar.sources import build_jobs
+
+    explicit = sig(cfg, "友威科濺鍍設備出貨 面板廠擴產 靶材需求增", days_ago=3)
+    inferred = sig(cfg, "亞智科技面板級封裝設備訂單", days_ago=3)
+    rep = build_segment_report([explicit, inferred], cfg, "tw_display_equipment", ASOF)
+    accs = {a["org"]: a for a in rep["accounts"]}
+    assert accs["友威科技"]["material_basis"]["explicit"] == 1 and "靶材" in accs["友威科技"]["material_terms"]
+    assert accs["友威科技"]["material_summary"].startswith("明確提及材料 1 則")
+    assert accs["友威科技"]["evidence_basis"][explicit.id] == "explicit" and "靶材" in rep["signal_materials"][explicit.id]
+    assert accs["亞智科技"]["material_basis"] == {"explicit": 0, "co_mention": 0, "manual": 0, "inferred": 1}
+    assert accs["亞智科技"]["material_summary"].endswith("材料依產品適配度推估")
+    assert rep["signal_materials"][inferred.id] == []
+    # a material named in a report about another company is not this company's explicit source
+    other = sig(cfg, "Apple 簽下鈦金屬供應合約;台積電亞利桑那新廠擴產", days_ago=3)
+    prod = build_segment_report([other], cfg, "tw_semi_production", ASOF)
+    tsmc = next(a for a in prod["accounts"] if a["org"] == "台積電")
+    assert tsmc["material_basis"]["explicit"] == 0 and tsmc["material_basis"]["co_mention"] == 1
+    assert "近期沒有新聞" in accs["晶彩科技"]["material_summary"]
+    assert "明確提及材料的來源" in render_accounts_csv(rep)
+    labels = {j.label for j in build_jobs(cfg, "tw_display_equipment")}
+    assert "材料:友威科技" in labels and "材料:晶彩科技" not in labels                     # only for fit ≥ 2
 

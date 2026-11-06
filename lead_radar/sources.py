@@ -51,6 +51,14 @@ def build_jobs(config: Config, segment: str | None = None) -> list[Job]:
             if a.segment == segment:
                 q = f"({_or(a.aliases)}) ({_or(seg.query_terms[:8])})" if seg.query_terms else _or(a.aliases)
                 jobs += [Job(f"客戶:{a.name}", q, ed) for ed in seg.editions]
+                # the company together with the materials it is likely to buy: finds the reports that name
+                # the material explicitly (most company news does not), so the evidence has a clear source
+                terms: list[str] = []
+                for p in config.products:
+                    if a.fit.get(p.key, 0) >= 2:
+                        terms += [t for t in p.search[:3] if t not in terms]
+                if terms:
+                    jobs += [Job(f"材料:{a.name}", f"({_or(a.aliases)}) ({_or(terms[:6])})", ed) for ed in seg.editions]
         return jobs
     jobs: list[Job] = []
     for p in config.products:
