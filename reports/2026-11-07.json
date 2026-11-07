@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T08:28:29.059277+08:00",
+  "generated": "2026-11-07T09:10:23.361001+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為貴金屬靶材廠 Furuya 金屬:2027 年 6 月期第一季經常利益年增 3.9 倍、純益 3.8 倍,優於分析師預期,受數位領域需求與貴金屬價格上漲帶動。記憶體方面,傳台積電應輝達要求評估投入 3D DRAM 與先進記憶體;美光桃園新廠暫停持續發酵,但其新加坡 240 億美元 NAND、HBM 雙廠照常推進;長江存儲新廠擬將國產設備比例提高到 70%。封裝端傳輝達出資數十億美元支持日月光擴增 CoWoS。設備商 AVACO 第三季營業虧損 46 億韓元,預期第四季回升;JX金屬下調銅建值 6 萬日圓。",
@@ -20,6 +20,47 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "a38a1244d969f23a",
+      "title": "台積電赴美擴產台灣如何守住優勢？專家點供應鏈不可取代的關鍵- 產業",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9MdjVVUjBhZDdaX0E1Ui1zSkdjcU9aWkpYLTNMMDhZYm1HakVSQ3pHTXdlcGtLR3hEdU9ENHZJcnhabzZpaTRHUzc0bnZSWFc1eEd4anlyUWcyUTZ3b2kw?oc=5",
+      "source": "工商時報",
+      "published": "2026-11-06T23:46:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "臺積電赴美擴產臺灣如何守住優勢？專家點供應鏈不可取代的關鍵- 產業",
+      "snippet_zh": ""
+    },
+    {
+      "id": "16e388140ff52284",
+      "title": "Democrats' midterm sweep gives gold a boost, but the Federal Reserve still holds the cards",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbzdISW9TT1BGRXJvMjQ0WUd2RFJzUmtWcDlEem5YZm9HVEl2UENMeXdhLWtFS0ttcjQxd0g2dGJwN0ZLUkVBQllvWm9sUk5FVXhnRXRTZ2FZZk41blpxRjJXQ2FmVzR6VXRqNV80RS11cVJQUVlud3psRDVQcDFUQk9tX3I2bVlCb3VOTk5nSDNHN0RFYWV6RENsQTNsdnRES0l1SG1HNUF2SjdzV2p6bnBwb2I4N0FTbTFOaA?oc=5",
+      "source": "Kitco",
+      "published": "2026-11-06T22:50:46+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "6ff4d8fa80b7904a",
       "title": "不給韓廠賺了？傳台積電考慮進軍先進記憶體晶片可能建新廠或收購| 全球財經| 全球",
