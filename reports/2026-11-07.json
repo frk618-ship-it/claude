@@ -2,19 +2,22 @@
   "generated": "2026-11-07T08:28:29.059277+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 63 則,其中新聞與公司公告 52 則;報導最多的是 美光(10 則)、古屋金屬(10 則)、日月光投控(7 則)、JX金屬(7 則)。依主題:擴產與投資 23 則、營收與財報 14 則、產業動態 10 則、原物料與價格 3 則、客戶與供應鏈 2 則。",
+    "overview": "本期焦點為貴金屬靶材廠 Furuya 金屬:2027 年 6 月期第一季經常利益年增 3.9 倍、純益 3.8 倍,優於分析師預期,受數位領域需求與貴金屬價格上漲帶動。記憶體方面,傳台積電應輝達要求評估投入 3D DRAM 與先進記憶體;美光桃園新廠暫停持續發酵,但其新加坡 240 億美元 NAND、HBM 雙廠照常推進;長江存儲新廠擬將國產設備比例提高到 70%。封裝端傳輝達出資數十億美元支持日月光擴增 CoWoS。設備商 AVACO 第三季營業虧損 46 億韓元,預期第四季回升;JX金屬下調銅建值 6 萬日圓。",
     "key_trends": [
-      "擴產與投資(23 則):不給韓廠賺了？傳臺積電考慮進軍先進記憶體晶片可能建新廠或收購| 全球財經| 全球",
-      "營收與財報(14 則):Furuya Metal: Q1 profit surged on digital-sector demand and higher precious-metal prices",
-      "產業動態(10 則):Materion (MTRN) Shares Dropped, So What Is Driving Attention Now?",
-      "原物料與價格(3 則):Singulus Technologies AG (SGTSF) Analyst Insights, Price Targets & Recommendations - Yahoo Finance"
+      "貴金屬靶材廠受惠:Furuya 金屬第一季獲利大增",
+      "記憶體產能重分配:美光桃園暫停、新加坡擴產,台積電傳評估 3D DRAM",
+      "中國設備國產化:長江存儲新廠國產設備比例目標 70%",
+      "先進封裝:傳輝達出資支持日月光擴增 CoWoS",
+      "銅價下調,JX金屬強化半導體用銅電鍍材料"
     ],
     "watch_points": [
-      "不給韓廠賺了？傳臺積電考慮進軍先進記憶體晶片可能建新廠或收購| 全球財經| 全球(UDN)",
-      "【22:46 即時新聞】Micron Technology(MU) 暴跌逾10%：AI資料中心監管升溫＋桃園新廠暫停引爆賣壓(CMoney投資網誌)",
-      "傳臺積電進軍3D DRAM 應輝達要求規劃製造、評估建廠(自由財經)"
+      "美光桃園新廠勞資協調結果",
+      "台積電進軍記憶體傳聞是否證實",
+      "長江存儲國產化是否延伸至靶材採購",
+      "Furuya 金屬全年展望與貴金屬價格走勢",
+      "AVACO 第四季 OLED 設備交貨對顯示器靶材的帶動"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,8 +37,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳台積電考慮進軍先進記憶體晶片,可能建新廠或收購。若成真將新增記憶體產能與靶材需求。",
+      "importance": 4,
       "title_zh": "不給韓廠賺了？傳臺積電考慮進軍先進記憶體晶片可能建新廠或收購| 全球財經| 全球",
       "snippet_zh": ""
     },
@@ -56,8 +59,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區整理:台積電傳攻先進記憶體,日月光獲注資擴產。屬討論區內容。",
+      "importance": 1,
       "title_zh": "TWA00 加權指數- 臺積電傳攻先進記憶體！日月光獲注資擴產- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -73,13 +76,13 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "技術與新產品",
-        "客戶與供應鏈"
+        "技術與新產品"
       ],
       "score": 6.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光股價暴跌逾 10%,受 AI 資料中心監管升溫與桃園新廠暫停影響。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -99,8 +102,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳台積電應輝達要求規劃製造 3D DRAM 並評估建廠。記憶體新產能將帶動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "傳臺積電進軍3D DRAM 應輝達要求規劃製造、評估建廠",
       "snippet_zh": ""
     },
@@ -120,8 +123,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠傳變數,全球擴產布局受關注。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "美光桃園新廠傳變數 全球擴產佈局受關注 | 產業熱點 | 產業",
       "snippet_zh": ""
     },
@@ -141,8 +144,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光暫停桃園新廠工程,供應鏈證實接獲通知。與同期美光桃園新廠暫停報導為同一事件。供應鏈已受影響,靶材拉貨可能延後。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -162,8 +165,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光台灣 45 億美元新廠傳暫緩,但海外擴產不停,新加坡投資 240 億美元布局 NAND 與 HBM 雙廠。記憶體產能可能轉往新加坡,靶材供貨地點隨之調整。",
+      "importance": 4,
       "title_zh": "美光臺灣45億美元新廠傳暫緩！海外擴產腳步不停，新加坡豪砸240億美元佈局NAND、HBM雙廠",
       "snippet_zh": ""
     },
@@ -183,8 +186,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠傳暫緩,勞資協調下午登場,桃園市長張善政將出席。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -204,8 +207,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園千億新廠傳停工,Fab 11E 工程幾乎全停,工會質疑有人施壓。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -225,8 +228,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光 300 億建廠計畫暫停。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -242,12 +245,13 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "時評指美光若停建桃園新廠,將是台灣投資環境的警訊。",
+      "importance": 2,
       "title_zh": "〈時評〉美光若停建桃園新廠 臺灣投資環境警訊",
       "snippet_zh": ""
     },
@@ -267,8 +271,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園 45 億美元新廠傳因勞資糾紛暫緩,公司表示在台營運正常。與同期美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "美光桃園45億美元新廠傳因勞資糾紛暫緩 公司：在臺營運正常",
       "snippet_zh": ""
     },
@@ -288,8 +292,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳美光不滿勞資糾紛暫停新廠,經濟部未證實並協助溝通。與前一日報導重複。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -309,9 +313,9 @@
         "原物料與價格"
       ],
       "score": 4.69,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬第一季獲利大增,受數位領域需求與貴金屬價格上漲帶動。貴金屬靶材廠業績大幅成長。",
+      "importance": 5,
+      "title_zh": "Furuya 金屬:數位領域需求與貴金屬價格上漲帶動第一季獲利大增",
       "snippet_zh": ""
     },
     {
@@ -326,11 +330,12 @@
         "長江存儲 (YMTC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資"
       ],
       "score": 4.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "長江存儲擬將新廠國產設備比例提高至 70%。中國設備國產化可能延伸至靶材在地採購。",
+      "importance": 3,
       "title_zh": "長江存儲擬提高新廠國產設備比例至70%",
       "snippet_zh": ""
     },
@@ -349,8 +354,8 @@
         "擴產與投資"
       ],
       "score": 4.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元擴產封測,加聘 3,553 人。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -369,8 +374,8 @@
         "擴產與投資"
       ],
       "score": 4.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳輝達砸數十億美元支持日月光擴增 CoWoS 產能。先進封裝擴產將帶動 PVD 與 Ti、Cu 靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -389,8 +394,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光 1,237 億元擴產,將南科臺南園區納入布局。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "日月光斥資1,237億元擴產 南科臺南園區納入投資佈局",
       "snippet_zh": ""
     },
@@ -409,8 +414,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元擴充 3 個園區智慧化產線,預計增聘 3,553 人。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -429,8 +434,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光將投資南科臺南園區,台南市長黃偉哲表示可強化先進封裝聚落。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -449,8 +454,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳輝達提供數十億美元協助日月光擴產,CoWoS 吃緊帶動先進封裝投資。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -469,9 +474,9 @@
         "擴產與投資"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬硫酸銅增產 50%,鎖定 HBM 電鍍材料。與前一日報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬硫酸銅增產 50%,搶攻 HBM 電鍍材料",
       "snippet_zh": ""
     },
     {
@@ -486,11 +491,12 @@
         "長江存儲 (YMTC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資"
       ],
       "score": 4.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "消息人士指長江存儲新廠擬向國內供應商採購七成設備。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "《獨家新聞》中國長江存儲新廠擬向國內供應商採購七成設備--消息人士",
       "snippet_zh": ""
     },
@@ -509,8 +515,8 @@
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬因應先進封裝與 HBM,投資數十億日圓擴產高純度硫酸銅。與前一日報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -529,8 +535,8 @@
         "擴產與投資"
       ],
       "score": 4.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資臺灣事務所新增 3 案,日月光砸千億元擴產。與同期日月光 1,237 億元擴產報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -549,9 +555,9 @@
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 公告第三季初步業績,預期 OLED 設備交貨擴大帶動第四季反彈。與同期 AVACO 財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "AVACO 公告第三季初步業績:OLED 設備交貨擴大,第四季可望反彈",
       "snippet_zh": ""
     },
     {
@@ -569,9 +575,9 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 2027 年 6 月期第一季獲利成長,經常利益增 290.3%。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 3,
+      "title_zh": "【財報速報】Furuya 金屬 2027 年 6 月期第一季增益,經常利益增 290.3%",
       "snippet_zh": ""
     },
     {
@@ -589,9 +595,9 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 連續三季虧損,預期第四季轉盈。AVACO 為濺鍍設備商。",
+      "importance": 3,
+      "title_zh": "AVACO 連續三季虧損,預期第四季轉盈",
       "snippet_zh": ""
     },
     {
@@ -609,9 +615,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 第三季營業虧損 46 億韓元,轉為虧損。與同期 AVACO 財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "AVACO 第三季營業虧損 46 億韓元,轉為虧損",
       "snippet_zh": ""
     },
     {
@@ -629,9 +635,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 第三季營業虧損 46 億韓元,轉為虧損,但預期第四季因 OLED 設備交貨增加而回升。",
+      "importance": 3,
+      "title_zh": "AVACO 第三季營業虧損 46 億韓元:「預期第四季業績改善」",
       "snippet_zh": ""
     },
     {
@@ -649,9 +655,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 第三季營業虧損 46 億韓元,預期第四季反彈。與同期 AVACO 財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "AVACO 第三季營業虧損 46 億韓元:「預期第四季業績反彈」",
       "snippet_zh": ""
     },
     {
@@ -669,9 +675,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 2027 年 6 月期第一季(7~9 月)經常利益年增 3.9 倍,優於分析師預期。顯示貴金屬靶材需求與價格同步走揚。",
+      "importance": 3,
+      "title_zh": "【財報速報】Furuya 金屬 7~9 月(第一季)經常利益增 3.9 倍",
       "snippet_zh": ""
     },
     {
@@ -689,9 +695,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 2027 年 6 月期第一季純益增至 3.8 倍。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 3,
+      "title_zh": "財報速報:Furuya 金屬 2027 年 6 月期第一季純益 3.8 倍",
       "snippet_zh": ""
     },
     {
@@ -709,9 +715,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬第一季經常利益 13,098 百萬日圓,優於分析師預期。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 3,
+      "title_zh": "【財報速報】Furuya 金屬第一季經常利益 13,098 百萬日圓,優於分析師預期",
       "snippet_zh": ""
     },
     {
@@ -729,9 +735,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬發布 2027 年 6 月期第一季合併財報。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 3,
+      "title_zh": "Furuya 金屬[7826]:2027 年 6 月期第一季財報(日本基準,合併)2026 年 11 月 6 日",
       "snippet_zh": ""
     },
     {
@@ -749,9 +755,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 2027 年 6 月期第一季合併財報英文版。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 2,
+      "title_zh": "Furuya 金屬(7826)2027 年 6 月期第一季合併財報",
       "snippet_zh": ""
     },
     {
@@ -766,11 +772,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資人砸 2,010 萬元買黃金,9 個月虧損 562 萬元後認賠,隔天金價反彈。屬個人投資故事。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -789,9 +796,9 @@
         "營收與財報"
       ],
       "score": 3.71,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 在第三季銷售創紀錄後上調 2026 年每股盈餘財測。與前幾日財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Materion 第三季銷售創紀錄後上調 2026 年 EPS 財測",
       "snippet_zh": ""
     },
     {
@@ -809,8 +816,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.66,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾股價急跌逾 5%,AI 資本支出疑慮與現金消耗警訊持續施壓。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -829,9 +836,9 @@
         "營收與財報"
       ],
       "score": 3.65,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 2026 會計年度第三季法說逐字稿。與前幾日報導重複。",
+      "importance": 2,
+      "title_zh": "Materion(MTRN)2026 會計年度第三季法說逐字稿",
       "snippet_zh": ""
     },
     {
@@ -846,12 +853,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.64,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus Technologies 分析師評等與目標價資料頁。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies(SGTSF)分析師觀點、目標價與建議",
       "snippet_zh": ""
     },
     {
@@ -866,12 +874,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.6,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "KeyBanc 維持 Materion「加碼」評等,目標價由 306 美元下調至 232 美元。",
+      "importance": 2,
+      "title_zh": "KeyBanc 維持 Materion 加碼評等,目標價由 306 美元下調至 232 美元",
       "snippet_zh": ""
     },
     {
@@ -886,12 +895,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.6,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "KeyBanc 因估值重設下調 Materion 目標價。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "KeyBanc 因估值重設下調 Materion 目標價",
       "snippet_zh": ""
     },
     {
@@ -906,11 +916,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 3.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "ETF 布局全球黃金產業,金礦股受惠高金價。屬 ETF 推廣內容。",
+      "importance": 1,
       "title_zh": "009834佈局全球黃金產業 AI 行情震盪金礦股迎高金價獲利紅利",
       "snippet_zh": ""
     },
@@ -929,8 +940,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾跌 5%,財測疲弱與 AI 資本支出疑慮施壓股價。與同期報導重複。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -949,9 +960,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "2027 年金銀預測:美國因素施壓,價格漲勢放緩。",
+      "importance": 2,
+      "title_zh": "2027 年金銀預測:來自美國的壓力與價格放緩",
       "snippet_zh": ""
     },
     {
@@ -969,9 +980,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價突破訊號顯示修正可能結束。屬技術分析。",
+      "importance": 1,
+      "title_zh": "金價(XAU/USD)預測:突破訊號暗示修正可能結束",
       "snippet_zh": ""
     },
     {
@@ -989,9 +1000,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "民主黨在期中選舉大勝後,華爾街對金價看法分歧,散戶更趨看多。",
+      "importance": 2,
+      "title_zh": "民主黨期中選舉大勝後,華爾街對金價看法分歧,散戶多頭信心增強",
       "snippet_zh": ""
     },
     {
@@ -1009,9 +1020,9 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美國非農就業數據強勁,金價下滑。",
+      "importance": 2,
+      "title_zh": "美國非農就業數據強勁,金價下滑",
       "snippet_zh": ""
     },
     {
@@ -1029,8 +1040,8 @@
         "原物料與價格"
       ],
       "score": 3.18,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價失守 4,100 美元,分析 10 月非農能否推動再度大漲。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1046,12 +1057,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析 Materion 股價下跌後市場關注焦點。",
+      "importance": 2,
+      "title_zh": "Materion(MTRN)股價下跌,市場關注什麼?",
       "snippet_zh": ""
     },
     {
@@ -1066,12 +1078,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬冠名的廣播特別節目決定播出並募集來信。屬企業宣傳活動,與靶材無關。",
+      "importance": 1,
+      "title_zh": "【特別節目】《JX金屬 presents 久野美咲的聊聊天?》決定播出,募集來信",
       "snippet_zh": ""
     },
     {
@@ -1086,12 +1099,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬冠名特別節目 11 月 20 日播出。屬企業宣傳,與靶材無關。",
+      "importance": 1,
+      "title_zh": "特別節目《JX金屬 presents 久野美咲的聊聊天?》11/20 播出",
       "snippet_zh": ""
     },
     {
@@ -1106,12 +1120,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 2027 年 6 月期第一季(7~9 月)經常利益年增 3.9 倍,優於分析師預期。與同期 Furuya 金屬第一季財報為同一事件。",
+      "importance": 2,
+      "title_zh": "Furuya 金屬 7~9 月(第一季)經常利益增 3.9 倍",
       "snippet_zh": ""
     },
     {
@@ -1126,12 +1141,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬強化半導體用銅電鍍材料供應。與同期高純度硫酸銅增產報導相關。",
+      "importance": 3,
+      "title_zh": "JX金屬強化半導體用銅電鍍材料供應",
       "snippet_zh": ""
     },
     {
@@ -1146,12 +1162,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將銅建值下調 6 萬日圓。銅價下調降低 Cu 靶材原料成本。",
+      "importance": 3,
+      "title_zh": "JX金屬銅建值下調 6 萬日圓",
       "snippet_zh": ""
     },
     {
@@ -1166,12 +1183,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日立與 JX金屬在茨城日立市合作培育工業專修學校畢業生。屬人才培育合作。",
+      "importance": 1,
+      "title_zh": "日立與 JX金屬合作培育人才(茨城日立市工業專修學校畢業生)",
       "snippet_zh": ""
     },
     {
@@ -1186,11 +1204,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 6 日快速上漲。屬股價行情。",
+      "importance": 1,
       "title_zh": "有研新材11月6日快速上漲",
       "snippet_zh": ""
     },
@@ -1206,12 +1225,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬股價季節性報酬圖表。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬(7826.T)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -1226,11 +1246,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.74,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材連續兩日漲停,先前兩個多月跌超過四成。屬股價行情。",
+      "importance": 1,
       "title_zh": "有研新材連續兩日漲停 此前兩個多月跌超四成",
       "snippet_zh": ""
     },
@@ -1246,12 +1267,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以負乖離率分析 Furuya 金屬短期超賣,反彈氣氛浮現。屬技術分析。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬「短期超賣,反彈氣氛浮現」:以負乖離率解讀",
       "snippet_zh": ""
     },
     {
@@ -1266,11 +1288,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.58,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區的光洋科看空貼文。屬討論區內容,參考價值低。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1286,11 +1309,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價走勢出現轉機,4,150 美元為關鍵阻力。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     }
