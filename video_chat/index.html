@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumi 視訊交友</title>
+<meta name="description" content="Lumi:極簡風格的一對一視訊交友示範網站">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="age-gate" id="ageGate" hidden>
+  <div class="age-card">
+    <div class="logo big"><span class="dot"></span>Lumi</div>
+    <h2>本站僅限 18 歲以上使用</h2>
+    <p class="muted">此為介面示範網站,所有主播資料皆為虛構。</p>
+    <div class="row gap">
+      <button class="btn ghost" id="ageNo">離開</button>
+      <button class="btn primary" id="ageYes">我已滿 18 歲</button>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="logo" href="#" data-view="home"><span class="dot"></span>Lumi</a>
+    <nav class="nav" id="nav">
+      <a href="#" data-view="home" class="active">首頁</a>
+      <a href="#" data-view="rank">排行榜</a>
+      <a href="#" data-view="events">活動</a>
+      <a href="#" data-view="fav">我的收藏</a>
+    </nav>
+    <div class="bar-right">
+      <label class="search"><input id="search" type="search" placeholder="搜尋暱稱 / 標籤"></label>
+      <button class="icon-btn" id="themeBtn" title="切換深淺色" aria-label="切換深淺色">◐</button>
+      <button class="points" id="pointsBtn" title="儲值"><span id="points">0</span> 點</button>
+      <button class="btn primary sm" id="loginBtn">登入</button>
+      <button class="icon-btn menu" id="menuBtn" aria-label="選單">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <!-- 首頁 -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">一對一 · 即時視訊</p>
+        <h1>遇見,<br>剛好在線的人。</h1>
+        <p class="muted lead">簡單、安靜、不打擾。挑一位喜歡的主播,點一下就開始聊天。</p>
+        <div class="row gap">
+          <button class="btn primary" id="randomBtn">隨機配對</button>
+          <button class="btn ghost" data-view="rank">看排行榜</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div><b id="statOnline">0</b><span>位主播在線</span></div>
+        <div><b>24h</b><span>全天候服務</span></div>
+        <div><b>1:1</b><span>私密視訊</span></div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="tabs" id="tabs"></div>
+      <div class="row gap sm-gap">
+        <label class="switch"><input type="checkbox" id="onlineOnly"><span></span>只看在線</label>
+        <select id="sort" aria-label="排序">
+          <option value="hot">熱門</option>
+          <option value="new">最新</option>
+          <option value="price">價格低到高</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty muted" id="empty" hidden>沒有符合條件的主播。</p>
+  </section>
+
+  <!-- 排行榜 -->
+  <section class="view" id="view-rank" hidden>
+    <div class="section-head">
+      <h2>排行榜</h2>
+      <div class="tabs" id="rankTabs">
+        <button class="tab active" data-r="day">日榜</button>
+        <button class="tab" data-r="week">週榜</button>
+        <button class="tab" data-r="month">月榜</button>
+      </div>
+    </div>
+    <ol class="rank" id="rankList"></ol>
+  </section>
+
+  <!-- 活動 -->
+  <section class="view" id="view-events" hidden>
+    <div class="section-head"><h2>活動</h2></div>
+    <div class="events">
+      <article class="event"><span class="tag">進行中</span><h3>新人首儲加贈 50%</h3><p class="muted">首次儲值任一方案,加贈點數立即入帳。</p></article>
+      <article class="event"><span class="tag">每週</span><h3>週末人氣王</h3><p class="muted">週六、日收到最多禮物的主播登上首頁推薦。</p></article>
+      <article class="event"><span class="tag">每日</span><h3>每日簽到</h3><p class="muted">每天登入領 5 點,連續 7 天再送 30 點。</p><button class="btn ghost sm" id="checkinBtn">簽到</button></article>
+    </div>
+  </section>
+
+  <!-- 收藏 -->
+  <section class="view" id="view-fav" hidden>
+    <div class="section-head"><h2>我的收藏</h2></div>
+    <div class="grid" id="favGrid"></div>
+    <p class="empty muted" id="favEmpty">還沒有收藏。點主播卡片上的 ♡ 加入收藏。</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <div class="logo"><span class="dot"></span>Lumi</div>
+    <nav class="foot-links">
+      <a href="#" data-info="terms">服務條款</a>
+      <a href="#" data-info="privacy">隱私權政策</a>
+      <a href="#" data-info="help">常見問題</a>
+      <a href="#" data-info="host">成為主播</a>
+    </nav>
+    <p class="muted small">18+ · 介面示範網站,主播資料與交易皆為虛構,不會收集任何個人資料或付款資訊。</p>
+  </div>
+</footer>
+
+<!-- 主播資料 -->
+<dialog class="modal" id="profileModal">
+  <div class="profile" id="profileBody"></div>
+</dialog>
+
+<!-- 視訊房間 -->
+<div class="room" id="room" hidden>
+  <div class="room-video">
+    <div class="remote" id="remote"></div>
+    <video class="self" id="selfVideo" autoplay muted playsinline></video>
+    <div class="room-top">
+      <div class="room-host" id="roomHost"></div>
+      <div class="timer" id="timer">00:00</div>
+    </div>
+    <div class="room-ctrl">
+      <button class="round" id="camBtn" title="開啟/關閉鏡頭">鏡頭</button>
+      <button class="round" id="micBtn" title="麥克風">靜音</button>
+      <button class="round danger" id="hangBtn" title="結束通話">結束</button>
+    </div>
+    <div class="gift-fly" id="giftFly"></div>
+  </div>
+  <aside class="room-side">
+    <div class="chat" id="chat"></div>
+    <div class="gifts" id="gifts"></div>
+    <form class="chat-form" id="chatForm">
+      <input id="chatInput" placeholder="說點什麼…" autocomplete="off" maxlength="120">
+      <button class="btn primary sm">送出</button>
+    </form>
+  </aside>
+</div>
+
+<!-- 登入 -->
+<dialog class="modal small-modal" id="loginModal">
+  <form method="dialog" class="form" id="loginForm">
+    <h3>歡迎來到 Lumi</h3>
+    <p class="muted small">示範用:只需取個暱稱,資料只存在你的瀏覽器。</p>
+    <label>暱稱<input id="nickInput" required maxlength="16" placeholder="例如:小明"></label>
+    <div class="seg" id="genderSeg">
+      <button type="button" class="active" data-g="m">男</button>
+      <button type="button" data-g="f">女</button>
+      <button type="button" data-g="x">不透露</button>
+    </div>
+    <button class="btn primary block" value="ok">進入</button>
+    <button class="btn ghost block" value="cancel" formnovalidate>取消</button>
+  </form>
+</dialog>
+
+<!-- 儲值 -->
+<dialog class="modal small-modal" id="topupModal">
+  <div class="form">
+    <h3>儲值點數</h3>
+    <p class="muted small">示範用,不會真的扣款。</p>
+    <div class="plans" id="plans"></div>
+    <button class="btn ghost block" data-close>關閉</button>
+  </div>
+</dialog>
+
+<!-- 資訊 -->
+<dialog class="modal small-modal" id="infoModal">
+  <div class="form"><div id="infoBody"></div><button class="btn ghost block" data-close>關閉</button></div>
+</dialog>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
