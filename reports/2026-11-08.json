@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T08:28:24.464317+08:00",
+  "generated": "2026-11-08T08:53:33.981177+08:00",
   "days": 7,
   "digest": {
     "overview": "週末新聞量較少,多為前幾日事件的延續。記憶體方面,傳台積電應輝達要求評估生產 3D DRAM,美光桃園新廠因勞資爭議暫停,長江存儲 330 億元人民幣 IPO 延後,NAND 擴產時程恐受影響;華邦電則表示擴產效益明年顯現。封裝端日月光南科擴產持續受關注。高盛等機構下修金價預測,金價回到 4,000 美元附近。",
@@ -17,6 +17,26 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "ac1f9674790d04f2",
+      "title": "台積電傳進軍先進記憶體，找業界大咖主導？外媒：應黃仁勳要求，研擬自建晶圓廠或往這條路走…何時投產？",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMFNPZHlRWHJOY3V2N1dFTHM5c09yQkt5WG9ya3p0aGpCcXR0M0pxTHlwNUsxUVRueWpqNXFoc0FJdDFuWVdURGZpYlBCWlZOR1lUaHZ4enBkN0FyZjI4aVh1RVJ2TnRDMHNyaG01eU9xNFNNUk1fY2JzYVE5SUktbA?oc=5",
+      "source": "今周刊",
+      "published": "2026-11-07T06:32:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.89,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "臺積電傳進軍先進記憶體，找業界大咖主導？外媒：應黃仁勳要求，研擬自建晶圓廠或往這條路走…何時投產？",
+      "snippet_zh": ""
+    },
     {
       "id": "a85acc368151a14f",
       "title": "台積電傳進軍3D DRAM市場！輝達要求布局、AI記憶體短缺推升擴產需求",
