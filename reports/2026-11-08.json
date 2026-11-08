@@ -2,19 +2,19 @@
   "generated": "2026-11-08T08:28:24.464317+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 27 則,其中新聞與公司公告 18 則;報導最多的是 Materion(6 則)、台積電(2 則)、華邦電(2 則)、日月光投控(2 則)。依主題:擴產與投資 8 則、營收與財報 5 則、產業動態 4 則、客戶與供應鏈 1 則。",
+    "overview": "週末新聞量較少,多為前幾日事件的延續。記憶體方面,傳台積電應輝達要求評估生產 3D DRAM,美光桃園新廠因勞資爭議暫停,長江存儲 330 億元人民幣 IPO 延後,NAND 擴產時程恐受影響;華邦電則表示擴產效益明年顯現。封裝端日月光南科擴產持續受關注。高盛等機構下修金價預測,金價回到 4,000 美元附近。",
     "key_trends": [
-      "擴產與投資(8 則):臺積電傳進軍3D DRAM市場！輝達要求佈局、AI記憶體短缺推升擴產需求",
-      "營收與財報(5 則):How Investors May Respond To Materion (MTRN) Record Earnings Outlook Raised",
-      "產業動態(4 則):歐萊新材：融資淨償還31.93萬元，融資餘額2.02億元",
-      "客戶與供應鏈(1 則):【23:28 即時新聞】Intel(INTC)重挫逾10%：PC市況惡化與AI資本支出疑慮夾擊"
+      "記憶體擴產變數:美光桃園暫停、長江存儲 IPO 延後",
+      "台積電傳評估投入 3D DRAM",
+      "日月光南科高階封測擴產持續推進",
+      "機構下修金價預測"
     ],
     "watch_points": [
-      "臺積電傳進軍3D DRAM市場！輝達要求佈局、AI記憶體短缺推升擴產需求(鉅亨網)",
-      "臺積電將進軍先進記憶體戰場？傳應輝達要求規劃生產3D DRAM、評估建廠| 財經(Newtalk新聞)",
-      "美光桃園新廠因勞資爭議暫停｜新聞事件整理與重點摘要(Yahoo股市)"
+      "美光桃園新廠勞資協調後續",
+      "長江存儲籌資延後對中國 NAND 擴產與靶材需求的影響",
+      "金價在 4,000 美元附近的支撐與 Au 靶材成本"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,8 +33,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳台積電應輝達要求進軍 3D DRAM 市場,AI 記憶體短缺推升擴產需求。記憶體新產能將帶動 PVD 與靶材需求。",
+      "importance": 4,
       "title_zh": "臺積電傳進軍3D DRAM市場！輝達要求佈局、AI記憶體短缺推升擴產需求",
       "snippet_zh": ""
     },
@@ -54,8 +54,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳台積電應輝達要求規劃生產 3D DRAM 並評估建廠。與同期報導為同一事件。",
+      "importance": 3,
       "title_zh": "臺積電將進軍先進記憶體戰場？傳應輝達要求規劃生產3D DRAM、評估建廠| 財經",
       "snippet_zh": ""
     },
@@ -75,8 +75,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.35,
-      "summary": "",
-      "importance": 0,
+      "summary": "整理美光桃園新廠因勞資爭議暫停的事件重點。新廠延後可能延後當地靶材拉貨。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -92,11 +92,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "記憶體市場迎 AI 熱潮,擴產隱憂浮現,華邦電配息 2 元。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -115,8 +116,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電展望:AI 需求一枝獨秀,擴產效益明年顯現,董事長焦佑鈞擔心下一個不景氣來得太晚。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -135,8 +136,8 @@
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 與 HPC 需求升溫,日月光擴產布局南科高階封測。與前幾日 1,237 億元擴產報導為同一事件。",
+      "importance": 3,
       "title_zh": "AI與HPC需求升溫 日月光擴產佈局南科高階封測",
       "snippet_zh": ""
     },
@@ -155,8 +156,8 @@
         "擴產與投資"
       ],
       "score": 4.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元擴產南科,台南市長黃偉哲表示將強化先進封裝聚落。與前幾日報導為同一事件。",
+      "importance": 2,
       "title_zh": "日月光砸1237億元擴產南科 黃偉哲：強化臺南先進封裝產業聚落",
       "snippet_zh": ""
     },
@@ -175,8 +176,8 @@
         "擴產與投資"
       ],
       "score": 4.1,
-      "summary": "",
-      "importance": 0,
+      "summary": "長江存儲 330 億元人民幣 IPO 計畫延後,NAND 擴產時程恐受影響。中國記憶體擴產放緩可能影響當地靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -195,9 +196,9 @@
         "營收與財報"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析投資人如何看待 Materion 創紀錄獲利與上調展望。與前幾日 Materion 第三季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "投資人可能如何看待 Materion 創紀錄獲利與上調展望",
       "snippet_zh": ""
     },
     {
@@ -215,8 +216,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.66,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾重挫逾 10%,受 PC 市況惡化與 AI 資本支出疑慮夾擊。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -235,9 +236,9 @@
         "營收與財報"
       ],
       "score": 3.58,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 第三季法說重點:銷售創紀錄、上調財測。與前幾日 Materion 第三季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Materion 2026 年第三季法說重點:銷售創紀錄、上調財測",
       "snippet_zh": ""
     },
     {
@@ -255,9 +256,9 @@
         "營收與財報"
       ],
       "score": 3.52,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 第三季每股盈餘優於預期,但股價下滑。與前幾日 Materion 第三季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "法說逐字稿:Materion 2026 年第三季 EPS 優於預期,股價下滑",
       "snippet_zh": ""
     },
     {
@@ -275,9 +276,9 @@
         "營收與財報"
       ],
       "score": 3.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 第三季獲利優於預期,營收不如預期。與前幾日 Materion 第三季財報報導為同一事件。",
+      "importance": 1,
+      "title_zh": "Materion 第三季獲利優於預期,營收不如預期",
       "snippet_zh": ""
     },
     {
@@ -295,9 +296,9 @@
         "營收與財報"
       ],
       "score": 3.38,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 財報前預告文章。與前幾日 Materion 第三季財報報導為同一事件。",
+      "importance": 1,
+      "title_zh": "Materion 創紀錄季度並上調財測後即將公布財報",
       "snippet_zh": ""
     },
     {
@@ -315,9 +316,9 @@
         "原物料與價格"
       ],
       "score": 3.24,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "高盛因聯準會偏鷹、需求受壓而下調金價預測。",
+      "importance": 2,
+      "title_zh": "高盛因聯準會偏鷹壓抑需求,下調金價預測",
       "snippet_zh": ""
     },
     {
@@ -335,9 +336,9 @@
         "原物料與價格"
       ],
       "score": 3.22,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "機構下修金價預測,2027 年展望持續調整。",
+      "importance": 2,
+      "title_zh": "金價預測下修,2027 年展望持續變動",
       "snippet_zh": ""
     },
     {
@@ -352,11 +353,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材融資淨償還 31.93 萬元,融資餘額 2.02 億元。屬交易資訊。",
+      "importance": 1,
       "title_zh": "歐萊新材：融資淨償還31.93萬元，融資餘額2.02億元",
       "snippet_zh": ""
     },
@@ -372,11 +374,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11 月 6 日主力資金淨賣出 1,050.16 萬元。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：江豐電子（300666）11月6日主力資金淨賣出1050.16萬元_主力研究",
       "snippet_zh": ""
     },
@@ -392,11 +395,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11 月 6 日主力資金淨賣出 1,283.75 萬元。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：阿石創（300706）11月6日主力資金淨賣出1283.75萬元_主力研究",
       "snippet_zh": ""
     },
@@ -412,11 +416,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 6 日主力資金淨賣出 4.11 億元。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：有研新材（600206）11月6日主力資金淨賣出4.11億元",
       "snippet_zh": ""
     },
@@ -432,12 +437,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日股影片稱 JX金屬受惠中東緊張、國防、AI 與資源需求。屬股市評論,內容未經證實。",
+      "importance": 1,
+      "title_zh": "【緊急】中東緊張下 JX金屬成「有事主角」:國防×AI×資源三重特需推升股價",
       "snippet_zh": ""
     },
     {
@@ -452,11 +458,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 11 月 6 日主力資金淨賣出 1,429.23 萬元。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：歐萊新材（688530）11月6日主力資金淨賣出1429.23萬元_主力研究",
       "snippet_zh": ""
     },
@@ -472,12 +479,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價回落至約 4,000 美元,LS 證券認為年底是 2022 年以來最佳買點。",
+      "importance": 2,
+      "title_zh": "金價回落至 4,000 美元附近,LS 證券:年底是 2022 年以來最佳買點",
       "snippet_zh": ""
     },
     {
@@ -492,12 +500,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 個股分析頁。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(NYSE:MTRN)個股分析",
       "snippet_zh": ""
     },
     {
@@ -512,12 +521,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "印度排燈節購買金、銀、鑽石建議。與靶材無關。",
+      "importance": 1,
+      "title_zh": "Dhanteras 沒買東西?排燈節可以買金、銀或鑽石:該買什麼",
       "snippet_zh": ""
     },
     {
@@ -532,11 +542,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "礦業市場點評:黃金的期中選舉行情與長線影響。屬金價評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -552,11 +563,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.32,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11 月 3 日盤中跌幅達 5%。屬股價行情。",
+      "importance": 1,
       "title_zh": "阿石創11月3日盤中跌幅達5%",
       "snippet_zh": ""
     }
