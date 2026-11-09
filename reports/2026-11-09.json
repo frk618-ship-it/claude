@@ -2,18 +2,19 @@
   "generated": "2026-11-09T08:28:05.684493+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 26 則,其中新聞與公司公告 16 則;報導最多的是 古屋金屬(7 則)、아바코(2 則)、Materion(2 則)、SK海力士(1 則)。依主題:產業動態 8 則、營收與財報 5 則、擴產與投資 3 則。",
+    "overview": "本期多為前幾日事件的延續報導。Furuya 金屬第一季營收與獲利創新高,受電子領域需求帶動,並開設金屬奈米粒子專屬網站;JX金屬半導體材料增產 50% 持續受關注。記憶體方面,美光股價急跌後反彈,桃園新廠勞資爭議仍在協商;韓國設備業者受惠 SK海力士擴大設備投資。另有報導回顧江豐電子成長為世界級靶材廠的歷程,矽品指 CPU 需求成為封測主力。",
     "key_trends": [
-      "產業動態(8 則):個別銘柄戦略: フルヤ金屬やメイコーに注目(フィスコ)",
-      "營收與財報(5 則):【本日のおすすめ銘柄】フルヤ金屬、第1四半期営業利益は前年同期比3.8倍(フィスコ)",
-      "擴產與投資(3 則):워트, SK하이닉스 설비투자 확대로 실적 개선 \"올 영업익 70억 기대\" - 머니투데이"
+      "貴金屬靶材廠業績亮眼:Furuya 金屬第一季創新高",
+      "JX金屬半導體材料增產 50%",
+      "美光桃園新廠勞資協商持續",
+      "SK海力士擴大設備投資帶動韓國供應鏈"
     ],
     "watch_points": [
-      "워트, SK하이닉스 설비투자 확대로 실적 개선 \"올 영업익 70억 기대\" - 머니투데이(머니투데이)",
-      "【22:30 即時新聞】Micron Technology(MU) 暴漲近8%／記憶體股短線急殺後反彈、桃園新廠勞資爭議持續協商(美股放大鏡)",
-      "JX金屬が半導體材料を50％増産、生成AI需要の拡大を受け：材料技術(MONOist)"
+      "美光桃園新廠勞資協商結果",
+      "Furuya 金屬奈米粒子新產品進展",
+      "美國 CPI 公布後的金銀價格走勢"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -28,14 +29,14 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "營收與財報",
-        "客戶與供應鏈"
+        "營收與財報"
       ],
       "score": 6.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "韓國 WATT 受惠 SK海力士擴大設備投資,業績改善,預估今年營業利益 70 億韓元。顯示 SK海力士擴產帶動設備供應鏈。",
+      "importance": 2,
+      "title_zh": "WATT 受惠 SK海力士設備投資擴大,業績改善:「預估今年營業利益 70 億韓元」",
       "snippet_zh": ""
     },
     {
@@ -55,8 +56,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區文章:AI 帶動晶片封裝競爭,台積電產能吃緊,輝達資助台廠擴產。屬討論區內容。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -72,13 +73,13 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "技術與新產品",
-        "客戶與供應鏈"
+        "技術與新產品"
       ],
       "score": 5.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光股價急殺後反彈近 8%,桃園新廠勞資爭議持續協商。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -98,9 +99,9 @@
         "技術與新產品"
       ],
       "score": 5.28,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬因生成式 AI 需求擴大,半導體材料增產 50%。與前幾日高純度硫酸銅增產報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬因生成式 AI 需求擴大,半導體材料增產 50%",
       "snippet_zh": ""
     },
     {
@@ -118,9 +119,9 @@
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬第一季營業利益為去年同期的 3.8 倍,獲列為推薦個股。與前幾日 Furuya 金屬第一季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "【今日推薦個股】Furuya 金屬第一季營業利益為去年同期 3.8 倍",
       "snippet_zh": ""
     },
     {
@@ -138,9 +139,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 第三季營業虧損 46 億韓元,由去年同期獲利轉為虧損。與前幾日報導為同一事件。",
+      "importance": 2,
+      "title_zh": "AVACO 第三季營業虧損 46 億韓元,由去年獲利轉虧",
       "snippet_zh": ""
     },
     {
@@ -158,9 +159,9 @@
         "營收與財報"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 第三季法說重點。與前幾日報導重複。",
+      "importance": 1,
+      "title_zh": "Materion 第三季法說重點",
       "snippet_zh": ""
     },
     {
@@ -178,9 +179,9 @@
         "營收與財報"
       ],
       "score": 3.85,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "AVACO 第三季營業虧損 46 億韓元。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "AVACO 第三季營業虧損 46 億韓元",
       "snippet_zh": ""
     },
     {
@@ -198,9 +199,9 @@
         "營收與財報"
       ],
       "score": 3.61,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬第一季營收與獲利創新高,主要由電子領域需求帶動。與前幾日 Furuya 金屬第一季財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Furuya 金屬:電子領域需求帶動第一季營收與獲利創紀錄",
       "snippet_zh": ""
     },
     {
@@ -218,9 +219,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元走強後,銀價漲勢面臨美國 CPI 考驗。",
+      "importance": 1,
+      "title_zh": "銀價預測:美元走強後,漲勢面臨美國 CPI 考驗",
       "snippet_zh": ""
     },
     {
@@ -238,9 +239,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "越南 11 月 9 日金價,上升趨勢面臨挑戰。屬地區金價資訊。",
+      "importance": 1,
+      "title_zh": "11 月 9 日金價:上升趨勢面臨挑戰,SJC 金價仍高",
       "snippet_zh": ""
     },
     {
@@ -258,9 +259,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "越南 11 月 9 日 SJC 金價、9999 金戒與國際金價。屬地區金價資訊。",
+      "importance": 1,
+      "title_zh": "2026 年 11 月 9 日金價:SJC 金價、9999 金戒價格與國際金價",
       "snippet_zh": ""
     },
     {
@@ -278,9 +279,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元壓力下銀價難以回升。屬銀價評論。",
+      "importance": 1,
+      "title_zh": "2026 年 11 月 9 日銀價:美元壓力下銀價難以回升",
       "snippet_zh": ""
     },
     {
@@ -295,12 +296,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "個股策略文章關注 Furuya 金屬與 Meiko。屬股市評論。",
+      "importance": 1,
+      "title_zh": "個股策略:關注 Furuya 金屬與 Meiko",
       "snippet_zh": ""
     },
     {
@@ -315,12 +317,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "今早焦點新聞提及 Furuya 金屬等個股。屬股市評論。",
+      "importance": 1,
+      "title_zh": "今早焦點新聞:關注 Furuya 金屬、santec、平野科技等",
       "snippet_zh": ""
     },
     {
@@ -335,12 +338,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬開設金屬奈米粒子專屬網站。與前幾日奈米粒子布局報導相關。",
+      "importance": 2,
+      "title_zh": "Furuya 金屬開設金屬奈米粒子專屬網站",
       "snippet_zh": ""
     },
     {
@@ -355,11 +359,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導江豐電子從簡陋廠房發展為世界一流靶材廠的歷程。反映中國靶材國產化進程。",
+      "importance": 3,
       "title_zh": "一塊靶材的“爭氣”之路——江豐電子從“帶魚”廠房走向世界一流",
       "snippet_zh": ""
     },
@@ -375,11 +380,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽品表示 CPU 需求強勁成為封測廠主力,先進封裝獲利需跨過一定門檻。封裝需求持續有利 PVD 靶材。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -395,11 +401,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 6 日主力資金淨賣出 4.11 億元。與前一日報導重複。",
+      "importance": 1,
       "title_zh": "股票行情快報：有研新材（600206）11月6日主力資金淨賣出4.11億元_主力研究",
       "snippet_zh": ""
     },
@@ -415,12 +422,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.63,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬股價走勢圖資料頁。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬(7826):股價走勢圖",
       "snippet_zh": ""
     },
     {
@@ -435,11 +443,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "個人操作日記提及有研新材連板後減碼。屬投資評論。",
+      "importance": 1,
       "title_zh": "有研新材連板後再衝高，今天做了點減法",
       "snippet_zh": ""
     },
@@ -455,12 +464,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬新聞彙整頁。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬(7826):新聞與最新資訊",
       "snippet_zh": ""
     },
     {
@@ -475,11 +485,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.57,
-      "summary": "",
-      "importance": 0,
+      "summary": "個人早評提及有研新材。屬股市評論。",
+      "importance": 1,
       "title_zh": "11.06早評：有研新材",
       "snippet_zh": ""
     },
@@ -495,11 +506,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "美元指數上漲,COMEX 黃金下跌 0.9%。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -515,11 +527,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材漲停封板,主力主導特徵明顯。屬股市評論。",
+      "importance": 1,
       "title_zh": "有研新材漲停封板，主力主導特徵明顯",
       "snippet_zh": ""
     },
@@ -535,11 +548,12 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 第三財季調整後收益與淨銷售成長,上調 2026 財年調整後每股盈餘展望。與前幾日報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     }
