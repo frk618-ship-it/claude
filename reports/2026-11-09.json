@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-09T08:28:05.684493+08:00",
+  "generated": "2026-11-09T09:11:57.904994+08:00",
   "days": 7,
   "digest": {
     "overview": "本期多為前幾日事件的延續報導。Furuya 金屬第一季營收與獲利創新高,受電子領域需求帶動,並開設金屬奈米粒子專屬網站;JX金屬半導體材料增產 50% 持續受關注。記憶體方面,美光股價急跌後反彈,桃園新廠勞資爭議仍在協商;韓國設備業者受惠 SK海力士擴大設備投資。另有報導回顧江豐電子成長為世界級靶材廠的歷程,矽品指 CPU 需求成為封測主力。",
@@ -17,6 +17,226 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "2eace2f22015055f",
+      "title": "フルヤ金属は大幅反発、第１四半期営業利益３．８倍",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBVUzQ2RV8wR25GUl9RNUQ0QlBVLWxiYVlsRFh4Q2R0c1Uwd3BFVDhmMjA5d3lSd3NFRzdBeHBSN1k3XzVPNFRYV081amVYU2ZIbG8wdFRZb2xEZTVuQlktbw?oc=5",
+      "source": "株探",
+      "published": "2026-11-09T00:31:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b7856bec363bd1d9",
+      "title": "Furuya Metal Reports Sharp First-Quarter Profit Growth",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNRTR0YTJpWVJRdGh2MEYzQ3cwemRNbUprZzlTcm9GdldUNlJDN0xPLXQwY0hvQ0NTNTJwYVZwbmx2eVdDRFVkQk5WRTFSeUZQM1BhSl9wcmtfaUJtRUlaUVY1RGZPUnY2LTE0WUJrYlFna2tCd0pCQTZCZWpPWDlRa2hQLTlZTmVLdl93TjhrQXFfQUZndG03TWFxTUtMY0RGSVhlc2hkQ291Wmszekp1bTNxQkVhRXFabXhuMVpaVnBiZw?oc=5",
+      "source": "TipRanks",
+      "published": "2026-11-05T08:00:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.47,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "db42ebadf4a60f5c",
+      "title": "Freedom Capital Markets maintains Materion at Buy, lowers price target to $280 from $330",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcUJmUEVSbElSWnpjWldIZ2hWSWU1OVR3RTlSRzNVeDZLZkZsam1SeFN2YncyX3lEcW1WMHh5Z2liSzVFNXBWRGhOSUk2X1dHeEhjcjFCcTgxeGFCd3NUc0s3T09jMW9VQ0p3VFBTNXBNc09iekpmNUoxNGYzWlRLZjdCVHZaYmFwRHpqV3lYdzB0Y1h1TWtOZktPbV9oeXN6V1ZOTWZVeUNxWVZoRDZSeDl0eEpBTnhPOGdRZzJqNHVaQ3RvZEtNb2FNUGxEVU9wbWQ4bmhQbnpBSjRJQ293Wg?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-05T13:26:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "27ba89ec0ed002a6",
+      "title": "Gold Price Forecast: XAU/USD Rebound Above $4,000 Points Higher but Faces FED and CPI Test",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSWo2TktZR19iZTNwLVNXTVE5NGRlVU12RjEtdTlIQWZYQ2xLdW96YTBzaVpSb0ZhR3Q0a2hSMmZ2R1RSbkV1Mm9wVU1xZ3VIYUZNM2ZnMDRFNmI1RkV4dWdLdkNKUXBnUFdFd25neTAxamFnUzZPLWNGWG8xTVZsRzhXaFcyTzRlc1dpdUlmS29paUhMMHQzRE9WSUl3YTdQRnJZVDExWXB3NW9rakR4NDRxNWFCYjduS1h3OGlTeEFBTE5zWjdsVHVn?oc=5",
+      "source": "FXLeaders",
+      "published": "2026-11-08T21:38:54+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.28,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6178fac8fb48a85f",
+      "title": "フルヤ金属が４日ぶり急反発、第１四半期は大幅な増収増益(ウエルスアドバイザー)",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxORHlwdzE3V08tYkQ1VTRDdXUxWGg5SGVKdlNILVJPM1ltaG5RYS00eHVYMXp2dnlPX041NXZmcElKVHl0cGVmZmtnbUtVODhmc3ZjMWVfWDR2TDgzaEtQeE5vRTdMbDZ2S2k1dHd3YWF1MHJ3OGpoMDQ5TGphTUV4cm5UaVg4ZHc?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-11-09T00:49:34+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "89c839b0b51660d0",
+      "title": "フルヤ金属－買い気配 1Q営業益3.8倍 データセンター関連需要の拡大などが寄与〔DZH 個別株情報〕(時事通信)",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOWDRtLXRMdUFKbmNlU3FQd2dwbEQ1cXl5LTMxa0VlcTc4aU92R0twLW9GU3N0M0RzbDd6MlFLTW0wMVRTV0FzbGJ0bEhMcmZyazZqVGZnYTR1VVY1ak1QdVBOQ3dxYnF5bFpISlhtU0JGa0FEUGVXSzMyM2tzQjV0OFgzNnhPTVU?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-11-09T00:27:28+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e3cfe79ce0f0f9b2",
+      "title": "個別銘柄戦略: フルヤ金属やメイコーに注目 執筆 Fisco - Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5EcFp3ZnZzZFYzNHpVVVRQRUhSQ0E1SDFGV0NVU0lBbGVtZmtYSUh4QlA4WmJEcnVfVnNGU2lHd1BBc3J2WlFrWXlQaTNGWlJ5bm5zbFVvTWMyeXZmQ2FzYWxvN0hqR0E?oc=5",
+      "source": "Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "published": "2026-11-09T00:18:00+00:00",
+      "snippet": "個別銘柄戦略: フルヤ金属やメイコーに注目 執筆 Fisco Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "119eba14930d851d",
+      "title": "股票行情快报：欧莱新材（688530）11月6日主力资金净卖出1429.23万元",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8zOHRpTWFkc0UzdVJsMlNLMnE5MnhMRVpsZVFqMVd1djBlRHdGUTJuamtsVFRqSGg0OTFvdDJJWE5kWTVLdDUybUFMQTRRWWtUU2xBY1lR?oc=5",
+      "source": "搜狐网",
+      "published": "2026-11-07T02:16:15+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.72,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "股票行情快報：歐萊新材（688530）11月6日主力資金淨賣出1429.23萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8701f1a6289b9fe0",
+      "title": "11 月 5 日热门股整理：光伏与AI 板块表现及风险提示|宁德时代|贵州茅台|有研新材|热门股|A 股_新浪新闻",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9ucDdoQWQ3Z1pFOEl2bjVoeXZzZlV3aVNBcWMxeENxaF9haUsxeDBBVVBSOWdpRXlURVBaTmVSbWh2Unc1TlUzQWRTR0IzdTVJU1NMMDJteGFpNVMycjJNS21NNA?oc=5",
+      "source": "新浪网",
+      "published": "2026-11-05T09:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "11 月 5 日熱門股整理：光伏與AI 板塊表現及風險提示|寧德時代|貴州茅臺|有研新材|熱門股|A 股_新浪新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "73aa0f73b0f2e277",
+      "title": "KeyBanc維持Materion(MTRN.US)買入評級，下調目標價至232美元",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcklXLWZBTk15aS1CZVg3c0VpT3AwZW1nMkdpdDFxQ3h4dXJtRERENUlHNndNcTlIY25IeENUZXMxeHVYelItdnlUMjg2STNRYTY5UmZPY2MyVTZ4WEUtQkZGYnRYOHpGYXJLY0lLZnBsZTRGMlBoaEYtLV9VS0xsYXlrZWZIM0djWDYyVWhXN2k5RnBmc2psQW9TTlNOamtNQzJkeVc0YlBVTExjbFhKOEVaLXM5Tnc?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-05T09:33:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c20c2daec7b0b66d",
+      "title": "Gold is still 25% below its peak even as demand reaches $188B in Q3",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1pLWpOamVFMWhlZDZxRTNIVG1IbTQ5X3JQb3F1Z002bkpSall5MXFTOFdBOHpxaTB3c2NXNWRVQ0ZkVVl1d1Q0dkhXTWRCUE5ETDV4V0JBTjc?oc=5",
+      "source": "Cryptonews.net",
+      "published": "2026-11-08T21:06:14+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "281621f00a68b774",
       "title": "워트, SK하이닉스 설비투자 확대로 실적 개선 \"올 영업익 70억 기대\" - 머니투데이",
@@ -562,44 +782,71 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4077.5,
+      "price": 4114.2,
       "prev": 4074.9,
       "date": "2026-11-09",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.06
+      "change_pct": 0.96
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 52.13,
+      "price": 52.95,
       "prev": 51.8,
       "date": "2026-11-09",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.64
+      "change_pct": 2.22
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1543.6,
+      "price": 1552.1,
       "prev": 1538.2,
       "date": "2026-11-09",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.35
+      "change_pct": 0.9
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1014.1,
-      "prev": 1041.0,
-      "date": "2026-11-06",
+      "price": 1042.5,
+      "prev": 1014.1,
+      "date": "2026-11-09",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -2.58
+      "change_pct": 2.8
     }
   ],
-  "papers": [],
+  "papers": [
+    {
+      "id": "p-bcb2983541acd569",
+      "title": "High-Purity PVD Sputtering Targets, 4M Monolithic Rotary Tubes & Ultrasonic C-Scan Indium Bonding Benchmark (2026)",
+      "link": "https://osf.io/pfj93",
+      "published": "2026-11-03T00:00:00+00:00",
+      "venue": "OSF Preprints (OSF Preprints)",
+      "authors": [
+        "Will Sun"
+      ],
+      "abstract": "Metallurgical purity (4N–6N GDMS), Cold Isostatic Pressing (>99.5% relative density in ITO/AZO ceramics), 4,000 mm monolithic rotary cathode utilization, and >99% ultrasonic C-scan Indium vacuum bonding specifications. Datasheets at https://www.super-materials.com/products/ito-ceramic-target and https://www.super-materials.com/manufacturing",
+      "doi": "",
+      "source": "OpenAlex",
+      "topics": [
+        "粉末冶金與燒結",
+        "高純化與雜質控制",
+        "綁定與背板",
+        "陶瓷與氧化物靶",
+        "旋轉靶",
+        "濺鍍行為與靶材利用率"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "core"
+    }
+  ],
   "research_days": 30
 }
