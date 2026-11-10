@@ -139,8 +139,11 @@ def fab_nav(current: str, root: str, skip: set[str] | frozenset[str] = frozenset
         f'{" aria-current=page" if key == current else ""}>{html.escape(label)}<span class="fi">{_svg(icon)}</span></a></li>'
         for k, (key, label, path, icon) in enumerate(pages)
     )
+    from .taste import layer
+
     return (
         corner_logo()
+        + layer()
         + f"<style>{STYLE}</style>"
         '<div class="fab-scrim" id="fab-scrim"></div>'
         f'<nav class="fabnav" id="fabnav" aria-label="切換頁面"><ul class="fab-list">{items}</ul>'

@@ -18,6 +18,7 @@ from pathlib import Path
 from .config import Config
 from .charts import CHART_SCRIPT, CHART_STYLE, columns, hbar, index_lines, meter
 from .fabnav import fab_nav
+from .taste import FONT_LINKS
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
@@ -104,7 +105,7 @@ STYLE = """
 --k-research:var(--series-6);--k-metals:var(--series-7);--k-profile:var(--series-8);
 --on-accent:#fbfcfd;--on-signal:#131415;--focus:#1f5fa8;--space-3xs:2px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:40px;--space-2xl:64px;--space-3xl:96px;--space-4xl:144px;
 --radius-s:4px;--radius:6px;--radius-l:8px;--radius-pill:99px;--ease-out:cubic-bezier(.16,1,.3,1);--ease-in:cubic-bezier(.7,0,.84,0);--dur-micro:120ms;--dur-short:220ms;--dur-long:420ms;
---font-display:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+--font-display:"Geist","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-body:"Geist","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"Geist Mono","IBM Plex Mono",ui-monospace,Menlo,monospace}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--faint:#888889;--line:#29313c;--grid:#29313c;--axis:#3a4350;
 --accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;--accent-track:#2b4c78;--hero:#1a2a40;--deemph:#4d5560;--brand-orange:#f39043;--brand-orange-ink:#f39043;
 --series-1:#4a8ad6;--series-2:#d36f1c;--series-3:#1ba3bd;--series-4:#c98500;--series-5:#d55181;--series-6:#008300;--series-7:#9085e9;--series-8:#e66767;
@@ -115,8 +116,8 @@ color-scheme:dark}}
 a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}a:hover{text-decoration-thickness:2px}
 :where(a,button,summary,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--radius-s)}
 .ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.18em}
-h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;overflow-wrap:break-word;min-width:0}h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;line-height:1.12;letter-spacing:-.02em}p,li{text-wrap:pretty}
-h2{font-size:1.375rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-xs) var(--space-sm)}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;overflow-wrap:break-word;min-width:0}h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:600;line-height:1.12;letter-spacing:-.02em}p,li{text-wrap:pretty}
+h2{font-size:1.375rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-xs) var(--space-sm)}
 h2 .hic{display:inline-grid;place-items:center;width:26px;height:26px;color:var(--accent)}
 h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:.875rem;color:var(--muted);font-weight:400;letter-spacing:0}
 .mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:var(--space-md);min-width:0}
@@ -129,7 +130,7 @@ h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-body);font-v
 /* hero: the head on seven columns, the period's lead story on five */
 .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--space-xl);align-items:end;margin-top:calc(var(--space-2xl) - var(--space-3xl))}
 .hero-text{grid-column:1/span 7;display:grid;gap:var(--space-md);align-content:end}.hero-plain .hero-text{grid-column:1/span 9}
-.hero h1{font-size:clamp(2.5rem,5.6vw,4.25rem);line-height:1.04;letter-spacing:-.035em;max-width:14ch}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.25rem);font-weight:600;line-height:1.04;letter-spacing:-.035em;max-width:14ch}
 .dateline{display:inline-flex;gap:var(--space-xs);align-items:center;color:var(--muted);font-size:.9375rem;font-variant-numeric:tabular-nums}
 .lede{font-size:1.1875rem;line-height:1.55;max-width:34ch;color:var(--fg)}
 .actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-xs)}.actions .btn{min-height:44px;padding-inline:var(--space-lg);font-size:.9375rem;white-space:nowrap}
@@ -513,9 +514,8 @@ def _head(title: str, description: str = SITE_DESCRIPTION, site_url: str = "", p
     return (
         '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         f'<title>{esc(title)}</title>{_share_meta(title, description, site_url, page)}<link rel="icon" href="{favicon_href()}">'
-        '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
-        f"<style>{STYLE}</style></head><body>{SPRITE}"
+        + FONT_LINKS
+        + f"<style>{STYLE}</style></head><body>{SPRITE}"
     )
 
 
@@ -606,7 +606,7 @@ def render_forecasts(config: Config, generated: str) -> str:
               config.settings.site_url, "forecast.html")
         + f"""<div class="wrap">
 {_mast("", [(f"#fc{n}", esc(f.get("section") or f.get("report", ""))) for n, f in enumerate(config.forecasts)])}
-<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<section class="hero hero-plain" data-enter aria-labelledby="h1"><div class="hero-text">
 <p class="dateline">{icon("calendar")}<span>更新於 <span class="mono">{esc(generated)}</span></span></p>
 <h1 id="h1">靶材商情預測</h1>
 <p class="lede">市場調查報告的重點摘要:規模、用途、材料與廠商動向,均註明出處。</p></div></section>
@@ -637,7 +637,7 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
               config.settings.site_url, "papers.html")
         + f"""<div class="wrap">
 {_mast("", [("#lib", "全部文獻")])}
-<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<section class="hero hero-plain" data-enter aria-labelledby="h1"><div class="hero-text">
 <p class="dateline">{icon("calendar")}<span>更新於 <span class="mono">{esc(generated)}</span></span></p>
 <h1 id="h1">靶材技術文獻庫</h1>
 <p class="lede">靶材製造的期刊論文與預印本,永久收錄,附繁體中文摘要。</p></div></section>
@@ -724,7 +724,7 @@ def render_page(
             '<p class="sub">AI 摘要尚未產生,以下為依類別與評分自動整理的重點;Claude 摘要完成後會自動更新。</p>' if auto else ""
         )
         lede = _headline_clause(digest["overview"]) or _count_line(len(items), len(covered), len(companies))
-        summary += f'<p class="lead">{esc(digest["overview"])}</p>'
+        summary += f'<p class="lead" data-moment="word-highlight">{esc(digest["overview"])}</p>'
         if digest.get("key_trends"):
             aside += f"<h3>{'主要主題' if auto else '產業趨勢'}</h3><ol class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ol>"
         if digest.get("watch_points"):
@@ -776,7 +776,7 @@ def render_page(
               "" if current == HOME_PAGE else f"{current}.html")
         + f"""<div class="wrap">
 {_mast(home, links)}
-<section class="hero" aria-labelledby="h1">
+<section class="hero" data-enter aria-labelledby="h1">
 <div class="hero-text"><p class="dateline">{icon("calendar")}<span>{esc(label)}{" 合併" if len(span) > 1 else ""}</span></p>
 <h1 id="h1">靶材產業新聞摘要</h1>
 <p class="lede">{esc(lede)}</p>

@@ -857,7 +857,7 @@ def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "
               config.settings.site_url, "quiz.html")
         + f"""<style>{GAME_STYLE}</style><div class="wrap" style="max-width:1180px">
 {_mast("", [])}
-<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<section class="hero hero-plain" data-enter aria-labelledby="h1"><div class="hero-text">
 <p class="dateline">{icon("calendar")}<span>題庫更新於 <span class="mono">{esc(generated)}</span></span></p>
 <h1 id="h1">靶材產業島</h1>
 <p class="lede">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,進度只存在你的瀏覽器。</p></div></section>

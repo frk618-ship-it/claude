@@ -19,9 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://frk618-ship-it.github.io/claude/financials/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
 <style>
 /* Hallmark · restyle · app screen · brand: 鑫科材料 (TTMC) navy, teal and orange, kept · posture: restrained · layout: kept */
 /* critique: one body face, labels in sentence case and untracked, no emoji status icons, no dot-joined meta, solid tokens instead of alpha colours, instant focus rings */
@@ -40,7 +38,7 @@
   --wash: #eef2f7;
   --focus-wash: #e4eaf2;
   --on-accent: #fbfcfd; --focus: #1f5fa8;
-  --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font: "Geist", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --space-3xs:2px; --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:40px; --space-2xl:64px; --space-3xl:96px; --space-4xl:144px;
   --radius-s: 4px; --radius: 6px; --ease-out: cubic-bezier(.16,1,.3,1); --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --other-mark: #b4b6ba;
@@ -164,7 +162,7 @@ svg .qtag { fill: var(--ink-3); font-size: 12px; }
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header data-enter>
     <div class="topbar"><h1 id="title">濺鍍靶材製造商財務指標儀表板</h1></div>
     <div class="sub" id="sub"></div>
     <details class="fold" id="banners-fold" hidden>
@@ -825,6 +823,65 @@ renderNotes();
 @media (max-width:720px){header.top,header>.topbar,header>.sub,header>.brand,header.mast{padding-right:52px}}
 @media print{.corner-logo{position:static;width:max-content;margin:0 0 0 auto}}
 </style><div class="corner-logo"><img class="cl-mark" src="data:image/png;base64,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" alt="TTMC"><span class="cl-name">鑫科材料科技股份有限公司</span></div><style>
+/* taste-skill 2.5 motion layer · pairing: geist (display and text Geist, figures Geist Mono; Chinese in Noto Sans TC) */
+:root{--m-in:150ms;--m-out:120ms;--m-press:90ms;--m-image:600ms;--m-ease:cubic-bezier(.2,.8,.2,1);--m-ease-enter:cubic-bezier(.22,1,.36,1);
+  --m-lift:-2px;--m-shadow:0 10px 24px rgba(19,20,21,.08)}
+/* buttons: the fill steps toward the ink and the box rises 1px; a press sinks it 1px and shrinks it 1.5% */
+:is(.btn,.chip,button.f,.g-btn,.tab,.extlinks a,.seg button){transition:background-color var(--m-out) var(--m-ease),color var(--m-out) var(--m-ease),
+  border-color var(--m-out) var(--m-ease),transform var(--m-press) var(--m-ease)}
+:is(.btn,.chip,button.f,.g-btn,.tab,.extlinks a,.seg button):active{transform:translateY(1px) scale(.985)}
+/* linked cards lift 2px, their border darkens a step and a soft shadow comes in; cards without a link stay still */
+:is(.card:has(a[href]),.lead-story,button.card,.hs,.ilist .irow){transition:transform var(--m-out) var(--m-ease),box-shadow var(--m-out) var(--m-ease),border-color var(--m-out) var(--m-ease)}
+/* underlines draw left to right under titles and section links */
+:is(.card h3 a,.lead-title a,.secnav a,.wordmark){text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;
+  transition:background-size var(--m-out) var(--m-ease),color var(--m-out) var(--m-ease)}
+:is(.card h3 a,.lead-title a,.secnav a):focus-visible{background-size:100% 1px}
+@media (hover:hover) and (pointer:fine){
+  :is(.btn,.chip,button.f,.g-btn,.tab,.extlinks a):hover{transform:translateY(-1px);transition-duration:var(--m-in)}
+  :is(.btn,.chip,button.f,.g-btn,.tab,.extlinks a):active{transform:translateY(1px) scale(.985)}
+  :is(.card:has(a[href]),.lead-story,button.card,.hs):hover{transform:translateY(var(--m-lift));box-shadow:var(--m-shadow);transition-duration:var(--m-in)}
+  :is(.card h3 a,.lead-title a,.secnav a):hover{background-size:100% 1px;transition-duration:var(--m-in)}
+}
+/* the hero's entrance, once on load: the title rises out of its mask, then the line above it, the lead and the
+   buttons fade up 12px, 60ms apart; the hero's picture settles from .98. CSS only, so the page is whole without script */
+[data-enter] h1{animation:m-rise 700ms var(--m-ease-enter) both}
+[data-enter] :is(.dateline,.lede,.actions,.sub,.meta,.extlinks,.tabs){animation:m-up 520ms var(--m-ease-enter) both;animation-delay:calc(350ms + var(--m-i,0) * 60ms)}
+[data-enter] .lede{--m-i:1}[data-enter] .actions,[data-enter] .meta{--m-i:2}[data-enter] .extlinks,[data-enter] .tabs{--m-i:3}
+[data-enter] :is(.lead-story,[data-enter-media]){animation:m-settle 900ms var(--m-ease-enter) both}
+@keyframes m-rise{from{transform:translateY(.45em);clip-path:inset(0 0 100% 0)}to{transform:none;clip-path:inset(0 0 -20% 0)}}
+@keyframes m-up{from{opacity:0;transform:translateY(12px)}}
+@keyframes m-settle{from{transform:scale(.98)}}
+/* the dealt moment: a statement that lights up as it scrolls through the screen */
+.m-highlight .m-w{color:var(--faint,#7c7d80);transition:color 300ms var(--m-ease)}.m-highlight .m-w.on{color:inherit}
+@media (prefers-reduced-motion:reduce){
+  [data-enter] *,[data-enter] h1{animation:none!important}
+  :is(.btn,.chip,button.f,.g-btn,.tab,.extlinks a,.card,.lead-story,.hs){transform:none!important}
+  .m-highlight .m-w{color:inherit}
+}
+</style><script>
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('[data-moment="word-highlight"]').forEach(function(p){
+    // split the statement into clauses; each lights up as the paragraph passes the middle of the screen
+    var parts = p.textContent.split(/(?<=[,;:、。!?,;:])/);
+    if (parts.length < 3) return;
+    p.textContent = '';
+    var spans = parts.map(function(t){ var s = document.createElement('span'); s.className = 'm-w'; s.textContent = t; p.appendChild(s); return s; });
+    p.classList.add('m-highlight');
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var r = p.getBoundingClientRect(), vh = innerHeight;
+      var progress = (vh * 0.85 - r.top) / (r.height + vh * 0.35);
+      var lit = Math.max(0, Math.min(spans.length, Math.round(progress * spans.length)));
+      spans.forEach(function(s, i){ s.classList.toggle('on', i < lit); });
+    }
+    addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }, {passive: true});
+    addEventListener('resize', update);
+    update();
+  });
+})();
+</script><style>
 :root{--fab-accent:var(--accent,#173c66);--fab-accent-2:var(--accent-2,#005a7f);--fab-surface:var(--surface,#fbfcfd);--fab-ink:var(--fg,var(--ink-1,var(--ink,#131415)));
   --fab-on:#fbfcfd;--fab-on-soft:rgba(251,252,253,.2);--fab-scrim:rgba(19,20,21,.18);--fab-font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   --fab-ease:cubic-bezier(.16,1,.3,1);--fab-micro:120ms;--fab-short:220ms}

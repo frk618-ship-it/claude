@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>貴金屬價格預警</title>
 <meta name="description" content="黃金、白銀、鉑金、鈀金每小時技術指標綜合評分,提示相對低點(進場)與相對高點(出場)。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
 <style>
 /* Hallmark · restyle · app screen · brand: 鑫科材料 (TTMC) navy and orange, kept · posture: restrained · layout: kept */
 /* critique: tokens for every colour and font, no status dots or dot-joined meta, one radius per level, instant focus rings, motion off under reduced motion */
@@ -34,7 +32,7 @@
   --shadow: 0 1px 2px rgba(19,20,21,.05);
   --shadow-pop: 0 4px 16px rgba(19,20,21,.12);
   --brand-navy: #173c66; --brand-orange: #f39043; --focus: #1f5fa8;
-  --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font: "Geist", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --space-3xs:2px; --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:40px; --space-2xl:64px; --space-3xl:96px; --space-4xl:144px;
   --radius-s: 4px; --radius: 6px; --radius-l: 8px; --ease-out: cubic-bezier(.16,1,.3,1); --dur-micro: 120ms; --dur-short: 220ms;
 }
@@ -152,7 +150,7 @@ footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: v
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
+  <header class="top" data-enter>
     <div>
       <h1>貴金屬價格預警</h1>
       <div class="meta" id="meta"></div>
