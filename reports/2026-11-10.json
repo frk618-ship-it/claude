@@ -2,19 +2,23 @@
   "generated": "2026-11-10T08:28:29.690937+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 69 則,其中新聞與公司公告 59 則;報導最多的是 JX金屬(28 則)、光洋科(8 則)、古屋金屬(7 則)、美光(3 則)。依主題:產業動態 23 則、營收與財報 19 則、擴產與投資 7 則、併購與合作 3 則、原物料與價格 3 則。",
+    "overview": "本期兩大靶材廠財報亮眼:JX金屬上半年營業利益增至 2.2 倍、達 1,508 億日圓,上半年純益年增 128.1%,並將全年營業利益預估上修至 2,550 億日圓、純益預估 1,600 億日圓(年增 53%),表示 AI 需求不會減速;同時取得光學元件廠 Oxide 7.12% 股權,布局 AI 與量子材料。光洋科第三季每股盈餘 2.68 元創逾 18 年單季新高,10 月營收年增 52.8%,並擬發行最高 15 億元可轉債。記憶體方面,三星、SK海力士爭奪 EUV 產能擴產先進 DRAM,美光新加坡投資 310 億美元、桃園新廠勞資 11 月 17 日再協商。另有報告指中國高純金屬靶材國產化提速;貴金屬全面上漲,金價升 1.5%。",
     "key_trends": [
-      "產業動態(23 則):JX金屬－大幅続伸 通期営業益を上方修正 上期は2.2倍〔DZH 個別株情報〕(時事通信)",
-      "營收與財報(19 則):JX金屬因AI需求及銅價上漲上調全年業績指引 - Investing.com 香港 - 股市報價& 財經新聞",
-      "擴產與投資(7 則):臺積電、矽品擴產 中臺灣半導體黃金廊帶成形",
-      "併購與合作(3 則):【本日のおすすめ銘柄】オキサイド、JX金屬と資本業務提攜(フィスコ)"
+      "靶材龍頭獲利大增:JX金屬上修全年財測,光洋科第三季 EPS 創 18 年新高",
+      "JX金屬入股 Oxide,延伸至 AI、量子用光學材料",
+      "先進 DRAM 擴產:三星、SK海力士爭奪 EUV 產能",
+      "記憶體產能轉移:美光新加坡擴產、桃園新廠待勞資協商",
+      "中國高純金屬靶材國產化提速",
+      "貴金屬全面走高"
     ],
     "watch_points": [
-      "臺積電、矽品擴產 中臺灣半導體黃金廊帶成形(經濟日報)",
-      "光刻大戰開打！三星、SK海力士重金爭奪EUV產能 加碼先進DRAM擴產(鉅亨網)",
-      "美光新加坡砸310億美元擴產 桃園新廠進度受矚、勞資11/17再協商(ETtoday財經雲)"
+      "JX金屬下半年靶材出貨與銅價走勢",
+      "光洋科可轉債資金用途與 11 月營收",
+      "中國高端靶材替代對台日業者的影響",
+      "美光桃園新廠 11/17 勞資協商結果",
+      "美國 CPI 公布後金價能否突破 4,200 美元"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,8 +38,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電、矽品擴產,中台灣半導體黃金廊帶成形。中部新產能將帶動 PVD 與靶材需求。",
+      "importance": 3,
       "title_zh": "臺積電、矽品擴產 中臺灣半導體黃金廊帶成形",
       "snippet_zh": ""
     },
@@ -55,8 +59,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區轉載三星、SK海力士爭奪 EUV 產能的報導。屬討論區內容。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -76,8 +80,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星、SK海力士重金爭奪 EUV 產能,加碼先進 DRAM 擴產。先進 DRAM 擴產將帶動 Cu、Ta、W 等靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -97,8 +101,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光新加坡投資 310 億美元擴產,桃園新廠進度受關注,勞資雙方 11 月 17 日再協商。產能可能轉往新加坡,靶材供貨地點隨之調整。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -118,8 +122,8 @@
         "技術與新產品"
       ],
       "score": 5.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光 1,237 億元擴產布局南科臺南園區,市長黃偉哲表示將壯大半導體聚落。與前幾日報導為同一事件。",
+      "importance": 2,
       "title_zh": "日月光1237億元擴產佈局南科臺南園區黃偉哲：串聯先進製程與封裝測試壯大半導體產業聚落| 熱門亮點| 商情",
       "snippet_zh": ""
     },
@@ -139,8 +143,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "整理美光股價暴跌 17%、桃園新廠傳暫緩與勞資協商進度。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -160,8 +164,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "外媒爆勞資糾紛導致桃園新廠停工,美光發表回應。與前幾日報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -181,8 +185,8 @@
         "原物料與價格"
       ],
       "score": 4.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬因 AI 需求與銅價上漲上調全年業績指引。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -202,9 +206,9 @@
         "原物料與價格"
       ],
       "score": 4.72,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年營業利益增至 2.2 倍、達 1,508 億日圓,並將全年營業利益預估上修 230 億日圓至 2,550 億日圓,受 AI 資料中心需求與銅價上漲帶動。全球靶材龍頭獲利大增,反映半導體靶材需求強勁。",
+      "importance": 5,
+      "title_zh": "【JX金屬 FY2026 第二季法說】AI 資料中心需求與銅價上漲助攻,全年營業利益上修 230 億日圓至 2,550 億日圓",
       "snippet_zh": ""
     },
     {
@@ -223,9 +227,9 @@
         "原物料與價格"
       ],
       "score": 4.72,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬全年營業利益上修 230 億日圓至 2,550 億日圓,AI 資料中心需求與銅價上漲為主要動能。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "【JX金屬 FY2026 第二季法說】全年營業利益上修 230 億日圓至 2,550 億日圓",
       "snippet_zh": ""
     },
     {
@@ -244,8 +248,8 @@
         "原物料與價格"
       ],
       "score": 4.72,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬將 2027 年 3 月期淨利預估上修至 1,600 億日圓,AI 伺服器需求與銅價助攻。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -265,9 +269,9 @@
         "原物料與價格"
       ],
       "score": 4.72,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬因銅價上漲上修全年業績預估。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "〔財報〕JX金屬上修全年業績預估,銅價上漲",
       "snippet_zh": ""
     },
     {
@@ -286,9 +290,9 @@
         "原物料與價格"
       ],
       "score": 4.71,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬因 AI 需求與銅價上漲上修全年業績預估。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬因 AI 需求與銅價上漲,上修全年業績預估",
       "snippet_zh": ""
     },
     {
@@ -306,9 +310,9 @@
         "併購與合作"
       ],
       "score": 4.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Oxide 與 JX金屬進行資本與業務合作,獲列為推薦個股。與同期 JX金屬入股 Oxide 報導為同一事件。",
+      "importance": 3,
+      "title_zh": "【今日推薦個股】Oxide 與 JX金屬資本業務合作",
       "snippet_zh": ""
     },
     {
@@ -326,9 +330,9 @@
         "併購與合作"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將取得 Oxide 7.12% 股權。雙方在 AI 與量子領域材料展開資本與業務合作。",
+      "importance": 4,
+      "title_zh": "JX金屬將取得 Oxide 7.12% 股權",
       "snippet_zh": ""
     },
     {
@@ -346,9 +350,9 @@
         "併購與合作"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將取得光學元件廠 Oxide 逾 7% 股權(7.12%),雙方在 AI 與量子領域材料展開資本與業務合作。可能拓展其在光學與量子材料的布局。",
+      "importance": 4,
+      "title_zh": "JX金屬出資 Oxide 逾 7%,攜手 AI 與量子用材料",
       "snippet_zh": ""
     },
     {
@@ -366,9 +370,9 @@
         "營收與財報"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬預估全年淨利增 53%,並表示 AI 需求不會大幅放緩。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬(5016 JP)全年淨利預估增 53%:「AI 需求不會大幅放緩」",
       "snippet_zh": ""
     },
     {
@@ -386,8 +390,8 @@
         "營收與財報"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科 115 年前三季歸屬母公司淨利 37.78 億元,每股盈餘 6.34 元。與同期光洋科財報報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -406,8 +410,8 @@
         "營收與財報"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科第三季每股盈餘 2.68 元,創逾 18 年單季新高,淨利年增超過 130%。台灣靶材與貴金屬回收廠獲利大幅成長。",
+      "importance": 4,
       "title_zh": "【即時新聞】最新宣佈！光洋科第三季每股純益達2.68元，淨利年增超過130%",
       "snippet_zh": ""
     },
@@ -426,8 +430,8 @@
         "營收與財報"
       ],
       "score": 3.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科第三季每股盈餘 2.68 元。與同期光洋科財報報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -446,8 +450,8 @@
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科第三季每股盈餘寫下逾 18 年單季新高。與同期光洋科財報報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -466,8 +470,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科第三季每股盈餘 2.68 元,創逾 18 年單季新高,淨利年增超過 130%。台灣靶材與貴金屬回收廠獲利大幅成長。子公司創鉅前三季也大賺逾 1.6 個股本。",
+      "importance": 5,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -486,9 +490,9 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬因 AI 伺服器需求上調獲利展望。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬因 AI 伺服器需求上調獲利展望",
       "snippet_zh": ""
     },
     {
@@ -506,9 +510,9 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬 2027 年 3 月期純益預估增 53%,公司表示 AI 需求未減速。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "財報:JX金屬 2027 年 3 月期純益增 53%,「AI 需求未減速」",
       "snippet_zh": ""
     },
     {
@@ -526,8 +530,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電、聯發科領軍反彈,分析 AI 資本支出疑慮是否解除與資金輪動。屬市場評論。",
+      "importance": 2,
       "title_zh": "臺積電、聯發科領軍反彈，AI 資本支出疑慮解除了嗎？PCB、ABF、半導體設備資金輪動怎麼看｜股市話題",
       "snippet_zh": ""
     },
@@ -546,9 +550,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年歸屬淨利與淨銷售額成長。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬上半年歸屬淨利成長、淨銷售額增加",
       "snippet_zh": ""
     },
     {
@@ -566,9 +570,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年營業利益增逾一倍,全年財測上調至 2,550 億日圓。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬:上半年營業利益增逾一倍,全年財測上調至 2,550 億日圓",
       "snippet_zh": ""
     },
     {
@@ -586,9 +590,9 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年獲利大增並上調全年預估。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬:上半年獲利大增,上調全年預估",
       "snippet_zh": ""
     },
     {
@@ -606,9 +610,9 @@
         "營收與財報"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬 4 天來首度反彈,第一季純益增至 3.8 倍。與前幾日 Furuya 金屬第一季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Furuya 金屬 4 天來首度反彈,第一季純益 3.8 倍",
       "snippet_zh": ""
     },
     {
@@ -626,9 +630,9 @@
         "擴產與投資"
       ],
       "score": 3.83,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬因生成式 AI 需求擴大,半導體材料增產 50%。與前幾日報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬因生成式 AI 需求擴大,半導體材料增產 50%(MONOist)",
       "snippet_zh": ""
     },
     {
@@ -646,8 +650,8 @@
         "營收與財報"
       ],
       "score": 3.82,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科 10 月營收 51.12 億元,年增 52.8%。營收高成長延續第三季獲利動能。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -663,11 +667,12 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.72,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬上修全年營業利益 230 億日圓至 2,550 億日圓,AI 資料中心需求與銅價上漲助攻。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -683,12 +688,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.72,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將 2027 年 3 月期純益預估上修至 1,600 億日圓。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬上修 2027 年 3 月期純益至 1,600 億日圓,AI 伺服器需求與銅價助攻",
       "snippet_zh": ""
     },
     {
@@ -703,12 +709,13 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "技術與新產品"
       ],
       "score": 3.71,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "光洋科 10 月營收年增 52.8%。與同期報導為同一事件。",
+      "importance": 3,
+      "title_zh": "光洋科:10 月營收年增 52.8%",
       "snippet_zh": ""
     },
     {
@@ -723,11 +730,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 3.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃金週報:央行買進 321 公噸,並整理選後行情與企業財報。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -746,8 +754,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾重挫 5%,PC 展望疲弱與 AI 資本支出壓力拖累股價。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -766,9 +774,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "儘管金價波動,中國持續買進黃金。",
+      "importance": 2,
+      "title_zh": "金價波動下,中國持續買進黃金",
       "snippet_zh": ""
     },
     {
@@ -786,9 +794,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "11 月 10 日早盤金價突破阻力上漲。屬金價資訊。",
+      "importance": 1,
+      "title_zh": "11 月 10 日早盤金價更新:突破阻力上漲",
       "snippet_zh": ""
     },
     {
@@ -806,8 +814,8 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價一度暴漲逾 60 美元,CPI 可能決定能否攻破 4,200 美元。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -823,11 +831,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子預估股價淨值比資料頁。屬資料頁。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -843,12 +852,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬股價大幅續漲,上修全年營業利益,上半年增至 2.2 倍。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬大幅續漲:上修全年營業利益,上半年 2.2 倍",
       "snippet_zh": ""
     },
     {
@@ -863,11 +873,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科董事會決議發行第三次無擔保轉換公司債,總額上限 15 億元。資金可支應擴產或營運需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -883,12 +894,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "今日股價題材:JX金屬 2027 年 3 月期純益增 53%。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "今日股價題材(10 日):JX金屬 2027 年 3 月期純益增 53%",
       "snippet_zh": ""
     },
     {
@@ -903,12 +915,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將全年淨利預估上調至 1,600 億日圓。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬全年淨利預估上調至 1,600 億日圓",
       "snippet_zh": ""
     },
     {
@@ -923,12 +936,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬全年營業利益上修至 2,550 億日圓,AI 用材料需求擴大。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬全年營業利益上修至 2,550 億日圓,AI 用材料需求擴大",
       "snippet_zh": ""
     },
     {
@@ -943,11 +957,12 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬因晶片材料需求強勁上調全年利潤預期。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -963,12 +978,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Oxide 宣布與 JX金屬結盟並發行新股。與同期 JX金屬入股 Oxide 報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Oxide 宣布與 JX金屬結盟並發行新股",
       "snippet_zh": ""
     },
     {
@@ -983,11 +999,12 @@
         "產業綜合:溅射靶材"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "報告指中國高純金屬靶材國產化提速,高端替代窗口開啟。中國靶材廠在高端市場的替代將影響全球競爭格局。",
+      "importance": 4,
       "title_zh": "中國高純金屬靶材國產化提速 高端替代窗口開啟",
       "snippet_zh": ""
     },
@@ -1003,11 +1020,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子獨立董事提名人聲明與承諾。屬例行公告。",
+      "importance": 1,
       "title_zh": "江豐電子(300666):獨立董事提名人聲明與承諾（楊輝）",
       "snippet_zh": ""
     },
@@ -1023,12 +1041,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "JX金屬、中間連結純利益128．1％増 979億4500萬円(時事通信)",
+      "summary": "JX金屬上半年合併純益年增 128.1%,達 979.45 億日圓。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬上半年合併純益增 128.1%,達 979.45 億日圓",
       "snippet_zh": ""
     },
     {
@@ -1043,12 +1062,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬將取得光學元件廠 Oxide 逾 7% 股權(7.12%),雙方在 AI 與量子領域材料展開資本與業務合作。",
+      "importance": 4,
+      "title_zh": "JX金屬出資光學元件廠 Oxide 逾 7%,瞄準 AI 與量子領域",
       "snippet_zh": ""
     },
     {
@@ -1063,12 +1083,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬公告與 Oxide 資本業務合作,並以第三方配售認購股份。與同期 JX金屬入股 Oxide 報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬:與 Oxide 資本業務合作及以第三方配售認購股份公告",
       "snippet_zh": ""
     },
     {
@@ -1083,12 +1104,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年營業利益增至 2.2 倍、達 1,508 億日圓,全年預估上修至 2,550 億日圓。與同期 JX金屬財報與上修財測報導為同一事件。",
+      "importance": 4,
+      "title_zh": "JX金屬上半年營業利益 2.2 倍達 1,508 億日圓,全年預估上修至 2,550 億日圓",
       "snippet_zh": ""
     },
     {
@@ -1103,11 +1125,12 @@
         "力積電 (PSMC)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "力晶投控爆發經營權之爭,市場派砸 136 億元收購力積電股權,11 月 25 日決戰。經營權變動可能影響其擴產計畫。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1123,12 +1146,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬股價大幅反彈,第一季大幅增益、進度良好。與前幾日 Furuya 金屬第一季財報報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Furuya 金屬大幅反彈,第一季大幅增益、進度良好",
       "snippet_zh": ""
     },
     {
@@ -1143,12 +1167,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬大幅反彈,第一季大幅增益。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬大幅反彈,第一季大幅增益、進度良好",
       "snippet_zh": ""
     },
     {
@@ -1163,11 +1188,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電砸逾 700 億元擴建高雄廠,14 奈米製程瞄準 EUV,最快 2030 年導入。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1183,12 +1209,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日股動意株名單,含 Furuya 金屬。屬股市資訊。",
+      "importance": 1,
+      "title_zh": "〈動意株・9 日〉(上午盤):Secarite、TOWA、Furuya 金屬、A&D Holon",
       "snippet_zh": ""
     },
     {
@@ -1203,12 +1230,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日股盤中評論提及 Furuya 金屬等個股。屬股市資訊。",
+      "importance": 1,
+      "title_zh": "上午盤評論 No.4:TOWA、嬌聯、Ushio、瑞穗租賃、Furuya 金屬、樂清",
       "snippet_zh": ""
     },
     {
@@ -1223,12 +1251,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "成交量變化率排行,Furuya 金屬上榜。屬股市資訊。",
+      "importance": 1,
+      "title_zh": "成交量變化率排行(10 點時段):Furuya 金屬、EG 等上榜",
       "snippet_zh": ""
     },
     {
@@ -1243,11 +1272,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導江豐電子從初創期 8 年虧損走向世界一流靶材廠的歷程。反映中國靶材國產化進程。",
+      "importance": 3,
       "title_zh": "創業故事丨從初創期8年虧損，到走向世界一流！江豐電子：一塊靶材的“爭氣”之路",
       "snippet_zh": ""
     },
@@ -1263,12 +1293,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "個股策略文章關注 Furuya 金屬與 Meiko。與前幾日報導重複。",
+      "importance": 1,
+      "title_zh": "個股策略:關注 Furuya 金屬與 Meiko",
       "snippet_zh": ""
     },
     {
@@ -1283,12 +1314,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 2.79,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場報告整理 2026~2032 年全球氧化鑭濺鍍靶材市占、排名、銷售與需求預測。屬市場研究推廣內容。",
+      "importance": 2,
+      "title_zh": "氧化鑭濺鍍靶材:全球市占與排名、整體銷售與需求預測(2026~2032)",
       "snippet_zh": ""
     },
     {
@@ -1303,12 +1335,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.55,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 股價季節性報酬圖表。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(BEM.F)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -1323,12 +1356,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "油價測試新低,金價走升,銀、鉑同步。",
+      "importance": 2,
+      "title_zh": "金、銀、鉑預測:油價測試新低,金價走升",
       "snippet_zh": ""
     },
     {
@@ -1343,12 +1377,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析金價下跌日金礦股反而上漲的原因。屬礦業股評論。",
+      "importance": 1,
+      "title_zh": "金價下跌當天金礦股為何上漲",
       "snippet_zh": ""
     },
     {
@@ -1363,11 +1398,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "中國央行連續第 24 個月增持黃金,分析金價是否由快速走牛轉為溫和上行。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1383,12 +1419,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.33,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Seaport 以估值將 Materion 評等上調為買進。與前幾日報導重複。",
+      "importance": 1,
+      "title_zh": "Seaport 以估值將 Materion 評等上調為買進",
       "snippet_zh": ""
     },
     {
@@ -1403,11 +1440,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材漲停,主力流入 5.2 億元。屬股市行情。",
+      "importance": 1,
       "title_zh": "有研新材漲停主力流入5.2億",
       "snippet_zh": ""
     }
