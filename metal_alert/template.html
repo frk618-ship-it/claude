@@ -145,15 +145,9 @@ details summary { cursor: pointer; font-weight: 600; }
 footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: var(--space-lg); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
-/* Hallmark redesign (full depth, app screen): the four metals as a figures band, the selected one under the ink rule; open panels */
-.cards { gap: 0; border-bottom: 1px solid var(--grid); margin-bottom: var(--space-xl); }
-.card { border: 0; border-top: 3px solid var(--grid); border-radius: 0; background: none; padding: var(--space-md) var(--space-md) var(--space-md) 0; }
-.card + .card { padding-left: var(--space-md); border-left: 1px solid var(--grid); }
-.card:hover { border-top-color: var(--axis); }
-.card[aria-pressed="true"] { border-top-color: var(--brand-navy); outline: 0; }
+/* Hallmark redesign: larger prices; cards and panels stay cards (by request) */
 .card .px { font-size: 32px; }
-.panel { border: 0; border-top: 1px solid var(--grid); border-radius: 0; background: none; box-shadow: none; padding: var(--space-md) 0 0; margin-bottom: var(--space-xl); }
-@media (max-width: 720px) { .card + .card { border-left: 0; padding-left: 0; } }
+.card[aria-pressed="true"] { border-color: var(--brand-navy); outline: 1px solid var(--brand-navy); }
 </style>
 </head>
 <body>
