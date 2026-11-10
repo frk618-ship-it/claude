@@ -42,15 +42,20 @@ PLACEHOLDER = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"
 SHELL = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>需要密碼</title>
 <style>
-:root{--bg:#f3f4f6;--fg:#131415;--muted:#4d4e4f;--accent:#173c66;--accent-2:#005a7f;--up:#c62f2f}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:16px/1.6 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;padding:16px}
-form{background:#fff;border-top:4px solid var(--accent);box-shadow:inset 0 3px 0 -1px #f39043;border-radius:6px;padding:24px;width:min(100%,360px);display:grid;gap:12px}
-h1{margin:0;font-size:1.15rem}p{margin:0;font-size:.88rem;color:var(--muted)}
-input[type=password]{font:inherit;border:2px solid #dfe1e5;border-radius:6px;padding:10px 12px}input[type=password]:focus{outline:none;border-color:var(--accent)}
-label{font-size:.85rem;color:var(--muted);display:flex;gap:6px;align-items:center}
-button{font:inherit;font-weight:600;border:0;border-radius:6px;padding:10px;background:var(--accent);color:#fff;cursor:pointer}button:hover{background:var(--accent-2)}
-.err{color:var(--up);font-size:.85rem;min-height:1.3em}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1319;--fg:#eef0f3;--muted:#b4b6ba;--accent:#2b5a94}form{background:#161c24}input[type=password]{background:#0f1319;color:var(--fg);border-color:#29313c}}
+/* Hallmark · restyle · brand: 鑫科材料 (TTMC) navy and orange, kept · posture: restrained */
+:root{--bg:#f3f4f6;--surface:#fbfcfd;--fg:#131415;--muted:#4d4e4f;--line:#c3c6cc;--accent:#173c66;--accent-2:#005a7f;--on-accent:#fbfcfd;--orange:#f39043;--up:#c62f2f;--focus:#1f5fa8;
+--font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--radius:6px;--control:48px}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--line:#3a4350;--accent:#2b5a94;--focus:#9cbde6}}
+*{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;min-height:100dvh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:16px/1.6 var(--font);padding:var(--space-md);font-synthesis:none}
+form{background:var(--surface);border-top:4px solid var(--accent);box-shadow:inset 0 3px 0 -1px var(--orange);border-radius:var(--radius);padding:var(--space-lg);width:min(100%,360px);display:grid;gap:var(--space-sm)}
+h1{margin:0;font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}p{margin:0;font-size:.9375rem;color:var(--muted);text-wrap:pretty}
+input[type=password]{font:inherit;height:var(--control);border:1px solid var(--line);border-radius:var(--radius);padding:0 var(--space-sm);background:var(--surface);color:var(--fg)}
+label{font-size:.875rem;color:var(--muted);display:flex;gap:var(--space-xs);align-items:center}
+button{font:inherit;font-weight:600;height:var(--control);border:0;border-radius:var(--radius);padding:0 var(--space-md);background:var(--accent);color:var(--on-accent);cursor:pointer;transition:background-color 220ms cubic-bezier(.16,1,.3,1)}
+button:hover{background:var(--accent-2)}button:active{transform:translateY(1px)}button:disabled{opacity:.5;cursor:not-allowed}
+:where(input,button):focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.err{color:var(--up);font-size:.875rem;min-height:1.3em}
+@media (prefers-reduced-motion:reduce){button{transition:none}}
 </style></head><body>
 __LOGO__<form id="f" hidden><h1>這個網站需要密碼</h1><p>請輸入密碼,或使用含有金鑰的分享連結開啟。</p>
 <input type="password" id="pw" autocomplete="current-password" aria-label="密碼" required>

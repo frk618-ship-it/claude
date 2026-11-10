@@ -15,7 +15,12 @@
 <meta name="twitter:title" content="__TITLE__">
 <meta name="twitter:description" content="__DESCRIPTION__">
 <!--__SHARE_META__-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+/* Hallmark · restyle · app screen · brand: 鑫科材料 (TTMC) navy, teal and orange, kept · posture: restrained · layout: kept */
+/* critique: one body face, labels in sentence case and untracked, no emoji status icons, no dot-joined meta, solid tokens instead of alpha colours, instant focus rings */
 :root {
   color-scheme: light;
   /* palette from the 鑫科材料 (TTMC) logo via the data-viz method: cool-grey chrome, navy accent,
@@ -27,9 +32,13 @@
   --ink-3: #7c7d80;
   --grid: #e4e6ea;
   --axis: #c3c6cc;
-  --border: rgba(19,20,21,0.10);
-  --wash: rgba(31,95,168,0.06);
-  --focus-wash: rgba(31,95,168,0.10);
+  --border: #dfe1e5;
+  --wash: #eef2f7;
+  --focus-wash: #e4eaf2;
+  --on-accent: #fbfcfd; --focus: #1f5fa8;
+  --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --space-3xs:2px; --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:40px; --space-2xl:64px; --space-3xl:96px; --space-4xl:144px;
+  --radius-s: 4px; --radius: 6px; --ease-out: cubic-bezier(.16,1,.3,1); --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --other-mark: #b4b6ba;
   --accent: #173c66; --accent-2: #005a7f; --hero: #e4eaf2; --brand-orange: #f39043;
   --s1: #1f5fa8; --s2: #ee8a2e; --s3: #0f8fa6; --s4: #eda100;
@@ -37,43 +46,46 @@
   --ord-1: #173c66; --ord-2: #1f5fa8; --ord-3: #8fb3dd;  /* ordinal blue steps: target share high -> low */
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--page); color: var(--ink-1);
-  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
-header h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; }
-header { position: relative; padding: 0 0 14px; border-bottom: 3px solid var(--accent); }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--page); color: var(--ink-1); font: 15px/1.55 var(--font); font-synthesis: none; -webkit-font-smoothing: antialiased; }
+:where(a, button, summary, select, input, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-s); }
+h1, h2, h3 { text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: var(--space-lg) var(--space-md) var(--space-xl); }
+header h1 { font-size: 26px; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 var(--space-2xs); font-weight: 700; }
+header { position: relative; padding: 0 0 var(--space-md); border-bottom: 3px solid var(--accent); }
 header::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 96px; height: 3px; background: var(--brand-orange); }
-header .sub { color: var(--ink-2); font-size: 13px; }
-.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
-.fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; }
+header .sub { color: var(--ink-2); font-size: 13px; display: flex; flex-wrap: wrap; gap: var(--space-3xs) var(--space-md); font-variant-numeric: tabular-nums; }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs) var(--space-md); }
+.fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: var(--space-xs); color: var(--ink-2); font-size: 13px; }
 .fold > summary::-webkit-details-marker { display: none; }
-.fold > summary::before { content: "▸"; color: var(--ink-3); transition: transform .15s; }
+.fold > summary::before { content: "▸"; color: var(--ink-3); transition: transform var(--dur-micro) var(--ease-out); }
 .fold[open] > summary::before { transform: rotate(90deg); }
-.fold > summary:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; border-radius: 4px; }
 .fold > summary h2 { margin: 0; }
-#banners-fold { margin-top: 12px; }
+#banners-fold { margin-top: var(--space-sm); }
 .card.notes { align-self: start; }
-.banner { margin-top: 12px; padding: 8px 12px; border-radius: 4px; background: var(--wash); border: 0; color: var(--ink-2); font-size: 13px; }
-.filters { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 20px 0 16px; }
-.fgroup { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.fgroup > span { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
-.chip { border: 1px solid transparent; background: var(--surface); color: var(--ink-2); border-radius: 4px; padding: 4px 11px; font: inherit; font-size: 13px; cursor: pointer; }
+.banner { margin-top: var(--space-sm); padding: var(--space-xs) var(--space-sm); border-radius: 4px; background: var(--wash); border: 0; color: var(--ink-2); font-size: 13px; }
+.filters { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); align-items: center; margin: var(--space-lg) 0 var(--space-md); }
+.fgroup { display: flex; gap: var(--space-xs); align-items: center; flex-wrap: wrap; }
+.fgroup > span { color: var(--ink-3); font-size: 12px; margin-right: var(--space-3xs); }
+.chip { min-height: 32px; border: 1px solid transparent; background: var(--surface); color: var(--ink-2); border-radius: 4px; padding: var(--space-2xs) var(--space-sm); font: inherit; font-size: 13px; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out); }
 .chip:hover { background: var(--wash); }
+.chip:active { transform: translateY(1px); }
 .chip[aria-pressed="true"] { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); border-color: var(--accent); font-weight: 600; }
-select { font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; }
-.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
-header h1::before { content: ""; display: inline-block; width: 12px; height: 22px; margin-right: 10px; vertical-align: -3px; border-radius: 2px; background: var(--accent); }
+select { min-height: 32px; font: inherit; font-size: 13px; color: var(--ink-1); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: var(--space-2xs) var(--space-xs); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-md); }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: var(--space-sm) var(--space-md); }
+header h1::before { content: ""; display: inline-block; width: 12px; height: 22px; margin-right: var(--space-sm); vertical-align: -3px; border-radius: 2px; background: var(--accent); }
 .tile .k { color: var(--ink-2); font-size: 12px; }
-.tile .v { font-size: 24px; font-weight: 650; margin: 2px 0; }
+.tile .v { font-size: 26px; font-weight: 700; letter-spacing: -.01em; margin: var(--space-3xs) 0; font-variant-numeric: tabular-nums; }
+.tile .r { display: flex; flex-wrap: wrap; gap: 0 var(--space-sm); }
 .tile .r { color: var(--ink-3); font-size: 12px; }
-.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 16px; margin-bottom: 16px; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; min-width: 0; }
-.card h2 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
-.card .hint { color: var(--ink-3); font-size: 12px; margin: 0 0 10px; }
-.card .ctl { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
-.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 4px 0 6px; }
-.legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; border-radius: 1px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: var(--space-md); margin-bottom: var(--space-md); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: var(--space-md); min-width: 0; }
+.card h2 { font-size: 17px; line-height: 1.3; margin: 0 0 var(--space-3xs); font-weight: 700; }
+.card .hint { color: var(--ink-3); font-size: 12px; margin: 0 0 var(--space-sm); }
+.card .ctl { display: flex; gap: var(--space-xs); flex-wrap: wrap; align-items: center; margin-bottom: var(--space-xs); }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); font-size: 12px; color: var(--ink-2); margin: var(--space-2xs) 0 var(--space-xs); }
+.legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: var(--space-2xs); border-radius: 1px; }
 .legend i.dot { width: 9px; height: 9px; border-radius: 50%; }
 svg { display: block; width: 100%; height: auto; overflow: visible; }
 .chart { overflow-x: auto; }
@@ -86,7 +98,7 @@ svg text.lbl { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; s
 .baseline { stroke: var(--axis); stroke-width: 1; }
 .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
 table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
-th, td { padding: 7px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
+th, td { padding: var(--space-xs) var(--space-sm); text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
 th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 12px; cursor: pointer; user-select: none; }
 th.grp { cursor: default; color: var(--ink-3); font-weight: 500; text-align: center; border-bottom: none; }
 th:first-child, td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface); z-index: 1; }
@@ -95,43 +107,46 @@ tr.focus td { background: var(--focus-wash); }
 tr.focus td:first-child { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
 td .t { color: var(--ink-3); font-size: 11px; }
 .neg { color: var(--critical); }
-.signals { display: grid; gap: 6px; padding: 0; margin: 0; list-style: none; }
-.signals li { padding: 6px 10px; border-radius: 4px; background: var(--wash); font-size: 13px; }
+.signals { display: grid; gap: var(--space-xs); padding: 0; margin: 0; list-style: none; }
+.signals li { padding: var(--space-xs) var(--space-sm); border-radius: 4px; background: var(--wash); font-size: 13px; }
+.signals li b { font-weight: 700; margin-right: var(--space-xs); }
+.signals li.lv-risk b, .sc .r { color: var(--critical); } .signals li.lv-good b, .sc .g { color: var(--good); } .signals li.lv-warn b, .sc .y { color: var(--ink-1); }
+.sc span + span { margin-left: var(--space-xs); }
 .notes { color: var(--ink-2); font-size: 12.5px; }
-.notes li { margin: 3px 0; }
+.notes li { margin: var(--space-2xs) 0; }
 #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink-1); border: 1px solid var(--border);
-  border-radius: 4px; padding: 8px 10px; font-size: 12px; display: none; min-width: 140px; max-width: 280px; }
-#tip .h { color: var(--ink-2); margin-bottom: 4px; }
-#tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+  border-radius: 4px; padding: var(--space-xs) var(--space-sm); font-size: 12px; display: none; min-width: 140px; max-width: 280px; }
+#tip .h { color: var(--ink-2); margin-bottom: var(--space-2xs); }
+#tip .row { display: flex; align-items: center; gap: var(--space-xs); justify-content: space-between; }
 #tip .row b { font-variant-numeric: tabular-nums; }
-#tip .key { display: inline-block; width: 12px; height: 2px; margin-right: 6px; vertical-align: middle; }
-.empty { color: var(--ink-3); padding: 24px 0; text-align: center; }
-h3.section { font-size: 15px; margin: 24px 0 10px; font-weight: 650; }
+#tip .key { display: inline-block; width: 12px; height: 2px; margin-right: var(--space-xs); vertical-align: middle; }
+.empty { color: var(--ink-3); padding: var(--space-lg) 0; text-align: center; }
+h3.section { font-size: 17px; margin: var(--space-lg) 0 var(--space-sm); font-weight: 700; }
 /* Loading skeleton: chart boxes hold their final height while empty, so nothing jumps when data arrives. */
 .sk:empty { border-radius: 4px; background: var(--grid); animation: sk 1.2s ease-in-out infinite alternate; }
 #tiles.sk:empty { min-height: 86px; }
 #rank.sk:empty { min-height: 330px; }
 #scatter.sk:empty { min-height: 380px; }
-/* quadrant: 1px ink cross, eyebrow-style tags and arrow words (diagram-design standard quadrant) */
+/* quadrant: 1px ink cross, plain corner tags and axis words (diagram-design quadrant, Hallmark: no tracked caps) */
 svg .qaxis { stroke: var(--ink-1); stroke-width: 1; }
-svg .qword { fill: var(--ink-1); font-size: 12px; letter-spacing: .18em; }
-svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
+svg .qword { fill: var(--ink-1); font-size: 12px; font-weight: 600; }
+svg .qtag { fill: var(--ink-3); font-size: 12px; }
 #trend.sk:empty, #monthly.sk:empty { min-height: 280px; }
 .tablewrap .sk:empty { display: block; min-height: 420px; }
 @keyframes sk { from { opacity: .45; } to { opacity: .9; } }
 @media (prefers-reduced-motion: reduce) { .sk:empty { animation: none; } }
 /* chart motion: axes and labels fade in; bars and bubbles are tweened in script (see tween()) */
-.fade-in { animation: fadein .45s ease-out both; animation-delay: var(--d, 0s); }
+.fade-in { animation: fadein var(--dur-long) var(--ease-out) both; animation-delay: var(--d, 0s); }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-.bub-in { transition: transform .18s ease-out; }
-.bar { transition: opacity .15s; }
-@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } .bub-in { transition: none; } }
+.bub-in { transition: transform var(--dur-short) var(--ease-out); }
+.bar { transition: opacity var(--dur-micro) var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } .bub-in, .bar, .chip, .fold > summary::before { transition: none; } }
 /* target-revenue share: badge in the table, bubble size in the scatter */
-.tf { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 0 6px; border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 17px; vertical-align: 1px;
+.tf { display: inline-flex; align-items: center; gap: var(--space-2xs); margin-left: var(--space-xs); padding: 0 var(--space-xs); border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 17px; vertical-align: 1px;
   color: var(--ink-2); background: var(--page); border: 1px solid var(--border); }
 .tf::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--tf); }
 .tf.pure { --tf: var(--ord-1); } .tf.major { --tf: var(--ord-2); } .tf.diversified { --tf: var(--ord-3); }
-.legend .bub { display: inline-flex; align-items: center; gap: 5px; }
+.legend .bub { display: inline-flex; align-items: center; gap: var(--space-2xs); }
 .legend .bub svg { width: auto; min-width: 0; display: inline-block; overflow: visible; }
 </style>
 </head>
@@ -141,7 +156,7 @@ svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
     <div class="topbar"><h1 id="title">__TITLE__</h1></div>
     <div class="sub" id="sub"></div>
     <details class="fold" id="banners-fold" hidden>
-      <summary>⚠️ 資料提醒 <span id="banner-count"></span>(點擊展開)</summary>
+      <summary>資料提醒 <span id="banner-count"></span>(點擊展開)</summary>
       <div id="banners"></div>
     </details>
   </header>
@@ -163,7 +178,7 @@ svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
     </section>
     <section class="card">
       <h2>獲利能力 × 成長四象限</h2>
-      <p class="hint">橫軸:近四季營收年增(成長);縱軸:近四季營業利益率(獲利)。01 象限 = 成長快且獲利高。圖示為各公司 logo,藍框為焦點公司;滑鼠移上可看數值與靶材比重。<span id="scatter-mid"></span></p>
+      <p class="hint">橫軸:近四季營收年增(成長);縱軸:近四季營業利益率(獲利)。右上象限為成長快且獲利高。圖示為各公司 logo,藍框為焦點公司;滑鼠移上可看數值與靶材比重。<span id="scatter-mid"></span></p>
       <div id="scatter" class="chart sk"></div>
     </section>
   </div>
@@ -190,7 +205,7 @@ svg .qtag { fill: var(--ink-3); font-size: 11px; letter-spacing: .12em; }
   <div class="grid2" style="margin-top:16px">
     <section class="card">
       <h2 id="sig-title">重點訊號</h2>
-      <p class="hint">依規則門檻自動判斷(🔴 風險、🟡 注意、🟢 優勢)。</p>
+      <p class="hint">依規則門檻自動判斷,分為風險、注意、優勢三級。</p>
       <ul class="signals" id="signals"></ul>
     </section>
     <section class="card notes">
@@ -218,6 +233,7 @@ const state = {
 
 // ---------- helpers ----------
 const $ = id => document.getElementById(id);
+function rowOf(cls, parts) { const d = el("div", {class: cls}); d.append(...parts.map(t => el("span", {}, t))); return d; }
 function el(tag, attrs = {}, text) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
@@ -344,9 +360,9 @@ function renderHeader() {
   document.title = D.title;
   const fx = D.fx;
   const rates = Object.entries(fx.rates).filter(([k]) => k !== fx.base).map(([k, v]) => `1 ${k} = ${v.toFixed(k === "JPY" ? 4 : 3)} ${fx.base}`).join("、");
-  $("sub").textContent = `${D.companies.length} 家公司 · 金額換算 ${D.unit_label} · 匯率:${rates || "—"}(${fx.source}${fx.asof ? " " + fx.asof : ""})· 產生時間 ${D.generated}`;
+  $("sub").replaceChildren(...[`${D.companies.length} 家公司`, `金額換算 ${D.unit_label}`, `匯率:${rates || "無"}(${fx.source}${fx.asof ? " " + fx.asof : ""})`, `產生時間 ${D.generated}`].map(t => el("span", {}, t)));
   const notes = [...new Set(D.companies.map(c => c.note).filter(Boolean))];
-  for (const n of notes) $("banners").appendChild(el("div", {class: "banner"}, "⚠️ " + n));
+  for (const n of notes) $("banners").appendChild(el("div", {class: "banner"}, n));
   if (D.missing.length) $("banners").appendChild(el("div", {class: "banner"}, "尚無資料(請先執行 fetch):" + D.missing.join("、")));
   const nBanners = $("banners").children.length;
   $("banners-fold").hidden = nBanners === 0;
@@ -361,8 +377,8 @@ function renderTiles() {
   $("tiles").replaceChildren();
   if (!c) return;
   const head = el("div", {class: "tile"});
-  head.append(el("div", {class: "k"}, `${c.region} · ${c.focus_label || "—"}`), el("div", {class: "v"}, c.name),
-    el("div", {class: "r"}, `${c.ticker} · 最新季 ${c.latest_quarter} · ${c.currency}`));
+  head.append(el("div", {class: "k"}, c.focus_label ? `${c.region}${c.focus_label}` : c.region), el("div", {class: "v"}, c.name),
+    rowOf("r", [c.ticker, `最新季 ${c.latest_quarter}`, c.currency]));
   $("tiles").appendChild(head);
   for (const key of TILE_KEYS) {
     const m = metricsByKey[key];
@@ -502,8 +518,8 @@ function renderScatter() {
   const mk = sv("marker", {id: "qa", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse"});
   mk.appendChild(sv("path", {d: "M0,0 L10,5 L0,10 z", fill: cssVar("--ink-1")})); defs.appendChild(mk);
   // quadrant corner tags (eyebrow style), numbered from the top-right; the words match the axis words
-  const tags = [[W - PR - 8, PT + 14, "end", "01 · 成長快 / 獲利高"], [PL + 8, PT + 14, "start", "02 · 成長慢 / 獲利高"],
-                [W - PR - 8, H - PB - 8, "end", "03 · 成長快 / 獲利低"], [PL + 8, H - PB - 8, "start", "04 · 成長慢 / 獲利低"]];
+  const tags = [[W - PR - 8, PT + 14, "end", "成長快、獲利高"], [PL + 8, PT + 14, "start", "成長慢、獲利高"],
+                [W - PR - 8, H - PB - 8, "end", "成長快、獲利低"], [PL + 8, H - PB - 8, "start", "成長慢、獲利低"]];
   const tagBoxes = [];
   for (const [x, y, anchor, t] of tags) {
     svg.appendChild(sv("text", {x, y, "text-anchor": anchor, class: "qtag"}, t));
@@ -730,11 +746,13 @@ function renderTable() {
     const name = el("td");
     name.append(document.createTextNode(c.name + (c.target_focus === "diversified" ? "＊" : "")));
     const badge = tfBadge(c); if (badge) name.appendChild(badge);
-    name.append(el("br"), el("span", {class: "t"}, `${c.ticker} · ${c.region}`));
+    name.append(el("br"), el("span", {class: "t"}, `${c.ticker}(${c.region})`));
     tr.appendChild(name);
     tr.appendChild(el("td", {}, c.latest_quarter));
     const sc = c.signal_counts;
-    tr.appendChild(el("td", {title: "風險 / 注意 / 優勢"}, `🔴${sc["風險"] || 0} 🟡${sc["注意"] || 0} 🟢${sc["優勢"] || 0}`));
+    const scTd = el("td", {class: "sc", title: "風險、注意、優勢的訊號數"});
+    scTd.append(el("span", {class: "r"}, `風險 ${sc["風險"] || 0}`), el("span", {class: "y"}, `注意 ${sc["注意"] || 0}`), el("span", {class: "g"}, `優勢 ${sc["優勢"] || 0}`));
+    tr.appendChild(scTd);
     for (const m of D.metrics) {
       const v = val(c, m.key);
       const short = m.key === "revenue_ttm_yoy" && v !== null && yoyShort(c);
@@ -751,11 +769,11 @@ function renderTable() {
 // ---------- signals & notes ----------
 function renderSignals() {
   const c = D.companies.find(x => x.ticker === state.focus);
-  $("sig-title").textContent = `重點訊號 — ${c ? c.name : ""}`;
+  $("sig-title").textContent = c ? `重點訊號(${c.name})` : "重點訊號";
   const ul = $("signals"); ul.replaceChildren();
   if (!c || !c.signals.length) { ul.appendChild(el("li", {}, "未觸發任何規則門檻。")); return; }
-  const icon = {"風險": "🔴", "注意": "🟡", "優勢": "🟢"};
-  for (const s of c.signals) ul.appendChild(el("li", {}, `${icon[s.level] || ""} ${s.level}|${s.topic}:${s.message}`));
+  const lv = {"風險": "lv-risk", "注意": "lv-warn", "優勢": "lv-good"};
+  for (const s of c.signals) { const li = el("li", {class: lv[s.level] || ""}); li.append(el("b", {}, s.level), `${s.topic}:${s.message}`); ul.appendChild(li); }
 }
 function renderNotes() {
   const ul = $("notes");

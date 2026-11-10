@@ -90,6 +90,8 @@ def esc(v) -> str:
 
 
 STYLE = """
+/* Hallmark · restyle · brand: 鑫科材料 (TTMC) navy, teal and orange, kept · genre: editorial · posture: restrained (navy is the signal) · layout: kept */
+/* critique: labels in the body face and sentence case, no eyebrows or dot-joined meta, every colour and length a token, instant focus rings, motion off under reduced motion */
 /* Colour roles follow the 鑫科材料 (TTMC) logo, run through the data-viz method: cool-grey surfaces,
    charcoal ink, navy accent with the logo's teal as the second accent and its orange as a brand rule;
    eight validated series slots (navy-blue, orange, teal first; item types take fixed slots),
@@ -100,83 +102,85 @@ STYLE = """
 --ok:#006300;--ok-soft:#e3f1e3;--none:#52514e;--none-soft:#efeeea;--up:#c62f2f;--down:#006300;
 --k-news:var(--series-1);--k-filing:var(--series-2);--k-recycling:var(--series-3);--k-market:var(--series-4);--k-forum:var(--series-5);
 --k-research:var(--series-6);--k-metals:var(--series-7);--k-profile:var(--series-8);
+--on-accent:#fbfcfd;--on-signal:#131415;--focus:#1f5fa8;--space-3xs:2px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:40px;--space-2xl:64px;--space-3xl:96px;--space-4xl:144px;
+--radius-s:4px;--radius:6px;--radius-l:8px;--radius-pill:99px;--ease-out:cubic-bezier(.16,1,.3,1);--ease-in:cubic-bezier(.7,0,.84,0);--dur-micro:120ms;--dur-short:220ms;--dur-long:420ms;
 --font-display:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--faint:#888889;--line:#29313c;--grid:#29313c;--axis:#3a4350;
 --accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;--accent-track:#2b4c78;--hero:#1a2a40;--deemph:#4d5560;--brand-orange:#f39043;--brand-orange-ink:#f39043;
 --series-1:#4a8ad6;--series-2:#d36f1c;--series-3:#1ba3bd;--series-4:#c98500;--series-5:#d55181;--series-6:#008300;--series-7:#9085e9;--series-8:#e66767;
---ok:#0ca30c;--ok-soft:#14261a;--none:#c3c2b7;--none-soft:#262624;--up:#ef6b6b;--down:#0ca30c;
+--ok:#0ca30c;--ok-soft:#14261a;--none:#c3c2b7;--none-soft:#262624;--up:#ef6b6b;--down:#0ca30c;--on-accent:#0f1319;--focus:#9cbde6;
 color-scheme:dark}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
-.wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:36px 64px;display:grid;gap:44px}
-a{color:var(--accent);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+*{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:900px;margin:0 auto;padding-inline:var(--space-lg);padding-block:var(--space-xl) var(--space-2xl);display:grid;gap:var(--space-xl)}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}a:hover{text-decoration-thickness:2px}
+:where(a,button,summary,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--radius-s)}
 .ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.18em}
-h1,h2{font-family:var(--font-display);text-wrap:balance;margin:0}h1{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:700;line-height:1.25}
-h2{font-size:1.25rem;font-weight:700;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;overflow-wrap:break-word;min-width:0}h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;line-height:1.12;letter-spacing:-.02em}p,li{text-wrap:pretty}
+h2{font-size:1.375rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-xs) var(--space-sm)}
 h2 .hic{display:inline-grid;place-items:center;width:26px;height:26px;color:var(--accent)}
-h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-data);font-size:.82rem;color:var(--muted);font-weight:400}
-.eyebrow{font-family:var(--font-data);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-orange-ink)}
-.mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:16px;min-width:0}
-header{display:grid;gap:18px;padding-bottom:26px;border-bottom:3px solid var(--accent);position:relative}header::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
-.brand{display:flex;gap:16px;align-items:center}.brand .logo{width:56px;height:56px;border-radius:8px;display:grid;place-items:center;background:var(--accent);color:#fff;flex:none}
-.brand .logo .ic{width:34px;height:34px;stroke-width:1.6}.brand>div{display:grid;gap:2px;min-width:0}
-.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.88rem;align-items:center}.meta>*{display:inline-flex;gap:6px;align-items:center}
-.btn{display:inline-flex;gap:6px;align-items:center;padding:6px 14px;border:0;border-radius:6px;background:var(--accent-soft);color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:500}
-.btn:hover{background:var(--accent);color:#fff}.btn.primary{background:var(--accent);color:#fff}.btn.primary:hover{background:var(--accent-2)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.stat{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:.875rem;color:var(--muted);font-weight:400;letter-spacing:0}
+.mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:var(--space-md);min-width:0}
+header{display:grid;gap:var(--space-md);padding-bottom:var(--space-lg);border-bottom:3px solid var(--accent);position:relative}header::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
+.brand{display:flex;gap:var(--space-md);align-items:center}.brand .logo{width:56px;height:56px;border-radius:8px;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);flex:none}
+.brand .logo .ic{width:34px;height:34px;stroke-width:1.6}.brand>div{display:grid;gap:var(--space-3xs);min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-md);color:var(--muted);font-size:.88rem;align-items:center}.meta>*{display:inline-flex;gap:var(--space-xs);align-items:center}
+.btn{display:inline-flex;gap:var(--space-xs);align-items:center;padding:var(--space-xs) var(--space-md);border:0;border-radius:6px;background:var(--accent-soft);color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:500}
+.btn{transition:background-color var(--dur-short) var(--ease-out),color var(--dur-short) var(--ease-out)}.btn:hover{background:var(--accent);color:var(--on-accent)}.btn:active{transform:translateY(1px)}.btn.primary{background:var(--accent);color:var(--on-accent)}.btn.primary:hover{background:var(--accent-2)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--space-sm)}
+.stat{display:flex;gap:var(--space-sm);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-md) var(--space-md)}
 .stat .sic{width:28px;height:28px;display:grid;place-items:center;flex:none;color:var(--faint)}
 .stat .sic .ic{width:22px;height:22px}.stat b{display:block;font-size:1.6rem;font-weight:700;line-height:1.15}.stat span{font-size:.8rem;color:var(--muted)}
 .fc-stats .stat>div:last-child{min-width:0}.fc-stats .stat b{font-size:1.15rem;white-space:normal;word-break:keep-all}.fc-stats .stat span{display:block}
-.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px;margin-top:14px}.card.fc h3{display:flex;align-items:center;gap:8px;margin:0;font-size:1rem}.card.fc h3 .ic{width:20px;height:20px;color:var(--accent)}.card.fc li{line-height:1.6}
-.lead{font-size:1.04rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:4px}
-.filters{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
-.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:4px;min-width:3.2em;display:inline-flex;gap:4px;align-items:center}
-button.f{font:inherit;font-size:.84rem;border:1px solid transparent;background:var(--bg);color:var(--fg);padding:4px 11px;border-radius:4px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
-button.f .mono{font-size:.72rem;color:var(--muted)}button.f:hover{border-color:var(--accent)}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--space-sm);margin-top:var(--space-md)}.card.fc h3{display:flex;align-items:center;gap:var(--space-xs);margin:0;font-size:1rem}.card.fc h3 .ic{width:20px;height:20px;color:var(--accent)}.card.fc li{line-height:1.6}
+.lead{font-size:1.04rem}ul.plain{margin:0;padding-left:1.2em;display:grid;gap:var(--space-2xs)}
+.filters{display:grid;gap:var(--space-sm);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-md) var(--space-md)}
+.frow{display:flex;flex-wrap:wrap;gap:var(--space-xs);align-items:center}.frow .lbl{font-size:.8rem;color:var(--muted);margin-right:var(--space-2xs);min-width:3.2em;display:inline-flex;gap:var(--space-2xs);align-items:center}
+button.f{font:inherit;font-size:.84rem;border:1px solid transparent;background:var(--bg);color:var(--fg);padding:var(--space-2xs) var(--space-sm);border-radius:4px;cursor:pointer;display:inline-flex;gap:var(--space-xs);align-items:center}
+button.f{transition:background-color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out)}button.f .mono{font-size:.75rem;color:var(--muted)}button.f:hover{border-color:var(--accent)}button.f:active{transform:translateY(1px)}
 button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}button.f[aria-pressed=true] .mono{color:var(--bg)}
 .shown{font-size:.84rem;color:var(--muted)}button.reset{font:inherit;font-size:.84rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
-.co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:4px;align-items:center}.co .ic{width:13px;height:13px}
+.co{display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-md);font-size:.78rem;color:var(--muted);align-items:center}.co>span{display:inline-flex;gap:var(--space-2xs);align-items:center}.co .ic{width:13px;height:13px}
 .kind{font-size:.74rem;font-weight:500;color:var(--muted)}.kind .ic{color:var(--k)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}.k-recycling{--k:var(--k-recycling)}
 [hidden]{display:none!important}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-.card{--k:var(--accent);display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-width:0}
-.card .head{display:flex;gap:8px;align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
-.card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5;overflow-wrap:anywhere}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-sm)}
+.card{--k:var(--accent);display:grid;gap:var(--space-sm);align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-md) var(--space-md);min-width:0}
+.card .head{display:flex;gap:var(--space-xs);align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
+.card h3{margin:0;font-size:1.0625rem;font-weight:700;line-height:1.45;overflow-wrap:break-word}
 .card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
-.kind{display:inline-flex;gap:4px;align-items:center}.kind .ic{width:13px;height:13px}
+.kind{display:inline-flex;gap:var(--space-2xs);align-items:center}.kind .ic{width:13px;height:13px}
 .card.low{background:transparent;border-color:transparent}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
-.card.has-thumb{grid-template-columns:76px minmax(0,1fr);column-gap:14px}.card.has-thumb>*{grid-column:2}
+.card.has-thumb{grid-template-columns:76px minmax(0,1fr);column-gap:var(--space-md)}.card.has-thumb>*{grid-column:2}
 .card.has-thumb>.thumb{grid-column:1;grid-row:1/span 4;align-self:start}
-.thumb{position:relative;width:76px;height:76px;border-radius:6px;display:grid;place-items:center;align-content:center;gap:3px;color:var(--k);background:color-mix(in srgb,var(--k) 15%,var(--surface))}
+.thumb{position:relative;width:76px;height:76px;border-radius:6px;display:grid;place-items:center;align-content:center;gap:var(--space-2xs);color:var(--k);background:color-mix(in srgb,var(--k) 15%,var(--surface))}
 .thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
-.thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 5px;border-radius:4px;background:var(--k);color:#fff;font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
+.thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 var(--space-2xs);border-radius:4px;background:var(--k);color:var(--on-accent);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
 .card.low .thumb{filter:saturate(.55);opacity:.85}
-.k-market .thumb .sym{color:#0b0b0b}/* label inside a fill: white, near-black on yellow */
+.k-market .thumb .sym{color:var(--on-signal)}/* label inside a fill: white, near-black on yellow */
 /* per-type colour wins over the .card default */
 .card.k-news{--k:var(--k-news)}.card.k-filing{--k:var(--k-filing)}.card.k-market{--k:var(--k-market)}.card.k-forum{--k:var(--k-forum)}.card.k-research{--k:var(--k-research)}.card.k-profile{--k:var(--k-profile)}.card.k-metals{--k:var(--k-metals)}.card.k-recycling{--k:var(--k-recycling)}
-.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.region{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
-.region h3{margin:0 0 4px;font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:8px;align-items:center}
-.rb{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:4px;background:var(--accent);color:#fff;font-family:var(--font-data);font-size:.72rem;font-weight:500;letter-spacing:.04em}
-.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-sm)}
+.region{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-sm) var(--space-md)}
+.region h3{margin:0 0 var(--space-2xs);font-size:.85rem;color:var(--muted);font-weight:500;display:flex;gap:var(--space-xs);align-items:center}
+.rb{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 var(--space-xs);border-radius:4px;background:var(--accent);color:var(--on-accent);font-family:var(--font-data);font-size:.75rem;font-weight:500}
+.region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:var(--space-sm);padding:var(--space-xs) 0;border-bottom:1px solid var(--line);font-size:.92rem}
 .region li:last-child{border-bottom:0}
-.tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:6px}.pill{font-size:.72rem;padding:1px 9px;border-radius:99px;white-space:nowrap}
+.tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:var(--space-xs)}.pill{font-size:.72rem;padding:1px var(--space-xs);border-radius:99px;white-space:nowrap}
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
-.archive{display:grid;gap:10px;font-size:.9rem}.archive a{color:var(--fg);text-decoration:none;font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.archive{display:grid;gap:var(--space-sm);font-size:.9rem}.archive a{color:var(--fg);text-decoration:none;font-family:var(--font-data);font-variant-numeric:tabular-nums}
 .archive a:hover{color:var(--accent);text-decoration:underline}.archive a[aria-current=page]{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-thickness:2px}
-.archive .arc-recent{font-family:var(--font-body);justify-self:start;color:var(--accent)}.arc-months{margin:0;display:grid;gap:6px}
-.arc-m{display:grid;grid-template-columns:7.5em 1fr;gap:4px 12px;align-items:baseline;padding-top:6px;border-top:1px solid var(--line)}
-.arc-m dt{color:var(--muted);font-size:.84rem}.arc-m dd{margin:0;display:flex;flex-wrap:wrap;gap:2px 14px}
-h3.topic{margin:8px 0 0;font-size:.98rem;font-weight:700;display:flex;gap:10px;align-items:center}
+.archive .arc-recent{font-family:var(--font-body);justify-self:start;color:var(--accent)}.arc-months{margin:0;display:grid;gap:var(--space-xs)}
+.arc-m{display:grid;grid-template-columns:7.5em 1fr;gap:var(--space-2xs) var(--space-sm);align-items:baseline;padding-top:var(--space-xs);border-top:1px solid var(--line)}
+.arc-m dt{color:var(--muted);font-size:.84rem}.arc-m dd{margin:0;display:flex;flex-wrap:wrap;gap:var(--space-3xs) var(--space-md)}
+h3.topic{margin:var(--space-xs) 0 0;font-size:.98rem;font-weight:700;display:flex;gap:var(--space-sm);align-items:center}
 h3.topic .tic{width:24px;height:24px;display:grid;place-items:center;color:var(--accent)}h3.topic .tic .ic{width:17px;height:17px}
 h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
-.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:10px;font-size:.88rem;color:var(--muted)}
-.note p{display:flex;gap:10px;align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
-footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-md) var(--space-md);display:grid;gap:var(--space-sm);font-size:.88rem;color:var(--muted)}
+.note p{display:flex;gap:var(--space-sm);align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:var(--space-md)}
 .sub{font-size:.88rem;color:var(--muted)}
-@media (max-width:520px){.stat{padding:12px;gap:10px}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:12px 14px}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:12px}.thumb{width:56px;height:56px;border-radius:6px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.stat{padding:var(--space-sm);gap:var(--space-sm)}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:var(--space-sm) var(--space-md)}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:var(--space-sm)}.thumb{width:56px;height:56px;border-radius:6px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 """ + CHART_STYLE
 
 SCRIPT = """
@@ -222,7 +226,7 @@ def _thumb(motif: str, caption: str, symbol: str = "") -> str:
     """Content thumbnail: a picture of what the story is about, plus the material when named."""
     sym = f'<span class="sym">{esc(symbol)}</span>' if symbol else ""
     return (
-        f'<div class="thumb" role="img" aria-label="{esc(caption + (" · " + symbol if symbol else ""))}">'
+        f'<div class="thumb" role="img" aria-label="{esc(caption + (","+ symbol if symbol else ""))}">'
         f'{icon(motif)}<span class="cap">{esc(caption)}</span>{sym}</div>'
     )
 
@@ -380,12 +384,12 @@ def _papers_section(report: dict, library: list[dict], is_latest: bool, home: st
         days = report.get("research_days") or 30
         span = report.get("span") or []
         when = f"最近 {len(span)} 天新收錄" if len(span) > 1 else "本期新收錄"
-        count = f"{when} {len(papers)} 篇 · 依製程分類"
+        count = f"{when} {len(papers)} 篇,依製程分類"
         inner = _grouped_papers(papers)
     elif is_latest and library:
         # Homepage: no new papers today, so show the most recently collected ones.
         recent = library[:10]
-        count = f"本期無新收錄 · 以下為最近收錄的 {len(recent)} 篇"
+        count = f"本期無新收錄,以下為最近收錄的 {len(recent)} 篇"
         inner = '<div class="cards">' + "".join(_paper_html(p) for p in recent) + "</div>"
     elif "papers" in report or is_latest:
         count = "本期沒有新收錄的文獻"
@@ -409,7 +413,7 @@ def _archive(archive: list[tuple[str, int]], current: str, home: str) -> str:
     recent = f'<a class="arc-recent" href="{home}index.html"{" aria-current=page" if current == HOME_PAGE else ""}>最近 {HOME_DAYS} 天</a>'
     rows = "".join(
         f'<div class="arc-m"><dt>{m[:4]} 年 {int(m[5:])} 月</dt><dd>'
-        + "".join(f'<a href="{home}{d}.html" title="{d} · {n} 則"{" aria-current=page" if d == current else ""}>{int(d[8:])}</a>'
+        + "".join(f'<a href="{home}{d}.html" title="{d}:{n} 則"{" aria-current=page" if d == current else ""}>{int(d[8:])}</a>'
                   for d, n in sorted(days))
         + "</dd></div>"
         for m, days in months.items()
@@ -490,11 +494,8 @@ def _fab(current: str, config: Config) -> str:
     return fab_nav(current, "../", skip)
 
 
-def _brand(eyebrow: str, title: str) -> str:
-    return (
-        f'<div class="brand"><div class="logo">{icon("target")}</div>'
-        f'<div><div class="eyebrow">{esc(eyebrow)}</div><h1>{esc(title)}</h1></div></div>'
-    )
+def _brand(title: str) -> str:
+    return f'<div class="brand"><div class="logo">{icon("target")}</div><h1>{esc(title)}</h1></div>'
 
 
 def _stat(icon_name: str, value: str, label: str) -> str:
@@ -533,7 +534,7 @@ def render_forecasts(config: Config, generated: str) -> str:
         source = f'<a href="{esc(url)}" rel="noopener" target="_blank">{esc(f.get("source", ""))}</a>' if url else esc(f.get("source", ""))
         sections.append(
             f'<section aria-labelledby="fc{n}">{_h2(f"fc{n}", "research", esc(f.get("section") or f.get("report", "")))}'
-            f'<p class="sub">{icon("book")}{source}《{esc(f.get("report", ""))}》· 發刊 <span class="mono">{esc(f.get("published", ""))}</span></p>'
+            f'<p class="sub">{icon("book")}{source}《{esc(f.get("report", ""))}》,發刊於 <span class="mono">{esc(f.get("published", ""))}</span></p>'
             f'<p class="sub">範圍:{esc(f.get("scope", ""))}</p>'
             f'<div class="stats fc-stats">{figures}</div>{charts}<div class="fc-grid">{groups}</div></section>'
         )
@@ -542,7 +543,7 @@ def render_forecasts(config: Config, generated: str) -> str:
         _head("靶材商情預測", "濺鍍靶材市場規模預測、用途與材料趨勢、技術路線與主要廠商動向的重點摘要。",
               config.settings.site_url, "forecast.html")
         + f"""<div class="wrap">
-<header>{_brand("Sputtering Target · Market Outlook", "靶材商情預測")}
+<header>{_brand("靶材商情預測")}
 <div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div></header>
 {body}
 <footer>本頁為市場調查報告的重點摘要,經改寫整理並註明出處;完整數據請參閱原報告。預測不構成投資建議。</footer>
@@ -570,7 +571,7 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
         _head("靶材技術文獻庫", "濺鍍靶材製造技術文獻庫:粉末冶金、熔煉、接合、純化、靶材回收等期刊與預印本,附繁體中文摘要。",
               config.settings.site_url, "papers.html")
         + f"""<div class="wrap">
-<header>{_brand("Sputtering Target · Research Library", "靶材技術文獻庫")}
+<header>{_brand("靶材技術文獻庫")}
 <div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div>
 <div class="stats">{_stat("book", str(len(library)), "累積收錄文獻(篇)")}{_stat("layers", str(len([t for t in topics if t != GENERAL_TOPIC])), "涵蓋製程主題")}{_stat("database", str(len([s for s in sources if s])), "資料來源")}</div></header>
 <section aria-labelledby="lib">{_h2("lib", "list", "全部文獻", "依發表日期,新到舊")}
@@ -584,16 +585,16 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
     )
 
 
-REGION_CODES = {"日本": "JP", "中國大陸": "CN", "台灣": "TW", "韓國": "KR", "歐美": "EU·US", "其他": "··"}
+REGION_CODES = {"日本": "JP", "中國大陸": "CN", "台灣": "TW", "韓國": "KR", "歐美": "EU/US", "其他": "OT"}
 
 
-NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商", "process": "製程相關 · PVD 半導體廠", "packaging": "封裝廠 · PVD"}
-GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關 · PVD 半導體廠": "building", "封裝廠 · PVD": "layers"}
+NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商", "process": "製程相關(PVD 半導體廠)", "packaging": "封裝廠(PVD)"}
+GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關(PVD 半導體廠)": "building", "封裝廠(PVD)": "layers"}
 
 
 def _ledger(config: Config, counts: Counter) -> str:
     groups: "OrderedDict[str, list]" = OrderedDict(
-        (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關 · PVD 半導體廠", "封裝廠 · PVD", "其他")
+        (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關(PVD 半導體廠)", "封裝廠(PVD)", "其他")
     )
     western = {"美國", "奧地利", "德國", "比利時", "英國", "法國", "瑞士", "荷蘭"}
     for e in config.entities:
@@ -612,8 +613,8 @@ def _ledger(config: Config, counts: Counter) -> str:
             pill = f'<span class="pill yes">{n} 則</span>' if n else '<span class="pill no">無報導</span>'
             lis.append(f"<li><span>{esc(short_name(e.name))}{tk}</span>{pill}</li>")
         group_icon = GROUP_ICONS.get(key)
-        label = key if group_icon else f"靶材生產商 · {key}"
-        badge = icon(group_icon) if group_icon else REGION_CODES.get(key, "··")
+        label = key if group_icon else f"{key}靶材生產商"
+        badge = icon(group_icon) if group_icon else REGION_CODES.get(key, "OT")
         out.append(f'<div class="region"><h3><span class="rb">{badge}</span>{label}</h3><ul>{"".join(lis)}</ul></div>')
     return "\n".join(out)
 
@@ -632,7 +633,7 @@ def render_page(
     items = report.get("items", [])
     span = report.get("span") or []
     if current == HOME_PAGE and span:
-        label = f"最近 {len(span)} 天 · {span[-1]} ~ {span[0]}" if len(span) > 1 else span[0]
+        label = f"最近 {len(span)} 天({span[-1]} 至 {span[0]})" if len(span) > 1 else span[0]
     else:
         label = current
     role_of = {e.name: e.role for e in config.entities}
@@ -696,8 +697,8 @@ def render_page(
         _head(f"靶材產業新聞摘要 {label}", SITE_DESCRIPTION, config.settings.site_url,
               "" if current == HOME_PAGE else f"{current}.html")
         + f"""<div class="wrap">
-<header>{_brand("Sputtering Target · Industry Bulletin", "靶材產業新聞摘要")}
-<div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""} · 每期蒐集最近 {esc(report.get("days", ""))} 天新聞 · 更新於 <span class="mono">{esc(generated)}</span></span></div>
+<header>{_brand("靶材產業新聞摘要")}
+<div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""}</span><span>每期蒐集最近 {esc(report.get("days", ""))} 天新聞</span><span>更新於 <span class="mono">{esc(generated)}</span></span></div>
 <div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
 <section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
 {_data_section(items, config, daily or [], current)}
@@ -709,7 +710,7 @@ def render_page(
 <div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(items)} / {len(items)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
 <div class="cards" id="list">{"".join(_item_html(it) for it in items)}</div></section>
-<section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家 · 本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
+<section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
 <section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section>
 <div class="note"><p>{icon("news")}<span><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</span></p>
 <p>{icon("book")}<span><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>

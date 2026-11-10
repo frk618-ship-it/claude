@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>貴金屬價格預警</title>
 <meta name="description" content="黃金、白銀、鉑金、鈀金每小時技術指標綜合評分,提示相對低點(進場)與相對高點(出場)。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+/* Hallmark · restyle · app screen · brand: 鑫科材料 (TTMC) navy and orange, kept · posture: restrained · layout: kept */
+/* critique: tokens for every colour and font, no status dots or dot-joined meta, one radius per level, instant focus rings, motion off under reduced motion */
 :root {
   color-scheme: light;
   --page: #f3f4f6;
@@ -15,7 +20,7 @@
   --muted: #7c7d80;
   --grid: #e4e6ea;
   --axis: #c3c6cc;
-  --border: rgba(19,20,21,0.10);
+  --border: #dfe1e5;
   --buy: #1f5fa8;          /* 進場 / 相對低點(diverging cool pole) */
   --buy-soft: #d3e0f0;
   --sell: #ee8a2e;         /* 出場 / 相對高點(diverging warm pole) */
@@ -26,13 +31,18 @@
   --band: rgba(31,95,168,0.10);
   --up: #d03b3b;           /* 漲(台灣慣例:漲紅跌綠) */
   --down: #008300;
-  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 2px 8px rgba(0,0,0,.04);
+  --shadow: 0 1px 2px rgba(19,20,21,.05);
+  --shadow-pop: 0 4px 16px rgba(19,20,21,.12);
+  --brand-navy: #173c66; --brand-orange: #f39043; --focus: #1f5fa8;
+  --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --space-3xs:2px; --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:40px; --space-2xl:64px; --space-3xl:96px; --space-4xl:144px;
+  --radius-s: 4px; --radius: 6px; --radius-l: 8px; --ease-out: cubic-bezier(.16,1,.3,1); --dur-micro: 120ms; --dur-short: 220ms;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --page: #0f1319; --surface: #161c24; --ink: #eef0f3; --ink-2: #b4b6ba; --muted: #888889;
-    --grid: #29313c; --axis: #3a4350; --border: rgba(255,255,255,0.10);
+    --grid: #29313c; --axis: #3a4350; --border: #2c3440;
     --buy: #4a8ad6; --buy-soft: #1a2a40; --sell: #d36f1c; --sell-soft: #3f2612; --neutral: #2a323d;
     --s1: #4a8ad6; --s3: #1ba3bd; --band: rgba(74,138,214,0.14); --up: #e66767; --down: #0ca30c;
     --shadow: none;
@@ -41,63 +51,62 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --page: #0f1319; --surface: #161c24; --ink: #eef0f3; --ink-2: #b4b6ba; --muted: #888889;
-  --grid: #29313c; --axis: #3a4350; --border: rgba(255,255,255,0.10);
+  --grid: #29313c; --axis: #3a4350; --border: #2c3440;
   --buy: #4a8ad6; --buy-soft: #1a2a40; --sell: #d36f1c; --sell-soft: #3f2612; --neutral: #2a323d;
   --s1: #4a8ad6; --s3: #1ba3bd; --band: rgba(74,138,214,0.14); --up: #e66767; --down: #0ca30c;
   --shadow: none;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; }
-body {
-  background: var(--page); color: var(--ink);
-  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-}
-.wrap { max-width: 1160px; margin: 0 auto; padding: 20px 16px 48px; }
-header.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px;
-  position: relative; padding-bottom: 12px; border-bottom: 3px solid #173c66; }
-header.top::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 96px; height: 3px; background: #f39043; }
-h1 { font-size: 24px; margin: 0; letter-spacing: .02em; }
-h2 { font-size: 17px; margin: 0 0 10px; }
-.meta { color: var(--ink-2); font-size: 13px; }
+html, body { margin: 0; overflow-x: clip; }
+body { background: var(--page); color: var(--ink); font: 15px/1.55 var(--font); font-synthesis: none; -webkit-font-smoothing: antialiased; }
+:where(a, button, select, input, summary, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2 { text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: var(--space-lg) var(--space-md) var(--space-xl); }
+header.top { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-md); align-items: flex-end; justify-content: space-between; margin-bottom: var(--space-md);
+  position: relative; padding-bottom: var(--space-sm); border-bottom: 3px solid var(--brand-navy); }
+header.top::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 96px; height: 3px; background: var(--brand-orange); }
+h1 { font-size: 26px; line-height: 1.15; margin: 0; letter-spacing: -.02em; }
+h2 { font-size: 17px; margin: 0 0 var(--space-sm); }
+.meta { color: var(--ink-2); font-size: 13px; display: flex; flex-wrap: wrap; gap: var(--space-3xs) var(--space-md); }
 .meta b { color: var(--ink); font-weight: 600; }
 .btn { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+  border-radius: 6px; padding: var(--space-xs) var(--space-sm); cursor: pointer; min-height: 32px; transition: border-color var(--dur-micro) var(--ease-out); }
 .btn:hover { border-color: var(--axis); }
+.btn:active { transform: translateY(1px); }
 .btn[disabled] { opacity: .5; cursor: progress; }
-.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); margin-bottom: 16px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer;
-  text-align: left; font: inherit; color: inherit; box-shadow: var(--shadow); transition: border-color .15s; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-md); box-shadow: var(--shadow); margin-bottom: var(--space-md); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-md); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-md) var(--space-md); cursor: pointer;
+  text-align: left; font: inherit; color: inherit; box-shadow: none; transition: border-color var(--dur-micro) var(--ease-out); }
 .card:hover { border-color: var(--axis); }
 .card[aria-pressed="true"] { border-color: var(--ink-2); outline: 1px solid var(--ink-2); }
-.card .row1 { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card .row1 { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-xs); }
 .card .nm { font-weight: 600; font-size: 16px; }
-.card .sym { color: var(--muted); font-size: 12px; margin-left: 4px; }
-.card .px { font-size: 26px; font-weight: 600; margin: 4px 0 2px; }
-.card .px small { font-size: 12px; color: var(--muted); font-weight: 400; margin-left: 4px; }
-.chg { font-size: 13px; color: var(--ink-2); }
+.card .sym { color: var(--muted); font-size: 12px; margin-left: var(--space-2xs); }
+.card .px { font-size: 28px; font-weight: 700; letter-spacing: -.01em; margin: var(--space-2xs) 0 var(--space-3xs); font-variant-numeric: tabular-nums; }
+.card .px small { font-size: 12px; color: var(--muted); font-weight: 400; margin-left: var(--space-2xs); }
+.chg { font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0 var(--space-sm); font-variant-numeric: tabular-nums; }
 .chg .up { color: var(--up); } .chg .down { color: var(--down); }
-.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+.badge { display: inline-flex; align-items: center; gap: var(--space-2xs); font-size: 12px; font-weight: 600; padding: var(--space-3xs) var(--space-xs); border-radius: 999px;
   background: var(--neutral); color: var(--ink); white-space: nowrap; }
 .badge.buy, .badge.strong_buy { background: var(--buy-soft); color: var(--ink); }
 .badge.sell, .badge.strong_sell { background: var(--sell-soft); color: var(--ink); }
-.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
-.badge.buy .dot, .badge.strong_buy .dot { background: var(--buy); }
-.badge.sell .dot, .badge.strong_sell .dot { background: var(--sell); }
-.gauge { margin-top: 10px; }
+.badge.buy, .badge.strong_buy { box-shadow: inset 0 0 0 1px var(--buy); }
+.badge.sell, .badge.strong_sell { box-shadow: inset 0 0 0 1px var(--sell); }
+.gauge { margin-top: var(--space-sm); }
 .gauge .track { position: relative; height: 8px; border-radius: 4px;
   background: linear-gradient(90deg, var(--sell) 0%, var(--sell-soft) 30%, var(--neutral) 50%, var(--buy-soft) 70%, var(--buy) 100%); }
 .gauge .pin { position: absolute; top: -4px; width: 4px; height: 16px; margin-left: -2px; border-radius: 2px; background: var(--ink);
   box-shadow: 0 0 0 2px var(--surface); }
-.gauge .lbl { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.gauge .lbl { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: var(--space-2xs); }
 .gauge .lbl b { color: var(--ink); font-size: 13px; }
-.detail-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 8px; }
+.detail-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-xs) var(--space-md); margin-bottom: var(--space-xs); }
 .detail-head .hint { color: var(--ink-2); font-size: 13px; }
 .chart { position: relative; }
 .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
-.chart .cap { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 12px; color: var(--ink-2); margin: 10px 0 2px; }
-.chart .cap b { color: var(--ink); font-weight: 600; font-size: 13px; margin-right: 4px; }
-.key { display: inline-flex; align-items: center; gap: 5px; }
+.chart .cap { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); align-items: center; font-size: 12px; color: var(--ink-2); margin: var(--space-sm) 0 var(--space-3xs); }
+.chart .cap b { color: var(--ink); font-weight: 600; font-size: 13px; margin-right: var(--space-2xs); }
+.key { display: inline-flex; align-items: center; gap: var(--space-2xs); }
 .key i { display: inline-block; width: 14px; height: 2px; border-radius: 1px; background: var(--s1); }
 .key i.band { height: 10px; background: var(--band); border: 1px solid var(--s1); border-width: 1px 0; }
 .key i.dash { background: repeating-linear-gradient(90deg, var(--ink-2) 0 4px, transparent 4px 7px); }
@@ -106,13 +115,13 @@ h2 { font-size: 17px; margin: 0 0 10px; }
 .axis text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .gridline { stroke: var(--grid); stroke-width: 1; }
 .tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--border);
-  border-radius: 8px; padding: 6px 10px; font-size: 12px; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap;
+  border-radius: 8px; padding: var(--space-xs) var(--space-sm); font-size: 12px; line-height: 1.5; box-shadow: var(--shadow-pop); white-space: nowrap;
   font-variant-numeric: tabular-nums; z-index: 5; display: none; }
 .tip .t { color: var(--ink-2); }
-.grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
+.grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-md); }
 @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th, td { text-align: left; padding: var(--space-xs) var(--space-xs); border-bottom: 1px solid var(--grid); vertical-align: top; }
 th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .vote { position: relative; width: 90px; height: 8px; background: var(--neutral); border-radius: 4px; }
@@ -120,20 +129,21 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .vote span.b { left: 50%; background: var(--buy); border-radius: 0 4px 4px 0; }
 .vote span.s { right: 50%; background: var(--sell); border-radius: 4px 0 0 4px; }
 .vote::after { content: ""; position: absolute; left: calc(50% - 1px); top: -2px; width: 2px; height: 12px; background: var(--axis); }
-.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13px; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: var(--space-2xs) var(--space-sm); font-size: 13px; }
 .kv dt { color: var(--ink-2); } .kv dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
-.sub { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.sub { font-size: 12px; color: var(--muted); margin-top: var(--space-xs); }
 .side-buy { color: var(--buy); font-weight: 600; } .side-sell { color: var(--sell); font-weight: 600; }
-.errors { border-left: 3px solid var(--sell); padding: 8px 12px; background: var(--sell-soft); border-radius: 6px; font-size: 13px; margin-bottom: 16px; }
+.errors { border-left: 3px solid var(--sell); padding: var(--space-xs) var(--space-sm); background: var(--sell-soft); border-radius: 6px; font-size: 13px; margin-bottom: var(--space-md); }
 .scroll { overflow-x: auto; }
 .grid2 > * { min-width: 0; }
 .scroll table { min-width: 560px; }
 td.nw { white-space: nowrap; }
 details summary { cursor: pointer; font-weight: 600; }
 .method { font-size: 13px; color: var(--ink-2); }
-.method li { margin: 3px 0; }
-.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
-footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 24px; }
+.method li { margin: var(--space-2xs) 0; }
+.empty { color: var(--muted); font-size: 13px; padding: var(--space-xs) 0; }
+footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: var(--space-lg); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
@@ -169,7 +179,7 @@ footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 2
     </details>
     <p>本頁僅為技術指標的量化整理,不構成投資建議;期貨價格與現貨、實體金屬報價有價差。</p>
   </section>
-  <footer>資料來源:Yahoo Finance · 每小時更新</footer>
+  <footer>資料來源:Yahoo Finance,每小時更新</footer>
 </div>
 <div class="tip" id="tip"></div>
 <script>
@@ -191,7 +201,7 @@ function fmtPct(v) {
   const cls = v > 0 ? "up" : v < 0 ? "down" : "";
   return `<span class="${cls}">${v > 0 ? "▲" : v < 0 ? "▼" : ""}${Math.abs(v).toFixed(2)}%</span>`;
 }
-function badge(level, name) { return `<span class="badge ${level}"><span class="dot"></span>${esc(name)}</span>`; }
+function badge(level, name) { return `<span class="badge ${level}">${esc(name)}</span>`; }
 
 // ---------- theme ----------
 (function () {
@@ -213,9 +223,9 @@ function render() {
   const d = state.data;
   if (!d || !d.metals) { $("cards").innerHTML = `<div class="empty">尚無資料。</div>`; return; }
   if (!state.sel || !d.metals.some((m) => m.code === state.sel)) state.sel = d.metals[0] && d.metals[0].code;
-  $("meta").innerHTML = `更新時間 <b>${esc(fmtTime(d.generated_at, true))}</b>`
-    + (d.next_run ? ` · 下次更新 ${esc(fmtTime(d.next_run))}` : "")
-    + ` · 每 ${d.interval_minutes} 分鐘檢查一次`;
+  $("meta").innerHTML = `<span>更新時間 <b>${esc(fmtTime(d.generated_at, true))}</b></span>`
+    + (d.next_run ? `<span>下次更新 ${esc(fmtTime(d.next_run))}</span>` : "")
+    + `<span>每 ${d.interval_minutes} 分鐘檢查一次</span>`;
   $("errors").innerHTML = (d.errors || []).length
     ? `<div class="errors">${d.errors.map((e) => esc(e)).join("<br>")}</div>` : "";
   const L = d.levels;
@@ -228,9 +238,9 @@ function renderCards() {
   $("cards").innerHTML = state.data.metals.map((m) => {
     const pos = (m.score + 100) / 2;
     return `<button class="card" type="button" data-code="${esc(m.code)}" aria-pressed="${m.code === state.sel}">
-      <div class="row1"><span><span class="nm">${esc(m.name)}</span><span class="sym">${esc(m.code)} · ${esc(m.symbol)}</span></span>${badge(m.level, m.level_name)}</div>
+      <div class="row1"><span><span class="nm">${esc(m.name)}</span><span class="sym">${esc(m.code)}(${esc(m.symbol)})</span></span>${badge(m.level, m.level_name)}</div>
       <div class="px">${fmtNum(m.price)}<small>${esc(m.unit)}</small></div>
-      <div class="chg">日 ${fmtPct(m.change_day)} · 24 小時 ${fmtPct(m.change_24h)}</div>
+      <div class="chg"><span>日 ${fmtPct(m.change_day)}</span><span>24 小時 ${fmtPct(m.change_24h)}</span></div>
       <div class="gauge" title="綜合分數 ${m.score}">
         <div class="track"><div class="pin" style="left:${pos}%"></div></div>
         <div class="lbl"><span>出場 −100</span><b>${m.score > 0 ? "+" : ""}${m.score.toFixed(0)}</b><span>+100 進場</span></div>
@@ -249,7 +259,7 @@ function renderDetail() {
   $("detail").innerHTML = `
     <div class="detail-head">
       <h2 style="margin:0">${esc(m.name)}(${esc(m.code)})技術面 ${badge(m.level, m.level_name)}</h2>
-      <div class="hint">${esc(m.level_hint)} · ${esc(m.trend_text)}</div>
+      <div class="hint">${esc(m.level_hint)},${esc(m.trend_text)}</div>
     </div>
     <div class="chart" id="c-price"></div>
     <div class="chart" id="c-score"></div>
@@ -410,7 +420,7 @@ function drawHover(x, ev) {
   tip.innerHTML = `<div class="t">${esc(fmtTime(c.ts[i], true))}</div>
     收盤 <b>${fmtNum(c.close[i])}</b><br>
     分數 <b>${c.score[i] == null ? "—" : (c.score[i] > 0 ? "+" : "") + c.score[i]}</b><br>
-    RSI ${fmtNum(c.rsi[i], 1)} · K ${fmtNum(c.k[i], 1)} · D ${fmtNum(c.d[i], 1)}<br>
+    RSI ${fmtNum(c.rsi[i], 1)}　K ${fmtNum(c.k[i], 1)}　D ${fmtNum(c.d[i], 1)}<br>
     布林 ${fmtNum(c.bb_lower[i])} – ${fmtNum(c.bb_upper[i])}`;
   tip.style.display = "block";
   const tw = tip.offsetWidth, th = tip.offsetHeight;

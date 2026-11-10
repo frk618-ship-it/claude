@@ -288,14 +288,14 @@ def test_build_site_from_reports(tmp_path, config):
 
     index = (out / "index.html").read_text(encoding="utf-8")
     # The homepage combines the latest days; duplicates across days appear once.
-    assert "最近 2 天 · 2026-10-12 ~ 2026-10-13" in index and index != (out / "2026-10-13.html").read_text(encoding="utf-8")
+    assert "最近 2 天(2026-10-12 至 2026-10-13)" in index and index != (out / "2026-10-13.html").read_text(encoding="utf-8")
     assert index.split('id="list"')[1].count('<article class="card') == len(items)
     assert 'href="index.html" aria-current=page' in index and 'href="2026-10-13.html"' in index
     assert (out / "2026-10-12.html").exists()
     assert not (out / "data").exists()  # raw MD/JSON are no longer published
     assert index.count('<article class="card') >= len(items)
     assert "Spokane" in index and 'href="2026-10-12.html"' in index
-    assert "Solstice" in index and "生產商 · 台灣" in index
+    assert "Solstice" in index and "台灣靶材生產商" in index
     assert ".md\"" not in index and ".json\"" not in index and "Markdown" not in index
     assert "<script>alert" not in index
     # Share-preview card: description + Open Graph with absolute image URL when site_url is set.
@@ -912,7 +912,7 @@ def test_ledger_groups_equipment_and_process(config):
     from target_news_agent.site import _ledger
 
     html_ = _ledger(config, Counter({"Evatec": 2}))
-    assert "濺鍍設備商" in html_ and "製程相關 · PVD 半導體廠" in html_ and "靶材生產商 · 日本" in html_
+    assert "濺鍍設備商" in html_ and "製程相關(PVD 半導體廠)" in html_ and "日本靶材生產商" in html_
     assert "Evatec" in html_ and "2 則" in html_ and "台積電" in html_
 
 
@@ -1180,7 +1180,7 @@ def test_news_thumbnails_follow_the_story():
     assert pick(base) == ("target", "靶材", "")
 
     card = _item_html({**base, "title": "光洋科鉭靶擴產", "categories": ["擴產與投資"], "link": "https://x"})
-    assert '<div class="thumb" role="img" aria-label="擴產 · Ta">' in card and '#i-factory' in card and '<span class="sym">Ta</span>' in card
+    assert '<div class="thumb" role="img" aria-label="擴產,Ta">' in card and '#i-factory' in card and '<span class="sym">Ta</span>' in card
 
 
 def test_target_recycling_papers_are_kept(config):

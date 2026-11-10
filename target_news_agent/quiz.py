@@ -59,7 +59,7 @@ ISLANDS = [
 ]
 # Collaboration lines: islands that share a concept (label shown when either island is focused).
 LINKS = [
-    ("materials", "process", "高純度金屬 → 靶材製程"), ("materials", "makers", "JX金屬 Cu 靶、江豐電子 Al 靶"),
+    ("materials", "process", "高純度金屬變成靶材的製程"), ("materials", "makers", "JX金屬 Cu 靶、江豐電子 Al 靶"),
     ("market", "makers", "前兩大廠合計約七成"), ("news", "market", "每日市場訊號"),
     ("process", "news", "封裝擴產帶動 PVD"), ("materials", "play", "元素配對"),
 ]
@@ -192,65 +192,65 @@ def build_bank(config: Config, items: list[dict], seed: str = "") -> dict:
 PAIRS = 6
 
 GAME_STYLE = """
-.isle{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
-.stage{position:relative;background:#cfe8f7;border-radius:8px;overflow:hidden;min-height:420px}
-@media (prefers-color-scheme:dark){.stage{background:#10283d}}
-.hud2{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none;z-index:2}
-.chip2{background:var(--surface);border-radius:6px;padding:6px 10px;font-size:.8rem;color:var(--muted);display:inline-flex;gap:6px;align-items:center}.chip2 b{font-family:var(--font-data);color:var(--fg)}
-.tools{position:absolute;right:12px;top:12px;display:flex;gap:8px;z-index:2}
-.g-btn{font:inherit;font-size:.9rem;border:0;border-radius:6px;padding:9px 16px;cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:8px;align-items:center}
-.g-btn:hover{background:var(--accent);color:#fff}.g-btn.primary{background:var(--accent);color:#fff}.g-btn.primary:hover{background:var(--accent-2)}.g-btn.sm{padding:6px 12px;font-size:.82rem}
+:root{--stage:#cfe8f7;--halo:#fbfcfd;--logo-bg:#ffffff}
+@media (prefers-color-scheme:dark){:root{--stage:#10283d;--halo:#10283d}}
+.isle{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--space-md);align-items:start}
+.stage{position:relative;background:var(--stage);border-radius:8px;overflow:hidden;min-height:420px}
+.hud2{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:var(--space-xs);pointer-events:none;z-index:2}
+.chip2{background:var(--surface);border-radius:6px;padding:var(--space-xs) var(--space-sm);font-size:.8rem;color:var(--muted);display:inline-flex;gap:var(--space-xs);align-items:center}.chip2 b{font-family:var(--font-data);color:var(--fg)}
+.tools{position:absolute;right:12px;top:12px;display:flex;gap:var(--space-xs);z-index:2}
+.g-btn{font:inherit;font-size:.9rem;border:0;border-radius:6px;padding:var(--space-xs) var(--space-md);cursor:pointer;background:var(--accent-soft);color:var(--accent);font-weight:600;display:inline-flex;gap:var(--space-xs);align-items:center}
+.g-btn:hover{background:var(--accent);color:var(--on-accent)}.g-btn.primary{background:var(--accent);color:var(--on-accent)}.g-btn.primary:hover{background:var(--accent-2)}.g-btn.sm{padding:var(--space-xs) var(--space-sm);font-size:.82rem}
 .tools .g-btn{background:var(--surface)}
 .stage canvas.gl{display:block;width:100%;cursor:grab;touch-action:pan-y}.stage canvas.gl.grab{cursor:grabbing}
 .ov{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .ov>*{position:absolute;left:0;top:0;will-change:transform}
 .lbl{display:grid;justify-items:center;text-align:center;white-space:nowrap;line-height:1.25}
-.lbl b{font:700 13px var(--font-body);color:var(--fg);text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff}
-.lbl small{font:500 10.5px var(--font-data);color:var(--muted);text-shadow:0 0 3px #fff,0 0 3px #fff}
+.lbl b{font:700 13px var(--font-body);color:var(--fg);text-shadow:0 0 3px var(--halo),0 0 3px var(--halo),0 0 6px var(--halo)}
+.lbl small{font:500 10.5px var(--font-data);color:var(--muted);text-shadow:0 0 3px var(--halo),0 0 3px var(--halo)}
 .lbl.on b{color:var(--accent)}
-@media (prefers-color-scheme:dark){.lbl b,.lbl small{text-shadow:0 0 3px #10283d,0 0 3px #10283d,0 0 6px #10283d}}
-.link-tag{font:600 11.5px var(--font-body);color:var(--accent-2);background:var(--surface);border-radius:4px;padding:2px 7px;white-space:nowrap}
-.gbubble{background:var(--surface);border:1.5px solid var(--accent);border-radius:8px;padding:7px 11px;font:600 12.5px/1.5 var(--font-body);color:var(--fg);white-space:nowrap;transition:opacity .25s;margin-top:-10px}
+.link-tag{font:600 11.5px var(--font-body);color:var(--accent-2);background:var(--surface);border-radius:4px;padding:var(--space-3xs) var(--space-xs);white-space:nowrap}
+.gbubble{background:var(--surface);border:1.5px solid var(--accent);border-radius:8px;padding:var(--space-xs) var(--space-sm);font:600 12.5px/1.5 var(--font-body);color:var(--fg);white-space:nowrap;transition:opacity var(--dur-short) var(--ease-out);margin-top:-10px}
 .gbubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:10px;background:var(--surface);border:solid var(--accent);border-width:0 1.5px 1.5px 0;transform:translateX(-50%) rotate(45deg)}
 .gbubble.off{opacity:0}.gbubble.corner{position:absolute;left:12px;bottom:12px}.gbubble.corner::after{display:none}
-.nomap{position:absolute;inset:auto 12px 12px 12px;background:var(--surface);border-radius:6px;padding:12px 14px;font-size:.88rem;color:var(--muted)}
+.nomap{position:absolute;inset:auto 12px 12px 12px;background:var(--surface);border-radius:6px;padding:var(--space-sm) var(--space-md);font-size:.88rem;color:var(--muted)}
 .stage{min-height:380px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:18px;display:grid;gap:14px;align-content:start}
-.side h3{margin:0;display:flex;gap:10px;align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
+.side{background:var(--surface);border-top:4px solid var(--c,var(--accent));border-radius:6px;padding:var(--space-md);display:grid;gap:var(--space-md);align-content:start}
+.side h3{margin:0;display:flex;gap:var(--space-sm);align-items:center;font-size:1.15rem}.side h3 .ic{width:26px;height:26px;color:var(--c,var(--accent))}
 .side p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
 .pbar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--c,var(--accent))}
-.blist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.bld{font:inherit;border:0;border-radius:6px;padding:10px 6px;cursor:pointer;background:var(--bg);color:var(--fg);display:grid;gap:4px;justify-items:center;font-size:.8rem}
+.blist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-xs)}
+.bld{font:inherit;border:0;border-radius:6px;padding:var(--space-sm) var(--space-xs);cursor:pointer;background:var(--bg);color:var(--fg);display:grid;gap:var(--space-2xs);justify-items:center;font-size:.8rem}
 .bld .ic{width:22px;height:22px;color:var(--muted)}.bld b{font-family:var(--font-data)}
 .bld.lit{background:color-mix(in srgb,var(--c) 18%,var(--surface))}.bld.lit .ic{color:var(--c)}.bld:hover{outline:2px solid var(--c)}
-.ilist{display:grid;gap:6px}.irow{font:inherit;border:0;border-radius:6px;padding:8px 10px;cursor:pointer;background:var(--bg);color:var(--fg);display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;text-align:left;font-size:.88rem}
-.irow .dot{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;color:#fff}.irow .dot .ic{width:16px;height:16px}.irow span.mono{font-size:.78rem;color:var(--muted)}
+.ilist{display:grid;gap:var(--space-xs)}.irow{font:inherit;border:0;border-radius:6px;padding:var(--space-xs) var(--space-sm);cursor:pointer;background:var(--bg);color:var(--fg);display:grid;grid-template-columns:28px 1fr auto;gap:var(--space-sm);align-items:center;text-align:left;font-size:.88rem}
+.irow .dot{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;color:var(--on-accent)}.irow .dot .ic{width:16px;height:16px}.irow span.mono{font-size:.78rem;color:var(--muted)}
 .irow:hover{background:var(--accent-soft)}
 .g-q{font-size:1.05rem;font-weight:700;line-height:1.6;margin:0}
-.qhead{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center}
-.vis{width:72px;height:72px;border-radius:8px;display:grid;place-items:center;position:relative;align-content:center;gap:2px;text-align:center}
+.qhead{display:grid;grid-template-columns:72px minmax(0,1fr);gap:var(--space-sm);align-items:center}
+.vis{width:72px;height:72px;border-radius:8px;display:grid;place-items:center;position:relative;align-content:center;gap:var(--space-3xs);text-align:center}
 .vis.icon{background:color-mix(in srgb,var(--c,var(--accent)) 15%,var(--surface));color:var(--c,var(--accent))}.vis.icon .ic{width:34px;height:34px;stroke-width:1.5}
-.vis .vcap{font-size:.66rem;color:var(--muted)}.vis .vsym{position:absolute;right:-6px;bottom:-6px;background:var(--accent);color:#fff;border-radius:4px;font:600 .7rem var(--font-data);padding:2px 5px}
+.vis .vcap{font-size:.66rem;color:var(--muted)}.vis .vsym{position:absolute;right:-6px;bottom:-6px;background:var(--accent);color:var(--on-accent);border-radius:4px;font:600 .7rem var(--font-data);padding:var(--space-3xs) var(--space-2xs)}
 .ptile{background:color-mix(in srgb,var(--pc) 22%,var(--surface));border:3px solid var(--pc);color:var(--fg)}.ptile .z{position:absolute;left:6px;top:3px;font:500 .66rem var(--font-data);color:var(--muted)}
 .ptile .s{font:700 1.6rem/1 var(--font-data)}.ptile .s.long{font-size:.95rem}
-.vis.logo{background:#fff;border:2px solid var(--line)}.vis.logo img{max-width:56px;max-height:44px;object-fit:contain}
-.opts{display:grid;gap:8px}
-.opt{font:inherit;text-align:left;border:0;background:var(--bg);color:var(--fg);border-radius:6px;padding:10px 12px;cursor:pointer;line-height:1.5;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center}
-.opt .k{width:28px;height:28px;border-radius:5px;display:grid;place-items:center;background:var(--c,var(--accent));color:#fff;font:700 .85rem var(--font-data)}
+.vis.logo{background:var(--logo-bg);border:2px solid var(--line)}.vis.logo img{max-width:56px;max-height:44px;object-fit:contain}
+.opts{display:grid;gap:var(--space-xs)}
+.opt{font:inherit;text-align:left;border:0;background:var(--bg);color:var(--fg);border-radius:6px;padding:var(--space-sm) var(--space-sm);cursor:pointer;line-height:1.5;display:grid;grid-template-columns:28px minmax(0,1fr);gap:var(--space-sm);align-items:center}
+.opt .k{width:28px;height:28px;border-radius:5px;display:grid;place-items:center;background:var(--c,var(--accent));color:var(--on-accent);font:700 .85rem var(--font-data)}
 .opt:hover:not(:disabled){background:var(--accent-soft)}.opt:disabled{cursor:default}
 .opt.right{background:var(--ok-soft);color:var(--ok);font-weight:700}.opt.right .k{background:var(--ok)}
 .opt.wrong{background:color-mix(in srgb,var(--up) 13%,var(--surface));color:var(--up)}.opt.wrong .k{background:var(--up)}.opt.dim{opacity:.45}
-.fb{border-radius:6px;padding:12px 14px;background:var(--bg);font-size:.9rem;line-height:1.7;border-left:5px solid var(--line)}.fb b{display:block;margin-bottom:2px}
+.fb{border-radius:6px;padding:var(--space-sm) var(--space-md);background:var(--bg);font-size:.9rem;line-height:1.7;border-left:5px solid var(--line)}.fb b{display:block;margin-bottom:var(--space-3xs)}
 .fb.ok{border-color:var(--ok)}.fb.ok b{color:var(--ok)}.fb.no{border-color:var(--up)}.fb.no b{color:var(--up)}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--fg);color:var(--bg);border-radius:8px;padding:12px 18px;font-size:.92rem;z-index:20;max-width:min(92vw,520px);text-align:center}
-.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;perspective:800px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--fg);color:var(--bg);border-radius:8px;padding:var(--space-sm) var(--space-md);font-size:.92rem;z-index:20;max-width:min(92vw,520px);text-align:center}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-xs);perspective:800px}
 .mc{font:inherit;border:0;padding:0;background:none;cursor:pointer;aspect-ratio:1;position:relative}
-.mc .in{position:absolute;inset:0;transition:transform .45s;transform-style:preserve-3d}.mc.flip .in{transform:rotateY(180deg)}
-.mc .f,.mc .b{position:absolute;inset:0;border-radius:6px;backface-visibility:hidden;display:grid;place-items:center;align-content:center;gap:2px}
-.mc .f{background:var(--c,var(--accent));color:#fff;font:700 1.3rem var(--font-data)}
+.mc .in{position:absolute;inset:0;transition:transform var(--dur-long) var(--ease-out);transform-style:preserve-3d}.mc.flip .in{transform:rotateY(180deg)}
+.mc .f,.mc .b{position:absolute;inset:0;border-radius:6px;backface-visibility:hidden;display:grid;place-items:center;align-content:center;gap:var(--space-3xs)}
+.mc .f{background:var(--c,var(--accent));color:var(--on-accent);font:700 1.3rem var(--font-data)}
 .mc .b{transform:rotateY(180deg);background:color-mix(in srgb,var(--pc) 22%,var(--surface));border:3px solid var(--pc);color:var(--fg)}
-.mc .b .z{position:absolute;left:6px;top:3px;font:500 .66rem var(--font-data);color:var(--muted)}.mc .b .s{font:700 1.5rem/1 var(--font-data)}.mc .b .s.long{font-size:.9rem}.mc .b .n{font-size:1.05rem;font-weight:700;text-align:center;line-height:1.3;padding:0 4px}
+.mc .b .z{position:absolute;left:6px;top:3px;font:500 .66rem var(--font-data);color:var(--muted)}.mc .b .s{font:700 1.5rem/1 var(--font-data)}.mc .b .s.long{font-size:.9rem}.mc .b .n{font-size:1.05rem;font-weight:700;text-align:center;line-height:1.3;padding:0 var(--space-2xs)}
 .mc .b.name{background:var(--accent-soft);border-color:var(--accent)}.mc.done .b.name{background:color-mix(in srgb,var(--pc) 22%,var(--surface))}
 .mc.done .b{border-color:var(--ok)}.mc.miss .b{border-color:var(--up)}
 @media (max-width:860px){.isle{grid-template-columns:1fr}.stage{min-height:0}}
@@ -654,7 +654,7 @@ function render() {
 function findTreasure() {
   treasureFound = B.treasure; save(); render(); hud();
   guide.goTo(B.treasure, -1.2, .9, () => { guide.react('jump', 'happy'); guide.say('哇!找到今天的金色靶材了!明天它會躲到別座島喔。'); });
-  toast('✨ 找到金色靶材!');
+  toast('找到金色靶材!');
 }
 
 // ---------- 靶靶: the guide character ----------
@@ -714,7 +714,7 @@ function guideTo(id) {
   const left = i.questions.length - lit(i);
   guide.goTo(i.id, -1.3, 2.0, () => guide.say(
     i.id === 'play' ? '翻牌配對元素符號和中文名,記住位置喔!' :
-    conquered(i) ? `${i.name}已經征服了 🚩 去下一座島吧!` : `${i.name}到了!還有 ${left} 棟建築等你點亮。`));
+    conquered(i) ? `${i.name}已經征服了,去下一座島吧!` : `${i.name}到了!還有 ${left} 棟建築等你點亮。`));
 }
 function go(id) {
   focus = id && ISL[id] ? id : null;
@@ -728,7 +728,7 @@ function hud() {
   const total = B.islands.reduce((n, i) => n + i.questions.length, 0), litAll = B.islands.reduce((n, i) => n + lit(i), 0);
   const c1 = el('span', 'chip2', '征服島嶼 '); c1.append(el('b', '', B.islands.filter(conquered).length + ' / ' + B.islands.length));
   const c2 = el('span', 'chip2', '點亮建築 '); c2.append(el('b', '', litAll + ' / ' + total));
-  const c3 = el('span', 'chip2', found() ? '✨ 已找到今天的金色靶材' : '🔍 某座島上藏著金色靶材');
+  const c3 = el('span', 'chip2', found() ? '已找到今天的金色靶材' : '某座島上藏著金色靶材');
   box.append(c1, c2, c3);
 }
 function toast(msg) { const t = el('div', 'toast', msg); t.setAttribute('role', 'status'); document.body.append(t); setTimeout(() => t.remove(), 4200); }
@@ -743,7 +743,7 @@ function panel(qid) {
     const list = el('div', 'ilist');
     for (const x of B.islands) {
       const r = btn('irow', '', () => go(x.id)), d = el('span', 'dot'); d.style.background = x.color; d.append(icon(x.icon));
-      r.append(d, el('span', '', x.name + (conquered(x) ? ' 🚩' : '')), el('span', 'mono', x.id === 'play' ? (matchDone ? '完成' : '遊戲') : lit(x) + '/' + x.questions.length));
+      r.append(d, el('span', '', x.name + (conquered(x) ? '(已征服)' : '')), el('span', 'mono', x.id === 'play' ? (matchDone ? '完成' : '遊戲') : lit(x) + '/' + x.questions.length));
       list.append(r);
     }
     side.append(list); return;
@@ -761,7 +761,7 @@ function panel(qid) {
 function nav(i) {
   const row = el('div', 'g-meta'); row.style.display = 'flex'; row.style.gap = '8px'; row.style.flexWrap = 'wrap';
   const ids = B.islands.map(x => x.id), k = ids.indexOf(i.id);
-  row.append(btn('g-btn sm', '← 上一座島', () => go(ids[(k - 1 + ids.length) % ids.length])), btn('g-btn sm', '下一座島 →', () => go(ids[(k + 1) % ids.length])),
+  row.append(btn('g-btn sm', '上一座島', () => go(ids[(k - 1 + ids.length) % ids.length])), btn('g-btn sm', '下一座島', () => go(ids[(k + 1) % ids.length])),
     btn('g-btn sm', '回到全島地圖', () => go(null)));
   return row;
 }
@@ -785,19 +785,19 @@ function question(i, q) {
       buttons.forEach(o => { o.disabled = true; if (o.lastChild.textContent === q.answer) o.classList.add('right'); else if (o !== b) o.classList.add('dim'); });
       if (!ok) b.classList.add('wrong');
       if (ok && !solved.has(q.id)) { solved.add(q.id); save(); render(); hud(); }
-      if (ok && conquered(i)) { toast('🚩 征服「' + i.name + '」!'); guide.react('jump', 'happy'); guide.say('征服' + i.name + '!🚩 太強了!'); }
+      if (ok && conquered(i)) { toast('征服「' + i.name + '」!'); guide.react('jump', 'happy'); guide.say('征服' + i.name + '!太強了!'); }
       else if (ok) { guide.react('jump', 'happy'); guide.say(pickOne(praise)); }
       else { guide.react('sad', 'sad'); guide.say(pickOne(cheer)); }
       fb.className = 'fb ' + (ok ? 'ok' : 'no');
       fb.replaceChildren(el('b', '', ok ? '答對了!點亮一棟建築' : '答錯了,正解是「' + q.answer + '」(可以再挑戰)'));
       if (q.explain) fb.append(document.createTextNode(q.explain));
-      if (q.link) { const a = el('a', '', ' 閱讀原文 →'); a.href = q.link; a.target = '_blank'; a.rel = 'noopener'; fb.append(a); }
+      if (q.link) { const a = el('a', '', ' 閱讀原文'); a.href = q.link; a.target = '_blank'; a.rel = 'noopener'; fb.append(a); }
       fb.hidden = false; after.hidden = false;
     };
     buttons.push(b); opts.append(b);
   });
   const nextQ = i.questions.slice(n + 1).concat(i.questions.slice(0, n)).find(x => !solved.has(x.id));
-  after.append(nextQ ? btn('g-btn primary sm', '下一棟 →', () => panel(nextQ.id)) : btn('g-btn primary sm', '本島完成 🚩', () => panel()),
+  after.append(nextQ ? btn('g-btn primary sm', '下一棟', () => panel(nextQ.id)) : btn('g-btn primary sm', '本島完成', () => panel()),
     btn('g-btn sm', '島上建築一覽', () => panel()));
   box.append(el('div', 'chip2', '建築 #' + (n + 1) + ' / ' + i.questions.length), head, opts, fb, after);
   return box;
@@ -808,7 +808,7 @@ function matchGame(i) {
   const box = el('div'); box.style.display = 'grid'; box.style.gap = '12px';
   const pick = shuffle(B.elements).slice(0, PAIRS), cards = shuffle(pick.flatMap(e => [{e, sym: true}, {e, sym: false}]));
   let open = [], moves = 0, left = PAIRS;
-  const info = el('div', 'chip2', '翻兩張:元素符號配中文名 · 步數 '), mv = el('b', '', '0'); info.append(mv);
+  const info = el('div', 'chip2', '翻兩張配對元素符號與中文名,步數 '), mv = el('b', '', '0'); info.append(mv);
   const board = el('div', 'board');
   for (const c of cards) {
     const card = el('button', 'mc'); card.type = 'button'; card.setAttribute('aria-label', '翻開卡片');
@@ -824,7 +824,7 @@ function matchGame(i) {
       const [[k1, c1], [k2, c2]] = open;
       if (c1.e.sym === c2.e.sym && c1.sym !== c2.sym) {
         [k1, k2].forEach(k => { k.classList.add('done'); k.disabled = true; }); open = [];
-        if (!--left) { const first = !matchDone; matchDone = true; save(); render(); hud(); toast((first ? '🚩 征服「配對遊樂島」!' : '完成!') + moves + ' 步');
+        if (!--left) { const first = !matchDone; matchDone = true; save(); render(); hud(); toast((first ? '征服「配對遊樂島」!' : '完成!') + moves + ' 步');
           guide.react('jump', 'happy'); guide.say('全部配對完成,' + moves + ' 步!記憶力真好!'); }
       } else { [k1, k2].forEach(k => k.classList.add('miss'));
         setTimeout(() => { [k1, k2].forEach(k => { k.classList.remove('flip', 'miss'); k.setAttribute('aria-label', '翻開卡片'); }); open = []; }, 900); }
@@ -856,7 +856,7 @@ def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "
         _head("靶材產業島", "跟著嚮導靶靶探索六座靶材產業島:每座島是一個主題、每棟建築是一道題,答對點亮建築、征服島嶼。題目取自本站新聞、商情預測與財報素材。",
               config.settings.site_url, "quiz.html")
         + f"""<style>{GAME_STYLE}</style><div class="wrap" style="max-width:1180px">
-<header>{_brand("Sputtering Target · Knowledge Islands", "靶材產業島")}
+<header>{_brand("靶材產業島")}
 <div class="meta"><span>{icon("calendar")}題庫更新於 <span class="mono">{esc(generated)}</span></span></div>
 <p class="sub">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,新聞港每天隨新聞換題。進度只存在你的瀏覽器。</p></header>
 <section class="isle" aria-label="靶材產業島"><div class="stage" id="stage"><div class="hud2" id="hud2"></div>

@@ -88,23 +88,25 @@ PAGE = """<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>{title}</title>
 <style>
-:root{{--bg:#f3f4f6;--surface:#fbfcfd;--fg:#131415;--muted:#4d4e4f;--line:#dfe1e5;--accent:#173c66;--accent-2:#005a7f;--accent-soft:#e4eaf2;--brand-orange:#f39043;color-scheme:light}}
+/* Hallmark · restyle · long document · brand: 鑫科材料 (TTMC) navy and orange, kept · posture: restrained */
+:root{{--font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;--mono:ui-monospace,Menlo,monospace;--focus:#1f5fa8;--bg:#f3f4f6;--surface:#fbfcfd;--fg:#131415;--muted:#4d4e4f;--line:#dfe1e5;--accent:#173c66;--accent-2:#005a7f;--accent-soft:#e4eaf2;--brand-orange:#f39043;color-scheme:light}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#0f1319;--surface:#161c24;--fg:#eef0f3;--muted:#b4b6ba;--line:#29313c;--accent:#7fa6d6;--accent-2:#4fb3cf;--accent-soft:#1a2a40;color-scheme:dark}}}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:15.5px;line-height:1.75}}
+*{{box-sizing:border-box}}html,body{{overflow-x:clip}}body{{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.65;font-synthesis:none}}
+:where(a,button,summary,[tabindex]):focus-visible{{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}}
 .wrap{{max-width:980px;margin:0 auto;padding:28px 16px 80px}}
 .back{{display:inline-flex;gap:6px;align-items:center;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;font-size:.9rem}}
 .back:hover{{border-color:var(--accent)}}
 article{{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px clamp(16px,4vw,40px)}}
-h1{{font-size:clamp(1.5rem,4vw,2rem);line-height:1.3;margin:.2em 0 .4em;padding-bottom:12px;border-bottom:3px solid var(--accent);position:relative}}
+h1{{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.15;letter-spacing:-.02em;text-wrap:balance;overflow-wrap:break-word;margin:.2em 0 .4em;padding-bottom:12px;border-bottom:3px solid var(--accent);position:relative}}
 h1::after{{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}}
-h2{{font-size:1.25rem;margin:1.8em 0 .6em}}h3{{font-size:1.05rem;margin:1.4em 0 .5em}}
-p{{margin:.6em 0;max-width:75ch}}a{{color:var(--accent);text-underline-offset:3px}}
+h2{{font-size:1.375rem;line-height:1.25;margin:1.8em 0 .6em;text-wrap:balance}}h3{{font-size:1.125rem;margin:1.4em 0 .5em;text-wrap:balance}}
+p{{margin:.6em 0;max-width:70ch;text-wrap:pretty}}a{{color:var(--accent);text-underline-offset:3px}}
 ul,ol{{padding-left:1.4em;margin:.6em 0}}li{{margin:.25em 0}}li.task{{list-style:none;margin-left:-1.2em}}
 .tw{{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8em 0;border:1px solid var(--line);border-radius:8px}}
 table{{border-collapse:collapse;width:100%;font-size:.88rem;min-width:640px}}
 th,td{{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}}
 th{{background:var(--accent-soft);font-weight:600;white-space:nowrap}}
-code{{font-family:ui-monospace,Menlo,monospace;font-size:.88em;background:var(--accent-soft);padding:1px 5px;border-radius:4px}}
+code{{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);padding:1px 5px;border-radius:4px}}
 .note{{color:var(--muted);font-size:.84rem;margin-top:10px}}
 @media print{{.back,.fabnav,.fab-scrim{{display:none}}article{{border:0;padding:0}}}}
 </style></head><body><div class="wrap">
