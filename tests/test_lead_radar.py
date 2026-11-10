@@ -397,7 +397,7 @@ def test_segment_scores_do_not_saturate(cfg):
 
 def test_primary_segment_and_production_segment(cfg):
     assert cfg.settings.primary_segment == "tw_semi_equipment"
-    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment", "tw_ai_server"]
+    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment", "tw_ai_server", "tw_heavy_industry"]
     prod = cfg.segments["tw_semi_production"]
     assert set(prod.subsegments) == {"foundry", "memory", "thinning", "packaging", "testing"}
     members = {a.name: a for a in cfg.accounts if a.segment == "tw_semi_production"}
@@ -679,3 +679,22 @@ def test_tier1_suppliers_of_equipment_makers(cfg):
     assert chain_label(acc) == "設備大廠一階供應商(客戶:應用材料、科林研發、艾司摩爾)"
     assert chain_label(next(a for a in rep["accounts"] if a["org"] == "巧新科技")).endswith("(客戶:客戶未公開)")
     assert "設備大廠一階供應商(客戶:應用材料)" in render_accounts_csv(rep)
+
+
+def test_heavy_industry_segment(cfg):
+    from lead_radar.segment import build_segment_report
+
+    seg = cfg.segments["tw_heavy_industry"]
+    assert set(seg.subsegments) == {"steel", "stainless", "refinery", "chemical", "epc"}
+    members = {a.name: a for a in cfg.accounts if a.segment == "tw_heavy_industry"}
+    assert {"中鋼", "唐榮", "台塑化", "中油", "台塑", "台化", "中鼎工程"} <= set(members)
+    assert all(a.fit["target"] == 0 and max(a.fit["titanium"], a.fit["nickel"]) >= 2 for a in members.values())
+    assert "中鋼" not in cfg.settings.exclude_orgs
+    s = sig(cfg, "中鋼歲修 加熱爐汰換")
+    assert s.orgs == ["中鋼"] and s.intents[0] == "maintenance" and s.industries["nickel"] == "steel"
+    assert sig(cfg, "台塑化麥寮廠 大修 停爐").orgs == ["台塑化"]          # 「台塑」 inside 「台塑化」 is not 台塑
+    assert set(sig(cfg, "台塑、台塑化同步歲修").orgs) == {"台塑", "台塑化"}
+    rep = build_segment_report([s, sig(cfg, "台化 PTA 新廠 擴產")], cfg, "tw_heavy_industry", ASOF)
+    top = {a["org"]: a for a in rep["accounts"]}
+    assert top["中鋼"]["best_product"] == "nickel" and top["台化"]["best_product"] == "titanium"
+

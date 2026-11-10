@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10T08:28:29.690937+08:00",
+  "generated": "2026-11-10T11:47:10.065416+08:00",
   "days": 7,
   "digest": {
     "overview": "本期兩大靶材廠財報亮眼:JX金屬上半年營業利益增至 2.2 倍、達 1,508 億日圓,上半年純益年增 128.1%,並將全年營業利益預估上修至 2,550 億日圓、純益預估 1,600 億日圓(年增 53%),表示 AI 需求不會減速;同時取得光學元件廠 Oxide 7.12% 股權,布局 AI 與量子材料。光洋科第三季每股盈餘 2.68 元創逾 18 年單季新高,10 月營收年增 52.8%,並擬發行最高 15 億元可轉債。記憶體方面,三星、SK海力士爭奪 EUV 產能擴產先進 DRAM,美光新加坡投資 310 億美元、桃園新廠勞資 11 月 17 日再協商。另有報告指中國高純金屬靶材國產化提速;貴金屬全面上漲,金價升 1.5%。",
@@ -21,6 +21,428 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "08a6a84c85606255",
+      "title": "美光桃園廠擴建喊卡！1480億投資恐生變 經濟部回應了",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE40bHZiLUtHZ3ZWWUk0dzBPekctT1dISTM3eV9xaVYyRDB3dlBkX0hpWGRnaVpZb3ltWnVnSWxGNDlXMTlSVUVTUC1Qcw?oc=5",
+      "source": "樂聯網",
+      "published": "2026-11-06T09:07:23+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 4.96,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f3d13ca987e1fcad",
+      "title": "JX金屬因AI需求及銅價上漲上調全年業績指引 作者 Investing.com - Investing.com 香港 - 股市報價& 財經新聞",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE03dUhiODZHbExVNU5pcFFZQ2xKa202T0w0NC1ScFZiWWZoLVUtRUNFR2kyRHFrSG13OHhGVWVhaUdJYWlJckhPZzVnMkZRX0ZJbUh5VmNsWEhCN1hXbDFRbUwtcHdOY3JCRldYbTNwZjc5ZVpPUkZB?oc=5",
+      "source": "Investing.com 香港 - 股市報價& 財經新聞",
+      "published": "2026-11-09T15:21:59+00:00",
+      "snippet": "JX金屬因AI需求及銅價上漲上調全年業績指引 作者 Investing.com Investing.com 香港 - 股市報價& 財經新聞",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報",
+        "原物料與價格"
+      ],
+      "score": 4.73,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7a6f5d6e95327bd2",
+      "title": "オキサイド---ストップ高買い気配、JX金属と資本業務提携し約27億円調達 執筆 Fisco - Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5vOUdwOE8xUEtTT0tUNUtIRXlLTE9HRy1RVVNuVEFGOTQwNjM3UEZ1dko4NDdiZlVaalZXUTYzS29OVE5sNHlKb3d6c3d4eWlEeG1PLUhKd3UwX3BVMHZrUW5QUHBvSkdibjV4TXhMZjE?oc=5",
+      "source": "Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "published": "2026-11-10T01:07:00+00:00",
+      "snippet": "オキサイド---ストップ高買い気配、JX金属と資本業務提携し約27億円調達 執筆 Fisco Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "併購與合作"
+      ],
+      "score": 4.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5d68111c352c0c9f",
+      "title": "オキサイド---ストップ高買い気配、JX金属と資本業務提携し約27億円調達",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOcHRObWFfb1ZZRUQ5UURoaE9CTEI1Q1Y5RS0yYzFkb0NJcmMwLUs1eVZ1VTlNdHNVU3BXdzNsYVRDLXpSdTdtWmR3MThDUDhMdHBsQkE0VWVxV2lxUGZNcUJ3NUw2ZlhRbmpFTmg0VHk5dVBySzV4RThhNXpibXlxX2twMWpvSDTSAYwBQVVfeXFMUFg5c3hDcHlNU2ZiZWdENU1LVFpMWDFSUElhbVUwcVo4bXFPNHpSTXNxV2NJX2RDc0tkRDJBVkczQmM2a3dtQmlraHhDUmhDT2VvOFJfaUlEaFRQbnNuOFFDODktV1paaW9ZSEZFYkk2SDk4YWluWDNVTm9zeUdVWmh5czdlS0pycDhLZ2c?oc=5",
+      "source": "ｄメニューニュース",
+      "published": "2026-11-10T01:07:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "併購與合作"
+      ],
+      "score": 4.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f0e7e7c34269cf07",
+      "title": "オキサイドが買い気配､JX金属との資本提携を好感",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5VVzhCMS1sMUsxUWJvajl4QUxaUFhpVlAwckVaV0VEQU1ud0hyUk1DNXpqRUlPV25JY0kxSGtOemhwdURXXzJ6c01CSEp2NVZqSVNwTFNCWQ?oc=5",
+      "source": "四季報オンライン",
+      "published": "2026-11-10T00:18:02+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "併購與合作"
+      ],
+      "score": 4.48,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c6fe0d6cbedd3a12",
+      "title": "JX金属は堅調､27年3月期業績予想を上方修正",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE81Qm1TR3JBQTYyOGMxa0pfcWpUakU1WHR6MkxWZjdzM04ySFRVcm1ZdDctWl94WmJFTXdVbjlWREJ2SWdiam5PNi0tVFNDWmtIamJ4Tmo4NA?oc=5",
+      "source": "四季報オンライン",
+      "published": "2026-11-10T02:23:35+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a0fa706cfdfbeef9",
+      "title": "【09:17 即時新聞】光洋科(1785) 攻上漲停，財報與營收動能成盤中焦點",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZ1dZZHNILUJja3dLcGxOMEJzSVpSY1ZoM0YxOEVNMW42U1pXdFl0V093QU1RQVJTOU1zTzFsaGsybk5mbHlQZU9USGJxZzdhSFJOSEFuNFk3cUxMaGNNTk56YS1RYTF4UzBTaVE1UWFuM3BfTnY0NTloeVhOd3ZEUkptbXNFSzFMZXRnWGpB?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-10T01:17:52+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "87d2433c6c44f2ad",
+      "title": "JX금속(5016 JP), 연간 순이익 전망 53% 증가…“AI 수요 크게 둔화하지 않을 것” By 알파경제 alphabiz",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5zaEZnZW0yekotRDhhaU1ySFE3ZmNtNUI3V09PWDZQSVF1Nmc3dTRRVlB3bWtDbVFHeklXcDNjZVRRWjlvYTctcEZlcHU4dnJMWkJvN0JHamdHLTdwMEx3d1FRUjBQN2pTX0xJNXJyblY?oc=5",
+      "source": "Investing.com 한국어",
+      "published": "2026-11-10T00:59:00+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "67dcffcb0f8ab718",
+      "title": "《業績-其他電》光洋科10月營收為51.12億元，年增52.80%",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUlRRZF9DRy1WbnBEZ1ZHaGlzRmllV1pERE1WT1Y2Ti04NUU1V25qRFk4VVBMbkZjc2xQTTdVdzRJaU5rMzFqeTVPRUdPSEdTOTk0bWl3WC01NTJRbTd1QlIwS3pBVkxRT2hRRFFaT3hVMVBhYlJKb19YajlVMVJ2UTFxN2Y1WTRy?oc=5",
+      "source": "富聯網",
+      "published": "2026-11-10T00:22:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "aabc05102fadff82",
+      "title": "JX金属、オキサイド出資で光材料の量産強化",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1WRTEzWmNFakdCdkFqS2xzTWgyRWQ5S0hodkVOUEFEWWR3SnVqbWV3ZHl0WVlaWG9qSjhDT3JPNjcxck1QRk9TMk9R?oc=5",
+      "source": "LOGISTICS TODAY",
+      "published": "2026-11-10T00:47:23+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 3.78,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3b7c9aed4f104863",
+      "title": "JX Advanced Metals Lowers Convertible Bond Conversion Prices",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPR21CcGdtdldzelNvbGdhbnBmWUNwNlY4cGJmWDh2X29oVGNnSFAwWFg5NmV0d2ljVmo4ZVg2MTZVN3R0V1VLR042N3AtWDU5Vzk3RUpXRW5Idm5jaG9UMnRPellKSHZZWDl1NDdCUkZobkkyUlo1STlpQVdyOTBXTFZ2a2NDeUtXMXAwNWF4SWo2VzNuT1AzeERDY3pBZUxudzRVVHpKV0cxVnZWdWVQOWZ3?oc=5",
+      "source": "TipRanks",
+      "published": "2026-11-09T11:32:31+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.7,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b918a772f5118413",
+      "title": "Gold prices cool down after weekly increase of nearly 5%, new market signals appear",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVEpSNC1wSWNIV3ctclNCV3Ryc2ZTOUYwTEpDSmlMUzNZcDRyRUQ1ckN0TTcyMzI3UjgtTjdBbkJOdmZtV1NxQVFHc0o0QUl4Vk1GbjF2am1YSnZETXZUYzVNNjNSZURVdG5rYkJ4TTZ1ajliWUVTdzUzeUdzbnowc2VGRmVZRzM2aGszaWgwLTR0NXFpdHhSclpCeTdUa3pTVjdMUjE0YVozV1BFOU9aX3dZT2hrRDgxcmlDeEpaMA?oc=5",
+      "source": "Laodong.vn",
+      "published": "2026-11-10T03:36:28+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b3479402eea5b87c",
+      "title": "Today's gold price update (November 10th) suggests that the market may not have bottomed out yet, but there are still long-term support factors. At what price range should you buy?",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPVFRWMXJpVUlmVHI4a0hCWElMeUw0UXhVQ2l0YWN4OHRiblQ3bUtnWUg1SFV3U1hlOHFReVNFR3JoSVVFN0NPcGc3Ym1UUy10WlNEZHBvY2FiSDBYakZJM3hBbDd4WWZMeVd3Rng0Y0FveWJYbnpoLTZlYTZVNzB0ckZUUUxneE9VZ3FuaDBIN1N5YzFZdlpBeHBqNllScHd2R0JVLTY0LVhsRWJvX1hYWEtWNHQ3S1ZvYS0tYVFDVWNUanJSYkZCOHlOOHNYSkItODVzcl82MXpUOFp6TE1KbGZicw?oc=5",
+      "source": "Vietnam.vn",
+      "published": "2026-11-10T03:09:07+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1df96f34a236c102",
+      "title": "輝達變數未解、先進封裝商機續升溫！日月光、京元電領軍9檔漲停",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE05bjdQOTZNb0JPQ1RKcjQwa3hRQm1zQWYzNUxfOWxHVHRBajR4N1YtM0VqS3RqaTdPWTB4dHVJOG9PNUlRZ1pzODg4aUhXWDAt0gFWQVVfeXFMT1lwR01pZmNMTjMtTHRTUVk5YXptYzNkS01IeW91OVl6YTgtY1pBbVdrNm9RcVluaU9XT2lTMmEtR01ZMzJlaHNHblVFM0diSTJlU1g0SXc?oc=5",
+      "source": "UDN",
+      "published": "2026-11-10T03:35:48+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4327e8dea165b7ef",
+      "title": "JX金属の株価一時5.5%高 27年3月期上方修正、半導体材料伸びる",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE90NTJzLWNYUTJUU3hGTVNfRi0xVEY2NVA1Q2Y3RzJiU0t4Y082V3RrUWFuY1FteXhiTU56bk9DbXdFVnBnM3JlLXBJOEZpd3I0d1cwZC1Mc3JpaGtZTUVHMl90Q1BrSUNXckNGSg?oc=5",
+      "source": "日本経済新聞",
+      "published": "2026-11-10T01:08:46+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "399084778895858d",
+      "title": "\"AI需求未放緩\" 半導體材料商JX金屬上修財測- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1EZDlRbzJEYWsxUFBoRzBIYUNZbW8wSW95SUhHVjRfS1BJTTBBN3Q4enJ4UXNCc2xEVk5fbEM0ZmRZTFdRNkNjNGEtSXdwVXhjWkdjZnRER1k?oc=5",
+      "source": "CMoney",
+      "published": "2026-11-10T01:04:10+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "772a64a791ee611a",
+      "title": "\"AI需求未放緩\" 半導體材料商JX金屬上修財測- 新聞",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYXA0NEtFT1dCMC1tWm50bWkzVnFqc0NaOUc0T05rNEkzRndLYkZGMENuVXBraGZiUG5Yci1xa2JpTUNVU0V3UWlvRU1WU3dDNXdJMVkzbXgzRHN2MlptQTNqZWc0OHpEU1p4c1dqMjFSM0xhRGpNcGYyMk1PVlhjZVBtMGY1TTU3NTNGTFVELTI4RllsYnc?oc=5",
+      "source": "MoneyDJ",
+      "published": "2026-11-10T00:34:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "107effbd8422527d",
+      "title": "JX金屬：關於與Oxide Corporation建立資本及業務聯盟並通過第三方配股認購股",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSld5RnZtQklHRm5abklYdGdyajd6Y1hzUmI4anhQN2lWZVB6NmJwS2ZJdFd1aDNfaDRuOTVnZWFsMlliMm8wVlMxLVhCcnpIWjFFQjlERHA4MkZxSHJWdlZCcTg4OW1DOXVOdThjSklfeDNhMDhIQmxHWTFqRUxZcW1MczVnQTJEYXZXcmxXa2prY3U2M0NPcXZWSndWOGQ0ZXh6aUpCR2lmTUMtSWFGa3RNSmo?oc=5",
+      "source": "富途牛牛",
+      "published": "2026-11-09T11:53:58+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "87e566901abe7b34",
+      "title": "Gold edges lower as focus shifts to US inflation data",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUUt5d0NsOEFXZzVGWU5qOFFwbGtuT0pyM3RMcTR3ZDRXYzFqV1NkM1VadUV0VzdNUFpZREVYLU1mdWFpSDE5V0w3Qlo5X1luTXVXRkZKNHQ1bXY1X0VCNHRienZVbnhQdE93UWFYRk41T0Fhd2tiQ2dpZzF2WEZmM0hVTFpjMVFzR2JhNlpWN0R5ZkFCY0JkRUVuYw?oc=5",
+      "source": "Reuters",
+      "published": "2026-11-10T03:31:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c8b5c546e452ff32",
+      "title": "From AI Stocks To Gold – Has the Great Rotation Begun?",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOazhNaWlMcF9jT2IzLUNUZ1o0RDQ0RGpEZXZheDJwb20zYmcxS2lMTy1PMXFLUXQ2bWhUZzZ5cGxrclBjbnNzM1puVm1pUGFrdWFrSThxcVpjcEp0bHFhb1Q4aXpiX2xINHNWNmxMeGFtc3FvWVQ2TjdLMHZWWUVENlJ1cXhJTHBUMUR6NFJZZVUwdGdhMWpaQXEzWml1R3QzQ2V1QQ?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-10T03:07:01+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9cc3dafd51d626f0",
+      "title": "華爾街大鱷希夫:黃金拋售潮「已經結束」！他的首個金價目標價位曝光",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE14SUs0eEkwTEsxSWdVa042ZDVsWFc5T0tNNTdJaVgxZENoUEo5ckRQQkNELW9ZbDR6bHlSdGZnSlFFZVpWeFRLMHRJZWNIUzM3OGlidHpxemlIbnM0NmRHX09FNnc?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-08T23:36:20+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.33,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "208774c87447f394",
       "title": "台積電、矽品擴產 中台灣半導體黃金廊帶成形",
@@ -1454,42 +1876,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4137.3,
-      "prev": 4074.9,
+      "price": 4122.7,
+      "prev": 4114.5,
       "date": "2026-11-10",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.53
+      "change_pct": 0.2
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 53.29,
-      "prev": 51.8,
+      "price": 52.99,
+      "prev": 52.56,
       "date": "2026-11-10",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 2.88
+      "change_pct": 0.82
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1575.0,
-      "prev": 1538.2,
+      "price": 1581.8,
+      "prev": 1561.2,
       "date": "2026-11-10",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 2.39
+      "change_pct": 1.32
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1031.5,
-      "prev": 1014.1,
+      "price": 1035.5,
+      "prev": 1018.9,
       "date": "2026-11-10",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.72
+      "change_pct": 1.63
     }
   ],
   "papers": [],

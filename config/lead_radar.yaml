@@ -41,7 +41,7 @@ settings:
                game, games, trailer, gameplay, PS5, Pokémon, hands-on, unboxing, "best gravel", discount, 評測, 开箱, 開箱, 遊戲, 游戏, 優惠, 折扣]
   # 自家公司與同業:不列為潛在客戶(新聞仍計入市場熱度)
   exclude_orgs: [鑫科, 鑫科材料, TTMC, 光洋科, Solar Applied, JX金屬, JX Advanced Metals, Materion, Plansee, 東曹, Tosoh, Honeywell, Solstice,
-                 寶鈦, 宝钛, 西部超導, 西部超导, TIMET, VSMPO, ATI, Haynes, Special Metals, 撫順特鋼, 抚顺特钢, 鋼研高納, 钢研高纳, 中鋼, 中钢, 大同特殊鋼]
+                 寶鈦, 宝钛, 西部超導, 西部超导, TIMET, VSMPO, ATI, Haynes, Special Metals, 撫順特鋼, 抚顺特钢, 鋼研高納, 钢研高纳, 大同特殊鋼]   # 中鋼已移入重工業客群(是設備零件的買方)
 
   editions:
     zh-TW: {hl: zh-TW, gl: TW, ceid: "TW:zh-Hant", region: TW}
@@ -73,7 +73,7 @@ products:
     keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
     search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
     exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
-    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment, ai_server]
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment, ai_server, steel]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -83,7 +83,7 @@ products:
     keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
-    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, steel]
     exclude: [銅鎳合金, 铜镍合金, 銅鎳, 白銅]           # 銅基合金,歸銅材產品線
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
@@ -97,7 +97,7 @@ products:
                copper alloy, oxygen-free copper, OFHC, "OFC copper", beryllium copper, phosphorized copper, copper anode, copper foil, copper pillar, C10100, C10200, C18150]
     search: [銅合金, 無氧銅, 磷銅陽極, 電鍍銅, copper alloy]
     exclude: [銅牌, 銅鑼, 銅像, 青銅器, 銅板價, 銅價]
-    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer]
+    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer, steel]
     pitch: 無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -134,6 +134,9 @@ industries:
                     keywords: [醫療, 医疗, 植入物, 植入, 人工關節, 骨科, 牙科, 齒科, 手術器械, implant, orthopedic, dental, medical device, surgical, 医療機器, 의료기기]}
   chemical:        {name: 化工石化,     search: [化工, 熱交換器, chemical plant, heat exchanger],
                     keywords: [化工, 石化, 熱交換器, 换热器, 熱交換, 反應器, 反应器, 耐腐蝕, 耐腐蚀, 氯鹼, 氯碱, 電鍍, 电镀, chemical, petrochemical, heat exchanger, reactor vessel, corrosion, 化学プラント]}
+  steel:           {name: 鋼鐵冶金,     search: [鋼鐵, 鋼廠, 不銹鋼, steel mill],
+                    keywords: [鋼鐵, 钢铁, 煉鋼, 炼钢, 鋼廠, 钢厂, 高爐, 高炉, 電爐, 轉爐, 軋鋼, 熱軋, 冷軋, 不銹鋼, 不鏽鋼, 不锈钢, 酸洗, 鍍鋅, 退火爐, 加熱爐, 爐輥,
+                               steel mill, steelmaker, stainless steel, blast furnace, electric arc furnace, rolling mill]}
   oil_gas:         {name: 油氣能源,     search: [油氣, 天然氣, oil and gas, LNG],
                     keywords: [石油, 天然氣, 天然气, 油氣, 油气, LNG, 海上鑽井, 钻井, 煉油, 炼油, oil and gas, offshore, subsea, pipeline, refinery, downhole]}
   power:           {name: 發電與燃氣輪機, search: [燃氣輪機, 核電, gas turbine, power plant],
@@ -162,6 +165,8 @@ intents:
   expansion:     {name: 擴產與新廠, weight: 4.0, action: "聯繫採購與廠務,提案新產線材料認證並安排送樣",
                   keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
                              expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, commits, mass production, 増産, 新工場, 증설, 신공장]}
+  maintenance:   {name: 歲修與汰換, weight: 3.5, action: "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
+                  keywords: [歲修, 大修, 停爐, 停機檢修, 定修, 汰舊換新, 汰換, 設備更新, 腐蝕洩漏, turnaround, shutdown maintenance, revamp, 定期修理]}
   contract:      {name: 訂單與專案, weight: 3.0, action: "鎖定得標方與其一階供應商,提案配套材料與備料",
                   keywords: [訂單, 订单, 合約, 合同, 得標, 中標, 中标, 簽約, 签约, 專案, 項目, 交機, 取得機器設備, 取得設備, order, contract, awarded, deal, backlog, program, programme, 受注, 수주]}
   qualification: {name: 認證與在地化, weight: 3.0, action: "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
@@ -273,6 +278,22 @@ segments:
       chassis: 機殼與滑軌
       interconnect: 連接器與線材
 
+  tw_heavy_industry:
+    name: 台灣重工業製造廠
+    description: 台灣鋼鐵、不銹鋼、煉油與石化、化學品與塑化製造廠,以及承攬其工廠的工程統包商;高溫爐體、酸洗與電解、海水冷卻與腐蝕性製程的設備零組件,是鎳基合金與鈦材的長期耗用市場。需求多在歲修、汰換與擴建時出現
+    industries: [steel, chemical, oil_gas]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 歲修, 大修, 汰換, 投資, 採購, 招標]
+    subsegments:
+      steel: 鋼鐵冶煉
+      stainless: 不銹鋼與特殊鋼
+      refinery: 煉油與石化上游
+      chemical: 化學品與塑化
+      epc: 工程統包與設備製造
+
 # ── 目標客戶清單 ──────────────────────────────────────────────────────
 # 有 segment 的公司屬於該客群,每週以「公司名稱 + 客群搜尋字詞」搜尋並排入開發名單。
 # 沒有 segment 的公司(航太、醫材、面板等)目前不在任何客群中,不會被搜尋;保留作為日後新增客群的起點,
@@ -299,8 +320,6 @@ accounts:
   - {name: 寶楠生技,   aliases: [寶楠],                                 industry: medical,   region: TW, products: [titanium]}
   - {name: Stryker,    aliases: [Stryker, 史賽克],                        industry: medical,   region: US, products: [titanium]}
   - {name: Zimmer Biomet, aliases: [Zimmer Biomet, 捷邁],                 industry: medical,   region: US, products: [titanium]}
-  - {name: 台塑,       aliases: [台塑, 台塑化, 南亞塑膠],                industry: chemical,  region: TW, products: [titanium, nickel]}
-  - {name: 中油,       aliases: [台灣中油, 中油公司, CPC Corporation],   industry: oil_gas,   region: TW, products: [nickel, titanium]}
   - {name: 台電,       aliases: [台電, 台灣電力, Taipower],              industry: power,     region: TW, products: [nickel]}
   - {name: Siemens Energy, aliases: [Siemens Energy, 西門子能源],         industry: power,     region: EU, products: [nickel]}
   - {name: 三菱重工,   aliases: [三菱重工, Mitsubishi Heavy],            industry: power,     region: JP, products: [nickel, titanium]}
@@ -564,3 +583,63 @@ accounts:
   - {name: 嘉澤, aliases: [嘉澤, Lotes], ticker: "3533", segment: tw_ai_server, subsegment: interconnect,
      industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3},
      note: "CPU / GPU 插座與連接器;端子用鈹銅、磷青銅等銅合金"}
+
+  # ── 台灣重工業製造廠(segment: tw_heavy_industry)──
+  # 鎳基合金:高溫爐體、硫 / 氯腐蝕與強酸環境;鈦:海水冷卻、氯鹼、PTA 與酸洗;fit 為依公開業務內容推估的初步假設。
+  - {name: 中鋼, aliases: [中鋼, 中國鋼鐵, China Steel], ticker: "2002", segment: tw_heavy_industry, subsegment: steel,
+     industry: steel, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 2, nickel: 3, copper: 2},
+     note: "一貫作業鋼廠;加熱爐 / 退火爐的爐輥、輻射管與爐內構件用鎳基耐熱合金,酸洗線熱交換器與海水冷卻用鈦,高爐風口與冷卻壁用銅;歲修備品是主要切入點"}
+  - {name: 中鴻鋼鐵, aliases: [中鴻], ticker: "2014", segment: tw_heavy_industry, subsegment: steel,
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0},
+     note: "熱軋 / 冷軋鋼捲;酸洗與退火線的耐熱、耐酸零件"}
+  - {name: 東和鋼鐵, aliases: [東和鋼鐵, 東鋼], ticker: "2006", segment: tw_heavy_industry, subsegment: steel,
+     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     note: "電爐鋼(型鋼、鋼筋);加熱爐耐熱零件,電爐水冷件用銅"}
+  - {name: 豐興鋼鐵, aliases: [豐興], ticker: "2015", segment: tw_heavy_industry, subsegment: steel,
+     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     note: "電爐鋼筋;加熱爐耐熱零件"}
+  - {name: 唐榮, aliases: [唐榮, 唐榮鐵工], ticker: "2035", segment: tw_heavy_industry, subsegment: stainless,
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     note: "不銹鋼冷熱軋;硝酸 / 氫氟酸酸洗與光輝退火線用鎳基合金與鈦"}
+  - {name: 華新麗華, aliases: [華新麗華, Walsin], ticker: "1605", segment: tw_heavy_industry, subsegment: stainless,
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1},
+     note: "不銹鋼與電線電纜;不銹鋼酸洗、退火設備用鎳基合金與鈦"}
+  - {name: 燁聯鋼鐵, aliases: [燁聯, Yieh United], segment: tw_heavy_industry, subsegment: stainless,
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     note: "不銹鋼一貫廠(高雄);酸洗與退火設備用鎳基合金與鈦"}
+  - {name: 台塑化, aliases: [台塑化, 台塑石化, Formosa Petrochemical], ticker: "6505", segment: tw_heavy_industry, subsegment: refinery,
+     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     note: "麥寮煉油與輕油裂解;高溫爐管與硫腐蝕環境用鎳基合金(625 / 825),海水冷卻器與冷凝器用鈦"}
+  - {name: 中油, aliases: [台灣中油, 中油公司, CPC Corporation], segment: tw_heavy_industry, subsegment: refinery,
+     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1},
+     note: "國營煉油與石化;煉製設備高溫耐蝕合金、熱交換器用鈦,常有公開標案"}
+  - {name: 台塑, aliases: [台塑, 台灣塑膠], ticker: "1301", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 0},
+     note: "PVC 與氯鹼;電解槽陽極與氯氣系統用鈦,燒鹼蒸發器用純鎳 / 鎳合金"}
+  - {name: 南亞塑膠, aliases: [南亞塑膠, 南亞(1303)], ticker: "1303", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1},
+     note: "塑膠、聚酯與電子材料;化工反應與熱交換設備用耐蝕合金"}
+  - {name: 台化, aliases: [台化, 台灣化學纖維], ticker: "1326", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2, copper: 0},
+     note: "PTA、芳香烴與纖維;PTA 氧化反應器與熱交換器是鈦的大宗用途"}
+  - {name: 台聚, aliases: [台聚, 台灣聚合], ticker: "1304", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     note: "LDPE / EVA 高壓聚合;高壓反應管與耐熱零件"}
+  - {name: 國喬石化, aliases: [國喬], ticker: "1312", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     note: "苯乙烯與 ABS;高溫與腐蝕環境零件"}
+  - {name: 和益化工, aliases: [和益], ticker: "1709", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     note: "烷基苯(LAB)與界面活性劑原料;酸性製程設備用耐蝕合金"}
+  - {name: 東聯化學, aliases: [東聯], ticker: "1710", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     note: "乙二醇、環氧乙烷與工業氣體;高溫與腐蝕環境零件"}
+  - {name: 台肥, aliases: [台肥, 台灣肥料], ticker: "1722", segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0},
+     note: "肥料、三聚氰胺與化學品;尿素與酸類製程設備用耐蝕材料"}
+  - {name: 李長榮化工, aliases: [李長榮化工, LCY], segment: tw_heavy_industry, subsegment: chemical,
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     note: "溶劑與熱可塑性彈性體;化工製程設備零件"}
+  - {name: 中鼎工程, aliases: [中鼎工程, CTCI], ticker: "9933", segment: tw_heavy_industry, subsegment: epc,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     note: "煉油、石化與電廠工程統包;為業主採購製程設備與管材,是鎳基合金與鈦材進入專案規格的關鍵窗口"}
