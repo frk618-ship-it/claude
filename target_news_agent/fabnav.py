@@ -105,8 +105,8 @@ BRAND_STYLE = """
 .corner-logo .cl-name{font:700 15px/1.2 var(--logo-font);letter-spacing:.04em;white-space:nowrap;color:var(--logo-ink)}  /* the wordmark: tracking allowed */
 @media (max-width:720px){.corner-logo{padding:4px;top:8px}.corner-logo .cl-name{display:none}.corner-logo .cl-mark{width:38px}}
 /* keep page headers clear of the logo: the dashboard's title row, the alert page's header, the news pages' brand row */
-@media (min-width:721px){header.top,header>.topbar,header>.sub{padding-right:280px}}
-@media (max-width:720px){header.top,header>.topbar,header>.sub,header>.brand{padding-right:52px}}
+@media (min-width:721px){header.top,header>.topbar,header>.sub,header.mast{padding-right:280px}}
+@media (max-width:720px){header.top,header>.topbar,header>.sub,header>.brand,header.mast{padding-right:52px}}
 @media print{.corner-logo{position:static;width:max-content;margin:0 0 0 auto}}
 """
 

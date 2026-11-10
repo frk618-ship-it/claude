@@ -846,7 +846,7 @@ else { panel(); setTimeout(() => guide.say('嗨!我是嚮導靶靶。點一座�
 
 
 def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "") -> str:
-    from .site import _brand, _fab, _head, esc, icon
+    from .site import _fab, _head, _mast, esc, icon
 
     bank = build_bank(config, items, seed)
     payload = json.dumps(bank, ensure_ascii=False).replace("</", "<\\/")
@@ -856,9 +856,11 @@ def render_quiz(config: Config, items: list[dict], generated: str, seed: str = "
         _head("靶材產業島", "跟著嚮導靶靶探索六座靶材產業島:每座島是一個主題、每棟建築是一道題,答對點亮建築、征服島嶼。題目取自本站新聞、商情預測與財報素材。",
               config.settings.site_url, "quiz.html")
         + f"""<style>{GAME_STYLE}</style><div class="wrap" style="max-width:1180px">
-<header>{_brand("靶材產業島")}
-<div class="meta"><span>{icon("calendar")}題庫更新於 <span class="mono">{esc(generated)}</span></span></div>
-<p class="sub">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,新聞港每天隨新聞換題。進度只存在你的瀏覽器。</p></header>
+{_mast("", [])}
+<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<p class="dateline">{icon("calendar")}<span>題庫更新於 <span class="mono">{esc(generated)}</span></span></p>
+<h1 id="h1">靶材產業島</h1>
+<p class="lede">{len(bank["islands"])} 座島、{buildings} 棟建築(題目)。點選島嶼,嚮導靶靶會帶你過去;答對點亮建築,進度只存在你的瀏覽器。</p></div></section>
 <section class="isle" aria-label="靶材產業島"><div class="stage" id="stage"><div class="hud2" id="hud2"></div>
 <div class="tools"><button type="button" class="g-btn sm" id="home">{icon("globe")}全島</button><button type="button" class="g-btn sm" id="reset">重來</button></div></div>
 <aside class="side" id="side" aria-live="polite"></aside><p id="guide-live" class="sr" aria-live="polite"></p></section>

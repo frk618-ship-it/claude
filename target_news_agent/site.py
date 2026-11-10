@@ -111,7 +111,7 @@ STYLE = """
 --ok:#0ca30c;--ok-soft:#14261a;--none:#c3c2b7;--none-soft:#262624;--up:#ef6b6b;--down:#0ca30c;--on-accent:#0f1319;--focus:#9cbde6;
 color-scheme:dark}}
 *{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.wrap{max-width:900px;margin:0 auto;padding-inline:var(--space-lg);padding-block:var(--space-xl) var(--space-2xl);display:grid;gap:var(--space-xl)}
+.wrap{--measure:1200px;max-width:var(--measure);margin:0 auto;padding-inline:var(--space-lg);padding-block:var(--space-lg) var(--space-2xl);display:grid;gap:var(--space-3xl)}
 a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}a:hover{text-decoration-thickness:2px}
 :where(a,button,summary,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--radius-s)}
 .ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.18em}
@@ -120,7 +120,35 @@ h2{font-size:1.375rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;dis
 h2 .hic{display:inline-grid;place-items:center;width:26px;height:26px;color:var(--accent)}
 h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:.875rem;color:var(--muted);font-weight:400;letter-spacing:0}
 .mono{font-family:var(--font-data);font-variant-numeric:tabular-nums}p{margin:0;max-width:68ch}section{display:grid;gap:var(--space-md);min-width:0}
-header{display:grid;gap:var(--space-md);padding-bottom:var(--space-lg);border-bottom:3px solid var(--accent);position:relative}header::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
+/* masthead: the wordmark and this page's section links over the brand rule (navy with an orange lead) */
+.mast{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-sm) var(--space-lg);padding-bottom:var(--space-md);border-bottom:3px solid var(--accent);position:relative}
+.mast::after{content:"";position:absolute;left:0;bottom:-3px;width:96px;height:3px;background:var(--brand-orange)}
+.wordmark{display:inline-flex;align-items:center;gap:var(--space-sm);font-weight:700;font-size:1.0625rem;color:var(--fg);text-decoration:none}
+.wordmark .logo{width:36px;height:36px;border-radius:var(--radius);display:grid;place-items:center;background:var(--accent);color:var(--on-accent);flex:none}.wordmark .logo .ic{width:22px;height:22px;stroke-width:1.6}
+.secnav{display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-lg);font-size:.9375rem}.secnav a{color:var(--muted);text-decoration:none;white-space:nowrap}.secnav a:hover{color:var(--accent);text-decoration:underline}
+/* hero: the head on seven columns, the period's lead story on five */
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--space-xl);align-items:end;margin-top:calc(var(--space-2xl) - var(--space-3xl))}
+.hero-text{grid-column:1/span 7;display:grid;gap:var(--space-md);align-content:end}.hero-plain .hero-text{grid-column:1/span 9}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.25rem);line-height:1.04;letter-spacing:-.035em;max-width:14ch}
+.dateline{display:inline-flex;gap:var(--space-xs);align-items:center;color:var(--muted);font-size:.9375rem;font-variant-numeric:tabular-nums}
+.lede{font-size:1.1875rem;line-height:1.55;max-width:34ch;color:var(--fg)}
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-xs)}.actions .btn{min-height:44px;padding-inline:var(--space-lg);font-size:.9375rem;white-space:nowrap}
+.lead-story{grid-column:8/span 5;display:grid;gap:var(--space-sm);align-content:start;background:var(--accent-soft);border-radius:var(--radius-l);padding:var(--space-lg)}
+.lead-story .head{display:flex;justify-content:space-between;gap:var(--space-xs);align-items:center}.lead-story time{font-family:var(--font-data);font-size:.8125rem;color:var(--muted)}
+.lead-title{font-size:1.5rem;line-height:1.3;letter-spacing:-.015em;display:block}.lead-title a{color:var(--fg);text-decoration:none}.lead-title a:hover{color:var(--accent);text-decoration:underline}
+.lead-story .sum{margin:0;color:var(--muted);line-height:1.6}
+/* figures: siblings parted by vertical hairlines, no boxes */
+.figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:calc(var(--space-xl) - var(--space-3xl)) 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:var(--space-md) var(--space-lg);border-left:1px solid var(--line)}.figures>div:first-child{border-left:0;padding-left:0}
+.figures dt{font-size:.875rem;color:var(--muted)}.figures dd{margin:0;font-size:2.25rem;font-weight:700;line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+/* summary beside its lists */
+.split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--space-xl);align-items:start}.split>div{display:grid;gap:var(--space-md)}
+.digest-aside{display:grid;gap:var(--space-sm);border-top:3px solid var(--fg);padding-top:var(--space-md)}.digest-aside h3{font-size:1rem}.digest-aside ol{margin:0 0 var(--space-sm);padding-left:1.4em;display:grid;gap:var(--space-xs);font-size:.9375rem}
+.pair{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--space-xl);align-items:start}
+.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--space-md) var(--space-xl);font-size:.875rem;color:var(--muted);border-top:3px solid var(--fg);padding-top:var(--space-lg)}
+.foot p{display:flex;gap:var(--space-xs);align-items:flex-start;margin:0}.foot strong{display:block;color:var(--fg)}.foot .ic{margin-top:.25em;color:var(--accent)}.foot .disclaimer{grid-column:1/-1;color:var(--faint)}
+/* the data band: a tinted well across the page */
+section[aria-labelledby="data"]{background:var(--surface);box-shadow:0 0 0 100vmax var(--surface);clip-path:inset(0 -100vmax);padding-block:var(--space-xl)}
 .brand{display:flex;gap:var(--space-md);align-items:center}.brand .logo{width:56px;height:56px;border-radius:8px;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);flex:none}
 .brand .logo .ic{width:34px;height:34px;stroke-width:1.6}.brand>div{display:grid;gap:var(--space-3xs);min-width:0}
 .meta{display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-md);color:var(--muted);font-size:.88rem;align-items:center}.meta>*{display:inline-flex;gap:var(--space-xs);align-items:center}
@@ -143,13 +171,15 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .kind{font-size:.74rem;font-weight:500;color:var(--muted)}.kind .ic{color:var(--k)}
 .k-news{--k:var(--k-news)}.k-filing{--k:var(--k-filing)}.k-market{--k:var(--k-market)}.k-forum{--k:var(--k-forum)}.k-research{--k:var(--k-research)}.k-profile{--k:var(--k-profile)}.k-metals{--k:var(--k-metals)}.k-recycling{--k:var(--k-recycling)}
 [hidden]{display:none!important}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-sm)}
-.card{--k:var(--accent);display:grid;gap:var(--space-sm);align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:var(--space-md) var(--space-md);min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 var(--space-xl)}
+.cards.features{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:var(--space-lg) var(--space-xl);margin-bottom:var(--space-md)}
+.cards.features .card{padding-top:var(--space-md);border-top:3px solid var(--fg)}.cards.features .card h3{font-size:1.25rem;line-height:1.35}
+.card{--k:var(--accent);display:grid;gap:var(--space-xs);align-content:start;border-top:1px solid var(--line);padding:var(--space-md) 0;min-width:0}
 .card .head{display:flex;gap:var(--space-xs);align-items:center;justify-content:space-between}.card .head time{font-family:var(--font-data);font-size:.76rem;color:var(--muted)}
 .card h3{margin:0;font-size:1.0625rem;font-weight:700;line-height:1.45;overflow-wrap:break-word}
 .card h3 a{color:var(--fg);text-decoration:none}.card h3 a:hover{color:var(--accent);text-decoration:underline}.card .sum{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
 .kind{display:inline-flex;gap:var(--space-2xs);align-items:center}.kind .ic{width:13px;height:13px}
-.card.low{background:transparent;border-color:transparent}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
+.card.low{border-top-color:var(--line)}.card.low h3{font-weight:500}.card.low h3 a{color:var(--muted)}
 .card.has-thumb{grid-template-columns:76px minmax(0,1fr);column-gap:var(--space-md)}.card.has-thumb>*{grid-column:2}
 .card.has-thumb>.thumb{grid-column:1;grid-row:1/span 4;align-self:start}
 .thumb{position:relative;width:76px;height:76px;border-radius:6px;display:grid;place-items:center;align-content:center;gap:var(--space-2xs);color:var(--k);background:color-mix(in srgb,var(--k) 15%,var(--surface))}
@@ -179,7 +209,8 @@ h3.topic .mono{font-size:.8rem;color:var(--muted);font-weight:400}
 .note p{display:flex;gap:var(--space-sm);align-items:flex-start}.note .ic{margin-top:.25em;color:var(--accent)}.note strong{color:var(--fg)}
 footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:var(--space-md)}
 .sub{font-size:.88rem;color:var(--muted)}
-@media (max-width:520px){.stat{padding:var(--space-sm);gap:var(--space-sm)}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:var(--space-sm) var(--space-md)}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:var(--space-sm)}.thumb{width:56px;height:56px;border-radius:6px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
+@media (max-width:900px){.hero,.split,.pair{grid-template-columns:1fr}.hero-text,.hero-plain .hero-text,.lead-story{grid-column:1/-1}.figures>div{padding-inline:var(--space-md)}}
+@media (max-width:520px){.figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(odd){border-left:0;padding-left:0}.figures>div{border-top:1px solid var(--line)}.figures>div:nth-child(-n+2){border-top:0}.figures dd{font-size:1.75rem}.stat{padding:var(--space-sm);gap:var(--space-sm)}.stat .sic{width:36px;height:36px}.stat b{font-size:1.25rem}.card{padding:var(--space-sm) var(--space-md)}.card.has-thumb{grid-template-columns:56px minmax(0,1fr);column-gap:var(--space-sm)}.thumb{width:56px;height:56px;border-radius:6px}.thumb .ic{width:24px;height:24px}.thumb .cap{display:none}.brand .logo{width:46px;height:46px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 """ + CHART_STYLE
 
@@ -494,12 +525,43 @@ def _fab(current: str, config: Config) -> str:
     return fab_nav(current, "../", skip)
 
 
-def _brand(title: str) -> str:
-    return f'<div class="brand"><div class="logo">{icon("target")}</div><h1>{esc(title)}</h1></div>'
+
+def _mast(home: str, links: list[tuple[str, str]]) -> str:
+    """The masthead: the wordmark home link and this page's section links (the floating switcher moves between pages)."""
+    nav = "".join(f'<a href="{esc(h)}">{esc(t)}</a>' for h, t in links)
+    nav_html = f'<nav class="secnav" aria-label="本頁段落">{nav}</nav>' if links else ""
+    return (f'<header class="mast"><a class="wordmark" href="{home}index.html"><span class="logo">{icon("target")}</span>'
+            f'靶材產業新聞</a>{nav_html}</header>')
 
 
-def _stat(icon_name: str, value: str, label: str) -> str:
-    return f'<div class="stat"><div class="sic">{icon(icon_name)}</div><div><b>{value}</b><span>{label}</span></div></div>'
+def _figures(rows: list[tuple[str, str]]) -> str:
+    """Sibling figures parted by hairlines: the number large, its label beneath."""
+    return '<dl class="figures">' + "".join(f'<div><dt>{esc(k)}</dt><dd>{v}</dd></div>' for v, k in rows) + "</dl>"
+
+
+def _lead_html(item: dict) -> str:
+    """The hero's signature: the period's highest-rated story, set large."""
+    kind = item["kind"]
+    summary = item.get("summary") or _news_summary(item)
+    date = esc((item.get("published") or "")[:10])
+    return (
+        f'<article class="lead-story k-{kind}"><div class="head"><span class="kind k-{kind}">{icon(KIND_ICONS[kind])}{esc(KINDS[kind])}</span>'
+        f'<time datetime="{date}">{_date(item.get("published"))}</time></div>'
+        f'<h2 class="lead-title">{_title_link(item)}</h2>'
+        + (f'<p class="sum">{esc(summary)}</p>' if summary else "")
+        + f'<div class="co">{_news_meta(item)}</div></article>'
+    )
+
+
+def _headline_clause(text: str, limit: int = 32) -> str:
+    """The overview's opening clause when it reads as a headline ("本期焦點為日月光法說"), else ""."""
+    m = re.match(r"([^:;,。]{4,})[:;,。]", (text or "").replace(":", ":").replace(";", ";"))
+    return m.group(1) + "。" if m and len(m.group(1)) <= limit else ""
+
+
+def _count_line(n_items: int, n_covered: int, n_companies: int) -> str:
+    return f"本期蒐集 {n_items} 則,{n_covered} / {n_companies} 家追蹤公司有報導。"
+
 
 
 FORECAST_ICONS = {"市場概況": "market", "用途與材料": "layers", "技術路線": "chip", "價格": "tag", "主要廠商": "building"}
@@ -543,8 +605,11 @@ def render_forecasts(config: Config, generated: str) -> str:
         _head("靶材商情預測", "濺鍍靶材市場規模預測、用途與材料趨勢、技術路線與主要廠商動向的重點摘要。",
               config.settings.site_url, "forecast.html")
         + f"""<div class="wrap">
-<header>{_brand("靶材商情預測")}
-<div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div></header>
+{_mast("", [(f"#fc{n}", esc(f.get("section") or f.get("report", ""))) for n, f in enumerate(config.forecasts)])}
+<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<p class="dateline">{icon("calendar")}<span>更新於 <span class="mono">{esc(generated)}</span></span></p>
+<h1 id="h1">靶材商情預測</h1>
+<p class="lede">市場調查報告的重點摘要:規模、用途、材料與廠商動向,均註明出處。</p></div></section>
 {body}
 <footer>本頁為市場調查報告的重點摘要,經改寫整理並註明出處;完整數據請參閱原報告。預測不構成投資建議。</footer>
 </div><script>{CHART_SCRIPT}</script>{_fab("forecast", config)}</body></html>"""
@@ -571,9 +636,12 @@ def render_library(library: list[dict], config: Config, generated: str) -> str:
         _head("靶材技術文獻庫", "濺鍍靶材製造技術文獻庫:粉末冶金、熔煉、接合、純化、靶材回收等期刊與預印本,附繁體中文摘要。",
               config.settings.site_url, "papers.html")
         + f"""<div class="wrap">
-<header>{_brand("靶材技術文獻庫")}
-<div class="meta"><span>{icon("calendar")}更新於 <span class="mono">{esc(generated)}</span></span></div>
-<div class="stats">{_stat("book", str(len(library)), "累積收錄文獻(篇)")}{_stat("layers", str(len([t for t in topics if t != GENERAL_TOPIC])), "涵蓋製程主題")}{_stat("database", str(len([s for s in sources if s])), "資料來源")}</div></header>
+{_mast("", [("#lib", "全部文獻")])}
+<section class="hero hero-plain" aria-labelledby="h1"><div class="hero-text">
+<p class="dateline">{icon("calendar")}<span>更新於 <span class="mono">{esc(generated)}</span></span></p>
+<h1 id="h1">靶材技術文獻庫</h1>
+<p class="lede">靶材製造的期刊論文與預印本,永久收錄,附繁體中文摘要。</p></div></section>
+{_figures([(str(len(library)), "累積收錄文獻(篇)"), (str(len([t for t in topics if t != GENERAL_TOPIC])), "涵蓋製程主題"), (str(len([s for s in sources if s])), "資料來源")])}
 <section aria-labelledby="lib">{_h2("lib", "list", "全部文獻", "依發表日期,新到舊")}
 <p class="sub">{PAPER_SOURCES_NOTE}</p>
 <div class="filters" role="group" aria-label="篩選文獻"><div class="frow"><span class="lbl">{icon("filter")}主題</span>{topic_chips}</div>
@@ -649,24 +717,27 @@ def render_page(
     signal = [it for it in items if it["kind"] in SIGNAL_KINDS]
     generated = (report.get("generated") or "")[:16].replace("T", " ")
 
+    lede, aside = "", ""
     if digest.get("overview"):
         auto = digest.get("source") == "auto"  # rule-based fallback; Claude's digest replaces it later
         summary = (
             '<p class="sub">AI 摘要尚未產生,以下為依類別與評分自動整理的重點;Claude 摘要完成後會自動更新。</p>' if auto else ""
-        ) + f'<p class="lead">{esc(digest["overview"])}</p>'
+        )
+        lede = _headline_clause(digest["overview"]) or _count_line(len(items), len(covered), len(companies))
+        summary += f'<p class="lead">{esc(digest["overview"])}</p>'
         if digest.get("key_trends"):
-            summary += f"<p><strong>{'主要主題' if auto else '產業趨勢'}</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ul>"
+            aside += f"<h3>{'主要主題' if auto else '產業趨勢'}</h3><ol class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ol>"
         if digest.get("watch_points"):
-            summary += f"<p><strong>{'評分最高的新聞' if auto else '後續追蹤'}</strong></p><ul class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["watch_points"]) + "</ul>"
+            aside += f"<h3>{'評分最高的新聞' if auto else '後續追蹤'}</h3><ol class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["watch_points"]) + "</ol>"
     elif items:
         top_names = "、".join(f"{n}({c})" for n, c in ent_counts.most_common(4) if not n.startswith("產業綜合"))
+        lede = _count_line(len(items), len(covered), len(companies))
         summary = (
-            f'<p class="lead">本期蒐集 {len(items)} 則,其中新聞與公司公告 {len(signal)} 則;'
-            f"{len(covered)} / {len(companies)} 家追蹤公司有報導,報導最多的是 {esc(top_names)}。</p>"
+            f'<p class="lead">其中新聞與公司公告 {len(signal)} 則,報導最多的是 {esc(top_names)}。</p>'
             '<p class="sub">本期未產生 AI 摘要(設定 ANTHROPIC_API_KEY 後,這裡會顯示 Claude 撰寫的本期總覽與趨勢)。</p>'
         )
     else:
-        summary = '<p class="lead">本期沒有新的相關新聞。</p>'
+        lede, summary = "本期沒有新的相關新聞。", ""
 
     # Highest-rated news/filings, at most 2 per company so one busy company doesn't fill the list.
     top, per_company = [], Counter()
@@ -681,7 +752,10 @@ def render_page(
         f'<p class="sub">總結為最新一期({esc(span[0])})的 AI 整理;以下重點新聞、技術文獻與全部新聞為最近 {len(span)} 天合併,'
         f'各日完整內容請見「歷次報告」。</p>' if len(span) > 1 else ""
     )
-    top_html = "".join(_card_html(it) for it in top) or "<p>本期沒有新聞或公司公告。</p>"
+    lead_story = _lead_html(top[0]) if top else ""
+    rest_top = top[1:]
+    top_html = (f'<div class="cards features">{"".join(_card_html(it) for it in rest_top[:2])}</div>'
+                f'<div class="cards rows">{"".join(_card_html(it) for it in rest_top[2:])}</div>') if rest_top else "<p>本期沒有其他新聞或公司公告。</p>"
     kind_chips = "".join(
         f'<button type="button" class="f" data-filter="kind" data-value="{k}" aria-pressed="false">{icon(KIND_ICONS[k])}{v}<span class="mono">{kinds[k]}</span></button>'
         for k, v in KINDS.items() if kinds[k]
@@ -690,32 +764,41 @@ def render_page(
         f'<button type="button" class="f" data-filter="ent" data-value="{esc(e)}" aria-pressed="false">{esc(e)}<span class="mono">{n}</span></button>'
         for e, n in ent_counts.most_common()
     )
-    paper_stat = _stat("book", str(len(report["papers"])), "技術文獻(篇)") if "papers" in report else ""
+    figures = [(str(len(items)), "蒐集到的新聞(則)"), (str(len(signal)), "其中新聞與公司公告"),
+               (f"{len(covered)} / {len(companies)}", "有報導的追蹤公司")]
+    if "papers" in report:
+        figures.append((str(len(report["papers"])), "技術文獻(篇)"))
+    links = [("#top", "重點"), ("#sum", "總結"), ("#data", "數據"), ("#papers", "文獻"), ("#all", "全部新聞"), ("#arc", "歷次報告")]
     archive_html = _archive(archive, current, home)
 
     return (
         _head(f"靶材產業新聞摘要 {label}", SITE_DESCRIPTION, config.settings.site_url,
               "" if current == HOME_PAGE else f"{current}.html")
         + f"""<div class="wrap">
-<header>{_brand("靶材產業新聞摘要")}
-<div class="meta"><span>{icon("calendar")}{esc(label)}{" 合併" if len(span) > 1 else ""}</span><span>每期蒐集最近 {esc(report.get("days", ""))} 天新聞</span><span>更新於 <span class="mono">{esc(generated)}</span></span></div>
-<div class="stats">{_stat("news", str(len(items)), "蒐集到的新聞(則)")}{_stat("check", str(len(signal)), "其中新聞與公司公告")}{_stat("building", f"{len(covered)} / {len(companies)}", "有報導的公司")}{paper_stat}</div></header>
-<section aria-labelledby="sum">{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</section>
+{_mast(home, links)}
+<section class="hero" aria-labelledby="h1">
+<div class="hero-text"><p class="dateline">{icon("calendar")}<span>{esc(label)}{" 合併" if len(span) > 1 else ""}</span></p>
+<h1 id="h1">靶材產業新聞摘要</h1>
+<p class="lede">{esc(lede)}</p>
+<div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a></div></div>
+{lead_story}</section>
+{_figures(figures)}
+<section aria-labelledby="sum" class="split"><div>{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</div>{f'<aside class="digest-aside">{aside}</aside>' if aside else ""}</section>
+<section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"評分最高的 {len(top)} 則,每家最多 2 則;第一則在頁首")}{top_html}</section>
 {_data_section(items, config, daily or [], current)}
-<section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"新聞與公告中評分最高的 {len(top)} 則,每家最多 2 則")}<div class="cards">{top_html}</div></section>
 {_recycling_section(items, config)}
 {_papers_section(report, library, is_latest, home)}
 <section aria-labelledby="all">{_h2("all", "list", "全部新聞", f"{len(items)} 則")}
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">{icon("filter")}類型</span>{kind_chips}</div>
 <div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(items)} / {len(items)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
-<div class="cards" id="list">{"".join(_item_html(it) for it in items)}</div></section>
-<section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
-<section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section>
-<div class="note"><p>{icon("news")}<span><strong>資料來源</strong>:Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集。</span></p>
-<p>{icon("book")}<span><strong>技術文獻</strong>:OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
-<p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p></div>
-<footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</footer>
+<div class="cards rows" id="list">{"".join(_item_html(it) for it in items)}</div></section>
+<div class="pair"><section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
+<section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section></div>
+<footer class="foot"><p>{icon("news")}<span><strong>資料來源</strong>Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集,更新於 <span class="mono">{esc(generated)}</span>。每期蒐集最近 {esc(report.get("days", ""))} 天新聞。</span></p>
+<p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
+<p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p>
+<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
 </div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
 

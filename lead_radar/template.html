@@ -162,6 +162,19 @@ details.lead>summary::-webkit-details-marker{display:none}
 }
 @media print{.filters,.tabs,.seg,.more{display:none}details.lead{break-inside:avoid}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.hc:hover{transform:none}}
+
+/* Hallmark redesign (full depth, app screen): counts as a figures band under the ink rule; cards open under hairlines */
+.stats{gap:0;border-top:3px solid var(--fg);border-bottom:1px solid var(--line)}
+.stat{background:none;border:0;border-left:1px solid var(--line);border-radius:0;padding:var(--space-md)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{font-size:2rem;letter-spacing:-.02em}
+.hs{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:var(--space-md) 0}
+.hs:hover{border-top-color:var(--accent)}
+.hs-grid{gap:0 var(--space-xl)}
+.wrap{gap:var(--space-2xl)}
+h1{font-size:clamp(2rem,4.8vw,3.25rem);line-height:1.06;letter-spacing:-.03em;max-width:20ch}
+.lede{font-size:1.0625rem;color:var(--fg)}
+@media (max-width:720px){.stats{grid-template-columns:1fr 1fr}.stat{border-left:0;padding-left:0}}
 </style>
 </head>
 <body>
