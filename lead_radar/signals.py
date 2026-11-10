@@ -160,8 +160,25 @@ def material_terms(config: Config, sig: "Signal") -> dict[str, list[str]]:
     return out
 
 
+def _spans(text_lower: str, term: str) -> list[tuple[int, int]]:
+    term = term.lower()
+    return [(m.start(), m.start() + len(term)) for m in re.finditer(re.escape(term), text_lower)] if term else []
+
+
 def match_accounts(text_lower: str, accounts: list[Account]) -> list[Account]:
-    return [a for a in accounts if any(_contains(text_lower, al) for al in a.aliases)]
+    """Listed companies the text names. A short alias that only appears inside another listed
+    company's longer name is not a mention (「台塑化」 names 台塑化, not 台塑)."""
+    found = [a for a in accounts if any(_contains(text_lower, al) for al in a.aliases)]
+    if len(found) < 2:
+        return found
+    spans = {a.name: [s for al in a.aliases for s in _spans(text_lower, al)] for a in found}
+
+    def inside_other(a: Account) -> bool:
+        own = spans[a.name]
+        others = [s for b in found if b is not a for s in spans[b.name]]
+        return bool(own) and all(any(o[0] <= s[0] and s[1] <= o[1] and (o[1] - o[0]) > (s[1] - s[0]) for o in others) for s in own)
+
+    return [a for a in found if not inside_other(a)]
 
 
 # ── classification ──────────────────────────────────────────────────────
