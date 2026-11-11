@@ -74,6 +74,16 @@ def _hits(text_lower: str, terms: list[str]) -> int:
     return sum(1 for t in terms if _contains(text_lower, t))
 
 
+def intent_hit(text_lower: str, it) -> bool:
+    """Does the text show this intent? Strong keywords always count; weak ones (投資、採購) only
+    without a void term (增資、基金、鋼價開盤…) and with a context term when the intent lists any."""
+    if _hits(text_lower, it.keywords):
+        return True
+    if not it.weak or not _hits(text_lower, it.weak) or _hits(text_lower, it.void):
+        return False
+    return not it.context or _hits(text_lower, it.context) > 0
+
+
 def _strip(text: str, phrases: list[str]) -> str:
     for p in phrases:
         text = re.sub(re.escape(p), " ", text, flags=re.IGNORECASE)
@@ -94,6 +104,7 @@ _JP_ORG = re.compile(r"(株式会社[぀-ヿ一-鿿A-Za-z]{2,10}|[぀-ヿ一-鿿
 _GENERIC = re.compile(
     r"^(台灣|臺灣|台湾|中國|中国|國內|国内|全球|美國|美国|日本|韓國|韩国|歐洲|欧洲|我國|我国|國產|国产|本土|大陸|大陆|"
     r"東協|东协|東南亞|东南亚|新加坡|馬來西亞|越南|泰國|印度|歐美|欧美|高科技|"
+    r"特化|電子材料|电子材料|"
     r"國際|国际|國家|国家|產業|产业|業者|业者|上市|新創|新创|相關|相关|各大|多家|這家|这家|該|该|宣布|預計|预计|今年|明年|首家|一家|兩家|三家|零件|零组件|零組件|設備|设备|製程|制程|關鍵|关键|高階|高阶|先進|先进|半導體|半导体|機械|机械)"
 )
 # Verbs / connectors inside a candidate: the name, if any, is what follows the last one
@@ -102,7 +113,7 @@ _STOP = re.compile(
     r"打造|共同|攜手|携手|聯手|联手|帶動|带动|跨足|引爆|強化|强化|直擊|直击|看旺|看好|據報|据报|從未|从未|做好|承接|啟動|启动|牽動|牵动|"
     r"最新|歡迎|欢迎|所有|重量級|重量级|高純度|高纯度|財報|财报|傷害|伤害|推動|推动|布局|佈局|進軍|进军|切入|投入|加速|整合|發展|发展|"
     r"成為|成为|全面|旗下|入股|拿下|助攻|擴大|扩大|營收|营收|法說|個股|概念|族群|供應鏈|供应链|大廠|大厂|龍頭|龙头|廠商|厂商|業者|业者|"
-    r"受惠|搶進|抢进|轉型|转型|鎖定|锁定|瞄準|瞄准|迎來|迎来|衝刺|冲刺|挺進|挺进|深耕|攻進|攻进|導入|导入|供貨|供货|出貨|出货|"
+    r"搶攻|抢攻|攸關|民生|受惠|搶進|抢进|轉型|转型|鎖定|锁定|瞄準|瞄准|迎來|迎来|衝刺|冲刺|挺進|挺进|深耕|攻進|攻进|導入|导入|供貨|供货|出貨|出货|"
     r"把|將|将|的|讓|让|被|向|對|对|為|为|從|从|於|于|在"
 )
 _EN_GENERIC = {"The", "A", "An", "New", "Global", "US", "U.S.", "China", "Taiwan", "Japan", "Korea", "Europe"}
@@ -214,7 +225,7 @@ def classify(
         # Equipment makers' news rarely names a material ("京鼎擴建泰國二期"): for accounts with a
         # judged product fit, the products they are likely to buy (fit ≥ 2) stand in, at lower relevance.
         inferred = [p.key for p in config.products if any(a.fit.get(p.key, 0) >= 2 for a in accounts)]
-        if not inferred or not any(_hits(low, it.keywords) for it in config.intents.values()):
+        if not inferred or not any(intent_hit(low, it) for it in config.intents.values()):
             return None     # without a material word, only demand news counts (擴產、訂單、缺料…), not stock chatter
         products, relevance, was_inferred = inferred, 0.6, True
     else:
@@ -237,7 +248,7 @@ def classify(
     if origin != "manual" and not accounts and all(v == OTHER for v in industries.values()):
         return None
 
-    intents = [k for k, it in sorted(config.intents.items(), key=lambda kv: -kv[1].weight) if _hits(low, it.keywords)]
+    intents = [k for k, it in sorted(config.intents.items(), key=lambda kv: -kv[1].weight) if intent_hit(low, it)]
 
     region = next((a.region for a in accounts if a.region in config.regions), "")
     if not region:

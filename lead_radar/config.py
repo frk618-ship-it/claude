@@ -37,6 +37,11 @@ class Intent:
     weight: float
     keywords: list[str]
     action: str = ""
+    # weak keywords are ambiguous words (投資、採購): they count only when none of `void` appears
+    # (增資、基金、鋼價…) and, if `context` is given, one of its terms does (廠、產線、設備…)
+    weak: list[str] = field(default_factory=list)
+    context: list[str] = field(default_factory=list)
+    void: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -135,7 +140,7 @@ class Config:
 ALLOWED = {
     "products": {"key", "name", "keywords", "search", "industries", "editions", "exclude", "pitch", "pitch_source"},
     "industries": {"name", "keywords", "search"},
-    "intents": {"name", "weight", "keywords", "action"},
+    "intents": {"name", "weight", "keywords", "action", "weak", "context", "void"},
     "regions": {"name", "keywords"},
     "accounts": {"name", "aliases", "industry", "region", "products", "ticker", "segment", "subsegment", "fit", "note",
                  "tier", "customers", "chain_source"},
@@ -218,7 +223,9 @@ def load_config(path: str | Path) -> Config:
             )
         )
     intents = {
-        k: Intent(key=k, name=v["name"], weight=float(v.get("weight", 1)), keywords=[str(x) for x in v.get("keywords", [])], action=v.get("action", ""))
+        k: Intent(key=k, name=v["name"], weight=float(v.get("weight", 1)), keywords=[str(x) for x in v.get("keywords", [])], action=v.get("action", ""),
+                  weak=[str(x) for x in v.get("weak", []) or []], context=[str(x) for x in v.get("context", []) or []],
+                  void=[str(x) for x in v.get("void", []) or []])
         for k, v in (raw.get("intents") or {}).items()
     }
     regions = {k: Region(key=k, name=v["name"], keywords=[str(x) for x in v.get("keywords", [])]) for k, v in (raw.get("regions") or {}).items()}

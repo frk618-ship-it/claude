@@ -698,3 +698,19 @@ def test_heavy_industry_segment(cfg):
     top = {a["org"]: a for a in rep["accounts"]}
     assert top["中鋼"]["best_product"] == "nickel" and top["台化"]["best_product"] == "titanium"
 
+
+
+def test_financial_investment_and_seller_news_are_not_demand(cfg):
+    from lead_radar.signals import extract_orgs
+
+    for title in ["台化 投資收益豐厚", "國喬投資電特化基金", "國喬十年投14.85億參與創投基金鎖定半導體材料、落實投資多角化",
+                  "以利客戶接單及採購!中鋼決定今年10月及第4季鋼價以平高盤開出", "豐興鋼筋盤價連二漲 買氣升溫客戶詢價積極",
+                  "強化採購案風險辨識與廉政防弊能力 中油公司辦理教育訓練"]:
+        assert classify(cfg, title=title) is None, title
+    assert sig(cfg, "中鋼揪伴攻熱鐵磚商機 潛在投資規模衝250億元").intents[0] == "expansion"      # 投資 + 規模
+    assert sig(cfg, "京鼎董事會通過泰國二期投資 擴建新廠").intents[0] == "expansion"
+    s = sig(cfg, "台塑化斥資3.06億元 向台朔重工採購設備")
+    assert s.intents[0] == "tender" and set(s.orgs) == {"台塑化", "台朔重工"}
+    assert cfg.account("台朔重工").segment == "tw_heavy_industry"
+    for text in ["轉投資影響,特化材料放量時程未定", "南亞 電子材料取代塑化", "台肥靠藍氨搶攻半導體供應鏈", "攸關民生能源 中油"]:
+        assert extract_orgs(text) == [], text
