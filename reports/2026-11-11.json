@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11T08:28:54.212356+08:00",
+  "generated": "2026-11-11T09:28:12.461104+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為濺鍍設備商 Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約,供應 Starmind 衛星用的 HJT 太陽能電池產線;HJT 電池以 PVD 鍍製透明導電膜,可能帶動 ITO 靶材需求。晶圓端台積電 10 月營收 5,868 億元創新高,2 奈米與 CoWoS 擴產啟動;南亞科毛利率衝上 85.7%、砸近 700 億元擴產;美光桃園新廠仍待 11 月 17 日勞資協商。靶材廠方面,光洋科公布第三季財報,Furuya 金屬營收優於預期 43%,JX金屬入股 Oxide 持續受關注。美國通膨升溫,金銀價格回落。",
@@ -19,6 +19,106 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "232edfff66dca725",
+      "title": "Gold prices today, November 11th: US CPI is hotter than expected, world gold prices fall nearly 3%.",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVzYyMVhXbGVVeFRsaWNGWTlMcXdUbl9tNlU3T2xRYTQ2bnN5a2otTlo5YVB4aGY4cEpObnkyTXR4VU90SHVlQWNGbE11NWMwQjBUTWFsa1dlTzkyekZJV2liZnJMeExZVDhEQ2hzU05iOG96dnBfbkhhQjNCdDVOVHdZMDFIRlpXWEFxSmlwZnFMdTNKa2F0cjJMZw?oc=5",
+      "source": "Vietnam.vn",
+      "published": "2026-11-11T00:53:22+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b97fb4bf11ca4162",
+      "title": "Materion Earnings Call Highlights Broad-Based Growth",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOcGFBX0Fmamlqd2daZWN2THd2QmJXcjBERlJQWVNuNl90OGw5OUs1Yl8wSUNiMVpDYmNtNmJVSm1kXzdGUXlBODVOeEZrOTNEOU0wckY3bld6TC1YcEkwcGVJMFR5cFdHUkNKOUN6YTVTZDBRdFdJdE9TcVhScEI5Yi1ORDlocXZTNFd1b3p0cllJSWZZSFUxMjZIUW0zek9ONUdpNzBobw?oc=5",
+      "source": "TipRanks",
+      "published": "2026-11-05T02:35:04+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.15,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a0966ddadc038f4a",
+      "title": "PTA-News: Singulus Technologies Aktiengesellschaft: Major Supply Contract with SpaceX for Advanced HJT Solar Cell Manufacturing Equipment",
+      "link": "https://news.google.com/rss/articles/CBMizwJBVV95cUxQQUk4YlNobVBuRENoVW9MRTZoUzVXN2ZpeEl3Z0hFV1JlQ1JSSFVqNkdSWG5fUXZaamJ5bE1FRDhOSEtaWGR3RWd6MS1YRnhBSFk1dTAyT3gwa2xnSVlER0ZjV3IwLWQxcjlrQXBwWmNWbi1GR05NNnFtbnBRUU5mRmx6djV3aWVITktKaTV5R2lnMk9RMjJiUXEySGxCSkpVaGlPSktkb1hMZEFSUjlfSWpmSzZndHhjZUNHLXNVYXdEaDE1elVJanB1SHNuVF96azFreGw3TjdCWUlFdFh6U181MzZOTHJ6b19aRFhOVmZCM2ZkNzNLWU13b05CeHlOVDBFaTJOY3hSYnJLLTA1YkpXeEVGR0VyTWR1blhZcmYtdjdVcjh0OXhmYVJfN0pyZDJORnhQS1E5OGNEbnA5VXJ0S2dtLUs2bzllWWpQaw?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-10T18:35:41+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.96,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c069447128bdfa17",
+      "title": "$JX Advanced Metals (5016.JP)$ It looks like it will go up tomorrow.",
+      "link": "https://news.google.com/rss/articles/CBMioANBVV95cUxNYkxHbTZxQk4ydGNaX0ZFS01tMlR4R2RMVm5ReDJIM3pWc0xWdnJLQlNwRlBObjA0TmVyMS01SjJYSV8xZHBnVENWQzBwcTJ3bFBPT2phdnRPX0duYjRTTnRxQmNjUXJkVEpEVjNSYVNUaDRCY0ZZejdsTE9FbU9aQlFfMXVpN3Joc0VRNXlidGV6anFCaUp2NjVEckh2cURGZXlOZ1ZZRC1vM3VIRHZ0QTJEcEs2RWxqdFcwOFpIUXloOWtvTjk2SVFuUUljUkg3bGhrWThJTTFSN2ZkV2JYQk93b0htbnJfRGdBdWU5RzJoSjcwRlcwMWpTS1NnZzFwakhaLWJDYlBBbm5RejlSUFhDRU1EaDZxd1dtSXZNMEJPZlRiM1dYb204RmtvWmVHdlNBa0hqck5sQmVZR0hld3dpOEpxTGY1ZkxfSmdFZ2lpN29qZ2hHbUo0WjRCV29fbk5XVnlGaXZQS3dXNlNPMF9zdWNGb2tUSW1yY3Z2LU5SMXlzWllUS1BHU1NNckJXU25qNExYQUg2M0lDZEVaUw?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-10T12:08:59+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "53e2983f2516b921",
+      "title": "Stock Market Today: Dow Jones, Nasdaq, S&P 500 Fall on November 10, 2026; Oil and Gold Retreat",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNTnAwU2t5T2szQUhFeXdXUVk0WnZ2Qi1hanhRcnZsaVk3VEpKSmhFeFI5Y3FiOXdvN2dtbEZlZkdCZW9aWDlUOGZaS2t2aHJ0bHZCMFdSTmxXWjhRMExMWmJCODhwQVlvV3gtckVNZm9nREVLVE9GaDFNUXJMVzVLTXJPWk85aUhheTlRT3ZGanNNSW44RFNXTVR5R1FuUTJPQUItSXZBT1UzSEtRVmxMUldGeXJyZ0FGczFsNDR6QXRzMDZJUW1ibklwRWg?oc=5",
+      "source": "Eurasia Business News",
+      "published": "2026-11-11T01:15:05+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "3e483146d5dd2c0d",
       "title": "台積電10月營收狂飆5,868億創歷史新高！2奈米與CoWoS大擴產點火！",
@@ -988,42 +1088,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 4048.7,
+      "price": 4039.4,
       "prev": 4114.5,
       "date": "2026-11-11",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.6
+      "change_pct": -1.83
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 51.56,
+      "price": 51.71,
       "prev": 52.56,
       "date": "2026-11-11",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.9
+      "change_pct": -1.62
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1546.9,
+      "price": 1552.1,
       "prev": 1561.2,
       "date": "2026-11-11",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.92
+      "change_pct": -0.58
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1028.0,
+      "price": 1025.0,
       "prev": 1018.9,
       "date": "2026-11-11",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.89
+      "change_pct": 0.6
     }
   ],
   "papers": [],
