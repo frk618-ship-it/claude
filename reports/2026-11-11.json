@@ -2,18 +2,21 @@
   "generated": "2026-11-11T08:28:54.212356+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 46 則,其中新聞與公司公告 35 則;報導最多的是 Singulus Technologies(16 則)、美光(6 則)、JX金屬(4 則)、台積電(2 則)。依主題:產業動態 18 則、擴產與投資 10 則、營收與財報 7 則。",
+    "overview": "本期焦點為濺鍍設備商 Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約,供應 Starmind 衛星用的 HJT 太陽能電池產線;HJT 電池以 PVD 鍍製透明導電膜,可能帶動 ITO 靶材需求。晶圓端台積電 10 月營收 5,868 億元創新高,2 奈米與 CoWoS 擴產啟動;南亞科毛利率衝上 85.7%、砸近 700 億元擴產;美光桃園新廠仍待 11 月 17 日勞資協商。靶材廠方面,光洋科公布第三季財報,Furuya 金屬營收優於預期 43%,JX金屬入股 Oxide 持續受關注。美國通膨升溫,金銀價格回落。",
     "key_trends": [
-      "產業動態(18 則):SPCX Secures Singulus Deal To Scale Starmind Space Data Center Satellites",
-      "擴產與投資(10 則):臺積電10月營收狂飆5,868億創歷史新高！2奈米與CoWoS大擴產點火！",
-      "營收與財報(7 則):TSMC's October Revenue Jumps as AI Demand Lifts Sales, Capex Plans Build"
+      "濺鍍設備新應用:Singulus 獲 SpaceX HJT 太陽能電池產線訂單",
+      "晶圓與記憶體擴產:台積電營收創高、南亞科擴產近 700 億元",
+      "靶材廠業績亮眼:光洋科、Furuya 金屬、JX金屬",
+      "美光桃園新廠待勞資協商,產能轉往新加坡",
+      "通膨升溫壓抑金銀價格"
     ],
     "watch_points": [
-      "臺積電10月營收狂飆5,868億創歷史新高！2奈米與CoWoS大擴產點火！(理財周刊)",
-      "SpaceX Signs Agreement with SINGULUS to Expand Solar Cell Production in Texas(Texas Border Business)",
-      "傳美光45億美元桃園新廠因勞資爭議暫緩 11／17迎第四次協商(中時新聞網)"
+      "HJT 太陽能電池擴產對 ITO 靶材的需求規模",
+      "台積電 2 奈米與 CoWoS 擴產的靶材拉貨",
+      "美光桃園新廠 11/17 勞資協商結果",
+      "聯準會升息預期對金銀價格的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -28,13 +31,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
-        "擴產與投資",
         "營收與財報",
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 6.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 10 月營收 5,868 億元創歷史新高,2 奈米與 CoWoS 大擴產啟動。晶圓與先進封裝擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 4,
       "title_zh": "臺積電10月營收狂飆5,868億創歷史新高！2奈米與CoWoS大擴產點火！",
       "snippet_zh": ""
     },
@@ -50,13 +53,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
         "併購與合作"
       ],
       "score": 5.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "濺鍍設備商 Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約,供應 HJT 太陽能電池生產線,用於 Starmind 衛星太陽能電池。HJT 電池使用 PVD 鍍製 ITO 等透明導電膜,可能帶動 ITO 靶材需求。",
+      "importance": 5,
+      "title_zh": "SpaceX 與 SINGULUS 簽約,擴大德州太陽能電池生產",
       "snippet_zh": ""
     },
     {
@@ -75,8 +79,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "傳美光 45 億美元桃園新廠因勞資爭議暫緩,11 月 17 日進行第四次協商。與前幾日美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -92,12 +96,13 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "技術與新產品",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "愛普 IPD 放量並擴產因應需求,與聯電合作的產品已有客戶導入。IPD 製程使用 PVD 鍍膜,可能帶動相關靶材需求。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -117,8 +122,8 @@
         "營收與財報"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "南亞科受惠 AI 記憶體需求,毛利率衝上 85.7%、獲利創新高,並砸近 700 億元擴產。DRAM 擴產將帶動 Cu、Ta、W 等靶材需求。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -138,8 +143,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光砸 310 億美元擴產新加坡,分析桃園 45 億美元新廠傳出暫緩的原因。與前幾日美光桃園新廠暫停報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -159,8 +164,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光新加坡投資 310 億美元,桃園新廠進度受關注,勞資 11 月 17 日再談判。與前幾日美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -180,8 +185,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "網紅以美光暫停桃園擴建工程諷刺市長。屬政治評論。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -201,8 +206,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "社群貼文整理美光新加坡擴產與桃園新廠暫緩消息。與前幾日美光桃園新廠暫停報導為同一事件。",
+      "importance": 1,
       "title_zh": "【產業動態分享】 美光全球擴產，投入310億美元佈局新加坡！ 桃園新廠則傳出工程暫緩消息，勞資雙方預計11/17再度協商",
       "snippet_zh": ""
     },
@@ -222,9 +227,9 @@
         "客戶與供應鏈"
       ],
       "score": 4.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "台積電 10 月營收受 AI 需求帶動跳升,資本支出計畫加碼。與同期報導為同一事件。",
+      "importance": 3,
+      "title_zh": "台積電 10 月營收受 AI 需求帶動跳升,資本支出計畫加碼",
       "snippet_zh": ""
     },
     {
@@ -243,8 +248,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "外媒指美光桃園千億新廠恐因勞資問題停工,業內人士稱為一貫手法。與前幾日美光桃園新廠暫停報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -264,9 +269,9 @@
         "技術與新產品"
       ],
       "score": 4.74,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "光洋科公布截至 9 月 30 日的第三季與前九月財報。與前一日光洋科第三季每股盈餘 2.68 元報導為同一事件。",
+      "importance": 4,
+      "title_zh": "光洋科公布第三季及前九月財報(截至 2026 年 9 月 30 日)",
       "snippet_zh": ""
     },
     {
@@ -284,9 +289,9 @@
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬營收優於預期 43%,分析師更新預估。與前幾日 Furuya 金屬第一季財報報導相關。",
+      "importance": 3,
+      "title_zh": "營收優於預期:Furuya 金屬營收超出預估 43%,分析師更新預測",
       "snippet_zh": ""
     },
     {
@@ -301,12 +306,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "報導分析 JX金屬為何出資 27 億日圓入股光學結晶廠 Oxide,稱其為支撐生成式 AI 的「物理層」布局。與前一日報導相關。",
+      "importance": 3,
+      "title_zh": "業績亮眼的非鐵大廠 JX金屬,為何出資 27 億日圓入股光學結晶廠 Oxide?支撐生成式 AI 的「物理層」",
       "snippet_zh": ""
     },
     {
@@ -325,8 +331,8 @@
         "技術與新產品"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "美國通膨預期放緩,10 月 CPI 可能支撐金價突破 4,200 美元。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -342,12 +348,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "營收與財報"
       ],
       "score": 3.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向營收 4,800 萬歐元的 Singulus 訂購太陽能電池產線。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SpaceX 向營收 4,800 萬歐元的 Singulus 訂購太陽能電池產線",
       "snippet_zh": ""
     },
     {
@@ -365,9 +372,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "日股影片分析鎧俠、愛德萬、JX金屬等個股。屬股市評論。",
+      "importance": 1,
+      "title_zh": "【明日股市】財報行情明暗分明:鎧俠、愛德萬、太陽誘電、藤倉、古河電工、東京威力、揖斐電、JT、JX金屬徹底分析",
       "snippet_zh": ""
     },
     {
@@ -385,9 +392,9 @@
         "營收與財報"
       ],
       "score": 3.57,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 2026 年第三季法說簡報。與前幾日報導重複。",
+      "importance": 2,
+      "title_zh": "Materion 2026 年第三季法說簡報(2026-11-07)",
       "snippet_zh": ""
     },
     {
@@ -405,9 +412,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "國際金價重挫,每盎司跌近 100 美元。金價回落有利 Au 靶材成本。",
+      "importance": 2,
+      "title_zh": "今日金價(11 月 11 日):國際金價重挫,每盎司跌近 100 美元",
       "snippet_zh": ""
     },
     {
@@ -425,9 +432,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "11 月 11 日早盤金價下跌,壓力持續。",
+      "importance": 1,
+      "title_zh": "11 月 11 日早盤金價:下跌,壓力持續",
       "snippet_zh": ""
     },
     {
@@ -442,12 +449,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus 簽約,擴大 Starmind 太空資料中心衛星產能。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SPCX 取得 Singulus 合約,擴大 Starmind 太空資料中心衛星",
       "snippet_zh": ""
     },
     {
@@ -462,12 +470,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus 簽訂 Starmind 太陽能電池生產大單。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SpaceX 與 SINGULUS 簽訂 Starmind 太陽能電池生產大單",
       "snippet_zh": ""
     },
     {
@@ -482,13 +491,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
-      "snippet_zh": ""
+      "summary": "SpaceX 與 Singulus 簽訂逾 6,000 萬歐元衛星太陽能電池合約。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SpaceX 與 SINGULUS 簽訂逾 6,000 萬歐元 Starmind 衛星太陽能電池合約",
+      "snippet_zh": "SpaceX 與 SINGULUS 簽訂逾 6,000 萬歐元 Starmind 衛星太陽能電池合約 BASENOR - Tesla 配件"
     },
     {
       "id": "16bdd3d8a523bfc4",
@@ -502,12 +512,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus 簽約生產 Starmind 太陽能電池。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "SpaceX 與 SINGULUS 簽約生產 Starmind 太陽能電池",
       "snippet_zh": ""
     },
     {
@@ -522,12 +533,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽約供應 HJT 太陽能電池生產線。HJT 製程需大量 ITO 濺鍍,可能帶動靶材需求。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 4,
+      "title_zh": "SINGULUS 與 SpaceX 簽約供應 HJT 太陽能電池產線",
       "snippet_zh": ""
     },
     {
@@ -542,12 +554,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 向 SpaceX 供應太陽能電池生產設備。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Singulus 向 SpaceX 供應太陽能電池生產設備",
       "snippet_zh": ""
     },
     {
@@ -562,12 +575,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 宣布與 SpaceX 簽訂重大供貨合約。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Singulus Technologies 宣布與 SpaceX 簽訂重大供貨合約",
       "snippet_zh": ""
     },
     {
@@ -582,12 +596,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂太陽能電池產線合約。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies(SNG)簽訂 SpaceX 太陽能電池產線合約",
       "snippet_zh": ""
     },
     {
@@ -602,12 +617,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂太陽能電池產線合約。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "SINGULUS(SNG)簽訂 SpaceX 太陽能電池產線合約",
       "snippet_zh": ""
     },
     {
@@ -622,12 +638,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 簽訂 SpaceX HJT 太陽能電池設備供貨合約。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Singulus Technologies:簽訂 SpaceX HJT 太陽能電池設備供貨合約",
       "snippet_zh": ""
     },
     {
@@ -642,12 +659,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 公告與 SpaceX 簽訂先進 HJT 太陽能電池製造設備的重大供貨合約。HJT 電池使用 PVD 鍍製 ITO 等透明導電膜,可能帶動 ITO 靶材需求。",
+      "importance": 5,
+      "title_zh": "PTA 即時公告:Singulus Technologies 與 SpaceX 簽訂先進 HJT 太陽能電池製造設備重大供貨合約",
       "snippet_zh": ""
     },
     {
@@ -662,12 +680,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約。與同期 Singulus 獲 SpaceX 訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Singulus Technologies(SNG)簽訂逾 6,000 萬歐元的 SpaceX 合約",
       "snippet_zh": ""
     },
     {
@@ -682,12 +701,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "SINGULUS(SNG)簽訂逾 6,000 萬歐元的 SpaceX 合約",
       "snippet_zh": ""
     },
     {
@@ -702,12 +722,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂逾 6,000 萬歐元合約。與同期報導重複。",
+      "importance": 1,
+      "title_zh": "SINGULUS(SNG)簽訂逾 6,000 萬歐元的 SpaceX 合約",
       "snippet_zh": ""
     },
     {
@@ -722,11 +743,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 11 月 10 日主力資金淨買入 955.09 萬元人民幣。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：歐萊新材（688530）11月10日主力資金淨買入955.09萬元",
       "snippet_zh": ""
     },
@@ -742,11 +764,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11 月 9 日主力資金淨賣出 193.27 萬元人民幣。屬資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：阿石創（300706）11月9日主力資金淨賣出193.27萬元_主力研究",
       "snippet_zh": ""
     },
@@ -762,11 +785,12 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電砸逾 700 億元擴建高雄廠,與艾司摩爾合作開發 EUV,最快 2030 年導入。與前幾日報導相關。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -782,12 +806,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬股價續漲,上修 2027 年 3 月期財測,半導體材料成長。與前一日 JX金屬上修財測報導為同一事件。",
+      "importance": 2,
+      "title_zh": "JX金屬續漲:上修 2027 年 3 月期財測,半導體材料成長(10 日股市)",
       "snippet_zh": ""
     },
     {
@@ -802,11 +827,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "台股盤中焦點股含光洋科等。屬股市行情。",
+      "importance": 1,
       "title_zh": "《臺北股市》盤中焦點股：光洋科、光寶科、驊宏資、長榮、旺矽、東臺",
       "snippet_zh": ""
     },
@@ -822,11 +848,12 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬將於 2027 年 3 月 30 日除權息,每股股息 0.088 美元。屬股東資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -842,12 +869,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美國通膨升溫,市場預期聯準會加大升息,金銀價格重挫。",
+      "importance": 2,
+      "title_zh": "美國通膨升溫,聯準會可能加大升息,金銀價格重挫",
       "snippet_zh": ""
     },
     {
@@ -862,12 +890,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "核心 CPI 高於預期,金價下滑。",
+      "importance": 1,
+      "title_zh": "核心 CPI 高於預期,金價下滑",
       "snippet_zh": ""
     },
     {
@@ -882,12 +911,13 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "市場報告發布 2026~2032 年全球鎳鉻合金濺鍍靶材市場規模,依純度分類。屬市場研究,細節需參閱原報告。",
+      "importance": 3,
+      "title_zh": "全球鎳鉻合金濺鍍靶材市場(2026~2032)規模(0.995、0.999 等)分析報告發布",
       "snippet_zh": ""
     },
     {
@@ -902,11 +932,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "機構認為選舉利好支撐金價,但油價與升息預期仍有壓制。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -922,11 +953,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 震盪下資金轉向黃金礦業 ETF。屬基金推廣內容。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -942,11 +974,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.14,
-      "summary": "",
-      "importance": 0,
+      "summary": "外資買超股含彰銀、光洋科、華航。屬交易資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     }
