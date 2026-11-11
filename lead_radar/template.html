@@ -189,7 +189,7 @@ h1{font-size:clamp(2rem,4.8vw,3.25rem);line-height:1.06;letter-spacing:-.03em;ma
     <div class="bar"><h3 style="font-size:1rem">次產業 × 產品線熱點 <small style="font-weight:400;color:var(--muted)">點格子可篩選下方名單與訊號</small></h3></div>
     <div class="matrix-wrap"><table class="matrix" id="seg-matrix" style="min-width:520px"></table></div>
     <div class="legend" id="seg-legend"></div>
-    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small id="acc-count" style="font-weight:400;color:var(--muted)"></small> <small style="font-weight:400;color:var(--muted)">綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度 + 0.2 × 在地化(有進口紀錄才加分);點列可展開需求研判、切入重點與佐證</small></h3>
+    <div class="bar"><h3 style="font-size:1rem">目標客戶開發順序 <small id="acc-count" style="font-weight:400;color:var(--muted)"></small> <small style="font-weight:400;color:var(--muted)">綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度;點列可展開需求研判、切入重點與佐證</small></h3>
       <button type="button" class="btn ghost" id="acc-csv">下載開發名單 CSV</button></div>
     <div id="acc-filters"></div>
     <div class="table-wrap"><table class="seg-acc" id="seg-acc"></table></div>
@@ -534,16 +534,15 @@ const DATA = /*__DATA__*/null;
       $("#seg-acc").innerHTML = `<thead><tr><th>#</th><th>公司</th><th>次產業</th><th>綜合分數</th><th>分級</th><th>主推產品</th><th>產品適配</th><th>近期訊號</th><th>建議行動</th></tr></thead><tbody>` +
         (shown.length ? "" : `<tr><td colspan="9" class="empty-note">沒有符合條件的公司。</td></tr>`) +
         shown.map(({a, rank}) => { const l = DATA.leads.find(x => x.org === a.org) || {}; const i = rank - 1; return `<tr class="row" data-i="${i}" tabindex="0" aria-expanded="false"><td class="num">${rank}</td>
-        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}${l.new ? ' <span class="badge new">新出現</span>' : ""}${a.loc_part ? ' <span class="badge hot" title="有進口紀錄:在地化機會">進口替代</span>' : ""}${a.chain_tier ? ` <span class="badge acc" title="設備大廠${a.chain_tier === 1 ? "一" : "二"}階供應商">${a.chain_tier === 1 ? "一" : "二"}階</span>` : ""}</td>
+        <td><b>${esc(a.org)}</b>${a.ticker ? ` <span class="mono" style="color:var(--muted);font-size:.78rem">${esc(a.ticker)}</span>` : ""}${l.new ? ' <span class="badge new">新出現</span>' : ""}${a.chain_tier ? ` <span class="badge acc" title="設備大廠${a.chain_tier === 1 ? "一" : "二"}階供應商">${a.chain_tier === 1 ? "一" : "二"}階</span>` : ""}</td>
         <td>${esc(SEG.subsegments[a.subsegment] || a.subsegment)}${l.hotspot && l.hotspot.level === "hot" ? ' <span class="badge hot">熱點</span>' : l.hotspot && l.hotspot.level === "warm" ? ' <span class="badge warm">溫點</span>' : ""}</td>
-        <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}${a.loc_part ? ` + 在地化 ${Math.round(a.loc_part)}` : ""}</span></td>
+        <td><span class="oppbar"><i style="width:${Math.round(a.opportunity * 0.8)}px"></i><span class="mono">${Math.round(a.opportunity)}</span></span><span class="parts" style="font-size:.7rem;color:var(--muted)">適配 ${Math.round(a.fit_part)} + 訊號 ${Math.round(a.signal_part)}</span></td>
         <td><span class="tier ${tierCls(a.tier)}">${esc(a.tier)}</span></td><td>${esc(L.products[a.best_product])}</td>
         <td><span class="fitcell">${products.map(p => `<span>${esc(FIT_LABEL[p] || L.products[p])} ${dots(a.fit[p] || 0)}</span>`).join("")}</span></td>
         <td>${a.signals ? `${esc(L.intents[a.top_intent] || "動態")}<br><span class="mono" style="font-size:.76rem;color:var(--muted)">${a.signals} 則,${esc(a.last_signal)}</span><br>${(a.material_basis || {}).explicit ? `<span class="badge mat-x">材料明確 ${a.material_basis.explicit} 則</span>` : (a.material_basis || {}).manual ? '<span class="badge mat-m">人工標註</span>' : '<span class="badge mat-i">材料推估</span>'}` : '<span style="color:var(--muted)">—</span>'}</td>
         <td>${esc(a.next_action)}</td></tr>
         <tr class="detail" data-d="${i}" hidden><td></td><td colspan="8"><dl class="acc-dl">
-          <dt>分數組成</dt><dd>產品適配 ${Math.max(...Object.values(a.fit), 0)}/3 → ${Math.round(a.fit_part)} 分,訊號強度 ${Math.round(a.signal_score)} → ${Math.round(a.signal_part)} 分${a.loc_part ? `,在地化 ${Math.round(a.loc_score)} → ${Math.round(a.loc_part)} 分` : ""}</dd>
-          ${a.localization && a.localization.score ? `<dt>在地化機會</dt><dd>${esc(a.localization.summary)}<span class="src-note">進口紀錄來源:${esc([...new Set(a.localization.records.map(r => r.source))].join("、"))};已在國外採購的材料,可提案在地供應(交期、庫存、技術服務)</span></dd>` : ""}
+          <dt>分數組成</dt><dd>產品適配 ${Math.max(...Object.values(a.fit), 0)}/3 → ${Math.round(a.fit_part)} 分,訊號強度 ${Math.round(a.signal_score)} → ${Math.round(a.signal_part)} 分</dd>
           ${l.need ? `<dt>需求研判</dt><dd>${esc(l.need)}</dd>` : ""}
           ${a.chain_tier ? `<dt>供應鏈位置</dt><dd>設備大廠${a.chain_tier === 1 ? "一" : "二"}階供應商(客戶:${esc((a.customers || []).join("、") || "客戶未公開")})${a.chain_source ? `<span class="src-note">來源:${a.chain_source.split(/;\s*/).map(x => { const m = x.match(/^(.*?)\s+(https?:\/\/\S+)$/); return m ? `<a href="${esc(m[2])}" target="_blank" rel="noopener">${esc(m[1])}</a>` : esc(x); }).join("、")}</span>` : ""}</dd>` : ""}
           <dt>材料依據</dt><dd>${esc(a.material_summary || "")}</dd>
@@ -560,11 +559,11 @@ const DATA = /*__DATA__*/null;
     $("#seg-acc").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggle(tr); });
     $("#seg-acc").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(tr); } });
     $("#acc-csv").onclick = () => {
-      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", ...products.map(p => `${L.products[p]}適配`), "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "在地化分", "進口紀錄"];
+      const cols = ["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", ...products.map(p => `${L.products[p]}適配`), "訊號數", "最近訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據"];
       const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
       const keep = new Set(filteredLeads().map(l => l.org));
       const rows = DATA.accounts.filter(a => keep.has(a.org)).map(a => [DATA.accounts.indexOf(a) + 1, a.org, a.ticker, SEG.subsegments[a.subsegment], a.opportunity, a.fit_part, a.signal_part, a.tier, L.products[a.best_product],
-        ...products.map(p => a.fit[p] || 0), a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || "", a.material_summary || "", a.loc_part || 0, (a.localization || {}).summary || ""]);
+        ...products.map(p => a.fit[p] || 0), a.signals, a.last_signal, a.next_action, a.note, a.pitch, a.pitch_source || "", a.material_summary || ""]);
       const blob = new Blob(["\ufeff" + [cols, ...rows].map(r => r.map(q).join(",")).join("\r\n")], {type: "text/csv;charset=utf-8"});
       const el = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `${SEG.name}-開發名單-${DATA.asof}.csv`});
       el.click(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
