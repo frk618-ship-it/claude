@@ -487,7 +487,7 @@ def test_pitch_shows_its_spec_source(cfg):
     assert all(p.pitch_source.startswith("一般產業常見規格") for p in cfg.products)
     rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
     assert all(a["pitch_source"] for a in rep["accounts"]) and all(l["pitch_source"] for l in rep["leads"])
-    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源,供應鏈位置,供應鏈來源")
+    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源,供應鏈位置,供應鏈來源,規模分,預估材料需求(NT$/年),估算依據")
     assert "規格依據:" in render_markdown(rep) or not rep["leads"]
     assert '"pitch_source": "一般產業常見規格' in render_page(rep)
     assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"
@@ -505,7 +505,7 @@ def test_segment_page_uses_one_overall_score(cfg):
     for l in rep["leads"]:
         a = accounts[l["org"]]
         assert l["score"] == a["opportunity"] and l["grade"] == a["tier"]
-        assert l["fit_part"] + l["signal_part"] == pytest.approx(l["score"], abs=0.2)
+        assert l["fit_part"] + l["signal_part"] + l["value_part"] == pytest.approx(l["score"], abs=0.2)
     # companies outside the list only keep their signal strength
     others = {o["org"] for o in rep["other_mentions"]}
     assert others and not others & members and "台積電" in others
@@ -714,3 +714,47 @@ def test_financial_investment_and_seller_news_are_not_demand(cfg):
     assert cfg.account("台朔重工").segment == "tw_heavy_industry"
     for text in ["轉投資影響,特化材料放量時程未定", "南亞 電子材料取代塑化", "台肥靠藍氨搶攻半導體供應鏈", "攸關民生能源 中油"]:
         assert extract_orgs(text) == [], text
+
+
+def test_decision_tree_estimates_material_value_from_expansion_scale(cfg):
+    from lead_radar.estimate import estimate_account, parse_amount, value_score
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+
+    fx = cfg.settings.estimate["fx"]
+    assert parse_amount("董事會:華邦電通過資本支出731.63億元用以擴建12吋晶圓廠", fx) == pytest.approx(731.63e8)
+    assert parse_amount("聯電追加32億美元擴產", fx) == pytest.approx(32e8 * 32)
+    assert parse_amount("京元電前三季獲利74億元!500億元資本支出擴產", fx) == pytest.approx(500e8)   # profit is not a project size
+    assert parse_amount("營收6.11億元改寫新高", fx) == 0 and parse_amount("南亞科Q3毛利率85.7%創新高", fx) == 0
+    assert value_score(1e6) == 0 and value_score(1e9) == 100 and 45 < value_score(3e7) < 55
+
+    s = sig(cfg, "董事會:華邦電通過資本支出731.63億元用以擴建12吋晶圓廠", days_ago=3)
+    est = estimate_account(cfg.account("華邦電"), [s], cfg)
+    # memory: target 0.3% × fit 3/3 + copper 0.1% × fit 2/3 + nickel 0.05% × fit 1/3 of NT$73.163 bn
+    assert est["by_product"]["target"] == pytest.approx(731.63e8 * 0.003, rel=1e-6)
+    assert est["value"] == pytest.approx(731.63e8 * (0.003 + 0.001 * 2 / 3 + 0.0005 / 3), rel=1e-6)
+    assert est["product"] == "target" and est["score"] > 80 and "報導金額 NT$731.6 億" in est["summary"]
+    order = sig(cfg, "台塑化斥資3.06億元 向台朔重工採購設備", days_ago=3)
+    small = estimate_account(cfg.account("台塑化"), [order], cfg)
+    assert small["intent"] == "tender" and 0 < small["score"] < est["score"]            # smaller project, lower score
+    assert estimate_account(cfg.account("華邦電"), [sig(cfg, "華邦電 擴產 新廠 動土")], cfg)["value"] == 0   # no amount, no estimate
+
+    base = build_segment_report([sig(cfg, "華邦電 擴產 新廠 動土", days_ago=3)], cfg, "tw_semi_production", ASOF)
+    rep = build_segment_report([s], cfg, "tw_semi_production", ASOF)
+    acc = next(a for a in rep["accounts"] if a["org"] == "華邦電")
+    assert acc["value_part"] == pytest.approx(0.15 * est["score"], abs=0.1)
+    assert acc["opportunity"] == pytest.approx(acc["fit_part"] + acc["signal_part"] + acc["value_part"], abs=0.15)
+    other = next(a for a in rep["accounts"] if a["org"] == "聯電")
+    assert other["value_part"] == 0 and other["opportunity"] == next(a for a in base["accounts"] if a["org"] == "聯電")["opportunity"]
+    assert "預估材料需求(NT$/年)" in render_accounts_csv(rep).splitlines()[0]
+
+
+
+def test_amounts_that_are_not_the_companys_project_are_ignored(cfg):
+    from lead_radar.estimate import parse_amount
+
+    fx = cfg.settings.estimate["fx"]
+    for title in ["帆宣在手訂單1351億美元創新高 訂單看到2028年", "AI建廠潮全面升溫!廠務工程訂單近9,000億,亞翔、漢唐誰最受惠?",
+                  "亞馬遜近5000億美元訂單,南亞科需求訊號藏在哪?", "輝達霸氣預付357億包產能!點名欣興、京元電"]:
+        assert parse_amount(title, fx) == 0, title
+    assert parse_amount("華新麗華英國子公司SMP與勞斯萊斯簽約 拿下2.4億美元訂單", fx) == pytest.approx(2.4e8 * 32)
+    assert parse_amount("中鋼揪伴攻熱鐵磚商機 潛在投資規模衝250億元", fx) == pytest.approx(250e8)

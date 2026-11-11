@@ -35,6 +35,52 @@ settings:
                 台股, 大盤, 殺盤, 血崩, 權值股, 加權指數, 勁揚, 外銷訂單,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
+  # ── 決策樹:擴廠規模 → 預估材料需求 → 規模分數 ──────────────────────────────
+  # 報導標題中的金額(新台幣)× 意圖係數 × 次產業的材料占比 × 公司適配度 / 3 = 預估每年材料需求金額;
+  # 取該公司最大的一筆,以對數刻度換成 0–100(100 萬元 = 0、10 億元 = 100),占綜合分數 weight。
+  # 綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度 + weight × 規模分數(上限 100;沒有金額新聞的公司分數不變)
+  # !! 下列占比都是「粗估的規劃假設」,不是實際耗用量;請依實際接單與拜訪結果修正。
+  estimate:
+    weight: 0.15
+    fx: {元: 1, 美元: 32, 日圓: 0.21, 歐元: 35, 人民幣: 4.5}      # 換算新台幣的概略匯率
+    intents: {expansion: 1.0, tender: 1.0, contract: 0.5, maintenance: 0.3}   # 訂單金額是營收不是資本支出,打 5 折;歲修 3 折
+    tree:                         # 客群 → 次產業 → 產品線:每 1 元投資 / 訂單金額對應的年材料需求
+      tw_semi_production:         # 晶圓廠資本支出大、材料占比低;封裝的濺鍍與電鍍占比較高
+        foundry:   {target: 0.003, copper: 0.001, nickel: 0.0005, titanium: 0.0002}
+        memory:    {target: 0.003, copper: 0.001, nickel: 0.0005}
+        packaging: {target: 0.004, copper: 0.003, titanium: 0.0005}
+        thinning:  {target: 0.002, copper: 0.001}
+        testing:   {copper: 0.001}
+      tw_semi_equipment:          # 設備與零組件廠:機台組件的材料占比
+        front_end: {nickel: 0.010, titanium: 0.008, copper: 0.006, target: 0.004}
+        packaging: {nickel: 0.006, titanium: 0.004, copper: 0.004}
+        parts:     {titanium: 0.030, nickel: 0.030, copper: 0.010}
+        facility:  {nickel: 0.010, titanium: 0.003, copper: 0.002}
+        carrier:   {titanium: 0.005}
+      tw_pcb_equipment:
+        wet:        {copper: 0.030, titanium: 0.020, nickel: 0.010}
+        imaging:    {titanium: 0.002, nickel: 0.002}
+        drilling:   {titanium: 0.001}
+        inspection: {titanium: 0.001}
+        automation: {titanium: 0.001}
+      tw_display_equipment:
+        deposition: {target: 0.020, titanium: 0.010, copper: 0.010}
+        wet:        {copper: 0.030, titanium: 0.020, nickel: 0.010}
+        laser:      {titanium: 0.001}
+        inspection: {titanium: 0.001}
+        automation: {titanium: 0.001}
+      tw_ai_server:
+        cooling:      {copper: 0.080, nickel: 0.002}
+        interconnect: {copper: 0.050}
+        power:        {copper: 0.030}
+        odm:          {copper: 0.002}
+        chassis:      {copper: 0.001}
+      tw_heavy_industry:
+        steel:     {nickel: 0.004, copper: 0.002, titanium: 0.001}
+        stainless: {nickel: 0.006, titanium: 0.003}
+        refinery:  {nickel: 0.008, titanium: 0.005}
+        chemical:  {titanium: 0.008, nickel: 0.006}
+        epc:       {nickel: 0.010, titanium: 0.008}
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
   drop_terms: [市場預測, 市场预测, 市場規模, 市场规模, 市場報告, 市场报告, 研究報告, 研究报告, 年預測, 年预测, CAGR, "Market to Reach", "Market Size", "Market Share",
                "Market Report", "Market Expansion", "Market Outlook", "Market Forecast", "Market Analysis", "market research",

@@ -107,6 +107,8 @@ class Settings:
     title: str = ""                  # page heading after 「商機雷達:」; empty = the segment's name
     links: list[dict[str, str]] = field(default_factory=list)   # [{name, url}] shown as buttons on every page
     exclude_orgs: list[str] = field(default_factory=list)
+    # decision tree: expansion scale → estimated material value (see lead_radar/estimate.py)
+    estimate: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -172,6 +174,16 @@ def _link(l) -> dict[str, str] | None:
     return {"name": str(l["name"]), "url": url} if url.startswith(("https://", "http://")) else None
 
 
+def _estimate(e: dict) -> dict:
+    return {
+        "weight": float(e.get("weight", 0.0)),
+        "fx": {str(k): float(v) for k, v in (e.get("fx") or {"元": 1.0}).items()},
+        "intents": {str(k): float(v) for k, v in (e.get("intents") or {}).items()},
+        "tree": {str(seg): {str(sub): {str(p): float(v) for p, v in (shares or {}).items()} for sub, shares in (subs or {}).items()}
+                 for seg, subs in (e.get("tree") or {}).items()},
+    }
+
+
 def load_config(path: str | Path) -> Config:
     raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
     _check_keys(raw)
@@ -199,6 +211,7 @@ def load_config(path: str | Path) -> Config:
         title=str(s.get("title", "") or ""),
         links=[_link(l) for l in s.get("links", []) or [] if _link(l)],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
+        estimate=_estimate(s.get("estimate") or {}),
     )
     industries = {
         k: Industry(key=k, name=v["name"], keywords=[str(x) for x in v.get("keywords", [])], search=[str(x) for x in v.get("search", [])])
