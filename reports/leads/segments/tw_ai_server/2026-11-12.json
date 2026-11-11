@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T16:40:10+00:00",
+ "generated": "2026-11-11T17:11:42+00:00",
  "asof": "2026-11-12",
  "days": 120,
  "half_life_days": 45.0,
@@ -173,8 +173,8 @@
   }
  },
  "stats": {
-  "signals": 106,
-  "attributed": 106,
+  "signals": 98,
+  "attributed": 98,
   "new_signals": 14,
   "hot_cells": 4,
   "warm_cells": 1,
@@ -183,20 +183,20 @@
    "A": 0,
    "B": 3,
    "C": 4,
-   "D": 11
+   "D": 10
   },
   "enriched": 0,
   "by_product": {
    "target": 11,
    "titanium": 1,
    "nickel": 10,
-   "copper": 105
+   "copper": 97
   },
   "other_mentions": 7,
   "accounts": 17,
   "tiers": {
-   "優先開發": 0,
-   "積極經營": 6,
+   "優先開發": 1,
+   "積極經營": 5,
    "持續觀察": 11
   }
  },
@@ -289,7 +289,7 @@
    "region": "TW",
    "heat": 11.201,
    "count": 6,
-   "z": 2.85,
+   "z": 2.93,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -313,13 +313,13 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 43.447,
-   "count": 34,
+   "heat": 41.092,
+   "count": 33,
    "z": 6.03,
    "level": "hot",
    "trend": "new",
    "history": [
-    43.447
+    41.092
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -337,7 +337,6 @@
     "eba3db6a90e7c820",
     "9e98975320b4984e",
     "8271077ccca1df06",
-    "9dceb78b27444f25",
     "8bc9f5da639909ff",
     "03f2f06ef37163b0",
     "874c28ecfc594815",
@@ -351,7 +350,6 @@
     "f494513b05a2f119",
     "c0f62d5891ce3546",
     "4892577685bfd964",
-    "4f12e3673933f8de",
     "8df5dde20e30242f",
     "e07d2dd789a608ed",
     "a556bdcd13c2cb67",
@@ -367,9 +365,6 @@
     "8b808d98a646def9",
     "cd96624a49496cfa",
     "ac87fb6b7ee02526",
-    "0c0a0a6f4b6249bf",
-    "b437fc9b5adaf7b7",
-    "9a2f58cbfb1d7dc6",
     "9acc296cdd7aa431",
     "a0cfac8d30f95c4f",
     "dee97af98a7f7fc7",
@@ -386,7 +381,6 @@
     "b63bdfa987c59524",
     "7425c71284d6b863",
     "9c9b7171e70906a6",
-    "10740a9891181e4b",
     "487fb88d64c894ce",
     "762815d02e9c5fec",
     "cb8eebf124365120",
@@ -394,13 +388,11 @@
     "51e5eac3dc98d2e9",
     "cb1c41f1488149e8",
     "e80fc5b08cc3ad9f",
-    "5010a700aa09c7f6",
     "bc22d0ce438c33eb",
     "e0d9098510c156c9",
     "a88e10f76fcc8673",
     "b498fa4f22ae9f79",
     "ae3967aba71280e8",
-    "2a0f08e29380e109",
     "a09dec386d48aabc",
     "8648f3a59d9b9d6b",
     "fedbacd92212a2ab",
@@ -448,13 +440,13 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 43.447,
-   "count": 34,
+   "heat": 41.092,
+   "count": 33,
    "z": 6.03,
    "level": "hot",
    "trend": "new",
    "history": [
-    43.447
+    41.092
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -503,7 +495,7 @@
    "region": "TW",
    "heat": 11.201,
    "count": 6,
-   "z": 2.85,
+   "z": 2.93,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -544,8 +536,8 @@
   {
    "org": "奇鋐",
    "account": true,
-   "score": 67.0,
-   "grade": "積極經營",
+   "score": 76.5,
+   "grade": "優先開發",
    "product": "copper",
    "products": [
     "copper"
@@ -566,7 +558,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -577,7 +569,7 @@
     "43c72630e919dc4e",
     "dee97af98a7f7fc7",
     "dd30a61261c38d31",
-    "4f12e3673933f8de",
+    "bf64abbb391cd6ac",
     "4b9ee0956b9fdb6f",
     "7dcc705f604a4d8b",
     "cd96624a49496cfa"
@@ -585,7 +577,57 @@
    "signal_score": 45.0,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 27.0
+   "signal_part": 27.0,
+   "value_part": 9.5
+  },
+  {
+   "org": "台達電",
+   "account": true,
+   "score": 64.6,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "new_product",
+   "intents": [
+    "new_product",
+    "contract",
+    "shortage",
+    "expansion",
+    "qualification"
+   ],
+   "signals": 11,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-11-10",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.8
+   },
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "09de31d6dd849d54",
+    "eaf9a5db148d62fc",
+    "cb8eebf124365120",
+    "42a0954d4980c9b5",
+    "01f21fd0b5f9aec6",
+    "7dcc705f604a4d8b",
+    "ddd03988562ae128",
+    "8bc9f5da639909ff"
+   ],
+   "signal_score": 48.9,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 29.3,
+   "value_part": 8.6
   },
   {
    "org": "雙鴻",
@@ -611,7 +653,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -630,55 +672,54 @@
    "signal_score": 39.8,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 23.9
+   "signal_part": 23.9,
+   "value_part": 0.0
   },
   {
-   "org": "台達電",
+   "org": "光寶科",
    "account": true,
-   "score": 56.1,
+   "score": 56.3,
    "grade": "積極經營",
    "product": "copper",
    "products": [
-    "copper",
-    "target"
+    "copper"
    ],
    "industry": "ai_server",
    "region": "TW",
-   "top_intent": "new_product",
+   "top_intent": "expansion",
    "intents": [
-    "new_product",
-    "contract",
-    "shortage",
     "expansion",
-    "qualification"
+    "new_product",
+    "contract"
    ],
-   "signals": 11,
-   "first_seen": "2026-11-03",
+   "signals": 5,
+   "first_seen": "2026-11-06",
    "last_signal": "2026-11-10",
-   "new": false,
+   "new": true,
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.93
+    "z": 2.8
    },
-   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "need": "",
    "evidence": [
-    "09de31d6dd849d54",
+    "e80fc5b08cc3ad9f",
     "eaf9a5db148d62fc",
-    "cb8eebf124365120",
-    "42a0954d4980c9b5",
-    "01f21fd0b5f9aec6",
-    "7dcc705f604a4d8b",
-    "ddd03988562ae128",
-    "8bc9f5da639909ff"
+    "a09dec386d48aabc",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8",
+    "eba3db6a90e7c820",
+    "657336051e8bd117",
+    "51e5eac3dc98d2e9"
    ],
-   "signal_score": 49.1,
+   "signal_score": 29.8,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 29.5
+   "signal_part": 17.9,
+   "value_part": 11.7
   },
   {
    "org": "嘉澤",
@@ -704,7 +745,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.58
+    "z": 1.59
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -723,7 +764,8 @@
    "signal_score": 26.2,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 15.7
+   "signal_part": 15.7,
+   "value_part": 0.0
   },
   {
    "org": "健策",
@@ -752,7 +794,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -769,88 +811,41 @@
    "signal_score": 22.0,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 13.2
-  },
-  {
-   "org": "光寶科",
-   "account": true,
-   "score": 45.6,
-   "grade": "積極經營",
-   "product": "copper",
-   "products": [
-    "copper"
-   ],
-   "industry": "ai_server",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "new_product",
-    "contract"
-   ],
-   "signals": 6,
-   "first_seen": "2026-11-06",
-   "last_signal": "2026-11-10",
-   "new": true,
-   "hotspot": {
-    "level": "hot",
-    "trend": "",
-    "z": 2.93
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "e80fc5b08cc3ad9f",
-    "0c0a0a6f4b6249bf",
-    "eaf9a5db148d62fc",
-    "a09dec386d48aabc",
-    "9dceb78b27444f25",
-    "657336051e8bd117",
-    "b498fa4f22ae9f79",
-    "2a0f08e29380e109"
-   ],
-   "signal_score": 31.5,
-   "fit_max": 2,
-   "fit_part": 26.7,
-   "signal_part": 18.9
+   "signal_part": 13.2,
+   "value_part": 0.0
   },
   {
    "org": "力致科技",
-   "account": true,
-   "score": 42.2,
-   "grade": "持續觀察",
-   "product": "copper",
    "products": [
     "copper"
    ],
    "industry": "ai_server",
    "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion"
-   ],
-   "signals": 1,
-   "first_seen": "2026-11-06",
-   "last_signal": "2026-10-01",
-   "new": true,
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "need": "",
-   "evidence": [
-    "10740a9891181e4b"
-   ],
-   "signal_score": 3.7,
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 2.2
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
   },
   {
    "org": "貿聯-KY",
@@ -875,7 +870,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.58
+    "z": 1.59
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -890,7 +885,8 @@
    "signal_score": 15.7,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 9.4
+   "signal_part": 9.4,
+   "value_part": 0.0
   },
   {
    "org": "高力熱處理",
@@ -915,7 +911,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -928,7 +924,8 @@
    "signal_score": 5.1,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 3.1
+   "signal_part": 3.1,
+   "value_part": 0.0
   },
   {
    "org": "廣達",
@@ -965,7 +962,8 @@
    "signal_score": 16.4,
    "fit_max": 1,
    "fit_part": 13.3,
-   "signal_part": 9.8
+   "signal_part": 9.8,
+   "value_part": 0.0
   },
   {
    "org": "英業達",
@@ -1002,7 +1000,8 @@
    "signal_score": 16.4,
    "fit_max": 1,
    "fit_part": 13.3,
-   "signal_part": 9.8
+   "signal_part": 9.8,
+   "value_part": 0.0
   },
   {
    "org": "勤誠",
@@ -1020,7 +1019,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.91
+    "z": 0.89
    },
    "need": "",
    "evidence": [],
@@ -1031,6 +1030,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1052,7 +1052,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.2
+    "z": 3.23
    },
    "need": "",
    "evidence": [],
@@ -1063,6 +1063,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1095,6 +1096,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1127,6 +1129,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1148,7 +1151,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.53
+    "z": -1.55
    },
    "need": "",
    "evidence": [],
@@ -1159,6 +1162,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -1191,6 +1195,7 @@
    "fit_max": 0,
    "fit_part": 0.0,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "target",
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -1912,42 +1917,6 @@
    "heat": 0.617
   },
   {
-   "id": "2a0f08e29380e109",
-   "title": "(2301)光寶科法說會 2026/10、光寶科財報、光寶科展望、光寶科財報投資亮點｜理柴知道:法說最速報! - 方格子",
-   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE83eXBCQUdKZ0VKTjFTWUlYcjFTLXpNcFl4Mnloa0FRQXRXOW9LOVdNNFdXT0dKajBCb1lxbzk2ZkFjUTVvYmZoajJZLUpjM1pjVU9ObVJTazdjQzJSZ0HSAWNBVV95cUxNREt2UEhVbV9nSldfVEhEWVhid3V0NzNsRmtwYjRwYXg0Q0dJdTQyMGxFbTVaZHpEd1NSUDNtRHdvWnFiQkU0bV95R0p4RTZpd20zYkpHS0JHejhobUszMFBZQU0?oc=5",
-   "source": "vocus",
-   "published": "2026-11-01",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "光寶科"
-   ],
-   "accounts": [
-    "光寶科"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 2.026
-  },
-  {
    "id": "b498fa4f22ae9f79",
    "title": "光寶AI電源新品Q4量產 800VDC機櫃樣機出貨",
    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iUVhhb0RkdGxDUW95c1F5TDBMU3Fad0pybVhJbG1VaGU2dXB1a3huOUpWWmVrSkVlQjhVa3pnZmtpS3B3ZjFrTHp0OUo2cENHWjl1enVrME5JQlA4RTRN0gFkQVVfeXFMTjRjaENlZk5Mb0ppS3FtRF9UQ205bVNkWDQtMDd0UjV1UkZWQ1MyUE1lcVQ0OXIyZHVzN2p0Rk5MV0tjNW4zQWdmLVhOTzhpZU91RDMyRGRFcDhXbW5mbmpKRUNQZw?oc=5",
@@ -2257,42 +2226,6 @@
    "heat": 3.271
   },
   {
-   "id": "5010a700aa09c7f6",
-   "title": "AI電源AI晶片雙法說！台達電聯發展望連發AI三巨頭財報周！微軟、Alphabet和亞馬遜同期出爐聯準會升息機率不到兩成！ 台灣投資人要注意什麼？｜投資早知道",
-   "link": "https://news.google.com/rss/articles/CBMi8gZBVV95cUxONHNuRGtweVptU09URjVwcTRSZDVCWlFCdjVrVVBVQWRselB0S0tUb0xnV0xKWDN2aW8wWUVXRkhnYXZOd0ItWnphcjdGWDUyeXBLdzdNcjhWWEZKdTZ1NThyYlNhQkc1eUZOb1IyMXZ1dGRrcmRuR0VPTndiTUxjVnpvMUpLaFpqdC1CNzNjLXl4MExZVHBQMVBKZjhiUV9LV3FWUEtSRW5ubzJDRlA3WXNzb2RVRTMyLU1ySjNrUmoybHgzNFlrcFZlU3pIQ2VBNHo4OGMyV0gzQWQwSVFFMVRDTTR3ai1CT0RsMTBCR01hNTNTSkZnM0NZNDg5SkU2SmFrZlNKbWZWdWVYSGZ6VnBaVjM3Z1pkS0E5QnBwV0pCM3VzRVVWUjdPampOYk1HOFgwWXJvUXZEbjdyZ0ZPMGR4anhfb3dLZzhYUmFjMWtMOHBnbHFXVWtHa1FMN2JQb0dlMTBaMVJFa1lSRGVmb2VTVUg1WFhkcGhSdnZyVVE2R1ZiaXZaRnN1eUg4VU9ITDVvVmJpcjVtaVB3S3FQMGJYdjVLX2h0UDZOUEhla3I2VnVFS1ltTUp2aGNHS1Z2ZW8takMzREY3SEZMQkRfdG93MDAtd19qYzBwQnBDVjkwU1NFaUUwdTB1VVJ5a0ZSd2VkQkhTaDdseEVtTU9oU2h4Mm1oY21DZGREdUFRLTZHZnZYT3U3SHpNTHRiMzVVMV82ckotX0lkZUdtUzlSajlVdXRVSzFQOWppUlVTUU9xV18tZ2M2NXo5LURQOXFQS1JERFRJek1WNm5MNU1JOHJwYXFOekdyVUZXNmZJVTJITElBWHdpTDFBQkdtblZXSWxpaDFVZUhxUXBGWTJvNG8tbWhXRzA3OG5TQVg2MEIyVEk2MWUybmxtUXBCNWhLekVlLVFmcWxPSlU3dXdqN0xjckN6UjNCOHp3aG40bFNQR0UxODBoSE9MbkJ6bFVhQ3RzZ2w5V3hKS0Y4RG1sVUJkd18xM1RUTVhIeHZ5c0toMzlieEx4QzlKQWZuNlhWcTR6WjZuVk1UUjFnNlR1YjhGR0E5R0hZQ181d0hKcG1oRmdQeE1waEZPXzROU3g2YjYxRGFUQVlxREc3V3pKRWFCV2RTTFM4bjRnd1hSYTBVd2l0SHBuOFY1cW9lbkRXYkE?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-10-22",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台達電"
-   ],
-   "accounts": [
-    "台達電"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.737
-  },
-  {
    "id": "64495a33309be7e9",
    "title": "中美AI出口管制同步升溫，鴻海、廣達、台積電面臨哪些合規與訂單風險？｜股市話題｜豐雲學堂2026 年 11 月",
    "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxPaGRiNm1hem9nVFM4S245YmdCT21RWTg4QUhCV09JNEhYV3ctUXBiSFl0eVhZbmh6U2tpMklDcW82bkNCdGRzck5wYXdXUTNoNXBNVk5fSi1rZ19GNWpoT3Y2S3ppc3J3QVhQTFc1LU85bV9KdDdOeG9xRjFmenZCZlVZS0haMmdWWG43dl9sWEtCTE5kTlZRamRIQTRDeFp2VS1iUHZuVUY3NGJPV0Q5QVBSZzZqRTlyZGtYbURiNVltTXQzZmg1QXlCVWkzd3NSUDZYdGYzcHFTN2xJZmhoN3FFOEhIcWw4ZHJRUlpHODhsUFozLUFuS1duNlJ4N0dncmtmR1lMR3hfVndlWE1HTjZTRVVkMGItb0hncENqXzVKZnBfcVVFVXEyOW5SaGFHLThWQnhZS09LVEEwb2VwRlBpMTBtVXBHb1p0SmpZUmoyV05tYl9RQ01XTHhTdjRDWFFJSkwwVlgzZWtZRXFNTzVJTGZua0FmSktzejFyZ1NrMzBGcjZTajN1QTBFQ0N3V1pSRnYwZmduUzRvV2FGZ3BBX0RfLUdpZ3Z0Q1VXWUwxaG85TVVVYnUxMHEtVkx0VkxsOHRwajdFODdaRXRVVVlVQW5UY0NGTmJtTGFTR280YkxTaXZEbXRwYjNfYkR5bE9xZ2FmQTR3d1I0VFg0YmFXVEZTdw?oc=5",
@@ -2594,42 +2527,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.276
-  },
-  {
-   "id": "10740a9891181e4b",
-   "title": "力致(3483)子公司與轉投資主要持股明細 - 股市爆料同學會",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE84X3oxUk0yWkFvV1QtWC1fZ2VqcUcxSmNOdDZmUU9MeFpaVGZEVWZJWFUwVmhJcnl1RU1qSmJLS3diRW1YYm1NcGJQMm1WVEJ6cjhjUWZTaVlhWV9DbGZkRWNWUQ?oc=5",
-   "source": "CMoney",
-   "published": "2026-10-01",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "力致科技"
-   ],
-   "accounts": [
-    "力致科技"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": true,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.377
   },
   {
    "id": "b63bdfa987c59524",
@@ -3345,42 +3242,6 @@
    "heat": 0.612
   },
   {
-   "id": "b437fc9b5adaf7b7",
-   "title": "光寶科55億元策略投資液冷技術公司DCX 整合電源管理、散熱關鍵技術",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1nMS02dFhucjlyUUZ5UUZIcDF0ZEVuQ2NnaE5QOEpCdXlxckMtT3BLc2ZMbmdMWU1aQmFEUVZjdFU4R3piMG5Ha0VLUFlScXM?oc=5",
-   "source": "鉅亨網",
-   "published": "2026-09-03",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "光寶科"
-   ],
-   "accounts": [
-    "光寶科"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.816
-  },
-  {
    "id": "ac87fb6b7ee02526",
    "title": "1表比》散熱三雄兩樣情？PCB女王拆解健策、奇鋐、雙鴻：它專吃「訂單外溢」 - 上市櫃",
    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1UdEY4TDVpcVlkSDd4M2tfcXFObTlNSjExUHk2M0F3Yko0QWE1NHhvY01BcTd0cE9JUzlkNmtJZmp1dzdvelh5amdaeEZHRXoyLVpCVUpBdUxQcFpRdVJjZzMtNTIzd3JlR1E?oc=5",
@@ -3419,42 +3280,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.612
-  },
-  {
-   "id": "9a2f58cbfb1d7dc6",
-   "title": "擴大AI布局！光寶砸56億投資波蘭液冷散熱廠 將取得25%股權",
-   "link": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxQcTlnNFg3Mk9KSTRyX25JeU8zRGZ2eXAzUHI4eVl0NFNtaGtzTEp1U1JMaDNab1JWWXRVTDl1U0N6TzBzYjY3QXlpdERaSkhGVXJHVG1KR2VsV0thbW1XakZnTXhzZkEyY254RElYd0xiSUw1bGpZaXctVHhHX21hcGZtelJyVE5XdmZmOWtVNGhKZFpwUE9obHhDNVA0ckNFMUw5UHgzV1dOYnlDeVp4bWRIMmlnZXAtLU9rUnhkc3QtT0dVU3l6bDVyTE82cHNkdVZjNVhVazk4LWxtN1E1aG84VFlaNmp6cE9oMHZGQzJXRDR1WUlQWmtkejBFZGRRdU81TDh5Qnp2MFRzTGU1ME9USmpoRjlpOGJxcmhrbmVKNHBZSEktNW5zRURKTW1DaTdyZ2V3cERYcGJaMHk0REFRVGhBaVR5alZoVDJXZXZrRGVRTjZDcEx0Y3VRQTdHLUIxSXZaNGhlcmxGbklF?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-09-03",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "光寶科"
-   ],
-   "accounts": [
-    "光寶科"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.816
   },
   {
    "id": "8b808d98a646def9",
@@ -3530,42 +3355,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.868
-  },
-  {
-   "id": "0c0a0a6f4b6249bf",
-   "title": "光寶宣布策略投資液冷技術公司 DCX 整合電源管理、散熱關鍵技術",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XSGFRdXRyX0R2MnhLdjdfMDc2SURTcHpUMl83anFsN24weVg0Z0VvXzd5d1h3a1k0U21sem1oMGp2T3RzU1Y5WThpMGlNQnh4NFMzWGRYMU9CZ9IBX0FVX3lxTE45OUl5UGw2amR0cWNINTB2TVNrNjQ1SG5MY1VlZzl3azM5c0JnM2FSSDI0RlpDcHZtemNiTm5vS0lmRXYwN1VSdXNTY1ZQVTJKeHMwck5RdW5URDEzeUVn?oc=5",
-   "source": "經濟日報",
-   "published": "2026-09-03",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "光寶科"
-   ],
-   "accounts": [
-    "光寶科"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.816
   },
   {
    "id": "ed6f760b18664736",
@@ -4010,42 +3799,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.21
-  },
-  {
-   "id": "4f12e3673933f8de",
-   "title": "飆股幕後》21檔主動式ETF投資 奇鋐營運旺創天價",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5FdWt0UUlSVmFLNXh3SlVWMXRrRE02cWtKYnFFOFJTYzE3WEo0TVNwRzFIOVlWZkl1eHItTzlpS2pKMGpBVnd5ZFdMeVRvSXRNZllIWDF30gFbQVVfeXFMTnRWYTlJYzFNRWhLeHVwSEJLc0dlTTdkWE9vcXM2ZndYZk5aek12NjE3Vk9wWFNhcmJPcHVhQjJBY3V6MXliQzhZUFZOazlycC04dmUwd0F3Q0F2Yw?oc=5",
-   "source": "自由財經",
-   "published": "2026-08-15",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "奇鋐"
-   ],
-   "accounts": [
-    "奇鋐"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.609
   },
   {
    "id": "f494513b05a2f119",
@@ -4521,42 +4274,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.522
-  },
-  {
-   "id": "9dceb78b27444f25",
-   "title": "(2301)光寶科法說會 2026/07、光寶科財報、光寶科展望、光寶科財報投資亮點｜理柴知道:法說最速報! - 方格子",
-   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1HUW5aX2Z3bXRudWdpYXBzM2swZXVsZGJ2V3JRUlVzal9KSWh4QmtsWmxnSUlFYWJ0WTdwUVo5aWVSMWFkLUQyY1RZdTRZOWIyS3FUSXgycU51TXR1Z2fSAWNBVV95cUxOUnliV3pDRmNaNXhJZ3k2YUtnellkLWw5bTR1RDVXdUJiZjVpbmhtR2w3NV9SU1EwNnpKMzNWZ0x4aW1aQkFUcUl1RlowTHJrbERScnlDRHpkdUtLa3pDV2U3Yjg?oc=5",
-   "source": "vocus",
-   "published": "2026-08-04",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "copper"
-   ],
-   "industries": {
-    "copper": "ai_server"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "光寶科"
-   ],
-   "accounts": [
-    "光寶科"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.514
   },
   {
    "id": "8bc9f5da639909ff",
@@ -5179,16 +4896,35 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 9.46
+    "copper": 9.29
    },
    "signal_score": 45.0,
    "signals": 13,
    "top_intent": "expansion",
    "last_signal": "2026-11-11",
-   "opportunity": 67.0,
+   "opportunity": 76.5,
    "fit_part": 40.0,
    "signal_part": 27.0,
-   "tier": "積極經營",
+   "value_part": 9.5,
+   "value_score": 63.6,
+   "estimate": {
+    "value": 80666667,
+    "product": "copper",
+    "by_product": {
+     "copper": 80000000,
+     "nickel": 666667
+    },
+    "amount": 1000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.08,
+    "fit": 3,
+    "signal": "4b9ee0956b9fdb6f",
+    "title": "奇鋐武漢廠斥資逾10億元添購設備AI伺服器液冷產能全面擴張",
+    "score": 63.6,
+    "summary": "約 NT$80.7 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$10.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 8% × 適配 3/3"
+   },
+   "tier": "優先開發",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -5198,7 +4934,7 @@
     "43c72630e919dc4e",
     "dee97af98a7f7fc7",
     "dd30a61261c38d31",
-    "4f12e3673933f8de",
+    "bf64abbb391cd6ac",
     "4b9ee0956b9fdb6f",
     "7dcc705f604a4d8b",
     "cd96624a49496cfa"
@@ -5207,19 +4943,98 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 24
+    "inferred": 23
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 24 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 23 則;材料依產品適配度推估",
    "evidence_basis": {
     "74a8832f0d4ceb44": "inferred",
     "43c72630e919dc4e": "inferred",
     "dee97af98a7f7fc7": "inferred",
     "dd30a61261c38d31": "inferred",
-    "4f12e3673933f8de": "inferred",
+    "bf64abbb391cd6ac": "inferred",
     "4b9ee0956b9fdb6f": "inferred",
     "7dcc705f604a4d8b": "inferred",
     "cd96624a49496cfa": "inferred"
+   }
+  },
+  {
+   "org": "台達電",
+   "ticker": "2308",
+   "subsegment": "power",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 2
+   },
+   "note": "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 1.21,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 10.2
+   },
+   "signal_score": 48.9,
+   "signals": 11,
+   "top_intent": "new_product",
+   "last_signal": "2026-11-10",
+   "opportunity": 64.6,
+   "fit_part": 26.7,
+   "signal_part": 29.3,
+   "value_part": 8.6,
+   "value_score": 57.2,
+   "estimate": {
+    "value": 52000000,
+    "product": "copper",
+    "by_product": {
+     "copper": 52000000
+    },
+    "amount": 2600000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.03,
+    "fit": 2,
+    "signal": "ddd03988562ae128",
+    "title": "台達電擴產不停，重慶二期廠拍板、投資約 26 億元",
+    "score": 57.2,
+    "summary": "約 NT$52.0 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$26.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 3% × 適配 2/3"
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "09de31d6dd849d54",
+    "eaf9a5db148d62fc",
+    "cb8eebf124365120",
+    "42a0954d4980c9b5",
+    "01f21fd0b5f9aec6",
+    "7dcc705f604a4d8b",
+    "ddd03988562ae128",
+    "8bc9f5da639909ff"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 20
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 20 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "09de31d6dd849d54": "inferred",
+    "eaf9a5db148d62fc": "inferred",
+    "cb8eebf124365120": "inferred",
+    "42a0954d4980c9b5": "inferred",
+    "01f21fd0b5f9aec6": "inferred",
+    "7dcc705f604a4d8b": "inferred",
+    "ddd03988562ae128": "inferred",
+    "8bc9f5da639909ff": "inferred"
    }
   },
   {
@@ -5249,6 +5064,13 @@
    "opportunity": 63.9,
    "fit_part": 40.0,
    "signal_part": 23.9,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5284,8 +5106,8 @@
    }
   },
   {
-   "org": "台達電",
-   "ticker": "2308",
+   "org": "光寶科",
+   "ticker": "2301",
    "subsegment": "power",
    "fit": {
     "target": 0,
@@ -5293,55 +5115,73 @@
     "nickel": 0,
     "copper": 2
    },
-   "note": "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅",
+   "note": "伺服器電源與機櫃電源架;匯流排、磁性元件用銅",
    "chain_tier": 0,
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 1.21,
+    "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 10.64
+    "copper": 5.35
    },
-   "signal_score": 49.1,
-   "signals": 11,
-   "top_intent": "new_product",
+   "signal_score": 29.8,
+   "signals": 5,
+   "top_intent": "expansion",
    "last_signal": "2026-11-10",
-   "opportunity": 56.1,
+   "opportunity": 56.3,
    "fit_part": 26.7,
-   "signal_part": 29.5,
+   "signal_part": 17.9,
+   "value_part": 11.7,
+   "value_score": 78.1,
+   "estimate": {
+    "value": 220000000,
+    "product": "copper",
+    "by_product": {
+     "copper": 220000000
+    },
+    "amount": 11000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.03,
+    "fit": 2,
+    "signal": "e80fc5b08cc3ad9f",
+    "title": "光寶斥資110億 德州新廠動了 配合客戶需求擴產 搶賺AI財",
+    "score": 78.1,
+    "summary": "約 NT$220.0 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$110.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 3% × 適配 2/3"
+   },
    "tier": "積極經營",
    "best_product": "copper",
-   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "evidence": [
-    "09de31d6dd849d54",
+    "e80fc5b08cc3ad9f",
     "eaf9a5db148d62fc",
-    "cb8eebf124365120",
-    "42a0954d4980c9b5",
-    "01f21fd0b5f9aec6",
-    "7dcc705f604a4d8b",
-    "ddd03988562ae128",
-    "8bc9f5da639909ff"
+    "a09dec386d48aabc",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8",
+    "eba3db6a90e7c820",
+    "657336051e8bd117",
+    "51e5eac3dc98d2e9"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 21
+    "inferred": 11
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 21 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 11 則;材料依產品適配度推估",
    "evidence_basis": {
-    "09de31d6dd849d54": "inferred",
+    "e80fc5b08cc3ad9f": "inferred",
     "eaf9a5db148d62fc": "inferred",
-    "cb8eebf124365120": "inferred",
-    "42a0954d4980c9b5": "inferred",
-    "01f21fd0b5f9aec6": "inferred",
-    "7dcc705f604a4d8b": "inferred",
-    "ddd03988562ae128": "inferred",
-    "8bc9f5da639909ff": "inferred"
+    "a09dec386d48aabc": "inferred",
+    "b498fa4f22ae9f79": "inferred",
+    "ae3967aba71280e8": "inferred",
+    "eba3db6a90e7c820": "inferred",
+    "657336051e8bd117": "inferred",
+    "51e5eac3dc98d2e9": "inferred"
    }
   },
   {
@@ -5371,6 +5211,13 @@
    "opportunity": 55.7,
    "fit_part": 40.0,
    "signal_part": 15.7,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "copper",
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
@@ -5432,6 +5279,13 @@
    "opportunity": 53.2,
    "fit_part": 40.0,
    "signal_part": 13.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5463,67 +5317,6 @@
    }
   },
   {
-   "org": "光寶科",
-   "ticker": "2301",
-   "subsegment": "power",
-   "fit": {
-    "target": 0,
-    "titanium": 0,
-    "nickel": 0,
-    "copper": 2
-   },
-   "note": "伺服器電源與機櫃電源架;匯流排、磁性元件用銅",
-   "chain_tier": 0,
-   "customers": [],
-   "chain_source": "",
-   "heat": {
-    "target": 0.0,
-    "titanium": 0.0,
-    "nickel": 0.0,
-    "copper": 6.72
-   },
-   "signal_score": 31.5,
-   "signals": 6,
-   "top_intent": "expansion",
-   "last_signal": "2026-11-10",
-   "opportunity": 45.6,
-   "fit_part": 26.7,
-   "signal_part": 18.9,
-   "tier": "積極經營",
-   "best_product": "copper",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "e80fc5b08cc3ad9f",
-    "0c0a0a6f4b6249bf",
-    "eaf9a5db148d62fc",
-    "a09dec386d48aabc",
-    "9dceb78b27444f25",
-    "657336051e8bd117",
-    "b498fa4f22ae9f79",
-    "2a0f08e29380e109"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 0,
-    "manual": 0,
-    "inferred": 16
-   },
-   "material_terms": [],
-   "material_summary": "未提材料的公司動態 16 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "e80fc5b08cc3ad9f": "inferred",
-    "0c0a0a6f4b6249bf": "inferred",
-    "eaf9a5db148d62fc": "inferred",
-    "a09dec386d48aabc": "inferred",
-    "9dceb78b27444f25": "inferred",
-    "657336051e8bd117": "inferred",
-    "b498fa4f22ae9f79": "inferred",
-    "2a0f08e29380e109": "inferred"
-   }
-  },
-  {
    "org": "力致科技",
    "ticker": "3483",
    "subsegment": "cooling",
@@ -5541,34 +5334,37 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.38
+    "copper": 0.0
    },
-   "signal_score": 3.7,
-   "signals": 1,
-   "top_intent": "expansion",
-   "last_signal": "2026-10-01",
-   "opportunity": 42.2,
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
    "fit_part": 40.0,
-   "signal_part": 2.2,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "10740a9891181e4b"
-   ],
+   "evidence": [],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 1
+    "inferred": 0
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "10740a9891181e4b": "inferred"
-   }
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
   },
   {
    "org": "貿聯-KY",
@@ -5597,6 +5393,13 @@
    "opportunity": 36.1,
    "fit_part": 26.7,
    "signal_part": 9.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5650,6 +5453,13 @@
    "opportunity": 29.7,
    "fit_part": 26.7,
    "signal_part": 3.1,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5699,6 +5509,13 @@
    "opportunity": 23.2,
    "fit_part": 13.3,
    "signal_part": 9.8,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5746,6 +5563,13 @@
    "opportunity": 23.2,
    "fit_part": 13.3,
    "signal_part": 9.8,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -5793,6 +5617,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
@@ -5836,6 +5667,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
@@ -5879,6 +5717,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
@@ -5922,6 +5767,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "copper",
    "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
@@ -5965,6 +5817,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -6008,6 +5867,13 @@
    "opportunity": 0.0,
    "fit_part": 0.0,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "target",
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
@@ -6115,7 +5981,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.53,
+   "z": -1.55,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6144,7 +6010,7 @@
    "product": "target",
    "heat": 0.502,
    "count": 1,
-   "z": -0.16,
+   "z": -0.14,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6164,7 +6030,7 @@
    "product": "nickel",
    "heat": 0.502,
    "count": 1,
-   "z": -0.25,
+   "z": -0.24,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6173,9 +6039,9 @@
   {
    "subsegment": "cooling",
    "product": "copper",
-   "heat": 19.844,
+   "heat": 19.294,
    "count": 16,
-   "z": 3.2,
+   "z": 3.23,
    "level": "hot",
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -6186,10 +6052,10 @@
     "03f2f06ef37163b0",
     "77f78c0a55d5ff16",
     "bf64abbb391cd6ac",
-    "4f12e3673933f8de",
     "8df5dde20e30242f",
     "e07d2dd789a608ed",
-    "a556bdcd13c2cb67"
+    "a556bdcd13c2cb67",
+    "4e78036e8e08db06"
    ]
   },
   {
@@ -6197,7 +6063,7 @@
    "product": "target",
    "heat": 2.411,
    "count": 1,
-   "z": -0.11,
+   "z": -0.15,
    "level": "neutral",
    "signal_ids": [
     "03d6494277c511b0",
@@ -6209,7 +6075,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.76,
+   "z": -0.83,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6218,16 +6084,16 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.36,
+   "z": -0.42,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "power",
    "product": "copper",
-   "heat": 16.859,
-   "count": 12,
-   "z": 2.93,
+   "heat": 15.054,
+   "count": 11,
+   "z": 2.8,
    "level": "hot",
    "signal_ids": [
     "379afef5cab0476f",
@@ -6237,11 +6103,11 @@
     "3e79ab5f07c605b6",
     "657336051e8bd117",
     "eba3db6a90e7c820",
-    "9dceb78b27444f25",
     "8bc9f5da639909ff",
     "ddd03988562ae128",
-    "0c0a0a6f4b6249bf",
-    "b437fc9b5adaf7b7"
+    "42a0954d4980c9b5",
+    "5128cdcb1aab1e62",
+    "487fb88d64c894ce"
    ]
   },
   {
@@ -6258,7 +6124,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.69,
+   "z": -1.72,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6276,7 +6142,7 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 0.91,
+   "z": 0.89,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6285,7 +6151,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.91,
+   "z": -0.9,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6294,7 +6160,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.4,
+   "z": -1.42,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6303,7 +6169,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.01,
+   "z": -1.0,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6312,7 +6178,7 @@
    "product": "copper",
    "heat": 5.931,
    "count": 6,
-   "z": 1.58,
+   "z": 1.59,
    "level": "warm",
    "signal_ids": [
     "5037a4d7e94816a7",
@@ -6334,7 +6200,7 @@
    "product": "target",
    "heat": 8.288,
    "count": 4,
-   "z": 0.64,
+   "z": 0.72,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6352,7 +6218,7 @@
    "product": "titanium",
    "heat": 1.061,
    "count": 1,
-   "z": -0.32,
+   "z": -0.28,
    "level": "neutral",
    "signal_ids": [
     "5c7c653be4039eb3"
@@ -6363,7 +6229,7 @@
    "product": "nickel",
    "heat": 8.692,
    "count": 5,
-   "z": 0.56,
+   "z": 0.65,
    "level": "neutral",
    "signal_ids": [
     "28cbd92423e3e431",
@@ -6382,7 +6248,7 @@
    "product": "copper",
    "heat": 8.743,
    "count": 5,
-   "z": 2.77,
+   "z": 2.84,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6402,18 +6268,15 @@
   "03f2f06ef37163b0": [],
   "08a7d8610b750e64": [],
   "09de31d6dd849d54": [],
-  "0c0a0a6f4b6249bf": [],
   "0f8592175d608ac9": [],
-  "10740a9891181e4b": [],
   "28d60028e13f39f7": [],
-  "2a0f08e29380e109": [],
   "3bce5e3d9acf72f9": [],
   "42a0954d4980c9b5": [],
   "43c72630e919dc4e": [],
   "4b9ee0956b9fdb6f": [],
-  "4f12e3673933f8de": [],
   "5128cdcb1aab1e62": [],
   "519a5f4b8ab3831f": [],
+  "51e5eac3dc98d2e9": [],
   "577b7d8cfd94725c": [],
   "62c4d2d0bb748b93": [],
   "657336051e8bd117": [],
@@ -6426,17 +6289,18 @@
   "9acc296cdd7aa431": [],
   "9c9b7171e70906a6": [],
   "9cd3812e3b4e51bd": [],
-  "9dceb78b27444f25": [],
   "9e98975320b4984e": [],
   "a09dec386d48aabc": [],
   "a556bdcd13c2cb67": [],
   "ac87fb6b7ee02526": [],
+  "ae3967aba71280e8": [],
   "b0a657102de6ee2a": [],
   "b498fa4f22ae9f79": [],
   "b63bdfa987c59524": [],
   "bc22d0ce438c33eb": [
    "銅箔"
   ],
+  "bf64abbb391cd6ac": [],
   "cb8eebf124365120": [],
   "cd96624a49496cfa": [],
   "dd30a61261c38d31": [],
@@ -6447,6 +6311,7 @@
   "e0d9098510c156c9": [],
   "e80fc5b08cc3ad9f": [],
   "eaf9a5db148d62fc": [],
+  "eba3db6a90e7c820": [],
   "f494513b05a2f119": [],
   "fc8dca2114594bae": [],
   "fedbacd92212a2ab": []

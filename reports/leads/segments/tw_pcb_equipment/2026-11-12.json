@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T16:39:28+00:00",
+ "generated": "2026-11-11T17:10:59+00:00",
  "asof": "2026-11-12",
  "days": 120,
  "half_life_days": 45.0,
@@ -228,13 +228,13 @@
    "product": "titanium",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 7.683,
-   "count": 8,
+   "heat": 7.235,
+   "count": 7,
    "z": 6.45,
    "level": "hot",
    "trend": "new",
    "history": [
-    7.683
+    7.235
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -259,7 +259,7 @@
    "region": "TW",
    "heat": 1.877,
    "count": 2,
-   "z": 4.15,
+   "z": 4.39,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -275,13 +275,13 @@
    "product": "nickel",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 3.976,
-   "count": 5,
-   "z": 6.42,
+   "heat": 3.528,
+   "count": 4,
+   "z": 6.35,
    "level": "hot",
    "trend": "new",
    "history": [
-    3.976
+    3.528
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -301,7 +301,7 @@
    "region": "TW",
    "heat": 5.584,
    "count": 5,
-   "z": 5.62,
+   "z": 5.73,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -322,13 +322,13 @@
    "product": "copper",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 3.976,
-   "count": 5,
-   "z": 4.58,
+   "heat": 3.528,
+   "count": 4,
+   "z": 4.35,
    "level": "hot",
    "trend": "new",
    "history": [
-    3.976
+    3.528
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -348,13 +348,13 @@
    "product": "titanium",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 7.683,
-   "count": 8,
+   "heat": 7.235,
+   "count": 7,
    "z": 6.45,
    "level": "hot",
    "trend": "new",
    "history": [
-    7.683
+    7.235
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -375,13 +375,13 @@
    "product": "nickel",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 3.976,
-   "count": 5,
-   "z": 6.42,
+   "heat": 3.528,
+   "count": 4,
+   "z": 6.35,
    "level": "hot",
    "trend": "new",
    "history": [
-    3.976
+    3.528
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -393,6 +393,29 @@
     "d2a3a491d1e92f43",
     "befab01641204245",
     "558f4e57497d9d46"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 5.584,
+   "count": 5,
+   "z": 5.73,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    5.584
+   ],
+   "signal_ids": [
+    "ebb14cf8156c591c",
+    "ac33cc8f2d5f0a28",
+    "ccd42e7ec7666cef",
+    "a0453334e969c835",
+    "7451dbfe2f148c49",
+    "91ecba29de79183b",
+    "66138b52b06c3af7",
+    "1245d198b101e6d0"
    ]
   },
   {
@@ -419,25 +442,20 @@
    ]
   },
   {
-   "product": "copper",
+   "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 5.584,
-   "count": 5,
-   "z": 5.62,
+   "heat": 1.877,
+   "count": 2,
+   "z": 4.39,
    "level": "hot",
    "trend": "new",
    "history": [
-    5.584
+    1.877
    ],
    "signal_ids": [
     "ebb14cf8156c591c",
-    "ac33cc8f2d5f0a28",
-    "ccd42e7ec7666cef",
-    "a0453334e969c835",
-    "7451dbfe2f148c49",
     "91ecba29de79183b",
-    "66138b52b06c3af7",
     "1245d198b101e6d0"
    ]
   },
@@ -445,13 +463,13 @@
    "product": "copper",
    "industry": "pcb_equipment",
    "region": "TW",
-   "heat": 3.976,
-   "count": 5,
-   "z": 4.58,
+   "heat": 3.528,
+   "count": 4,
+   "z": 4.35,
    "level": "hot",
    "trend": "new",
    "history": [
-    3.976
+    3.528
    ],
    "signal_ids": [
     "038cbe742f88124f",
@@ -464,31 +482,13 @@
     "befab01641204245",
     "558f4e57497d9d46"
    ]
-  },
-  {
-   "product": "nickel",
-   "industry": "semiconductor",
-   "region": "TW",
-   "heat": 1.877,
-   "count": 2,
-   "z": 4.15,
-   "level": "hot",
-   "trend": "new",
-   "history": [
-    1.877
-   ],
-   "signal_ids": [
-    "ebb14cf8156c591c",
-    "91ecba29de79183b",
-    "1245d198b101e6d0"
-   ]
   }
  ],
  "leads": [
   {
    "org": "揚博科技",
    "account": true,
-   "score": 58.4,
+   "score": 56.4,
    "grade": "積極經營",
    "product": "titanium",
    "products": [
@@ -502,18 +502,17 @@
    "intents": [
     "expansion",
     "contract",
-    "tender",
     "policy",
     "new_product"
    ],
-   "signals": 6,
+   "signals": 5,
    "first_seen": "2026-11-06",
    "last_signal": "2026-10-06",
    "new": true,
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.53
+    "z": 1.34
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -522,17 +521,18 @@
    "evidence": [
     "558f4e57497d9d46",
     "d2a3a491d1e92f43",
-    "038cbe742f88124f",
     "0b33886bf67223da",
     "befab01641204245",
     "c42105f8961a8a70",
     "ab28e43d6f4d7d3b",
+    "038cbe742f88124f",
     "f20d518ac1e87488"
    ],
-   "signal_score": 30.7,
+   "signal_score": 27.3,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 18.4
+   "signal_part": 16.4,
+   "value_part": 0.0
   },
   {
    "org": "台灣上村",
@@ -550,7 +550,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.53
+    "z": 1.34
    },
    "need": "",
    "evidence": [],
@@ -561,6 +561,7 @@
    "fit_max": 3,
    "fit_part": 40.0,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -593,6 +594,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -625,6 +627,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -657,6 +660,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -689,6 +693,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -721,6 +726,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -753,6 +759,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -1049,8 +1056,8 @@
   {
    "id": "c59faed8a48dda52",
    "title": "【優分析即時新聞】揚博(2493)6月營收創歷史新高，AI帶動高階PCB設備訂單滿手、能見度直達2027年",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54dEtMZEEyVEtieVRiR0NVZXRoS2pZQ1QwdVF1bUp6MUJoUEtZNHdJVENiVFFoUE1NQ0I0TlJjNWJyRHZDUXRvdTJNY1cwTm8?oc=5",
-   "source": "鉅亨網",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9BN01ZV0xGbVI4Ym1PY0s2dF9HcjJGZU9IRkZPaVktMUNfMVZsQ1BIdXRDWFY2YTNWYXBzeW5LRGJEWTZRMGtBY3hxWWpQTTJ3a0VXaGh3?oc=5",
+   "source": "優分析UAnalyze",
    "published": "2026-09-17",
    "snippet": "",
    "edition": "zh-TW",
@@ -1438,7 +1445,6 @@
     "copper": "pcb_equipment"
    },
    "intents": [
-    "tender",
     "expansion"
    ],
    "region": "TW",
@@ -1457,7 +1463,7 @@
    "suppliers": [],
    "title_zh": "",
    "enriched": false,
-   "heat": 0.553
+   "heat": 0.421
   }
  ],
  "segment": {
@@ -1499,17 +1505,24 @@
    "chain_source": "",
    "heat": {
     "target": 0.0,
-    "titanium": 3.98,
-    "nickel": 3.98,
-    "copper": 3.98
+    "titanium": 3.53,
+    "nickel": 3.53,
+    "copper": 3.53
    },
-   "signal_score": 30.7,
-   "signals": 6,
+   "signal_score": 27.3,
+   "signals": 5,
    "top_intent": "expansion",
    "last_signal": "2026-10-06",
-   "opportunity": 58.4,
+   "opportunity": 56.4,
    "fit_part": 40.0,
-   "signal_part": 18.4,
+   "signal_part": 16.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "titanium",
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
@@ -1518,11 +1531,11 @@
    "evidence": [
     "558f4e57497d9d46",
     "d2a3a491d1e92f43",
-    "038cbe742f88124f",
     "0b33886bf67223da",
     "befab01641204245",
     "c42105f8961a8a70",
     "ab28e43d6f4d7d3b",
+    "038cbe742f88124f",
     "f20d518ac1e87488"
    ],
    "material_basis": {
@@ -1536,11 +1549,11 @@
    "evidence_basis": {
     "558f4e57497d9d46": "inferred",
     "d2a3a491d1e92f43": "inferred",
-    "038cbe742f88124f": "inferred",
     "0b33886bf67223da": "inferred",
     "befab01641204245": "inferred",
     "c42105f8961a8a70": "inferred",
     "ab28e43d6f4d7d3b": "inferred",
+    "038cbe742f88124f": "inferred",
     "f20d518ac1e87488": "inferred"
    }
   },
@@ -1571,6 +1584,13 @@
    "opportunity": 40.0,
    "fit_part": 40.0,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1614,6 +1634,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1657,6 +1684,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1700,6 +1734,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1743,6 +1784,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1786,6 +1834,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1829,6 +1884,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1888,16 +1950,16 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": 0.53,
+   "z": 0.45,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "wet",
    "product": "titanium",
-   "heat": 3.976,
-   "count": 5,
-   "z": 1.53,
+   "heat": 3.528,
+   "count": 4,
+   "z": 1.34,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1914,9 +1976,9 @@
   {
    "subsegment": "wet",
    "product": "nickel",
-   "heat": 3.976,
-   "count": 5,
-   "z": 1.28,
+   "heat": 3.528,
+   "count": 4,
+   "z": 1.09,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1933,9 +1995,9 @@
   {
    "subsegment": "wet",
    "product": "copper",
-   "heat": 3.976,
-   "count": 5,
-   "z": 1.78,
+   "heat": 3.528,
+   "count": 4,
+   "z": 1.6,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -1954,7 +2016,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.07,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1972,7 +2034,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.03,
+   "z": -1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -1990,7 +2052,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.07,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2008,7 +2070,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.03,
+   "z": -1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2026,7 +2088,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.07,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2044,7 +2106,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.03,
+   "z": -1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2062,7 +2124,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.07,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2080,7 +2142,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.03,
+   "z": -1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2098,7 +2160,7 @@
    "product": "target",
    "heat": 5.584,
    "count": 5,
-   "z": 2.18,
+   "z": 2.35,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2116,7 +2178,7 @@
    "product": "titanium",
    "heat": 3.707,
    "count": 3,
-   "z": 2.13,
+   "z": 2.24,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28",
@@ -2131,7 +2193,7 @@
    "product": "nickel",
    "heat": 1.877,
    "count": 2,
-   "z": 1.55,
+   "z": 1.64,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2144,7 +2206,7 @@
    "product": "copper",
    "heat": 5.584,
    "count": 5,
-   "z": 2.71,
+   "z": 2.85,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",

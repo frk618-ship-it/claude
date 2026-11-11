@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T16:39:41+00:00",
+ "generated": "2026-11-11T17:11:13+00:00",
  "asof": "2026-11-12",
  "days": 120,
  "half_life_days": 45.0,
@@ -490,7 +490,8 @@
    "signal_score": 24.5,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 14.7
+   "signal_part": 14.7,
+   "value_part": 0.0
   },
   {
    "org": "友威科技",
@@ -532,7 +533,8 @@
    "signal_score": 24.1,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 14.5
+   "signal_part": 14.5,
+   "value_part": 0.0
   },
   {
    "org": "廣運機械",
@@ -561,6 +563,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -593,6 +596,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -625,6 +629,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -657,6 +662,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -689,6 +695,7 @@
    "fit_max": 1,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
    "product": "target",
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -1427,6 +1434,13 @@
    "opportunity": 54.7,
    "fit_part": 40.0,
    "signal_part": 14.7,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "copper",
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
@@ -1488,6 +1502,13 @@
    "opportunity": 54.5,
    "fit_part": 40.0,
    "signal_part": 14.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "積極經營",
    "best_product": "target",
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
@@ -1541,6 +1562,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1584,6 +1612,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1627,6 +1662,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1670,6 +1712,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "titanium",
    "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
@@ -1713,6 +1762,13 @@
    "opportunity": 13.3,
    "fit_part": 13.3,
    "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
    "tier": "持續觀察",
    "best_product": "target",
    "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
