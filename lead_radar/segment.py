@@ -50,12 +50,8 @@ def _tier(score: float) -> str:
 
 def build_segment_report(signals: list[Signal], config: Config, key: str, asof: date, *,
                          coverage_start: date | None = None, first_seen: dict[str, str] | None = None,
-                         generated: datetime | None = None, trade: list | None = None) -> dict:
-    from .trade import load_trade, localization
-
+                         generated: datetime | None = None) -> dict:
     cfg = segment_config(config, key)
-    trade = load_trade(cfg.settings.trade.get("dir", "")) if trade is None else trade
-    loc_w = cfg.settings.trade.get("weight", 0.2)
     seg = cfg.segments[key]
     sigs = [s for s in signals if in_segment(s, cfg, seg)]
     rep = build_report(sigs, cfg, asof, coverage_start=coverage_start, first_seen=first_seen, generated=generated)
@@ -97,11 +93,8 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
         fit_pct = max(fit.values(), default=0) / 3 * 100
         lead = leads.get(name)
         sig_score = lead["score"] if lead else 0.0
-        loc = localization(a, trade, cfg, asof)
-        # import records add up to loc_w × 100 points: an account that already buys the material
-        # abroad is a localization (進口替代) opportunity
-        opp = round(min(100.0, 0.4 * fit_pct + 0.6 * sig_score + loc_w * loc["score"]), 1)
-        best = max(products, key=lambda p: (fit[p] * (1 + heat[name][p]) + (3 if p in loc["products"] else 0), fit[p]))
+        opp = round(0.4 * fit_pct + 0.6 * sig_score, 1)
+        best = max(products, key=lambda p: (fit[p] * (1 + heat[name][p]), fit[p]))
         if lead:
             action = lead["next_action"]
         else:
@@ -132,9 +125,6 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "opportunity": opp,
             "fit_part": round(0.4 * fit_pct, 1),        # the overall score's two parts
             "signal_part": round(0.6 * sig_score, 1),
-            "loc_score": loc["score"],                  # 在地化分數 0–100 (import records)
-            "loc_part": round(loc_w * loc["score"], 1),
-            "localization": loc,
             "tier": _tier(opp),
             "best_product": best,
             "next_action": action,
@@ -241,7 +231,6 @@ def _overall_lead(a: dict, lead: dict | None, seg: Segment, cell: dict | None = 
         "fit_max": max(a["fit"].values(), default=0),
         "fit_part": a["fit_part"],
         "signal_part": a["signal_part"],
-        "loc_part": a.get("loc_part", 0.0),
         "product": a["best_product"],
         "next_action": a["next_action"],
         "pitch": a["pitch"],
@@ -283,7 +272,7 @@ def render_segment_markdown(rep: dict) -> str:
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
         intent = lab["intents"].get(a["top_intent"], "—") if a["signals"] else "—"
-        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}{f" + 在地化 {a['loc_part']:.0f}" if a.get('loc_part') else ''}) "
+        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}) "
                    f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a.get('material_summary', '')} | {a['next_action']} |")
     out += ["", "適配度為依公開業務內容推估的初步假設(0–3),請依拜訪結果在 `config/lead_radar.yaml` 修正。", ""]
     return "\n".join(out) + "\n"
@@ -293,7 +282,7 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源", "供應鏈位置", "供應鏈來源", "在地化分", "進口紀錄"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源", "供應鏈位置", "供應鏈來源"])
     links = {s["id"]: s.get("link", "") for s in rep.get("signals", [])}
 
     for i, a in enumerate(rep["accounts"], 1):
@@ -301,5 +290,5 @@ def render_accounts_csv(rep: dict) -> str:
                     lab["products"][a["best_product"]], *[a["fit"].get(p, 0) for p in lab["products"]],
                     a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", ""), a.get("material_summary", ""),
                     " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid)),
-                    chain_label(a), a.get("chain_source", ""), a.get("loc_part", 0), (a.get("localization") or {}).get("summary", "")])
+                    chain_label(a), a.get("chain_source", "")])
     return "﻿" + buf.getvalue()
