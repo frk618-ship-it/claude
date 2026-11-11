@@ -4,7 +4,8 @@ The general radar asks "which markets are heating up"; a segment run asks "insid
 whom do we visit first, with which product". Two additions on top of the normal report:
 
 * Account map — every account of the segment is ranked, even with no news yet:
-      opportunity = 0.4 × product fit (judged 0–3, as 0–100) + 0.6 × signal score (0–100)
+      opportunity = 0.4 × product fit (0–3, as 0–100) + 0.6 × signal score (0–100)
+                    + w × estimated-value score (decision tree on the expansion's scale; w = settings.estimate.weight), max 100
   so a perfect-fit account with no news still shows up, and news moves it up the list.
 * Sub-segment hotspots — Gi* on a sub-segment × product grid (e.g. "parts & modules × nickel
   alloys"), with the same neighbour weighting as the market grid.
@@ -18,6 +19,7 @@ import io
 from datetime import date, datetime
 
 from .config import Config, Segment
+from .estimate import estimate_account
 from .hotspot import Cell, getis_ord, level_of, signal_heat, story_factors
 from .leads import SUBJECT, org_weights
 from .report import build_report
@@ -93,7 +95,13 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
         fit_pct = max(fit.values(), default=0) / 3 * 100
         lead = leads.get(name)
         sig_score = lead["score"] if lead else 0.0
-        opp = round(0.4 * fit_pct + 0.6 * sig_score, 1)
+        own = [by_id[sid] for _, sid in evidence[name] if subject.get((name, sid)) and factors.get(sid, 1.0) == 1.0]
+        est = estimate_account(a, own, cfg)
+        w_est = cfg.settings.estimate["weight"]
+        w_fit, w_sig = 0.4, 0.6
+        # the estimate adds up to w_est × 100 points on top (capped at 100): accounts without a
+        # reported project size keep their score, those with one move up by its estimated value
+        opp = round(min(100.0, w_fit * fit_pct + w_sig * sig_score + w_est * est["score"]), 1)
         best = max(products, key=lambda p: (fit[p] * (1 + heat[name][p]), fit[p]))
         if lead:
             action = lead["next_action"]
@@ -123,8 +131,11 @@ def build_segment_report(signals: list[Signal], config: Config, key: str, asof: 
             "top_intent": lead["top_intent"] if lead else "",
             "last_signal": lead["last_signal"] if lead else "",
             "opportunity": opp,
-            "fit_part": round(0.4 * fit_pct, 1),        # the overall score's two parts
-            "signal_part": round(0.6 * sig_score, 1),
+            "fit_part": round(w_fit * fit_pct, 1),        # the overall score's parts
+            "signal_part": round(w_sig * sig_score, 1),
+            "value_part": round(w_est * est["score"], 1),
+            "value_score": est["score"],
+            "estimate": est,                              # decision-tree estimate of yearly material value
             "tier": _tier(opp),
             "best_product": best,
             "next_action": action,
@@ -231,6 +242,7 @@ def _overall_lead(a: dict, lead: dict | None, seg: Segment, cell: dict | None = 
         "fit_max": max(a["fit"].values(), default=0),
         "fit_part": a["fit_part"],
         "signal_part": a["signal_part"],
+        "value_part": a.get("value_part", 0.0),
         "product": a["best_product"],
         "next_action": a["next_action"],
         "pitch": a["pitch"],
@@ -267,12 +279,12 @@ def render_segment_markdown(rep: dict) -> str:
             row.append(f"{c['z']:+.1f}({c['count']}){mark}" if c and c["heat"] else "·")
         out.append(f"| {name} | " + " | ".join(row) + " |")
     out += ["", "格內為 Gi* z 值(訊號數);🔥 熱點、▲ 溫點。", "", "## 目標客戶開發順序", "",
-            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號) | 分級 | 主推產品 | 適配(靶/鈦/鎳/銅) | 近期訊號 | 材料依據 | 建議行動 |",
+            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號 + 規模) | 分級 | 主推產品 | 適配(靶/鈦/鎳/銅) | 近期訊號 | 材料依據 | 建議行動 |",
             "|---:|---|---|---|---:|---|---|---|---|---|---|"]
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
         intent = lab["intents"].get(a["top_intent"], "—") if a["signals"] else "—"
-        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f}) "
+        out.append(f"| {i} | {a['org']} | {a['ticker']} | {seg['subsegments'].get(a['subsegment'], a['subsegment'])} | {a['opportunity']:.0f}({a['fit_part']:.0f} + {a['signal_part']:.0f} + {a.get('value_part', 0):.0f}) "
                    f"| {a['tier']} | {prod[a['best_product']]} | {fit} | {intent} | {a.get('material_summary', '')} | {a['next_action']} |")
     out += ["", "適配度為依公開業務內容推估的初步假設(0–3),請依拜訪結果在 `config/lead_radar.yaml` 修正。", ""]
     return "\n".join(out) + "\n"
@@ -282,7 +294,7 @@ def render_accounts_csv(rep: dict) -> str:
     seg, lab = rep["segment"], rep["labels"]
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源", "供應鏈位置", "供應鏈來源"])
+    w.writerow(["順位", "公司", "代號", "次產業", "綜合分數", "產品適配分", "訊號分", "分級", "主推產品", *[f"{n}適配" for n in lab["products"].values()], "訊號數", "最近訊號", "主要訊號", "建議行動", "推估理由", "切入重點", "規格依據", "材料依據", "明確提及材料的來源", "供應鏈位置", "供應鏈來源", "規模分", "預估材料需求(NT$/年)", "估算依據"])
     links = {s["id"]: s.get("link", "") for s in rep.get("signals", [])}
 
     for i, a in enumerate(rep["accounts"], 1):
@@ -290,5 +302,6 @@ def render_accounts_csv(rep: dict) -> str:
                     lab["products"][a["best_product"]], *[a["fit"].get(p, 0) for p in lab["products"]],
                     a["signals"], a["last_signal"], lab["intents"].get(a["top_intent"], ""), a["next_action"], a["note"], a["pitch"], a.get("pitch_source", ""), a.get("material_summary", ""),
                     " ".join(links[sid] for sid in a.get("evidence", []) if a.get("evidence_basis", {}).get(sid) == "explicit" and links.get(sid)),
-                    chain_label(a), a.get("chain_source", "")])
+                    chain_label(a), a.get("chain_source", ""), a.get("value_part", 0), (a.get("estimate") or {}).get("value", 0),
+                    (a.get("estimate") or {}).get("summary", "")])
     return "﻿" + buf.getvalue()

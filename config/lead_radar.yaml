@@ -35,6 +35,52 @@ settings:
                 台股, 大盤, 殺盤, 血崩, 權值股, 加權指數, 勁揚, 外銷訂單,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
+  # ── 決策樹:擴廠規模 → 預估材料需求 → 規模分數 ──────────────────────────────
+  # 報導標題中的金額(新台幣)× 意圖係數 × 次產業的材料占比 × 公司適配度 / 3 = 預估每年材料需求金額;
+  # 取該公司最大的一筆,以對數刻度換成 0–100(100 萬元 = 0、10 億元 = 100),占綜合分數 weight。
+  # 綜合分數 = 0.4 × 產品適配 + 0.6 × 訊號強度 + weight × 規模分數(上限 100;沒有金額新聞的公司分數不變)
+  # !! 下列占比都是「粗估的規劃假設」,不是實際耗用量;請依實際接單與拜訪結果修正。
+  estimate:
+    weight: 0.15
+    fx: {元: 1, 美元: 32, 日圓: 0.21, 歐元: 35, 人民幣: 4.5}      # 換算新台幣的概略匯率
+    intents: {expansion: 1.0, tender: 1.0, contract: 0.5, maintenance: 0.3}   # 訂單金額是營收不是資本支出,打 5 折;歲修 3 折
+    tree:                         # 客群 → 次產業 → 產品線:每 1 元投資 / 訂單金額對應的年材料需求
+      tw_semi_production:         # 晶圓廠資本支出大、材料占比低;封裝的濺鍍與電鍍占比較高
+        foundry:   {target: 0.003, copper: 0.001, nickel: 0.0005, titanium: 0.0002}
+        memory:    {target: 0.003, copper: 0.001, nickel: 0.0005}
+        packaging: {target: 0.004, copper: 0.003, titanium: 0.0005}
+        thinning:  {target: 0.002, copper: 0.001}
+        testing:   {copper: 0.001}
+      tw_semi_equipment:          # 設備與零組件廠:機台組件的材料占比
+        front_end: {nickel: 0.010, titanium: 0.008, copper: 0.006, target: 0.004}
+        packaging: {nickel: 0.006, titanium: 0.004, copper: 0.004}
+        parts:     {titanium: 0.030, nickel: 0.030, copper: 0.010}
+        facility:  {nickel: 0.010, titanium: 0.003, copper: 0.002}
+        carrier:   {titanium: 0.005}
+      tw_pcb_equipment:
+        wet:        {copper: 0.030, titanium: 0.020, nickel: 0.010}
+        imaging:    {titanium: 0.002, nickel: 0.002}
+        drilling:   {titanium: 0.001}
+        inspection: {titanium: 0.001}
+        automation: {titanium: 0.001}
+      tw_display_equipment:
+        deposition: {target: 0.020, titanium: 0.010, copper: 0.010}
+        wet:        {copper: 0.030, titanium: 0.020, nickel: 0.010}
+        laser:      {titanium: 0.001}
+        inspection: {titanium: 0.001}
+        automation: {titanium: 0.001}
+      tw_ai_server:
+        cooling:      {copper: 0.080, nickel: 0.002}
+        interconnect: {copper: 0.050}
+        power:        {copper: 0.030}
+        odm:          {copper: 0.002}
+        chassis:      {copper: 0.001}
+      tw_heavy_industry:
+        steel:     {nickel: 0.004, copper: 0.002, titanium: 0.001}
+        stainless: {nickel: 0.006, titanium: 0.003}
+        refinery:  {nickel: 0.008, titanium: 0.005}
+        chemical:  {titanium: 0.008, nickel: 0.006}
+        epc:       {nickel: 0.010, titanium: 0.008}
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
   drop_terms: [市場預測, 市场预测, 市場規模, 市场规模, 市場報告, 市场报告, 研究報告, 研究报告, 年預測, 年预测, CAGR, "Market to Reach", "Market Size", "Market Share",
                "Market Report", "Market Expansion", "Market Outlook", "Market Forecast", "Market Analysis", "market research",
@@ -157,14 +203,19 @@ industries:
 # action  對應的業務下一步(名單上的「建議行動」)
 intents:
   tender:        {name: 招標採購,   weight: 5.0, action: "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
-                  keywords: [招標, 招标, 標案, 公開招標, 採購, 采购, 询价, 詢價, 徵求供應商, 征集供应商, 比價, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid,
+                  weak: [採購, 采购, 询价, 詢價, 比價],     # 也常出現在賣方或無關新聞:有 void 字詞時不算
+                  void: [鋼價, 盤價, 開盤, 開出, 客戶, 買氣, 廉政, 庇護工場, 採購策略, 教育訓練, 執行率, 比價行情, 買油, 運費],
+                  keywords: [招標, 招标, 標案, 公開招標, 徵求供應商, 征集供应商, tender, RFQ, RFP, request for quotation, request for proposal, procurement, sourcing, bid,
                              purchase order, seeks supplier, seeking suppliers, 入札, 調達, 입찰, 구매]}
   shortage:      {name: 缺料與交期, weight: 4.0, action: "主動提出可交貨量、交期與替代牌號 / 規格方案",
                   keywords: [缺貨, 缺料, 短缺, 供不應求, 供不应求, 交期, 斷鏈, 断供, 去中化, 吃緊, 吃紧, shortage, supply crunch, lead time, supply constraint, tight supply,
                              supply stays tight, supply remains tight, supply chain disruption, 品薄, 부족]}
   expansion:     {name: 擴產與新廠, weight: 4.0, action: "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-                  keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 投資, 投资, 資本支出, 设厂,
-                             expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, invest, commits, mass production, 増産, 新工場, 증설, 신공장]}
+                  weak: [投資, 投资, invest, commits],      # 「投資」要搭配廠 / 產線 / 設備等字詞,且不是財務投資
+                  context: [廠, 厂, 產線, 产线, 設備, 设备, 擴, 扩, 興建, 動土, 產能, 产能, 規模, 園區, 基地, plant, fab, facility, capacity, line],
+                  void: [基金, 創投, 现增, 現增, 增資, 私募, 投資收益, 投資人, 轉投資, 投資達人, 合資, 入股, 股權, 持股, 多角化, 投資上限],
+                  keywords: [擴產, 扩产, 擴建, 扩建, 新廠, 新厂, 建廠, 建厂, 動土, 动工, 投產, 投产, 量產, 量产, 產能, 产能, 資本支出, 设厂,
+                             expansion, expand, new plant, new fab, new facility, groundbreaking, capacity, capex, mass production, 増産, 新工場, 증설, 신공장]}
   maintenance:   {name: 歲修與汰換, weight: 3.5, action: "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
                   keywords: [歲修, 大修, 停爐, 停機檢修, 定修, 汰舊換新, 汰換, 設備更新, 腐蝕洩漏, turnaround, shutdown maintenance, revamp, 定期修理]}
   contract:      {name: 訂單與專案, weight: 3.0, action: "鎖定得標方與其一階供應商,提案配套材料與備料",
@@ -643,3 +694,6 @@ accounts:
   - {name: 中鼎工程, aliases: [中鼎工程, CTCI], ticker: "9933", segment: tw_heavy_industry, subsegment: epc,
      industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
      note: "煉油、石化與電廠工程統包;為業主採購製程設備與管材,是鎳基合金與鈦材進入專案規格的關鍵窗口"}
+  - {name: 台朔重工, aliases: [台朔重工, Formosa Heavy Industries], segment: tw_heavy_industry, subsegment: epc,
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     note: "台塑集團的設備製造廠(壓力容器、熱交換器、反應器與鍋爐),承製台塑化等集團工廠的製程設備;鈦與鎳基合金板材、管材的直接買家"}
