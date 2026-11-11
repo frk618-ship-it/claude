@@ -487,7 +487,7 @@ def test_pitch_shows_its_spec_source(cfg):
     assert all(p.pitch_source.startswith("一般產業常見規格") for p in cfg.products)
     rep = build_segment_report(load_csv(SEEDS, cfg), cfg, "tw_semi_equipment", date(2026, 11, 3))
     assert all(a["pitch_source"] for a in rep["accounts"]) and all(l["pitch_source"] for l in rep["leads"])
-    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源,供應鏈位置,供應鏈來源")
+    assert render_accounts_csv(rep).splitlines()[0].endswith("切入重點,規格依據,材料依據,明確提及材料的來源,供應鏈位置,供應鏈來源,在地化分,進口紀錄")
     assert "規格依據:" in render_markdown(rep) or not rep["leads"]
     assert '"pitch_source": "一般產業常見規格' in render_page(rep)
     assert render_csv(rep).splitlines()[0].split(",")[-2] == "規格依據"
@@ -698,3 +698,31 @@ def test_heavy_industry_segment(cfg):
     top = {a["org"]: a for a in rep["accounts"]}
     assert top["中鋼"]["best_product"] == "nickel" and top["台化"]["best_product"] == "titanium"
 
+
+
+def test_import_records_add_localization_score(cfg, tmp_path):
+    from lead_radar.segment import build_segment_report, render_accounts_csv
+    from lead_radar.trade import load_trade
+
+    f = tmp_path / "imports.csv"
+    f.write_text("# 測試資料\n"
+                 "date,company,tax_id,hs_code,product,origin,value_ntd,weight_kg,source,note\n"
+                 "2026-03,台灣塑膠工業股份有限公司,,8108.90,,日本,6000000,,測試,\n"
+                 "2026-08,台灣塑膠工業股份有限公司,,8108.90,,日本,5000000,,測試,\n"
+                 "2026-07,中國鋼鐵股份有限公司,,7506.20,,德國,,,測試,\n"
+                 "2024-01,台化,,8108,,美國,,,測試,太舊\n"
+                 "2026-05,不在名單公司,,8108,,日本,,,測試,\n", encoding="utf-8")
+    trade = load_trade(tmp_path)
+    assert len(trade) == 5
+    base = build_segment_report([], cfg, "tw_heavy_industry", ASOF, trade=[])
+    rep = build_segment_report([], cfg, "tw_heavy_industry", ASOF, trade=trade)
+    before = {a["org"]: a for a in base["accounts"]}
+    accs = {a["org"]: a for a in rep["accounts"]}
+    # 台塑: titanium imports in 2 months worth NT$11M → 60 + 20 + 20 = 100 → +20 points
+    assert accs["台塑"]["loc_score"] == 100 and accs["台塑"]["loc_part"] == 20
+    assert accs["台塑"]["opportunity"] == before["台塑"]["opportunity"] + 20
+    assert accs["台塑"]["best_product"] == "titanium" and "日本" in accs["台塑"]["localization"]["summary"]
+    assert accs["中鋼"]["loc_score"] == 60 and accs["中鋼"]["best_product"] == "nickel"   # one month, no amount
+    assert accs["台化"]["loc_score"] == 0                                                # older than 12 months
+    assert accs["唐榮"]["opportunity"] == before["唐榮"]["opportunity"]                  # no records: unchanged
+    assert "在地化分,進口紀錄" in render_accounts_csv(rep).splitlines()[0]

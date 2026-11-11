@@ -35,6 +35,18 @@ settings:
                 台股, 大盤, 殺盤, 血崩, 權值股, 加權指數, 勁揚, 外銷訂單,
                 stock price, shares rose, shares fell, price target, earnings, 株価]
   noise_factor: 0.3
+  # 進口紀錄 → 在地化分數(0–100,× weight 加入綜合分數):名單公司進口我們生產的材料 = 進口替代機會
+  #   檔案放在 dir(CSV,欄位見 data/lead_radar/trade/README.md);海關不公開公司別資料,來源為國貿署廠商查詢、
+  #   付費海關數據或業務蒐集。分數:有進口 60、兩個以上月份 +20、金額 ≥ 1,000 萬元或重量 ≥ 10 公噸 +20
+  trade:
+    dir: data/lead_radar/trade
+    weight: 0.2
+    lookback_months: 12
+    hs:                         # 稅則號列(HS / CCC)前綴 → 產品線
+      titanium: ["8108"]                                   # 鈦及其製品
+      nickel: ["7502", "7505", "7506", "7507", "7508"]     # 鎳(含鎳合金)條桿線、板片帶箔、管、製品
+      copper: ["7407", "7408", "7409", "7410", "7411"]     # 銅條桿型、線、板片帶、箔、管
+      target: []                                           # 靶材沒有專屬稅號,請在 product 欄填 target
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
   drop_terms: [市場預測, 市场预测, 市場規模, 市场规模, 市場報告, 市场报告, 研究報告, 研究报告, 年預測, 年预测, CAGR, "Market to Reach", "Market Size", "Market Share",
                "Market Report", "Market Expansion", "Market Outlook", "Market Forecast", "Market Analysis", "market research",

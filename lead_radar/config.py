@@ -61,6 +61,7 @@ class Account:
     tier: int = 0                     # supply-chain position: 1 = tier-1 supplier of equipment makers (0 = not set)
     customers: list[str] = field(default_factory=list)   # the equipment makers it supplies (may be outside the list)
     chain_source: str = ""            # public source for tier / customers, "名稱 URL; 名稱 URL"
+    tax_id: str = ""                  # 統一編號: matches import records exactly (else by name)
 
 
 @dataclass
@@ -102,6 +103,8 @@ class Settings:
     title: str = ""                  # page heading after 「商機雷達:」; empty = the segment's name
     links: list[dict[str, str]] = field(default_factory=list)   # [{name, url}] shown as buttons on every page
     exclude_orgs: list[str] = field(default_factory=list)
+    # import records → 在地化分數: {dir, weight, lookback_months, hs: {product: [HS prefixes]}}
+    trade: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -138,7 +141,7 @@ ALLOWED = {
     "intents": {"name", "weight", "keywords", "action"},
     "regions": {"name", "keywords"},
     "accounts": {"name", "aliases", "industry", "region", "products", "ticker", "segment", "subsegment", "fit", "note",
-                 "tier", "customers", "chain_source"},
+                 "tier", "customers", "chain_source", "tax_id"},
 }
 
 
@@ -194,6 +197,10 @@ def load_config(path: str | Path) -> Config:
         title=str(s.get("title", "") or ""),
         links=[_link(l) for l in s.get("links", []) or [] if _link(l)],
         exclude_orgs=[str(t) for t in s.get("exclude_orgs", []) or []],
+        trade={"dir": str((s.get("trade") or {}).get("dir", "data/lead_radar/trade")),
+               "weight": float((s.get("trade") or {}).get("weight", 0.2)),
+               "lookback_months": int((s.get("trade") or {}).get("lookback_months", 12)),
+               "hs": {str(k): [str(x) for x in v or []] for k, v in ((s.get("trade") or {}).get("hs") or {}).items()}},
     )
     industries = {
         k: Industry(key=k, name=v["name"], keywords=[str(x) for x in v.get("keywords", [])], search=[str(x) for x in v.get("search", [])])
@@ -237,6 +244,7 @@ def load_config(path: str | Path) -> Config:
             tier=int(a.get("tier", 0) or 0),
             customers=[str(x) for x in a.get("customers", []) or []],
             chain_source=str(a.get("chain_source", "") or ""),
+            tax_id=str(a.get("tax_id", "") or ""),
         )
         for a in raw.get("accounts", []) or []
     ]
