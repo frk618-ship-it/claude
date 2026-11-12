@@ -1,0 +1,1094 @@
+{
+  "generated": "2026-11-12T08:29:07.186663+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期蒐集 51 則,其中新聞與公司公告 42 則;報導最多的是 Singulus Technologies(16 則)、美光(4 則)、JX金屬(4 則)、台積電(3 則)。依主題:產業動態 18 則、營收與財報 10 則、擴產與投資 7 則、技術與新產品 3 則、客戶與供應鏈 2 則。",
+    "key_trends": [
+      "產業動態(18 則):Furuya Metal (TSE:7826) Stock Looks In Line With Fair Value On Cash Flow",
+      "營收與財報(10 則):Materion (MTRN) Looks Undervalued Following Stronger Third Quarter Earnings",
+      "擴產與投資(7 則):美光桃新廠疑喊卡 張善政：總裁承諾持續投資",
+      "技術與新產品(3 則):日月光投控成長加速！矽品CoWoS、CPO背後共同貴人是輝達 研發大將揭10年佈局"
+    ],
+    "watch_points": [
+      "美光桃新廠疑喊卡 張善政：總裁承諾持續投資(UDN)",
+      "江豐電子雙輪驅動中期盈利增114% 擬4.17億加碼半導體投資優化佈局(手机新浪网)",
+      "美光桃園擴建喊卡傳聞 張善政熱線總裁獲承諾續投資(BigGo 財經)"
+    ],
+    "source": "auto"
+  },
+  "items": [
+    {
+      "id": "124a34a6d7d99f74",
+      "title": "美光桃新廠疑喊卡 張善政：總裁承諾持續投資",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9tWVpBcDFyQ05KRGFiajBxUkRfLWJ2UVY0cmUxMVJYd1NzeG8tb0xiZmFIMjlTeG82bTBqam1UZnl0RGV0SkxWRVQ4cERGUllTS1JBeExn0gFWQVVfeXFMT21ZWkFwMXJDTkpEYWJqMHFSRF8tYnZRVjRyZTExUlh3U3N4by1vTGJmYUgyOVN4bzZtMGpqbVRmeXREZXRKTFZFVDhwREZSWVNLUkF4TGc?oc=5",
+      "source": "UDN",
+      "published": "2026-11-11T16:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.45,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7b07e59bdbdda0b0",
+      "title": "江丰电子双轮驱动中期盈利增114% 拟4.17亿加码半导体投资优化布局",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbklRQmlYbW9Ha2pwelh3dGY3Q1FPcEFsNG94eGprVi1YLURSWnhIVEdOd0hRVTNpTTEyRGpzZ2hQMU5NU2Y2RFpvQUJHMEpfTkh1R3hubVIyek1ROWo0cHh1c1Q5U0lSME1aSk1GNHdKQm41UnRDQWpHUUp4dExZQU1oWTlOWXNXVjg5SlkzRGUxT0Mw?oc=5",
+      "source": "手机新浪网",
+      "published": "2026-11-11T13:23:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.43,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "江豐電子雙輪驅動中期盈利增114% 擬4.17億加碼半導體投資優化佈局",
+      "snippet_zh": ""
+    },
+    {
+      "id": "eb40f8f0ff34506d",
+      "title": "美光桃園擴建喊卡傳聞 張善政熱線總裁獲承諾續投資",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBMNWxJNXM3RTE4d1RfWmJEM2J1MS1qOEloX2VTNWxfSXV5Y0ZQdkVCNkR0UTlCRXRma1lINGdkcU5QX2RVaG1qT3h0MkJmTEtkQlYzQmh2RHlEMl9sbVJEQ0I2RUdjTVZ4dVVaNGxpYmhMd21LWXRhdEhB?oc=5",
+      "source": "BigGo 財經",
+      "published": "2026-11-11T04:50:08+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.38,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c6f4f2763156a332",
+      "title": "美光擴建傳喊卡！勞資協商11/17繼續 張善政盼持續投資桃園",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9hQmFXbFozcm14OW1UQVZOU3ZzMGJaVUc4ampoenVCVHltd0k2STltZnNLNXF5V3g5VzkzcFQ1dUJEc1FTaHlXMWFNV0hrcS1KcGZySFFRSi1jNVlhUE040gFkQVVfeXFMT1M5MWdtMEFpNm9teE5ENVZCV2tmOG1JUGlxdEpBYXljMlVyNk1tbWYwajBqT25OcWo3aE40bmEzZkpUc2JYRTNnMkdGZHVQQmMyaHNTanZJMF9hdGdEMlJLOXdsTA?oc=5",
+      "source": "自由財經",
+      "published": "2026-11-11T03:40:26+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.38,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "402c51c2d6106e0c",
+      "title": "美光桃園新廠傳暫停 張善政：總裁承諾持續投資桃園",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5rNFVaLUhmUDZGcTRwejRIaFl4c3YxZWRYempPTHFzRC1oekUyQWt4OGRzQ0JQeWtDb0JZNFdzenpaYTF2Ym1mMldGdlZUN1Zn0gFWQVVfeXFMTUZDNnpTcWIwTzZJbmdkaW5QVFBaMnFfSGhzYmw0amhGY3VzZjBKdDVTSk55blZ6QU9QUV9tNUFPNXZvTkMyTkNLcDRSOWkwbjZ1b3lvMFE?oc=5",
+      "source": "udn",
+      "published": "2026-11-11T02:31:26+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.37,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3bc9c898a49f8770",
+      "title": "台積電Q3賺近3股本！ 擬砸409億美元擴產 配息9元、參股2巨頭",
+      "link": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxNQ3dlUllJX0xtQTFSRGoyUmxPNEgxbFVrN2k2MWtGSHJHVmFWenZkcmhuUUVQT2VIVXRxS1AxMVNEQUZVUXNCMkc1R3M4bHhIRE5YNnU3OFNyNVRidnZjVkpacHFDc2FlTWJJNUJvS2o2UFdldHJzQ0RxaTFockJxamo1ZXprejhqRzB0dFBqcHFoRXYzemJ6ek1LNy1HUTVTVlJRVm9Rc0NtVlJXeUZCUDdDWkNnUUxnM3NYNjFlQkRmRjRiMWY4WkVkU2hfQXppYW54OTZMQ2xsVnhYajRSYWNBam52OXR1emZTQ3ljNUhmYVNCRWZKLWNnYm9JT3QyRWFieC1jRnVqdEJTdjdSYkFSZ29nN0N2Vl9mUUFuQzZ3WnpJT0ktbXdkdTZIY2szNHdMX2Q2U09sQXVJb2V2bWFqeENXeWZsdjFNaGk4WVFEckxNb2NDYkVQOFgtQUp4RG5YWVR3?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-11-11T01:03:41+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.36,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "臺積電Q3賺近3股本！ 擬砸409億美元擴產 配息9元、參股2巨頭",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0320dd17b682753e",
+      "title": "日月光投控成長加速！矽品CoWoS、CPO背後共同貴人是輝達 研發大將揭10年布局",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1FTXVPWVp4a3AweW5RVkdiYWtUczRNTWZOSHhqU0gyQXk0dGFhYjJUcUlCLTZNZTUxNGxSV1JFTFZubnNKVFhMSmtaaHg?oc=5",
+      "source": "聚財網",
+      "published": "2026-11-11T15:21:59+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 4.75,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "日月光投控成長加速！矽品CoWoS、CPO背後共同貴人是輝達 研發大將揭10年佈局",
+      "snippet_zh": ""
+    },
+    {
+      "id": "61ed674a3402333d",
+      "title": "韓國三星電子將量產晶圓廠營運經驗移植公共奈米晶圓廠，8吋量測設備也無償移轉",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0xSC1EcUlKekVuT3Q1Q2VsU29MUkFGX1RsTDdoZkZCUmNOLW5sTmdLMk9oZHJHM1BfWVFmSkI1SVdEYVB6a1JkUW9PejNXV3NUNVZ5SXV5Zk5yUWRFVmM5bWpCQ2ZwcDBUbWp6Zmh3Wm1FdGo4WHdwVHVB?oc=5",
+      "source": "BigGo 財經",
+      "published": "2026-11-11T03:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "三星電子 (Samsung Electronics)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 4.68,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dcf9e1b1eda62ffb",
+      "title": "日月光投控成長加速中，旗下矽品CoWoS、CPO背後共同貴人：輝達！研發大將還原10年布局新賽道點滴",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOX3UyUXpzakRiLUc3d1VUNXJmYXhfemNCT2s3X0FQNV9kbVl0eFBOb1RscFFINkotNTR3aldvd2RVZEVXbU1RT0VnM0lKRHJQV29FaWFWM0FjbzQ2cVhUcnBUVVZ4V2VKZFR3TzlIMHJ5bUI5TzlmUjd5cDRCR3JIVA?oc=5",
+      "source": "今周刊",
+      "published": "2026-11-11T01:07:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 4.66,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "日月光投控成長加速中，旗下矽品CoWoS、CPO背後共同貴人：輝達！研發大將還原10年佈局新賽道點滴",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d7ec98b31744e4a3",
+      "title": "リネットジャパン、JX金属子会社やSGHDと資本業務提携",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5xT0NqTTFhamZrQTRWd2NwV00wTHQzajcybzNoekpuNU5Hc3pqb2lmZ1IyUFNyU05xNmlQRnRmeUQ3T1hnU3ZQeUk2MjlUdFZTLU8yRkJjUWpjUUp1d2x6T0NHdw?oc=5",
+      "source": "リユース経済新聞",
+      "published": "2026-11-11T10:02:10+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "併購與合作"
+      ],
+      "score": 4.41,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e250b05a02875e6e",
+      "title": "SpaceX partners with Germany’s Singulus to scale solar cell manufacturing capacity beyond 100 GW",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOcHFJbzB4alNjaHdMWXlpV0FuS3NCOG90VWRHM19VRjUwTnpPczhmcTMzM05rOGZDeEZEWnhzS3lvTG9DVTBfeHdiSEdwcmc2R3I1ZU9wWlVuOXU1QTBhbEY0MFZaODdDWDZtbzdkVW9nbjl2ajVEZEJfNnNqZmhZUld4WFVYUFVTMWhJSV9tZXlUV3FYT0tMRlkxeWo2amg4THV1VXBpdGJ5YktsRlhVZ2tPR25ueUpKcHBlNmdNeTZfSFZtUkhkUnNjeTVRYl9ycTdjT0R0U3lNQms5MENRZDIwTWM?oc=5",
+      "source": "ANI News",
+      "published": "2026-11-11T06:17:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.39,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6d5e16e248cf321e",
+      "title": "Materion (MTRN) Looks Undervalued Following Stronger Third Quarter Earnings",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQ1haQWstQVc3NllPSEJDZU1jazlubV83UlhOTzJBMlRlNWVycFNDaDVTOFduMzdBSXpLSGs1SFJoclhXMVQ2dzJtMEZXSVpjUlpZSG53WkVjUDlKN01NRHo3RUxVRmZ4SktxVDQ4VGZrYkNBbVFuZlBjWEVnc3ZNNm9weGd5VDdBUGx3UEloc0RfX1A1dzNaODBCYUJUNVhrTjlyV0dZeG9ubjg0S0tKUW1MMHQwZXVLR3ZKQWVsT0RMMEgz0gHKAUFVX3lxTFBObjk1Z1c0QjNNY2hTQktaR01WdXVsbkZqSjVaWTBDVEJuZDBPYW40SVZuemUzXzFqN0N1dHo2MU1ldVlvOUVPSnFmTmc0XzlxWTFkdXJPRm03Ulp1VjI1OEQ0SjNqZ0taRnlfYnFhZU9jcFhZcmhYendIVXBUb2REZHJ2MFdYS1EtRVAyZGFCTFBJV3NpSGtqVEN3VGJSTWhuN3QzU095c2ZVUVROc3prQVJsQlRBZjRjZHY3bUhLRC1oSFVXaDFGV3c?oc=5",
+      "source": "Simply Wall St",
+      "published": "2026-11-11T22:24:59+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "390a9b5413cd77e5",
+      "title": "【即時新聞】最新報告揭露台積電資本支出，預期2028年將達1090億美元",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPSmhXWHQ3bzZoZWUxZGNwZWQ2ZF8zNmhqY2tvLWNRQkdKOVdkaHNDVk4zdDRMM3piVkVtUF84UmFEZTRTWU1qQjFtSHg4ZFhsZFJ0OG42VkpNZDVQSWxzR180R2hiUFozY3ZKV2syUDVIZG5JNkxqdVJaU0JlWGtyRXdROWpaSmxHSGc0SGxVRkQ?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-11T22:07:59+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "【即時新聞】最新報告揭露臺積電資本支出，預期2028年將達1090億美元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "df456147b658070e",
+      "title": "JX Advanced Metals Corporation Just Beat EPS By 11%: Here's What Analysts Think Will Happen Next",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOT3lfNUN6cXJoUk9XZk1ySUtqRlZJSmpPR2IwNGZRVGtDRGZaNjFNLVl2cVYwTko1U0xPZjBBRVVlS0VOVDgyeU9ma0VXUTdHOWRFUXhZTTdpSzNSZWR6U2F4cVFuSkM3Zm1mVDJaM3gwQ3lhVENBb2ZBZ2wtanY0YjM4Tnp6YXJ2ejRtT09PTVNYN0kxNWMtVFVmd2ZjV1JibnBLb3dkbk9IUFAyQldhQ3NQTTlqU09XR2ZoWGNocHpOVm9ya29HYi05Mkloa1RZaXo0MkpBaDdGd9IB3wFBVV95cUxQWHVTSVRtM1d6bVFFaWRYUUxHRXlpM2pNS19PRlN6OHc0d1ZfZUo3cExlcGsyMTBqaXgyOWlhZWgxaDByTWVfTFVCZXBXSUQ4WGVDSk1qRDdFWkFnMWExWUdLRkhXY1ZBNnZscl9JMEFaejRYNnZ2Z0V4TEluVV81b0FKSHFTaU93UkpwYnZIYm5feTZZVmt3VFl3cnB6MkNfOUJiZnBnTGdaNThaZmFpTEJFc21GY1R6MVkzeW1pSkRNSV8xd2JOTTRmUFhkSDVmT19JWDQzSTF4SjJkUjBR?oc=5",
+      "source": "Simply Wall St",
+      "published": "2026-11-11T21:10:58+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "073aeb4afb6c4a45",
+      "title": "Earnings call transcript: Singulus Technologies Q3 2026 shares surge on SpaceX deal",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPTHJQczdNSGJqbkxBbTNZNDdTZE4tRy1mRkVGVDJCRlAwajU1TlJSejJfdmpTWFZuRENWNUlENkdMeGl1ejN3RFdza052Z3FseXExbE1QXzRyaFZSb1c4QVkweERkMEV1MFk2V0t6ZmNxZmx3TFA1cy1KRVpwVTBSU2o5QW1IT1lBS05rVG1rNkduMkZRMTFTYkNOTE1VcXM5VGNCMi12RWZxTldfR1l3Q3BUeDZkbzJVaWllQVpPUGRhX3Rvdi1RVlJHNWFseXRuSlYtckc1QmplZ2c?oc=5",
+      "source": "Investing.com UK",
+      "published": "2026-11-11T09:32:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d734e6f345fa8858",
+      "title": "Singulus Technologies Q3 2026 Earnings Call Is Live",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQSGhWVEVEVVVQZ2c0M0pESl9RandBcGxMbFJBS3pwd1dJLTlXdWJiRWNILTVIZk8zWGZLSmtjZVNJSkRtRk1USE5YeC1fZDdrZktpRkZ5ZzBybFJTNDNOckNza0c3UE9sa0M4WFpKU2JiLWUyaU5Xa1JhZjExLUJrYk4xdXdkYjVkRlZKbWs2T3lobHFRWEt0Z29wcWxzTWZGaG1sek9MMWplaGpqbWpoTHkwRlFXd3JvX1BxRA?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-11T07:57:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8ec295dbedc78f78",
+      "title": "Germany's Singulus Technologies nine-month revenue rises on order intake",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPRVpDS19GTGxhaVUtQkJIMjcxZ3dUY0I3SDJpQ0lIMGtqWlN1ZGRlWHctZUpqTExYQUVYd3lkZGJXUDhIUC1PVk1yR2hockFyT1VXZGZ2NUUtdUxwS2poTmpLVC05OE1wenNWVWV5RzAzMHZycm1PNVE4VDNSOURFQ3lBU29ZbEJHQmFOMEgtNi1VeFRsZFFhYWF4QjRuWmlHN2prTnMyRVJRazhlY0VTT1VwMzFQU0VRMEx6Z2pDZG1Nd0ltSWh3LXJ1aElpekxqRUM3djFjRlBXZw?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-11T07:23:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c31d9380cc767875",
+      "title": "PTA-News: Singulus Technologies Aktiengesellschaft: SINGULUS TECHNOLOGIES reports increased revenue and positive EBIT for the first nine months of 2026",
+      "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxNMGN4b1AtOURMRFNEMVF3eTJHVXJFZUYyNnBlZWVlUnE0VnF3VjJPN3h6ZWFXcjJncmc5Wm43RlRIbkE4V0lBaFdaWHlvdG5IbTdRWXNsS0dDNFhVSUdwclJVdmdncEVQMC1vaUFKcUN3T2ZrcEMxa2hlY2kxX0xPXzEySjdGVU5qNE10NDY2U2dvNDNQWHhMTFc5UkEzb2dDVVc4UVowN3A5bkFmWXo1TzE1cUM2OEl2RGlPS21UaEt3dndGbkFNMFBQUmNLVGJTbnV2VHI3RlV4bTgwVXJPbF9tN3JsNS1HQXFWUHdTc2RXWjVRaUVxVDF5enIxaW9aTTU0TjlGZEVHNGs4d2NyUG9FbDlxdk5pZFJla1ZqNWF1ZXNqQnpzdUJlaGl3VWJxeFMxWXU4b3paMm1fTVl1ZDZ6c3d1c05o?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-11T07:15:44+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7111274372f97c70",
+      "title": "SINGULUS TECHNOLOGIES reports increased revenue and positive EBIT for the first nine months of 2026",
+      "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPVHQzNzhydnFlb3NPRTVwTE4tcG9pM3ZNYTdiYTU0ZXFjcnpXSnlYeE1oOGVRb1Z4dXR5V3plZTgtUFJPRTVVZDZCajQ2c3lJZUJXRlVQekxsNXVVZ0U0ckdjMGlkSUc5cUU4ZUhtWDJZTUV5T1lsYlZGZnk1Z3lzckE1RTRpUno1bmxORHBaeEpRMlJ3bGVFVEdlbHh1c1lSbWxXNnU5cDVwcmFrdUl0MG9CVkUtbFREdzR3bnRMWkZiVGhXb2lJcWtxZ1RKZm13SmZRaGJnV19uX2xRYjk4eU04dUVjVTJBVnVpOWF5bTU0WmlzWTd1R1RzZ0lhd21pelVtbGln?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-11T07:15:42+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3a00ebaf290aff8e",
+      "title": "【12:41 即時新聞】光洋科(1785)股價勁揚，財報與成長預期成盤中焦點",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUTB3VVZmT3R2LW9SaDlGY0JXVWh5WWg5Y3NYVTRGTUhVMWR3Q0FfLVdLb2dDSlRUa3doaXQ2Z1NJaVA5ZW1fYzJWZnVqWGt0YTY1WWJwRVY5YTZHOVpKME1mdWhpd1JJWG1rc3ZkaUdHN3FIOU9VRUg1V3VneVM1S2JkbmRKazBZUUV1S2Fn?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-11T04:41:59+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.88,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5ae520a8738abc0d",
+      "title": "TSMC October Sales Surge as AI Drives Capex Plans",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQQ011aWo0aHE3TklORndaSE9obVVHNVZIbHJjVUdZOEt6WHNhc21uaGNHRVI3U2dONnFkbEJrYlU0XzdjN3pOZVR2ZXBIUU9JTGdQbk51UjE0ZVM4bERsb3dpMWFWMXNxLWJvc2xXWTY2bVJMQ2duNkRmUjNRZHpXYW9HanVXWS1YVzV6OE5kRmE?oc=5",
+      "source": "Briefs Finance",
+      "published": "2026-11-10T13:15:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.79,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "af318e994026a641",
+      "title": "Singulus Prices SpaceX’s First Solar Line Above €60 Million",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNDhTZU5qakk2Z21hLXQxS2tnQW1WNXVIUWFpazJfVmNSTjY0cEN0WTRELUpNa2lkaW1fc0g4Z2xnbkdBTDcwQWhjTks5Tld4MnhPTEpqM1JleFNibjRNdEdaY2tHcjVXRGYwc1BYQnZhU3RBLWJ1aXJMSzJEbVNwUnh2Sm9TaC1fWlY3TG53?oc=5",
+      "source": "FourWeekMBA",
+      "published": "2026-11-11T17:43:45+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.76,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8b7f94758871dee6",
+      "title": "JX Advanced Metals Reports Sharp Six-Month Profit Growth",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNU2pYNEktYXFTZUtVZVBsbVVsc1h2RDJ5dXJyVEhDTkp1dC0yTVR2SXp4Zm1ESDdSRE1VRVlEWnFkNHY3LVdYd1Q2S2lHNmI1cjZUUkgtM3ZZYkxXOE5tbFp5Q2RJVHIyNU1KeXdIS0xDQ0ZxV1NORkpLbjRHZWNGbmVscEtDc3I4UTBxWjFaS0RlbXBRWnhVeVBDb3Y4SzVWSEhjdTlrTzJoTi1q?oc=5",
+      "source": "TipRanks",
+      "published": "2026-11-09T09:14:42+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.62,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d9e319deb51f185d",
+      "title": "銅金需求爆發推升礦商獲利 貝萊德黃金及礦業ETF募集至11/13",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFByRGNqY0YwamkwZ0lQQzdwb3dZTVJkbGo4RTM2Tkl3bUlzbldVSjFPNUk3X09pXzh0YXNQdklyVXNJZV9XSVRMQlQyWmt0Um8?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-11T06:37:01+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.39,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ee6f3d5d684c1382",
+      "title": "Gold Price Forecast: Tests Support as Dollar Climbs",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM1RuTnZFNUFEQWN1VU9TeTA3LWZGUGZZdDRoRE5LSkVJTGJ3Yi0zemhIVzUyekkyVDhRTWxMRUtLeGh1enNyUlJvc1FvaDJBdTRZVUQ1R0dpdERYM2JTN2thZW1GVElSS1ExYjdHRnZ4TlZIeWlhSDVhcUpCT2JuUFdHd19RLVJlT0VaYUVuX2xIcTlicHBPcHZzbUJ4WEhvOFFJ?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-12T00:15:42+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b059a1a70417a653",
+      "title": "Gold (XAU/USD) Price Forecast: Bullish Reversal Faces Critical Support Test",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQNXEwT1JWbHRBcGJoeHFoUGdldG8yNFFzOWRwMTFJdHp2YndEbmpfNUhFa1Rrci1lVElKSS0zdE1hMi1BZE1qMjU4Y2c2QnFfUm5YbjkzalVpeG5BNmJoX0lPRjJEanBFT0dKYlhGZXpfWmptRWNGQXBNVVctZXd0ZWJTWHctc3lWb0RMQWlxekVrc216U1dneTdrMThZRjcwc2xBWFdHUWY4TG1OMGpKX1FMNU1yMDhTVy1SNFo4QnY?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-11T23:14:43+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4fb5dbbe18d46293",
+      "title": "Did Heavy Capex Plans Push GlobalFoundries (NASDAQ:GFS) Down a Reported 6% Despite an EPS Beat?",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQcHZNV1FvTzFKTkFuemp1UXRjcFV4bDVHUWFvcFZiVGx0SHc5VHBBdWd4NDA5MGF4bXEtT2g5ZmU0b0F5NHFMYUhFNm8wdXFGd1FQQmQ4dUhKeV9xQ2FYbnVQUzhOcUdnNUswWndVRVRGWXpZVUdIN2xNd1hYQllTd19laW43eHVVNklUVFhWZEhyX2s1TzEwZWw0THJDLUdQQmk0WEdzSjhXU2RsVVMyZFZhQlM2TEdWMjRsdWFycUNfWUZnLVhNZQ?oc=5",
+      "source": "Kalkine",
+      "published": "2026-11-05T11:42:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.07,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "52d0d092240cf8f0",
+      "title": "Furuya Metal (TSE:7826) Stock Looks In Line With Fair Value On Cash Flow",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTDhRX2t5MEFVMU10d2VQNFFVUVF0VlNBejYtbEZiX25sREpsQl96d1B6X0ZxQ2J5TERBSW10eS1oNVB3aVBNTlRWb2wwX2twTGdmbWJKSHEzSlluZGUwZTU3RVdKQUxxREx6V1Z1Ync5LV9RdGdkMzFCc1VqQXVGOVpR?oc=5",
+      "source": "Yahoo Finance Singapore",
+      "published": "2026-11-11T22:14:29+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5f43e57f05fe4359",
+      "title": "Musk’s 1 TW a Year Solar Goal Is 10x SpaceX’s Singulus Order",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOSUFOcDR3bWxid1g2TGtfa3pNeWxkWGduMmk2Tk5XSllLS3RVWDZEZWlfMUpiTUU2OUpoNUxXVUw3SWd2bDlBc0NmUmVpTnZ1TThSeEQ2ZGxUWWNhYXpBRVNxVzBlUGViTHBRMXZiNmRSRWtEYWZlLVpqSmtHMEdkeF8xOXdpUDBQaWQ0c2tBMA?oc=5",
+      "source": "FourWeekMBA",
+      "published": "2026-11-11T20:11:53+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.97,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ae4b086fbe60ab1d",
+      "title": "Singulus signs SpaceX deal for heterojunction solar cell line",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZjdaVlg5aERpTUhvWkw0ZHRqa3dlRzV6bGlVS0pGVVNGZEpxSGVoc01VS1ROTE5Lb3BlVUVNa3FYR1Z1bW1zdlFsS2Y3Mk5pdTFqdVZxNFFBLWdFWWRpcHhja19wMFljR3BxQW0zak5HX18xdEdXVkg0NW1KVHpnSFdENzMydGlIeXV1MHZ0QlR3MnJqdWlvdVktUDU3QlRXMWZB?oc=5",
+      "source": "pv magazine Global",
+      "published": "2026-11-11T13:23:50+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d6066467f728dd7a",
+      "title": "Furuya Metal Co., Ltd. (7826.T) Seasonal returns chart",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1LQzl5SERLS2k0aTdsaUxfYW5yNnZ5d1hrUXNfbFcwdllPV3JqU3BnSVJsTTZjeUgxZlhGUHM4dVd0RXBQY2RERUxncnBoekxuSlY2TUFZUUZDMUdMOXd5cTJMRVY?oc=5",
+      "source": "Yahoo Finance UK",
+      "published": "2026-11-11T12:39:06+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "45b6dfd44500ae2e",
+      "title": "SpaceX orders HJT solar cell manufacturing equipment from Singulus Technologies",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOc0d2dTFpSzhJb1EtYk5nbWl5d1JSdTYyZEJiX2dYNk0wdWRlSE01M19TWDJhZGppS1pTeW13Z1l6MVpOYTc2Z2luZVhwZzJsYkFONlV1Z0E1UGxpWnM0TFZicGViT2xOdzhjY3Y0UXhoNUlFQ3NBTWNFSjRLVmdrMnhqXzhWV1B0VXBnMVl4ZHBJODc0S3dSbkNOU183cWZicUVEcWxvQQ?oc=5",
+      "source": "PV Tech",
+      "published": "2026-11-11T11:54:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "877d1d957e2a3518",
+      "title": "Stanford Advanced Materials Introduces Dental Furnaces for Zirconia Sintering and Ceramic Restorations",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNblpPMVV2R1BqSV9PdHRJU2JoTWFXbEN0VWZ4c3k3ZVBrZTdCb1BQZUtLdEduVVRIMlRPWWFaNk5nTUpfNHhtcW4xN2VCOEtHUG50RmhDRlQxdzBhTXByVTY0WExPWllBcXAtRVZHRGNoWFJ2QWRlNHFNelJoMTVnTkpXdERTV2tpVXRQRTZ4RUF4S1p6?oc=5",
+      "source": "openPR.com",
+      "published": "2026-11-11T11:49:33+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Stanford Advanced Materials"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9c941cb930f16dc5",
+      "title": "Singulus-SpaceX HJT Solar Cell Line Deal: Delivery Set for H1 2027 - News and Statistics",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQYVFYUE0yN1JPMXkzRFdwVVMyQU1tamZRRmRDUXlqM01xMU1QaTBNb0d3N0cxdW96cWNva1pfSGYtQTJ1bVYtaXJiOXVreFItR1hqX2JUSi1xbEV1aFh2VGdDNW1vRDZQb3EzT084WTBpMzlsNGhtXzRmbEZaWlRzVjNqaDdISVFTNW5YTDdSaE1hRktodzBtOEtIRXVubU5mZUZlQTdLUUdsQWxISmhtbnFPTXN3bHdCcjhZNnNxbGk?oc=5",
+      "source": "IndexBox",
+      "published": "2026-11-11T11:30:50+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b3d3b118b41b4c01",
+      "title": "SpaceX buys a heterojunction solar cell line from Germany's Singulus for its Starmind satellites",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcmtUMmxXbFVhSXJoWjFYS1k1MGtSUmV0b2hnUnl5dXo5WjVGM1d6TzVXUEU1X2c5UlFUdDNqZ3VqRHl3YTAzNzlpOFh4THlLNGtfOUl1cUwtZmxoQm5JMjJhNkFTNlh6c3dCY1VfbTJRV2NLNXVVZ3FLOE1RSW0wU0ZYclpXcVowY3VfWHhWRGhNNHVOMWI5cUp6VHZFcWlhZDdUM2NURmNXM1huMzFlTm5mLVVGYk0?oc=5",
+      "source": "MLQ.ai",
+      "published": "2026-11-11T11:14:57+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "65d59dc23c6a0d79",
+      "title": "SpaceX taps Germany's Singulus for €60M solar-cell line to power orbital AI",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTDZJeWQ1bmtuSEtZaHRFLWJadmtPY3hNMklKTXNSVmROcW9TM01KTldqN200MmREUE14dXBsQ1F1QTRDSlg3LUV3WDNVNlpvX3JMVFZIazBURkZNRDB3NFFnaTlXNU9FV0hINWFwZGI0eDVORXppbjdKSk83OVEzUDZjQk1xdUxaSVB1TUFHT2VBMkJ4S2VadHJqR0oycXV0WllOSFJla0hoRWJP?oc=5",
+      "source": "Dealroom",
+      "published": "2026-11-11T10:07:40+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7ec155a582470211",
+      "title": "Singulus Q3 2026 slides: Solar surge drives turnaround, SpaceX deal looms",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNUklPanNjeko0U0JrYWJsT3hRelZFSU9JNktSODQ5WVJIR0JsZEowOXNFYUNSX3MtRUU5dW1CRTFaVTVtdndmVmxvRnJJMzdBUEdleG9MYVpkZHN5TlNXa2c5djZFVkJDWUhxWmVkOE16UUY3MGZNVzB0Z2V3bkZkU0ZwbThfVkszSmNwbzdoZkx0ZTR2cW12SjQ0N0MyX1g2RFIzdkxScE50S0NuZTltMUhWS0Z2Vm5vRm1yVHZvU25zMVctdXRRTklUQWU?oc=5",
+      "source": "Investing.com Canada",
+      "published": "2026-11-11T09:49:15+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "26ee04fa96f2f9a6",
+      "title": "JX Advanced Metals Cashes in on Chips and Copper",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNM0h6djAyQ1BfM3JKOHAxNVdhTFQ2N0VqUjdaLVE5UFA0MjVWcnA0WXhNWjYtS2c4NG9ma3FkN0tPNnNCUFZKQTBucmhWRUY2X2ZNQktpYnFrYjhDb3FLaFkzWFB2RE8wZ2c0by1VTDdwNjN1Z0F1cDBMN2VPTUFKcEhWUlc3N3pEYzlFMllycEUyRnpZVHRRRllTakZtcEFDVVlR?oc=5",
+      "source": "marketscreener.com",
+      "published": "2026-11-11T09:29:35+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0754935704a02271",
+      "title": "有研新材：最新股东人数环比增超3.2万户",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBKV3N6TlAtZ3l5c3JtSjNlR2UxTTZiMlVPVGtfZzNnZU5sYkpFbE5rRG9IVmtfeUxMMHk3NERmYXc1dG5qOGRDOU5ES1J2dWpOWjdoenh1aU15TDBU?oc=5",
+      "source": "www.caiwennews.com",
+      "published": "2026-11-11T08:04:02+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "有研新材：最新股東人數環比增超3.2萬戶",
+      "snippet_zh": ""
+    },
+    {
+      "id": "36f72aae0bbdf506",
+      "title": "有研新材：截至2026年11月10日，公司股东户数为323252_公司新闻",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAtMFhLSHplN0lnQ0V4d29nWmcwaVQwSVhrQVdZWXc1bS1OOUxDTEM5Sjluc2ltTE1yV0kxUmRDTXQtbTBBUDdfeUF1aTI4U3dUT3NOa09CMHhvT0ZOWV9EUw?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-11T08:00:51+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.9,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "有研新材：截至2026年11月10日，公司股東戶數為323252_公司新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9bebaffa1b9279bf",
+      "title": "SpaceX Orders Solar Cell Production Line From Germany's SINGULUS in Deal Worth Over €60 Million",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5JMU9JTXJpNmdxR1phNEZYZ29wVlZnc0lCakIyZjZmSS1oaHhNREhiUi1hUk92c2cycmI1alJ0S1hLMEw4X0xnYm9yel9EOGE0V1poNTFnXzltVHdZRGpDRy1fVUcySGRxeFFfNWVUdw?oc=5",
+      "source": "XenoSpectrum",
+      "published": "2026-11-11T03:04:31+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.87,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5f7d11fff9cfa0d8",
+      "title": "SpaceX Taps Germany's SINGULUS for 100 GW-a-Year Solar Line to Power Starmind Orbital Data Centers",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE40RDY2QzEzbjJ0d3Nza1RlYW96TDBVMnQ2Y19xMF9oVVBQNkZCejZLVlowSWZwUDZaOEtVcF9GZmVJSjVtd08tU2gzaWFpbUgtQ3EwNmJUWmRRbUJaVWpzSXFnc2RERVBhdF9vejNMa1ZDemE2NGc?oc=5",
+      "source": "BigGo Finance",
+      "published": "2026-11-11T02:26:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.87,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c7766a74c7d6db18",
+      "title": "周一盘面聊聊有研新材、金辰股份怎么应对",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1Hd19URXdmOHJpbHRnSC1yN2doUzlWcExFWC1JOUFhTXNxdWpQajZaUEdSQzJkSkxmbF9BUk9sZkhNN0Q1UmtMRkVCLV81Zw?oc=5",
+      "source": "虎扑体育",
+      "published": "2026-11-10T01:44:16+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.72,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "週一盤面聊聊有研新材、金辰股份怎麼應對",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1d5d23381cfa70de",
+      "title": "Gold (XAUUSD), Silver, Platinum Forecasts – Gold Drops As Dollar Tests Yearly Highs",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPZktBMEVrTlY5Q1ZUV3JtTDJBX3BUWjE2c0tJdGQxZ0JGc3BKb1dtc1F4Y1UySEotNWZ5ak5uUjdDUHlQRVN0bUJvLVAtVGw2dFFkWkkxUE9NWG1MNXVFaU12Rk8xam1XWHVrSXI3d3BWMC1NNDE5LWNoUWQ2T2lvMHRYeFRMTGthaldnVGQzZTR6UkdFQ21TUFl4bnNwUHN4aC1lbmdROFRjXzNVdlBrcWFmZ1hwMTNFUTVuM2tKWDlwRUlvYnZB?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-12T00:12:53+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b67d429979b26a87",
+      "title": "Gold falls below $4,000 as Fed rate hike bets grow",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZldWOUt2Z1JKQ1p0YjAzN01pM251MUNjenJScUVMOFk4UmY3NkYyMTRERDhteWZ2c1VhMmpfY0tscEZJVjZVZW9GQkNOT0FhTnFFeVNIdjZva09BdHMwQm1NTjVWQXNNUHJZTVRqdnJ3Qkh3MElPWktqMW5CYTRCLVRTME1IMXIzU25fQ2VBSWQ0UjVSSDZN?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-11T23:26:23+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2321fca4d5052f09",
+      "title": "黃金10年漲307％還不是最猛！金礦股飆634％…009834、009835布局雙商機",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBlWDZrbUtoRlNqbjBYZkVlUU1FSVhscmd6M3Q3LUVUdWFfeXVjZzBiRkdVT1VsZW5peFRZNzNDNU5rNjVCOWJsY3R5Q1JuSG1yS25R0gFYQVVfeXFMT00zbTV1WlloTlR5UWdpQUVoUFRDcjYyaTBLeHdtTUVDel9jbGpZMEpDREM4cUZLU1dHRlUzc21iQWp3Z25RdElWMGlLUm9tOTE1MXViR0Zfbw?oc=5",
+      "source": "udn",
+      "published": "2026-11-11T13:00:30+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.43,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "黃金10年漲307％還不是最猛！金礦股飆634％…009834、009835佈局雙商機",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fce7570363966d26",
+      "title": "瞄準金礦股10年多頭行情 009834、009835搶攻黃金礦業新商機",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE43d2NXNGJZSEkteDI0OFBYLWFuMUgtZTR2T0dNTERvMXplYjhacUE5OXA0aDNEOEgxWTFkeEQtSzY1RDZHaFlLMWEwR0tzaW83Mk4ySE1B0gFWQVVfeXFMTjd3Y1c0YllISS14MjQ4UFgtYW4xSC1lNHZPR01MRG8xemViOFpxQTk5cDRoM0Q4SDFZMWR4RC1LNjVENkdoWUsxYTBHS3NpbzcyTjJITUE?oc=5",
+      "source": "UDN",
+      "published": "2026-11-11T01:36:50+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.36,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c74c65947c2ea630",
+      "title": "Materion Is Maintained at Buy by Freedom Capital Markets",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQWhrWU40QndyNkNmak1nbndXQjRfVFY0TDNZbEZvRXdxZk9FS1ZKaVQ3VDd4WGtBb3hDMDJ5RGlTUzhhaXhBY2JlQUNhcVp6aHM3TUJJNGZTWHBuby1DbG9aTHRtdFR1QVZkS0NRY20wc0FSanRKVElfYmEzQ19TS2dvcDJoOUtQT2d6WHpHYjRlV1VzRWtqc1FuczdsNWJpSHc?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-05T13:38:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.08,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cf0d617b481fcce6",
+      "title": "大盘冲3701 又回来收3689，金螳螂有研新材连续封板，中际旭创昨天涨11 个点今天就跌7 个半，后续怎么看？",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAyUmQwNmhlWU5Dd09UVWhKdHFRMldOcjFBZW1zNTRvRWlrUm9YdmxvXzdRd01uWFRWRkdDTDVkY0RubC1ubkdGWTU4NkxKN2xFaWxDU0dSSHN1d2JzX1lYeElzRUd3SE9kdG1J?oc=5",
+      "source": "财富号",
+      "published": "2026-11-05T11:08:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.06,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "大盤衝3701 又回來收3689，金螳螂有研新材連續封板，中際旭創昨天漲11 個點今天就跌7 個半，後續怎麼看？",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4136d0cecf247578",
+      "title": "11月5日江丰电子涨5.32%，半导体设备ETF国泰基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9MMEx6RV83cVE5MW9HNHo4WUVqQTJHT21xRUppRXFBNjVDcmx4OWg4SUI4MjVka09mWHVPalNmWE1VcUZlbXZBY0tlQnk?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-05T09:08:11+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.05,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "11月5日江豐電子漲5.32%，半導體設備ETF國泰基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "eece1c15f3bb5a2c",
+      "title": "Materion (NYSE:MTRN) Stock Forecast & Analyst Predictions",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5FR2d1d21fSzVkWWl4eWxaR25uX0dHRm9MeUE4ZmkwNmZJT3FHblZIdjdrR0wtb2g2TU01N092Q045dFZUTnBKSHRFR1N3bWFjV25vYWcwTkZ6WHE4dWJXek9IUDM3QkxkTTlPcW9CeE1pQ1FQanc?oc=5",
+      "source": "Simply Wall St",
+      "published": "2026-11-05T08:00:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.04,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 3987.3,
+      "prev": 4030.2,
+      "date": "2026-11-12",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -1.06
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 51.48,
+      "prev": 51.1,
+      "date": "2026-11-12",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.74
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1529.9,
+      "prev": 1538.9,
+      "date": "2026-11-12",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -0.58
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 1026.5,
+      "prev": 1018.3,
+      "date": "2026-11-12",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.81
+    }
+  ],
+  "papers": [],
+  "research_days": 30
+}
