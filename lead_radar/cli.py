@@ -42,7 +42,7 @@ def _coverage_key(segment: str | None) -> str:
     return f"coverage_start:{segment}" if segment else "coverage_start"
 
 
-def _analyse_and_write(store: SignalStore, cfg, asof: date, segment: str, out: Path, site_dir: Path | None) -> dict:
+def _analyse_and_write(store: SignalStore, cfg, asof: date, segment: str, out: Path) -> dict:
     from .segment import build_segment_report, render_accounts_csv, render_segment_markdown
 
     cov = store.get_meta(_coverage_key(segment))
@@ -182,7 +182,7 @@ def main(argv: list[str] | None = None) -> int:
                 new = store.upsert(signals, asof)
                 store.mark_coverage(asof, seg_cfg.settings.days, _coverage_key(key))
                 log.info("%s: %d signals collected, %d new", key, len(signals), new)
-                reports.append(_analyse_and_write(store, cfg, asof, key, _out_dir(args, key), args.site))
+                reports.append(_analyse_and_write(store, cfg, asof, key, _out_dir(args, key)))
             if args.site:
                 write_segment_sites(reports, args.site)
             return 0
@@ -199,7 +199,7 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.command == "analyze":
             asof = date.fromisoformat(args.asof) if args.asof else _today()
-            reports = [_analyse_and_write(store, cfg, asof, key, _out_dir(args, key), args.site) for key in segments]
+            reports = [_analyse_and_write(store, cfg, asof, key, _out_dir(args, key)) for key in segments]
             if args.site:
                 write_segment_sites(reports, args.site)
             return 0

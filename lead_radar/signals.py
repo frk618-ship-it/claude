@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import hashlib
 import re
-from collections import Counter
 from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, timezone
 
@@ -18,7 +17,6 @@ from target_news_agent.processing import _contains, normalize_title
 from .config import Account, Config
 
 OTHER = "other"          # industry outside the product's target list
-OTHER_NAME = "其他應用"
 UNKNOWN_REGION = "OTHER"
 
 
@@ -324,11 +322,3 @@ def dedupe(signals: list[Signal]) -> list[Signal]:
         if old is None or (len(s.snippet) > len(old.snippet) and not old.enriched):
             by_id[s.id] = s
     return list(by_id.values())
-
-
-def summarize_counts(signals: list[Signal]) -> dict[str, Counter]:
-    return {
-        "products": Counter(p for s in signals for p in s.products),
-        "intents": Counter(i for s in signals for i in s.intents[:1]),
-        "regions": Counter(s.region for s in signals),
-    }

@@ -1,7 +1,7 @@
 """Charts for the news site, drawn to the data-viz method.
 
 The form follows the data's job (magnitude -> bars, a focus day among others -> emphasis
-columns, a headline price -> stat tile + sparkline, two measures over time -> one indexed axis,
+columns, a headline price -> stat tile, two measures over time -> one indexed axis,
 one share of a whole -> meter); colour comes from the page's role tokens (--series-*, --accent,
 --deemph, ink), never from literal hex. Marks are thin with a 4px rounded data end and a square
 baseline end, grids are solid hairlines, labels are selective and use ink colours, and every mark
@@ -36,7 +36,6 @@ CHART_STYLE = """
 .cols .cv{font-size:.72rem;color:var(--fg);font-weight:700;margin-bottom:var(--space-2xs);font-variant-numeric:tabular-nums}
 .cols-x{display:flex;gap:var(--space-3xs);margin-left:var(--space-xl);font-size:.7rem;color:var(--faint);font-variant-numeric:tabular-nums}
 .cols-x span{flex:1;text-align:center;white-space:nowrap;overflow:visible}
-.spark{display:block;width:100%;max-width:150px;height:34px;overflow:visible}
 .lc{overflow-x:auto}.lc svg{display:block;width:100%;min-width:420px;height:auto;overflow:visible}
 .lc text{font-family:var(--font-body);font-size:12px;fill:var(--muted)}.lc .lt{fill:var(--fg);font-weight:700}
 .lc .grid{stroke:var(--grid);stroke-width:1}.lc .base{stroke:var(--axis);stroke-width:1}
@@ -127,21 +126,6 @@ def columns(rows: list[tuple[str, float]], highlight: str | None = None, unit: s
     return (f'<div class="cols" role="img" aria-label="{esc(f"每日{unit}數")}">{grid}<div class="bars">{"".join(bars)}</div></div>'
             f'<div class="cols-x" aria-hidden="true">{"".join(xs)}</div>')
 
-
-def sparkline(values: list[float], label: str = "") -> str:
-    """Trend under a stat tile: the series in the de-emphasis grey, the latest point in the accent."""
-    vals = [v for v in values if v is not None]
-    if len(vals) < 2:
-        return ""
-    w, h, pad = 150, 34, 5
-    lo, hi = min(vals), max(vals)
-    span = (hi - lo) or 1
-    pts = [(pad + i * (w - 2 * pad) / (len(vals) - 1), h - pad - (v - lo) / span * (h - 2 * pad)) for i, v in enumerate(vals)]
-    d = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
-    x, y = pts[-1]
-    return (f'<svg class="spark" viewBox="0 0 {w} {h}" role="img" aria-label="{esc(label)}">'
-            f'<polyline points="{d}" fill="none" stroke="var(--deemph)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg>')
 
 
 def index_lines(years: list[int], kinds: list[str], series: list[dict]) -> str:

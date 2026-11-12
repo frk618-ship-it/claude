@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 import time
 import urllib.error
 import urllib.request
@@ -76,10 +75,6 @@ Transport = Callable[[str, str, dict | None], dict]
 
 class NotionError(RuntimeError):
     pass
-
-
-def notion_configured() -> bool:
-    return bool(os.environ.get("NOTION_TOKEN") and os.environ.get("NOTION_DATABASE_ID"))
 
 
 def http_transport(token: str, *, retries: int = 3, sleep: Callable[[float], None] = time.sleep) -> Transport:

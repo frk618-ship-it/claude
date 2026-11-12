@@ -64,7 +64,6 @@ CASHFLOW_FIELDS = {
     "dividends_paid": "發放現金股利(支出,正數)",
 }
 FIELDS = {**INCOME_FIELDS, **BALANCE_FIELDS, **CASHFLOW_FIELDS}
-FLOW_FIELDS = set(INCOME_FIELDS) | set(CASHFLOW_FIELDS)
 
 _PERIOD_RE = re.compile(r"^(\d{4})\s*-?\s*Q([1-4])$", re.I)
 

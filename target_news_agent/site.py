@@ -712,7 +712,6 @@ def render_page(
     kinds = Counter(it["kind"] for it in items)
     ent_counts = Counter(short_name(e) for it in items for e in it.get("entities", []))
     companies = [e for e in config.entities if not e.is_topic]
-    topic_names = {short_name(e.name) for e in config.entities if e.is_topic}
     covered = [e for e in companies if ent_counts.get(short_name(e.name))]
     signal = [it for it in items if it["kind"] in SIGNAL_KINDS]
     generated = (report.get("generated") or "")[:16].replace("T", " ")

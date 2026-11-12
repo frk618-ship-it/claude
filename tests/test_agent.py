@@ -1366,14 +1366,13 @@ def test_protect_moves_absolute_site_links_under_secret_path(tmp_path):
 
 
 def test_charts_follow_the_mark_rules():
-    from target_news_agent.charts import columns, hbar, index_lines, meter, nice_ticks, sparkline
+    from target_news_agent.charts import columns, hbar, index_lines, meter, nice_ticks
 
     assert nice_ticks(0, 87, 3) == [0, 50, 100]
     bars = hbar([("擴產與投資", 36), ("價格", 0)], "則", total=73)
     assert "36則" in bars and 'data-tip="擴產與投資:36 則(占 49%)"' in bars and "#" not in bars
     cols = columns([("2026-10-24", 30), ("2026-10-25", 13)], highlight="2026-10-25", unit="則", label=lambda d: d[5:])
     assert cols.count('class="col on"') == 1 and cols.count('class="cv"') == 1  # only the focus day is labelled
-    assert "#" not in sparkline([1, 2, 3])  # colours come from role tokens, never literal hex
     lines = index_lines([2025, 2026, 2031], ["實績", "預估", "預測"],
                         [{"name": "市場金額", "unit": "億日圓", "values": [2198, 2550, 3497]}, {"name": "出貨片數", "unit": "萬片", "values": [28.3, 30.0, 38.4]}])
     assert lines.count('stroke-dasharray="5 4"') == 2 and "159</tspan> 市場金額" in lines and "<table" in lines  # forecast dashed, end labels, table view
