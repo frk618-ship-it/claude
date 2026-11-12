@@ -2,19 +2,21 @@
   "generated": "2026-11-12T08:29:07.186663+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 51 則,其中新聞與公司公告 42 則;報導最多的是 Singulus Technologies(16 則)、美光(4 則)、JX金屬(4 則)、台積電(3 則)。依主題:產業動態 18 則、營收與財報 10 則、擴產與投資 7 則、技術與新產品 3 則、客戶與供應鏈 2 則。",
+    "overview": "本期焦點為台積電擬砸 409 億美元擴產,第三季獲利近 3 個股本,另有報告預期其資本支出 2028 年達 1,090 億美元,將持續推升 PVD 機台與靶材需求。靶材廠方面,江豐電子中期獲利增 114%,擬投入 4.17 億元人民幣加碼半導體投資;JX金屬子公司與 Renet Japan 資本合作,持續受關注。濺鍍設備商 Singulus 公布前九月營收成長、EBIT 轉正,SpaceX 的 HJT 產線預計 2027 年上半年交貨。美光桃園新廠方面,桃園市長表示美光總裁承諾持續投資,勞資 11 月 17 日續談。金價跌破 4,000 美元。",
     "key_trends": [
-      "產業動態(18 則):Furuya Metal (TSE:7826) Stock Looks In Line With Fair Value On Cash Flow",
-      "營收與財報(10 則):Materion (MTRN) Looks Undervalued Following Stronger Third Quarter Earnings",
-      "擴產與投資(7 則):美光桃新廠疑喊卡 張善政：總裁承諾持續投資",
-      "技術與新產品(3 則):日月光投控成長加速！矽品CoWoS、CPO背後共同貴人是輝達 研發大將揭10年佈局"
+      "晶圓擴產:台積電擬投入 409 億美元,2028 年資本支出預估 1,090 億美元",
+      "靶材廠加碼投資:江豐電子 4.17 億元人民幣",
+      "濺鍍設備轉機:Singulus EBIT 轉正,SpaceX 訂單 2027 年交貨",
+      "美光桃園新廠承諾持續投資,待勞資協商",
+      "金價跌破 4,000 美元"
     ],
     "watch_points": [
-      "美光桃新廠疑喊卡 張善政：總裁承諾持續投資(UDN)",
-      "江豐電子雙輪驅動中期盈利增114% 擬4.17億加碼半導體投資優化佈局(手机新浪网)",
-      "美光桃園擴建喊卡傳聞 張善政熱線總裁獲承諾續投資(BigGo 財經)"
+      "台積電擴產計畫的地點與時程",
+      "江豐電子新投資的產品方向",
+      "HJT 太陽能擴產對 ITO 靶材的需求",
+      "美光 11/17 勞資協商結果"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,8 +35,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠疑喊卡,桃園市長張善政表示美光總裁承諾持續投資。與前幾日美光桃園新廠報導為同一事件。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -54,8 +56,8 @@
         "營收與財報"
       ],
       "score": 5.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子中期獲利增 114%,擬投入 4.17 億元人民幣加碼半導體投資、優化布局。靶材龍頭持續擴大半導體材料投資。",
+      "importance": 4,
       "title_zh": "江豐電子雙輪驅動中期盈利增114% 擬4.17億加碼半導體投資優化佈局",
       "snippet_zh": ""
     },
@@ -75,8 +77,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "張善政致電美光總裁,獲承諾持續投資桃園。與前幾日美光桃園新廠報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -96,8 +98,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光擴建傳喊卡,勞資協商 11 月 17 日繼續,張善政盼美光持續投資桃園。與前幾日美光桃園新廠報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -117,8 +119,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "美光桃園新廠傳暫停,張善政表示總裁承諾持續投資桃園。與前幾日美光桃園新廠報導為同一事件。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -138,8 +140,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電第三季獲利近 3 個股本,擬砸 409 億美元擴產,配息 9 元並參股兩大廠。大規模擴產將直接帶動 PVD 機台與半導體靶材需求。",
+      "importance": 5,
       "title_zh": "臺積電Q3賺近3股本！ 擬砸409億美元擴產 配息9元、參股2巨頭",
       "snippet_zh": ""
     },
@@ -156,11 +158,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 4.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光投控成長加速,矽品 CoWoS、CPO 布局背後的關鍵客戶是輝達。先進封裝擴產有利 PVD 靶材需求。",
+      "importance": 3,
       "title_zh": "日月光投控成長加速！矽品CoWoS、CPO背後共同貴人是輝達 研發大將揭10年佈局",
       "snippet_zh": ""
     },
@@ -176,12 +179,13 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "政策與貿易",
         "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 4.68,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星電子將量產晶圓廠營運經驗移植至韓國公共奈米晶圓廠,並無償移轉 8 吋量測設備。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -198,11 +202,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 4.66,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光投控成長加速,矽品 CoWoS、CPO 背後共同客戶為輝達。與同期報導重複。",
+      "importance": 2,
       "title_zh": "日月光投控成長加速中，旗下矽品CoWoS、CPO背後共同貴人：輝達！研發大將還原10年佈局新賽道點滴",
       "snippet_zh": ""
     },
@@ -218,12 +223,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "回收與循環",
         "併購與合作"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Renet Japan 與 JX金屬子公司及 SGHD 進行資本業務合作。可能強化 JX金屬在回收再利用的布局。",
+      "importance": 3,
+      "title_zh": "Renet Japan 與 JX金屬子公司、SGHD 資本業務合作",
       "snippet_zh": ""
     },
     {
@@ -238,12 +244,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.39,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus 合作,目標將太陽能電池產能擴大至 100 GW 以上。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SpaceX 與德國 Singulus 合作,將太陽能電池產能擴大至 100 GW 以上",
       "snippet_zh": ""
     },
     {
@@ -261,9 +268,9 @@
         "營收與財報"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析指 Materion 第三季財報轉強後股價看似被低估。屬估值分析。",
+      "importance": 2,
+      "title_zh": "Materion(MTRN)第三季財報轉強後看似被低估",
       "snippet_zh": ""
     },
     {
@@ -278,11 +285,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "最新報告預期台積電資本支出 2028 年將達 1,090 億美元。資本支出持續擴大將帶動靶材長期需求。",
+      "importance": 4,
       "title_zh": "【即時新聞】最新報告揭露臺積電資本支出，預期2028年將達1090億美元",
       "snippet_zh": ""
     },
@@ -301,9 +309,9 @@
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬每股盈餘優於預期 11%,分析師更新預估。與前幾日 JX金屬財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬 EPS 優於預期 11%,分析師怎麼看後續",
       "snippet_zh": ""
     },
     {
@@ -321,9 +329,9 @@
         "營收與財報"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 第三季法說,SpaceX 合約帶動股價大漲。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "法說逐字稿:Singulus Technologies 2026 年第三季,SpaceX 合約帶動股價大漲",
       "snippet_zh": ""
     },
     {
@@ -341,9 +349,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 第三季法說會直播。屬資訊頁。",
+      "importance": 1,
+      "title_zh": "Singulus Technologies 2026 年第三季法說會直播中",
       "snippet_zh": ""
     },
     {
@@ -361,9 +369,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 前九月營收因接單成長而增加。濺鍍設備商接單回升。",
+      "importance": 3,
+      "title_zh": "德國 Singulus Technologies 前九月營收因接單成長而增加",
       "snippet_zh": ""
     },
     {
@@ -381,9 +389,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 公告 2026 年前九月營收成長、EBIT 轉正。",
+      "importance": 3,
+      "title_zh": "PTA 新聞:Singulus Technologies 2026 年前九月營收成長、EBIT 轉正",
       "snippet_zh": ""
     },
     {
@@ -401,9 +409,9 @@
         "營收與財報"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 2026 年前九月營收成長、EBIT 轉正。與同期報導重複。",
+      "importance": 2,
+      "title_zh": "SINGULUS TECHNOLOGIES 2026 年前九月營收成長、EBIT 轉正",
       "snippet_zh": ""
     },
     {
@@ -421,8 +429,8 @@
         "營收與財報"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "光洋科股價勁揚,財報與成長預期成焦點。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -438,12 +446,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.79,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "台積電 10 月營收受 AI 帶動大增,推升資本支出計畫。與前一日報導相關。",
+      "importance": 3,
+      "title_zh": "台積電 10 月營收大增,AI 推升資本支出計畫",
       "snippet_zh": ""
     },
     {
@@ -458,12 +467,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "原物料與價格"
       ],
       "score": 3.76,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 為 SpaceX 第一條太陽能產線報價逾 6,000 萬歐元。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "Singulus 為 SpaceX 首條太陽能產線報價逾 6,000 萬歐元",
       "snippet_zh": ""
     },
     {
@@ -481,9 +491,9 @@
         "營收與財報"
       ],
       "score": 3.62,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬上半年獲利大幅成長。與前幾日 JX金屬財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬上半年獲利大幅成長",
       "snippet_zh": ""
     },
     {
@@ -498,11 +508,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "營收與財報"
       ],
       "score": 3.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "銅金需求推升礦商獲利,貝萊德黃金及礦業 ETF 募集至 11 月 13 日。屬基金推廣內容。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -521,9 +532,9 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元走強,金價測試支撐。",
+      "importance": 1,
+      "title_zh": "金價預測:美元走強,金價測試支撐",
       "snippet_zh": ""
     },
     {
@@ -541,9 +552,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價多頭反轉面臨關鍵支撐考驗。屬技術分析。",
+      "importance": 1,
+      "title_zh": "金價(XAU/USD)預測:多頭反轉面臨關鍵支撐考驗",
       "snippet_zh": ""
     },
     {
@@ -558,12 +569,13 @@
         "格羅方德 (GlobalFoundries)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.07,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "分析格芯雖每股盈餘優於預期,但龐大資本支出計畫可能使股價下跌約 6%。",
+      "importance": 2,
+      "title_zh": "格芯(GFS)EPS 優於預期,龐大資本支出計畫是否拖累股價下跌 6%?",
       "snippet_zh": ""
     },
     {
@@ -578,12 +590,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以現金流估值看 Furuya 金屬股價大致合理。屬估值分析。",
+      "importance": 1,
+      "title_zh": "以現金流看 Furuya 金屬(TSE:7826)股價大致合理",
       "snippet_zh": ""
     },
     {
@@ -598,12 +611,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "馬斯克每年 1 TW 太陽能目標是 Singulus 訂單的 10 倍。若擴產落實,HJT 用 ITO 靶材需求可能大增。",
+      "importance": 2,
+      "title_zh": "馬斯克每年 1 TW 太陽能目標,是 SpaceX 向 Singulus 下單規模的 10 倍",
       "snippet_zh": ""
     },
     {
@@ -618,12 +632,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂異質接面(HJT)太陽能電池產線合約。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Singulus 與 SpaceX 簽訂異質接面太陽能電池產線合約",
       "snippet_zh": ""
     },
     {
@@ -638,12 +653,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Furuya 金屬股價季節性報酬圖表。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Furuya 金屬(7826.T)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -658,12 +674,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向 Singulus 訂購 HJT 太陽能電池製造設備。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "SpaceX 向 Singulus Technologies 訂購 HJT 太陽能電池製造設備",
       "snippet_zh": ""
     },
     {
@@ -678,12 +695,13 @@
         "Stanford Advanced Materials"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "靶材供應商 Stanford Advanced Materials 推出牙科氧化鋯燒結爐。屬其非靶材產品線。",
+      "importance": 2,
+      "title_zh": "Stanford Advanced Materials 推出氧化鋯燒結與陶瓷修復用牙科爐",
       "snippet_zh": ""
     },
     {
@@ -698,12 +716,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 的 HJT 產線預計 2027 年上半年交貨。可作為 ITO 靶材需求時程參考。",
+      "importance": 3,
+      "title_zh": "Singulus 與 SpaceX HJT 太陽能電池產線交易:預計 2027 年上半年交貨",
       "snippet_zh": ""
     },
     {
@@ -718,12 +737,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向德國 Singulus 購買異質接面太陽能電池產線,用於 Starmind 衛星。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "SpaceX 向德國 Singulus 購買異質接面太陽能電池產線,用於 Starmind 衛星",
       "snippet_zh": ""
     },
     {
@@ -738,12 +758,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向 Singulus 訂購 6,000 萬歐元太陽能電池產線,支援軌道 AI。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "SpaceX 向德國 Singulus 訂購 6,000 萬歐元太陽能電池產線,支援軌道 AI",
       "snippet_zh": ""
     },
     {
@@ -758,12 +779,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 第三季簡報:太陽能業務帶動轉虧為盈,SpaceX 合約在即。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 3,
+      "title_zh": "Singulus 2026 年第三季簡報:太陽能業務帶動轉機,SpaceX 合約在即",
       "snippet_zh": ""
     },
     {
@@ -778,12 +800,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬受惠晶片與銅業務獲利。與前幾日 JX金屬財報報導為同一事件。",
+      "importance": 3,
+      "title_zh": "JX金屬受惠晶片與銅業務",
       "snippet_zh": ""
     },
     {
@@ -798,11 +821,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材最新股東人數環比增加逾 3.2 萬戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "有研新材：最新股東人數環比增超3.2萬戶",
       "snippet_zh": ""
     },
@@ -818,11 +842,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材截至 2026 年 11 月 10 日股東戶數 323,252 戶。屬股東結構資訊。",
+      "importance": 1,
       "title_zh": "有研新材：截至2026年11月10日，公司股東戶數為323252_公司新聞",
       "snippet_zh": ""
     },
@@ -838,12 +863,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向德國 Singulus 訂購價值逾 6,000 萬歐元的太陽能電池產線。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "SpaceX 向德國 SINGULUS 訂購逾 6,000 萬歐元太陽能電池產線",
       "snippet_zh": ""
     },
     {
@@ -858,12 +884,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 委託 Singulus 建置年產 100 GW 等級太陽能產線,為 Starmind 軌道資料中心供電。與前一日 Singulus 獲 SpaceX HJT 太陽能電池產線訂單報導為同一事件。",
+      "importance": 2,
+      "title_zh": "SpaceX 委託德國 SINGULUS 建置年產 100 GW 太陽能產線,為 Starmind 軌道資料中心供電",
       "snippet_zh": ""
     },
     {
@@ -878,11 +905,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.72,
-      "summary": "",
-      "importance": 0,
+      "summary": "討論區聊有研新材與金辰股份的操作。屬個人評論。",
+      "importance": 1,
       "title_zh": "週一盤面聊聊有研新材、金辰股份怎麼應對",
       "snippet_zh": ""
     },
@@ -898,12 +926,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元測試年度高點,金價下跌。",
+      "importance": 1,
+      "title_zh": "金、銀、鉑預測:美元測試年度高點,金價下跌",
       "snippet_zh": ""
     },
     {
@@ -918,12 +947,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "聯準會升息預期升溫,金價跌破 4,000 美元。",
+      "importance": 2,
+      "title_zh": "聯準會升息預期升溫,金價跌破 4,000 美元",
       "snippet_zh": ""
     },
     {
@@ -938,11 +968,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃金 10 年上漲 307%,金礦股漲 634%,ETF 布局雙商機。屬基金推廣內容。",
+      "importance": 1,
       "title_zh": "黃金10年漲307％還不是最猛！金礦股飆634％…009834、009835佈局雙商機",
       "snippet_zh": ""
     },
@@ -958,11 +989,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "ETF 瞄準金礦股多頭行情。屬基金推廣內容。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -978,12 +1010,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.08,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Freedom Capital Markets 維持 Materion 買進評等。與前幾日報導重複。",
+      "importance": 1,
+      "title_zh": "Freedom Capital Markets 維持 Materion 買進評等",
       "snippet_zh": ""
     },
     {
@@ -998,11 +1031,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.06,
-      "summary": "",
-      "importance": 0,
+      "summary": "個人盤後評論提及有研新材連續封板。屬股市評論。",
+      "importance": 1,
       "title_zh": "大盤衝3701 又回來收3689，金螳螂有研新材連續封板，中際旭創昨天漲11 個點今天就跌7 個半，後續怎麼看？",
       "snippet_zh": ""
     },
@@ -1018,11 +1052,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.05,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11 月 5 日上漲 5.32%。屬股價行情。",
+      "importance": 1,
       "title_zh": "11月5日江豐電子漲5.32%，半導體設備ETF國泰基金重倉該股",
       "snippet_zh": ""
     },
@@ -1038,12 +1073,13 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.04,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Materion 股價預測與分析師意見資料頁。屬資料頁。",
+      "importance": 1,
+      "title_zh": "Materion(NYSE:MTRN)股價預測與分析師意見",
       "snippet_zh": ""
     }
   ],
