@@ -2,7 +2,7 @@
 # 資料來源:Yahoo Finance chart API(免金鑰),COMEX / NYMEX 期貨連續月。
 
 settings:
-  interval_minutes: 60        # 檢查頻率(serve 模式的排程與 GitHub Actions 排程都是每小時一次)
+  interval_minutes: 30        # 檢查頻率(serve 模式的排程與 GitHub Actions 排程都是每半小時一次)
   history_range: 60d          # 抓取多久的小時 K 線(Yahoo 1h 資料最多約 730 天)
   bar_interval: 1h            # K 線週期
   daily_range: 1y             # 日 K 線(判斷中長期趨勢、52 週位置)

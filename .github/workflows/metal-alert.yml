@@ -11,7 +11,7 @@ name: 貴金屬價格預警
 on:
   schedule:
     # 每小時第 17 分(避開整點,GitHub 在整點前後負載高,排程容易延遲)
-    - cron: "17 * * * *"
+    - cron: "17,47 * * * *"
   workflow_dispatch:
     inputs:
       publish:
