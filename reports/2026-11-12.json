@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T08:29:07.186663+08:00",
+  "generated": "2026-11-12T10:29:57.555868+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點為台積電擬砸 409 億美元擴產,第三季獲利近 3 個股本,另有報告預期其資本支出 2028 年達 1,090 億美元,將持續推升 PVD 機台與靶材需求。靶材廠方面,江豐電子中期獲利增 114%,擬投入 4.17 億元人民幣加碼半導體投資;JX金屬子公司與 Renet Japan 資本合作,持續受關注。濺鍍設備商 Singulus 公布前九月營收成長、EBIT 轉正,SpaceX 的 HJT 產線預計 2027 年上半年交貨。美光桃園新廠方面,桃園市長表示美光總裁承諾持續投資,勞資 11 月 17 日續談。金價跌破 4,000 美元。",
@@ -19,6 +19,186 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "102a62a1ad5b65e7",
+      "title": "台積電侯永清：搭高鐵3小時可備齊晶圓廠千種化學品台灣優勢難複製| 產經",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB0NURXTHpaaml1S2R2eHIySm1hY044WXBLaENxc3NXOWlnR3gxNzBYNmJqT28tV3EwRlk5aE8xeHJxdWlVak82UEQ5UW1XeEl5WHF5cDRGM3JtRXBzY3c?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-11-11T11:03:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "臺積電侯永清：搭高鐵3小時可備齊晶圓廠千種化學品臺灣優勢難複製| 產經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e9d3aa49a320dda2",
+      "title": "先端パッケージ向けガラス基板のプロセス開発でJX金属の材料活用：材料技術",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBDSGlpVUljMVcxV09HdGZLRVBhNGI2UEdrSjhKaVNsb3hSTHNBUzF5U2ZpbXp4cmY4dnhkazZOemRBT3ZaTWsxWkVhQW81bmtCa1M3TldZeHEtZmh5MHhXeURSSjh5Zmh1SGFNdUh1NA?oc=5",
+      "source": "MONOist",
+      "published": "2026-11-12T02:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 3.8,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f393b8988d98fb2d",
+      "title": "JX Advanced Metals raises full-year profit estimate on robust chip material demand",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOY05pZ29NR242c3hCNGFreV92VmhHaHBicllsZWtpa2VFZkN3ZTB4aG1ZRmtrNXdiNkhacDZPRG56bFN5djYwZ1RZWWVBQWZZRk1XSFNRUVVaVGQyNW1IbXJ0UUhaTlpNQURkOWV4U2o1dWduRzI4bkpGUS16eE9vXy1SMU5rYVJyVDZpazA3UXNCbG1kYzlzRlU4Ui1GZ2tJbWIxUkxvZUhkZXlXUWhlRWNXeXhZdTJEekFuOG5MZGRJajFpaEtzaHVpQWRXMEg3T0xkd08zcGxjNUNsT0E?oc=5",
+      "source": "www.marketscreener.com",
+      "published": "2026-11-09T10:18:31+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.62,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6f0b606f42687f0d",
+      "title": "JX Advanced Metals Publishes FY2026 Second-Quarter Presentation Materials",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPemQwTjhjeTU5QWpIRmJYd1V1RlBpYms0UjlTNkNtSktXYV9BRXV4eEprQnZqeEltOEo1VHIxNFp0NFd2VXJ0ZVVsa1FwNzRiWC1CME5ZdTFIaTgzMnZLMjN4cFFmVGRwS2ZKRWlHMDJ0T0VUQzZrVWFrMEtOVU5sRWpDTDFfTElpRExrTTROSDI5TEpObmVoMjNaRXk0X3Jscm9NY2pNcFhDaVVTYlFoSlZXc3Job2pEdkZGZ1ZCYWRoblk?oc=5",
+      "source": "TipRanks",
+      "published": "2026-11-08T08:00:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.46,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "978d05c8b879bdfa",
+      "title": "Gold Extends Slide Below $4,000 as Rising US Inflation, Fed December Hike Bets Pressure Prices",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZkxNNjNtWU1XUGhlakY0bC1Qc0Z0Q1NmY2pTSDJEcmNLcEhEZGV4T1ZoQmlzSGh3VXN2Z3EweUxFczl3a25PV3BXOE9FclE1YUlCQnZkZ0xXOTRRTnZmNWlSeXVlaFVMMjJHeENNQnZybTJ5Rzh0M3ZuZ2RyN2ZRZXRpWm94cFlmV3oxd21lTlMwSDBDb1BMN3pZR2JNeGtvTjFjUzVJeGU5TFFYell0cVdvdlFIU2VNLWw5MC1MVDBCWlk?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-12T01:57:54+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2403dc0ff07066ca",
+      "title": "Materion Corp (MTRN) Stock Up 4.5% but GF Value Says Overvalued -- GF Score: 84/100",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMzVFZHhaTjlScXJmel9qclFIMVRHQ1ZUbFZGMjRXT3Bha1B4ZjU1ZHozcXo1UVlSNW1CSXh3RTBFbWFORnBWQ1U3bC13NHQyS1lBMkMzREJfX01VcHNRTE1udDVtYThGUW5ObDBIcEluUnBCYUtkMjJleUZJdDQ4STRySE9INjdmUHlFblRqUGpydWd6NHNPTVZOVklBbVllbEpodmJDS0FwcTFtMnRVNENwMA?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-11-12T01:42:28+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8930d9c45f581f64",
+      "title": "旭化成、Circulariseおよびフルヤ金属と食塩電解用電極の貴金属トレーサビリティ実証を開始",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5TRnA3UGNSY0s1aTFsLTFVbE9xcW90dkstR1NoMThBeFBMS0pvT3daaFQyOXB4bmJBWURCOVB2NlBBSDI1aEZ3LUl1Q2FmQzhQSXpMQ1JLdE9uQ0RhTGh3MW1VMFdwdFFId0E?oc=5",
+      "source": "PR TIMES",
+      "published": "2026-11-12T01:10:02+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e39286f106a307b5",
+      "title": "Is Royal Gold Stock Paying You Enough For The Swings?",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQcXJoajN2cVJqdTl2TGJLVWlha3p1NU9GQkZFM2U5NkhxOWkxQnhBZ29IdzNJRGIzT0pOZHVIQ19VRllzeW5UODZadUotRzNmWkptcmpZNW9WYjhXTlY2MzRXX1daUTFZVE9jZlJHNktoTTU4RjVsMG1FM3VSSFc4SVRmUGlYNWx2QWh1VHlMLURJbUU4d01rTXBzVFdZZG1HajhRTkRQd2w1YW1tdThMXzliYw?oc=5",
+      "source": "Trefis",
+      "published": "2026-11-12T00:37:23+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "606fd8d0fbc02e09",
+      "title": "Materion Corporation : Seaport Research Partn",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNeXNnZDhodTR0cENGSFB6SzgzbUVLbVVOdnRPZndiZDNrNWdsRW9XMlVOVmQyT0xNTEViNV92aE5CVWRCM1JvbzdpMl9hTTExLXE4bHpKS0pOZHBseUdKYTBDWEp1cmhNajRXQU9aUl9kUkZvOFVMRUp0N0Z4VlB0S1VHajRIanpuY0dHT0VWMkRSZmxaMkx2SDhldG1xUHZWX1gxbEx4X0FxODA1ZVN2UVp2VmxvMkR3b1E?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-05T07:00:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.03,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "124a34a6d7d99f74",
       "title": "美光桃新廠疑喊卡 張善政：總裁承諾持續投資",
@@ -1087,42 +1267,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3987.3,
+      "price": 3991.5,
       "prev": 4030.2,
       "date": "2026-11-12",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.06
+      "change_pct": -0.96
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 51.48,
+      "price": 51.63,
       "prev": 51.1,
       "date": "2026-11-12",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.74
+      "change_pct": 1.04
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1529.9,
+      "price": 1539.9,
       "prev": 1538.9,
       "date": "2026-11-12",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.58
+      "change_pct": 0.06
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1026.5,
+      "price": 1035.0,
       "prev": 1018.3,
       "date": "2026-11-12",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.81
+      "change_pct": 1.64
     }
   ],
   "papers": [],
