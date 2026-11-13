@@ -48,8 +48,8 @@ settings:
       tw_semi_production:         # 晶圓廠資本支出大、材料占比低;封裝的濺鍍與電鍍占比較高
         foundry:   {target: 0.003, copper: 0.001, nickel: 0.0005, titanium: 0.0002}
         memory:    {target: 0.003, copper: 0.001, nickel: 0.0005}
-        packaging: {target: 0.004, copper: 0.003, titanium: 0.0005}
-        thinning:  {target: 0.002, copper: 0.001}
+        packaging: {target: 0.004, copper: 0.003, titanium: 0.0005, evaporation: 0.0005}
+        thinning:  {target: 0.002, copper: 0.001, evaporation: 0.002}
         testing:   {copper: 0.001}
       tw_semi_equipment:          # 設備與零組件廠:機台組件的材料占比
         front_end: {nickel: 0.010, titanium: 0.008, copper: 0.006, target: 0.004}
@@ -82,11 +82,11 @@ settings:
         chemical:  {titanium: 0.008, nickel: 0.006}
         epc:       {nickel: 0.010, titanium: 0.008}
       tw_cpo:
-        laser_epi:   {target: 0.004, copper: 0.002}
+        laser_epi:   {target: 0.004, copper: 0.002, evaporation: 0.004}
         engine:      {copper: 0.010, target: 0.002}
         transceiver: {copper: 0.010}
         passive:     {copper: 0.002}
-        coating:     {target: 0.030, titanium: 0.005}
+        coating:     {target: 0.030, titanium: 0.005, evaporation: 0.015}
         test:        {copper: 0.020}
         system:      {copper: 0.001}
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
@@ -153,6 +153,18 @@ products:
     exclude: [銅牌, 銅鑼, 銅像, 青銅器, 銅板價, 銅價]
     industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer, steel, cpo]
     pitch: 無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝
+    pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+
+  - key: evaporation
+    name: 蒸鍍材料
+    editions: [zh-TW, zh-CN, en, ja]
+    # 電子束 / 熱蒸鍍用的金屬顆粒、錠與氧化物;「蒸鍍機」新聞多為面板 OLED 有機材料,只在客群公司新聞中才有意義
+    keywords: [蒸鍍材料, 蒸镀材料, 蒸鍍源, 蒸鍍顆粒, 蒸鍍錠, 蒸發源, 蒸发源, 電子束蒸鍍, 电子束蒸镀, 熱蒸鍍, 蒸鍍, 蒸镀, 蒸著材料,
+               evaporation material, evaporation materials, evaporation pellets, evaporation source, e-beam evaporation, electron beam evaporation,
+               thermal evaporation, 蒸着材料, 증착재료]
+    search: [蒸鍍材料, 電子束蒸鍍, evaporation material]
+    industries: [semiconductor, semi_equipment, display, display_equipment, solar, optical_coating, cpo]
+    pitch: 蒸鍍顆粒 / 錠(Ti、Ni、Cu、Al、Cr、Au、Ag 等金屬,及 SiO2、TiO2、Ta2O5 等氧化物),高純度 4N–6N,依坩堝尺寸客製、批次一致性與材質證明
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
 # ── 應用產業 ─────────────────────────────────────────────────────────────
@@ -426,360 +438,360 @@ accounts:
   # fit:產品適配度 0–3(3 = 核心用料、2 = 可能用料、1 = 少量 / 間接、0 = 無),依公開業務內容推估的初步假設,
   #      請依實際拜訪結果修正;note 說明推估理由與切入點。
   - {name: 天虹科技, aliases: [天虹科技, 天虹(6937), Skytech], ticker: "6937", segment: tw_semi_equipment, subsegment: front_end,
-     industry: semi_equipment, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 2},
+     industry: semi_equipment, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 2, evaporation: 1},
      note: "國產 PVD / ALD 與面板級封裝 PVD 設備商:製程開發、客戶 demo 與驗收都要用靶材,可談設備搭配靶材的配套供應;銅:PVD / ALD 腔體冷卻與導電零件用無氧銅"}
   - {name: 漢民科技, aliases: [漢民科技, 漢民集團, Hermes-Epitek], segment: tw_semi_equipment, subsegment: front_end,
-     industry: semi_equipment, region: TW, products: [nickel, target], fit: {target: 1, titanium: 1, nickel: 3, copper: 1},
+     industry: semi_equipment, region: TW, products: [nickel, target], fit: {target: 1, titanium: 1, nickel: 3, copper: 1, evaporation: 0},
      note: "磊晶 / CVD 設備與代理;腐蝕性製程氣體的管路、閥件與腔體零件適合耐蝕鎳基合金(C-22 / C-276),且正推動零組件國產化"}
   - {name: 弘塑科技, aliases: [弘塑, GPTC], ticker: "3131", segment: tw_semi_equipment, subsegment: front_end,
-     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 3},
+     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 3, evaporation: 0},
      note: "濕製程與先進封裝電鍍設備;加熱化學品管路、槽體零件需要耐蝕材料,鈦可用於電鍍治具與陽極籃;銅:先進封裝電鍍銅(ECD)設備,磷銅陽極與導電零件是耗材"}
   - {name: 辛耘企業, aliases: [辛耘, Scientech], ticker: "3583", segment: tw_semi_equipment, subsegment: front_end,
-     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 2},
+     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 2, evaporation: 0},
      note: "濕製程設備與再生晶圓;台南安定新製造中心建置期,可提早切入耐蝕材料與零件供應;銅:濕製程與電鍍相關設備用銅陽極與導電件"}
   - {name: 京鼎精密, aliases: [京鼎, Foxsemicon], ticker: "3413", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料],
      chain_source: "DA Labs https://dalabs.org/guide/tw-stock-guide/what-is-3413-doing/; 經濟日報(2026-08-14) https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0ZEtwM3BCZGVZMWtmTlU3WG5hdEluQjVIT0NuTmxnMnItV24xVG5GRERWUDRuVlVOUURrd1kyRnFMMk1fdnFxWlRZdzBTeXVxNzNUcl9GWTdjUdIBX0FVX3lxTE16a3lHVjNlS1p1QW5weXp5SlkycG52eXoyUUJxU2w3WUdEOVdVNk90THdSOWVYQ0NVeW14SVh6aDU5R0hxRHhUekpUT0NLdUFpTHJWODZxeDFYQlhqcG93?oc=5; 工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5",
-     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 1, titanium: 2, nickel: 3, copper: 2},
+     industry: semi_equipment, region: TW, products: [nickel, titanium, copper], fit: {target: 1, titanium: 2, nickel: 3, copper: 2, evaporation: 0},
      note: "國際設備大廠的模組與腔體零件代工,台灣與泰國同步擴產;高溫 / 耐蝕零件適合鎳基合金,真空與製程零件可用鈦材;銅:模組與腔體零件含無氧銅冷卻板與導電件"}
   - {name: 千附精密, aliases: [千附精密, 千附(6829)], ticker: "6829", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料, 科林研發, 艾司摩爾],
      chain_source: "今周刊 https://www.businesstoday.com.tw/article/category/183015/post/202203160042/",
-     industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 3, copper: 2},
+     industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 3, copper: 2, evaporation: 0},
      note: "精密加工、銲接與模組組裝(客戶含 ASML、應材、Lam),嘉義新廠擴產;板材 / 棒材原料需求直接;銅:精密腔體零件加工可延伸無氧銅零件"}
   - {name: 翔名科技, aliases: [翔名], ticker: "8091", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [應用材料, 艾司摩爾],
      chain_source: "優分析 https://uanalyze.com.tw/articles/704435890; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
-     industry: semi_equipment, region: TW, products: [nickel, titanium, target, copper], fit: {target: 1, titanium: 3, nickel: 3, copper: 2},
+     industry: semi_equipment, region: TW, products: [nickel, titanium, target, copper], fit: {target: 1, titanium: 3, nickel: 3, copper: 2, evaporation: 0},
      note: "製程零組件與先進製程特化管路;耐蝕管路與零件適合鎳基合金,真空零件可用鈦;銅:離子植入與製程零件含銅合金導電件"}
   - {name: 公準精密, aliases: [公準], ticker: "3178", segment: tw_semi_equipment, subsegment: parts, tier: 1, customers: [國際設備大廠(在地供應鏈)],
      chain_source: "今周刊 https://www.businesstoday.com.tw/article/category/183015/post/202203160042/",
-     industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 2},
+     industry: semi_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 2, evaporation: 0},
      note: "薄膜、微影、量測與封裝設備的精密零組件;精密加工用鈦材與耐熱合金;銅:精密零件加工可延伸無氧銅零件"}
   - {name: 巧新科技, aliases: [巧新], ticker: "1563", segment: tw_semi_equipment, subsegment: parts, tier: 1,
      chain_source: "中央社(2026-10-21) https://www.cna.com.tw/news/afe/202610210147.aspx",
-     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 1, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 1, copper: 1, evaporation: 0},
      note: "以鍛造切入 CVD / PVD、蝕刻腔體零件(主材為鋁);可提案鈦與耐熱合金零件的材料方案"}
   - {name: 倉佑實業, aliases: [倉佑], ticker: "1568", segment: tw_semi_equipment, subsegment: parts, tier: 1,
      chain_source: "中央社(2026-10-21) https://www.cna.com.tw/news/afe/202610210147.aspx",
-     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1, evaporation: 0},
      note: "高精密金屬加工轉進前段設備零組件,馬來西亞新廠量產爬坡;需要穩定的特殊合金原料來源"}
   - {name: 晟田科技, aliases: [晟田], ticker: "4541", segment: tw_semi_equipment, subsegment: parts, tier: 1,
      chain_source: "TechNews 公司資料 https://info.technews.tw/company/86263092-%E6%99%9F%E7%94%B0%E7%A7%91%E6%8A%80%E5%B7%A5%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
-     industry: aerospace, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     industry: aerospace, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1, evaporation: 0},
      note: "航太發動機機匣與起落架零件(漢翔主要協力廠),營業項目含半導體與面板製程設備、管路設備零組件;已具航太級鈦與鎳基合金加工與材證經驗,可同時談航太與半導體零件用料"}
   - {name: 帆宣系統, aliases: [帆宣, Marketech], ticker: "6196", segment: tw_semi_equipment, subsegment: facility, tier: 1, customers: [艾司摩爾],
      chain_source: "工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
-     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 3, copper: 1},
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 3, copper: 1, evaporation: 0},
      note: "廠務、氣化 / 供氣系統與設備代工;腐蝕性特殊氣體的管路與閥件適合鎳基合金"}
   - {name: 漢唐集成, aliases: [漢唐集成, 漢唐(2404), United Integrated Services], ticker: "2404", segment: tw_semi_equipment, subsegment: facility,
-     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1, evaporation: 0},
      note: "無塵室與廠務統包工程;化學品 / 特氣供應系統的耐蝕材料"}
   - {name: 亞翔工程, aliases: [亞翔, L&K Engineering], ticker: "6139", segment: tw_semi_equipment, subsegment: facility,
-     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     industry: semi_equipment, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1, evaporation: 0},
      note: "無塵室與機電統包;海外廠務專案的耐蝕管材"}
   - {name: 志聖工業, aliases: [志聖], ticker: "2467", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 1, titanium: 1, nickel: 1, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium, nickel], fit: {target: 1, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "先進封裝壓合、貼膜與電鍍前處理設備(G2C+ 聯盟);電鍍前處理可用鈦治具"}
   - {name: 均豪精密, aliases: [均豪], ticker: "5443", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "先進封裝研磨拋光與量測檢測設備"}
   - {name: 均華精密, aliases: [均華], ticker: "6640", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 1, evaporation: 0},
      note: "先進封裝黏晶 / 撿晶設備"}
   - {name: 東捷科技, aliases: [東捷], ticker: "8064", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 0, copper: 1},
+     industry: semi_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 0, copper: 1, evaporation: 0},
      note: "封裝與面板級封裝設備,半導體營收比重提升"}
   - {name: 萬潤科技, aliases: [萬潤], ticker: "6187", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 1, evaporation: 0},
      note: "先進封裝點膠、貼合等設備"}
   - {name: 印能科技, aliases: [印能], ticker: "7734", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     industry: semi_equipment, region: TW, products: [nickel, titanium], fit: {target: 0, titanium: 1, nickel: 2, copper: 1, evaporation: 0},
      note: "高壓真空除泡 / 回焊等先進封裝熱製程設備;高溫壓力腔體零件適合耐熱合金"}
   - {name: 鈦昇科技, aliases: [鈦昇], ticker: "8027", segment: tw_semi_equipment, subsegment: packaging,
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 1, titanium: 1, nickel: 0, copper: 1},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 1, titanium: 1, nickel: 0, copper: 1, evaporation: 0},
      note: "雷射與玻璃基板設備(公司名含「鈦」,已排除在鈦材字詞比對之外)"}
   - {name: 家登精密, aliases: [家登, Gudeng], ticker: "3680", segment: tw_semi_equipment, subsegment: carrier, tier: 1, customers: [艾司摩爾],
      chain_source: "工商時報(2026-10-15) https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yYzVUWTVEaXE3N1JEUWJ5cjR4cjdxMlpDUFNRR3lWLTBqN1BacDJMSEZDSVRfSHlDcEtEemFSdTlrTncxV2dRa3B5SnNZWXJ4ank3YWM2QWZhMURMMHJv?oc=5; 經濟日報(2026-07-16) https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoNDVEY3d4aGQ2X1VUaFQ2OTk1SFE5RlR6U3QzRHF1WV9NT0RrWENqYTg4NnNMSHYzd0JZNXRhdkZKLUIxb3Z5T3V6dkxoZFk0UHo4TXJBQVdad9IBX0FVX3lxTE5KdlFqVk1hUGdVTUtQRzdWZWRLZXg1M05jV2MtcmVoTkloZFpGVnpHNUtxTlpVLTQtbFlFWll0cGhRcmZ1eEh2dWEwajJ2bWJzR0YzVC1weDh2TG1hVGVj?oc=5",
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 2, nickel: 0, copper: 0},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 2, nickel: 0, copper: 0, evaporation: 0},
      note: "EUV 光罩盒與晶圓載具,美國亞利桑那據點兼做航太精密加工;精密零件與航太鈦材"}
   - {name: 家碩科技, aliases: [家碩], ticker: "6953", segment: tw_semi_equipment, subsegment: carrier,
-     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: semi_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "光罩 / 載具清洗與自動化設備,南科新廠 2027 年投產"}
 
   # ── 半導體生產供應鏈(segment: tw_semi_production)──
   # 晶圓製造:前段金屬化(Ti / TiN、Ta、Cu、Al、Co、W 等 PVD 靶材)是靶材的核心用量;廠務特氣與化學品系統用耐蝕合金。
   - {name: 台積電, aliases: [台積電, 台积电, TSMC], ticker: "2330", segment: tw_semi_production, subsegment: foundry,
-     industry: semiconductor, region: TW, products: [target, nickel, copper], fit: {target: 3, titanium: 1, nickel: 2, copper: 3},
+     industry: semiconductor, region: TW, products: [target, nickel, copper], fit: {target: 3, titanium: 1, nickel: 2, copper: 3, evaporation: 1},
      note: "先進製程與 CoWoS / SoIC 先進封裝都大量使用 PVD 靶材;新廠的特氣與化學品供應系統用耐蝕合金。在地化與第二供應商計畫是切入點;銅:銅導線與先進封裝電鍍銅大量使用磷銅陽極 / 高純銅"}
   - {name: 聯電, aliases: [聯電, 联电, UMC], ticker: "2303", segment: tw_semi_production, subsegment: foundry,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "成熟製程晶圓代工,台南新廠與新加坡擴建;Al、Ti / TiN 等金屬化靶材;銅:銅製程導線電鍍用磷銅陽極"}
   - {name: 世界先進, aliases: [世界先進, VIS], ticker: "5347", segment: tw_semi_production, subsegment: foundry,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "特殊製程與電源管理晶圓代工,新加坡 12 吋廠 2027 年投產;金屬化與背面金屬靶材;銅:銅製程與背面金屬"}
   - {name: 力積電, aliases: [力積電, PSMC], ticker: "6770", segment: tw_semi_production, subsegment: foundry,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "記憶體與邏輯代工,轉型 3D AI Foundry(晶圓堆疊);金屬化靶材;銅:銅製程導線與晶圓堆疊"}
   - {name: 南亞科, aliases: [南亞科, Nanya Technology], ticker: "2408", segment: tw_semi_production, subsegment: memory,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "DRAM;2026–2029 年資本支出上限 3,466 億元,5A 新廠導入 EUV。新廠建置期是靶材認證的時間窗;銅:DRAM 銅導線電鍍"}
   - {name: 華邦電, aliases: [華邦電, 华邦电, Winbond], ticker: "2344", segment: tw_semi_production, subsegment: memory,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "利基型 DRAM 與 Flash;金屬化靶材;銅:銅導線電鍍"}
   - {name: 美光台灣, aliases: [美光, Micron], segment: tw_semi_production, subsegment: memory,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 0, nickel: 1, copper: 2, evaporation: 0},
      note: "台中、桃園 DRAM / HBM 廠;靶材多由總部統籌採購,需經台灣廠製程端引薦;銅:DRAM / HBM 銅導線與 TSV 電鍍"}
   # 晶圓減薄與再生:薄化後的背面金屬化(Ti / NiV / Ag 等濺鍍)用靶材;再生晶圓與研磨用耐蝕材料
   - {name: 昇陽半導體, aliases: [昇陽半導體, 昇陽半, Phoenix Silicon], ticker: "8028", segment: tw_semi_production, subsegment: thinning,
-     industry: semiconductor, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1, copper: 1},
-     note: "再生晶圓與晶圓薄化(功率元件、12 吋與 SiC),台中港新廠;薄化後若接背面金屬化即用 Ti / NiV / Ag 靶,請確認其背金產能"}
+     industry: semiconductor, region: TW, products: [target, evaporation], fit: {target: 2, titanium: 1, nickel: 1, copper: 1, evaporation: 2},
+     note: "再生晶圓與晶圓薄化(功率元件、12 吋與 SiC),台中港新廠;薄化後若接背面金屬化即用 Ti / NiV / Ag 靶,請確認其背金產能;蒸鍍:功率元件晶圓薄化後的背面金屬(Ti / Ni / Ag)常以蒸鍍完成"}
   - {name: 精材科技, aliases: [精材, Xintec], ticker: "3374", segment: tw_semi_production, subsegment: thinning,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 2, titanium: 0, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 2, titanium: 0, nickel: 1, copper: 2, evaporation: 1},
      note: "晶圓級封裝、TSV 與晶圓薄化;12 吋 CSP 產線擴產,製程含金屬化濺鍍;銅:TSV 與重布線層電鍍銅"}
   - {name: 中砂, aliases: [中砂, Kinik], ticker: "1560", segment: tw_semi_production, subsegment: thinning,
-     industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1, copper: 0},
+     industry: semiconductor, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 1, copper: 0, evaporation: 0},
      note: "再生晶圓與鑽石碟;材料需求以研磨耗材為主,與三條產品線關聯較低"}
   # 封裝:凸塊、重布線層(RDL)、扇出與面板級封裝的 UBM / 種子層濺鍍(Ti、TiW、Cu 靶),電鍍治具與陽極用鈦
   - {name: 日月光投控, aliases: [日月光, ASE], ticker: "3711", segment: tw_semi_production, subsegment: packaging,
-     industry: semiconductor, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 1, copper: 3},
+     industry: semiconductor, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 1, copper: 3, evaporation: 1},
      note: "全球最大封測廠,2026 年資本支出提高至 105 億美元,310x310mm 面板級封裝產線;UBM / RDL 濺鍍靶材與電鍍用鈦;銅:凸塊、銅柱、RDL 電鍍銅與導線架用銅合金"}
   - {name: 力成科技, aliases: [力成, Powertech], ticker: "6239", segment: tw_semi_production, subsegment: packaging,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 3},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 3, evaporation: 0},
      note: "記憶體封測與 510x515mm 面板級扇出封裝,取得竹科廠房擴產;大面積 RDL 濺鍍用靶材;銅:面板級扇出 RDL 電鍍銅"}
   - {name: 頎邦科技, aliases: [頎邦, Chipbond], ticker: "6147", segment: tw_semi_production, subsegment: packaging,
-     industry: semiconductor, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 0, copper: 2},
+     industry: semiconductor, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 0, copper: 2, evaporation: 1},
      note: "金凸塊(驅動 IC、光通訊),TiW / Au 種子層濺鍍用靶材,電鍍治具用鈦;銅:銅柱凸塊電鍍"}
   - {name: 南茂科技, aliases: [南茂, ChipMOS], ticker: "8150", segment: tw_semi_production, subsegment: packaging,
-     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 2, titanium: 1, nickel: 0, copper: 2},
+     industry: semiconductor, region: TW, products: [target, copper], fit: {target: 2, titanium: 1, nickel: 0, copper: 2, evaporation: 1},
      note: "記憶體與驅動 IC 封測,含凸塊製程;銅:凸塊與 COF 銅製程"}
   # 測試:材料需求以測試介面與治具為主,與三條產品線關聯較低
   - {name: 京元電子, aliases: [京元電, KYEC], ticker: "2449", segment: tw_semi_production, subsegment: testing,
-     industry: semiconductor, region: TW, products: [titanium, copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     industry: semiconductor, region: TW, products: [titanium, copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2, evaporation: 0},
      note: "最大專業測試廠,2026 年資本支出上修至約 500 億元;新廠廠務與治具,材料關聯較低;銅:測試座與探針用鈹銅"}
   - {name: 欣銓科技, aliases: [欣銓, Ardentec], ticker: "3264", segment: tw_semi_production, subsegment: testing,
-     industry: semiconductor, region: TW, products: [titanium, copper], fit: {target: 0, titanium: 1, nickel: 0, copper: 2},
+     industry: semiconductor, region: TW, products: [titanium, copper], fit: {target: 0, titanium: 1, nickel: 0, copper: 2, evaporation: 0},
      note: "晶圓測試;材料關聯較低;銅:探針卡與測試介面用鈹銅"}
 
   # ── 台灣 PCB 設備廠(segment: tw_pcb_equipment)──
   # 濕製程與電鍍線是三條產品線中鈦與耐蝕合金的主要用量(掛具、陽極籃、加熱器、槽體與泵浦);其他設備的材料關聯較低。
   # fit 為依公開業務內容推估的初步假設,請依拜訪結果修正。
   - {name: 揚博科技, aliases: [揚博, 扬博], ticker: "2493", segment: tw_pcb_equipment, subsegment: wet,
-     industry: pcb_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 3},
+     industry: pcb_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 3, evaporation: 0},
      note: "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點;銅:PCB 電鍍線用磷銅球 / 銅陽極"}
   - {name: 台灣上村, aliases: [台灣上村, Uyemura], segment: tw_pcb_equipment, subsegment: wet,
-     industry: pcb_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 3},
+     industry: pcb_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 3, nickel: 2, copper: 3, evaporation: 0},
      note: "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件;銅:電鍍銅藥水與電鍍設備,搭配磷銅陽極"}
   - {name: 群翊工業, aliases: [群翊], ticker: "6664", segment: tw_pcb_equipment, subsegment: imaging,
-     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "PCB / 載板塗佈、烘烤與壓膜設備;高溫爐體零件或有耐熱合金需求,關聯較低"}
   - {name: 科嶠工業, aliases: [科嶠], ticker: "4542", segment: tw_pcb_equipment, subsegment: imaging,
-     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: pcb_equipment, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "PCB 壓合與真空壓膜設備;熱壓板與耐熱零件,關聯較低"}
   - {name: 大量科技, aliases: [大量科技, 大量(3167)], ticker: "3167", segment: tw_pcb_equipment, subsegment: drilling,
-     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "PCB 鑽孔與成型機;材料關聯較低,可從設備結構件與治具了解需求"}
   - {name: 由田新技, aliases: [由田], ticker: "3455", segment: tw_pcb_equipment, subsegment: inspection,
-     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "PCB、載板與面板 AOI 檢測設備;材料關聯較低"}
   - {name: 牧德科技, aliases: [牧德], ticker: "3563", segment: tw_pcb_equipment, subsegment: inspection,
-     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "PCB 與載板 AOI 檢測設備;材料關聯較低"}
   - {name: 迅得機械, aliases: [迅得], ticker: "6438", segment: tw_pcb_equipment, subsegment: automation,
-     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: pcb_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "PCB 與半導體自動化搬運設備;材料關聯較低"}
 
   # ── 台灣面板設備廠(segment: tw_display_equipment)──
   # 鍍膜設備是靶材的核心(ITO、Mo、Al、Cu、IGZO 等),腔體防著板與載具用鈦;濕製程設備用耐蝕合金與鈦。
   - {name: 友威科技, aliases: [友威科], ticker: "3580", segment: tw_display_equipment, subsegment: deposition,
-     industry: display_equipment, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 1, copper: 2},
+     industry: display_equipment, region: TW, products: [target, titanium, copper], fit: {target: 3, titanium: 2, nickel: 1, copper: 2, evaporation: 1},
      note: "真空濺鍍與電漿設備(面板、觸控、載板);整機驗證與客戶端製程都需要靶材,腔體防著板與載具用鈦;銅:銅導線製程的濺鍍設備,銅靶與無氧銅背板"}
   - {name: 馗鼎奈米, aliases: [馗鼎], segment: tw_display_equipment, subsegment: deposition,
-     industry: display_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 1, copper: 1},
+     industry: display_equipment, region: TW, products: [target, titanium], fit: {target: 1, titanium: 1, nickel: 1, copper: 1, evaporation: 1},
      note: "大氣電漿表面處理與鍍膜設備;電極與腔體零件,關聯中等偏低"}
   - {name: 亞智科技, aliases: [亞智科技, 亞智, Manz Taiwan], segment: tw_display_equipment, subsegment: wet,
-     industry: display_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 3},
+     industry: display_equipment, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 2, nickel: 2, copper: 3, evaporation: 0},
      note: "面板與載板濕製程、面板級封裝 RDL 設備(德商 Manz 在台子公司);濕製程槽體、加熱器與電鍍配件用鈦與耐蝕合金;銅:面板級封裝電鍍銅(ECD)設備,磷銅陽極與導電件"}
   - {name: 惠特科技, aliases: [惠特], ticker: "6706", segment: tw_display_equipment, subsegment: laser,
-     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "LED / Micro LED 檢測與雷射設備;材料關聯較低"}
   - {name: 晶彩科技, aliases: [晶彩], ticker: "3535", segment: tw_display_equipment, subsegment: inspection,
-     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "面板 AOI 檢測設備;材料關聯較低"}
   - {name: 盟立自動化, aliases: [盟立], ticker: "2464", segment: tw_display_equipment, subsegment: automation,
-     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "面板與半導體廠自動化搬運;材料關聯較低"}
   - {name: 廣運機械, aliases: [廣運], ticker: "6125", segment: tw_display_equipment, subsegment: automation,
-     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0},
+     industry: display_equipment, region: TW, products: [titanium], fit: {target: 0, titanium: 1, nickel: 0, copper: 0, evaporation: 0},
      note: "面板與半導體自動化搬運、倉儲;材料關聯較低"}
 
   # ── 台灣 AI 伺服器設備廠(segment: tw_ai_server)──
   # 散熱與液冷(水冷板、均熱片、熱管)、匯流排與連接器是銅材的大宗用量;代工廠多採購模組,材料關聯較間接。
   - {name: 鴻海, aliases: [鴻海, 鴻海精密, Foxconn], ticker: "2317", segment: tw_ai_server, subsegment: odm,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 0, copper: 1, evaporation: 0},
      note: "AI 伺服器機櫃代工龍頭;散熱與電源多向模組廠採購,材料關聯間接,可了解自製機構件需求"}
   - {name: 廣達, aliases: [廣達, 廣達電腦, Quanta], ticker: "2382", segment: tw_ai_server, subsegment: odm,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "AI 伺服器代工;材料多經散熱、電源模組廠間接採購"}
   - {name: 緯創, aliases: [緯創, 緯創資通, Wistron], ticker: "3231", segment: tw_ai_server, subsegment: odm,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "AI 伺服器主機板與機櫃代工;材料關聯間接"}
   - {name: 緯穎, aliases: [緯穎, Wiwynn], ticker: "6669", segment: tw_ai_server, subsegment: odm,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "雲端資料中心伺服器與液冷機櫃;材料關聯間接"}
   - {name: 英業達, aliases: [英業達, Inventec], ticker: "2356", segment: tw_ai_server, subsegment: odm,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "AI 伺服器代工;材料關聯間接"}
   - {name: 奇鋐, aliases: [奇鋐, AVC], ticker: "3017", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3, evaporation: 0},
      note: "水冷板、均熱片、熱管與液冷機櫃;無氧銅板材與銅管是主要用料"}
   - {name: 雙鴻, aliases: [雙鴻, Auras], ticker: "3324", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3, evaporation: 0},
      note: "水冷板與液冷模組;無氧銅板材、銅管是主要用料"}
   - {name: 健策, aliases: [健策, Jentech], ticker: "3653", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 1, copper: 3, evaporation: 0},
      note: "AI 晶片均熱片(IHS)與水冷板;高純度無氧銅板材是核心用料"}
   - {name: 力致科技, aliases: [力致科技, 力致(3483)], ticker: "3483", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3, evaporation: 0},
      note: "熱管與散熱模組;銅管與銅粉是主要用料"}
   - {name: 高力熱處理, aliases: [高力熱處理, 高力(8996)], ticker: "8996", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper, titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     industry: ai_server, region: TW, products: [copper, titanium, nickel], fit: {target: 0, titanium: 1, nickel: 1, copper: 2, evaporation: 0},
      note: "液冷 CDU 與板式熱交換器;銅焊材、銅管,特殊冷卻液環境可能用到耐蝕合金"}
   - {name: 建準, aliases: [建準, Sunon], ticker: "2421", segment: tw_ai_server, subsegment: cooling,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "伺服器風扇與液冷泵浦;馬達線圈用銅,關聯中等偏低"}
   - {name: 台達電, aliases: [台達電, 台達電子, Delta Electronics], ticker: "2308", segment: tw_ai_server, subsegment: power,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2, evaporation: 0},
      note: "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅"}
   - {name: 光寶科, aliases: [光寶科, 光寶, Lite-On], ticker: "2301", segment: tw_ai_server, subsegment: power,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2, evaporation: 0},
      note: "伺服器電源與機櫃電源架;匯流排、磁性元件用銅"}
   - {name: 勤誠, aliases: [勤誠, Chenbro], ticker: "8210", segment: tw_ai_server, subsegment: chassis,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "伺服器機殼與機櫃;材料以鋼板為主,關聯較低"}
   - {name: 川湖, aliases: [川湖, King Slide], ticker: "2059", segment: tw_ai_server, subsegment: chassis,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 0},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 0, evaporation: 0},
      note: "伺服器滑軌;材料以鋼材為主,關聯低"}
   - {name: 貿聯-KY, aliases: [貿聯, BizLink], ticker: "3665", segment: tw_ai_server, subsegment: interconnect,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 2, evaporation: 0},
      note: "高速銅纜與機櫃線束;銅導線為主要用料"}
   - {name: 嘉澤, aliases: [嘉澤, Lotes], ticker: "3533", segment: tw_ai_server, subsegment: interconnect,
-     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3},
+     industry: ai_server, region: TW, products: [copper], fit: {target: 0, titanium: 0, nickel: 0, copper: 3, evaporation: 0},
      note: "CPU / GPU 插座與連接器;端子用鈹銅、磷青銅等銅合金"}
 
   # ── 台灣重工業製造廠(segment: tw_heavy_industry)──
   # 鎳基合金:高溫爐體、硫 / 氯腐蝕與強酸環境;鈦:海水冷卻、氯鹼、PTA 與酸洗;fit 為依公開業務內容推估的初步假設。
   - {name: 中鋼, aliases: [中鋼, 中國鋼鐵, China Steel], ticker: "2002", segment: tw_heavy_industry, subsegment: steel,
-     industry: steel, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 2, nickel: 3, copper: 2},
+     industry: steel, region: TW, products: [titanium, nickel, copper], fit: {target: 0, titanium: 2, nickel: 3, copper: 2, evaporation: 0},
      note: "一貫作業鋼廠;加熱爐 / 退火爐的爐輥、輻射管與爐內構件用鎳基耐熱合金,酸洗線熱交換器與海水冷卻用鈦,高爐風口與冷卻壁用銅;歲修備品是主要切入點"}
   - {name: 中鴻鋼鐵, aliases: [中鴻], ticker: "2014", segment: tw_heavy_industry, subsegment: steel,
-     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0},
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0, evaporation: 0},
      note: "熱軋 / 冷軋鋼捲;酸洗與退火線的耐熱、耐酸零件"}
   - {name: 東和鋼鐵, aliases: [東和鋼鐵, 東鋼], ticker: "2006", segment: tw_heavy_industry, subsegment: steel,
-     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1, evaporation: 0},
      note: "電爐鋼(型鋼、鋼筋);加熱爐耐熱零件,電爐水冷件用銅"}
   - {name: 豐興鋼鐵, aliases: [豐興], ticker: "2015", segment: tw_heavy_industry, subsegment: steel,
-     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1},
+     industry: steel, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 1, evaporation: 0},
      note: "電爐鋼筋;加熱爐耐熱零件"}
   - {name: 唐榮, aliases: [唐榮, 唐榮鐵工], ticker: "2035", segment: tw_heavy_industry, subsegment: stainless,
-     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0, evaporation: 0},
      note: "不銹鋼冷熱軋;硝酸 / 氫氟酸酸洗與光輝退火線用鎳基合金與鈦"}
   - {name: 華新麗華, aliases: [華新麗華, Walsin], ticker: "1605", segment: tw_heavy_industry, subsegment: stainless,
-     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1},
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1, evaporation: 0},
      note: "不銹鋼與電線電纜;不銹鋼酸洗、退火設備用鎳基合金與鈦"}
   - {name: 燁聯鋼鐵, aliases: [燁聯, Yieh United], segment: tw_heavy_industry, subsegment: stainless,
-     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     industry: steel, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0, evaporation: 0},
      note: "不銹鋼一貫廠(高雄);酸洗與退火設備用鎳基合金與鈦"}
   - {name: 台塑化, aliases: [台塑化, 台塑石化, Formosa Petrochemical], ticker: "6505", segment: tw_heavy_industry, subsegment: refinery,
-     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1, evaporation: 0},
      note: "麥寮煉油與輕油裂解;高溫爐管與硫腐蝕環境用鎳基合金(625 / 825),海水冷卻器與冷凝器用鈦"}
   - {name: 中油, aliases: [台灣中油, 中油公司, CPC Corporation], segment: tw_heavy_industry, subsegment: refinery,
-     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1},
+     industry: oil_gas, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 1, evaporation: 0},
      note: "國營煉油與石化;煉製設備高溫耐蝕合金、熱交換器用鈦,常有公開標案"}
   - {name: 台塑, aliases: [台塑, 台灣塑膠], ticker: "1301", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 0},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 0, evaporation: 0},
      note: "PVC 與氯鹼;電解槽陽極與氯氣系統用鈦,燒鹼蒸發器用純鎳 / 鎳合金"}
   - {name: 南亞塑膠, aliases: [南亞塑膠, 南亞(1303)], ticker: "1303", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 1, evaporation: 0},
      note: "塑膠、聚酯與電子材料;化工反應與熱交換設備用耐蝕合金"}
   - {name: 台化, aliases: [台化, 台灣化學纖維], ticker: "1326", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 2, copper: 0, evaporation: 0},
      note: "PTA、芳香烴與纖維;PTA 氧化反應器與熱交換器是鈦的大宗用途"}
   - {name: 台聚, aliases: [台聚, 台灣聚合], ticker: "1304", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0, evaporation: 0},
      note: "LDPE / EVA 高壓聚合;高壓反應管與耐熱零件"}
   - {name: 國喬石化, aliases: [國喬], ticker: "1312", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0, evaporation: 0},
      note: "苯乙烯與 ABS;高溫與腐蝕環境零件"}
   - {name: 和益化工, aliases: [和益], ticker: "1709", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0, evaporation: 0},
      note: "烷基苯(LAB)與界面活性劑原料;酸性製程設備用耐蝕合金"}
   - {name: 東聯化學, aliases: [東聯], ticker: "1710", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0, evaporation: 0},
      note: "乙二醇、環氧乙烷與工業氣體;高溫與腐蝕環境零件"}
   - {name: 台肥, aliases: [台肥, 台灣肥料], ticker: "1722", segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 2, copper: 0, evaporation: 0},
      note: "肥料、三聚氰胺與化學品;尿素與酸類製程設備用耐蝕材料"}
   - {name: 李長榮化工, aliases: [李長榮化工, LCY], segment: tw_heavy_industry, subsegment: chemical,
-     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0},
+     industry: chemical, region: TW, products: [nickel], fit: {target: 0, titanium: 1, nickel: 2, copper: 0, evaporation: 0},
      note: "溶劑與熱可塑性彈性體;化工製程設備零件"}
   - {name: 中鼎工程, aliases: [中鼎工程, CTCI], ticker: "9933", segment: tw_heavy_industry, subsegment: epc,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 2, nickel: 3, copper: 0, evaporation: 0},
      note: "煉油、石化與電廠工程統包;為業主採購製程設備與管材,是鎳基合金與鈦材進入專案規格的關鍵窗口"}
   - {name: 台朔重工, aliases: [台朔重工, Formosa Heavy Industries], segment: tw_heavy_industry, subsegment: epc,
-     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
+     industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1, evaporation: 0},
      note: "台塑集團的設備製造廠(壓力容器、熱交換器、反應器與鍋爐),承製台塑化等集團工廠的製程設備;鈦與鎳基合金板材、管材的直接買家"}
 
   # ── 台灣 CPO 與光通訊供應鏈(segment: tw_cpo)──
   # 靶材:光學鍍膜與晶片金屬化;銅:散熱件與測試座;fit 為依公開業務內容推估的初步假設。
   - {name: 聯亞光電, aliases: [聯亞], ticker: "3081", segment: tw_cpo, subsegment: laser_epi,
-     industry: cpo, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1, copper: 1},
-     note: "磷化銦(InP)雷射磊晶片;晶片電極金屬化(Ti / Pt / Au)用濺鍍靶材"}
+     industry: cpo, region: TW, products: [target, evaporation], fit: {target: 2, titanium: 1, nickel: 1, copper: 1, evaporation: 3},
+     note: "磷化銦(InP)雷射磊晶片;晶片電極金屬化(Ti / Pt / Au)用濺鍍靶材;蒸鍍:雷射晶片電極以電子束蒸鍍金屬(Ti / Pt / Au)"}
   - {name: 全新光電, aliases: [全新光電, 全新(2455)], ticker: "2455", segment: tw_cpo, subsegment: laser_epi,
-     industry: cpo, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1, copper: 1},
-     note: "砷化鎵 / 磷化銦磊晶片(雷射、VCSEL);晶片金屬化用濺鍍靶材"}
+     industry: cpo, region: TW, products: [target, evaporation], fit: {target: 2, titanium: 1, nickel: 1, copper: 1, evaporation: 3},
+     note: "砷化鎵 / 磷化銦磊晶片(雷射、VCSEL);晶片金屬化用濺鍍靶材;蒸鍍:磊晶片下游晶片電極蒸鍍"}
   - {name: 穩懋, aliases: [穩懋], ticker: "3105", segment: tw_cpo, subsegment: laser_epi,
-     industry: cpo, region: TW, products: [target, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 2},
-     note: "化合物半導體晶圓代工(含光通訊雷射、光偵測器);前段金屬化大量使用濺鍍靶材,背面金屬與散熱用銅"}
+     industry: cpo, region: TW, products: [target, copper, evaporation], fit: {target: 3, titanium: 1, nickel: 1, copper: 2, evaporation: 3},
+     note: "化合物半導體晶圓代工(含光通訊雷射、光偵測器);前段金屬化大量使用濺鍍靶材,背面金屬與散熱用銅;蒸鍍:化合物半導體正面金屬化與背面金屬多以電子束蒸鍍(Ti / Pt / Au、AuGe / Ni)"}
   - {name: 訊芯-KY, aliases: [訊芯], ticker: "6451", segment: tw_cpo, subsegment: engine,
-     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2, evaporation: 1},
      note: "系統級封裝與光收發模組 / CPO 光引擎封裝;散熱底座與導電件用銅"}
   - {name: 聯鈞光電, aliases: [聯鈞], ticker: "3450", segment: tw_cpo, subsegment: engine,
-     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2, evaporation: 1},
      note: "光通訊元件封裝代工(光引擎、光收發次模組);封裝殼體與散熱件用銅、可伐合金(Fe-Ni-Co)"}
   - {name: 華星光通, aliases: [華星光], ticker: "4979", segment: tw_cpo, subsegment: transceiver,
-     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2, evaporation: 1},
      note: "光收發模組與雷射元件;散熱片與殼體用銅"}
   - {name: 光環科技, aliases: [光環], ticker: "3234", segment: tw_cpo, subsegment: transceiver,
-     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
-     note: "光通訊雷射 / 光偵測晶片與模組;晶片金屬化與散熱件"}
+     industry: cpo, region: TW, products: [copper, evaporation], fit: {target: 1, titanium: 1, nickel: 1, copper: 2, evaporation: 2},
+     note: "光通訊雷射 / 光偵測晶片與模組;晶片金屬化與散熱件;蒸鍍:雷射 / 光偵測晶片電極蒸鍍"}
   - {name: 眾達-KY, aliases: [眾達], ticker: "4977", segment: tw_cpo, subsegment: transceiver,
-     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2, evaporation: 0},
      note: "光收發模組;散熱件與殼體用銅"}
   - {name: 前鼎光電, aliases: [前鼎], ticker: "4908", segment: tw_cpo, subsegment: transceiver,
-     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2, evaporation: 0},
      note: "光收發模組;散熱件與殼體用銅"}
   - {name: 上詮光纖, aliases: [上詮], ticker: "3363", segment: tw_cpo, subsegment: passive,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "光纖陣列(FAU)與 CPO 光纖連接方案;材料以玻璃、不銹鋼與精密零件為主,關聯較低"}
   - {name: 波若威, aliases: [波若威], ticker: "3163", segment: tw_cpo, subsegment: passive,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "光纖被動元件與模組;關聯較低"}
   - {name: 光聖, aliases: [光聖, 光紅建聖], ticker: "6442", segment: tw_cpo, subsegment: passive,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "光纖跳線與連接器;關聯較低"}
   - {name: 統新光訊, aliases: [統新光訊, "統新(6426)", "統新:", "統新："], ticker: "6426", segment: tw_cpo, subsegment: coating,
-     industry: cpo, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 0, copper: 0},
-     note: "光學濾光片(薄膜濾光片)鍍膜;多層光學鍍膜大量使用鈦、鉭、鈮、矽等靶材,是靶材在光通訊最直接的用戶"}
+     industry: cpo, region: TW, products: [target, titanium, evaporation], fit: {target: 3, titanium: 2, nickel: 0, copper: 0, evaporation: 3},
+     note: "光學濾光片(薄膜濾光片)鍍膜;多層光學鍍膜大量使用鈦、鉭、鈮、矽等靶材,是靶材在光通訊最直接的用戶;蒸鍍:光學濾光片除濺鍍外也用電子束蒸鍍 SiO2 / Ta2O5 / TiO2 等氧化物"}
   - {name: 旺矽, aliases: [旺矽], ticker: "6223", segment: tw_cpo, subsegment: test,
-     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2, evaporation: 0},
      note: "探針卡與光電測試(含 CPO / 矽光子晶圓測試);探針與測試介面用鈹銅等銅合金"}
   - {name: 穎崴, aliases: [穎崴], ticker: "6515", segment: tw_cpo, subsegment: test,
-     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 3},
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 3, evaporation: 0},
      note: "測試座與探針(AI / CPO 晶片);測試座彈簧探針與端子用鈹銅、磷青銅"}
   - {name: 致茂, aliases: [致茂, Chroma], ticker: "2360", segment: tw_cpo, subsegment: test,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "半導體與光電測試設備(含矽光子測試);設備結構件,關聯較低"}
   - {name: 竑騰, aliases: [竑騰], ticker: "7751", segment: tw_cpo, subsegment: test,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1, evaporation: 0},
      note: "先進封裝與光通訊貼合 / 封裝設備;設備零件,關聯較低"}
   - {name: 智邦, aliases: [智邦, Accton], ticker: "2345", segment: tw_cpo, subsegment: system,
-     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 0, nickel: 0, copper: 1, evaporation: 0},
      note: "資料中心交換器(含 CPO 交換器);材料多經模組廠間接採購,關聯低"}

@@ -33,7 +33,7 @@ def sig(cfg, title, days_ago=1, **kw):
 
 
 def test_config_loads(cfg):
-    assert [p.key for p in cfg.products] == ["target", "titanium", "nickel", "copper"]
+    assert [p.key for p in cfg.products] == ["target", "titanium", "nickel", "copper", "evaporation"]
     for p in cfg.products:
         assert all(i in cfg.industries for i in p.industries)
     assert cfg.intents["tender"].weight > cfg.intents["policy"].weight
@@ -281,7 +281,7 @@ def test_segment_config(cfg):
     seg = cfg.segments["tw_semi_equipment"]
     members = [a for a in cfg.accounts if a.segment == "tw_semi_equipment"]
     assert len(members) >= 20 and all(a.subsegment in seg.subsegments for a in members)
-    assert all(set(a.fit) <= {"target", "titanium", "nickel", "copper"} and all(0 <= v <= 3 for v in a.fit.values()) for a in members)
+    assert all(set(a.fit) <= {"target", "titanium", "nickel", "copper", "evaporation"} and all(0 <= v <= 3 for v in a.fit.values()) for a in members)
     assert next(a for a in members if a.name == "京鼎精密").note.endswith("銅:模組與腔體零件含無氧銅冷卻板與導電件")   # comma inside a quoted note survives
     assert cfg.intents["qualification"].action.endswith("爭取第二供應商資格")
 
@@ -787,3 +787,13 @@ def test_cpo_name_matching(cfg):
     assert s is None or "統新光訊" not in s.orgs
     assert sig(cfg, "統新:Q3 EPS2.06元 追加資本支出強化接單與供應能力").orgs[0] == "統新光訊"
     assert extract_orgs("光環 InP代工擴產加速,上游材料吃緊成最大變數") == []
+
+
+def test_evaporation_material_product_line(cfg):
+    ev = cfg.product("evaporation")
+    assert ev.name == "蒸鍍材料" and "cpo" in ev.industries and ev.pitch_source.startswith("一般產業常見規格")
+    assert all("evaporation" in a.fit for a in cfg.accounts if a.segment)          # every segment company judged
+    assert cfg.account("穩懋").fit["evaporation"] == 3 and cfg.account("統新光訊").fit["evaporation"] == 3
+    s = sig(cfg, "穩懋擴產 電子束蒸鍍 金屬化產能")
+    assert "evaporation" in s.products and s.industries["evaporation"] == "cpo"
+    assert sig(cfg, "聯亞光電 擴產 新廠").products.count("evaporation") == 1          # inferred from fit 3
