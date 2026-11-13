@@ -397,7 +397,7 @@ def test_segment_scores_do_not_saturate(cfg):
 
 def test_primary_segment_and_production_segment(cfg):
     assert cfg.settings.primary_segment == "tw_semi_equipment"
-    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment", "tw_ai_server", "tw_heavy_industry"]
+    assert cfg.segment_order == ["tw_semi_equipment", "tw_semi_production", "tw_pcb_equipment", "tw_display_equipment", "tw_ai_server", "tw_heavy_industry", "tw_cpo"]
     prod = cfg.segments["tw_semi_production"]
     assert set(prod.subsegments) == {"foundry", "memory", "thinning", "packaging", "testing"}
     members = {a.name: a for a in cfg.accounts if a.segment == "tw_semi_production"}
@@ -758,3 +758,23 @@ def test_amounts_that_are_not_the_companys_project_are_ignored(cfg):
         assert parse_amount(title, fx) == 0, title
     assert parse_amount("華新麗華英國子公司SMP與勞斯萊斯簽約 拿下2.4億美元訂單", fx) == pytest.approx(2.4e8 * 32)
     assert parse_amount("中鋼揪伴攻熱鐵磚商機 潛在投資規模衝250億元", fx) == pytest.approx(250e8)
+
+
+def test_cpo_segment(cfg):
+    from lead_radar.segment import build_segment_report
+
+    seg = cfg.segments["tw_cpo"]
+    assert set(seg.subsegments) == {"laser_epi", "engine", "transceiver", "passive", "coating", "test", "system"}
+    members = {a.name: a for a in cfg.accounts if a.segment == "tw_cpo"}
+    assert {"聯亞光電", "穩懋", "華星光通", "上詮光纖", "統新光訊", "穎崴", "智邦"} <= set(members)
+    assert all(a.subsegment in seg.subsegments for a in members.values())
+    assert members["統新光訊"].fit["target"] == 3 and members["穎崴"].fit["copper"] == 3
+    names = [a.name for a in cfg.accounts]
+    assert len(names) == len(set(names))
+    s = sig(cfg, "統新光訊 CPO 濾光片 擴產 新廠", days_ago=3)
+    assert s.orgs[0] == "統新光訊" and "target" in s.products and s.industries["target"] == "cpo"
+    rep = build_segment_report([s, sig(cfg, "穎崴斥資20億元擴建測試座新廠 CPO", days_ago=3)], cfg, "tw_cpo", ASOF)
+    accs = {a["org"]: a for a in rep["accounts"]}
+    assert accs["統新光訊"]["best_product"] == "target"
+    assert accs["穎崴"]["best_product"] == "copper" and accs["穎崴"]["value_part"] > 0     # decision tree: test × copper
+

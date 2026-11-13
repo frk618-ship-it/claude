@@ -81,6 +81,14 @@ settings:
         refinery:  {nickel: 0.008, titanium: 0.005}
         chemical:  {titanium: 0.008, nickel: 0.006}
         epc:       {nickel: 0.010, titanium: 0.008}
+      tw_cpo:
+        laser_epi:   {target: 0.004, copper: 0.002}
+        engine:      {copper: 0.010, target: 0.002}
+        transceiver: {copper: 0.010}
+        passive:     {copper: 0.002}
+        coating:     {target: 0.030, titanium: 0.005}
+        test:        {copper: 0.020}
+        system:      {copper: 0.001}
   # 標題命中這些字詞直接捨棄:市場調查報告廣告、遊戲、產品評測與購物優惠(不是採購需求)
   drop_terms: [市場預測, 市场预测, 市場規模, 市场规模, 市場報告, 市场报告, 研究報告, 研究报告, 年預測, 年预测, CAGR, "Market to Reach", "Market Size", "Market Share",
                "Market Report", "Market Expansion", "Market Outlook", "Market Forecast", "Market Analysis", "market research",
@@ -109,7 +117,7 @@ products:
     keywords: [靶材, 濺鍍, 濺射, 溅射, 磁控濺鍍, sputtering, sputter target, PVD, 物理氣相沉積, 物理气相沉积, 鍍膜, 镀膜, 薄膜沉積, thin film deposition,
                スパッタ, スパッタリングターゲット, 스퍼터링, ITO, IGZO, 旋轉靶, 旋转靶, rotary target]
     search: [靶材, 濺鍍, 溅射靶材, sputtering target, PVD]
-    industries: [semiconductor, semi_equipment, display, display_equipment, solar, optical_coating, data_storage, hard_coating]
+    industries: [semiconductor, semi_equipment, display, display_equipment, solar, optical_coating, data_storage, hard_coating, cpo]
     pitch: 高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"   # 切入重點的規格依據;換成公司型錄後請改寫
 
@@ -119,7 +127,7 @@ products:
     keywords: [鈦, 钛, titanium, Ti-6Al-4V, Ti6Al4V, TC4, TA2, "Grade 2", "Grade 5", "Gr.2", "Gr.5", 鈦合金, 钛合金, 純鈦, 纯钛, チタン, 티타늄]
     search: [鈦合金, 純鈦, 钛合金, titanium alloy, titanium]
     exclude: [鈦媒體, 钛媒体, 鈦白粉, 钛白粉, 二氧化鈦, 二氧化钛, titanium dioxide, TiO2, 鈦白, 钛白, 鈦昇, 钛昇]   # 媒體名稱與顏料不是鈦金屬
-    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment, ai_server, steel]
+    industries: [aerospace, medical, chemical, marine, consumer, sports, additive, hydrogen, semi_equipment, pcb_equipment, display_equipment, ai_server, steel, cpo]
     pitch: Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -129,7 +137,7 @@ products:
     keywords: [鎳基合金, 镍基合金, 鎳合金, 镍合金, 高溫合金, 高温合金, 超合金, superalloy, nickel alloy, nickel-based alloy, Inconel, Hastelloy, Incoloy, Monel,
                "Inconel 718", "alloy 718", "alloy 625", C-276, GH4169, GH3625, ニッケル基合金, 超耐熱合金, 니켈합금]
     search: [鎳基合金, 高溫合金, 高温合金, Inconel, superalloy, nickel alloy]
-    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, steel]
+    industries: [aerospace, power, oil_gas, chemical, hydrogen, additive, semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, steel, cpo]
     exclude: [銅鎳合金, 铜镍合金, 銅鎳, 白銅]           # 銅基合金,歸銅材產品線
     pitch: 718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
@@ -143,7 +151,7 @@ products:
                copper alloy, oxygen-free copper, OFHC, "OFC copper", beryllium copper, phosphorized copper, copper anode, copper foil, copper pillar, C10100, C10200, C18150]
     search: [銅合金, 無氧銅, 磷銅陽極, 電鍍銅, copper alloy]
     exclude: [銅牌, 銅鑼, 銅像, 青銅器, 銅板價, 銅價]
-    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer, steel]
+    industries: [semiconductor, semi_equipment, pcb_equipment, display_equipment, ai_server, display, power, consumer, steel, cpo]
     pitch: 無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝
     pitch_source: "一般產業常見規格,尚未對照公司型錄與實際製造能力"
 
@@ -161,6 +169,9 @@ industries:
   ai_server:       {name: AI 伺服器與散熱, search: [AI伺服器, 液冷, 水冷板, AI server],
                     keywords: [AI伺服器, AI 伺服器, 伺服器, 液冷, 水冷, 水冷板, 冷板, 均熱片, 均溫板, 熱管, 散熱模組, CDU, 機櫃, 快接頭, 匯流排, 電源供應器,
                                GB200, GB300, NVL72, Rubin, AI server, server rack, liquid cooling, cold plate, vapor chamber, heat pipe, busbar]}
+  cpo:             {name: CPO 與光通訊, search: [CPO, 矽光子, 光通訊, co-packaged optics],
+                    keywords: [CPO, 共同封裝光學, 共封裝光學, 矽光子, 光通訊, 光收發模組, 光模組, 光引擎, 800G, 1.6T, 3.2T, 雷射晶片, 光纖陣列, FAU, 磷化銦, InP,
+                               silicon photonics, co-packaged optics, optical transceiver, optical engine]}
   display_equipment: {name: 面板與顯示設備, search: [面板設備, 顯示器設備, 蒸鍍機, display equipment],
                     keywords: [面板設備, 面板设备, 顯示器設備, 顯示設備, 显示设备, 面板廠設備, 蒸鍍機, 蒸鍍設備, 蒸镀, Micro LED設備, 巨量轉移, 雷射修補, 觸控面板設備,
                                display equipment, panel equipment, OLED equipment, 패널 장비]}
@@ -344,6 +355,24 @@ segments:
       refinery: 煉油與石化上游
       chemical: 化學品與塑化
       epc: 工程統包與設備製造
+
+  tw_cpo:
+    name: 台灣 CPO 與光通訊供應鏈
+    description: 共同封裝光學(CPO)與矽光子供應鏈:雷射與磊晶、光引擎與封裝、光收發模組、光纖與被動元件、光學鍍膜、測試介面與設備、交換器系統;AI 資料中心 800G / 1.6T 與 CPO 交換器帶動擴產。光學鍍膜與晶片金屬化用靶材,散熱與測試座用銅合金
+    industries: [cpo]
+    regions: [TW]
+    editions: [zh-TW]
+    days: 120
+    half_life_days: 45
+    query_terms: [擴產, 新廠, 訂單, CPO, 矽光子, 1.6T, 出貨, 法說]
+    subsegments:
+      laser_epi: 雷射與磊晶
+      engine: 光引擎與封裝
+      transceiver: 光收發模組
+      passive: 光纖與被動元件
+      coating: 光學鍍膜
+      test: 測試介面與設備
+      system: 交換器系統
 
 # ── 目標客戶清單 ──────────────────────────────────────────────────────
 # 有 segment 的公司屬於該客群,每週以「公司名稱 + 客群搜尋字詞」搜尋並排入開發名單。
@@ -697,3 +726,60 @@ accounts:
   - {name: 台朔重工, aliases: [台朔重工, Formosa Heavy Industries], segment: tw_heavy_industry, subsegment: epc,
      industry: chemical, region: TW, products: [titanium, nickel], fit: {target: 0, titanium: 3, nickel: 3, copper: 1},
      note: "台塑集團的設備製造廠(壓力容器、熱交換器、反應器與鍋爐),承製台塑化等集團工廠的製程設備;鈦與鎳基合金板材、管材的直接買家"}
+
+  # ── 台灣 CPO 與光通訊供應鏈(segment: tw_cpo)──
+  # 靶材:光學鍍膜與晶片金屬化;銅:散熱件與測試座;fit 為依公開業務內容推估的初步假設。
+  - {name: 聯亞光電, aliases: [聯亞], ticker: "3081", segment: tw_cpo, subsegment: laser_epi,
+     industry: cpo, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1, copper: 1},
+     note: "磷化銦(InP)雷射磊晶片;晶片電極金屬化(Ti / Pt / Au)用濺鍍靶材"}
+  - {name: 全新光電, aliases: [全新光電, 全新(2455)], ticker: "2455", segment: tw_cpo, subsegment: laser_epi,
+     industry: cpo, region: TW, products: [target], fit: {target: 2, titanium: 1, nickel: 1, copper: 1},
+     note: "砷化鎵 / 磷化銦磊晶片(雷射、VCSEL);晶片金屬化用濺鍍靶材"}
+  - {name: 穩懋, aliases: [穩懋], ticker: "3105", segment: tw_cpo, subsegment: laser_epi,
+     industry: cpo, region: TW, products: [target, copper], fit: {target: 3, titanium: 1, nickel: 1, copper: 2},
+     note: "化合物半導體晶圓代工(含光通訊雷射、光偵測器);前段金屬化大量使用濺鍍靶材,背面金屬與散熱用銅"}
+  - {name: 訊芯-KY, aliases: [訊芯], ticker: "6451", segment: tw_cpo, subsegment: engine,
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     note: "系統級封裝與光收發模組 / CPO 光引擎封裝;散熱底座與導電件用銅"}
+  - {name: 聯鈞光電, aliases: [聯鈞], ticker: "3450", segment: tw_cpo, subsegment: engine,
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     note: "光通訊元件封裝代工(光引擎、光收發次模組);封裝殼體與散熱件用銅、可伐合金(Fe-Ni-Co)"}
+  - {name: 華星光通, aliases: [華星光], ticker: "4979", segment: tw_cpo, subsegment: transceiver,
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     note: "光收發模組與雷射元件;散熱片與殼體用銅"}
+  - {name: 光環科技, aliases: [光環], ticker: "3234", segment: tw_cpo, subsegment: transceiver,
+     industry: cpo, region: TW, products: [copper], fit: {target: 1, titanium: 1, nickel: 1, copper: 2},
+     note: "光通訊雷射 / 光偵測晶片與模組;晶片金屬化與散熱件"}
+  - {name: 眾達-KY, aliases: [眾達], ticker: "4977", segment: tw_cpo, subsegment: transceiver,
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     note: "光收發模組;散熱件與殼體用銅"}
+  - {name: 前鼎光電, aliases: [前鼎], ticker: "4908", segment: tw_cpo, subsegment: transceiver,
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     note: "光收發模組;散熱件與殼體用銅"}
+  - {name: 上詮光纖, aliases: [上詮], ticker: "3363", segment: tw_cpo, subsegment: passive,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     note: "光纖陣列(FAU)與 CPO 光纖連接方案;材料以玻璃、不銹鋼與精密零件為主,關聯較低"}
+  - {name: 波若威, aliases: [波若威], ticker: "3163", segment: tw_cpo, subsegment: passive,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     note: "光纖被動元件與模組;關聯較低"}
+  - {name: 光聖, aliases: [光聖, 光紅建聖], ticker: "6442", segment: tw_cpo, subsegment: passive,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     note: "光纖跳線與連接器;關聯較低"}
+  - {name: 統新光訊, aliases: [統新], ticker: "6426", segment: tw_cpo, subsegment: coating,
+     industry: cpo, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 0, copper: 0},
+     note: "光學濾光片(薄膜濾光片)鍍膜;多層光學鍍膜大量使用鈦、鉭、鈮、矽等靶材,是靶材在光通訊最直接的用戶"}
+  - {name: 旺矽, aliases: [旺矽], ticker: "6223", segment: tw_cpo, subsegment: test,
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 2},
+     note: "探針卡與光電測試(含 CPO / 矽光子晶圓測試);探針與測試介面用鈹銅等銅合金"}
+  - {name: 穎崴, aliases: [穎崴], ticker: "6515", segment: tw_cpo, subsegment: test,
+     industry: cpo, region: TW, products: [copper], fit: {target: 0, titanium: 1, nickel: 1, copper: 3},
+     note: "測試座與探針(AI / CPO 晶片);測試座彈簧探針與端子用鈹銅、磷青銅"}
+  - {name: 致茂, aliases: [致茂, Chroma], ticker: "2360", segment: tw_cpo, subsegment: test,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     note: "半導體與光電測試設備(含矽光子測試);設備結構件,關聯較低"}
+  - {name: 竑騰, aliases: [竑騰], ticker: "7751", segment: tw_cpo, subsegment: test,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
+     note: "先進封裝與光通訊貼合 / 封裝設備;設備零件,關聯較低"}
+  - {name: 智邦, aliases: [智邦, Accton], ticker: "2345", segment: tw_cpo, subsegment: system,
+     industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 0, nickel: 0, copper: 1},
+     note: "資料中心交換器(含 CPO 交換器);材料多經模組廠間接採購,關聯低"}
