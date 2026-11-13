@@ -1,0 +1,7576 @@
+{
+ "generated": "2026-11-13T16:44:00+00:00",
+ "asof": "2026-11-14",
+ "days": 120,
+ "half_life_days": 45.0,
+ "coverage_start": "2026-07-17",
+ "slices": [
+  "2026-11-14"
+ ],
+ "labels": {
+  "products": {
+   "target": "濺鍍靶材",
+   "titanium": "純鈦 / 鈦合金",
+   "nickel": "鎳基合金",
+   "copper": "銅材 / 銅合金"
+  },
+  "industries": {
+   "semiconductor": "半導體",
+   "semi_equipment": "半導體設備與零組件",
+   "pcb_equipment": "PCB 與載板設備",
+   "ai_server": "AI 伺服器與散熱",
+   "cpo": "CPO 與光通訊",
+   "display_equipment": "面板與顯示設備",
+   "display": "顯示面板",
+   "solar": "太陽能",
+   "optical_coating": "光學與玻璃鍍膜",
+   "data_storage": "儲存媒體",
+   "hard_coating": "工具與裝飾鍍膜",
+   "aerospace": "航太",
+   "medical": "醫療器材",
+   "chemical": "化工石化",
+   "steel": "鋼鐵冶金",
+   "oil_gas": "油氣能源",
+   "power": "發電與燃氣輪機",
+   "hydrogen": "氫能與燃料電池",
+   "marine": "船舶與海水淡化",
+   "consumer": "消費電子",
+   "sports": "運動器材",
+   "additive": "積層製造(3D 列印)",
+   "other": "其他應用"
+  },
+  "regions": {
+   "TW": "台灣",
+   "CN": "中國大陸",
+   "JP": "日本",
+   "KR": "韓國",
+   "SEA": "東南亞與印度",
+   "US": "北美",
+   "EU": "歐洲",
+   "OTHER": "其他 / 未標示"
+  },
+  "intents": {
+   "tender": "招標採購",
+   "shortage": "缺料與交期",
+   "expansion": "擴產與新廠",
+   "maintenance": "歲修與汰換",
+   "contract": "訂單與專案",
+   "qualification": "認證與在地化",
+   "new_product": "新產品研發",
+   "hiring": "徵才擴編",
+   "policy": "政策與補助"
+  },
+  "levels": {
+   "hot": "熱點",
+   "warm": "溫點",
+   "neutral": "一般",
+   "cold": "冷點"
+  },
+  "trends": {
+   "new": "新興熱點",
+   "persistent": "持續熱點",
+   "intensifying": "升溫熱點",
+   "sporadic": "零星熱點",
+   "diminishing": "降溫",
+   "rising": "升溫中"
+  },
+  "product_industries": {
+   "target": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "data_storage",
+    "hard_coating",
+    "cpo",
+    "other"
+   ],
+   "titanium": [
+    "aerospace",
+    "medical",
+    "chemical",
+    "marine",
+    "consumer",
+    "sports",
+    "additive",
+    "hydrogen",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "nickel": [
+    "aerospace",
+    "power",
+    "oil_gas",
+    "chemical",
+    "hydrogen",
+    "additive",
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "copper": [
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "display",
+    "power",
+    "consumer",
+    "steel",
+    "cpo",
+    "other"
+   ]
+  }
+ },
+ "segment_pages": [
+  {
+   "key": "tw_semi_equipment",
+   "name": "台灣半導體設備廠",
+   "primary": true
+  },
+  {
+   "key": "tw_semi_production",
+   "name": "半導體生產供應鏈",
+   "primary": false
+  },
+  {
+   "key": "tw_pcb_equipment",
+   "name": "台灣 PCB 設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_display_equipment",
+   "name": "台灣面板設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_ai_server",
+   "name": "台灣 AI 伺服器設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_heavy_industry",
+   "name": "台灣重工業製造廠",
+   "primary": false
+  },
+  {
+   "key": "tw_cpo",
+   "name": "台灣 CPO 與光通訊供應鏈",
+   "primary": false
+  }
+ ],
+ "thresholds": {
+  "z_hot": 1.96,
+  "z_warm": 1.0,
+  "min_signals": 2,
+  "grades": {
+   "A": 70.0,
+   "B": 45.0,
+   "C": 25.0
+  }
+ },
+ "stats": {
+  "signals": 119,
+  "attributed": 119,
+  "new_signals": 7,
+  "hot_cells": 6,
+  "warm_cells": 1,
+  "leads": 18,
+  "grades": {
+   "A": 0,
+   "B": 1,
+   "C": 6,
+   "D": 15
+  },
+  "enriched": 0,
+  "by_product": {
+   "target": 50,
+   "titanium": 21,
+   "nickel": 6,
+   "copper": 95
+  },
+  "other_mentions": 10,
+  "accounts": 18,
+  "tiers": {
+   "優先開發": 0,
+   "積極經營": 8,
+   "持續觀察": 10
+  }
+ },
+ "cells": [
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.007,
+   "count": 6,
+   "z": 4.49,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.007
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "ea5f33d7ae11726d",
+    "266737a8d793851e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "68cc6d1880dc02f6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "feda90fd9323e753",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354",
+    "4805934ee5e0e6f8",
+    "d3436283b0d33cc1",
+    "67a91338b01eebe8"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 14.71,
+   "count": 14,
+   "z": 5.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    14.71
+   ],
+   "signal_ids": [
+    "7e1672bb00424ba8",
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "b96e4e6b68016aee",
+    "729ba267dd6f698c",
+    "bff5de388733a151",
+    "66631b8469f6651b",
+    "0596968a3341e405",
+    "81cee755682a7e2f",
+    "25a97b08797fbe4b",
+    "949d4b6adfdfe054",
+    "5d7755fc7745d8f2",
+    "c5dbc799f0eb08b1",
+    "6347cdf84d13dd52",
+    "a86ae3101d82dd73",
+    "5bb2f01e338ded40",
+    "3abf730d54e79b7f",
+    "ab3aea7af436aa7d",
+    "935395e72d53d871",
+    "631118f640bef23f",
+    "cbb438a24d1d4c9b",
+    "1eca502eaafc7ea0",
+    "3c51075904b573f7",
+    "cb5ee5af53082d97",
+    "e4d6cc69bf4f2029",
+    "54e4df494c52327b",
+    "0603f94c1f0924bc",
+    "3ac43f5f8fd51b9a",
+    "0d15530f1c8f308c",
+    "58cd83d7065fa196",
+    "1f79c7dc27a2e467"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 10.77,
+   "count": 8,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.77
+   ],
+   "signal_ids": [
+    "66631b8469f6651b",
+    "ab3aea7af436aa7d",
+    "266737a8d793851e",
+    "631118f640bef23f",
+    "cbb438a24d1d4c9b",
+    "1eca502eaafc7ea0",
+    "68cc6d1880dc02f6",
+    "cb5ee5af53082d97",
+    "e4d6cc69bf4f2029",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354",
+    "d3436283b0d33cc1",
+    "67a91338b01eebe8",
+    "58cd83d7065fa196",
+    "1f79c7dc27a2e467"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 3.402,
+   "count": 3,
+   "z": 6.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    3.402
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "4805934ee5e0e6f8"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semi_equipment",
+   "region": "TW",
+   "heat": 0.847,
+   "count": 1,
+   "z": 3.15,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.847
+   ],
+   "signal_ids": [
+    "c5dbc799f0eb08b1",
+    "64766cba7ef4024f"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.007,
+   "count": 6,
+   "z": 3.22,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.007
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "ea5f33d7ae11726d",
+    "266737a8d793851e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "68cc6d1880dc02f6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "feda90fd9323e753",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354",
+    "4805934ee5e0e6f8",
+    "d3436283b0d33cc1",
+    "67a91338b01eebe8"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "ai_server",
+   "region": "TW",
+   "heat": 0.354,
+   "count": 0,
+   "z": 1.93,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.354
+   ],
+   "signal_ids": [
+    "526b7253fd9edca6"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 32.488,
+   "count": 30,
+   "z": 6.22,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    32.488
+   ],
+   "signal_ids": [
+    "dc9330cb7bbe4bf7",
+    "5021247b03767200",
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "2eafe37cfe3708d5",
+    "f8507a002ec9fcfe",
+    "b451da472c60f4c5",
+    "bff5de388733a151",
+    "6cbc0f9c20a03405",
+    "17d82a30b64e2965",
+    "bcce623f0191a526",
+    "2db4d14f3f481a99",
+    "a9f5ce0198429b3f",
+    "d02a50bbaace7770",
+    "c165e46f41d4414a",
+    "230647194900e159",
+    "604bc27938ae2c77",
+    "47363a872f9850bd",
+    "1004c14460bb4bd0",
+    "23942e9ba1690c75",
+    "b8dc1e74d756ccdc",
+    "2464d1957d8d5fa4",
+    "76df01344e2d41aa",
+    "43f2db702c197d95",
+    "bd97565c2172636d",
+    "5d7755fc7745d8f2",
+    "85b4680c27cc4908",
+    "f3e96eea65bc7b76",
+    "ce3b78f828f1059e",
+    "c5dbc799f0eb08b1",
+    "6347cdf84d13dd52",
+    "422e2c173363b91d",
+    "6a2af8c465237ac1",
+    "0708027992130270",
+    "ebb2b25f47589547",
+    "48c4bdcc816344fa",
+    "bc1fb84f7f46b5a3",
+    "7f2c06d4a9999958",
+    "558b6d67b994b904",
+    "c0089bf01133adfd",
+    "cae95d69f8fec907",
+    "c93f8c74c00cc984",
+    "146911f12ae32347",
+    "51cff55bcb6ba55e",
+    "b27468fe359ed985",
+    "3202942a80ef4dc6",
+    "cfacdfa0737957f7",
+    "5fdfa4d3a0b8ff4e",
+    "a2820e17b031a379",
+    "817a99e556cd9697",
+    "7d9557397bd8816e",
+    "4fd4affd0ed4daba",
+    "64754a0248b9a402",
+    "77ecdccb4565e832",
+    "0c5d36fdab555d01",
+    "765082d0bc65ec93",
+    "58fb66f2cf3dc0bf",
+    "90a8e97ec700dc16",
+    "1e84105aaf9c8f57",
+    "a0a3ec30f33d5eac",
+    "6d5ba320da3db370",
+    "81d618c5154215a5",
+    "bd5df0614de7f35d",
+    "13a70330f1458d20",
+    "a331e6b2bb294c33",
+    "f1530fbb2aa748e0",
+    "0603f94c1f0924bc",
+    "501f36e4855e9700",
+    "294ef4da6e1501ab",
+    "ec72c5782e686191",
+    "731d575b46dc9dfd",
+    "e0a32e40efaeda12",
+    "997df50882a3f474",
+    "eca02a754eb6444e",
+    "9ee732a80284b558"
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "product": "nickel",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 3.402,
+   "count": 3,
+   "z": 6.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    3.402
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "4805934ee5e0e6f8"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 10.77,
+   "count": 8,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.77
+   ],
+   "signal_ids": [
+    "66631b8469f6651b",
+    "ab3aea7af436aa7d",
+    "266737a8d793851e",
+    "631118f640bef23f",
+    "cbb438a24d1d4c9b",
+    "1eca502eaafc7ea0",
+    "68cc6d1880dc02f6",
+    "cb5ee5af53082d97",
+    "e4d6cc69bf4f2029",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "48c9e5a4e76ea912"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 32.488,
+   "count": 30,
+   "z": 6.22,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    32.488
+   ],
+   "signal_ids": [
+    "dc9330cb7bbe4bf7",
+    "5021247b03767200",
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "2eafe37cfe3708d5",
+    "f8507a002ec9fcfe",
+    "b451da472c60f4c5",
+    "bff5de388733a151",
+    "6cbc0f9c20a03405",
+    "17d82a30b64e2965",
+    "bcce623f0191a526",
+    "2db4d14f3f481a99"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 14.71,
+   "count": 14,
+   "z": 5.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    14.71
+   ],
+   "signal_ids": [
+    "7e1672bb00424ba8",
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "b96e4e6b68016aee",
+    "729ba267dd6f698c",
+    "bff5de388733a151",
+    "66631b8469f6651b",
+    "0596968a3341e405",
+    "81cee755682a7e2f",
+    "25a97b08797fbe4b",
+    "949d4b6adfdfe054",
+    "5d7755fc7745d8f2"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.007,
+   "count": 6,
+   "z": 4.49,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.007
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "ea5f33d7ae11726d",
+    "266737a8d793851e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "68cc6d1880dc02f6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "feda90fd9323e753",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.007,
+   "count": 6,
+   "z": 3.22,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.007
+   ],
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "ea5f33d7ae11726d",
+    "266737a8d793851e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "68cc6d1880dc02f6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "feda90fd9323e753",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semi_equipment",
+   "region": "TW",
+   "heat": 0.847,
+   "count": 1,
+   "z": 3.15,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.847
+   ],
+   "signal_ids": [
+    "c5dbc799f0eb08b1",
+    "64766cba7ef4024f"
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "org": "穎崴",
+   "account": true,
+   "score": 67.4,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "new_product",
+    "contract"
+   ],
+   "signals": 9,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-11-10",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.38
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "997df50882a3f474",
+    "294ef4da6e1501ab",
+    "13a70330f1458d20",
+    "0c5d36fdab555d01",
+    "5fdfa4d3a0b8ff4e",
+    "17d82a30b64e2965",
+    "dc9330cb7bbe4bf7",
+    "bd97565c2172636d"
+   ],
+   "signal_score": 45.7,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 27.4,
+   "value_part": 0.0
+  },
+  {
+   "org": "統新光訊",
+   "account": true,
+   "score": 61.5,
+   "grade": "積極經營",
+   "product": "target",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "shortage"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-11-10",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.48
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "58cd83d7065fa196",
+    "e4d6cc69bf4f2029",
+    "ab3aea7af436aa7d",
+    "cbb438a24d1d4c9b",
+    "66631b8469f6651b",
+    "1f79c7dc27a2e467",
+    "cb5ee5af53082d97",
+    "1eca502eaafc7ea0"
+   ],
+   "signal_score": 35.9,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 21.5,
+   "value_part": 0.0
+  },
+  {
+   "org": "聯亞光電",
+   "account": true,
+   "score": 50.8,
+   "grade": "積極經營",
+   "product": "target",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "shortage",
+    "qualification",
+    "contract"
+   ],
+   "signals": 9,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-30",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.19
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "0603f94c1f0924bc",
+    "0d15530f1c8f308c",
+    "3c51075904b573f7",
+    "5bb2f01e338ded40",
+    "81cee755682a7e2f",
+    "3ac43f5f8fd51b9a",
+    "54e4df494c52327b",
+    "feda90fd9323e753"
+   ],
+   "signal_score": 40.3,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 24.2,
+   "value_part": 0.0
+  },
+  {
+   "org": "穩懋",
+   "account": true,
+   "score": 48.3,
+   "grade": "積極經營",
+   "product": "target",
+   "products": [
+    "target",
+    "copper",
+    "nickel"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "shortage",
+   "intents": [
+    "shortage",
+    "expansion",
+    "contract"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-08-25",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.19
+   },
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "6347cdf84d13dd52",
+    "dadd22db474cd3f6",
+    "c5dbc799f0eb08b1",
+    "bff5de388733a151",
+    "7dd0a576fc4ba1de",
+    "5d7755fc7745d8f2"
+   ],
+   "signal_score": 13.9,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 8.3,
+   "value_part": 0.0
+  },
+  {
+   "org": "聯鈞光電",
+   "account": true,
+   "score": 48.0,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion",
+    "new_product",
+    "shortage",
+    "qualification"
+   ],
+   "signals": 7,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-11-10",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.67
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "e0a32e40efaeda12",
+    "146911f12ae32347",
+    "2464d1957d8d5fa4",
+    "b451da472c60f4c5",
+    "731d575b46dc9dfd",
+    "43f2db702c197d95",
+    "a0a3ec30f33d5eac",
+    "d02a50bbaace7770"
+   ],
+   "signal_score": 35.6,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 21.4,
+   "value_part": 0.0
+  },
+  {
+   "org": "旺矽",
+   "account": true,
+   "score": 47.3,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target",
+    "nickel"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion",
+    "hiring",
+    "qualification"
+   ],
+   "signals": 8,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-11-12",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.38
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "9ee732a80284b558",
+    "4805934ee5e0e6f8",
+    "eca02a754eb6444e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "765082d0bc65ec93",
+    "bd97565c2172636d",
+    "2db4d14f3f481a99"
+   ],
+   "signal_score": 34.4,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 20.6,
+   "value_part": 0.0
+  },
+  {
+   "org": "訊芯-KY",
+   "account": true,
+   "score": 46.1,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "shortage",
+    "policy"
+   ],
+   "signals": 4,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-09-22",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.67
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "81d618c5154215a5",
+    "0708027992130270",
+    "c93f8c74c00cc984",
+    "b8dc1e74d756ccdc"
+   ],
+   "signal_score": 19.4,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 11.6,
+   "value_part": 7.8
+  },
+  {
+   "org": "光環科技",
+   "account": true,
+   "score": 45.6,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "shortage",
+   "intents": [
+    "shortage",
+    "expansion",
+    "contract",
+    "new_product",
+    "qualification"
+   ],
+   "signals": 6,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-10-13",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.85
+   },
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "501f36e4855e9700",
+    "f1530fbb2aa748e0",
+    "a331e6b2bb294c33",
+    "90a8e97ec700dc16",
+    "422e2c173363b91d",
+    "6a2af8c465237ac1",
+    "ea5f33d7ae11726d",
+    "f3e96eea65bc7b76"
+   ],
+   "signal_score": 31.6,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 19.0,
+   "value_part": 0.0
+  },
+  {
+   "org": "華星光通",
+   "account": true,
+   "score": 40.9,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "shortage",
+    "contract",
+    "new_product"
+   ],
+   "signals": 6,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-10-12",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.85
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "0603f94c1f0924bc",
+    "7f2c06d4a9999958",
+    "c0089bf01133adfd",
+    "5021247b03767200",
+    "2eafe37cfe3708d5",
+    "558b6d67b994b904",
+    "6d5ba320da3db370",
+    "bc1fb84f7f46b5a3"
+   ],
+   "signal_score": 23.7,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 14.2,
+   "value_part": 0.0
+  },
+  {
+   "org": "前鼎光電",
+   "account": true,
+   "score": 34.2,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 3,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-09-10",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.85
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "1e84105aaf9c8f57",
+    "f8507a002ec9fcfe",
+    "a9f5ce0198429b3f"
+   ],
+   "signal_score": 12.5,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 7.5,
+   "value_part": 0.0
+  },
+  {
+   "org": "全新光電",
+   "account": true,
+   "score": 31.3,
+   "grade": "持續觀察",
+   "product": "target",
+   "products": [
+    "target"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-09-04",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.19
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "935395e72d53d871",
+    "25a97b08797fbe4b"
+   ],
+   "signal_score": 7.8,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 4.7,
+   "value_part": 0.0
+  },
+  {
+   "org": "眾達-KY",
+   "account": true,
+   "score": 29.1,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-14",
+   "last_signal": "2026-10-28",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.85
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "ec72c5782e686191"
+   ],
+   "signal_score": 4.1,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 2.5,
+   "value_part": 0.0
+  },
+  {
+   "org": "上詮光纖",
+   "products": [
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -1.52
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "光聖",
+   "products": [
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -1.52
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "智邦",
+   "products": [
+    "copper"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.54
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "波若威",
+   "products": [
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -1.52
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "竑騰",
+   "products": [
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.07
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "致茂",
+   "products": [
+    "titanium"
+   ],
+   "industry": "cpo",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.07
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  }
+ ],
+ "signals": [
+  {
+   "id": "9ee732a80284b558",
+   "title": "旺矽Q3每股賺19.18元、連五季攀峰，訂單能見度直達2028年",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5fdzZySzlfblQtbVdSU0YzTGhkTDJRS1BwbHUwb1VuOURJS0VvMTdUSVBBVEJ4S1JjaGFBNGVzZVRlSW13TV8wclJHVDR5OG1GY2Y2ZXhBeDFqajZGVG1ZcDNRZW5JTEdMY2VhYURRWV9kVmV3Yl9yRjlB?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-11-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "旺矽"
+   ],
+   "accounts": [
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.745
+  },
+  {
+   "id": "eca02a754eb6444e",
+   "title": "旺矽Q3達EPS 19.18元創高 探針卡產能全面滿載、明年營收再拚雙位數成長",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE83SVk4dTlBN3I1dXBGbm1CTHlFZjVHcVdqbXlqYkpsYUIwb0ZCblNqUk42R0E0eEZkWkEtcHBUS2ItdGZkVVNiSVNmVEIyQkRwT2c?oc=5",
+   "source": "鏡報",
+   "published": "2026-11-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "旺矽"
+   ],
+   "accounts": [
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.687
+  },
+  {
+   "id": "e0a32e40efaeda12",
+   "title": "聯鈞Q3獲利大躍進，訂單能見度看至明年底- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOOGFoOVdjUjV6NllEYklIT0FZMnFvaFZfdlNOUzNsSUFCVzlyckFPSWQ1Nk83UUgwdm9rQUlleDZNY25henoxUmlRSEJiQkwxVTZsV2l4U0ZnSVZhUHV6TDVObThUeWNhSHdaYjVPcUVNbUtSMzZaUmdndm94YTVZb3QwaC1BYklueVR5blpOdm1TZw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.692
+  },
+  {
+   "id": "997df50882a3f474",
+   "title": "穎崴探針卡擴產，AMD/AI晶片需求升溫",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSkhVek0zblpUeEZXQ1pCeHNnUWVPV0VLd2pDNjB6Yml6alp1YVU0a3NzS0x5b0tEVTJMVVlWcEJVOXdicUxvMzZKTTBkN3I2UzFxaE1Xc3BYbkwwdlZZSlB1eVFkVWt6cXRjaVdsS0JTQXJqbHdCbERDMjZaUXFSc01sd0RoVld0ZUg2M21JdW10QQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "58cd83d7065fa196",
+   "title": "統新：Q3 EPS2.06元 追加資本支出強化接單與供應能力",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9DaXVkenFBVXIzR2U2VWhhemdmVnltUl9WckpDT2NvMWNwLVpsaDdHQldNRlJTaU82VG5fdmxMcEVMbnVzTkRMUFNmZjZ0bDhzZktYak5DcTV6eG9oWHZN0gFkQVVfeXFMTXhsOWF4aE1MS1RORFlPcXN6T2V4d0FnLVdUbnFYdUlJdS1ybTQzVHdXOEJKU1d1c211MmVQTzJlQlNsUDg5ZmZQSzVtdXZFenM1Qi1JQmhlbTBkTkJYWndvVzRnZg?oc=5",
+   "source": "自由財經",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "1f79c7dc27a2e467",
+   "title": "統新前3Q EPS為5.02元較去年虧轉盈 新產線於2027年Q1起陸續量產",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5OaENqcEVCamx1SXpubUtDVG1ocXlSQWV2X253bGlrT1h6OWRoRzlwSEJ0WlBtaHBvN1V1Y3VhcV96ZHdpRFZRV1E4cGs1TkE?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.677
+  },
+  {
+   "id": "731d575b46dc9dfd",
+   "title": "聯鈞自結9月獲利爆增逾14倍 看好訂單能見度至2027年底",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1iRmNOUEdEMnVaa0JxVjlXRW5obFRLamthMlVQRGZFTHJ6TlpZTFN2eEtrcFpPTFJXbExsYTd1dWZ0Z2ZqTjhtQ1hvTEt2Y28?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-11-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.667
+  },
+  {
+   "id": "d3436283b0d33cc1",
+   "title": "外資挺日月光投控強勁成長，先進封裝與 CPO 量產目標價最高看 908 元",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNjlxUXYtRERNd1pUaG4zRURZRWc2b0hnbXZyQWhnYzFOLVRzbGp5Rzlzb0JBa1kyXzNZNnczQ0dwWkVhdEZGZ3VqQV8yV3J2RUVoQTJ1UjgwNGRhZkxiR0xONDRyYlYyVnNpU2poSEJWeUVxYWJlUUtLVUpmS0JZeEg3d1hUSXFYenQ2SDJKNlJ0QXV2cGVWNVc2Y284NzR2Q21kTVFR?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.571
+  },
+  {
+   "id": "67a91338b01eebe8",
+   "title": "頎邦前三季EPS 4.33元，矽光子布局逐步收成、馬來西亞新廠添動能",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBDMnRqSWJzamhmSHd4YlByWjVBR2JvdThlOUZiZDNSNEhlX0ZBaGt6eG9XUmdHWndQWmJyZGp5d296ZzdTZm5MVmVMQXNXUnc5?oc=5",
+   "source": "鏈新聞 ABMedia",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "頎邦科技"
+   ],
+   "accounts": [
+    "頎邦科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.571
+  },
+  {
+   "id": "0d15530f1c8f308c",
+   "title": "GlassBridge 是什麼？康寧光互連熱潮解析：聯亞、上詮、光聖誰是CPO 供應鏈贏家？｜產業熱話｜豐雲學堂2026 年 11 月",
+   "link": "https://news.google.com/rss/articles/CBMi-ANBVV95cUxPLXRzYjB0WTlaMzRzRmpPZEFWLVBTNGJwNVNUMWVKYjZYOUlkOTFyU2pXai1pb1pUUWM5akR5UjJRRnVYWTF3XzJmcm5fX0ttSnc1NGtNdGJMdWZiWUl0RVdmZHNOV1NIdlk1UlJ6VlFQLWZQRVZSWEhWdlFRVlBRWmxrNUc3VDl0dHh6YkQydVFVN09GUkctSWRadHMxZnUta3ZYeGdlTGtNOEtERTlNVjZDTWRlS3FSWTJEV05weGt2cDdsZzhld0ZtOGlaTHNpcjVvWUZ0VE54WFo3YXRNU0xUNEZLdVNZUEFzbF9xZFp6T0V5UE51dHl6dE1JdFhES0ZCRDFreDhHNGhhaTBzWTJsWG1wR0xfejh3bzY4dXpFLWtYc1cwLUJYS0piLU5MWm9Fal82MTZKT2t4QUl3YkZUZFdkZFJ3NU40ZmsyZzdhUmUxTWxPN204bmFlTnVzWi1tYno3SGc2NS1YVW5ndWtvaDhKZV9waTFoTW0zVkptcDNwVlVsTkctbDFwcnJuejhtakpaSWlOLWd2M2N6TVNOS2dIdTRyeFlmQ29RRmtjYjB3ZHdrZXBfOXo4NHNWUEVYclROTXZ0MG1EZngyRzY3XzlENm5ua1RFU3ZpeF9CYTBBZ1RYdjNDOEZtZ0JGMXN6OENaa3I?oc=5",
+   "source": "永豐金證券",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電",
+    "上詮光纖",
+    "光聖"
+   ],
+   "accounts": [
+    "聯亞光電",
+    "上詮光纖",
+    "光聖"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.429
+  },
+  {
+   "id": "e1cbbe3a5a5d890b",
+   "title": "日月光上修先進封測營收 再擴資本支出CPO營收看增",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNNlRiX0FyNUdtcnloSlpGMDhTb1Q5by1zd1BoWWViWTRTVDBxbXFQRHJ4OHZyV2dkc2pHSU1NRVVQUlJaQXVhUDFZaUg1ejUwd3hZWjZWYmxuUUh4N0wzQXVldUJxZE5OV21fODJVNWFCQUFSS3FpZGFQSzA4V0QwTNIBX0FVX3lxTE5GQzhYa2gtc1hCM3U4b3hxd1ZtcHJkVXlVVExoUVlqb0hfY21vRE1NdUdvSGxKYTdZQVZReUtWS2gtanlLVW1SYW1ZRXFRTmdyaFVWdWljM1QtYzlab2pV?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "8148d310bd56d625",
+   "title": "CPO第四季啟動量產、明年營收估逾5億美元！日月光投控2027年LEAP業務看倍增| 魏鑫陽 | 財經",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0yampiX2tERG5uRV95YngtMFptcDNad1VaOHZ3LUFQaTczdTlWWE5rNWlXY3k2OVFZYTZJa1U5c3BpdHhWZnRia3dUbEFUQQ?oc=5",
+   "source": "風傳媒",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "6221a812837a1354",
+   "title": "【日月光投控 3Q26 法說會】LEAP 營收明年挑戰翻倍、CPO 正式量產，先進封裝如何改變日月光的獲利結構？",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1iQktCNE9IdHZxLXNKLWgzSzFxUGctUXVYSzhoSUVzV2x6emJITWhvdzhNOEl0QmExbW5QdENIbjVtNi1TeDEyelBVNG5BeEtzX0VIMlhFbHFtUWE3ZEQzZDFMbVpKMms?oc=5",
+   "source": "富果直送",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "48c9e5a4e76ea912",
+   "title": "日月光上調資本支出 全力搶食測試、CPO 大餅",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9HQlQwcEtBVGZZLXVkVVEzdmRZM2xSbUtZdW9MRms3OWVnZWhHMWd0RFZJa1JndnBuaEdfNXQzRUhxODR4ZHg0ZzZXUVJjd1hzYWVCeUJ3Qld5QdIBX0FVX3lxTE02MjJ4WW1rUEFmV1kydTNoaGVqN1VMMW9YcmM1YkFSN210NXp2bGFRYTdmdzRlRjBGaGRUZ3h0M255U3VyU2s1QWdlRXg1a0d3ZzFGcEs4V2pFR2o0UVRj?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "489a62cb460a95c1",
+   "title": "CPO第四季啟動量產、明年營收估逾5億美元！日月光投控2027年LEAP業務看倍增",
+   "link": "https://news.google.com/rss/articles/CBMiqgNBVV95cUxQZGxUSnNpdDZVVWQyTlF6dmVNSUNlWFA2cXJBV20xdmFXWHN1Z19USERGSG9sdUNycWRXV1c4OFVZUTZkQWo4akFHV3FTaEdzVU11dDNITFNVS19vRUVHT2lQMk9NZHp0OU9oNWV2QXBYZ2NNTFBjMnd0cnZWdGdTZHVYeVFyZDEyc2lSRnl2MTZfRFpFSmFnOTd1M1BfRnNoZlFoVllGeXRrMEJweE5DNVRhOHp3Q2xMdmNlUTcwMjFWX2VtV01XWVdEcHVBeFFNc1Q1TE05N0M3bmhsM0lxU0ZSUm0zaHRsam1IVFZ1dXEzM1Z1bEJKRWlGTWdIOTFGejFoNmhZemlHZkQycXN2a3pldjZZLWZBajNfaXBqNmVEcFNvZmFyZzNwV1FiUnJlV2pDNVlTdWgtbWxEM1JHR1luT01ZVDNHREtWdUo2MVdoLUdkVjQyQW0zY2R3ZVlGZk9KbnViS2VFOEJVMjNsUFZURFdmR01fZmktUnlyZFJTMVM3cHVYUDAtcmR4ZmM1Wmh2ODZGUVJKVjUwMmtMN2pPdmp1aEd1NFE?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "4805934ee5e0e6f8",
+   "title": "CPO測試商機全解析：台積電COUPE量產後，致茂、旺矽、鴻勁搶進Insertion 1到4｜產業熱話｜豐雲學堂2026 年 11 月",
+   "link": "https://news.google.com/rss/articles/CBMi1gNBVV95cUxNaDVRYkVKVDRyczhhOFhGVkRzUkw2dnk5Nzh1LVhkdDFLUUluSXRYX2pQUHlFZ1JqTmRmM1doU3RsZUJqa19Beld6c3Npd2NackVfTEJFdDdnYkc2SmdaMUFVbTJORUZHTXItZVpIRnA1UG9MSGxsQ3NhUzJYQUZmUThLSU1lU3ItQnNidWtWSWVZdzBEbTEzZTRDSTQ5QmVvQlZ6WDVIU3l2bENPdkg0Sm1xQktPTGtFRHEtNG5EZC1wOHVoejYzUTFUWXRJNENqc05DbnVMU2dHMTc1S1hwbHFxV3FDZzVFQ2I3Ti1GQmpBeGtESkRtb2Nxd1M1LXpDNko0MGY5elhYdDdPeEZhc0lhUzhDUFUtblhHUzhtOFlVMWduckVsS0xRbEZZZHFVVnE2MjJoMU9wY0tUX3hwVFJVX3lTRDdFWXJSMTNiZjZaZWk0UDhzODVJbXRyNDlpYXIyc1FXbmNYdEM3dy1wVFlQenc4RF9jeGV5TTBfd1JVZkI1UjJ4TjBKZEVPSGVNUTR0czNSXzlsOVBNRFZCakpPcHZlVnlnakFGY3hKRmRZdDB5WFVxZURvMkEwVFk4aUd1d3JHbmtvMUpSQ0lsajhsbmdoZw?oc=5",
+   "source": "永豐金證券",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "旺矽",
+    "致茂"
+   ],
+   "accounts": [
+    "台積電",
+    "旺矽",
+    "致茂"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "079fa22c8092db84",
+   "title": "日月光上修先進封測營收再擴資本支出CPO營收看增| 證券",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1IejhGSWdBM1dhMkNBeXNSSFNabHpncmFERWlBTkN5MW9EMkdwZHRia190eV9PdXIzYzZYUEtUVHZMVUFYdENQSjJ1UmlUVVloTDNvOEtuX0trdW5QQ2c?oc=5",
+   "source": "中央社 CNA",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "feda90fd9323e753",
+   "title": "股價有救？聯電砸千億擴產 聯亞手握逾半年長單",
+   "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1rNGtuWWtGalc5VWNGSE5vdkQxQWZmZUlEY2FFcUhaR2pBNW9pMDJuYmhQN2lHY1lWV202aVN6b3RVQ25ra05IUGIwOVcxOU1TRDE1RU1XVQ?oc=5",
+   "source": "東森新聞",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電",
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯電",
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.554
+  },
+  {
+   "id": "ec72c5782e686191",
+   "title": "今日最夯股／眾達-KY亮燈漲停 外資大買逾千張！ 博通AI訂單題材點火 | 市場焦點 | 證券",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1tc3dBeE9xa05FS3FfV2RCc0cxb0JpNHVIZDdEWndKV1VqUGo3UHE3RTJmS0lUeUUxSTYxRkhHZnJLZTh5bVJ3NV9LTXVaS2t6azd5a2ZwMVR3dw?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "眾達-KY"
+   ],
+   "accounts": [
+    "眾達-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.416
+  },
+  {
+   "id": "3ac43f5f8fd51b9a",
+   "title": "聯亞每股賺6.12元、訂單超過產能，擴產後能更賺嗎？",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE85YzNILWx4YURMRWpDMXBTb094N18zSzgwanNiMlVJeE5CZnNMU1NPaXZYSlJPeFB0YTdLeUw3ZHJrZVE3eGJNSjJYdExFMTU2RWFkSUJMLXZ6WVRzb1A3SXdOMlVvZw?oc=5",
+   "source": "口袋證券",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.963
+  },
+  {
+   "id": "55da103bce89a169",
+   "title": "輝達霸氣預付357億包產能！點名欣興、京元電、日月光投控大擴產，CPO狂翻30倍",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1SX2xiZmxEVmtCQzBabW1Ma0Yxajg2NFM1Wk1odG9hd3lIS3lycy15TkNRNlhpMDhad0JGazNGTmRJSzI0cmtISS03RTRGOGt6eTRTNEg5M2MyZlVSYnBRYnRMajNHZDc0d251c1ljcw?oc=5",
+   "source": "理財周刊",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控",
+    "京元電子"
+   ],
+   "accounts": [
+    "日月光投控",
+    "京元電子"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.684
+  },
+  {
+   "id": "294ef4da6e1501ab",
+   "title": "AI CPO促全球半導體測試產值上看208億美元 穎崴等擴產搶食市場商機",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9BN2RlaGV5Zm0xenFwMFpzWW5qUGtXSHU4X3d0YWlwbm9zc1lLYlZVOGI1MGRlMGw4Z0dYQjBUdDdQeTNJbHVBel9xalplVFJw0gFWQVVfeXFMTjM5Z04zeGx2aGh0cVRLc3ppYlRkM3RhbU8xYmxmT3AxbFZsdFRrMm5JZ1RiV1VIaml4b3dIbXlwOTVMb05MZG5LWThuTVNzZmh0U05VMHc?oc=5",
+   "source": "UDN",
+   "published": "2026-10-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.682
+  },
+  {
+   "id": "dfdb857bb6828222",
+   "title": "先進封裝需求旺到不行！日月光投控9月營收881億元連3月登峰CPO年底量產、2027年導入PLP自動化",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1vWENROWI4VzdIU0ljeXpYZVFNQjg3eV9fcUE2U3VOalo3SkpCRC1hVkhNVkdFbkJlTXFyMnJEcUE3bFNfOU9zS2xiaw?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.466
+  },
+  {
+   "id": "64766cba7ef4024f",
+   "title": "Q4迎營收認列高峰！鴻勁、致茂、帆宣、中砂誰更有戲？ 「它」在手訂單達1578億元、台積電美廠助攻營運",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9OaWZkSGoxaGNWY2dybDlINlVSTExjdm02elVzMDl1N2tqVkF4UlRpa05FY0xfXzREencwY2ktdU96VHFhNlZEZGpNbw?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semi_equipment",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "帆宣系統",
+    "台積電",
+    "中砂",
+    "致茂"
+   ],
+   "accounts": [
+    "帆宣系統",
+    "台積電",
+    "中砂",
+    "致茂"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.33
+  },
+  {
+   "id": "501f36e4855e9700",
+   "title": "光環(3234)9月營收年增140%！InP代工擴產加速，上游材料吃緊成最大變數！",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5FQ0Zpb1ZoM1ZwS2loa3hMblVldUJzeFhyV3lDalJPMmJjNVVOMnVheVJLZEhHdGFyb1RBMVYzMERja010Y0RxaWtwaGk4MzA?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage",
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技",
+    "上游材料"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.558
+  },
+  {
+   "id": "0603f94c1f0924bc",
+   "title": "光通訊缺貨大爆炸！美國大廠驚爆「7成訂單做不出來」 產能賣光到2029年、聯亞華星光沾光",
+   "link": "https://news.google.com/rss/articles/CBMi_wNBVV95cUxNNnplQ1cxUzNxYWdRbXFPb1BhWkZMN0xKZks3V1FpT3hTUEhWeTBqTFBKcUdVTlJJYmdLd1BYbjNseElpbFp2QjVVU0MzMC1vLVMzcnU4M0NjVER3ci1CelpPcUtkWTMtdmlwUm1yT3JibmkxVkR1SVdlaG1pRTR6TTV4MmJJWEcwUlRxOVJYeGJEY3dpdDdzbXd4ZEpKbGlramlMdDRRRndUOEVsTFRRcmtQczBOUDlMSEZsalJDZzZtVDlVd0VZN1hFYjJRMjhadUVZUGR0NUZMTlRYbUhreGxqMHFBU0k3NTZEMUFYNG9JM0JGVTZZV3ZKZDluNmZLQkRjY3lGSmhIZ2wtakNHUkx5UzZVUXFnXzNpZ1JVd0dOUGhUVGdlTnZtSGdxaERWZ1RrZDJhcDFQd0JMZmNUZkJfZmh5c0xmLW9jbU9WZFJzNG9EX29qNGxBQkREMUxNN2ZSSU85Zl9yR3Q3MDQxZnUwNjVHZGtMdlI0UEdGNk9IZnltbHVvMnQxdHoxRXJFTzV6aGNvLUFlcnliVThHNWRLeEdVNUctYWxDT1NRNGl3QjgwdXY1WHdSVE1fZTFGUjVmNEtJMkhKWUVVNmt3UDE0VU1KMWhrQWhydGl3aXNCcTBUbXdXWWNaVDN5ZC1JdXZMdG43RnRvYThkMTZz?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage",
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電",
+    "華星光通"
+   ],
+   "accounts": [
+    "聯亞光電",
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.624
+  },
+  {
+   "id": "f1530fbb2aa748e0",
+   "title": "光環營收／9月1.21億元創新高 客戶訂單需求持續增溫",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBTcmhRck9xV0FyZ1IyaXp1cURvYkRoQmdYTHFfN2FZZGNJM1FFMWp2S3dzdkM1Nm80bzhMUlltWWhPdUpibUdNdmxDOWFUNzRCZXRybnJuZUhrODDSAWBBVV95cUxONVpXTlJiVEJSbDUwTkNNemh1TU9jalR3RS1ULUF1Yy16R2VKeThsMGVFU3FJOXRrX3NzY1YyVmo5aGtSZVFBb3F1WG1vYUxzTkh3TldjbDd2NGpqbUNDVDE?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.002
+  },
+  {
+   "id": "a331e6b2bb294c33",
+   "title": "多晶彩DJC深化MIT研發布局 從光膜天花走向建築光環境系統整合 | 建材新訊 | 商情",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9mSkIwakR2TWVqdExwbDh6VWxwTWNKeENuUUtKOUNpbS1WMFBIelB4clJKRFpUZDVDWG5nRTZ4ckxEMVRGVFlyczVvQUt0V2trWmhzYTNmSHg3QQ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "晶彩科技",
+    "光環科技"
+   ],
+   "accounts": [
+    "晶彩科技",
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.81
+  },
+  {
+   "id": "54e4df494c52327b",
+   "title": "聯亞強攻漲停！今明年擴產火力全開",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9uMEJKcERURF9FQmdhQmhqRmdOLWVjQnM5ZGZYWGZQTzk4R3dzSDNCc3BYLVBEN19fb2RHamY5NEN5OWZ2MmV5V1pqdHhJWWJiVGlsZUNYQllXczjSAWBBVV95cUxOWGpMVTBic05pcGlqanVLWEREaC00SUJodHVhWTV6VGdPel9wd1pQVlhVRmlSbE5adEM1TzNhaldqX2hUSHVSSlRuNDNWVDhBNzBkeTlYN0I3MzM4ejFDUEs?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.371
+  },
+  {
+   "id": "13a70330f1458d20",
+   "title": "晶片越強「探針卡越難做」？「這台廠」訂單看到2027年、精測再擴產50％ 穎崴營收暴增233％",
+   "link": "https://news.google.com/rss/articles/CBMi_AJBVV95cUxQUGs0RXNNdzJsdnJLTm9JaVowUnVyQ21wN1J0U0xjei1oZ3Npc3A2bG1ya25MWVlSYWZxOFgtWk9lb0xTZnlPWWdrQjNuOWhNeEpqVTFqbEdURUVESkRwd3VjNzBCLXNZVXlNMTE4NG5MNmw1UzB3TzNjbW5Ga2lzVENVMTl0TEhnZzVjQ0RyWWNTbnl0MWpMWmN0OFpnalVuV0N0T3Vpd0tOdmcwTmgtV2g0YjF4Z0N4VU8tSVdrcDRYejZCVWdvV0doU05mQUV6cEdtNi03UVdJeXNlSThkZlNvV0F2ajVVRXB4bS1FRE9OVG5tTGJTd29QRUxvNHBDd1lrWFM3ODJ4Z2RLendpeGoydlVuME9uaENIRFczSXJQWGlqNklrODFfT2FzdmpDRFF2eFNnemVTYWlsRDBaMFRWN1JCcFpIWmExTDZ4ZXlZaE5WU3VTNXdRN0tlenNvQ2k1TlY2UjlYSXpvVWQxZjkxNTZhU3NOb3JKeA?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.295
+  },
+  {
+   "id": "526b7253fd9edca6",
+   "title": "輝達 CPO 交換器量產超前！外資點名波若威、貿聯吃香；大立光入冷宮",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAzMnJ3Nnd4SzRHQzVEZWR6ZFFibEoxY1RRQnhjbWVMQTA0cDM2QlktX0x4enBnaG16NzVfU2I2czZjZ3MyaWxrNjk2Ym1Wdlg3MWdMZ3Z3OUNlWFY5UGhBV3prRQ?oc=5",
+   "source": "鏈新聞 ABMedia",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "大立光",
+    "貿聯-KY",
+    "波若威"
+   ],
+   "accounts": [
+    "大立光",
+    "貿聯-KY",
+    "波若威"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.354
+  },
+  {
+   "id": "e4d6cc69bf4f2029",
+   "title": "大統新創看Q4訂單回溫；拓展中國戶外品牌- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOYl9FY3F6bW5iZFJoT1RlS3VKbExsRVJyYnhLSjdIVXBkLTZWVTFfcjZ6NERzek9abTl5SXFIWHhjVERBYnhEc2xpU1dTbkU1T18yWU00b2VRaXAwa1pxZGVYdi1DTXAwek5LNU8wb0hmbHFZOS1LYjctZjNpMVlhQmhoMzNFQUoySWhCNS03WXRlUQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.821
+  },
+  {
+   "id": "cb5ee5af53082d97",
+   "title": "今日最夯股／光通訊訂單滿載 統新漲停創新高 | 市場焦點 | 證券",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9MTFRTaV9WUjcxeVlOMDdrbUNsZ0VOUjBjZy1zTTc5U0o1M2MtLXF2VGdhSFhpYW9CcVAwZ1lNdnJwMUtxb0pmN3ZWTnJBS1NNRU1oSlFvSlNkQQ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.242
+  },
+  {
+   "id": "bd5df0614de7f35d",
+   "title": "新廠產能開出優於預期，大和證券給予穎崴 10,000 元目標價",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPWlA1SlNFWHhDR0lGLXdPMDFpbjBNUFliZUZnVGFzOUxhc0tsQjQtQ1pBaE9wVU43M29udXNLQXVaTmRlTlNmYXpHUzJHenJ4ZTNxMUZnOS1BT0c1RWt1OW5zNy1hXzc2dWNCejMwUGp1UTVBcWwxYkcyN2swc0M1RXk1RTVFeGo0a01iRGVHREE1WVYzNGZUY0F1aTM?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-09-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.318
+  },
+  {
+   "id": "81d618c5154215a5",
+   "title": "訊芯-KY(6451)量產即放量？51.2T CPO 點火卻未爆發的背後真相！",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9EVzlGaGc2eERuQ3pmY25reElYS2tuY1JzOTVPeXo4MDFYZnZUbEtpODFjNElFSzJzTTRsLXpWRTA5aER3LWdfbndZc2w0eXc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "訊芯-KY"
+   ],
+   "accounts": [
+    "訊芯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.061
+  },
+  {
+   "id": "6d5ba320da3db370",
+   "title": "〈焦點股〉「3.2T矽光子引擎」技術發表 華星光、環宇-KY漲停領漲光通訊股",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBCUFBNVXlfU3l0Mkw1R3pEdE9JSExUbGhLQUg1TkRjakpURXN4bUhOdnNncU5SV3ZpeFA0cFFhcS1DMUR4cjBVT250TVIybWs?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.187
+  },
+  {
+   "id": "a0a3ec30f33d5eac",
+   "title": "聯鈞訂單旺攻漲停- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBGZ01XcDVLeng4SldkcnQtUklMZ091SjJ2aHRKWGdRVmZWUlloSk9sWG9HTU1fZ3RYLWFhS1BzZFI1RVVJZ0xjN2ZEeXJxc1hEWUtPSEY1VkdtcS10Z0FR?oc=5",
+   "source": "工商時報",
+   "published": "2026-09-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.221
+  },
+  {
+   "id": "68cc6d1880dc02f6",
+   "title": "頎邦DDIC先有旺季加持，後可望打入韓系供應鏈，CPO金凸塊明年貢獻擴大",
+   "link": "https://news.google.com/rss/articles/CBMiqwNBVV95cUxQQ1JHUy1jX0Z5eHprQmE3b215cHpHMmJWb3VqQmMwUi1CTW9icVkyTXB5RVlUbFpTYzEtajVQOHlmaHdpbW9NbVhNbWNRSjhjQ1FYMC1DN3dXTnBmT2FaeXZWRnpoSzgwWElxM2tXUXF5YmFQQ2hoV1JSQ2FxQUpidnZfLXBqYldqaFo4TnRFNE45VnZKRTAwSkEteWc2aHlGa1Jya1g4NUViZkNhVXRpVmRvWTNKRWczTUJicmhBRUlrd1VhVl9LSzhjN2hQampCVU4zOUFLaFhVak1sVHViS2YtRktraE1ydm9UMHphUHd0NXI1YjFmM3pRSkRBUGsxdmRHM1o2eFdsTHBtbGdCY1YtZXB1ZjdWVUp6VDNkaXJWVjlCVkxtN2JvMUVJZHVmSmJpak90LUthSkpnWkdlRm5tUjNTLUFxUEJTS1Q4aG8weUdwQ1dVU0FkcXROUE5TNlZwcGxuQWYwVnpZQkdlQ0hMYkY2TXJsZV91dk9TQTkzNUJMa2xWT1cza3NWMUwzdWl6cGNZY3F5dWNpWlQwdmJWOVBkTXpLMnIw?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-09-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "頎邦科技"
+   ],
+   "accounts": [
+    "頎邦科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.737
+  },
+  {
+   "id": "3c51075904b573f7",
+   "title": "聯亞擴產再推進，斥5.35億向ASML購設備- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObERMbWkxcXZ3RWpVUV9TV3VHYU5QRFhtRXFId0d1OVRyV2R4WDVJREpsREQ1SW5HbzRaVlpFMk5iLUhUNm9pdG5SVmVOR29oeS1sYk5EVEdqN2ZuWlNQNkkxSEJUT2x1QmVMOUNXaFdCaFpoWWZiSjk1c2VQZ3JRU3BTVWwzU1JxQlp2TDcxbkotdw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-09-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.967
+  },
+  {
+   "id": "84058073d92b642b",
+   "title": "台積電、旺矽都靠它！「台廠隱形冠軍」訂單排到3年後總座忙到睡工廠- 財經",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE16eTBNRHJPVzd4clJPSE44MFpCQ0ZqN3czV1ZLcW5jLUVjZVpSSS1na3BwcDZXNlBsejlQUmxJTlNZNUdRWExDWk9DMGNsOTdocFhmOHVsaG1NbHdfcFI5eHFTVlRpSVNlWnVsTF9R?oc=5",
+   "source": "中時新聞網",
+   "published": "2026-09-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "旺矽"
+   ],
+   "accounts": [
+    "台積電",
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.693
+  },
+  {
+   "id": "90a8e97ec700dc16",
+   "title": "【即時新聞】光環(3234)訂單發酵迎轉機！這「3檔概念股」買盤點火急升溫？",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOOFNFX01yeF85eGNwYUZtdTF0SVNobUVTdDI0QldjeTI1UmYwSWxwNUVZS0cwSHhNSHphdktnR2dDLWpmMUoyNkhmeVdaa3E5TDRvczY2anhGa3l6ZzlIWG51VnZ6OUF6T0tRUEowUW02QU1qTUx1bElpbTFfMkhaaXl1MmtvOHl4LXRhTzRMUVA?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.198
+  },
+  {
+   "id": "1e84105aaf9c8f57",
+   "title": "前鼎(4908)輝達Spectrum-X量產+7月獲利飆140%！CPO爆發前夕!？",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9yOEJhbXJ2SzZwQjRpVW9fc2hiMFRfVmdGQ0pudEw1R1Z4cTF2WXl0aUx3UVZDbFI5VUlULW83ZDhSTGFNNTZmaUgyUUZzVW8?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "前鼎光電"
+   ],
+   "accounts": [
+    "前鼎光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.882
+  },
+  {
+   "id": "cbb438a24d1d4c9b",
+   "title": "統新(6426)連三漲！訂單能見度從2週拉長至4個月，DWDM需求有多強？",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1UajBzTG9QbVlCWjdxNmlsSnBiNEI4TFRsSnZ0X09MOEZld3B1QjI5WmNYVUJnVWMzNElXZUk4SHRlejlyajhvZUJTQTI4VzA?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.641
+  },
+  {
+   "id": "765082d0bc65ec93",
+   "title": "旺矽探針卡 獲三星採用",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8xdVZwME1FNEVpd0F4SXdtV1ZvLWhsdFN5T3o4VURwWDBuRXVwMmtsY1AtcW1pT1JsbDZFRzFKQnNXWnlnVDFGRFhMTnlBZEdlbnJQcHFwQVFPZ9IBX0FVX3lxTFBVa3FpcmExMU92OG5wOFA4bUY2elN1TWJ6X09hS2gydGQ4RTlMREZnZE80cmNuZUNkOEJLT1YwVFdqSmdwT25YX0VWYlE0ZWRKT3FSOWpMbWVqc3FNcXow?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "hiring"
+   ],
+   "region": "TW",
+   "orgs": [
+    "旺矽"
+   ],
+   "accounts": [
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.321
+  },
+  {
+   "id": "615f1cbb10740e06",
+   "title": "三星布局矽光子採用台積電驗證探針台 旺矽受惠",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5FWW9VSmlxcmJpVl80NDVPZExvWlhid2QtRkxaak96cXRKbGhyTkJmRXhLQjNqcm0zQWNmdUM4UGR5eHZjVk9vMXNaeHE4N0dUTUtFSU1zaXIzYk41R1VV0gFkQVVfeXFMT0FPZ2VlNzJNQzFtSU5FeGNDSTBKdGVZd29uOWt3Z2pPQ0FlNUhkLTFMWVI1VUY5TzZydWMtVUpTMXZwcWV2NDhwaWl1TzVIYWg5Z0d6LWNrbTNNNXVjS3hxd2ZwZA?oc=5",
+   "source": "自由財經",
+   "published": "2026-09-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "qualification",
+    "hiring"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "旺矽"
+   ],
+   "accounts": [
+    "台積電",
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.695
+  },
+  {
+   "id": "58fb66f2cf3dc0bf",
+   "title": "穎崴8月業績創高 AI 應用訂單爆滿股價亮燈漲停重返7,700元",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAzVHVOajhGWmlnRm1IOE1wYllZU2hMZXowSlppUGo0aUU2RHN1SFJBclBYdzBiU1daVnFzUDZORV8wNnA0cWlTd0oxZkxwV2hDWUFFS3RSeTREQdIBX0FVX3lxTE5GcWk5czdnN3VqTkNpTDNraURWdEhWdTdnVlpaRmxQQm9pWjgyM0NSUzZIZnB0UjJuQ3BrS2M4RlpQWUxRc3M3VGFMOVlnSFNzR0lnR2s4RjFDMlVFOWFv?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.192
+  },
+  {
+   "id": "1eca502eaafc7ea0",
+   "title": "【即時新聞】最新統新連三漲亮燈，訂單看4個月法人狂掃小心拉回！",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQNnMwbnFBdUZjM2NEd20xeERHTnFWdDN3QVl0NU12ZGluY080Yk1QeW8tdEJGT1VrRlhxSVZtRXJVVG83VW1oNjY5a0JOWTBkVDc4R183Wk80ZVpkbzQ1SVdPbllOLXRHSVhWWXVReEZNdTZKSm02bGhLY2ZGd3E5LWZZR0paV2hybU1WZWxDcU8?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.192
+  },
+  {
+   "id": "631118f640bef23f",
+   "title": "【09:16 即時新聞】統新(6426)亮燈漲停至296元，AI光通訊與低軌衛星訂單題材發酵＋多頭格局下主力與投信籌碼偏多",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNcGRUV1lST1F6R180b21sQjFleE1YV1VsZDhxbmFiQnptdTRyVnBZeE1INFBISndpNlpxR2x5bFVMMkE4NE0weFltbmNMYlZuX2lLY0dFT1JCU1V5RE9lZ2RuS0lKNnEyOG5pUTBDZHhaUTdrR1pqSmV1d1I0bkpUOW9odG91d3RQT25pckJB?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.189
+  },
+  {
+   "id": "0c5d36fdab555d01",
+   "title": "穎崴擴產效益逐步顯 8月營收17億元飆新高",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE56eEdyMkl0VTlBRWY3UHFEdGxiaUJxZHhTQlcwSmRKV0U2cFV4S3ZURTRoWTl6V0RfeUZrdXpYWE16S1N0djZGa08wWHlLOXc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.842
+  },
+  {
+   "id": "935395e72d53d871",
+   "title": "全新(2455)營收連兩月創高！真正關鍵不是訂單，而是磷化銦「有沒有料」",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9QSXhpWlNMaUFhTlVNZVppQ0MycWlVNU5Pa2pObVdpZHF4ajF5Um83eTdILXR4YUk0dXZvZ09iaXI2MXE0Qk94aGhKOEQ4Qkk?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "全新光電"
+   ],
+   "accounts": [
+    "全新光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.603
+  },
+  {
+   "id": "7d9557397bd8816e",
+   "title": "穎崴、精測擴產 搶CPO與HPC商機",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1uUnlZNjRiTEhXZWp5YS1HNU1lQ0JjM3dGb2xKRnVodno4cXFMQ0h2S3d6LTh5SDUtQUxnREVrUHczYWVFcVdzeU14aXJyZ3Z0NkhKRFVLVlZ2dU1TVFdn?oc=5",
+   "source": "工商時報",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.792
+  },
+  {
+   "id": "77ecdccb4565e832",
+   "title": "SEMICON／迎戰CPO與先進封裝！穎崴產能大擴張：明年下半年準備暴增50%",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE16UEdKcUszMVByM3lUNm5yTDEtOWtvOV9vb1IzajZyWktBVXUwNWRJR092TG5OXzIwbDZMZjlzSTJDbmYtb19fNDM0eXRHZw?oc=5",
+   "source": "TVBS新聞網",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.792
+  },
+  {
+   "id": "64754a0248b9a402",
+   "title": "SEMICON Taiwan 2026》穎崴握逾10個CPO專案、Socket測試市占逾九成！2027下半年小量、2028放量",
+   "link": "https://news.google.com/rss/articles/CBMipgJBVV95cUxQMUpoUjdnamF3eGlmcHdvanl1emtXeHJ4SXNsdzVwd1ZOQnFEZ0ZzZ0F1elhJTjdUMXBzSjVZdTZ2UzNPTVdleDhBcDNtVjFVY0cyOURnbnUtXzYxd0dwRGtoOFpBeGpCN0p1NDBTSFJFaHBxM1IxalJ0NVE5S0dQYUhHeV8yRTZwV05reDU1bHNNMHliRlgySUxrUDFFOHpaOXJvNDZFVkFhUEJxai1EcV9pRFA0TVR3VXRlNi02U3o5TVA5b3FQakhzZG9NNnpkZlpxODNXeWcyM1cwY2VxaE4yOTR0UjFLX1EyVFhoRmxHRWtxYzBocGhTYm1jc2xfSHRnNXh5NXZwUnpTY19IdjlfUFNmYUpxLW5oZGxmTFZ2cDdqRlE?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.594
+  },
+  {
+   "id": "4fd4affd0ed4daba",
+   "title": "穎崴深耕 CPO 擴增產能",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAtX2FFTUZPRnRCSnBCdlR0U0VXNjlUc08yYUQ0bjc1Yk5HbmFaTnI1cDBnRmVCdXhGUF9hVUJtalllZXBxSFdWeVYzVk1WUUR1Mk5BLXpRU3BsQdIBX0FVX3lxTFBsVTh2a3VNeEQzMXlkdmJraXhpeVBZdFVONWpmWGhPWEx2QUdDNjZDalZYQ0FHQ28zdHRhZmFGcF9NSmJYcm5TM3pMTk1YQ2xDSERSenY0cWRvT3Q1NDRN?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.792
+  },
+  {
+   "id": "cfacdfa0737957f7",
+   "title": "CPO測試需求升溫穎崴手握逾10個專案- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5oWm1UMDhCX2VVTGVBTk9CZmZnRld3UTFNeFo0UTRETmlWZWJ1VmJkOU0zU28xYzJuZTg3RTRZcElUYm5CTFJadHFubXVxeUJzSHJvRDlWN0VUbDlfZTRr?oc=5",
+   "source": "工商時報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.585
+  },
+  {
+   "id": "c93f8c74c00cc984",
+   "title": "【09:34 即時新聞】訊芯-KY(6451)股價上漲至489元、漲幅7.47%，受CPO與磷化銦供不應求題材推動，短線多空拉鋸下量價結構轉強",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOVjhTLWFBSzdBYjRxaHZJM0lwdzBZbG1zbGpMSmpvcW9NNHlQblphNFJISnRfSGl1ZXNyUkswbUtQS2E5MUg3aVBSSm5CVEJJcGo0VUJwV2hwblRNd0VTMUpQQzlYT3lVVjdZN0ZRSlEzWkV3bXlFVjJ0dV9oM1FnaWFPY3diX3ZsZmJpVHNR?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "訊芯-KY"
+   ],
+   "accounts": [
+    "訊芯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.234
+  },
+  {
+   "id": "b27468fe359ed985",
+   "title": "穎崴CPO測試布局超前 手握10多個專案",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5mTDl3UTl6U0dINlc5SVBXYW1UQ2V5M2lFRGNGd1VmYjVaeXdURWVMQWo3aUxkMlU5N0JJU2pidHBXeUM5RU1jYXRzeVRyS0VaRThCSWJBS3FiN1g4SHRZ0gFkQVVfeXFMTnBUMDRnZVdLTnlsa0FfSm1kZllwNHc2el9hVzFHNFJzZnU3NzAxazJsRTJLeExXNGUwREZMLTVVMTg1eHItNXVtWlpqbkFDbDFtbG9XMzE0LXUwa25mV3o2d3hjRg?oc=5",
+   "source": "自由財經",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.585
+  },
+  {
+   "id": "a2820e17b031a379",
+   "title": "SEMICON／穎崴搶食 CPO 商機積極擴產 看 AI 商機無泡沫剛開始",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9TUC1HM2dmbjNVQThIaVRkXzdvenAxTjhLaFZfQ0FEV3p3U011dzk0RkthakJxZjNTYUtjajBRSTZhTjN3SEFSdkdoazNfQUY4U1RoZjRQV0FFZ9IBX0FVX3lxTE9hU0pTU0ppRnktcFJaNTMyRHFRME1vb1UzYWJmeWVJTU5Rd001UTBDazZ1NU9KVjdRdkoyQmxBZkZXa0hxTUs0SXdaRk9ERl9VNXNVMXVraGhIWWR4UWRn?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.78
+  },
+  {
+   "id": "817a99e556cd9697",
+   "title": "AI需求跑太快、產能追不上 穎崴：真正問題在供應",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcEZQY0RLMGFMN0hrYTJ1WV9uUFVIaVg1UkgwN0o4YWpseHZDRjJNTG9DNVhmNndBbFFEdlVpa2NhZGZqdExUVmV4bEhBZzlxM3VXYm1NeVRzZ9IBX0FVX3lxTE85d19MTGlPdWtFLWZJSGxrZDFPTVVzUFlmV01jMW82VUQ0UFgtV0YwUGxpUnVNNDBwR2wzb1BXbmNwSEtxS2JpTHlzMWJndS14cy1FQnRWQ1R1VldHd2w4?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.78
+  },
+  {
+   "id": "5fdfa4d3a0b8ff4e",
+   "title": "AI需求「才剛開始」穎崴：明年Q2將再擴產5成",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9MTFpNSVNDdmtBcDlBbko0VHdYOEQ4bDlKSnV0TnRRa05ha2FwaXhpM3k0bUdqTmU1blk1ME50R25XRWlsT2lFYjVMVW5HQUM3VGVjT3dVMmQyS1ZiQnlZ?oc=5",
+   "source": "自由財經",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.78
+  },
+  {
+   "id": "51cff55bcb6ba55e",
+   "title": "《SEMICON》穎崴擁逾10個CPO專案；自動化為關鍵- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPeU5LTkVleDAyc0stUG9UQk9fY0VpTE5neFdGTmUxTHNLU1FFX2lFdlo0NXV0T0lYN3hnajV6QnprRlBKcFJzLUxFamRuYlBvRUJManZFeU9QazFjS3FmRXlfUGNwNnM3MmtRX3FLWkJwUGR1UER4OFE0YkYxYUxuUi0wMU1nRkVEZEFTRmI3a2FFZw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.585
+  },
+  {
+   "id": "3202942a80ef4dc6",
+   "title": "穎崴：不缺席CPO晶圓測試10幾個專案進行中| 產經",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tbnRVSnVpWDdFTUd0d2kzdHc0T2RqNHk4ajRxa21fY2VqUzBldmF0YnZ1X2dXX0FOSms5SWp6ZHlFVXZxNmhQQWZzRUI4NzBhcWk3cHhzMGg1M3BtLXc?oc=5",
+   "source": "中央社 CNA",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.585
+  },
+  {
+   "id": "146911f12ae32347",
+   "title": "聯鈞7月自結獲利1.48億元、年增279% 下半年擴產滿足客戶出貨",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBzcmRnVkQ5VkF0NXFDQ3g5LXVoTE9CYllxU1I5SXBwM25pX3NiOGgtY19xUHEwRFE1S3NubU14WG9QLTRGWWRFX1RhajczakE?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.78
+  },
+  {
+   "id": "cae95d69f8fec907",
+   "title": "聯鈞7月EPS 1.02元 積極擴產",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE93TnlzSmcyTHE3anhXT1pUOHduYk9TckZ4QWd2THNqekpiUGI1YV9XUHdEMnRNOXJ2eWhaVGo5eWg5eXlVVmZqTDNsc2xjLUNk0gFWQVVfeXFMTkpaVUxBNnFaN2FXTDllMGFUbGw2RFVEUDN2a3dhTFkzR1FIdVp5M3JQVkR6T2FBOGtRcEFtT3ZvdFF2THd6TXlfV09lRURIQWJqTDN1N0E?oc=5",
+   "source": "UDN",
+   "published": "2026-09-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.23
+  },
+  {
+   "id": "266737a8d793851e",
+   "title": "日月光搶搭 CPO 商機列車 相關布局年底進入量產",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBEalpmQTRHcEVxenhQaEdKQlVNVmp6OGxNMmlMZ01OWnVQWV9IMm1ka01TNGUxcE56R19nRTRReGNwUW5sLW83N1V0ZXFZM3p3ZV9tTFBoNXFhbDTSAWBBVV95cUxPOXFPaDdKdlBxQW93WXk5T2R1YTlpWUdvVTVjZ18xTWY0YjVrMUtLNG5mX0pxLVVSTFhjbE4wT2FKUUEwU3JXUkdFaVZRd01UTEZSaHhTRV9aeGFtU1ZCMG0?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "cpo",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.768
+  },
+  {
+   "id": "c0089bf01133adfd",
+   "title": "華星光訂單看至2028 DCI營收2027有望倍增",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQdXdrWWctTEw1eE9aLUZyQlNoT2ZKdEZjaE5pRU1yaFBXNFpXd1ZkYlBRMjdCd0V2NExldFA0cDJJd2RLMzFaR013c1RmcHBkOVQ1bEJjRHNDZlNLOE0tNFY2QlFzOFlJVWQ4aC1ZRTlKNXNlSVVxVjlPUHFYWlJCQWZ0aFA0QXE1RUZhMkdR?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-08-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.567
+  },
+  {
+   "id": "7f2c06d4a9999958",
+   "title": "華星光NPO明年下半年量產，後年貢獻放大- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbFpQdDY3MmQ4bVJnOVZ4VldENThIbVpZcHBKMEJmZ0hYR2NWMkVhN0hjQWNFb0F1NWhEcmhjdi1kanB5SGxPX256aFJlOUxBSS1uVUdtbnZTenNiZUxlbmxKbFFGTU1jMFhGSVR6SHhkSlJCd2FVdW1HVWZMb0oxV0JqWWRsa2xFQzdHck9LdTJ0dw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.756
+  },
+  {
+   "id": "558b6d67b994b904",
+   "title": "缺產能vs 缺材料！華星光、IET-KY同獲法人點名它明年營收拚近翻倍- 上市櫃",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1RcWVITlVNYVpVVnY5ZnVhZW0wUDE2MEpJVTRqY2M5N2JaYXpBOHlMMVpUaXlXdXQ0SzMta3dvMUc2ZzBYdnNkb3V1d05oenVzZ2RvU3dtSnRGbXpJZUdSTVZxY2ttVVMwOGc?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-08-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.756
+  },
+  {
+   "id": "bc1fb84f7f46b5a3",
+   "title": "明年營收跳躍式成長 華星光訂單能見度看到2028年",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TUzVZTzZMdDZsR3NTb1RDcTl5eTlITzVvTzMtUWszRXBrd09OWnN1dEg2RXdKU1dWSzNnaXJyWmhaTERmS3pUTWpiaVhlTXlYWkFYMnZB?oc=5",
+   "source": "自由財經",
+   "published": "2026-08-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.55
+  },
+  {
+   "id": "ebb2b25f47589547",
+   "title": "《通網股》華星光喊營收跳躍成長！800G、1.6T接棒、訂單看到2028年底",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5iTEEwZ2NPdXhVaHdheFdRTkFiV3JsY0huOHlwX1pkV0Z5a1ZpVnVXRHI2MjlrVXVXdHJpVTR1cHpldHhIYXM3YVltTjN2S0c3eENyeVh1d2lJLWJPUzhmN19QY3I0QVZGLVE?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-08-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.541
+  },
+  {
+   "id": "48c4bdcc816344fa",
+   "title": "華星光：下半年較上半年好 訂單能見度看到2028年",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5oRzlLNTZaTEZjTk1RSTA2c09wY1ZSSnZrUU1Jd0xIUWY0REsxd2RLSUM1R0V3cVgtZnlKZlhjTDhzenZGUnhYcEh1VEw1anVLa1lvR3BmZ1cxRDJvSW1R?oc=5",
+   "source": "自由財經",
+   "published": "2026-08-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.541
+  },
+  {
+   "id": "ab3aea7af436aa7d",
+   "title": "統新法說會／產線接近滿載、出貨交期拉長 後續仍有成長動能",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBSdjRiZXF0WDZOTlNwMTRJaTE0ZlRYUGNsY0RyVFZmZDg1WFMwODM1MU5xTWxaYVVsd3hmM29pOUlvOHBEOEd1aDc4bzdSSDZKNngyZFlPVWhBd9IBX0FVX3lxTE9iblVnczlXR2JzZnFmdVg5eWpZZkplV1IyazlGcktia0p4WlQzUmdncTFZQmdLMUtmcG5nRUlobVhXUWZQVnlPd2ZDZk5fdXZ3Rm9jNU9kNWVMWDYtd1pZ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
+   "id": "5bb2f01e338ded40",
+   "title": "五箭齊發不是擴產宣言，是一張風險自白書：聯亞把自己的三個命門公開標了出來",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOHJUYUhpSkpsenRkeWdvU183anBkcWZwcDJPNGY0cjdBOEFoZ2hCREVPSVR5eDNrT1A1UUdXXzNxOGlQRjlKSHFHXzQ4OWs1RlgzQzE0djA1Mkk1U2ZtSXNYTHBCaEN0LXo5RnlXWkwzdGVXMVBOelZYNDk3S0h6Uzk1WENzS2Z0SXl3YkFiSQ?oc=5",
+   "source": "Simple Tech Trend",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
+   "id": "3abf730d54e79b7f",
+   "title": "【即時新聞】聯亞(3081)砸22億擴產迎大單！這「2檔概念股」買盤接棒強攻？",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOa2ZsT184M29FWmpjeUF6LTFaVVNtVl9CMk9pUGZTN2UxZ1NlR1YyUUljenJud1ZqcFljbm44VmNCOGtDampsUzRfSEdrV2hDcXdyMERIS2pCV3kxX2N5djAxenh6YzlVNUlMSXJPTFNWdkZCcWYteDhoTGwtbUdLV3praHp3bVlheHNPQVM3YkY?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.213
+  },
+  {
+   "id": "0708027992130270",
+   "title": "CPO大商機要爆了！「這矽光子大廠」卡位輝達、訊芯砸50億擴產 2027拚放量",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5pdlBjZVd4NnlrRDhvbTluSVVlWXhieVdrbnJFNGJzV2VsTWlCRDl5TFVJQ3pqVVlSU2RmRzJzV2txcmtTNWM1dU01QQ?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "訊芯-KY"
+   ],
+   "accounts": [
+    "訊芯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
+   "id": "a86ae3101d82dd73",
+   "title": "聯亞獲美系客戶四年長約，同步砸近23億元擴產- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQQUN4OHdLTEtYZ2FQZUJZVEhKU3hoQWp0Sk93ajRCOWFwSmxZM254MW00ZEFIUDB2QWJoWjNXZFlHc0gxZTdMQzZFcVBDRHJoQ2FZZTJRbC1QWWVicTVXbWNZVDk1V1psUllWa2xxZkZVZ3dacTlwYWRGODJPZ25Fb2ZGalEtSDNuMGI3WTZKd0pmdw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.7
+  },
+  {
+   "id": "c5dbc799f0eb08b1",
+   "title": "帆宣高新明曝在手訂單高達1300億 穩懋陳進財不擔心磷化銦出口管制問題",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9tZHgtcFdYbDFsTEI1WnNXOGZfVjNDS2JHZ3FLajEwaVJqMjJzMjhtZFh5c0syTEJaWWVLbEx1N1NwUXhNa21mcUlFRnRSRkx4Z1BvRlhjazYxQ1lOSGZ3TENMUGthazBjLXRaeFNtVQ?oc=5",
+   "source": "知新聞",
+   "published": "2026-08-25",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "nickel": "semi_equipment",
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "帆宣系統",
+    "穩懋"
+   ],
+   "accounts": [
+    "帆宣系統",
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.517
+  },
+  {
+   "id": "6a2af8c465237ac1",
+   "title": "磷化銦爆單＋打入美系供應鏈！ 光環「連噴2漲停」創新高",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE02SEpLcVdoQ1JEX2Z5VkVMa2pYcFJCWmo2SllYY2dEUjJCTk1WSURCdXkydndyMi1GZHZ4T0VlNC1HQ1NQODItOGtMNEI4NVVXUEFLWDNR?oc=5",
+   "source": "東森電視",
+   "published": "2026-08-25",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.155
+  },
+  {
+   "id": "6347cdf84d13dd52",
+   "title": "穩懋：矽光子產品2年內仍為成市場主流 不擔心磷化銦缺料問題",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5aS2dpYXNQSkxsdHhMWWdvczFQVzlSc01fYmdVaE92ZzF3Q1hMdkdrR3JmVDdkSmF2UGN1RTZDZWNrVjh5UER4a0I0QVpYSDA?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-08-25",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穩懋"
+   ],
+   "accounts": [
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.689
+  },
+  {
+   "id": "422e2c173363b91d",
+   "title": "磷化銦訂單放量！光環(3234)漲停改寫歷史新高！",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA1ZjJJTHp2LWNab0dBbm9KWF9fdzVlNjl1b3c4Q3dDa282dDEzX0wtcHFrX2MwU0ZKZWNZSUYwODVPZ25hUy1LVGpRaFRhYWVPS2ZraXdVdG9EQQ?oc=5",
+   "source": "口袋證券",
+   "published": "2026-08-25",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.155
+  },
+  {
+   "id": "f3e96eea65bc7b76",
+   "title": "熱門股／光環傳拿下InP後段製程訂單！盤中急拉衝漲停、改寫歷史新高| 產經",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA5aEpfRW1VZE82RW1TTFVsZF96OE4wZUlyd2pBN0pxT3p0VW9jbG9ScjhZV25jR2U0VDZXTlRTVy1YenozUEoxclZWbWRzTXg3SWVYYkY3TGFPV1BVN1Fn?oc=5",
+   "source": "非凡新聞台",
+   "published": "2026-08-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.153
+  },
+  {
+   "id": "ea5f33d7ae11726d",
+   "title": "光環傳拿下 InP 後段製程訂單 間接打入美光通訊鏈",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5IN1RzQWJZeGg0WUxOU2oya1VHc0JFQVN6Yl9tbXFJU3lNWHhycm1Pbzhqczc0V3ZPTlVKZDdmdlNsYTVoUTVOWWFtNWRpQ0JEMFlPa1JvWlczZ9IBX0FVX3lxTFBzdExoV1RQN0dUNjcxODNLV3h0ckZxNFZIMmY3NFRTb3ZlQ0tzZWtTVzdlazZDZzMtUkVoTzd6MXpFd2F5VjhiNnBYdGhLc3RMNEQ3TWNDbEJmaDNIcE1N?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "美光台灣",
+    "光環科技"
+   ],
+   "accounts": [
+    "美光台灣",
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.509
+  },
+  {
+   "id": "ce3b78f828f1059e",
+   "title": "【即時新聞】最新！光環奪InP後端訂單，間接打入美通訊鏈，7月轉盈",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUzhmekM5amxKTTBra3pEdUJ1MGRncHF4Qk04ZlhsaWplT3pLMWp5dlJOSHZKQ2lJb2FBZll6aGZrbVZJOVExeFZ0QzNFaDZMUFJZMExCcE1iTUJyeVdzZGZ3WTlMTmEwaUU4YlltcU9UTThDMTBRUURSRnRUSFZrcWoxUXotRnExQWhBSVpfR0E?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光環科技"
+   ],
+   "accounts": [
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.153
+  },
+  {
+   "id": "85b4680c27cc4908",
+   "title": "AI晶片愈強「測試愈難」！穎崴「兩大王牌」 擴產搶大單 Q4、明年成長動能起飛",
+   "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPX2VwZ3lvNGZtSjVHTU5RXzJ1UDZPUnY5bTVQZUhFM3VuX3BpY2hhb0pmbXVHeEFvNnpSSkYxQnlreUxjZG00QnNIQ1BvbXFXSmV3dTBQNS1SWlJmbzZoU0ZDeDhhS1hZUVFiN2pmeFE0dFFCLVdfU3ppNnlIbHMzTHNYZ1gxdmhaMTdvNTh0Y0xNY0J6b1lydzVoanZ1MzZoTGNRYXBBOHI2RUJFNjNZTmFNd29hM3FkalF6YWxBZTRJbUxFWGlEMU84eWp5ajdZa2lZaUFzUzdYSXlMdm1wc3FPYVgySkJQMkkxWHc4dzdXSWNSMmdOb3ZWRzM0Nlo4M0FnOUxpVzVBNVlwZ0hnMEkxLXY5QUd2a1NxLThKV3hiNC1LSUNYVzZ5aXZUYjZyeTVUeExhT1ctRGNjNWswSm9fM3gtQVE?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.668
+  },
+  {
+   "id": "5d7755fc7745d8f2",
+   "title": "【13:30 即時新聞】穩懋(3105)股價上漲至379元，受惠AI光通訊需求與光通訊訂單成長，技術面短線反彈但主力與法人籌碼仍偏空",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdERxTDc4MFZOSmIyNnA1Z2pwenFfaWsybGxmLU01Rmo2S2xKZ0VpUy1BRnJpeF8yV0ZYLURKcUd1U20zcUVzOGZsYlVSbFZEYk4xTzVZakxNdDVVdU4wNlRTbUE1OGpER1JoTnRVSk1XTENrUEY5b29mZHltQzFkM1dWNmxJLWVqMk9pS3p3?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穩懋"
+   ],
+   "accounts": [
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.144
+  },
+  {
+   "id": "bd97565c2172636d",
+   "title": "輝達CPO正式量產點火！設備、測試鏈價值暴增 萬潤、旺矽、穎崴、中華精測迎大單想像",
+   "link": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxNLVFMTUZxVGh3TTgyREdldURZR0k5MUlUbjlZdDE3SWI4dkFjdHhyLWx3d2NyLTV5aTRWQkNSeW5mZ3YwekJYdHM5SVFnS3NnOGp2cENVU3lfczV3X2lHMUNaUVJzd213UUwwTUN3bXZ0WE4wX2pMcXI5YXVHbmthc3BRTi1TTVA3Znpmd2psVnBDNlRCVThNaWgwVGw5UlFJazJSb21DNXBKTm4yZFM4bTdHN1pXV2dmWkxHbERZUTVMdHBNV3c2SjB0V1VIdGxXZzJGQ0xxUnhpRko1RHppZGJZV25oTXZxSUUtODRSQkhfWEtrNlNjUTdBV29qcWk0alFnbTBZeWhZRjFYelh0M0ZmcTdkRnJsRTk0ME9mTWo3MHVHRzFPc2k1c3REaWE4MlRKOUFjZVBYRXVjMGl4cXhkTzFiejdrMHg2VDVodk5FdnZoXzdXVklrVFJ6RTdL?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "萬潤科技",
+    "旺矽",
+    "穎崴"
+   ],
+   "accounts": [
+    "萬潤科技",
+    "旺矽",
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.628
+  },
+  {
+   "id": "b8dc1e74d756ccdc",
+   "title": "【09:48 即時新聞】訊芯-KY(6451)股價勁揚逾7%、站上451元，受CPO與磷化銦供不應求題材帶動，搭配月營收創高與外資先前回補助攻",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNc01PVUxibnBrci0zd2VBUzZ5UXR2dHRBTDhQMk9HeFc1NTVhdXV5TXI5MmlBdk5uVTBQYXp5VjQwZTA3UjRVWk1nWlk3SFBnMGFxVDVfME5MMExBc2dRZDU2TnIwYmlINllfRElhSWFDOEtyMEs0WmVDcUo4RVRNNmQ3MjJ4cUFEVHFveFRB?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage",
+    "policy"
+   ],
+   "region": "TW",
+   "orgs": [
+    "訊芯-KY"
+   ],
+   "accounts": [
+    "訊芯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.2
+  },
+  {
+   "id": "76df01344e2d41aa",
+   "title": "聯鈞AOC產能利用率7成續爬升，800G驗證中- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQbG4yN1VqbGQ5NUY4bzJETlE1QVdLNTlucDBGR1R3V05KWEpzYklhLTdHVmdSS0x0ZC10cy03R21NZkNrRC1aQjNxUGNNRnNnVmtmSmZ6M2gzYjdpOVFEZDZiSHFkcmMzbmwzSTZRdHZPSlFmV1NidFM5RGh2X1JXMWVMM0RteU01WUNOWWV3MUd6Zw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.668
+  },
+  {
+   "id": "43f2db702c197d95",
+   "title": "聯鈞ELSFP卡位CPO/NPO商機，攜大廠開發邁試產- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTlVfc1lWaTNBVGlOYlM5UDhHa09pTTFSWmpwZEdjd3ZRcmtFcm1aRFNSRDFPUFQzaEQ2emVCRXBIcGxCRjJUUDZnTjRrTDRobkplelJPZ3BYd3pVcTFxTGVLMnM3Q3RydF9ZQmozS3BjSkIzQzFjeUpZcHRmTDZQMVJJNldpRFI4WW1TWDBfQUhZZw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.393
+  },
+  {
+   "id": "2464d1957d8d5fa4",
+   "title": "聯鈞COSA產能倍增- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qN3ZvdUU1czRjanQ3cXBQdzJ0WWxfMHNYNmdKX2dfamNRVW55UTRNemtuQlJ3TEl0VG5ZWGlfZkFDUlREaFB0WnF3T1l3N1VNR21fZVRTU0NBcERLNHow?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.628
+  },
+  {
+   "id": "d02a50bbaace7770",
+   "title": "【聯鈞FY2026 Q2 法說會】單季EPS 2.09元季增近203%、AI光學營收佔比衝上45.5%，董座：機器交期延長成最大變數",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1RajFrVEY4SDlucTJrNXQ3SEhfVW1zZHo2azEwUzhrcUJlVkVnUER1MGhneWNvT3E3N3ZTV0d1cEQtZldLZnpCR1F6bjlCc1JhZWtyTmhOVXdCVnFXM3lrZVpVQjFvQQ?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.186
+  },
+  {
+   "id": "c165e46f41d4414a",
+   "title": "聯鈞：AI光通訊「缺」成常態，COSA產能再翻倍- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQSDBMdkxRWFgwOW1MbEZKWGtLZ0RHcTRMUXpIM1lxR0M0cWFNNjU1UzMwMDl2Y3hnSDB1NVFQV09TQlFVR1Y0eW1VbHljTzNDbmhJVjN6cWY1ZDZxcXNFMGdYMjJmTXNsdkJ3RXl3U1pBUmJUWDNqTlNnQ280WFRneUVjQm9scE1wa1FpTUl3Rnlydw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "949d4b6adfdfe054",
+   "title": "聯亞(3081)做什麼? Q2每股賺4.62元、毛利率57%雙創新高，資本支出瞄準明年產能翻2.5倍",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5ETFUwNVVaQ1FWMVoxZi1fRFFHc2N5ZFU4VDc2dHZnUWI2WTZBcDRqODUxekRJMzJLNE1GRTJEWmprLVEweGRHTm1KdUZRaEFuMUhnbXp3?oc=5",
+   "source": "口袋證券",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "604bc27938ae2c77",
+   "title": "〈聯鈞法說〉AI光通訊未來幾年關鍵字「缺」 COSA產線滿載將持續擴產",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5NRGU1Uko3WjN1eGJSYVNETy1obXh1UF9KZUFnUlVNeTh4alFiRWFmS2Y5bkFzc0dwbEZUV0Z5bmpwd3k2Ym1fR18tZThmRGM?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "47363a872f9850bd",
+   "title": "光通訊缺貨+法說會助攻！聯鈞逆勢衝高搶下榜眼 這「航運巨頭」衝百元大關奪量價雙增王",
+   "link": "https://news.google.com/rss/articles/CBMijANBVV95cUxNN0tCUXM0a2d1NnV0S09nbEl0NkRRZGpoYjgyTWVzRzY5ak54MnhNM3d6ZWVmbDRoNXNXX1N5NFpKdWtQZElIZ2dtX004WHZ0TWlGSDN5aUNkVy1VU0NUU2FNOGVLRjJSMk9zLWdrNmhpc1E3bENjSkZTeDRGQnlqd056X2ltZWNYeTREb0pRaTNtaXNoUUxlSHVNRkVGaGdLUm53SDlXcU9vOU1ZNjRvYmlJM2xLR0JrQnY2Y0RtdXhtd0c0X1NRdnB5dTdPNlBVMUszMWwybDhKT1hoYVAtNVRFRjhtZ2txU0lnTGowM3F4dGMzS3NaYUxubXdtX2FuZ0ZNS1BRQlZuSnFyMVVqeDVwQkxFVkdKYVFwVXdwUkJ5djBDS1htSzBGYVFCS2pzTmJlM3FROFRPckc1eGtBWkw5ODJsOFFHMUFTajNBZURkcDVlR29UUHhRWmJ2eVlJU1lqWnFJUlBTSjB3Zjk5bEsxaXVNUzZiQ3BuUUZWaXIxUkNLVGRDOExiSEg?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "28871d27e3a0153c",
+   "title": "上詮股價5年飆30倍！光纖老兵如何擠進台積電COUPE矽光子供應鏈？",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE94dnNfTnNySFlDd0lPb0t6UjRkd2dBMWZrZ2ozY1dITTFZeWJaNmY3MlpZNFFSNEtkZnViQXlPUVc2Rk5VeDcyMEQ3bWlDQQ?oc=5",
+   "source": "天下雜誌",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "上詮光纖"
+   ],
+   "accounts": [
+    "台積電",
+    "上詮光纖"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.139
+  },
+  {
+   "id": "23942e9ba1690c75",
+   "title": "個股：聯鈞(3450)COSA產能塞爆，今年再砸16億擴產，AI營收占比H2續攀升",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNLXByRDkxM05sZkhzSWhKNzNMOUtTd2V3cG5pMmc5OW42QkJEeVlQejVVay1uQmtZZUVac3lfTThDYzNCX3pEWHB1Zk40MkJNdEZaaFlnRU80VERYVllMN0h2eEdEVHYtT1pFbjJscklyaDhDcGJVNnlINXNFOVltY0laTnptNWxw?oc=5",
+   "source": "富聯網",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.186
+  },
+  {
+   "id": "230647194900e159",
+   "title": "聯鈞1.6T進入驗證，H2封裝產能拚倍增",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQOXFLcy1YZnUyZWw5TVp6SzEwdlJ2NkZ1cGthb2FHVTNkVm1mcGgtX3g3MVNnQlJkT2FGM1FVb2pYd3hkVm9UM0otQXhWbHRTY0tOemNzNnVMVjk2TzJvTUpfTlZpZTdRWDlET0pMam1Wei05NU54YlhPN2p3b2kxWVF2WEpidjRhLVctLWI2QjNSUQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.657
+  },
+  {
+   "id": "1004c14460bb4bd0",
+   "title": "聯鈞：COSA產能逐年幾乎翻倍 ELSFP進入試產",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Qa3BGNWNUOVhMejZRTXpMcGt2X1RMYl95MGdOcEJXZ2ozX29zZ0JEdHNIeTdXOTIwNzZXb1dCMHdlTURtb29ad2k5WkZmeFkxTm5MdEtyT2VoUdIBX0FVX3lxTE54aVdfcUF4aHJOUk5pRUdBZFNlb0FMZHh6Wk11NGxJREJudWlFc2RyR29IaTZlZlNNNHA5T1NYX05MTXl2RndKWXB5R2JuaVl5aEU4XzVLck5VMnJEdVlZ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.657
+  },
+  {
+   "id": "a9f5ce0198429b3f",
+   "title": "【13:24 即時新聞】前鼎(4908)股價走強漲逾5%，光通訊與CPO量產題材升溫＋短線脫離壓力區技術面轉佳",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOdkY0dEY1eUJicS1lcHpQNV9COXNUTkVVeV9EWk9sVVd6M09MOHZvR1JDQXR1UG1xMHZCSE1CWGM1djR6NnBhcWRJRHBsZ1kzSHJFT3lSeWlVdjRSQkJpbmhWa1A2LTQzTU9Dc2E4ZlFCRTVUNlhzcnBsTUtIQjhyVDNXUmlXNVEtNkhaNXZ3?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "前鼎光電"
+   ],
+   "accounts": [
+    "前鼎光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.183
+  },
+  {
+   "id": "25a97b08797fbe4b",
+   "title": "【即時新聞】光通訊報價看漲！全新(2455)迎擴產大單，這「2檔概念股」多空大激戰！",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE12WGNYeUFNZTZITWhaWXZpZDhDdXBubm9yLWVEdkhsMWU2WFFVMWVRemZ1bm5DRGlrdFNoOXZpem4tUDVGTnd1Wklod3FuRm1WUDlEdm50V2RKc0dqWC1UZVR6QW1zcnc?oc=5",
+   "source": "CMoney",
+   "published": "2026-08-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "全新光電"
+   ],
+   "accounts": [
+    "全新光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.183
+  },
+  {
+   "id": "2db4d14f3f481a99",
+   "title": "旺矽再拚新高！AI ASIC需求強、探針卡滿載 CPO量產單2027上半年報到",
+   "link": "https://news.google.com/rss/articles/CBMi-gJBVV95cUxPTXdibnBUUElTV3NHX0VkZUdsajlRRS1kRmRBZWpiM3JJeFZIMXM5RGdZU3Q2MHlLRE1HR3FMbUtDMHZia3dYTm9ORWt0MjJ1dkZfMlBiZTNocnNxeDl0U2RKZzBWNzZtN0liR1M3aEZIS0xWd3RzN0lKSE52aWVHa0tTN1RnbkVCcV9lOVdGVTZHYnJ5MkRra3VXMzNJb29yUnk1SWFuRlZodnJmZ3ZvZ1ZoZHBDUXBLbm9EMWk1NDZmR1dOdzkzX0hoYWFEMndiaktIa3IxMGlCRnFjSkVpSWVEZ2lRTVluZWcwdnk3WUt1eVQzVzliZ0lPX3VwVU1FTmI5VjRSQkpfb2NTbzRwUi1iemQ5NjV1NG8tMC1YWWd0azlRSk5NckVfaXBmeUh6azJMX1ZmbC10NzRka3E3UlFWbldXaDlGcDVsckVSb2xZOERzTGJ1el9zY2pxdVBTZUVPV0ptdDRkdEljME9DbWxaSzJxc212cmc?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "旺矽"
+   ],
+   "accounts": [
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.18
+  },
+  {
+   "id": "bcce623f0191a526",
+   "title": "〈SEMICON〉穎崴今年產能被訂光 AI需求一路旺到2027年後",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9LVVpTRG85dXJOWGhUdDM1bEpoa2VDN2tTS3gtVVF4Zlo2bURsSnVKOEpFYnNVamJJbThWbXhvWnI2aHFGMVVJOHhJWFgyVUU?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-08-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.564
+  },
+  {
+   "id": "81cee755682a7e2f",
+   "title": "聯亞產能吃緊擴產不停歇，明年估增約1.5倍",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRE9YMmtoUV9uMkp0Tmp3aG9CV3dVYi1BU2Q1NmowWDBYTFVkcFoxQ0ltdV9lQ3VScENHSHpJT1F4bHlraTFEZHNYRWRmOFRfbTc5Y0pmTUttbUZJbDNnOXhRWjVxRHRHRE5VeGtZQXBRal9vQThvWmpmaFdsVmxoS3Z5bUFxSmh0SnJpcXhVOVgtQQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "shortage",
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.599
+  },
+  {
+   "id": "17d82a30b64e2965",
+   "title": "穎崴訂單滿到年底 未來2至3年「看不到任何不好的訊號」",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9wXy04LTZ1RjQwTjVMSEl2eXEzTnRoOEhmcFBPZG1LWGRnaWdVdTZwVk9lTk9NX3NYbGQtNGVVdFVCZ3VMRlFWODM0ZzdUMXVRMjJLb2ZXVWVzcG8wTGFz0gFkQVVfeXFMTXp6cE9qTWtEaWZwYjhxclJpYmpZLVVtMjNJcU5LN2owVTRyam1QRk54VkNiYWpmSHlLZWo0YTM2ZTNjSGpuNHhlV2ktZXJ0UWx4OFhSbkF2TnVzQXMyR1B0VmFaQQ?oc=5",
+   "source": "自由財經",
+   "published": "2026-08-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.423
+  },
+  {
+   "id": "0596968a3341e405",
+   "title": "〈聯亞法說〉聯亞Q2 EPS 4.62元創新高 今年還會增加資本支出 明年產能提高2.5倍",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0tVDZ5eFFmTFpVSk0xMXR3Y3pOdDNod0VEeFFyYW5icUcwa2lHV0o5MEhicmNTaVo3WWYtaXlocUp0SHpTMUVQVmhxajY4bEE?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-08-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.169
+  },
+  {
+   "id": "6cbc0f9c20a03405",
+   "title": "旺矽下半年營運看季季高；產能擴充不停歇- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUXVoTXNaVks3U1dZRmdkWE1Sa0F0cDA5Sy1vakV4b0JrZnA4NlVDOTZZcU9zckM1U2pXellyVS1JSXBPNlNrUWpoVW4zNGo1VS1JRVFHZ0VWQ1BBeGl1Skh0X090T1IzZmZseWN3U25PQzN6d1lXU25FUDVTenRJREVIRWh2bzBjM01iMXgxeUNGUQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "旺矽"
+   ],
+   "accounts": [
+    "旺矽"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.556
+  },
+  {
+   "id": "bff5de388733a151",
+   "title": "1.6T量產添動能！穩懋(3105)亮燈鎖漲停！",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1oVHlvaE5CR2szZjVmVmNCWE05WHlrTmRmVG40eThqZGUyNTI4VFRHVDd6dmhOUlRnblBiSDNZRjRGVkxjQlVFeGxBakVOa3oxTXRlOUtjOXFEZw?oc=5",
+   "source": "口袋證券",
+   "published": "2026-08-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穩懋"
+   ],
+   "accounts": [
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.152
+  },
+  {
+   "id": "66631b8469f6651b",
+   "title": "統新美國訂單能見度拉長，光通訊濾光片續放量",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPN0ZOdFVSSVN2WHJfVzQ0UkdyRkVNcGY4eFlPZ1Y4dWdJVGoyNXM1WHVYbkhMcEI1VjhsbHAzM0hBMVFLMTZ4Q1hlaHFONU1EQkdtMm8wbmN1aF9ESlIzSW82Rm9yM19MT2YybWFVS0NkMlZMdlVjeHNFdTBOSUp1M0ZiVFJlZ1BqLTQxMmhWQUlkQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium"
+   ],
+   "industries": {
+    "target": "cpo",
+    "titanium": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "統新光訊"
+   ],
+   "accounts": [
+    "統新光訊"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.38
+  },
+  {
+   "id": "729ba267dd6f698c",
+   "title": "輝達高層證實 CPO 進入量產！光通訊族群鎖死漲停，聯亞、智邦衝鋒",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1GQ2RRTW9ILS04YWctUGQxWWIwUFE4N1lTOUZzMjBreGtwaE1BeW94SXh1aWdvTFpMeGUyYnlHcnBDWEpIaF9wODYzeDNCdmk2MlRkNE8zV2I?oc=5",
+   "source": "鏈新聞 ABMedia",
+   "published": "2026-08-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電",
+    "智邦"
+   ],
+   "accounts": [
+    "聯亞光電",
+    "智邦"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.147
+  },
+  {
+   "id": "b96e4e6b68016aee",
+   "title": "輝達CPO量產點火，聯亞 (3081) 受惠關鍵在哪？-哲翰科技戰情室",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQVXJwNlhLZHdzR1ZKaGtUdEtmSERjQkpySGNNd0c0Q0FhTVZhZlhWd3kycG9od0xBSHBtVm1PSGJjUUNScFdsRnE3TkpsVGVkUk50Q3R0OUVhWVdkcGR1T2xpZFhiUlpoblF6R0MyZlZWRTRDeFNfMTMyXzNyTkZWejRZNA?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.484
+  },
+  {
+   "id": "b451da472c60f4c5",
+   "title": "輝達CPO量產點火，聯鈞 (3450) 光通訊30天數據藏什麼？-哲翰科技戰情室",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTFdxcW9UZDdxNzA4RG56VjVnU2Z3R3k4aDJRSDk1d0VQbkRmWlVHb3lSd1hpcnNGbWNRcUV2NGpXUFl1UHNjM094d1dObGZ6bl90dnhoUWZ1NkJOczlndzZvS1FmUzdTRUIxeF9Deld2UFVBYTNLOGFVRGtMQ29FREdfcw?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯鈞光電"
+   ],
+   "accounts": [
+    "聯鈞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.484
+  },
+  {
+   "id": "f8507a002ec9fcfe",
+   "title": "前鼎Q2每股賺0.66元，AI高速光通訊擴產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQVnRYZGhpOEtBc0FpdTE1LVhxdU9DUWloVVQyRXZySE9RVDNlVVJyN3lrYjhDQlIxRERFTlZqV2lsVnBVOVRUM2ZKYU9TYVZNSDBTZTFtS3JKWG1HZk1BQnJoQzMtZDhmWlpNT09INVJESzUxNzVZVHFCalBBY2dyMVdwSUhkSlNsRVJFZG9Fc2V6Zw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "前鼎光電"
+   ],
+   "accounts": [
+    "前鼎光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.469
+  },
+  {
+   "id": "2eafe37cfe3708d5",
+   "title": "1.6T闢謠、2027訂單現身，華星光 (4979) 受惠關鍵在哪？-哲翰科技戰情室",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQOXlvQWdNRkZKT1A0aTVqRWd4cXNPOGFZU3FSeUYxaHFUN0FMa1ZaSTgzanBia3liMVhDZ0NWWTl2OUQ5OWIzUjJTWEktRnJmcWlTRmVVRWtqR2FqaURXQUk4bGsyRWpFNU4xRkxKVjVDOHlva1RuMmtwNmtIZm1MU2dFOA?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-07-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.341
+  },
+  {
+   "id": "dadd22db474cd3f6",
+   "title": "〈穩懋法說〉PD量產挹注Q3營收 看好光通訊產品2027年占比挑戰雙位數",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1wTzZiNThGd2d1QnNvOXVlOE1OMWlWdE4tMm1TeGdrdVRFRUlnc1NUYy01ZXduT2p6RFZDMGdHZDlmZ2czOTZsZGtNZkVnbms?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穩懋"
+   ],
+   "accounts": [
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.421
+  },
+  {
+   "id": "7e1672bb00424ba8",
+   "title": "聯亞漲停只是第一槍？ 輝達全面導入CPO，8大供應鏈迎黃金爆發期！",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBWeGpMUWRCRk1EOHlwLUdRNm9tY2dPbVFtMjRnbWFFZjhVbU1MN0ZqdzJPYks5M0NVNGpCcWtMQUY0c0dxc19DRG1hV2k1UGM?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target"
+   ],
+   "industries": {
+    "target": "cpo"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯亞光電"
+   ],
+   "accounts": [
+    "聯亞光電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.095
+  },
+  {
+   "id": "7dd0a576fc4ba1de",
+   "title": "穩懋 Q2 每股賺 2.3 元！PD 順利量產，看好光通訊成第三成長支柱",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxObXo5dWk2V1BEQVhWZl9DYldRQjcwd1Q1bm1TOHNzRmhSNHZyRERyUDF6aGJndnUyS1dKV1RHaHB6V0J0X0d6QW1YSE5tS08zV2kxWkpHYTFlYWhlWVREWWtXZVMyNk5kU2dPeHZBaE1hZ1JqMlI4SzFUcmtVT2VSUQ?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "cpo",
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穩懋"
+   ],
+   "accounts": [
+    "穩懋"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.421
+  },
+  {
+   "id": "5021247b03767200",
+   "title": "矽光子與CPO狂潮再起 華星光(4979)擴產押寶800G 目標上看480元",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9saG8xRjc3TDRfN0FqSVlUMl9MQ1dTMm4yRFVRMVpvSnNNa1dTZ3NXMDhPR0ZHaTkzWklOcmtVYUJFbWVsV1RFZzJMZUx2cVZuVGhGaVFjQ3p2U1Zwd1FwSW1iQkV4QS1QbVR3VnZSNA?oc=5",
+   "source": "理財周刊",
+   "published": "2026-07-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華星光通"
+   ],
+   "accounts": [
+    "華星光通"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.415
+  },
+  {
+   "id": "dc9330cb7bbe4bf7",
+   "title": "封面故事／因應AI大咖需求急擴產5倍 王嘉煌：穎崴不缺席矽光子市場",
+   "link": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPQ1VGMzQzV2U1dUJWVGU1Z1hRZTZ0VVp0eFlST3JCcEpqZDVqSm9jeVA4MDVsWTI4MlZQWERabXpvVkhrRXBJai1NMlhhYWptTzBvcTdVTnBzNmdpd0tpSHk2WjhuTGVmT0h5SnUybVNCS19kaENvRlhJSkJXdFpDX3RxMllTZ3ZuUnpiT2x4b2FhZjdhRm4tanNqVDh0RXhvSkFLc1FoSEltODc0Y18tS3JUWExScGIwUTQwV3dDXzQ0OFVYRlc5X0dOQ3N0MVVSMkU1eGM4OTdGa1kwRVk5THZhbWdZNDZQUTdPdWUxZmFDcjY3XzdwMzBhRm5XOXE0WFVwZzUzekFFNFNDWUdTZ3RacWo2STNzZlhadFdSelNlbGhlTlBXWS1YTFBScm5Jb2VNYlY5czdVVndnTXV2MmtfZU5YRk5UMzZMWndxeUgxWGZuWXlYQ1k2cml3SUk3dEtrQWtCd2pqeG03VHBlTzBNQmJ6MTYtSzEybHJUZ3N0dDRLVGxVeXRSU3YwWnVlZzJTb1JPaU1GQzBfZkZj?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-07-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "穎崴"
+   ],
+   "accounts": [
+    "穎崴"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.384
+  }
+ ],
+ "segment": {
+  "key": "tw_cpo",
+  "name": "台灣 CPO 與光通訊供應鏈",
+  "description": "共同封裝光學(CPO)與矽光子供應鏈:雷射與磊晶、光引擎與封裝、光收發模組、光纖與被動元件、光學鍍膜、測試介面與設備、交換器系統;AI 資料中心 800G / 1.6T 與 CPO 交換器帶動擴產。光學鍍膜與晶片金屬化用靶材,散熱與測試座用銅合金",
+  "subsegments": {
+   "laser_epi": "雷射與磊晶",
+   "engine": "光引擎與封裝",
+   "transceiver": "光收發模組",
+   "passive": "光纖與被動元件",
+   "coating": "光學鍍膜",
+   "test": "測試介面與設備",
+   "system": "交換器系統",
+   "other": "其他未歸戶業者"
+  },
+  "days": 120,
+  "half_life_days": 45.0
+ },
+ "links": [
+  {
+   "name": "業務報告",
+   "page": "report"
+  }
+ ],
+ "title": "台灣設備廠",
+ "accounts": [
+  {
+   "org": "穎崴",
+   "ticker": "6515",
+   "subsegment": "test",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 3
+   },
+   "note": "測試座與探針(AI / CPO 晶片);測試座彈簧探針與端子用鈹銅、磷青銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 9.45
+   },
+   "signal_score": 45.7,
+   "signals": 9,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-10",
+   "opportunity": 67.4,
+   "fit_part": 40.0,
+   "signal_part": 27.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "997df50882a3f474",
+    "294ef4da6e1501ab",
+    "13a70330f1458d20",
+    "0c5d36fdab555d01",
+    "5fdfa4d3a0b8ff4e",
+    "17d82a30b64e2965",
+    "dc9330cb7bbe4bf7",
+    "bd97565c2172636d"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 22
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 22 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "997df50882a3f474": "inferred",
+    "294ef4da6e1501ab": "inferred",
+    "13a70330f1458d20": "inferred",
+    "0c5d36fdab555d01": "inferred",
+    "5fdfa4d3a0b8ff4e": "inferred",
+    "17d82a30b64e2965": "inferred",
+    "dc9330cb7bbe4bf7": "inferred",
+    "bd97565c2172636d": "inferred"
+   }
+  },
+  {
+   "org": "統新光訊",
+   "ticker": "6426",
+   "subsegment": "coating",
+   "fit": {
+    "target": 3,
+    "titanium": 2,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "光學濾光片(薄膜濾光片)鍍膜;多層光學鍍膜大量使用鈦、鉭、鈮、矽等靶材,是靶材在光通訊最直接的用戶",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 5.13,
+    "titanium": 5.13,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 35.9,
+   "signals": 5,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-10",
+   "opportunity": 61.5,
+   "fit_part": 40.0,
+   "signal_part": 21.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "target",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "58cd83d7065fa196",
+    "e4d6cc69bf4f2029",
+    "ab3aea7af436aa7d",
+    "cbb438a24d1d4c9b",
+    "66631b8469f6651b",
+    "1f79c7dc27a2e467",
+    "cb5ee5af53082d97",
+    "1eca502eaafc7ea0"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 9
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 9 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "58cd83d7065fa196": "inferred",
+    "e4d6cc69bf4f2029": "inferred",
+    "ab3aea7af436aa7d": "inferred",
+    "cbb438a24d1d4c9b": "inferred",
+    "66631b8469f6651b": "inferred",
+    "1f79c7dc27a2e467": "inferred",
+    "cb5ee5af53082d97": "inferred",
+    "1eca502eaafc7ea0": "inferred"
+   }
+  },
+  {
+   "org": "聯亞光電",
+   "ticker": "3081",
+   "subsegment": "laser_epi",
+   "fit": {
+    "target": 2,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "磷化銦(InP)雷射磊晶片;晶片電極金屬化(Ti / Pt / Au)用濺鍍靶材",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 7.15,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 1.9
+   },
+   "signal_score": 40.3,
+   "signals": 9,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-30",
+   "opportunity": 50.8,
+   "fit_part": 26.7,
+   "signal_part": 24.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "target",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "0603f94c1f0924bc",
+    "0d15530f1c8f308c",
+    "3c51075904b573f7",
+    "5bb2f01e338ded40",
+    "81cee755682a7e2f",
+    "3ac43f5f8fd51b9a",
+    "54e4df494c52327b",
+    "feda90fd9323e753"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 15
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 15 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "0603f94c1f0924bc": "inferred",
+    "0d15530f1c8f308c": "inferred",
+    "3c51075904b573f7": "inferred",
+    "5bb2f01e338ded40": "inferred",
+    "81cee755682a7e2f": "inferred",
+    "3ac43f5f8fd51b9a": "inferred",
+    "54e4df494c52327b": "inferred",
+    "feda90fd9323e753": "inferred"
+   }
+  },
+  {
+   "org": "穩懋",
+   "ticker": "3105",
+   "subsegment": "laser_epi",
+   "fit": {
+    "target": 3,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "化合物半導體晶圓代工(含光通訊雷射、光偵測器);前段金屬化大量使用濺鍍靶材,背面金屬與散熱用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 1.66,
+    "titanium": 0.0,
+    "nickel": 0.26,
+    "copper": 1.66
+   },
+   "signal_score": 13.9,
+   "signals": 4,
+   "top_intent": "shortage",
+   "last_signal": "2026-08-25",
+   "opportunity": 48.3,
+   "fit_part": 40.0,
+   "signal_part": 8.3,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "target",
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "6347cdf84d13dd52",
+    "dadd22db474cd3f6",
+    "c5dbc799f0eb08b1",
+    "bff5de388733a151",
+    "7dd0a576fc4ba1de",
+    "5d7755fc7745d8f2"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 6
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "6347cdf84d13dd52": "inferred",
+    "dadd22db474cd3f6": "inferred",
+    "c5dbc799f0eb08b1": "inferred",
+    "bff5de388733a151": "inferred",
+    "7dd0a576fc4ba1de": "inferred",
+    "5d7755fc7745d8f2": "inferred"
+   }
+  },
+  {
+   "org": "聯鈞光電",
+   "ticker": "3450",
+   "subsegment": "engine",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "光通訊元件封裝代工(光引擎、光收發次模組);封裝殼體與散熱件用銅、可伐合金(Fe-Ni-Co)",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 5.3
+   },
+   "signal_score": 35.6,
+   "signals": 7,
+   "top_intent": "contract",
+   "last_signal": "2026-11-10",
+   "opportunity": 48.0,
+   "fit_part": 26.7,
+   "signal_part": 21.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "e0a32e40efaeda12",
+    "146911f12ae32347",
+    "2464d1957d8d5fa4",
+    "b451da472c60f4c5",
+    "731d575b46dc9dfd",
+    "43f2db702c197d95",
+    "a0a3ec30f33d5eac",
+    "d02a50bbaace7770"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 16
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 16 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "e0a32e40efaeda12": "inferred",
+    "146911f12ae32347": "inferred",
+    "2464d1957d8d5fa4": "inferred",
+    "b451da472c60f4c5": "inferred",
+    "731d575b46dc9dfd": "inferred",
+    "43f2db702c197d95": "inferred",
+    "a0a3ec30f33d5eac": "inferred",
+    "d02a50bbaace7770": "inferred"
+   }
+  },
+  {
+   "org": "旺矽",
+   "ticker": "6223",
+   "subsegment": "test",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "探針卡與光電測試(含 CPO / 矽光子晶圓測試);探針與測試介面用鈹銅等銅合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 1.63,
+    "titanium": 0.0,
+    "nickel": 1.63,
+    "copper": 5.02
+   },
+   "signal_score": 34.4,
+   "signals": 8,
+   "top_intent": "contract",
+   "last_signal": "2026-11-12",
+   "opportunity": 47.3,
+   "fit_part": 26.7,
+   "signal_part": 20.6,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "9ee732a80284b558",
+    "4805934ee5e0e6f8",
+    "eca02a754eb6444e",
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "765082d0bc65ec93",
+    "bd97565c2172636d",
+    "2db4d14f3f481a99"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 9
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 9 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "9ee732a80284b558": "inferred",
+    "4805934ee5e0e6f8": "inferred",
+    "eca02a754eb6444e": "inferred",
+    "615f1cbb10740e06": "inferred",
+    "84058073d92b642b": "inferred",
+    "765082d0bc65ec93": "inferred",
+    "bd97565c2172636d": "inferred",
+    "2db4d14f3f481a99": "inferred"
+   }
+  },
+  {
+   "org": "訊芯-KY",
+   "ticker": "6451",
+   "subsegment": "engine",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "系統級封裝與光收發模組 / CPO 光引擎封裝;散熱底座與導電件用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 2.21
+   },
+   "signal_score": 19.4,
+   "signals": 4,
+   "top_intent": "expansion",
+   "last_signal": "2026-09-22",
+   "opportunity": 46.1,
+   "fit_part": 26.7,
+   "signal_part": 11.6,
+   "value_part": 7.8,
+   "value_score": 52.1,
+   "estimate": {
+    "value": 36666667,
+    "product": "copper",
+    "by_product": {
+     "copper": 33333333,
+     "target": 3333333
+    },
+    "amount": 5000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.01,
+    "fit": 2,
+    "signal": "0708027992130270",
+    "title": "CPO大商機要爆了！「這矽光子大廠」卡位輝達、訊芯砸50億擴產 2027拚放量",
+    "score": 52.1,
+    "summary": "約 NT$36.7 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$50.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 1% × 適配 2/3"
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "81d618c5154215a5",
+    "0708027992130270",
+    "c93f8c74c00cc984",
+    "b8dc1e74d756ccdc"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "81d618c5154215a5": "inferred",
+    "0708027992130270": "inferred",
+    "c93f8c74c00cc984": "inferred",
+    "b8dc1e74d756ccdc": "inferred"
+   }
+  },
+  {
+   "org": "光環科技",
+   "ticker": "3234",
+   "subsegment": "transceiver",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "光通訊雷射 / 光偵測晶片與模組;晶片金屬化與散熱件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.08,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 3.61
+   },
+   "signal_score": 31.6,
+   "signals": 6,
+   "top_intent": "shortage",
+   "last_signal": "2026-10-13",
+   "opportunity": 45.6,
+   "fit_part": 26.7,
+   "signal_part": 19.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "501f36e4855e9700",
+    "f1530fbb2aa748e0",
+    "a331e6b2bb294c33",
+    "90a8e97ec700dc16",
+    "422e2c173363b91d",
+    "6a2af8c465237ac1",
+    "ea5f33d7ae11726d",
+    "f3e96eea65bc7b76"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 9
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 9 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "501f36e4855e9700": "inferred",
+    "f1530fbb2aa748e0": "inferred",
+    "a331e6b2bb294c33": "inferred",
+    "90a8e97ec700dc16": "inferred",
+    "422e2c173363b91d": "inferred",
+    "6a2af8c465237ac1": "inferred",
+    "ea5f33d7ae11726d": "inferred",
+    "f3e96eea65bc7b76": "inferred"
+   }
+  },
+  {
+   "org": "華星光通",
+   "ticker": "4979",
+   "subsegment": "transceiver",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "光收發模組與雷射元件;散熱片與殼體用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.81,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 3.54
+   },
+   "signal_score": 23.7,
+   "signals": 6,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-12",
+   "opportunity": 40.9,
+   "fit_part": 26.7,
+   "signal_part": 14.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "0603f94c1f0924bc",
+    "7f2c06d4a9999958",
+    "c0089bf01133adfd",
+    "5021247b03767200",
+    "2eafe37cfe3708d5",
+    "558b6d67b994b904",
+    "6d5ba320da3db370",
+    "bc1fb84f7f46b5a3"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 10
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 10 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "0603f94c1f0924bc": "inferred",
+    "7f2c06d4a9999958": "inferred",
+    "c0089bf01133adfd": "inferred",
+    "5021247b03767200": "inferred",
+    "2eafe37cfe3708d5": "inferred",
+    "558b6d67b994b904": "inferred",
+    "6d5ba320da3db370": "inferred",
+    "bc1fb84f7f46b5a3": "inferred"
+   }
+  },
+  {
+   "org": "前鼎光電",
+   "ticker": "4908",
+   "subsegment": "transceiver",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "光收發模組;散熱件與殼體用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 1.53
+   },
+   "signal_score": 12.5,
+   "signals": 3,
+   "top_intent": "expansion",
+   "last_signal": "2026-09-10",
+   "opportunity": 34.2,
+   "fit_part": 26.7,
+   "signal_part": 7.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "1e84105aaf9c8f57",
+    "f8507a002ec9fcfe",
+    "a9f5ce0198429b3f"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 3
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 3 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "1e84105aaf9c8f57": "inferred",
+    "f8507a002ec9fcfe": "inferred",
+    "a9f5ce0198429b3f": "inferred"
+   }
+  },
+  {
+   "org": "全新光電",
+   "ticker": "2455",
+   "subsegment": "laser_epi",
+   "fit": {
+    "target": 2,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "砷化鎵 / 磷化銦磊晶片(雷射、VCSEL);晶片金屬化用濺鍍靶材",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.79,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 7.8,
+   "signals": 2,
+   "top_intent": "contract",
+   "last_signal": "2026-09-04",
+   "opportunity": 31.3,
+   "fit_part": 26.7,
+   "signal_part": 4.7,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "target",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "935395e72d53d871",
+    "25a97b08797fbe4b"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "935395e72d53d871": "inferred",
+    "25a97b08797fbe4b": "inferred"
+   }
+  },
+  {
+   "org": "眾達-KY",
+   "ticker": "4977",
+   "subsegment": "transceiver",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "光收發模組;散熱件與殼體用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.42
+   },
+   "signal_score": 4.1,
+   "signals": 1,
+   "top_intent": "contract",
+   "last_signal": "2026-10-28",
+   "opportunity": 29.1,
+   "fit_part": 26.7,
+   "signal_part": 2.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "ec72c5782e686191"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "ec72c5782e686191": "inferred"
+   }
+  },
+  {
+   "org": "上詮光纖",
+   "ticker": "3363",
+   "subsegment": "passive",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "光纖陣列(FAU)與 CPO 光纖連接方案;材料以玻璃、不銹鋼與精密零件為主,關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "光聖",
+   "ticker": "6442",
+   "subsegment": "passive",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "光纖跳線與連接器;關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "智邦",
+   "ticker": "2345",
+   "subsegment": "system",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "資料中心交換器(含 CPO 交換器);材料多經模組廠間接採購,關聯低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "波若威",
+   "ticker": "3163",
+   "subsegment": "passive",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "光纖被動元件與模組;關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "竑騰",
+   "ticker": "7751",
+   "subsegment": "test",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "先進封裝與光通訊貼合 / 封裝設備;設備零件,關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "致茂",
+   "ticker": "2360",
+   "subsegment": "test",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "半導體與光電測試設備(含矽光子測試);設備結構件,關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  }
+ ],
+ "other_mentions": [
+  {
+   "org": "台積電",
+   "signal_score": 31.1,
+   "signals": 5,
+   "last_signal": "2026-10-29",
+   "product": "target",
+   "evidence": [
+    "4805934ee5e0e6f8",
+    "615f1cbb10740e06",
+    "84058073d92b642b"
+   ]
+  },
+  {
+   "org": "日月光投控",
+   "signal_score": 18.5,
+   "signals": 3,
+   "last_signal": "2026-10-30",
+   "product": "target",
+   "evidence": [
+    "55da103bce89a169",
+    "266737a8d793851e",
+    "d3436283b0d33cc1"
+   ]
+  },
+  {
+   "org": "京元電子",
+   "signal_score": 15.4,
+   "signals": 1,
+   "last_signal": "2026-10-22",
+   "product": "titanium",
+   "evidence": [
+    "55da103bce89a169"
+   ]
+  },
+  {
+   "org": "頎邦科技",
+   "signal_score": 12.0,
+   "signals": 2,
+   "last_signal": "2026-10-30",
+   "product": "target",
+   "evidence": [
+    "68cc6d1880dc02f6",
+    "67a91338b01eebe8"
+   ]
+  },
+  {
+   "org": "上游材料",
+   "signal_score": 6.9,
+   "signals": 1,
+   "last_signal": "2026-10-13",
+   "product": "copper",
+   "evidence": [
+    "501f36e4855e9700"
+   ]
+  },
+  {
+   "org": "帆宣系統",
+   "signal_score": 5.7,
+   "signals": 2,
+   "last_signal": "2026-10-13",
+   "product": "nickel",
+   "evidence": [
+    "c5dbc799f0eb08b1",
+    "64766cba7ef4024f"
+   ]
+  },
+  {
+   "org": "聯電",
+   "signal_score": 5.4,
+   "signals": 1,
+   "last_signal": "2026-10-28",
+   "product": "target",
+   "evidence": [
+    "feda90fd9323e753"
+   ]
+  },
+  {
+   "org": "大立光",
+   "signal_score": 1.4,
+   "signals": 1,
+   "last_signal": "2026-09-29",
+   "product": "copper",
+   "evidence": [
+    "526b7253fd9edca6"
+   ]
+  },
+  {
+   "org": "貿聯-KY",
+   "signal_score": 1.4,
+   "signals": 1,
+   "last_signal": "2026-09-29",
+   "product": "copper",
+   "evidence": [
+    "526b7253fd9edca6"
+   ]
+  },
+  {
+   "org": "美光台灣",
+   "signal_score": 0.4,
+   "signals": 0,
+   "last_signal": "2026-08-24",
+   "product": "target",
+   "evidence": [
+    "ea5f33d7ae11726d"
+   ]
+  }
+ ],
+ "segment_cells": [
+  {
+   "subsegment": "laser_epi",
+   "product": "target",
+   "heat": 10.129,
+   "count": 9,
+   "z": 1.19,
+   "level": "warm",
+   "signal_ids": [
+    "7e1672bb00424ba8",
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "b96e4e6b68016aee",
+    "729ba267dd6f698c",
+    "bff5de388733a151",
+    "0596968a3341e405",
+    "81cee755682a7e2f",
+    "25a97b08797fbe4b",
+    "949d4b6adfdfe054",
+    "5d7755fc7745d8f2",
+    "c5dbc799f0eb08b1"
+   ]
+  },
+  {
+   "subsegment": "laser_epi",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.57,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "laser_epi",
+   "product": "nickel",
+   "heat": 0.517,
+   "count": 1,
+   "z": -0.95,
+   "level": "neutral",
+   "signal_ids": [
+    "c5dbc799f0eb08b1"
+   ]
+  },
+  {
+   "subsegment": "laser_epi",
+   "product": "copper",
+   "heat": 4.098,
+   "count": 4,
+   "z": 1.84,
+   "level": "warm",
+   "signal_ids": [
+    "dadd22db474cd3f6",
+    "7dd0a576fc4ba1de",
+    "bff5de388733a151",
+    "5d7755fc7745d8f2",
+    "c5dbc799f0eb08b1",
+    "6347cdf84d13dd52",
+    "0603f94c1f0924bc",
+    "feda90fd9323e753"
+   ]
+  },
+  {
+   "subsegment": "engine",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.14,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "engine",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.04,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "engine",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.46,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "engine",
+   "product": "copper",
+   "heat": 7.502,
+   "count": 7,
+   "z": 1.67,
+   "level": "warm",
+   "signal_ids": [
+    "b451da472c60f4c5",
+    "d02a50bbaace7770",
+    "c165e46f41d4414a",
+    "230647194900e159",
+    "604bc27938ae2c77",
+    "47363a872f9850bd",
+    "1004c14460bb4bd0",
+    "23942e9ba1690c75",
+    "b8dc1e74d756ccdc",
+    "2464d1957d8d5fa4",
+    "76df01344e2d41aa",
+    "43f2db702c197d95"
+   ]
+  },
+  {
+   "subsegment": "transceiver",
+   "product": "target",
+   "heat": 0.085,
+   "count": 0,
+   "z": -0.05,
+   "level": "neutral",
+   "signal_ids": [
+    "ea5f33d7ae11726d"
+   ]
+  },
+  {
+   "subsegment": "transceiver",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.96,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "transceiver",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.37,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "transceiver",
+   "product": "copper",
+   "heat": 8.69,
+   "count": 9,
+   "z": 1.85,
+   "level": "warm",
+   "signal_ids": [
+    "5021247b03767200",
+    "2eafe37cfe3708d5",
+    "f8507a002ec9fcfe",
+    "a9f5ce0198429b3f",
+    "ea5f33d7ae11726d",
+    "f3e96eea65bc7b76",
+    "ce3b78f828f1059e",
+    "422e2c173363b91d",
+    "6a2af8c465237ac1",
+    "ebb2b25f47589547",
+    "48c4bdcc816344fa",
+    "bc1fb84f7f46b5a3"
+   ]
+  },
+  {
+   "subsegment": "passive",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.62,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "passive",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.52,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "passive",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.94,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "passive",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.54,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "coating",
+   "product": "target",
+   "heat": 5.134,
+   "count": 5,
+   "z": 0.48,
+   "level": "neutral",
+   "signal_ids": [
+    "66631b8469f6651b",
+    "ab3aea7af436aa7d",
+    "631118f640bef23f",
+    "cbb438a24d1d4c9b",
+    "1eca502eaafc7ea0",
+    "cb5ee5af53082d97",
+    "e4d6cc69bf4f2029",
+    "58cd83d7065fa196",
+    "1f79c7dc27a2e467"
+   ]
+  },
+  {
+   "subsegment": "coating",
+   "product": "titanium",
+   "heat": 5.134,
+   "count": 5,
+   "z": -0.42,
+   "level": "neutral",
+   "signal_ids": [
+    "66631b8469f6651b",
+    "ab3aea7af436aa7d",
+    "631118f640bef23f",
+    "cbb438a24d1d4c9b",
+    "1eca502eaafc7ea0",
+    "cb5ee5af53082d97",
+    "e4d6cc69bf4f2029",
+    "58cd83d7065fa196",
+    "1f79c7dc27a2e467"
+   ]
+  },
+  {
+   "subsegment": "coating",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.28,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "coating",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": 1.2,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "test",
+   "product": "target",
+   "heat": 3.263,
+   "count": 3,
+   "z": 1.11,
+   "level": "warm",
+   "signal_ids": [
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "4805934ee5e0e6f8"
+   ]
+  },
+  {
+   "subsegment": "test",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.07,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "test",
+   "product": "nickel",
+   "heat": 3.263,
+   "count": 3,
+   "z": -0.2,
+   "level": "neutral",
+   "signal_ids": [
+    "615f1cbb10740e06",
+    "84058073d92b642b",
+    "4805934ee5e0e6f8"
+   ]
+  },
+  {
+   "subsegment": "test",
+   "product": "copper",
+   "heat": 16.1,
+   "count": 13,
+   "z": 3.38,
+   "level": "hot",
+   "signal_ids": [
+    "dc9330cb7bbe4bf7",
+    "6cbc0f9c20a03405",
+    "17d82a30b64e2965",
+    "bcce623f0191a526",
+    "2db4d14f3f481a99",
+    "bd97565c2172636d",
+    "85b4680c27cc4908",
+    "51cff55bcb6ba55e",
+    "b27468fe359ed985",
+    "3202942a80ef4dc6",
+    "cfacdfa0737957f7",
+    "5fdfa4d3a0b8ff4e"
+   ]
+  },
+  {
+   "subsegment": "system",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.62,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "system",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.52,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "system",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.94,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "system",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.54,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "target",
+   "heat": 6.105,
+   "count": 3,
+   "z": 1.1,
+   "level": "neutral",
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "266737a8d793851e",
+    "68cc6d1880dc02f6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "titanium",
+   "heat": 5.636,
+   "count": 3,
+   "z": 0.16,
+   "level": "neutral",
+   "signal_ids": [
+    "266737a8d793851e",
+    "68cc6d1880dc02f6",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354",
+    "d3436283b0d33cc1",
+    "67a91338b01eebe8"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "nickel",
+   "heat": 0.469,
+   "count": 0,
+   "z": -0.7,
+   "level": "neutral",
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "64766cba7ef4024f"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 6.459,
+   "count": 3,
+   "z": 2.3,
+   "level": "neutral",
+   "signal_ids": [
+    "28871d27e3a0153c",
+    "266737a8d793851e",
+    "68cc6d1880dc02f6",
+    "526b7253fd9edca6",
+    "64766cba7ef4024f",
+    "dfdb857bb6828222",
+    "55da103bce89a169",
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b"
+   ]
+  }
+ ],
+ "signal_materials": {
+  "0603f94c1f0924bc": [],
+  "0708027992130270": [],
+  "0c5d36fdab555d01": [],
+  "0d15530f1c8f308c": [],
+  "13a70330f1458d20": [],
+  "146911f12ae32347": [],
+  "17d82a30b64e2965": [],
+  "1e84105aaf9c8f57": [],
+  "1eca502eaafc7ea0": [],
+  "1f79c7dc27a2e467": [],
+  "2464d1957d8d5fa4": [],
+  "25a97b08797fbe4b": [],
+  "294ef4da6e1501ab": [],
+  "2db4d14f3f481a99": [],
+  "2eafe37cfe3708d5": [],
+  "3ac43f5f8fd51b9a": [],
+  "3c51075904b573f7": [],
+  "422e2c173363b91d": [],
+  "43f2db702c197d95": [],
+  "4805934ee5e0e6f8": [],
+  "501f36e4855e9700": [],
+  "5021247b03767200": [],
+  "54e4df494c52327b": [],
+  "558b6d67b994b904": [],
+  "58cd83d7065fa196": [],
+  "5bb2f01e338ded40": [],
+  "5d7755fc7745d8f2": [],
+  "5fdfa4d3a0b8ff4e": [],
+  "615f1cbb10740e06": [],
+  "6347cdf84d13dd52": [],
+  "66631b8469f6651b": [],
+  "6a2af8c465237ac1": [],
+  "6d5ba320da3db370": [],
+  "731d575b46dc9dfd": [],
+  "765082d0bc65ec93": [],
+  "7dd0a576fc4ba1de": [],
+  "7f2c06d4a9999958": [],
+  "81cee755682a7e2f": [],
+  "81d618c5154215a5": [],
+  "84058073d92b642b": [],
+  "90a8e97ec700dc16": [],
+  "935395e72d53d871": [],
+  "997df50882a3f474": [],
+  "9ee732a80284b558": [],
+  "a0a3ec30f33d5eac": [],
+  "a331e6b2bb294c33": [],
+  "a9f5ce0198429b3f": [],
+  "ab3aea7af436aa7d": [],
+  "b451da472c60f4c5": [],
+  "b8dc1e74d756ccdc": [],
+  "bc1fb84f7f46b5a3": [],
+  "bd97565c2172636d": [],
+  "bff5de388733a151": [],
+  "c0089bf01133adfd": [],
+  "c5dbc799f0eb08b1": [],
+  "c93f8c74c00cc984": [],
+  "cb5ee5af53082d97": [],
+  "cbb438a24d1d4c9b": [],
+  "d02a50bbaace7770": [],
+  "dadd22db474cd3f6": [],
+  "dc9330cb7bbe4bf7": [],
+  "e0a32e40efaeda12": [],
+  "e4d6cc69bf4f2029": [],
+  "ea5f33d7ae11726d": [],
+  "ec72c5782e686191": [],
+  "eca02a754eb6444e": [],
+  "f1530fbb2aa748e0": [],
+  "f3e96eea65bc7b76": [],
+  "f8507a002ec9fcfe": [],
+  "feda90fd9323e753": []
+ }
+}

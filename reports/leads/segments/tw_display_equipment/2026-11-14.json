@@ -1,0 +1,2245 @@
+{
+ "generated": "2026-11-13T16:42:18+00:00",
+ "asof": "2026-11-14",
+ "days": 120,
+ "half_life_days": 45.0,
+ "coverage_start": "2026-07-09",
+ "slices": [
+  "2026-11-07",
+  "2026-11-14"
+ ],
+ "labels": {
+  "products": {
+   "target": "濺鍍靶材",
+   "titanium": "純鈦 / 鈦合金",
+   "nickel": "鎳基合金",
+   "copper": "銅材 / 銅合金"
+  },
+  "industries": {
+   "semiconductor": "半導體",
+   "semi_equipment": "半導體設備與零組件",
+   "pcb_equipment": "PCB 與載板設備",
+   "ai_server": "AI 伺服器與散熱",
+   "cpo": "CPO 與光通訊",
+   "display_equipment": "面板與顯示設備",
+   "display": "顯示面板",
+   "solar": "太陽能",
+   "optical_coating": "光學與玻璃鍍膜",
+   "data_storage": "儲存媒體",
+   "hard_coating": "工具與裝飾鍍膜",
+   "aerospace": "航太",
+   "medical": "醫療器材",
+   "chemical": "化工石化",
+   "steel": "鋼鐵冶金",
+   "oil_gas": "油氣能源",
+   "power": "發電與燃氣輪機",
+   "hydrogen": "氫能與燃料電池",
+   "marine": "船舶與海水淡化",
+   "consumer": "消費電子",
+   "sports": "運動器材",
+   "additive": "積層製造(3D 列印)",
+   "other": "其他應用"
+  },
+  "regions": {
+   "TW": "台灣",
+   "CN": "中國大陸",
+   "JP": "日本",
+   "KR": "韓國",
+   "SEA": "東南亞與印度",
+   "US": "北美",
+   "EU": "歐洲",
+   "OTHER": "其他 / 未標示"
+  },
+  "intents": {
+   "tender": "招標採購",
+   "shortage": "缺料與交期",
+   "expansion": "擴產與新廠",
+   "maintenance": "歲修與汰換",
+   "contract": "訂單與專案",
+   "qualification": "認證與在地化",
+   "new_product": "新產品研發",
+   "hiring": "徵才擴編",
+   "policy": "政策與補助"
+  },
+  "levels": {
+   "hot": "熱點",
+   "warm": "溫點",
+   "neutral": "一般",
+   "cold": "冷點"
+  },
+  "trends": {
+   "new": "新興熱點",
+   "persistent": "持續熱點",
+   "intensifying": "升溫熱點",
+   "sporadic": "零星熱點",
+   "diminishing": "降溫",
+   "rising": "升溫中"
+  },
+  "product_industries": {
+   "target": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "data_storage",
+    "hard_coating",
+    "cpo",
+    "other"
+   ],
+   "titanium": [
+    "aerospace",
+    "medical",
+    "chemical",
+    "marine",
+    "consumer",
+    "sports",
+    "additive",
+    "hydrogen",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "nickel": [
+    "aerospace",
+    "power",
+    "oil_gas",
+    "chemical",
+    "hydrogen",
+    "additive",
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "copper": [
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "display",
+    "power",
+    "consumer",
+    "steel",
+    "cpo",
+    "other"
+   ]
+  }
+ },
+ "segment_pages": [
+  {
+   "key": "tw_semi_equipment",
+   "name": "台灣半導體設備廠",
+   "primary": true
+  },
+  {
+   "key": "tw_semi_production",
+   "name": "半導體生產供應鏈",
+   "primary": false
+  },
+  {
+   "key": "tw_pcb_equipment",
+   "name": "台灣 PCB 設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_display_equipment",
+   "name": "台灣面板設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_ai_server",
+   "name": "台灣 AI 伺服器設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_heavy_industry",
+   "name": "台灣重工業製造廠",
+   "primary": false
+  },
+  {
+   "key": "tw_cpo",
+   "name": "台灣 CPO 與光通訊供應鏈",
+   "primary": false
+  }
+ ],
+ "thresholds": {
+  "z_hot": 1.96,
+  "z_warm": 1.0,
+  "min_signals": 2,
+  "grades": {
+   "A": 70.0,
+   "B": 45.0,
+   "C": 25.0
+  }
+ },
+ "stats": {
+  "signals": 19,
+  "attributed": 19,
+  "new_signals": 2,
+  "hot_cells": 4,
+  "warm_cells": 2,
+  "leads": 7,
+  "grades": {
+   "A": 0,
+   "B": 0,
+   "C": 1,
+   "D": 3
+  },
+  "enriched": 0,
+  "by_product": {
+   "target": 5,
+   "titanium": 17,
+   "nickel": 13,
+   "copper": 18
+  },
+  "other_mentions": 2,
+  "accounts": 7,
+  "tiers": {
+   "優先開發": 0,
+   "積極經營": 2,
+   "持續觀察": 5
+  }
+ },
+ "cells": [
+  {
+   "product": "target",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 4.017,
+   "count": 4,
+   "z": 5.84,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    3.709,
+    4.017
+   ],
+   "signal_ids": [
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 7.718,
+   "count": 9,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    7.831,
+    7.718
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "1a1e1c42be8b6614",
+    "3bac8f9a8dc7e016",
+    "30f509af6c584457",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semi_equipment",
+   "region": "TW",
+   "heat": 1.667,
+   "count": 1,
+   "z": 4.16,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.0,
+    1.667
+   ],
+   "signal_ids": [
+    "6965c8c3321149e1"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 3.701,
+   "count": 5,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    4.122,
+    3.701
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "1a1e1c42be8b6614",
+    "30f509af6c584457"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 7.718,
+   "count": 9,
+   "z": 6.14,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    7.831,
+    7.718
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "1a1e1c42be8b6614",
+    "3bac8f9a8dc7e016",
+    "30f509af6c584457",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 0.81,
+   "count": 1,
+   "z": 2.11,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.902,
+    0.81
+   ],
+   "signal_ids": [
+    "a331e6b2bb294c33"
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "product": "titanium",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 7.718,
+   "count": 9,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    7.831,
+    7.718
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "413c048402bc797f",
+    "21087f09657387d9"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 3.701,
+   "count": 5,
+   "z": 6.58,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    4.122,
+    3.701
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "1a1e1c42be8b6614",
+    "30f509af6c584457"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 7.718,
+   "count": 9,
+   "z": 6.14,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    7.831,
+    7.718
+   ],
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "413c048402bc797f",
+    "21087f09657387d9"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "display_equipment",
+   "region": "TW",
+   "heat": 4.017,
+   "count": 4,
+   "z": 5.84,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    3.709,
+    4.017
+   ],
+   "signal_ids": [
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semi_equipment",
+   "region": "TW",
+   "heat": 1.667,
+   "count": 1,
+   "z": 4.16,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.0,
+    1.667
+   ],
+   "signal_ids": [
+    "6965c8c3321149e1"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "cpo",
+   "region": "TW",
+   "heat": 0.81,
+   "count": 1,
+   "z": 2.11,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.902,
+    0.81
+   ],
+   "signal_ids": [
+    "a331e6b2bb294c33"
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "org": "友威科技",
+   "account": true,
+   "score": 55.2,
+   "grade": "積極經營",
+   "product": "target",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-11",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.49
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "2a982fff737a3ef5",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "ac66f07f2f13bd21",
+    "413c048402bc797f"
+   ],
+   "signal_score": 25.3,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 15.2,
+   "value_part": 0.0
+  },
+  {
+   "org": "亞智科技",
+   "account": true,
+   "score": 54.3,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "expansion",
+    "new_product"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-10-05",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 1.99
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "30f509af6c584457",
+    "1a1e1c42be8b6614",
+    "029c5ccead329cc4",
+    "3cdbc5939243d36e",
+    "e0ce00a0ba8e98ff",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "868f94e3ffda3c1d"
+   ],
+   "signal_score": 23.8,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 14.3,
+   "value_part": 0.0
+  },
+  {
+   "org": "廣運機械",
+   "products": [
+    "titanium"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.7
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "惠特科技",
+   "products": [
+    "titanium"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.7
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "晶彩科技",
+   "products": [
+    "titanium"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.7
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "盟立自動化",
+   "products": [
+    "titanium"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.7
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "馗鼎奈米",
+   "products": [
+    "target"
+   ],
+   "industry": "display_equipment",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.49
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  }
+ ],
+ "signals": [
+  {
+   "id": "ac66f07f2f13bd21",
+   "title": "3580 友威科- 【11/11 產業即時新聞】電子中游-儀器設備工程族群強勢走揚，半導體廠擴產商機點火設備股- 股市爆料同學會",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBpcU92QklnNmdZNXZqODdoNEZVWHdGc3p4VUpSc2RfODMtOWpPNDRUWDVBb0RTTnRfWGl5TGFVLXZhd3FrT0ZSdWk2Tm04ZHRUY1BnWTVibEU?oc=5",
+   "source": "CMoney",
+   "published": "2026-11-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "display_equipment",
+    "titanium": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "友威科技"
+   ],
+   "accounts": [
+    "友威科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.687
+  },
+  {
+   "id": "6965c8c3321149e1",
+   "title": "半導體瘋狂吸金！「這檔」訂單看旺至2028年翻紅漲逾3% 亞翔、盟立、聖暉等11檔攻頂",
+   "link": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNeENTUFBFNVY1ejF3c241c2pkM09xNmZWUnJaeE56Rlhfa2t6RG9RalFTV0kyWFBqZnZQejJlbUtuODFzZTBORWZZbENCM2JWZzBLRUJrRFhKUlFfYzJGUVhYVTM5S2V1NkpqeTFXRkg1QlEtdnVFXzFuak94VTNUbGRhMWJUZ0p6N0FPWk1KYS1zdXpFcFRKMDVlOVU2TjQtT09uLTBmbnhqZFFrU3doUEtZWm9vS3doOWJ3UDQ1V3R5RjNSel81bzFjUlo0RnNJNDQ4NUpoWDZ0cEM1eGhrcnRQNkp6aExkWnlGY0JSc1BHa2o0MkhJSHRGeWZEX1B0c2ZFM2plc2RucVdFXzhjWEk0WUNSOGtteFNBQXV0Qkp6bGJqZGNQOGhBTGhuTUhnamt3bXp0a3ZpR0ZTbFNKVUl3TTNNUGZEYm1xblJIOU5aR3k3VHRuRlg3R0R6SUFFdnBvV3lQN3R5N1dfRnJHX0lGR1EtMTN2X18w?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-11-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "semi_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞翔工程",
+    "盟立自動化"
+   ],
+   "accounts": [
+    "亞翔工程",
+    "盟立自動化"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.667
+  },
+  {
+   "id": "2a982fff737a3ef5",
+   "title": "迎交機旺季 友威科下半年估優上半年 - 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQbERaS0l5UEhkMmY1WFBDSkRpcnpqNm1EeWVySnRxR19FMmhMVVFvQnBfUU1jU3Vhb1NUVnFxZEJ0SThnaXpMMzA0bVlhQ2xfMmxxcmdRbnZ4LXMyVDdWZlBoNUtpWm9LSTB1Uk5TazdXM1BxYUNOSnlLS3p0QkFILW94cDZEYWhNWXJQVzhDd0NyQQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-10-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "display_equipment",
+    "titanium": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "友威科技"
+   ],
+   "accounts": [
+    "友威科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.152
+  },
+  {
+   "id": "a331e6b2bb294c33",
+   "title": "多晶彩DJC深化MIT研發布局 從光膜天花走向建築光環境系統整合 | 建材新訊 | 商情",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9mSkIwakR2TWVqdExwbDh6VWxwTWNKeENuUUtKOUNpbS1WMFBIelB4clJKRFpUZDVDWG5nRTZ4ckxEMVRGVFlyczVvQUt0V2trWmhzYTNmSHg3QQ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "cpo"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "晶彩科技",
+    "光環科技"
+   ],
+   "accounts": [
+    "晶彩科技",
+    "光環科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.81
+  },
+  {
+   "id": "30f509af6c584457",
+   "title": "三路供應鏈匯流CoPoS 亞智跨尺寸布局面板級封裝",
+   "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxPVjA4STEzVF9lVVI3RGFWNlFnWnJDU1Y1R3FhZUoxVDFZSWliemp5aFRaWnhnUDVYTTNhVW5vb2tSbm14V2Fmb3pJSHZqQUVYcEhQU0ZuRkNnTjQ0UHBrLV9RMWNLSTE1TjdXVzJaTVlNRlpEaFNlVWVjY2FkWWpMQi1XeEV3SW1KdHRaWEpVOG9ETk1HQU1HNTlPWllPT3VZOXlneU8tcXpqbGFiVk8wRGdsdUgtSHByVTJCQ1ZHYTRydGdEQVpJc2x5UFoyMmNURmRmU2Fwb1d3YVZZV2RNc1A0OURXVm5GRWxpYU1YbGVaRmIzbTdMOFhDaU05WVRnSmJvcGItdm42bkJUc1kxWlNveU5sQU9ZV2k0OGxRMWN5MUtlS0JmWXliaDZlMUZobkpn?oc=5",
+   "source": "新電子",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.972
+  },
+  {
+   "id": "3bac8f9a8dc7e016",
+   "title": "友威科訂單能見度高 H2看俏",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBGM2M4ekVKaFF0ZTFpLV94VlE4MGphcHBPSUxjeExCd3BUTDBULUR2Y1dsUjlNX1F6RVpYMW40VVJMSi1VM0ZldXZtVGE2cWVqbVljcDNZQjZ4aUstX19OLUc1V05yZF9Xek00?oc=5",
+   "source": "中時新聞網",
+   "published": "2026-09-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "display_equipment",
+    "titanium": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "友威科技"
+   ],
+   "accounts": [
+    "友威科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.714
+  },
+  {
+   "id": "1a1e1c42be8b6614",
+   "title": "Manz亞智跨尺寸ECD及濕製程平台助攻面板級封裝進入量產",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOY3NuVXpjYTBiU0w4bVF0VzNaNVpUNUVkQzJKSXRfTzlvenFGc2diUE9uVEFWS3d3LTJkbGdRN2oxTzVEVzVXQ1JFa185NW4tZlNHaUdPTXNDcXN5NmNVcDJsTWxrRzFFNjdIZFJyUzNPNlhjTjFuVFpaWVFRZWphekF1RjNadDVkbUtJNDBR?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.78
+  },
+  {
+   "id": "21087f09657387d9",
+   "title": "【友威科FY2026 Q2 法說會】ABF載板四雄擴產訂單100%到手李原吉：FOPLP實績台灣最充分，玻璃基板已出貨數臺",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE56MGh0NElmbGo5a1hnQlFyWmIycmktS2Nuc1Bsc2E1REw1OTVvZjZ5LVBRcENpb1QzT0Z4cUlhVnZvY05Sd2xDUFUtbTRwUUo2WlRsd2dwcy1XYlUwSnB1d2lCMUVuZw?oc=5",
+   "source": "BigGo 財經",
+   "published": "2026-09-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "display_equipment",
+    "titanium": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "友威科技"
+   ],
+   "accounts": [
+    "友威科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.816
+  },
+  {
+   "id": "413c048402bc797f",
+   "title": "友威科Q2轉盈；新廠挹注下半年營運 - 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMk1oMHFzY09kV19GWDJzamtxeXdNMFloaVdrbTM0eDg3ejBXcndIUFVvVjNDMzdNTGltSk5NU2xjVERHS3lIUzFjUURmRW9BZ3ZyU0QyV1RUUGRkMFNwakpRbE40TEdOOExWYmJpOUNBNEpRb0N5UE1sc1VIRk82ejRmRDRjLXZrbmdWaUxXTmh0QQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-21",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "display_equipment",
+    "titanium": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "友威科技"
+   ],
+   "accounts": [
+    "友威科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.648
+  },
+  {
+   "id": "029c5ccead329cc4",
+   "title": "Glass Core量產關鍵在良率 亞智林峻生揭封裝設備進入製程整合戰",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOam1xeFpSN3QwWWVZQ21DcjdzNDBJTHhBRlBMRm5VeDZRZXpENHh1b2Z5T3N1dkFNNDdJUEhXaDVmdGVyUnhFSUZRX2YwT0xvUFpCTER5c3oyY1p3RTJYX3hHSC1IUzIyS2pDSHdxRnNUQmFmUzZFSjQyY2NEdHNGdWFpMVl5WFpya3A0d0Jn?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.628
+  },
+  {
+   "id": "bf3837c4dec65dd1",
+   "title": "亞智攻CoPoS和玻璃核心載板搶國產化先進封裝商機| 產經",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5yZEMxdmtLZ096NlFoTG1nZUhlVEQxbUNlcEVQMVF3V0l5NXdFcmUxeDZncG94anNZUTdzWEhoOU9nbDhZSVp4dy1lM0lEVGxPYTVFNUlvRVhRMWRrZWc?oc=5",
+   "source": "中央社 CNA",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.464
+  },
+  {
+   "id": "952969300eac7cb6",
+   "title": "領先業界! 亞智科技推跨尺寸面板級封裝ECD量產平台- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQYmw1VDZaOWlXT21XQVJSalgyMzJGTE9TVHJGaVNPOVh4alV4QmtNbXRGZHVNeHJkQkc4NFVPYkFwMXlKQWFEcVlaTE1fU0lNWVRYbXBwUGtvN0VwejhuLVpvVDJ3clR5TGdVV2J2MUZJeVpULXRaOVZZT3ZMWnNZcnhGZXhTcEVpZmVmTWlXR29sZw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "868f94e3ffda3c1d",
+   "title": "攻國產化商機！亞智完成跨尺寸面板級封裝 ECD 量產布局",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1YS3FBVjJ5MWRoc3ZFVEgyRGFlQ3dCenNwd0UtTDdHcWZuSDFJeVlUXzdBWm83N2dlc19KYlhmMUpORUhzV3dGczc0RzB5U2RxclRHOGdyZFF3cDNydkZJ?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.657
+  },
+  {
+   "id": "3cdbc5939243d36e",
+   "title": "亞智科技聚焦新世代封裝商機；樂看設備國產化- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTE9fSmlpZ18zYkRxYlhFVVNoSTRYM0QwZVEteTNYbGNQZFRJVnJtUXo4WmR0MjYyc3RDZTMwQlk1WV9UaWRqSDR3b0l2MXVfM2MwYmlrWmQ0VFRyTkowaXVua0RJZTljeFFteFJlSjh4WFQ0di1XTklDMGUxVGVWUWM1ZGgyZ0pqbUIwTnBPVkctQQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.464
+  },
+  {
+   "id": "25d1a77f9bdd140b",
+   "title": "亞智宣布完成310、510及700 mm面板級封裝ECD與濕製程設備量產平台布局- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1kRTNMR3R2NEIwM0pjTnRCRHRlWkNTVWh5SGdqTDh2a05LSUhoWE9CV194aDFUaklQanJNbHRZZW94U2Z5bFU4d1gxUWJtR1lsYlE5cVdhSDhhZkhYb2Rn?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "23d4a4e53778c96e",
+   "title": "亞智科技完成跨尺寸面板級封裝 ECD量產布局 搶攻FOPLP先進封裝商機",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1la1lmdmMyUk95dXRIMDNVcHBJTzJGWWM5dUdpbTJybFhRdE1Pbm9ZajV5alYxSzZGaEZNUEVDWHhRckljanRWamtjaFgxSFlQR2pLU2Zzb1J3UdIBX0FVX3lxTE5URDBvMDJtNDc4WUtwdmwwWWFUeXRxV2ladlBLblhwd3BZeGN3LUtqd1VhXzZFR2U1TnBtbEFFM1M4NU8xTlJCWGc1MHJJWmpZaVdqY1BxRUVWYmpWS1Rr?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "21067d2bdd4387e6",
+   "title": "《產業》亞智科技推RDL製程平台助次世代先進封裝量產- 上市櫃",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE56alpTSkhGRC1iVmlGVHpKbFJmMjZXNzlJYmgteWZPdFRXcGQxbkV4ZFdrNHhIVGUxaU9neFJGeWt5Vlc3eVljdjVFdVJ4NFNLQ1VITXFoSVB0MUk2X29ja3ladElpUjB4SGc?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.619
+  },
+  {
+   "id": "19cab28bdcc4c569",
+   "title": "亞智攻面板級封裝設備補足台灣先進封裝供應鏈拼圖 預計2027年6月登錄興櫃",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBjWUkwUmlnZUIyN0dQVFU1UXY5THZMcC1xblZQcVBzdDNGNjJ6eUtNeDU2STExQWlLNGx5Y0pmYjh5ZlZIVlMwQ21MdXhzc0FvWVE?oc=5",
+   "source": "鏡報",
+   "published": "2026-08-18",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.464
+  },
+  {
+   "id": "e0ce00a0ba8e98ff",
+   "title": "搶攻TGV、布局先進封裝設備 亞智南科設研發中心",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQd0hrYWNsWVZnVTQ2Yk1fc0RBQ0djR09pMjVrRnpXeVVCMTM2TTVaZmVYY2NCN3drSmJ0M2tfZ1hpeE5sWW9PTmIyZzJVSTV1dWhhaWRwREVETW85bFROQ0I5MzlKWHpYNmY2OUNCUkNhQjl3ZzFOWDdEV0wyekE2cmJXbkNvSEVHQlB4NzRB?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-08-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "display_equipment",
+    "nickel": "display_equipment",
+    "copper": "display_equipment"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞智科技"
+   ],
+   "accounts": [
+    "亞智科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.312
+  }
+ ],
+ "segment": {
+  "key": "tw_display_equipment",
+  "name": "台灣面板設備廠",
+  "description": "台灣顯示面板與 Micro LED 設備廠:濺鍍 / 電漿鍍膜、濕製程、雷射與 Micro LED、檢測、自動化搬運;面板廠轉型車用、Micro LED 與面板級封裝帶動設備更新。鍍膜設備與面板廠是 ITO、Mo、Al、Cu 等靶材的使用端",
+  "subsegments": {
+   "deposition": "鍍膜與電漿設備",
+   "wet": "濕製程設備",
+   "laser": "雷射與 Micro LED 設備",
+   "inspection": "檢測設備",
+   "automation": "自動化與搬運",
+   "other": "其他未歸戶業者"
+  },
+  "days": 120,
+  "half_life_days": 45.0
+ },
+ "links": [
+  {
+   "name": "業務報告",
+   "page": "report"
+  }
+ ],
+ "title": "台灣設備廠",
+ "accounts": [
+  {
+   "org": "友威科技",
+   "ticker": "3580",
+   "subsegment": "deposition",
+   "fit": {
+    "target": 3,
+    "titanium": 2,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "真空濺鍍與電漿設備(面板、觸控、載板);整機驗證與客戶端製程都需要靶材,腔體防著板與載具用鈦;銅:銅導線製程的濺鍍設備,銅靶與無氧銅背板",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 4.02,
+    "titanium": 4.02,
+    "nickel": 0.0,
+    "copper": 4.02
+   },
+   "signal_score": 25.3,
+   "signals": 5,
+   "top_intent": "contract",
+   "last_signal": "2026-11-11",
+   "opportunity": 55.2,
+   "fit_part": 40.0,
+   "signal_part": 15.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "target",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "2a982fff737a3ef5",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "ac66f07f2f13bd21",
+    "413c048402bc797f"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 5
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 5 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "2a982fff737a3ef5": "inferred",
+    "21087f09657387d9": "inferred",
+    "3bac8f9a8dc7e016": "inferred",
+    "ac66f07f2f13bd21": "inferred",
+    "413c048402bc797f": "inferred"
+   }
+  },
+  {
+   "org": "亞智科技",
+   "ticker": "",
+   "subsegment": "wet",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2,
+    "copper": 3
+   },
+   "note": "面板與載板濕製程、面板級封裝 RDL 設備(德商 Manz 在台子公司);濕製程槽體、加熱器與電鍍配件用鈦與耐蝕合金;銅:面板級封裝電鍍銅(ECD)設備,磷銅陽極與導電件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 3.7,
+    "nickel": 3.7,
+    "copper": 3.7
+   },
+   "signal_score": 23.8,
+   "signals": 5,
+   "top_intent": "qualification",
+   "last_signal": "2026-10-05",
+   "opportunity": 54.3,
+   "fit_part": 40.0,
+   "signal_part": 14.3,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "30f509af6c584457",
+    "1a1e1c42be8b6614",
+    "029c5ccead329cc4",
+    "3cdbc5939243d36e",
+    "e0ce00a0ba8e98ff",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "868f94e3ffda3c1d"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 12
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 12 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "30f509af6c584457": "inferred",
+    "1a1e1c42be8b6614": "inferred",
+    "029c5ccead329cc4": "inferred",
+    "3cdbc5939243d36e": "inferred",
+    "e0ce00a0ba8e98ff": "inferred",
+    "19cab28bdcc4c569": "inferred",
+    "bf3837c4dec65dd1": "inferred",
+    "868f94e3ffda3c1d": "inferred"
+   }
+  },
+  {
+   "org": "廣運機械",
+   "ticker": "6125",
+   "subsegment": "automation",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "面板與半導體自動化搬運、倉儲;材料關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "惠特科技",
+   "ticker": "6706",
+   "subsegment": "laser",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "LED / Micro LED 檢測與雷射設備;材料關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "晶彩科技",
+   "ticker": "3535",
+   "subsegment": "inspection",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "面板 AOI 檢測設備;材料關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "盟立自動化",
+   "ticker": "2464",
+   "subsegment": "automation",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "面板與半導體廠自動化搬運;材料關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "馗鼎奈米",
+   "ticker": "",
+   "subsegment": "deposition",
+   "fit": {
+    "target": 1,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 1
+   },
+   "note": "大氣電漿表面處理與鍍膜設備;電極與腔體零件,關聯中等偏低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  }
+ ],
+ "other_mentions": [
+  {
+   "org": "亞翔工程",
+   "signal_score": 15.3,
+   "signals": 1,
+   "last_signal": "2026-11-09",
+   "product": "nickel",
+   "evidence": [
+    "6965c8c3321149e1"
+   ]
+  },
+  {
+   "org": "光環科技",
+   "signal_score": 3.3,
+   "signals": 1,
+   "last_signal": "2026-10-05",
+   "product": "copper",
+   "evidence": [
+    "a331e6b2bb294c33"
+   ]
+  }
+ ],
+ "segment_cells": [
+  {
+   "subsegment": "deposition",
+   "product": "target",
+   "heat": 4.017,
+   "count": 4,
+   "z": 1.49,
+   "level": "warm",
+   "signal_ids": [
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "subsegment": "deposition",
+   "product": "titanium",
+   "heat": 4.017,
+   "count": 4,
+   "z": 2.08,
+   "level": "hot",
+   "signal_ids": [
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "subsegment": "deposition",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.85,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "deposition",
+   "product": "copper",
+   "heat": 4.017,
+   "count": 4,
+   "z": 2.21,
+   "level": "hot",
+   "signal_ids": [
+    "413c048402bc797f",
+    "21087f09657387d9",
+    "3bac8f9a8dc7e016",
+    "2a982fff737a3ef5",
+    "ac66f07f2f13bd21"
+   ]
+  },
+  {
+   "subsegment": "wet",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.48,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "wet",
+   "product": "titanium",
+   "heat": 3.701,
+   "count": 5,
+   "z": 1.86,
+   "level": "warm",
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "1a1e1c42be8b6614",
+    "30f509af6c584457"
+   ]
+  },
+  {
+   "subsegment": "wet",
+   "product": "nickel",
+   "heat": 3.701,
+   "count": 5,
+   "z": 1.49,
+   "level": "warm",
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "1a1e1c42be8b6614",
+    "30f509af6c584457"
+   ]
+  },
+  {
+   "subsegment": "wet",
+   "product": "copper",
+   "heat": 3.701,
+   "count": 5,
+   "z": 1.99,
+   "level": "hot",
+   "signal_ids": [
+    "e0ce00a0ba8e98ff",
+    "3cdbc5939243d36e",
+    "23d4a4e53778c96e",
+    "25d1a77f9bdd140b",
+    "868f94e3ffda3c1d",
+    "19cab28bdcc4c569",
+    "bf3837c4dec65dd1",
+    "21067d2bdd4387e6",
+    "952969300eac7cb6",
+    "029c5ccead329cc4",
+    "1a1e1c42be8b6614",
+    "30f509af6c584457"
+   ]
+  },
+  {
+   "subsegment": "laser",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.29,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "laser",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.7,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "laser",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.08,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "laser",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.57,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.29,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.7,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.08,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.57,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.29,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.7,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.08,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.57,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.9,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.3,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "nickel",
+   "heat": 1.667,
+   "count": 1,
+   "z": -0.33,
+   "level": "neutral",
+   "signal_ids": [
+    "6965c8c3321149e1"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 0.81,
+   "count": 1,
+   "z": -0.0,
+   "level": "neutral",
+   "signal_ids": [
+    "a331e6b2bb294c33"
+   ]
+  }
+ ],
+ "signal_materials": {
+  "029c5ccead329cc4": [],
+  "19cab28bdcc4c569": [],
+  "1a1e1c42be8b6614": [],
+  "21087f09657387d9": [],
+  "2a982fff737a3ef5": [],
+  "30f509af6c584457": [],
+  "3bac8f9a8dc7e016": [],
+  "3cdbc5939243d36e": [],
+  "413c048402bc797f": [],
+  "868f94e3ffda3c1d": [],
+  "ac66f07f2f13bd21": [],
+  "bf3837c4dec65dd1": [],
+  "e0ce00a0ba8e98ff": []
+ }
+}

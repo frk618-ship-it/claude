@@ -1,0 +1,6540 @@
+{
+ "generated": "2026-11-13T16:42:46+00:00",
+ "asof": "2026-11-14",
+ "days": 120,
+ "half_life_days": 45.0,
+ "coverage_start": "2026-07-09",
+ "slices": [
+  "2026-11-07",
+  "2026-11-14"
+ ],
+ "labels": {
+  "products": {
+   "target": "濺鍍靶材",
+   "titanium": "純鈦 / 鈦合金",
+   "nickel": "鎳基合金",
+   "copper": "銅材 / 銅合金"
+  },
+  "industries": {
+   "semiconductor": "半導體",
+   "semi_equipment": "半導體設備與零組件",
+   "pcb_equipment": "PCB 與載板設備",
+   "ai_server": "AI 伺服器與散熱",
+   "cpo": "CPO 與光通訊",
+   "display_equipment": "面板與顯示設備",
+   "display": "顯示面板",
+   "solar": "太陽能",
+   "optical_coating": "光學與玻璃鍍膜",
+   "data_storage": "儲存媒體",
+   "hard_coating": "工具與裝飾鍍膜",
+   "aerospace": "航太",
+   "medical": "醫療器材",
+   "chemical": "化工石化",
+   "steel": "鋼鐵冶金",
+   "oil_gas": "油氣能源",
+   "power": "發電與燃氣輪機",
+   "hydrogen": "氫能與燃料電池",
+   "marine": "船舶與海水淡化",
+   "consumer": "消費電子",
+   "sports": "運動器材",
+   "additive": "積層製造(3D 列印)",
+   "other": "其他應用"
+  },
+  "regions": {
+   "TW": "台灣",
+   "CN": "中國大陸",
+   "JP": "日本",
+   "KR": "韓國",
+   "SEA": "東南亞與印度",
+   "US": "北美",
+   "EU": "歐洲",
+   "OTHER": "其他 / 未標示"
+  },
+  "intents": {
+   "tender": "招標採購",
+   "shortage": "缺料與交期",
+   "expansion": "擴產與新廠",
+   "maintenance": "歲修與汰換",
+   "contract": "訂單與專案",
+   "qualification": "認證與在地化",
+   "new_product": "新產品研發",
+   "hiring": "徵才擴編",
+   "policy": "政策與補助"
+  },
+  "levels": {
+   "hot": "熱點",
+   "warm": "溫點",
+   "neutral": "一般",
+   "cold": "冷點"
+  },
+  "trends": {
+   "new": "新興熱點",
+   "persistent": "持續熱點",
+   "intensifying": "升溫熱點",
+   "sporadic": "零星熱點",
+   "diminishing": "降溫",
+   "rising": "升溫中"
+  },
+  "product_industries": {
+   "target": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "data_storage",
+    "hard_coating",
+    "cpo",
+    "other"
+   ],
+   "titanium": [
+    "aerospace",
+    "medical",
+    "chemical",
+    "marine",
+    "consumer",
+    "sports",
+    "additive",
+    "hydrogen",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "nickel": [
+    "aerospace",
+    "power",
+    "oil_gas",
+    "chemical",
+    "hydrogen",
+    "additive",
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "copper": [
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "display",
+    "power",
+    "consumer",
+    "steel",
+    "cpo",
+    "other"
+   ]
+  }
+ },
+ "segment_pages": [
+  {
+   "key": "tw_semi_equipment",
+   "name": "台灣半導體設備廠",
+   "primary": true
+  },
+  {
+   "key": "tw_semi_production",
+   "name": "半導體生產供應鏈",
+   "primary": false
+  },
+  {
+   "key": "tw_pcb_equipment",
+   "name": "台灣 PCB 設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_display_equipment",
+   "name": "台灣面板設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_ai_server",
+   "name": "台灣 AI 伺服器設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_heavy_industry",
+   "name": "台灣重工業製造廠",
+   "primary": false
+  },
+  {
+   "key": "tw_cpo",
+   "name": "台灣 CPO 與光通訊供應鏈",
+   "primary": false
+  }
+ ],
+ "thresholds": {
+  "z_hot": 1.96,
+  "z_warm": 1.0,
+  "min_signals": 2,
+  "grades": {
+   "A": 70.0,
+   "B": 45.0,
+   "C": 25.0
+  }
+ },
+ "stats": {
+  "signals": 103,
+  "attributed": 103,
+  "new_signals": 15,
+  "hot_cells": 4,
+  "warm_cells": 1,
+  "leads": 17,
+  "grades": {
+   "A": 0,
+   "B": 2,
+   "C": 6,
+   "D": 9
+  },
+  "enriched": 0,
+  "by_product": {
+   "target": 11,
+   "titanium": 1,
+   "nickel": 10,
+   "copper": 102
+  },
+  "other_mentions": 7,
+  "accounts": 17,
+  "tiers": {
+   "優先開發": 1,
+   "積極經營": 5,
+   "持續觀察": 11
+  }
+ },
+ "cells": [
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.861,
+   "count": 6,
+   "z": 5.84,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    8.917,
+    10.861
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "03d6494277c511b0",
+    "893b35d25ea0c716",
+    "01f21fd0b5f9aec6",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "TW",
+   "heat": 1.029,
+   "count": 1,
+   "z": 6.58,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    1.146,
+    1.029
+   ],
+   "signal_ids": [
+    "5c7c653be4039eb3"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 8.523,
+   "count": 5,
+   "z": 6.53,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    6.313,
+    8.523
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "893b35d25ea0c716",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 0.392,
+   "count": 1,
+   "z": 1.93,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.436,
+    0.392
+   ],
+   "signal_ids": [
+    "28cbd92423e3e431"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.861,
+   "count": 6,
+   "z": 2.83,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    8.917,
+    10.861
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "03d6494277c511b0",
+    "893b35d25ea0c716",
+    "01f21fd0b5f9aec6",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "ai_server",
+   "region": "TW",
+   "heat": 46.325,
+   "count": 36,
+   "z": 6.21,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    36.253,
+    46.325
+   ],
+   "signal_ids": [
+    "0cc5c5805ea7d7ef",
+    "0f8592175d608ac9",
+    "5037a4d7e94816a7",
+    "4b9ee0956b9fdb6f",
+    "de08e93771cc0237",
+    "379afef5cab0476f",
+    "4abf0020e7d99612",
+    "869c528295b55d07",
+    "4ace056c8f17f59b",
+    "0f8205600dc6e463",
+    "3e79ab5f07c605b6",
+    "657336051e8bd117",
+    "eba3db6a90e7c820",
+    "9e98975320b4984e",
+    "8271077ccca1df06",
+    "8bc9f5da639909ff",
+    "03f2f06ef37163b0",
+    "874c28ecfc594815",
+    "77f78c0a55d5ff16",
+    "57cef1d99b79b892",
+    "bf64abbb391cd6ac",
+    "ddd03988562ae128",
+    "62c4d2d0bb748b93",
+    "3e8f1bc770d4b68b",
+    "24be3b0e21d96020",
+    "5a98528c30ed9a7e",
+    "f494513b05a2f119",
+    "c0f62d5891ce3546",
+    "4892577685bfd964",
+    "8df5dde20e30242f",
+    "e07d2dd789a608ed",
+    "a556bdcd13c2cb67",
+    "4e78036e8e08db06",
+    "04fd95082ecd45d0",
+    "577b7d8cfd94725c",
+    "ab964931518cf4b5",
+    "ad6e127097273a1c",
+    "ed6f760b18664736",
+    "b4e9bc69cf44df0f",
+    "e8d792be52eea77a",
+    "7dcc705f604a4d8b",
+    "8b808d98a646def9",
+    "cd96624a49496cfa",
+    "ac87fb6b7ee02526",
+    "9acc296cdd7aa431",
+    "a0cfac8d30f95c4f",
+    "dee97af98a7f7fc7",
+    "42a0954d4980c9b5",
+    "8c955b1dd00d5b9b",
+    "08a7d8610b750e64",
+    "fc8dca2114594bae",
+    "3bce5e3d9acf72f9",
+    "9cd3812e3b4e51bd",
+    "43c72630e919dc4e",
+    "1e84de9ad09cefff",
+    "28d60028e13f39f7",
+    "5128cdcb1aab1e62",
+    "b63bdfa987c59524",
+    "7425c71284d6b863",
+    "9c9b7171e70906a6",
+    "487fb88d64c894ce",
+    "762815d02e9c5fec",
+    "cb8eebf124365120",
+    "b0a657102de6ee2a",
+    "51e5eac3dc98d2e9",
+    "cb1c41f1488149e8",
+    "e80fc5b08cc3ad9f",
+    "bc22d0ce438c33eb",
+    "e0d9098510c156c9",
+    "a88e10f76fcc8673",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8",
+    "a09dec386d48aabc",
+    "fb68422d459c0709",
+    "8648f3a59d9b9d6b",
+    "fedbacd92212a2ab",
+    "71076b4f63cb22a4",
+    "e866b39406f16aa3",
+    "1ba33a5f9ad56834",
+    "fe3ac00d7191dccb",
+    "8778a00472475273",
+    "eaf9a5db148d62fc",
+    "6033d9a2425c6f1c",
+    "667e474292b91692",
+    "df1dcdb28f42716b",
+    "09de31d6dd849d54",
+    "dd30a61261c38d31",
+    "74a8832f0d4ceb44",
+    "fcbc6a593990f2ea",
+    "d5ddd640476398d5",
+    "90b8df3dc4436752"
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "product": "nickel",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 8.523,
+   "count": 5,
+   "z": 6.53,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    6.313,
+    8.523
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "893b35d25ea0c716",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "ai_server",
+   "region": "TW",
+   "heat": 46.325,
+   "count": 36,
+   "z": 6.21,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    36.253,
+    46.325
+   ],
+   "signal_ids": [
+    "0cc5c5805ea7d7ef",
+    "0f8592175d608ac9",
+    "5037a4d7e94816a7",
+    "4b9ee0956b9fdb6f",
+    "de08e93771cc0237",
+    "379afef5cab0476f",
+    "4abf0020e7d99612",
+    "869c528295b55d07",
+    "4ace056c8f17f59b",
+    "0f8205600dc6e463",
+    "3e79ab5f07c605b6",
+    "657336051e8bd117"
+   ]
+  },
+  {
+   "product": "target",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.861,
+   "count": 6,
+   "z": 5.84,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    8.917,
+    10.861
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "03d6494277c511b0",
+    "893b35d25ea0c716",
+    "01f21fd0b5f9aec6",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "semiconductor",
+   "region": "TW",
+   "heat": 10.861,
+   "count": 6,
+   "z": 2.83,
+   "level": "hot",
+   "trend": "persistent",
+   "history": [
+    8.917,
+    10.861
+   ],
+   "signal_ids": [
+    "519a5f4b8ab3831f",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "03d6494277c511b0",
+    "893b35d25ea0c716",
+    "01f21fd0b5f9aec6",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 0.392,
+   "count": 1,
+   "z": 1.93,
+   "level": "warm",
+   "trend": "",
+   "history": [
+    0.436,
+    0.392
+   ],
+   "signal_ids": [
+    "28cbd92423e3e431"
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "org": "奇鋐",
+   "account": true,
+   "score": 76.1,
+   "grade": "優先開發",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "hiring",
+    "qualification",
+    "contract"
+   ],
+   "signals": 14,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-11",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "74a8832f0d4ceb44",
+    "43c72630e919dc4e",
+    "dee97af98a7f7fc7",
+    "dd30a61261c38d31",
+    "5a98528c30ed9a7e",
+    "fb68422d459c0709",
+    "4b9ee0956b9fdb6f",
+    "7dcc705f604a4d8b"
+   ],
+   "signal_score": 44.2,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 26.5,
+   "value_part": 9.5
+  },
+  {
+   "org": "嘉澤",
+   "account": true,
+   "score": 65.2,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "shortage",
+   "intents": [
+    "shortage",
+    "new_product",
+    "expansion",
+    "contract"
+   ],
+   "signals": 6,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-13",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.11
+   },
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "90b8df3dc4436752",
+    "7425c71284d6b863",
+    "9c9b7171e70906a6",
+    "9e98975320b4984e",
+    "62c4d2d0bb748b93",
+    "9cd3812e3b4e51bd",
+    "3bce5e3d9acf72f9",
+    "f494513b05a2f119"
+   ],
+   "signal_score": 42.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 25.2,
+   "value_part": 0.0
+  },
+  {
+   "org": "台達電",
+   "account": true,
+   "score": 64.0,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "new_product",
+   "intents": [
+    "new_product",
+    "contract",
+    "shortage",
+    "expansion",
+    "qualification"
+   ],
+   "signals": 11,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-11-10",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.95
+   },
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "09de31d6dd849d54",
+    "eaf9a5db148d62fc",
+    "cb8eebf124365120",
+    "42a0954d4980c9b5",
+    "01f21fd0b5f9aec6",
+    "7dcc705f604a4d8b",
+    "ddd03988562ae128",
+    "8bc9f5da639909ff"
+   ],
+   "signal_score": 47.9,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 28.7,
+   "value_part": 8.6
+  },
+  {
+   "org": "雙鴻",
+   "account": true,
+   "score": 63.3,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "qualification"
+   ],
+   "signals": 11,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-04",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "fedbacd92212a2ab",
+    "e0d9098510c156c9",
+    "a556bdcd13c2cb67",
+    "8b808d98a646def9",
+    "03f2f06ef37163b0",
+    "0f8592175d608ac9",
+    "cd96624a49496cfa",
+    "b63bdfa987c59524"
+   ],
+   "signal_score": 38.9,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 23.3,
+   "value_part": 0.0
+  },
+  {
+   "org": "光寶科",
+   "account": true,
+   "score": 60.7,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract",
+    "expansion",
+    "new_product"
+   ],
+   "signals": 6,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-12",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.95
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "fcbc6a593990f2ea",
+    "e80fc5b08cc3ad9f",
+    "eaf9a5db148d62fc",
+    "a09dec386d48aabc",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8",
+    "eba3db6a90e7c820",
+    "657336051e8bd117"
+   ],
+   "signal_score": 37.2,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 22.3,
+   "value_part": 11.7
+  },
+  {
+   "org": "健策",
+   "account": true,
+   "score": 53.2,
+   "grade": "積極經營",
+   "product": "copper",
+   "products": [
+    "copper",
+    "target",
+    "nickel"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract",
+    "qualification",
+    "new_product"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-02",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "28d60028e13f39f7",
+    "cd96624a49496cfa",
+    "b0a657102de6ee2a",
+    "519a5f4b8ab3831f",
+    "fb68422d459c0709",
+    "ac87fb6b7ee02526",
+    "e07d2dd789a608ed"
+   ],
+   "signal_score": 22.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 13.2,
+   "value_part": 0.0
+  },
+  {
+   "org": "貿聯-KY",
+   "account": true,
+   "score": 44.2,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "expansion",
+    "contract"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-11-13",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.11
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "d5ddd640476398d5",
+    "08a7d8610b750e64",
+    "874c28ecfc594815",
+    "577b7d8cfd94725c",
+    "5128cdcb1aab1e62"
+   ],
+   "signal_score": 29.3,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 17.6,
+   "value_part": 0.0
+  },
+  {
+   "org": "力致科技",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "高力熱處理",
+   "account": true,
+   "score": 29.6,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-09-21",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "fc8dca2114594bae",
+    "9acc296cdd7aa431"
+   ],
+   "signal_score": 4.9,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 2.9,
+   "value_part": 0.0
+  },
+  {
+   "org": "廣達",
+   "account": true,
+   "score": 22.9,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-10-26",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.35
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "bc22d0ce438c33eb"
+   ],
+   "signal_score": 15.9,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 9.5,
+   "value_part": 0.0
+  },
+  {
+   "org": "英業達",
+   "account": true,
+   "score": 22.9,
+   "grade": "持續觀察",
+   "product": "copper",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-06",
+   "last_signal": "2026-10-26",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.35
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "bc22d0ce438c33eb"
+   ],
+   "signal_score": 15.9,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 9.5,
+   "value_part": 0.0
+  },
+  {
+   "org": "勤誠",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.99
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "建準",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.22
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "緯創",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.35
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "緯穎",
+   "products": [
+    "copper"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.35
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "鴻海",
+   "products": [
+    "titanium"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -1.58
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 13.3,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 1,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "川湖",
+   "products": [
+    "target"
+   ],
+   "industry": "ai_server",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -1.26
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 0.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 0,
+   "fit_part": 0.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  }
+ ],
+ "signals": [
+  {
+   "id": "d5ddd640476398d5",
+   "title": "光學月營收翻倍，技術路線卻未定！貿聯-KY(3665) 下一代光源仍在驗證期",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1fWkRJMGdwZHI2eG1odFJsbWM0eTJjUE5NNXZFdmpFeUx0cUpRSEJfODMteGl0UE85YkRZeUR1U09OTnI4LTNTTXc0S2tiOTFFZkNWczJ3?oc=5",
+   "source": "優分析UAnalyze",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.772
+  },
+  {
+   "id": "90b8df3dc4436752",
+   "title": "新平台放量要等 2027 年！嘉澤(3533) 第 4 季營收季增僅低個位數，缺料仍難解",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9FN2tDTFVUNDN5REFDSE51RzU5M25XYzd1M2V2ZFVTdWhwd3g1SndjeXJfRng4SXpHczZ5QU1hdnF5bkdCU0ZiZF9ncVZiNjMyWEItQlh3?oc=5",
+   "source": "優分析UAnalyze",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.363
+  },
+  {
+   "id": "fcbc6a593990f2ea",
+   "title": "光寶AI伺服器訂單能見度看至2028年 800V DC引發電源市場版圖重新洗牌",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNRXZUV0ZxS2MzcW9TRjB6VjVqZGhsSXBTSnRGczNGeGU1bWdybkFpRTJaWUJmenlHTl9BTlZvcGVWZ3JObUo4ZWRIUC0zZm5tRTU0a05hOUx6Nzd0NDNSSWlBem1DRnFBcDU0Wk8wLTViZkZxNGduNGlGMHNBVWJYbmViV05RZjJzdmdhZUJB?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-11-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.745
+  },
+  {
+   "id": "dd30a61261c38d31",
+   "title": "奇鋐(3017) 2027 年底水冷採用率看 100%！供給還遠不足需求，價格壓力尚未出現",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE52SGRxVFZ1bTBGQ3BlYlFrMnFUZ3lLbFBJQ3pEQTFoQjFaWjJtUDJzSEZ3VXdCNXprY3NDTmRSd0JyemFva1dCZ0xoOElQZ1k?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-11-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "hiring"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.859
+  },
+  {
+   "id": "74a8832f0d4ceb44",
+   "title": "奇鋐(3017) 水冷產能 2027 年再擴五成！越南新公司、新土地同步到位",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TbkQ5X212OW5iNXdscWlJZUFNMWZ2dng1bDh5Y08zTzNfeFBaX0ZVdkJxTWdJLW56RnEyRFgyLXZYM2hZZkMyOU03bV85RTQ?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-11-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.292
+  },
+  {
+   "id": "0ee120d103f2357f",
+   "title": "超微Venice進入量產出貨 台積電2奈米助陣 鴻海、仁寶等迎商機 [經濟日報]",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNN1ZLQVExWDktRnJMQUJYXzEzZkhwRm8yS3hXZVpSUkJDVTh5X2U2Wi04ajZRMkgzSXRDMENELTBEZW93VVYza1JfYVlrbnJyVEdqRmV2U3FOWG9GRE96Rl9xX1lYN2k4Ym1oVkpVSWd0bk5sVW42Ump6MmtQZ3hLZ2pZb1BrQQ?oc=5",
+   "source": "富聯網",
+   "published": "2026-11-11",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.292
+  },
+  {
+   "id": "eaf9a5db148d62fc",
+   "title": "AI電源需求強勁，台達電、光寶科營收卻僅略優預期！下一波成長看800V新產品出貨",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE95b2tpQmFJZ29nbFFWdGMxRDg2Y0xMUF8wY0ZmckY0eGtWOVMyeWs2aVJRV0ZhZGtrT1R3S2lnLUxaUjI1RmktSGRKODg4ekE?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電",
+    "光寶科"
+   ],
+   "accounts": [
+    "台達電",
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.41
+  },
+  {
+   "id": "df1dcdb28f42716b",
+   "title": "【即時新聞】奇鋐10月營收221億元創新高，水冷產能大擴增推升最新動能！",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNODhZMVpSdW1iS1JGWkF3V2E5U2dyTmxKYVRIX3pnbEh4bm5pd21MTGV2SmkzU3MxUEZOVkF2SEtiaXM4Nk1VT1oxY0JCWTQ0Z2U5Q1Vqb1JCTWx4QWF0NmU4cUZWdHdFRlVzNDhlVndqekZuNVhLZzQ5emNrV3VscnZOOWNpOW95alpRSTd0V2Y?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.677
+  },
+  {
+   "id": "8778a00472475273",
+   "title": "SpaceX 太空算力 2028 年上看 5GW！外資點名鴻海、奇鋐、台光電供應鏈",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9yUi1TMm0xWmlMZVR6VkE5cml3VzEzZGZzWEJvN1dKcWctQzRURFBmcGZWbkFTeFYzaEVqcHpzODY2MjJPSDhmYllSdjVjVVBHTXhVMVJLRlo1LU91YTEtN1dMcnc3NnhxMlE?oc=5",
+   "source": "鏈新聞 ABMedia",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台光電",
+    "鴻海",
+    "奇鋐"
+   ],
+   "accounts": [
+    "台光電",
+    "鴻海",
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.508
+  },
+  {
+   "id": "667e474292b91692",
+   "title": "奇鋐看明年ASIC營收超越GPU，水冷擴產逾五成- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWm5LY2pYbU9TV04tSm5aVXFXTWNJeFpzSVVZUnB2a0pfeHQ2NXhEbllVZHdEak1aaTBIVnJUYzM3NjF1bV96N081R0JTNW5QWXBFb3VxU1Q2V0MwRUJuTzNLQUJYdTdzVmFTYW54MWhWd1k3RlRNcU5yNHJXQTFQdHF0MWdvRHZzWm1pTHFHdV91QQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "6033d9a2425c6f1c",
+   "title": "奇鋐看明年ASIC營收超越GPU 水冷產能擴逾5成",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBYaGZXdWdkZFFKN1NuQ2FaVVpwSUVZNUtZNnFfaEtMUm8yYTlMUV9CdXJCTGhldEJrZlpsTGpiZkV0R0FMcGx5a2gzTm5ibXRKQTA2Y2dEREFCVlZSM2tB0gFkQVVfeXFMUG1RZHA4cEQtV2tNdWNmYzM1YjJtWGNsclM5NFV6VWFHbnJVUUNqcE5qWU1Bb1FBOTNWMnlJQWxRV3NjTlpseHV1QmllV0lER1BfOUQ2QmdxdGhrbVlael9Va2tZSw?oc=5",
+   "source": "自由財經",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "09de31d6dd849d54",
+   "title": "台達電10月營收月增14% 訂單能見度高| 經濟日報",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA4MXpUaEpuZEp6aDV1eWd3Rmkyd2RGYk53aHZIM21Kc3hsbGduZmdKdXl0cGRiMkcxWmoybGYyazJxMDVfZXJxSG9pTzg0SGVFa2ZMTFVB?oc=5",
+   "source": "LINE TODAY",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.692
+  },
+  {
+   "id": "00377c3525c81206",
+   "title": "超微Venice進入量產出貨 台積電2奈米助陣！鴻海、仁寶等迎商機",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBucHJuSm0zV3RDR2wzQUQyU0I0N29BN1Y3b0x6V0paZWxBQ0t0QTMxZGRDak5LbF9uS1hLWjBKY2w5QkR4ZjZqYVZ2UldqZ0xU0gFWQVVfeXFMTnZHMG5BTEIwUENCLTZibWhmZG1nY2gway03S0otank3SGVQeUJVNEk3NlY0Wi1NWm05ZnNTWjlyRW5JVnpjU2tQTDJsSXpOajlnX0hJMUE?oc=5",
+   "source": "UDN",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "fe3ac00d7191dccb",
+   "title": "台達電10月營收月增14% 訂單能見度高",
+   "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE83a1JUbGpFVzMwb0k4QW1TNTB4eDZ4YUUwc2xPOGtxRTRLMmFJUDRUdWZ3QTVVUExZUlpIN2UzQ2E3VVdnbHM3M1IyUzE?oc=5",
+   "source": "聚財網",
+   "published": "2026-11-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.667
+  },
+  {
+   "id": "1ba33a5f9ad56834",
+   "title": "擴產支出續增，奇鋐續拚獲利成長- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQck5jUmJJZU1IYmVrN29qZHJicWd0RnBzUDF3c1RyYUhSV21Ld0pEM0RXOHlZdlZ6VDlDTlBxVmJiTC1PV081RFZvY0ZsY1lnemdzVHduOWFld2h1NHNTYkl0SlhBU2hERTRjVUg2bnlKNGJmRHZjaEJZMkV2OC1GVDVlekZiSy1fWUh3RXliSzU4Zw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-11-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.222
+  },
+  {
+   "id": "e866b39406f16aa3",
+   "title": "華工科技(000988.SZ)：在AI算力方向，面向液冷板、光模塊銅合金散熱器、服務器散熱結構件實現行業頭部客户的小批量供貨",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aZk5SVkhIWkljckczOF9scFdhd3VPY3R0OWtTR253OEJSVFVMeXRINjFrb3hhYVdUQ0tuN25YQTUwa3dCQktkaVgwRFo1Vzd5T3BqdmhSQ0tzRXgwZ0NGWTdSUVhGcjRvSmc?oc=5",
+   "source": "TradingView",
+   "published": "2026-11-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [
+    "華工科技"
+   ],
+   "accounts": [],
+   "relevance": 1.0,
+   "inferred": false,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.442
+  },
+  {
+   "id": "71076b4f63cb22a4",
+   "title": "政治恐慌殺盤！台股血崩還沒跌完？蔡明翰揭「反彈關鍵」：緊盯1指標聯發科、台達電…4大權值股AI訂單沒熄火- 上市櫃",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9JVE00dVZTV3FqcVBNTEdISDhMUHFmRVhGOTFHeHRLblJxcGFlQ3gxS1RSNUMyQXVDM0tNNVZjLThwbVVTeF9FZHNEV1p6OS1kYWw3akwzNERES016RnZ5QjdESEVwLXdKa0E?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-11-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.477
+  },
+  {
+   "id": "fedbacd92212a2ab",
+   "title": "濱川攜雙鴻攻液冷件，Q4拚新平台量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNZVI2U3U1bnR0Tkc4M3Q3WXpHeW4tQUdZMjBUTU1mcjdHaVAzbjEwSHlXWVE1dUdLUnllUzEwaVd6dmNaMzlIenlqWURva1FKZGJQcjNtUkhqa2s2ZzFSU2dnUzl2VzVlT0VhWWFGdmRxdHJOY0dyMy1LWkdJOW1LX05JTDl5VjBPTEJtbmZ2STdIdw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-11-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.057
+  },
+  {
+   "id": "ef375a5ff7953a06",
+   "title": "商周-台積電領軍先進封裝、鴻海整機組裝！輝達CPO供應鏈名單公開- 商業周刊",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wb3UtbUUxNUNacUhqVGp5UzFYb2VWdFdEaUk3dEdpMlZxMjBhTHhCZmdEYWtQeWVZcmE3U1J0RlNxV3NYMzJ0SVBJb0VYUnZpLU9nd2Z3QmRwLWVoTFZaeV9zRkVrQQ?oc=5",
+   "source": "商業周刊",
+   "published": "2026-11-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.543
+  },
+  {
+   "id": "56a6b5d6300bf389",
+   "title": "台積電、廣達恐遭波及？德州AI建廠早已卡關民主黨勝選再添變數：分析師憂2028年訂單- 國際",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBtV3IwOTRSNjVRQUVjWUFDbjVVQzB0VmJOdFVla2VPX3k4QmhkQ1VpelFMR19nTU9YQmMtSE94X3Y4dFZZNUppZC1SeTZrLURjUUxaSDQycVZidzFDTEU4ZkZWR0JMUEFnVnc?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-11-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "廣達"
+   ],
+   "accounts": [
+    "台積電",
+    "廣達"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.186
+  },
+  {
+   "id": "8648f3a59d9b9d6b",
+   "title": "台達電「比腰斬還慘」股價創8個月新低！市值遭鴻海超車 董座：訂單能見度仍高",
+   "link": "https://news.google.com/rss/articles/CBMiggNBVV95cUxQcHU1eXR4VkxUTDY0bVVoQW9oZV8wb3ItNmducnBkcmNXRURuU0YzVkxBbFI2WnVHYzVSSzMzZEQtSllIRldmU2xSRktHRmVFVlBNQ1VfRFFoR2JDeEpRRnVEM0NZSE1GTTMyYVI0cXhNd1NjWUZVTFZSZ2QzZ2Q4TmpKajJ4TG15aDBmMU4zdmh1WEluLWdObU1WelZ1MXRZUGhCdU9yTWJqVzZYRGVhbDA1WFNRWl9qNXNwcmdHMFFyYXRaSE9MOTdYSlNHSG9NVThPRUpkUlF0Nm04ZlVJdFRNcTFEYnMzQmQ4NlRfdEFvN050TlF4TGl0QVV0NzJJcEt4LVVYSjZrN1pXczVFWWtmcDBMNUZ5TnVhampWWUV0bE1SSExXMjlENFE1bnFVd2Q1dmhTT0JCZmZSTWJpak12ZTF3Z1BQSUlwTVpCR0tPZFRtMWZCTTBpZFlHYldZX1FxRlpEYUxIMnY1VGd4QVZsOHpPdjVQQWMyb0RvUE5JQQ?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-11-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "鴻海",
+    "台達電"
+   ],
+   "accounts": [
+    "鴻海",
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.456
+  },
+  {
+   "id": "fb68422d459c0709",
+   "title": "散熱概念股有哪些？2026 Q3 液冷供應鏈 9 檔名單，奇鋐、雙鴻、健策營收比較",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1BQW1YOUlGM0tHNE5Va2RWMUdFSUdCbW9FT2tSNG0yUGtCS2Q5a1ZlcUk1aWMwcTNJNlFlVl9BSGZmS0VEYjJVSC1NaWprcURBZ2ZyRU5xT2o1OXZl?oc=5",
+   "source": "Growin Blog",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.449
+  },
+  {
+   "id": "a09dec386d48aabc",
+   "title": "光寶科 800VDC 電源櫃明年拚量產，法人估 EPS 上看 15.87 元",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPZXZ3ZEVZUGM0Y1U3T3plTlJHN1NFZXJXVUhwZ2xjOUZ3V0hGVzlULWh2bUxLUkFfQjNhdmZKTExaZjNoNDZIbXg4WHJ0R1h4VU1lMGthTUJtc3EtRlptS2JKcjRqbVlJam1ycmw4M3J6NFlCalkzbE1HTXRlcldiVC0xWmR0U2M4dXlJWXZ3MlhFdzZiQVE5WXBzRXpLVjFlSUE2VDlSM2JEakhJTzB4MmNFUHpDUUZIMGZLcDBwanE4SzlycmFj?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-11-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.598
+  },
+  {
+   "id": "b498fa4f22ae9f79",
+   "title": "光寶AI電源新品Q4量產 800VDC機櫃樣機出貨",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iUVhhb0RkdGxDUW95c1F5TDBMU3Fad0pybVhJbG1VaGU2dXB1a3huOUpWWmVrSkVlQjhVa3pnZmtpS3B3ZjFrTHp0OUo2cENHWjl1enVrME5JQlA4RTRN0gFkQVVfeXFMTjRjaENlZk5Mb0ppS3FtRF9UQ205bVNkWDQtMDd0UjV1UkZWQ1MyUE1lcVQ0OXIyZHVzN2p0Rk5MV0tjNW4zQWdmLVhOTzhpZU91RDMyRGRFcDhXbW5mbmpKRUNQZw?oc=5",
+   "source": "自由財經",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.055
+  },
+  {
+   "id": "ae3967aba71280e8",
+   "title": "光寶科(2301-TW)上修資本支出至197億元，AI電源出貨仍看客戶供電進度",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA5YjFvRDdsbDFVVDdBLU1kaEttRnkxTjVLQUpSaVdxY3hwNm82TGNyX0l4S3psUVBYcVNQdW1admVQN3NTdWh3aUpMdG1CaGFsNGRIV0RR?oc=5",
+   "source": "優分析UAnalyze",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.934
+  },
+  {
+   "id": "a88e10f76fcc8673",
+   "title": "台達電 AI 訂單能見度高但出貨時點變動大，鄭平稱庫存增加屬階段性現象",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOcm1mTlpnc3RkVXNEV0RyNmtwUnNCU0tKT2lNM0t1c2RGR2s5LUIwSmw1RWZxaDRZMmEzVklzNDBVallMdnd1UjJXaW9rSjQ4SHZ3M0NwY2hVTFlhRnVYMlJIdU1hS3kxN0VTV01SU3NodWhFX1BVZEZxcGNhNnRSeVptajdDT2duOTlrb2lWZld6RGlsd2VBcTdlNTc0WXBIanJzaUJHZERtTVJLWW9PQ0ZwRHdDUQ?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-10-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.451
+  },
+  {
+   "id": "893b35d25ea0c716",
+   "title": "雲端三巨頭擴大AI資本支出 台積電、鴻海等供應鏈受惠",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1sc185VGhsMC1ZZXZSZkliMnhPUTloM3hBMDdyeUM4Rlg0TGtsM1FvN29DSWg1VHQwUG5QZmlwV054Z0RZVVZwUmNSd1ZWamF4VUVUeEk4SEtaaGFP0gFiQVVfeXFMTXUwdndCUXBYSjJncEt3ekFLZVY1alhMbXBJd2FpRFFIXzdlNlhHNVlrODJ1TzlnRWpYYktLd2M1bjk1TkdhcGJFTU5PNTBzNFhYX2R5ZDFpQTdzVWJLYVUyRnc?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.993
+  },
+  {
+   "id": "01f21fd0b5f9aec6",
+   "title": "法人點名買進聯電、台達電！Alphabet衝資本支出受惠股曝光| 財經",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HTUF6TkVLcjd6bEdGcnVCTUJoUUMzWjh1MTZvMWZBXzVIb0RkZDVsallLWXVONU5KbjR3aDBTd19JblZOcVo5QUZEZHRjNzN6Q1JtTjUtX2hSSHc?oc=5",
+   "source": "Newtalk新聞",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電",
+    "台達電"
+   ],
+   "accounts": [
+    "聯電",
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "e0d9098510c156c9",
+   "title": "液冷零件訂單爆發 雙鴻、濱川同步吃補",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1iVzc5dWZJbDBPWGJkOVdpZ1B0c2xmOFUtN3EyejJqeFdha042Nm9fQzQxaExyWHdIaTBTQ2htclhXV3BTeWYyNUdNLTI0dmc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.385
+  },
+  {
+   "id": "03d6494277c511b0",
+   "title": "先進封裝砸千億擴產！電子零組件爆跌價損失遇壓，聯電與台達電兩樣情-財經焦點情報站",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPc2U2SnFTcFJQVzFXakhydGpvSW55dUVZejhaQWhQb0NuU2FWX0d6bG9nT0t5X1NVR1lETUhoenNabnFQeUVvdWtiSFI3ZUNpZGdWOVpCTVF6amI2UFZ0Nm50YzdvUjlkTUJFbExVYnRqQWYwSnIyTE5KYVlyd00xckpR?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-10-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電",
+    "台達電"
+   ],
+   "accounts": [
+    "聯電",
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.847
+  },
+  {
+   "id": "bc22d0ce438c33eb",
+   "title": "金居百億擴產不只為了高階銅箔！一款與廣達、英業達開發的材料埋下伏筆- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE02STNuTk9YSEtjOXA0TE9BTkZQcXlaTThZcl9sSFFnQzVFXzAtV3lPejdvbmEyOVpSX1R5TE9CVHBCNlhFVGVmTVZHY2QxN1JSYWxiLVJGTUdsN29ibHlr?oc=5",
+   "source": "工商時報",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "金居",
+    "廣達",
+    "英業達"
+   ],
+   "accounts": [
+    "金居",
+    "廣達",
+    "英業達"
+   ],
+   "relevance": 1.0,
+   "inferred": false,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 3.172
+  },
+  {
+   "id": "64495a33309be7e9",
+   "title": "中美AI出口管制同步升溫，鴻海、廣達、台積電面臨哪些合規與訂單風險？｜股市話題｜豐雲學堂2026 年 11 月",
+   "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxPaGRiNm1hem9nVFM4S245YmdCT21RWTg4QUhCV09JNEhYV3ctUXBiSFl0eVhZbmh6U2tpMklDcW82bkNCdGRzck5wYXdXUTNoNXBNVk5fSi1rZ19GNWpoT3Y2S3ppc3J3QVhQTFc1LU85bV9KdDdOeG9xRjFmenZCZlVZS0haMmdWWG43dl9sWEtCTE5kTlZRamRIQTRDeFp2VS1iUHZuVUY3NGJPV0Q5QVBSZzZqRTlyZGtYbURiNVltTXQzZmg1QXlCVWkzd3NSUDZYdGYzcHFTN2xJZmhoN3FFOEhIcWw4ZHJRUlpHODhsUFozLUFuS1duNlJ4N0dncmtmR1lMR3hfVndlWE1HTjZTRVVkMGItb0hncENqXzVKZnBfcVVFVXEyOW5SaGFHLThWQnhZS09LVEEwb2VwRlBpMTBtVXBHb1p0SmpZUmoyV05tYl9RQ01XTHhTdjRDWFFJSkwwVlgzZWtZRXFNTzVJTGZua0FmSktzejFyZ1NrMzBGcjZTajN1QTBFQ0N3V1pSRnYwZmduUzRvV2FGZ3BBX0RfLUdpZ3Z0Q1VXWUwxaG85TVVVYnUxMHEtVkx0VkxsOHRwajdFODdaRXRVVVlVQW5UY0NGTmJtTGFTR280YkxTaXZEbXRwYjNfYkR5bE9xZ2FmQTR3d1I0VFg0YmFXVEZTdw?oc=5",
+   "source": "永豐金證券",
+   "published": "2026-10-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海",
+    "廣達"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海",
+    "廣達"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.367
+  },
+  {
+   "id": "e80fc5b08cc3ad9f",
+   "title": "光寶斥資110億 德州新廠動了 配合客戶需求擴產 搶賺AI財",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE45RmRfc2JGaU9BdnNISmFLTXpCM1d3cXhrX2ZzaVZucmhla1dxa1VOWEZ5VmhtcUlJODFZeUFzejdQdHAxOXM4TXF1RngyUVlkZVdEUWZfaWxCQdIBX0FVX3lxTFBqWTg1OHBtcHpBSUgwVzFYdjhVdE1TV0g5SXdXZnA1YkMzY3ZFYkh6dXRRNU9hcUQ0Qk0taXBrenQzZmtPVExfbUswZTd0N3FPQWF0UGlnZmdNd1VTTTlB?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.4
+  },
+  {
+   "id": "cb1c41f1488149e8",
+   "title": "光寶公告投資110.59億元在美國設新廠 擴產動作一波波",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1xeFBFV0tPckVhVVIxRkhSdzNweHlUMlBrNnMxaFp3aTB0Mkx5ekJoOW8yQkxkVlNDQ0VCTkZvcEhsaXdfczQzUDNNLVE2VzBnemYtUTRYdk5yUdIBX0FVX3lxTE5Yb2FsZEhyNE1VMHdicHR2TmZXclJhTVFaVk1fbjNUa3hGMkROVjN3THdCMF9wWUNJczlMTHZZSm51UTJ4c1JTS0QtVlcxX1p0X1YtSy1QNG8xVHUyc0lN?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.378
+  },
+  {
+   "id": "51e5eac3dc98d2e9",
+   "title": "光寶科推進德州新廠建置 簽逾110億元工程統包合約",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4xaFVFN1ZjZnhIbjJuRlRQbWZKSlh6eEdubXp2UVlnSWhZQU9YbER6aGw4YlhUWE9RbHNlb2dNR3ptZEJIM2U5TXFzRTRKem1yb2tHazBQYktKd9IBX0FVX3lxTFA1aEppd0pKX3lHUUcwVlZTN1BBS1pkMGpOYVN4YVRfU0tCWlZJUFYxMWk3QW1MX1hlUlRUelZaaDdlVUQzZmdRRE9pVTVOakVqUXhiNjdaRzZnXzBYVUlz?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.465
+  },
+  {
+   "id": "b0a657102de6ee2a",
+   "title": "健策、雙鴻、奇鋐…Q3營收全創高！「這檔」重返輝達供應鏈、手握CSP＋AMD訂單 專家卻喊「踩煞車」：股價跑太快",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CeGFlcVA5X0RkajBpdWRIWElFNHlRSlhlT1c1RW1iNGVHOXhKR3FHSXFnUGxyN2tfazFVOWZaSnRWbGNsWnZGYXJpd1NUaWdZMC1ORmh5UUtmQ3R0Ql91RVh4VXdvN0w1MVE?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-10-08",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.331
+  },
+  {
+   "id": "cb8eebf124365120",
+   "title": "台達電Q3估受缺料干擾，Q4新品出貨動能顯著- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQV29fbXpTX05pVVByeXVvWm9BUWhvQlNhR0IzZXpvVl9vVE1LcG1ONTNsUi0zMjFKbXMybF9GaVFrRG43UWE5Z0pxSFhRVHRwNUZYN21aVTVZXzdCVnN4NGVjeElhX1E5dlM1VW9ydTFTajV5ZmJqNmpNendlRXUwUk5Ya1EyZVBTMHlMSGthRVF0Zw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-10-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "shortage",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.377
+  },
+  {
+   "id": "762815d02e9c5fec",
+   "title": "光寶科高雄追加88.5億元投資旗下擬收購AmpUp！擴產、併購布局重點一次看- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5HOUpBX0w4NFRwV2g2b201NzhoXzhKemNnbk5qbnFHdllfYTk5aENPRlRwM3BqUFhFTVlHS20wWHBoR1JUMmNXTnJyZmFqTnZpZkxVVFNlS19fNjJtbVp3?oc=5",
+   "source": "工商時報",
+   "published": "2026-10-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.257
+  },
+  {
+   "id": "487fb88d64c894ce",
+   "title": "光寶擴大 AI 電源產能，砸 88.5 億元擴產高雄",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQaUZ0Tnc3ZUQtTlN2QzUzek9NRU0xaHFORGJnaEVwV3JrTjcwNGlXTFJNSGlxSUU2cUpEZkVLWFJNY1dHaUNFNDVkVURjd04wTUk3ZWhSd2hWUE5SQzBIdTFCdENWQkh5aDVZZnhRbFZXaS1GSGJKYmh4VXR5STdQcDNndmoxMHFrQVdLYnZhVE5qWGh2UkhUd0ZBREdqYmlaM3BEdW95WmctNWNXZC1TeEV0TDR5dw?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-10-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.238
+  },
+  {
+   "id": "b63bdfa987c59524",
+   "title": "重返輝達水冷供應鏈！雙鴻Q4出貨迎高峰 目標價上看2000元",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1MWXdSV3dudWpBZVBsNmZRVGJFelNKWnZQZHI2ZkpnUW82dGhIVDhNZ3h0WGpkZk5yWWxMakNXUG1SQm1QWE5IeEY2OHVUZ2c?oc=5",
+   "source": "TVBS新聞網",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.266
+  },
+  {
+   "id": "9c9b7171e70906a6",
+   "title": "嘉澤新品助攻 業績向上",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1JZE5jU092OVRIWUE2NDdLLVFhdHY3U3JEN05YT241cDNCYTJsZHQwWmtVLWR6amlSUEpVdVBCN2s2Rmo0al9CLThxZ2pOVnlRbnhTNUJBOTc0UdIBX0FVX3lxTE9tWXN0TmpWOG95SmJJZmNSbGl0ZjRCZVE5dDdpUlptcTViQlR5dml2dlFtTlFzcmpSOXBBbFpZY1hjUkdQMTc0eUlTUVBSOWNiaEEyU3dtZl8wdFM4SkRn?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.739
+  },
+  {
+   "id": "7425c71284d6b863",
+   "title": "嘉澤伺服器新品加速出貨，2027NPO拚量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOb05GSDFQWWpjYUczcEdmb1pOZjZ2dXM2a2pOaEdFWGlVOGxmZ0xTSUV3eHBpQktOUEJQQlBRMzB4eDBmY1RzU0pkeE1jNWxjUUtaQ3QzaElEZS02dVZvTjN1RWFZV0dsand5ZEo4TGJPLUhDcFBoTVpBZl9kZTkyQS1FNWtJMDQybnFqR3BhVS1LZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.256
+  },
+  {
+   "id": "5128cdcb1aab1e62",
+   "title": "外銷訂單果創千億、全友、金像電⊕、台達電、貿聯-KY",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBXUTFjOEJiRUJxZGRRR0dFeW9DNEpNQnh0U0loUEVjWWhsY0dKQlQ4NjVRMHdwaG0yNHoySndaaEtVaEVyN2M4ZEc2Uk52ems?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電",
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "台達電",
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.242
+  },
+  {
+   "id": "43c72630e919dc4e",
+   "title": "奇鋐衝刺雙面液冷/CDU，越南擴產迎ASIC",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3RnQXNRTnpNRDVpODM4SlZ6bjl6NlJnd3I0anZZNjNueVEzV1NjdEJBZG5MbVVEQWZVdTN5dkRiZlhCdUdyeTF3b3VfTEhBeGV0LVNFVUZZMGw5MG9sejJIZWdZVjhOMnY4aUd2ZlNMeDN6V3ByejByLVd1bjBSZUhOLTdKbXFMdjY2WkZlbDlqQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.077
+  },
+  {
+   "id": "28d60028e13f39f7",
+   "title": "健策Rubin出貨下半年倍增，AMD新平台Q4量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUFBCNm14aGZPTDVCM3V1ZFRBT1MzWldCenZsanl4aEoxNVlfRExmQWVEWHdlUGtiUUE0RVJneVhHNDlZRC1seThFem1rVk1MUXVUUnpoNDd3LUtIbmFlY0sxVWh6dzI5MVdiQWhBbHNUNzR1M3hQMnFPMEhKdUZZQ3dZUE1sT1dQemNGemxsbzZEQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "健策"
+   ],
+   "accounts": [
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.077
+  },
+  {
+   "id": "1e84de9ad09cefff",
+   "title": "AI水冷大單灌進來！奇鋐產能狂擴50％、EPS估暴增119％ 雙鴻Q4再拚雙位數成長",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA5d0hmQUxZUmJza2hieDhaRDAwM0xTRzYyVmR5X0FuX0YyaGwxNlF0RFJwd3RuTU5RVkNmZXQ5SFhKcHZWek5HYkg2TQ?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.323
+  },
+  {
+   "id": "9cd3812e3b4e51bd",
+   "title": "嘉澤SoCAMM/QD出貨增溫，NPO拚2027年量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxONlZPZ2M3VWtiSEEtR0RaY3pwYUh0NEZSS0VrV25iMTN6bVpvMmhHV1J2NHBMS0ZIQVhmUHViSHQ1Q3R4SndLXzVqdXBOVjZqTEhxTnZwTnlhTU13RHBGR2VYVXpkbVloM2JCd0RueVZTTWdKQW1fVHdwYjhvMEZsa25aX3JKamc4aHNBQXVHLUliZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.061
+  },
+  {
+   "id": "fc8dca2114594bae",
+   "title": "【12:18 即時新聞】高力(8996)勁揚逾6% AI液冷散熱擴產成盤中焦點",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPRXZ3QVNpMVVqN1oyMUpLb2F3ZU1oeDJvcEFuT0dDdkxqaERFdlY0dE1pQ2g3U25wcmdHNlpkUXU3SDZjZ2VGS0IycGhnNk9ZbExPWUUxVFBkRDlSQ0xlZWJERkhQOS1NclNCT1ZpRDVhc3lvdXBpZDJKQnB2bUhoN052MWZFRXBmZnBZT2J3?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-21",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "高力熱處理"
+   ],
+   "accounts": [
+    "高力熱處理"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.313
+  },
+  {
+   "id": "3bce5e3d9acf72f9",
+   "title": "嘉澤SoCAMM/QD加速出貨，NPO拚2027量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNaF9TYkxJVElWT3NpR0txWEZ4ZVZ4dzY1SEh2OWVvUVZSUXRHY3Q2UHZGLWpRTWdoV0pLWGdKeXdOTVdPQW9hMWxSR09LTWpKWFBzc3RuMHFqMnZGNHc0LUpuV0sxam8wa2pEWEkzMTVVRnBCajBSOVBSOUJpTjVDa3dSOUEwYVNUWDRMNDgzZjhRQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-21",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.045
+  },
+  {
+   "id": "5c7c653be4039eb3",
+   "title": "白埔園區動土！台積電、鴻海、日月光等大咖雲集 南部先進封裝聚落成型",
+   "link": "https://news.google.com/rss/articles/CBMitANBVV95cUxQUzAwN2swa09VTEd5dmo3bFpPak5sa181SGV1UDNseTZxelJuZ182UFItbVlzSDQ1SzgtYVdXQ3ZwNlJ3bk5MNERUTHRTcXJiZ1NyZVY5VmVtdFV3cmdBMUZsTUswXy1VMklKT2RRcFdRYjFjcW5XTXZrR2x5Z3RGTURzNlJOMTk1YWpGa2JwbHVEMFl4VXRBQWltc3J4bnNWb2dVOENveVhJM3dfTmZ5YllMOUlNcjlFcW9jQk15SW5NRVpHdEVab0lQQmxuaWtPaTJWVGZMN05MbHFlUUFnbVVhU2ZTUWFXVml6aWhMZnlHWXZFcV9sU1AxeFZuck9DYjh3cUR6Xy1ldGxFRXVPSjVldE5BODJrd2ZDOUwzbnduV2hrcGxwclNFZmxnTzBLQTdMRk5ra3l2bC11cEw4bGRKOHJrczQ4MFFPZlJKN09aU2paNVRrWGtRWmJZVUxnUGFZMUVJc3MzQ1hWbFB2VHhoRWJqOHlXN0txMFVLZGdaaGdoeEZtR1JQUDZSTEpacDJkSkllcmFyN1lIMTRBSWduLVRVOUMwbU1KUG52QWhQRk94?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-09-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "other",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "日月光投控",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "日月光投控",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.029
+  },
+  {
+   "id": "08a7d8610b750e64",
+   "title": "貿聯-KY啟動800VDC出貨，併購補足大電流產能",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNcG1KdUlFTG1EZGhFVUxUV1MteF9NU0MtMVVIZDFVVDlaZVJ6TUNNbzExTmo3LXk3bjRicWZhQUNkTTdaenJtYTFrS0tlbEk3LTBrRmpDNUtORHQ2aDQ5Q2ZDSkJUOEZBVlpZOFJRNlMwNnJYQnlmSHJKT2xxV0JFMjBXVlJmb3JXYWRHdVg0eHRYZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-09-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.982
+  },
+  {
+   "id": "8c955b1dd00d5b9b",
+   "title": "AI散熱族群概念股有哪些？奇鋐、雙鴻、台達電上中下游供應鏈全指南",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAwZzFnZUYzSG1WN1prTzFDT3NPeHVQT0l4TlVNNlM3UEg5bWtqazBFMGxPWGU2d0xHQ2g4X2stNmVVZXI5eHRRVExUT21IbklwZ2ZZbUtn?oc=5",
+   "source": "口袋證券",
+   "published": "2026-09-16",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "台達電"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.218
+  },
+  {
+   "id": "c3719ed7d674a88b",
+   "title": "AI硬體出口創高，台積電與鴻海訂單能延續到明年嗎？-葉博金融研究院",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUm1lemNLMjRETHZ2eWRKU3JJbDRXd042X2ZjYVJQVzAyd0RYU0tpYlZYdS1kTlk2aDVwSnY1N0JTZFFZcDI2V2tKY0gyTW5kUFRhcXJDSERRaXNod0N6VnhFZXhidFVXdkZvOFN1SHA0OUpfRF9mVm1VOTlfM3VzVw?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "鴻海"
+   ],
+   "accounts": [
+    "台積電",
+    "鴻海"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.714
+  },
+  {
+   "id": "dee97af98a7f7fc7",
+   "title": "ASIC滲透率升，奇鋐明年液冷擴產逾5成",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOYVM4eXAyUmU0MXl4RmE0aXF0N19yQlBhNXA4RjN5RjRWQU9sVkNTLWF2Ylh6emVIZFVuMFg5cHJKeVlRdU5aTlNObmRTd2d0YnJJNDdMOTRiOWVycnYyeWhDbDRrWGFEcF95ZkRibWxQbXFhcVVfTS1INjh1cUhpTFNjRHJ4Y0lwYVVvTk1JcmVkUQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-09-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.938
+  },
+  {
+   "id": "42a0954d4980c9b5",
+   "title": "台達電受缺料壓抑出貨；下半年仍看優上半年",
+   "link": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxPYjAwNU1YUjBpRUN5aXR4b3VjdzZfMGtpM2hGSzI4X1Q4UE1iRDExLUQwNEN4bkhxRkZXaUdsS0pUbDI4d1JFcy1ZNzdVdW9QWnRucUtYcFQ4bmJFYm9MbXo3c25COTJ5a2RndEpnbzFjR0hvS3BUOUMtNVRyUkVsWTV3MzRFS0c5ODVGZjVOOHNPX0I4dXpRXzRtTWcteG5GSTVNSTVHdnppeHVZaUhNeHlFWHQwc2lrRC1kaGRJeWhmMFNrd2FIRU1FLUtwUXd5Z29UNzNHcVdrbFg5U0Vudng5eWlGdE5ZSWNxXzBPbm5pTVJFWHctQW8zRTBFbE81UTdhdmh6OTh5ZFE0YTlGQV9YeDU3eUxNamx1SWJmUWJ1MFdWTXhMelpVYjJMaHZkX05hOUJEcV96OWdxUGdPTA?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-09-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.938
+  },
+  {
+   "id": "a0cfac8d30f95c4f",
+   "title": "奇鋐大擴液冷產能，大和喊目標價 4,465 元",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9NZDZMd3hvLUpVMXFzTUFwdU5HaG1SNWMtelZaNExqVmlZS0tzVUJobzZvdUEwOHc1VVNEYXowWU9ZZVRQVlFQT19zLWp3TEgyUUplUFFoRVpwa3JralpTVnVjS05FTXIwUnlEYnVodk5wc1U?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-09-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.265
+  },
+  {
+   "id": "9acc296cdd7aa431",
+   "title": "【10:09 即時新聞】高力(8996)股價勁揚8.57%、來到1330元，液冷散熱與燃料電池供應鏈題材帶動買盤迴流＋法人連日調節後短線技術面嘗試止穩",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOWJkaDJESHg3aDdva2Yyekk1b0o2MkltVlNad0xEZ2ltTm0xVTJzV2Rtc29KazZ6RDc3SmRCMGxVbjN6eU9MMWxRaHg0Q0ttVWZSQng5RkVERGJ5YWE1UVlpZTBmSXFZTmIyNVA4UWNPR0pXZnR0NHhoYkJuSThMdnI3N1pyNWpONFVtZ0Z3?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "高力熱處理"
+   ],
+   "accounts": [
+    "高力熱處理"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.195
+  },
+  {
+   "id": "cd96624a49496cfa",
+   "title": "散熱三雄怎麼選？PCB女王剖析健策、奇鋐、雙鴻：這檔專吃訂單外溢紅利",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1kVlhWTEVueHk3Mk5vRkQya0dNR1ZBTlYtLUtxTzBLXzhhTU90WkRIR2paaVNmX0lkWHh1cXp4dVFBX3AxM21mdXFVUQ?oc=5",
+   "source": "三立新聞網SETN.com",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.594
+  },
+  {
+   "id": "ac87fb6b7ee02526",
+   "title": "1表比》散熱三雄兩樣情？PCB女王拆解健策、奇鋐、雙鴻：它專吃「訂單外溢」 - 上市櫃",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1UdEY4TDVpcVlkSDd4M2tfcXFObTlNSjExUHk2M0F3Yko0QWE1NHhvY01BcTd0cE9JUzlkNmtJZmp1dzdvelh5amdaeEZHRXoyLVpCVUpBdUxQcFpRdVJjZzMtNTIzd3JlR1E?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.594
+  },
+  {
+   "id": "8b808d98a646def9",
+   "title": "雙鴻Vera Rubin水冷板重回輝達推薦名單9月底拚認證、GB300加單推升下半年營運",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5KVjhPWjA5enRFZEEwWE1tLWJ0MjdpZ1BESDdQUGo3bUpqanNBbklJUi12amlqRnJfdS1zLUZDY1VTSUZESm1Db3MzQ0lEOWM?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.594
+  },
+  {
+   "id": "7dcc705f604a4d8b",
+   "title": "台達電、奇鋐等供應鏈吃香！AI資料中心狂擴建 變壓器、液冷需求爆發",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9GRU5NcHpoTGt0Vk1iOXdBSnZrSHJod1dxbGxkQXVqV1BGR0ZGb0NlWGVMVEtHUnZnSmRRZU15YlNPMVZDakJBenVwRmEtM1U?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "台達電"
+   ],
+   "accounts": [
+    "奇鋐",
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.841
+  },
+  {
+   "id": "ed6f760b18664736",
+   "title": "熱門股／雙鴻切入輝達水冷板供應鏈！突破1400元再寫新高| 產經",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5DVGJGZjdRLWMzb1VJS2hHam01cHk1R1lZTTNnWVBhQWd1UV9KVFVmMk1rRF9lTk5wbDZDWEF0Wk1QR2hPa2dQX1F6cVRuZ3I5bjhnRHpoNkw0bDNMaU9v?oc=5",
+   "source": "非凡新聞台",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.175
+  },
+  {
+   "id": "e8d792be52eea77a",
+   "title": "【11:43 即時新聞】雙鴻(3324)股價上漲至1435元、漲幅4.36%，AI水冷散熱訂單與營收創高加持＋多頭技術結構配合法人及主力資金偏多",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdUFpeC0xYVlwY2Q1OGZiYVVNTmFBcXlaeUdUWDY0dmFIT2FhSkE2c3F2bmhXVEFBNzJRd3JraUdpdWlFaTNEMUpnTXNiWUtpY3UwUThpUHJKRDI2V0cxNkpHUkh0RVRNcmhZSzM5U1JEU0VFSElHcjRFOWdUcGdzVzRSMkd2ZjNwM1FVbWZB?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.175
+  },
+  {
+   "id": "b4e9bc69cf44df0f",
+   "title": "峰迴路轉雙鴻水冷板重返輝達供應鏈ASIC平台也有斬獲目光看向封裝市場- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAxTlV2NTFyMHZBRzdYZmQ5dGlCSk1qZklENjF0Z3UybzZreHA0ZC1MSmJfTHcyM19KWUxlYUJrbzA0eG5YY2Y2U21WaDh4Z0JBdUZVY1pES3dRZnlyYlgw?oc=5",
+   "source": "工商時報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.585
+  },
+  {
+   "id": "519a5f4b8ab3831f",
+   "title": "台積電 AI 冷革命 散熱廠卡位 健策、一詮等研發微流道技術",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8zeG1ueC1qNWt6Q2Jld0dQVzNXNjFPMDVRczFuUDAzclR3UE5NVlNDYU4wa1RxOTdpbmIwQkhUTXI1WFJOa3hhM1ZCTnhlWW1CQmNjeG1CdjNEMDDSAWBBVV95cUxNSjZNdkRNT3dOTU9RbnFoa2dnQndsd2xWMGNKTWxEaFl6N3BvVXVkM1VKam9XUGxyZlRjQjVJSTAyLVVCdlpMNjRseFhseDNxRE5HZ3ExUmxDVW9rcGc5ZFg?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "健策"
+   ],
+   "accounts": [
+    "台積電",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.487
+  },
+  {
+   "id": "ad6e127097273a1c",
+   "title": "重回輝達水冷板供應鏈！雙鴻董座：明年是非常好的一年",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9uamRJSVduWEdJU2xmVkJac3hsOHlCdWJvSjNOdjdqeGEzNXQyT0hTOERYYmRhbnd2SGE5TWN5bnM5WWhyX1p2YmhiT0Judnc5UkRwYmJUSG5EQQ?oc=5",
+   "source": "東森電視",
+   "published": "2026-09-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.576
+  },
+  {
+   "id": "ab964931518cf4b5",
+   "title": "雙鴻切入 VR 水冷板供應鏈 董座林育申：今、明年業績非常樂觀",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5mTFM3aGtRYk01eG9aX3A0WVRGN29aVGlrdjJNOUxvUEt3RWplS2c1VGpqSTFURUR2SGZBeUhyQ2daME5yMUdXajB4aGxZd051NzBEaUtfV0g2UdIBX0FVX3lxTE54XzQ2bHpJWS16WDh6NjF0VWhqTlJmcVMwRi1WaUVkZnVULS13S0ZNTkQxUjZ2Ti12ZVp5cG9YOTRzTXFVbWpaeDhNa3dwOTZaRmRsZlRXak1FMm1jVkFV?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.576
+  },
+  {
+   "id": "577b7d8cfd94725c",
+   "title": "【即時新聞】最新！貿聯-KY第2季獲利創新高，半導體訂單能見度直達2027年",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOa0FMSXl5cEhFVGJPb1g2ZjZUd2ZfVEFEYWhvZldMYi1FY2M1VXgtM0dsbWtuMVBaYVNsUkpQbm55Q0hieE9MY08zQVJUdGNBMmJRWGYxZjF3ME12eVptczN0MVpVRnZLWFpEclZNaHdNVGNIcjdpa0paRkgzakNqTkd5RENYNXFuVXpVSWg2WDQ?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.165
+  },
+  {
+   "id": "a556bdcd13c2cb67",
+   "title": "雙鴻GB300液冷需求放量 均熱片大擴產迎下一代AI平台",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBHVzV0dmxlMkp4RVhhNDNyUUJveWgwVjZ1enZWWndvSVloa2tXSjR3bmlUMHJmXy1tNjVKZTBhaVQwTW9WUlYwUWxKYlhxMXhsREdOdXA0MzFhajJoY3d0NnhBZmdkWXJUeFN2YnpVNA?oc=5",
+   "source": "理財周刊",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
+   "id": "4e78036e8e08db06",
+   "title": "雙鴻均熱片產能翻倍，水冷產品涵蓋全機零組件",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOTDFobGJfQnlTSVl1NGdlTlNhQWFUSkFFcWNWTzRoN0ZzT2c0UUp4d0haMXE4RXQxVk1vTFNwYTRSeW1tWGxOR2hFVWh3WXdTdkQ1WFFtRmFsMzJib3VvS2ZFNGo2WUFXSlRZRjBzU3ZCRDgzbEstZzBVWExzaTh6OHRXSDdadzZzbHd5Vm9MYjRQUQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
+   "id": "04fd95082ecd45d0",
+   "title": "【即時新聞】最新動向！雙鴻受惠輝達GB系列追加訂單，水冷新品第三季量產將助攻營收！",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZjBmTzRfZ25ZZ3JLdVB1N3FDUDlrWkFsX2NYUEJvUFBJZnY5cDNrdzUtb3ktSmFSQjBuUENlX1dxcnVUVzZMd0p5djY1NTRaenl4cnRocFJaTWNmTVJSOVdsLVFick1BMHljZ0RvWGxfQlFNOFFNMk9ZNEJpZk80X3l5TERnNjBnd2lpRnFIMEs?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "contract",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.24
+  },
+  {
+   "id": "e07d2dd789a608ed",
+   "title": "液冷散熱族群有哪些？散熱三雄：奇鋐、雙鴻、健策，AI伺服器供應鏈一次看懂",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE15ZHFnam1VbW84LXJRN2V0VzRKdm5ldm0wbkN5dExrZHg2NTl1eDJUX25FUEFjdGZMMUw4eEd2ZUZZa01CUVp4TnF3WlptVF96bm9tQ1Nn?oc=5",
+   "source": "口袋證券",
+   "published": "2026-08-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "accounts": [
+    "奇鋐",
+    "雙鴻",
+    "健策"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.525
+  },
+  {
+   "id": "8df5dde20e30242f",
+   "title": "奇鋐陳易成不只追營收、要追獲利！AI液冷讓半年EPS衝44.54元 明年產能再增五成",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE44S3V0cGFHRkoySUpyRmtqV25Db2NPMjBYbnh2NlRmVWNGamI2TjliY3cxYnlPVWhGX1hqOUdZVkp1TUJ4bks0a0o0LVYyNS1SM1E?oc=5",
+   "source": "放言Fount Media",
+   "published": "2026-08-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.204
+  },
+  {
+   "id": "f494513b05a2f119",
+   "title": "【即時新聞】最新法說會！嘉澤新品量產與擴產雙管齊下，上半年大賺39.04元",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUVREcGZsZENWQWphLXY3TFVybUNRZzh3QzhPUHJseUp3VnhXVGlqQ2Y4a1JnOHNQX0FZdEhGc05kQlJycmw5NFBnOVRRU3FmVjR0MEs1M3BnaVdvNEZ1ZGpWeG4xclRrQzVDNTNydFBycXpScnNLWnUyNkN0ZDBpOEVOdkE0ZTFpMlpiMFZOaXo?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.185
+  },
+  {
+   "id": "c0f62d5891ce3546",
+   "title": "嘉澤迎利多 樂觀明年 新品 SOCAMM 進入量產",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9zTm5JXzcyZldZVXdZVUloeHVJTVhhOEU2VXM5Zi1mblAySVNmMVlLSXdoMEx1eTZXeGMydkFDZU5EbTdybXJablduM21tRTNiejdhLTFXb2pvZ9IBX0FVX3lxTE9UTmp5WXZuVTlVZnI3V2YyTlhoWWpUV2VGRkxYWEdQbUNqNzBubjJCbWJvdE51QnlYck5iQU1vRzl3eDMwR0RiczA4SnU0elR3N3l2cmdqMWRzWklRXzlv?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.618
+  },
+  {
+   "id": "4892577685bfd964",
+   "title": "嘉澤兩利器量產H2營運衝- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE10TS1fUVljTWs4ODlQcHNqY1pNMEF4OG8zU21wXzg3MmhRTjVTeGp3SWVtb1lVUjdBODVxTlB4NW9IWUFjYUpsNVhQS21VN1BORmRMWllMLU1VV0hXMlkw?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.582
+  },
+  {
+   "id": "ddd03988562ae128",
+   "title": "台達電擴產不停，重慶二期廠拍板、投資約 26 億元",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQYTVWTXlTemNUYVNFT2ppalY5d2lNT0o1enQ4bTFMWUhwaUtTMVFTenJLa2NMRVM3WEh1T0kzMTZVU2s0c084Nks1MFlCaUNXQjVpV0RKbFYzWWJVYVBIRFRMNUNqY3d2eGtMcE9CdTc4XzNYdTJuakQ1eFJaeUtSRU55dVBENjJIaHVlRFpuempjakYyRWRUSzMtMjhRTDlPM2psWU5RVEVZVmd4cVpmSnd6SzVUOWdzYXZDS0g3MTJRdFFuVlhkLV9KQk5vckkxWTFjSGtqcE0?oc=5",
+   "source": "TechNews 科技新報",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.573
+  },
+  {
+   "id": "62c4d2d0bb748b93",
+   "title": "〈嘉澤法說〉嘉澤估Q3毛利率持平上季 樂觀看好新平台、新產品放量效益",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE82LXFtd2dSX1pyTVJvcnBvOWxTbjBsdmFGcXpfTHA2VFUwZUlCWGY1MEQ3cU5VYU1KLXY4SWZsOUZxN194MXhZSy1CdjJnTWc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.358
+  },
+  {
+   "id": "5a98528c30ed9a7e",
+   "title": "奇鋐明年產能再增逾五成，越南新廠已發包- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNXVBTVRudWx4SW1LSE1jRnNudjdCWFhpVjgtMlhya0tjSmctQUhxRXQzRnhXb3FIU2w0cjBJUy1KOFpvOVZoczZ3TFhxZk5uc1lpM1FhOWJVV0tXaFhoSDBDV1lKcjVBaDJmUHpleEtzR3BXUWRtNkpnTm5jd19DSk9OYVhkMU53VHNmbnpVaFJ5Zw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.573
+  },
+  {
+   "id": "3e8f1bc770d4b68b",
+   "title": "嘉澤QD業務有突破；因應新品快速擴產中- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQa2lPSHJ3STVQczFwMXlEcEVsWTVpSTI1Z2FoNXlZWmp0MkNESlVyZm9zdlYyUS04SWszWTBCOXFiMmhCRFlFTl9DenVjaEhkUUFVeFF2YnBNLV9XWU9JdWVZMl9WZnlhUV9UWnhrMkRhMTBFMGJsb0l3SFRaSzctRVhnakVGMGl1Y3oyUWszSnRJdw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.609
+  },
+  {
+   "id": "24be3b0e21d96020",
+   "title": "嘉澤QD下半年擴產 新平台Q4啟動、明年放量",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBZN3JDSW9KLTB4b0ljX1A2N2IwQ0FSZUZ1c25xbmI5cm9rR3VFZElZSUVZYU5RVy10QzZia3hXWHJRbm5ibmRZLV9lLWNfc0gzZy1CQkNpYVVVZE1rbDVF?oc=5",
+   "source": "自由財經",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.573
+  },
+  {
+   "id": "bf64abbb391cd6ac",
+   "title": "奇鋐明年產能再增逾五成，越南新廠已發包",
+   "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxNbmlBSG83b2NTdXJ3aE9Pd0FhUEdFLTRldkpERS04UV92Mzh0ZXVMR2FSX1RFd0t4ckxFS1pDaW5pVnhIa2VjVnp4ak8wRU5NYUVYSi1MZkVma2t6QnpHRjhFRXFLVzRMMXBKTU41MmZySzdpQ0YzWWw2ZHJPVUdPN1lqSmdibk9pVDhWSERSUFlUU2NObktuQXBLZXdWazFHREgzR1ZDRlYzSGhmUTNWb24waWRMYTR1TGVER1gwQXNhdmxiVEp5ZXl3VHhfMnZVYjFsbnllMnM4bGNmUmVHX3lYeDMzaWpLMXEwMEtCekI1MlRodjlxNklzb0FNNVF0cTZNOTREcXhKWTA4Qk9pNnVhMG4za2hKTTZXMFAxTE1xWkE5cWxlQUNwMHlqQTl1N045Vg?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-08-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.564
+  },
+  {
+   "id": "57cef1d99b79b892",
+   "title": "嘉澤擴產迎新平台，NPO專案排定2027量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNemJKbmhONDNuclFYcVM4SDcxdFhjWVZrZDczTndxTkxySlpqWDY3R0pNanUwUFdRckdtdGtGWmdNNWVCZXpBek93RkRQWU5qQnI5LXg2dS1QcTV1NEVCYnliR0pMazZPUXRxUmVlZmlyYmZLQU5CUEthUFh6UEFZWHMwazJ4elFsOU5zYXY0MndsZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.581
+  },
+  {
+   "id": "77f78c0a55d5ff16",
+   "title": "奇鋐營收創高 輝達、ASIC訂單進補 擴產再擴產 法人也喊買 目標價3,580元",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE50Nnd5eGh6SDBUeXlxZjlBemltYVhyNWdZR0dncmtuc09SMEJKUUhrY3gtNDlBdkwyS2JmYk4tWm42ZUJNSDNfblJORVJOallEZ0Z3YzdBWWpNM3o5dGtN?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.172
+  },
+  {
+   "id": "28cbd92423e3e431",
+   "title": "東鋼、緯穎訂單滿手- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ta2pGOWpIWHJsYnhqeUk4THMzLUduV1dLUGRMdGpxMTBzbHpJWGtxVmVwN0d0WjJaQi1yZE83T3p3Q3JqUE1lck5RMkg5TlNCblpfWHA2MGNDYml6SzZF?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "steel"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "緯穎",
+    "東和鋼鐵"
+   ],
+   "accounts": [
+    "緯穎",
+    "東和鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.392
+  },
+  {
+   "id": "874c28ecfc594815",
+   "title": "貿聯-KY擴大電源互聯，台越馬三地同步擴產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjExTEk3MVgxRGJENWpvZ3ZzbjcwTGlHZElZU25wTVhTeV80a2dNZXBKQWJ1eDNGdkFOQ2MyTUNUMEl3R2lLNnBLQWI3ZDBjaHBuRzlBdTFxRldZTHJja1pNZkFPX3NTMWdQZi1acjJjRGhocFBoMG15V2Vya21PLUc4bi1YNUp5QmNrdzVTNXhtZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.514
+  },
+  {
+   "id": "03f2f06ef37163b0",
+   "title": "雙鴻擴建均熱片產能，SP7/GB300出貨放量",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbmFya1NCanVQZHJpODVaZGV5ZlFMeEFpelQwVEZoTEVLZGdYRW5zRFEwM2dCN1lCTk1JZEs2Ql9DV2tacXdEeVNYRU82cWFwTjk0V1gtcWhWWEdhdUkzZ0VURFYyNUFRNXNzOGh2SFJKS19uU3NWYVBDUzVDVXlVRjJqQmlaN1BkRjdLdHRvNlo0Zw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.506
+  },
+  {
+   "id": "8bc9f5da639909ff",
+   "title": "台達電AI電源/液冷出貨升溫，擴資本支出衝產能",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeEltRU9ZT3NHSHhlcEtUZUZYSXNCYzFRVnhZVmIybEJOalVRRl9uYVlfUFQzUFFIbjNBSWMzN3llcVhDNFN0MHdyX1JuWVZxUGRSSE1idnUtYTR0WkNKWTg2UlhSRWxKX1Zscm9YLXhxSHY0TVB2TlV6d2Fac3RGc1ZodDllZ25yNEZvbnN2b2k5Zw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-08-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.499
+  },
+  {
+   "id": "8271077ccca1df06",
+   "title": "【12:18 即時新聞】奇鋐(3017)亮燈漲停至2550，AI水冷散熱訂單動能強勁＋法人與主力同步加碼推升多頭結構",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObGplTi1ZREh2eXBiSTQxM0hNZ0daMy1oSVB1QzZNZHltWWlpcXpnai1OYUlWVS1RcWtveW04TU1zQ3J0eF93ZmxjOHVzNUdXY0hmZUhNUUhYNU1rWlpYYXpZMDU2S19xQWNuQ0o2QjdxSUhRRHdUTHhMU3o5N1huUnhMem4tUUdmYmxjM0xR?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.111
+  },
+  {
+   "id": "eba3db6a90e7c820",
+   "title": "〈光寶科法說〉策略投資光通訊元件廠DenseLight 最快2027年下半年貢獻營收",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9faG5qaEgwZG1wX0RLWXU5dmNJZThTSVEwNFZWNzRzVHNmWHB2RVRCRDg2ams2aFJTQ0VVdWR1cnhjN21MSHl5b2QtR2FJWWM?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.469
+  },
+  {
+   "id": "9e98975320b4984e",
+   "title": "嘉澤伺服器新品放量，擴產銜接新平台出貨需求",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPSEJ6QWE5LUJKdnVleWwzWnNQV1JUbWo3WUlwU2xHVjMzX0dRX0ZOZGttbUFaWDBPWFFTM3JiN19FRklJUTZzNkRPSkRWQzNkMUR1Sl9iOWtNa1ZsUHQ5SG54ZFFBSGpra2paTVg3U2stVWJZUEYzcmM3M3BQWi1uTHlFalhpdElTWlQtT3p5MExqQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.498
+  },
+  {
+   "id": "657336051e8bd117",
+   "title": "〈光寶科法說〉拿下北美兩大新CSP客戶訂單 估全年AI營收占比突破3成",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8tVWMzNGtDWjhyajhmSGoxYk1vaUx1WUNocEtFNFNUYVlkaGJ3WmczS3l0dExTTTJzODEta3RrUlRYUFRsNmp3b2M3TVlOdUk?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.352
+  },
+  {
+   "id": "4ace056c8f17f59b",
+   "title": "雙鴻均熱片拚百萬產能，GB300與SP7齊發",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbFdoWWEtMTh0Z2xIMUxZajRhRkI4YXBtSkxOMlhCUkdaRHE1Z1VRN2p5b2FSTGRNS05zWktKYkJMMUhxTjZQZTM4RF9fVWc5cGtwNHVvVWpGenpRVUpRYWgtTkVETGVleWZFRVNhc3RNMDVnd2Vpdk43S3BZdXJ5MkVZZXJPMlc4Y200bXp1RDBUZw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.469
+  },
+  {
+   "id": "3e79ab5f07c605b6",
+   "title": "1表看》台達電單季EPS創高卻下修目標價！法人揭「這項AI黑科技」下半年開始量產- 上市櫃",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1GSWs4MmVVeHY3VlpsaXVyMXJwZ21XOVd1cE5XaGpmcGhUb2RUS2R5ZmNzT0w0MDM5VTUxOHpvY1MtVmxIUnEtSUVPQVpLc3J1OXd2eDVBWlV5VzR5R1p5UU85SnViQ1BGQVE?oc=5",
+   "source": "旺得富理財網",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.141
+  },
+  {
+   "id": "0f8205600dc6e463",
+   "title": "台達電全球擴產明年資本支出不排除續增- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxORFZTQlg4bU9ISno5QkRyaG9NMXdlOC1qNjFBVXM5c1pXbWRibURCbThRMUM0YXhZUE9hVlZpZ3owWkFfUmJZLVpySUljcm5RVGRPT01DUEp2OFo3MUxfU0Z6NFMwSW0xZUtUd0dTb1RJbVZlMm5LcHZPUDN1Mzc0d3ByczF0RnZCeXZESFBRTnRnQQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.469
+  },
+  {
+   "id": "869c528295b55d07",
+   "title": "台達電(2308) 2026 Q2財報法說：AI營收佔比衝40%，散熱與電源供應鏈大進補",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE40Q25BQ2VPcFE0WkRyRlVwc0ExNHVSRVlxSHV0X1pBTi14U0N0UWJ6Q1BfS1lUUDNwbml3OG82TzVYS05WdkJKLTEwdDVrcDhvbmxHTl9tZUozUnVKRkpLMEFnOFdQV3BEU01CNDNoVFZpTzZkQXh2WnBTQXlzZw?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-07-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.346
+  },
+  {
+   "id": "4abf0020e7d99612",
+   "title": "〈台達電法說〉董座：未見AI發展停下腳步 今年資本支出上看700億元",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5jVjBXTG02c3BNQ2ZWNWQ0bnduaFY1UmJoU1BlcTJLX0hreU1LQ2duNVdvSnFiN3p0YUUtX1UwQjJoQTF4VVByY3BCZ1pOMEU?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.462
+  },
+  {
+   "id": "379afef5cab0476f",
+   "title": "台達電法說1》未見AI建置停止 董座鄭平「還要擴廠」：全年資本支出上看700億元",
+   "link": "https://news.google.com/rss/articles/CBMi8ANBVV95cUxPUnpSY0dQOURXUzQ2VGtESm8yenJpd3QwelNocUZCME5pc3Z6ajJZbFp6Q1NUZUZsRkVoYVg2YVJHS0ZLWlhTUS1aQ01qLV9NYzdmcENBRjh0Q2REVEkzUmtlQU9yVkhUNEE1blZiQ2JrOGVhZXVDbFo4TjRqODFVZHZUc3VlMXp0cE45SGdnaG5LTmNERUs0Y1JNbFh3c3NVeVZnbXpoZXZvSVAzSXZWU2FFUHYxbm0xdVNMWmtBWGxlVDZBSkJRRUh1QkNRbE9fZUJ3THdpbV9qUWVnOVZEdUxpckdyWWJWMVJpbHpwSkh6cjloNmU1MjhESmhJaEx1VEtkcHZvV2ZRb09mamZlSEJlZHdvNHdPSkQzQWxpTUFUOE1qQWxobG00N0JPOVAzdTVNSnBxMlRCd1dhYndPODB1UmtsWVZTOXhFYzhYdEZPSzd1YTFxM0NVWEZuNzBjWmItUTFRdlh6MTlSU1B5dTEtOUJmTHN4d3prb2l4SW5oZHBBUzVoN19YM1ZmV0daUjdMRUFoMm8zZU5HWTRfY3NmdWxCMEdLekhGTnlSeGhwVThkRlgybkZGa2xDbXItazg4TUNSUzJKVXBrSUN2OFJrQldnLWNNQXZYbERxX0NtNHh2VThxeURrZWNITENJ?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-07-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.462
+  },
+  {
+   "id": "de08e93771cc0237",
+   "title": "嘉澤伺服器新品放量，擴產銜接下半年需求",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOOXg5ODdpa0lpSXJhUXVtb0dDS1U0WDhidmpoQXl6N0VJRzVhRFFvd2Rwa1BpZDVRTHpDaW1tWTdGcFhvbjJjdEh1ZGlkMFp3Q3hqVjJOTlhTU0JTOXZjRXpTbDVLWm53OW9uSHdUTU9GbGlqY0xJQ0xfUzRYd0ROVzFqeWtiNElDRGpBZHJRVkc0dw?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.483
+  },
+  {
+   "id": "4b9ee0956b9fdb6f",
+   "title": "奇鋐武漢廠斥資逾10億元添購設備AI伺服器液冷產能全面擴張",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5TcUZvNC1mcHBGRkJJT0JjX1I3R0V3Q2Z0TFZhRUpMWUE2aEszZWFENUVCM2tuV0F3VmdQeVl0RGhYMkNWbDRTS2QxMTYzTmc?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.421
+  },
+  {
+   "id": "5037a4d7e94816a7",
+   "title": "嘉澤伺服器新品放量，擴產銜接下半年出貨需求",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdHBzdTkwb3o5cFp4bU9mdk81dDJ5Zldkb0R1M1h3OF9RTjNUY0t5WFBhZkEwSWdPMmdKSmdGa0Z6T2IydWNFM2Z4LUpvdkE0MExRM2xGUHk0aVpiOFd5WGRQdjg3MWgwd1VxUkxyY0owTzRsUFRoNHI4SGtyREJMT05YR2YtQ0JhMmloSFBrTHRiUQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion",
+    "new_product"
+   ],
+   "region": "TW",
+   "orgs": [
+    "嘉澤"
+   ],
+   "accounts": [
+    "嘉澤"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.44
+  },
+  {
+   "id": "0f8592175d608ac9",
+   "title": "美超微訂單報喜，雙鴻 (3324) AI散熱受惠能走多遠？-哲翰科技戰情室",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQbzJuLTY0VjZMS3NSNFlvZFR1My1kSWN6TERDT2V5NEdza0s4cUdwb1EwMmpKTXdVaTdzY2s1dGt0dndETlIzNzVWUEU5YmNUck9xcEpPcFY5OXNxb09RUXZrWUhhWm5mNVF4aHRnUWd5Nm1Cd2Fzd0tBRF94X0F1dnpDdw?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-07-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "雙鴻"
+   ],
+   "accounts": [
+    "雙鴻"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.311
+  },
+  {
+   "id": "0cc5c5805ea7d7ef",
+   "title": "今日最夯股／奇鋐切入 GB300 供應鏈 股價量增收漲、三大法人齊買 | 市場焦點 | 證券",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAxb2FsclhITGFhdzc0b2NUZzZweS0wV0ZKZWlfNGZncEJVNHFsTEhPWi01TTVTaHMyTmZYTXpRUzhVbS12bUw1d0xlZjJVU0hiaWlRQmpSUExmdw?oc=5",
+   "source": "經濟日報",
+   "published": "2026-07-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "奇鋐"
+   ],
+   "accounts": [
+    "奇鋐"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.093
+  }
+ ],
+ "segment": {
+  "key": "tw_ai_server",
+  "name": "台灣 AI 伺服器設備廠",
+  "description": "台灣 AI 伺服器供應鏈:伺服器代工組裝、散熱與液冷(水冷板、均熱片、熱管、CDU)、電源與配電、機殼與滑軌、連接器與線材;GB200 / GB300 機櫃放量帶動液冷與高功率電源擴產。水冷板、均熱片、熱管與匯流排是銅材的大宗用量",
+  "subsegments": {
+   "odm": "伺服器代工組裝",
+   "cooling": "散熱與液冷",
+   "power": "電源與配電",
+   "chassis": "機殼與滑軌",
+   "interconnect": "連接器與線材",
+   "other": "其他未歸戶業者"
+  },
+  "days": 120,
+  "half_life_days": 45.0
+ },
+ "links": [
+  {
+   "name": "業務報告",
+   "page": "report"
+  }
+ ],
+ "title": "台灣設備廠",
+ "accounts": [
+  {
+   "org": "奇鋐",
+   "ticker": "3017",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 1,
+    "copper": 3
+   },
+   "note": "水冷板、均熱片、熱管與液冷機櫃;無氧銅板材與銅管是主要用料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 9.6
+   },
+   "signal_score": 44.2,
+   "signals": 14,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-11",
+   "opportunity": 76.1,
+   "fit_part": 40.0,
+   "signal_part": 26.5,
+   "value_part": 9.5,
+   "value_score": 63.6,
+   "estimate": {
+    "value": 80666667,
+    "product": "copper",
+    "by_product": {
+     "copper": 80000000,
+     "nickel": 666667
+    },
+    "amount": 1000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.08,
+    "fit": 3,
+    "signal": "4b9ee0956b9fdb6f",
+    "title": "奇鋐武漢廠斥資逾10億元添購設備AI伺服器液冷產能全面擴張",
+    "score": 63.6,
+    "summary": "約 NT$80.7 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$10.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 8% × 適配 3/3"
+   },
+   "tier": "優先開發",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "74a8832f0d4ceb44",
+    "43c72630e919dc4e",
+    "dee97af98a7f7fc7",
+    "dd30a61261c38d31",
+    "5a98528c30ed9a7e",
+    "fb68422d459c0709",
+    "4b9ee0956b9fdb6f",
+    "7dcc705f604a4d8b"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 25
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 25 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "74a8832f0d4ceb44": "inferred",
+    "43c72630e919dc4e": "inferred",
+    "dee97af98a7f7fc7": "inferred",
+    "dd30a61261c38d31": "inferred",
+    "5a98528c30ed9a7e": "inferred",
+    "fb68422d459c0709": "inferred",
+    "4b9ee0956b9fdb6f": "inferred",
+    "7dcc705f604a4d8b": "inferred"
+   }
+  },
+  {
+   "org": "嘉澤",
+   "ticker": "3533",
+   "subsegment": "interconnect",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 3
+   },
+   "note": "CPU / GPU 插座與連接器;端子用鈹銅、磷青銅等銅合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 6.45
+   },
+   "signal_score": 42.0,
+   "signals": 6,
+   "top_intent": "shortage",
+   "last_signal": "2026-11-13",
+   "opportunity": 65.2,
+   "fit_part": 40.0,
+   "signal_part": 25.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "90b8df3dc4436752",
+    "7425c71284d6b863",
+    "9c9b7171e70906a6",
+    "9e98975320b4984e",
+    "62c4d2d0bb748b93",
+    "9cd3812e3b4e51bd",
+    "3bce5e3d9acf72f9",
+    "f494513b05a2f119"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 15
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 15 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "90b8df3dc4436752": "inferred",
+    "7425c71284d6b863": "inferred",
+    "9c9b7171e70906a6": "inferred",
+    "9e98975320b4984e": "inferred",
+    "62c4d2d0bb748b93": "inferred",
+    "9cd3812e3b4e51bd": "inferred",
+    "3bce5e3d9acf72f9": "inferred",
+    "f494513b05a2f119": "inferred"
+   }
+  },
+  {
+   "org": "台達電",
+   "ticker": "2308",
+   "subsegment": "power",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 2
+   },
+   "note": "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 1.17,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 9.89
+   },
+   "signal_score": 47.9,
+   "signals": 11,
+   "top_intent": "new_product",
+   "last_signal": "2026-11-10",
+   "opportunity": 64.0,
+   "fit_part": 26.7,
+   "signal_part": 28.7,
+   "value_part": 8.6,
+   "value_score": 57.2,
+   "estimate": {
+    "value": 52000000,
+    "product": "copper",
+    "by_product": {
+     "copper": 52000000
+    },
+    "amount": 2600000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.03,
+    "fit": 2,
+    "signal": "ddd03988562ae128",
+    "title": "台達電擴產不停，重慶二期廠拍板、投資約 26 億元",
+    "score": 57.2,
+    "summary": "約 NT$52.0 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$26.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 3% × 適配 2/3"
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "09de31d6dd849d54",
+    "eaf9a5db148d62fc",
+    "cb8eebf124365120",
+    "42a0954d4980c9b5",
+    "01f21fd0b5f9aec6",
+    "7dcc705f604a4d8b",
+    "ddd03988562ae128",
+    "8bc9f5da639909ff"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 20
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 20 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "09de31d6dd849d54": "inferred",
+    "eaf9a5db148d62fc": "inferred",
+    "cb8eebf124365120": "inferred",
+    "42a0954d4980c9b5": "inferred",
+    "01f21fd0b5f9aec6": "inferred",
+    "7dcc705f604a4d8b": "inferred",
+    "ddd03988562ae128": "inferred",
+    "8bc9f5da639909ff": "inferred"
+   }
+  },
+  {
+   "org": "雙鴻",
+   "ticker": "3324",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 1,
+    "copper": 3
+   },
+   "note": "水冷板與液冷模組;無氧銅板材、銅管是主要用料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 7.36
+   },
+   "signal_score": 38.9,
+   "signals": 11,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-04",
+   "opportunity": 63.3,
+   "fit_part": 40.0,
+   "signal_part": 23.3,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "fedbacd92212a2ab",
+    "e0d9098510c156c9",
+    "a556bdcd13c2cb67",
+    "8b808d98a646def9",
+    "03f2f06ef37163b0",
+    "0f8592175d608ac9",
+    "cd96624a49496cfa",
+    "b63bdfa987c59524"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 22
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 22 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "fedbacd92212a2ab": "inferred",
+    "e0d9098510c156c9": "inferred",
+    "a556bdcd13c2cb67": "inferred",
+    "8b808d98a646def9": "inferred",
+    "03f2f06ef37163b0": "inferred",
+    "0f8592175d608ac9": "inferred",
+    "cd96624a49496cfa": "inferred",
+    "b63bdfa987c59524": "inferred"
+   }
+  },
+  {
+   "org": "光寶科",
+   "ticker": "2301",
+   "subsegment": "power",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 2
+   },
+   "note": "伺服器電源與機櫃電源架;匯流排、磁性元件用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 6.93
+   },
+   "signal_score": 37.2,
+   "signals": 6,
+   "top_intent": "contract",
+   "last_signal": "2026-11-12",
+   "opportunity": 60.7,
+   "fit_part": 26.7,
+   "signal_part": 22.3,
+   "value_part": 11.7,
+   "value_score": 78.1,
+   "estimate": {
+    "value": 220000000,
+    "product": "copper",
+    "by_product": {
+     "copper": 220000000
+    },
+    "amount": 11000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.03,
+    "fit": 2,
+    "signal": "e80fc5b08cc3ad9f",
+    "title": "光寶斥資110億 德州新廠動了 配合客戶需求擴產 搶賺AI財",
+    "score": 78.1,
+    "summary": "約 NT$220.0 百萬 / 年(主要為銅材 / 銅合金):報導金額 NT$110.0 億 × 擴產與新廠係數 1 × 銅材 / 銅合金占比 3% × 適配 2/3"
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "fcbc6a593990f2ea",
+    "e80fc5b08cc3ad9f",
+    "eaf9a5db148d62fc",
+    "a09dec386d48aabc",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8",
+    "eba3db6a90e7c820",
+    "657336051e8bd117"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 12
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 12 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "fcbc6a593990f2ea": "inferred",
+    "e80fc5b08cc3ad9f": "inferred",
+    "eaf9a5db148d62fc": "inferred",
+    "a09dec386d48aabc": "inferred",
+    "b498fa4f22ae9f79": "inferred",
+    "ae3967aba71280e8": "inferred",
+    "eba3db6a90e7c820": "inferred",
+    "657336051e8bd117": "inferred"
+   }
+  },
+  {
+   "org": "健策",
+   "ticker": "3653",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 1,
+    "copper": 3
+   },
+   "note": "AI 晶片均熱片(IHS)與水冷板;高純度無氧銅板材是核心用料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.24,
+    "titanium": 0.0,
+    "nickel": 0.24,
+    "copper": 2.64
+   },
+   "signal_score": 22.0,
+   "signals": 5,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-02",
+   "opportunity": 53.2,
+   "fit_part": 40.0,
+   "signal_part": 13.2,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "28d60028e13f39f7",
+    "cd96624a49496cfa",
+    "b0a657102de6ee2a",
+    "519a5f4b8ab3831f",
+    "fb68422d459c0709",
+    "ac87fb6b7ee02526",
+    "e07d2dd789a608ed"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 7
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 7 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "28d60028e13f39f7": "inferred",
+    "cd96624a49496cfa": "inferred",
+    "b0a657102de6ee2a": "inferred",
+    "519a5f4b8ab3831f": "inferred",
+    "fb68422d459c0709": "inferred",
+    "ac87fb6b7ee02526": "inferred",
+    "e07d2dd789a608ed": "inferred"
+   }
+  },
+  {
+   "org": "貿聯-KY",
+   "ticker": "3665",
+   "subsegment": "interconnect",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 2
+   },
+   "note": "高速銅纜與機櫃線束;銅導線為主要用料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 3.56
+   },
+   "signal_score": 29.3,
+   "signals": 5,
+   "top_intent": "qualification",
+   "last_signal": "2026-11-13",
+   "opportunity": 44.2,
+   "fit_part": 26.7,
+   "signal_part": 17.6,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "d5ddd640476398d5",
+    "08a7d8610b750e64",
+    "874c28ecfc594815",
+    "577b7d8cfd94725c",
+    "5128cdcb1aab1e62"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 5
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 5 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "d5ddd640476398d5": "inferred",
+    "08a7d8610b750e64": "inferred",
+    "874c28ecfc594815": "inferred",
+    "577b7d8cfd94725c": "inferred",
+    "5128cdcb1aab1e62": "inferred"
+   }
+  },
+  {
+   "org": "力致科技",
+   "ticker": "3483",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 3
+   },
+   "note": "熱管與散熱模組;銅管與銅粉是主要用料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "高力熱處理",
+   "ticker": "8996",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 1,
+    "copper": 2
+   },
+   "note": "液冷 CDU 與板式熱交換器;銅焊材、銅管,特殊冷卻液環境可能用到耐蝕合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.51
+   },
+   "signal_score": 4.9,
+   "signals": 2,
+   "top_intent": "expansion",
+   "last_signal": "2026-09-21",
+   "opportunity": 29.6,
+   "fit_part": 26.7,
+   "signal_part": 2.9,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "fc8dca2114594bae",
+    "9acc296cdd7aa431"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "fc8dca2114594bae": "inferred",
+    "9acc296cdd7aa431": "inferred"
+   }
+  },
+  {
+   "org": "廣達",
+   "ticker": "2382",
+   "subsegment": "odm",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "AI 伺服器代工;材料多經散熱、電源模組廠間接採購",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 1.59
+   },
+   "signal_score": 15.9,
+   "signals": 1,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-26",
+   "opportunity": 22.9,
+   "fit_part": 13.3,
+   "signal_part": 9.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "bc22d0ce438c33eb"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 1,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "同篇提及材料但主詞為他公司 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "bc22d0ce438c33eb": "co_mention"
+   }
+  },
+  {
+   "org": "英業達",
+   "ticker": "2356",
+   "subsegment": "odm",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "AI 伺服器代工;材料關聯間接",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 1.59
+   },
+   "signal_score": 15.9,
+   "signals": 1,
+   "top_intent": "expansion",
+   "last_signal": "2026-10-26",
+   "opportunity": 22.9,
+   "fit_part": 13.3,
+   "signal_part": 9.5,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "bc22d0ce438c33eb"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 1,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "同篇提及材料但主詞為他公司 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "bc22d0ce438c33eb": "co_mention"
+   }
+  },
+  {
+   "org": "勤誠",
+   "ticker": "8210",
+   "subsegment": "chassis",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "伺服器機殼與機櫃;材料以鋼板為主,關聯較低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "建準",
+   "ticker": "2421",
+   "subsegment": "cooling",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "伺服器風扇與液冷泵浦;馬達線圈用銅,關聯中等偏低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "緯創",
+   "ticker": "3231",
+   "subsegment": "odm",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "AI 伺服器主機板與機櫃代工;材料關聯間接",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "緯穎",
+   "ticker": "6669",
+   "subsegment": "odm",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "雲端資料中心伺服器與液冷機櫃;材料關聯間接",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "copper",
+   "next_action": "首次拜訪:以銅材 / 銅合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "鴻海",
+   "ticker": "2317",
+   "subsegment": "odm",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 0,
+    "copper": 1
+   },
+   "note": "AI 伺服器機櫃代工龍頭;散熱與電源多向模組廠採購,材料關聯間接,可了解自製機構件需求",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 13.3,
+   "fit_part": 13.3,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "川湖",
+   "ticker": "2059",
+   "subsegment": "chassis",
+   "fit": {
+    "target": 0,
+    "titanium": 0,
+    "nickel": 0,
+    "copper": 0
+   },
+   "note": "伺服器滑軌;材料以鋼材為主,關聯低",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 0.0,
+   "fit_part": 0.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "target",
+   "next_action": "首次拜訪:以濺鍍靶材的應用案例切入,確認採購與研發窗口",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  }
+ ],
+ "other_mentions": [
+  {
+   "org": "台積電",
+   "signal_score": 49.4,
+   "signals": 6,
+   "last_signal": "2026-11-11",
+   "product": "target",
+   "evidence": [
+    "0ee120d103f2357f",
+    "56a6b5d6300bf389",
+    "5c7c653be4039eb3"
+   ]
+  },
+  {
+   "org": "金居",
+   "signal_score": 29.3,
+   "signals": 1,
+   "last_signal": "2026-10-26",
+   "product": "copper",
+   "evidence": [
+    "bc22d0ce438c33eb"
+   ]
+  },
+  {
+   "org": "聯電",
+   "signal_score": 19.8,
+   "signals": 1,
+   "last_signal": "2026-10-29",
+   "product": "target",
+   "evidence": [
+    "01f21fd0b5f9aec6",
+    "03d6494277c511b0"
+   ]
+  },
+  {
+   "org": "日月光投控",
+   "signal_score": 5.0,
+   "signals": 1,
+   "last_signal": "2026-09-20",
+   "product": "target",
+   "evidence": [
+    "5c7c653be4039eb3"
+   ]
+  },
+  {
+   "org": "華工科技",
+   "signal_score": 3.6,
+   "signals": 1,
+   "last_signal": "2026-11-06",
+   "product": "copper",
+   "evidence": [
+    "e866b39406f16aa3"
+   ]
+  },
+  {
+   "org": "東和鋼鐵",
+   "signal_score": 3.1,
+   "signals": 1,
+   "last_signal": "2026-08-07",
+   "product": "nickel",
+   "evidence": [
+    "28cbd92423e3e431"
+   ]
+  },
+  {
+   "org": "台光電",
+   "signal_score": 2.5,
+   "signals": 1,
+   "last_signal": "2026-11-10",
+   "product": "copper",
+   "evidence": [
+    "8778a00472475273"
+   ]
+  }
+ ],
+ "segment_cells": [
+  {
+   "subsegment": "odm",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.11,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "odm",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.58,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "odm",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.2,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "odm",
+   "product": "copper",
+   "heat": 3.172,
+   "count": 1,
+   "z": 1.35,
+   "level": "warm",
+   "signal_ids": [
+    "bc22d0ce438c33eb"
+   ]
+  },
+  {
+   "subsegment": "cooling",
+   "product": "target",
+   "heat": 0.487,
+   "count": 1,
+   "z": -0.24,
+   "level": "neutral",
+   "signal_ids": [
+    "519a5f4b8ab3831f"
+   ]
+  },
+  {
+   "subsegment": "cooling",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.75,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "cooling",
+   "product": "nickel",
+   "heat": 0.487,
+   "count": 1,
+   "z": -0.34,
+   "level": "neutral",
+   "signal_ids": [
+    "519a5f4b8ab3831f"
+   ]
+  },
+  {
+   "subsegment": "cooling",
+   "product": "copper",
+   "heat": 19.307,
+   "count": 16,
+   "z": 3.22,
+   "level": "hot",
+   "signal_ids": [
+    "0cc5c5805ea7d7ef",
+    "0f8592175d608ac9",
+    "4b9ee0956b9fdb6f",
+    "4ace056c8f17f59b",
+    "8271077ccca1df06",
+    "03f2f06ef37163b0",
+    "77f78c0a55d5ff16",
+    "bf64abbb391cd6ac",
+    "5a98528c30ed9a7e",
+    "8df5dde20e30242f",
+    "e07d2dd789a608ed",
+    "a556bdcd13c2cb67"
+   ]
+  },
+  {
+   "subsegment": "power",
+   "product": "target",
+   "heat": 2.338,
+   "count": 1,
+   "z": -0.2,
+   "level": "neutral",
+   "signal_ids": [
+    "03d6494277c511b0",
+    "01f21fd0b5f9aec6"
+   ]
+  },
+  {
+   "subsegment": "power",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.83,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "power",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.45,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "power",
+   "product": "copper",
+   "heat": 16.343,
+   "count": 12,
+   "z": 2.95,
+   "level": "hot",
+   "signal_ids": [
+    "379afef5cab0476f",
+    "4abf0020e7d99612",
+    "869c528295b55d07",
+    "0f8205600dc6e463",
+    "3e79ab5f07c605b6",
+    "657336051e8bd117",
+    "eba3db6a90e7c820",
+    "8bc9f5da639909ff",
+    "ddd03988562ae128",
+    "42a0954d4980c9b5",
+    "5128cdcb1aab1e62",
+    "487fb88d64c894ce"
+   ]
+  },
+  {
+   "subsegment": "chassis",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.26,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chassis",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.74,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chassis",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.36,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chassis",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.99,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "interconnect",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.78,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "interconnect",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.26,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "interconnect",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.88,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "interconnect",
+   "product": "copper",
+   "heat": 9.887,
+   "count": 8,
+   "z": 2.11,
+   "level": "hot",
+   "signal_ids": [
+    "5037a4d7e94816a7",
+    "de08e93771cc0237",
+    "9e98975320b4984e",
+    "874c28ecfc594815",
+    "57cef1d99b79b892",
+    "62c4d2d0bb748b93",
+    "3e8f1bc770d4b68b",
+    "24be3b0e21d96020",
+    "f494513b05a2f119",
+    "c0f62d5891ce3546",
+    "4892577685bfd964",
+    "577b7d8cfd94725c"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "target",
+   "heat": 8.036,
+   "count": 4,
+   "z": 0.52,
+   "level": "neutral",
+   "signal_ids": [
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "893b35d25ea0c716",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "titanium",
+   "heat": 1.029,
+   "count": 1,
+   "z": -0.41,
+   "level": "neutral",
+   "signal_ids": [
+    "5c7c653be4039eb3"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "nickel",
+   "heat": 8.428,
+   "count": 5,
+   "z": 0.45,
+   "level": "neutral",
+   "signal_ids": [
+    "28cbd92423e3e431",
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "893b35d25ea0c716",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 8.478,
+   "count": 5,
+   "z": 2.8,
+   "level": "neutral",
+   "signal_ids": [
+    "c3719ed7d674a88b",
+    "5c7c653be4039eb3",
+    "64495a33309be7e9",
+    "893b35d25ea0c716",
+    "ef375a5ff7953a06",
+    "56a6b5d6300bf389",
+    "e866b39406f16aa3",
+    "00377c3525c81206",
+    "0ee120d103f2357f"
+   ]
+  }
+ ],
+ "signal_materials": {
+  "01f21fd0b5f9aec6": [],
+  "03f2f06ef37163b0": [],
+  "08a7d8610b750e64": [],
+  "09de31d6dd849d54": [],
+  "0f8592175d608ac9": [],
+  "28d60028e13f39f7": [],
+  "3bce5e3d9acf72f9": [],
+  "42a0954d4980c9b5": [],
+  "43c72630e919dc4e": [],
+  "4b9ee0956b9fdb6f": [],
+  "5128cdcb1aab1e62": [],
+  "519a5f4b8ab3831f": [],
+  "577b7d8cfd94725c": [],
+  "5a98528c30ed9a7e": [],
+  "62c4d2d0bb748b93": [],
+  "657336051e8bd117": [],
+  "7425c71284d6b863": [],
+  "74a8832f0d4ceb44": [],
+  "7dcc705f604a4d8b": [],
+  "874c28ecfc594815": [],
+  "8b808d98a646def9": [],
+  "8bc9f5da639909ff": [],
+  "90b8df3dc4436752": [],
+  "9acc296cdd7aa431": [],
+  "9c9b7171e70906a6": [],
+  "9cd3812e3b4e51bd": [],
+  "9e98975320b4984e": [],
+  "a09dec386d48aabc": [],
+  "a556bdcd13c2cb67": [],
+  "ac87fb6b7ee02526": [],
+  "ae3967aba71280e8": [],
+  "b0a657102de6ee2a": [],
+  "b498fa4f22ae9f79": [],
+  "b63bdfa987c59524": [],
+  "bc22d0ce438c33eb": [
+   "銅箔"
+  ],
+  "cb8eebf124365120": [],
+  "cd96624a49496cfa": [],
+  "d5ddd640476398d5": [],
+  "dd30a61261c38d31": [],
+  "ddd03988562ae128": [],
+  "dee97af98a7f7fc7": [],
+  "e07d2dd789a608ed": [],
+  "e0d9098510c156c9": [],
+  "e80fc5b08cc3ad9f": [],
+  "eaf9a5db148d62fc": [],
+  "eba3db6a90e7c820": [],
+  "f494513b05a2f119": [],
+  "fb68422d459c0709": [],
+  "fc8dca2114594bae": [],
+  "fcbc6a593990f2ea": [],
+  "fedbacd92212a2ab": []
+ }
+}

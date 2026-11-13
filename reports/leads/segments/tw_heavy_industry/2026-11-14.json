@@ -1,0 +1,4487 @@
+{
+ "generated": "2026-11-13T16:43:28+00:00",
+ "asof": "2026-11-14",
+ "days": 120,
+ "half_life_days": 45.0,
+ "coverage_start": "2026-07-13",
+ "slices": [
+  "2026-11-14"
+ ],
+ "labels": {
+  "products": {
+   "target": "濺鍍靶材",
+   "titanium": "純鈦 / 鈦合金",
+   "nickel": "鎳基合金",
+   "copper": "銅材 / 銅合金"
+  },
+  "industries": {
+   "semiconductor": "半導體",
+   "semi_equipment": "半導體設備與零組件",
+   "pcb_equipment": "PCB 與載板設備",
+   "ai_server": "AI 伺服器與散熱",
+   "cpo": "CPO 與光通訊",
+   "display_equipment": "面板與顯示設備",
+   "display": "顯示面板",
+   "solar": "太陽能",
+   "optical_coating": "光學與玻璃鍍膜",
+   "data_storage": "儲存媒體",
+   "hard_coating": "工具與裝飾鍍膜",
+   "aerospace": "航太",
+   "medical": "醫療器材",
+   "chemical": "化工石化",
+   "steel": "鋼鐵冶金",
+   "oil_gas": "油氣能源",
+   "power": "發電與燃氣輪機",
+   "hydrogen": "氫能與燃料電池",
+   "marine": "船舶與海水淡化",
+   "consumer": "消費電子",
+   "sports": "運動器材",
+   "additive": "積層製造(3D 列印)",
+   "other": "其他應用"
+  },
+  "regions": {
+   "TW": "台灣",
+   "CN": "中國大陸",
+   "JP": "日本",
+   "KR": "韓國",
+   "SEA": "東南亞與印度",
+   "US": "北美",
+   "EU": "歐洲",
+   "OTHER": "其他 / 未標示"
+  },
+  "intents": {
+   "tender": "招標採購",
+   "shortage": "缺料與交期",
+   "expansion": "擴產與新廠",
+   "maintenance": "歲修與汰換",
+   "contract": "訂單與專案",
+   "qualification": "認證與在地化",
+   "new_product": "新產品研發",
+   "hiring": "徵才擴編",
+   "policy": "政策與補助"
+  },
+  "levels": {
+   "hot": "熱點",
+   "warm": "溫點",
+   "neutral": "一般",
+   "cold": "冷點"
+  },
+  "trends": {
+   "new": "新興熱點",
+   "persistent": "持續熱點",
+   "intensifying": "升溫熱點",
+   "sporadic": "零星熱點",
+   "diminishing": "降溫",
+   "rising": "升溫中"
+  },
+  "product_industries": {
+   "target": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "data_storage",
+    "hard_coating",
+    "cpo",
+    "other"
+   ],
+   "titanium": [
+    "aerospace",
+    "medical",
+    "chemical",
+    "marine",
+    "consumer",
+    "sports",
+    "additive",
+    "hydrogen",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "nickel": [
+    "aerospace",
+    "power",
+    "oil_gas",
+    "chemical",
+    "hydrogen",
+    "additive",
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "steel",
+    "cpo",
+    "other"
+   ],
+   "copper": [
+    "semiconductor",
+    "semi_equipment",
+    "pcb_equipment",
+    "display_equipment",
+    "ai_server",
+    "display",
+    "power",
+    "consumer",
+    "steel",
+    "cpo",
+    "other"
+   ]
+  }
+ },
+ "segment_pages": [
+  {
+   "key": "tw_semi_equipment",
+   "name": "台灣半導體設備廠",
+   "primary": true
+  },
+  {
+   "key": "tw_semi_production",
+   "name": "半導體生產供應鏈",
+   "primary": false
+  },
+  {
+   "key": "tw_pcb_equipment",
+   "name": "台灣 PCB 設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_display_equipment",
+   "name": "台灣面板設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_ai_server",
+   "name": "台灣 AI 伺服器設備廠",
+   "primary": false
+  },
+  {
+   "key": "tw_heavy_industry",
+   "name": "台灣重工業製造廠",
+   "primary": false
+  },
+  {
+   "key": "tw_cpo",
+   "name": "台灣 CPO 與光通訊供應鏈",
+   "primary": false
+  }
+ ],
+ "thresholds": {
+  "z_hot": 1.96,
+  "z_warm": 1.0,
+  "min_signals": 2,
+  "grades": {
+   "A": 70.0,
+   "B": 45.0,
+   "C": 25.0
+  }
+ },
+ "stats": {
+  "signals": 42,
+  "attributed": 41,
+  "new_signals": 1,
+  "hot_cells": 6,
+  "warm_cells": 0,
+  "leads": 20,
+  "grades": {
+   "A": 0,
+   "B": 0,
+   "C": 3,
+   "D": 11
+  },
+  "enriched": 0,
+  "by_product": {
+   "target": 0,
+   "titanium": 36,
+   "nickel": 41,
+   "copper": 10
+  },
+  "other_mentions": 1,
+  "accounts": 20,
+  "tiers": {
+   "優先開發": 0,
+   "積極經營": 5,
+   "持續觀察": 15
+  }
+ },
+ "cells": [
+  {
+   "product": "titanium",
+   "industry": "aerospace",
+   "region": "EU",
+   "heat": 0.316,
+   "count": 1,
+   "z": -0.55,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.316
+   ],
+   "signal_ids": [
+    "1fe2321a1f292fec"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "chemical",
+   "region": "TW",
+   "heat": 11.099,
+   "count": 9,
+   "z": 6.46,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    11.099
+   ],
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473",
+    "7a7e5e8f21e62847",
+    "9cb99295712255e0",
+    "6816d751ad562a8c",
+    "91c15886f3cd8538",
+    "d4997b251396ddc4"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 8.756,
+   "count": 8,
+   "z": 5.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    8.756
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "705b52ca22be60d0",
+    "b1898f2ed6d04de0",
+    "576b972b29dd8d54",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2",
+    "58a11a867ddfffaf",
+    "d81bbf3e1907d4ac",
+    "8dd8d66c8d79b902",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "other",
+   "region": "TW",
+   "heat": 3.697,
+   "count": 3,
+   "z": 3.96,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    3.697
+   ],
+   "signal_ids": [
+    "4de9ff6f8be4f1dd",
+    "68021e1cd99f5dc4",
+    "f482d8b096d77dc4"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "aerospace",
+   "region": "EU",
+   "heat": 0.316,
+   "count": 1,
+   "z": -0.58,
+   "level": "neutral",
+   "trend": "",
+   "history": [
+    0.316
+   ],
+   "signal_ids": [
+    "1fe2321a1f292fec"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "oil_gas",
+   "region": "TW",
+   "heat": 4.38,
+   "count": 3,
+   "z": 3.83,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.38
+   ],
+   "signal_ids": [
+    "4de9ff6f8be4f1dd",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "f482d8b096d77dc4"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "chemical",
+   "region": "TW",
+   "heat": 13.624,
+   "count": 12,
+   "z": 6.36,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    13.624
+   ],
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "c2187818dfe3e10f",
+    "9b3f22e3ff8e82cb",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473",
+    "7a7e5e8f21e62847",
+    "9cb99295712255e0",
+    "6816d751ad562a8c",
+    "6816f190fb425533",
+    "91c15886f3cd8538",
+    "d4997b251396ddc4"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 10.544,
+   "count": 10,
+   "z": 5.52,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.544
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "28cbd92423e3e431",
+    "246d5fbd084d6cbb",
+    "b1898f2ed6d04de0",
+    "f28b7c6897f37910",
+    "576b972b29dd8d54",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2",
+    "58a11a867ddfffaf",
+    "d81bbf3e1907d4ac",
+    "8dd8d66c8d79b902",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 4.453,
+   "count": 4,
+   "z": 6.01,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.453
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "b1898f2ed6d04de0",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "d81bbf3e1907d4ac",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "product": "titanium",
+   "industry": "chemical",
+   "region": "TW",
+   "heat": 11.099,
+   "count": 9,
+   "z": 6.46,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    11.099
+   ],
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "chemical",
+   "region": "TW",
+   "heat": 13.624,
+   "count": 12,
+   "z": 6.36,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    13.624
+   ],
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "c2187818dfe3e10f",
+    "9b3f22e3ff8e82cb",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473"
+   ]
+  },
+  {
+   "product": "copper",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 4.453,
+   "count": 4,
+   "z": 6.01,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.453
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "b1898f2ed6d04de0",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "d81bbf3e1907d4ac",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  },
+  {
+   "product": "titanium",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 8.756,
+   "count": 8,
+   "z": 5.67,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    8.756
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "705b52ca22be60d0",
+    "b1898f2ed6d04de0",
+    "576b972b29dd8d54",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2",
+    "58a11a867ddfffaf",
+    "d81bbf3e1907d4ac"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "steel",
+   "region": "TW",
+   "heat": 10.544,
+   "count": 10,
+   "z": 5.52,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    10.544
+   ],
+   "signal_ids": [
+    "1746c09f5975f488",
+    "28cbd92423e3e431",
+    "246d5fbd084d6cbb",
+    "b1898f2ed6d04de0",
+    "f28b7c6897f37910",
+    "576b972b29dd8d54",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2"
+   ]
+  },
+  {
+   "product": "nickel",
+   "industry": "oil_gas",
+   "region": "TW",
+   "heat": 4.38,
+   "count": 3,
+   "z": 3.83,
+   "level": "hot",
+   "trend": "new",
+   "history": [
+    4.38
+   ],
+   "signal_ids": [
+    "4de9ff6f8be4f1dd",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "f482d8b096d77dc4"
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "org": "中鋼",
+   "account": true,
+   "score": 68.6,
+   "grade": "積極經營",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "maintenance",
+    "policy"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-11-07",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.19
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "d81bbf3e1907d4ac",
+    "b1898f2ed6d04de0",
+    "fbe998128815a1ea",
+    "1746c09f5975f488",
+    "3b68c4e914a90492",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6"
+   ],
+   "signal_score": 29.5,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 17.7,
+   "value_part": 10.9
+  },
+  {
+   "org": "台塑",
+   "account": true,
+   "score": 63.1,
+   "grade": "積極經營",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "signals": 5,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-11-05",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.47
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "d4997b251396ddc4",
+    "6816d751ad562a8c",
+    "4bd323ae3cea394d",
+    "b12570caa13570ea",
+    "6f2998ba08de3eef",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "9e87397c99bc6473"
+   ],
+   "signal_score": 38.5,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 23.1,
+   "value_part": 0.0
+  },
+  {
+   "org": "台塑化",
+   "account": true,
+   "score": 60.7,
+   "grade": "積極經營",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "other",
+   "region": "TW",
+   "top_intent": "maintenance",
+   "intents": [
+    "maintenance",
+    "tender"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-11-06",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.81
+   },
+   "next_action": "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "f482d8b096d77dc4",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076"
+   ],
+   "signal_score": 29.6,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 17.8,
+   "value_part": 3.0
+  },
+  {
+   "org": "華新麗華",
+   "account": true,
+   "score": 58.1,
+   "grade": "積極經營",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "contract"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-11-04",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.83
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "8dd8d66c8d79b902",
+    "1fe2321a1f292fec"
+   ],
+   "signal_score": 17.7,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 10.6,
+   "value_part": 7.4
+  },
+  {
+   "org": "燁聯鋼鐵",
+   "account": true,
+   "score": 50.2,
+   "grade": "積極經營",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-11",
+   "last_signal": "2026-09-23",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.83
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "576b972b29dd8d54"
+   ],
+   "signal_score": 10.2,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 6.1,
+   "value_part": 4.0
+  },
+  {
+   "org": "中油",
+   "account": true,
+   "score": 42.8,
+   "grade": "持續觀察",
+   "product": "nickel",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "other",
+   "region": "TW",
+   "top_intent": "tender",
+   "intents": [
+    "tender"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-07-17",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.17
+   },
+   "next_action": "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "4de9ff6f8be4f1dd"
+   ],
+   "signal_score": 4.6,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 2.8,
+   "value_part": 0.0
+  },
+  {
+   "org": "台朔重工",
+   "account": true,
+   "score": 41.7,
+   "grade": "持續觀察",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "tender",
+   "intents": [
+    "tender"
+   ],
+   "signals": 0,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-09-24",
+   "new": true,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": -0.22
+   },
+   "next_action": "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076"
+   ],
+   "signal_score": 2.9,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 1.7,
+   "value_part": 0.0
+  },
+  {
+   "org": "中鼎工程",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.13
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "台化",
+   "products": [
+    "titanium"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.47
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "唐榮",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "neutral",
+    "trend": "",
+    "z": 0.83
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 40.0,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "台肥",
+   "account": true,
+   "score": 38.6,
+   "grade": "持續觀察",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "new_product",
+   "intents": [
+    "new_product",
+    "policy",
+    "qualification"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-11-04",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.47
+   },
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "91c15886f3cd8538",
+    "f980f75f6f5b0556"
+   ],
+   "signal_score": 19.9,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 11.9,
+   "value_part": 0.0
+  },
+  {
+   "org": "東和鋼鐵",
+   "account": true,
+   "score": 36.3,
+   "grade": "持續觀察",
+   "product": "nickel",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "signals": 3,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-09-17",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.19
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "f28b7c6897f37910",
+    "246d5fbd084d6cbb",
+    "28cbd92423e3e431"
+   ],
+   "signal_score": 16.0,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 9.6,
+   "value_part": 0.0
+  },
+  {
+   "org": "東聯化學",
+   "account": true,
+   "score": 36.0,
+   "grade": "持續觀察",
+   "product": "nickel",
+   "products": [
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "shortage",
+   "intents": [
+    "shortage",
+    "qualification"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-09-22",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.12
+   },
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "9b3f22e3ff8e82cb",
+    "c2187818dfe3e10f"
+   ],
+   "signal_score": 15.6,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 9.4,
+   "value_part": 0.0
+  },
+  {
+   "org": "中鴻鋼鐵",
+   "account": true,
+   "score": 34.9,
+   "grade": "持續觀察",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "contract",
+   "intents": [
+    "contract"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-10-22",
+   "new": true,
+   "hotspot": {
+    "level": "warm",
+    "trend": "",
+    "z": 1.65
+   },
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "58a11a867ddfffaf",
+    "699cb9209f6408d2"
+   ],
+   "signal_score": 13.8,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 8.3,
+   "value_part": 0.0
+  },
+  {
+   "org": "和益化工",
+   "account": true,
+   "score": 34.9,
+   "grade": "持續觀察",
+   "product": "nickel",
+   "products": [
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "maintenance",
+   "intents": [
+    "maintenance"
+   ],
+   "signals": 1,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-10-23",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.12
+   },
+   "next_action": "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "6816f190fb425533"
+   ],
+   "signal_score": 13.8,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 8.3,
+   "value_part": 0.0
+  },
+  {
+   "org": "南亞塑膠",
+   "account": true,
+   "score": 34.1,
+   "grade": "持續觀察",
+   "product": "titanium",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industry": "chemical",
+   "region": "TW",
+   "top_intent": "qualification",
+   "intents": [
+    "qualification",
+    "shortage"
+   ],
+   "signals": 2,
+   "first_seen": "2026-11-10",
+   "last_signal": "2026-09-24",
+   "new": true,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.47
+   },
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "9992fc3d1e27c2a1",
+    "5661a551dc77170d"
+   ],
+   "signal_score": 12.4,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 7.4,
+   "value_part": 0.0
+  },
+  {
+   "org": "台聚",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.12
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 26.7,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "國喬石化",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.12
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 26.7,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "李長榮化工",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.12
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 26.7,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  },
+  {
+   "org": "豐興鋼鐵",
+   "products": [
+    "nickel"
+   ],
+   "industry": "steel",
+   "region": "TW",
+   "top_intent": "",
+   "intents": [],
+   "signals": 0,
+   "first_seen": "",
+   "last_signal": "",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 2.19
+   },
+   "need": "",
+   "evidence": [],
+   "account": true,
+   "score": 26.7,
+   "grade": "持續觀察",
+   "signal_score": 0.0,
+   "fit_max": 2,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力"
+  }
+ ],
+ "signals": [
+  {
+   "id": "fbe998128815a1ea",
+   "title": "中鋼通過投資固態氧化物燃料電池暨碳捕捉與利用計畫",
+   "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9Vc21UMUxJVFNsUlZZdF9LV0k4elZmai0wa3JsVDhMUDM2UzdGVWxpZ1NRZkhnclBuWm9wRTFzZ1FkcnRCQUxPNQ?oc=5",
+   "source": "台灣民眾電子報",
+   "published": "2026-11-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "policy"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.539
+  },
+  {
+   "id": "f482d8b096d77dc4",
+   "title": "歲修干擾 台塑化10月營收月減10.8％、年成長76％",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE82dWI2dmRtY2FaU054akxPT05mdXJubGZOeGZZS1lBZnZTMVRXd1BlaTVuRDZEVlo3dVdJbERrQkNXSUg0VWI2UGVnWlRnWnZfMzRNZkdfOTVZMjlweUNr?oc=5",
+   "source": "工商時報",
+   "published": "2026-11-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "other",
+    "nickel": "oil_gas"
+   },
+   "intents": [
+    "maintenance"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑化"
+   ],
+   "accounts": [
+    "台塑化"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.857
+  },
+  {
+   "id": "1a9e2698265fb492",
+   "title": "中鋼擬投資10.79億元 推動燃料電池和碳捕捉計畫",
+   "link": "https://news.google.com/rss/articles/CBMivwJBVV95cUxPNm1SbzNBYTBMXzRJdThVWVNMcWRuN3dxQXh2S204bV95TUJTYUZ3clY3NlFJTVV5Uzk2WElRMGx3blJSZ3Y0QmhqaGRfOXVfQjMzY3p6TmluMUJmSWJFODgtQ3BzN1BqVUZkazVRM2IyekE0cWhFalpqXzNIRlN3cUlRVmpQbHhrTkZUb0ZPRU0zVG5PbmhfVFdmYldMTjhUQ2RaNTMyT2dqQW1vX1BSUGRoMTlrYzk3ZXFkWUlwZ0xzVGdpUnotMjhRVXZSczVkNW0tV2E5akRaeU9NME9Cb0hURW1NTE1JdVFkb0djVDFDNkE2S2RkVEJpX0lnaWNTWFZRSlFLcU5KXzdseXJidlZualN3eklXaWg3a0MwMFd6TXJPY0RXWGhrMmQzenA2UFF5ak1sUHMxWklXTEtF?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-11-06",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "policy"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.53
+  },
+  {
+   "id": "d4997b251396ddc4",
+   "title": "台塑新智能現增130億元拚擴產台塑四寶加碼投資| 產經",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBSYlJ3dXlPYV9CLTV0eWk5NGlIVmd0cU5wckZuVEtJNFAxbHU0Z0Z5dTVqUGptWDREMm5IbTVKcGM3Z2k1akl4b1JwZ3ZyUnFfRUZYdEFKSlJlNmlSd0E?oc=5",
+   "source": "中央社 CNA",
+   "published": "2026-11-05",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.089
+  },
+  {
+   "id": "91c15886f3cd8538",
+   "title": "台肥澄清基隆廠無設置土資場計畫！AI數據中心等方案仍待評估、開發尚未定案 | 魏鑫陽 | 財經",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5CbDkwRWxLT0JLU0EtYV9rWEVUUFFMeTlBRUlUOXNOWHhYOUVFQzJKcUxuTjh4dldMV1gzMUw2RmRUdVFuN0JaeG56clN1UQ?oc=5",
+   "source": "風傳媒",
+   "published": "2026-11-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "new_product",
+    "policy"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台肥"
+   ],
+   "accounts": [
+    "台肥"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.414
+  },
+  {
+   "id": "8dd8d66c8d79b902",
+   "title": "華新麗華攜3台廠組「核能國家隊」：搶攻SMR、MMR商機，整合本土供應鏈| 新聞",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4tLVd3ajZWdXFDMWVzVFVKQlNyTV9NMG1xSUNNTUpQTmxibzR1VXVialRvOG54bXJ2QkpWcmtqOUlPcEdiTUxWeURuQm1ObnNJdHliMld4YWlyNlpXUHdHcENPUEJmRER4WTdOSkZaRGI2N3JZWFU1VnhZWHhaQQ?oc=5",
+   "source": "Reccessary",
+   "published": "2026-11-04",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "華新麗華"
+   ],
+   "accounts": [
+    "華新麗華"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.543
+  },
+  {
+   "id": "d81bbf3e1907d4ac",
+   "title": "中鋼揪伴攻熱鐵磚商機 潛在投資規模衝250億元",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wWDc0eHh2VWg3bXBwbUJKVVpUYkNlZ2JPeWNIVTNJUFEtaGo3RGVMVm5lb0RZVFBYTWxvaUpsdzNfbWpKRURJazNxMnk2ZkVKcXE1T192YlVwLWvSAWBBVV95cUxPMEM4UlNnWHVPdlVNSzFkdFZaMFVWS0FDTEVaQWhaY1FDUm14bjFZNUdFX3BHSWswNFlZdVVXdTktdXVOS3lUQ1o0YXpZNVNKV2otelVWd2xZWmFnbkRSNWQ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.791
+  },
+  {
+   "id": "6816f190fb425533",
+   "title": "和益看第4季需求仍有支撐 後市觀察歲修、油價影響",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YdmcwdzBJSVVWVGl4T0M4QktQSzV1RWdwdEFReWVPU09TVkdObHJaeVFLX2pCWG52b2tnTHR6bk1uNklGaFNvc0dSQU5yRURkZTlKTVlCVVBwQdIBX0FVX3lxTE5pTVo0U3RNUVpkRkI3M3JfVnVEQmRyYUZvWWtpZEo0dHpTb3VMVDg0Q0VpSWVLNnNHbW4zanF1ZXZPaS1Rc2pmc1dCM2k3c05PSktkNlRQNzFEME1KRWdz?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "chemical"
+   },
+   "intents": [
+    "maintenance"
+   ],
+   "region": "TW",
+   "orgs": [
+    "和益化工"
+   ],
+   "accounts": [
+    "和益化工"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.496
+  },
+  {
+   "id": "58a11a867ddfffaf",
+   "title": "中鴻鋼管訂單排程3個月，年底接單無虞- 新聞",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQenlSVGVxaHNPZkxKWXRicTRvOTJXTEZlM2g5UmljRGczRjdjdy1QdzBrQlBOQ1oxRTlSbURRN01QRlpqeWR6Q1BKQmM0d2FJSFN3SUo4ZjNlV19wdGo0MHRFUUo4eklWSENvQU5oNXFuQ0tValBKQl9JNXl0VFFpYnhqN3U3XzRlQ2ZXR1FBdHRsdw?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-10-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鴻鋼鐵"
+   ],
+   "accounts": [
+    "中鴻鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.263
+  },
+  {
+   "id": "699cb9209f6408d2",
+   "title": "中鴻鋼管訂單排程3個月，年底接單無虞",
+   "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxONndIY1U5RkVMay1aME9mbzlZMmNXQlBwZGJ0S09uMm43eUxRclhmYXVvVzRmeThBQW1iaUNtdkpTLWpnWjI5VEltOWV6TFM5bEd2aTFjTXJpd3kxZ0tWdjZ5SThhX3NOUGMtOWJSUThDeEV3eHdXQWV1U3hTMUZsSGRGQUlUZGpJN1ZXbEtpUmVFS0Jub3lYa2VUSmFyME9KWGNCaGUwRDZWVmdTT0p2V21OUnlXa2ZjTnlSV3k2djNpbVFQVmZMaHV5cHIzY3RESW5LOGlVS1o3ZUpjZDliY0hKTWQ2ZEJZWk9vZEFFNkNiOTVDOGlSVnlZeEh2YVVQYWFBQkFVUXFCaVdpTEdKTVktX3diMnhkVjlJZkVB?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-10-21",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鴻鋼鐵"
+   ],
+   "accounts": [
+    "中鴻鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.244
+  },
+  {
+   "id": "6816d751ad562a8c",
+   "title": "台塑新智能將投資彰濱電芯廠二期預計2028年量產- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yMEozTElHQnFVQi1VemFwQ1pmbTdoZ1pRakhuQjVPdXZzYThaUzlqSlNLTWJxYk5qUk83MjFhUnAtV1RzeXJ6R0VpdmpSNUFrVFhubVloS3RFVUVrcG5j?oc=5",
+   "source": "工商時報",
+   "published": "2026-10-15",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.512
+  },
+  {
+   "id": "9e87397c99bc6473",
+   "title": "台塑新智能年底啟動電芯廠二期投資長線投資逾400億元- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE40YnVENlJCUW5pLU4tNGVNTzlqbFpxYWd2bExKY0k0UUdIZ291UGpIRWMwTXNuTXo2YVJacEJKdXBMdkpKSFpmekt1V1JOYU5TbWJFSVpneXFFaEJGLUNB?oc=5",
+   "source": "工商時報",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.489
+  },
+  {
+   "id": "9cb99295712255e0",
+   "title": "台塑新智能估砸400億元彰濱擴產 董座王瑞瑜：要做AI資料中心長期夥伴",
+   "link": "https://news.google.com/rss/articles/CBMivwNBVV95cUxNNnVHai0zMFlmQ3c2ZFV6UkhlSHpTZHh0d0NIRmlBcWJqWml6c3VjQ09EbTNTbGNubTlEWjBjUGNpczh2cGZJbFNpU0I5Sk1aQndESXFmTTVDYjNtQ1Vya0JBOGJibTdjeTc3OF9ON1F1eFI1clM0djByN2xXMUpfNy1vcE42NjlxSkx6TnZ6eDY5RkdEeUEtTEhLcW14U0Z2eHdRZ2x2OXJLdXpBMklDX3Q1V2p3clNtaVZrNzF5c3hicC1OclFsWWhpQjhvSVRWcU1oTFdYQzdDd1pDZ1Q4cF9mTmN1TXVYejEycGVxSmNtZGo1Z1A2dFBVZHFUUjQyNU03SVpqMlVneUhIdHBWN1BSeXhObFFWcXlWaXJXZVFxYzlBbE5vYURsZUlPeTN0X0huRjZCc011akNDN1o4dFBxX01wdXJaOUxXOGdVR3NiYnBwMWwzQUpOTnFsR1NyTHFMZEN1d05PTkJuckVsTWVSeHFMMzJZU3NiRTdmbnpmYVZmM3FWdWNZa3BPYjlIMWVCeFhqaVZrQ291c2RCeG54NHJOeFpqaFVmbEVOMlN0NDNfaUZnbmFVZmM3bFU?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.489
+  },
+  {
+   "id": "7a7e5e8f21e62847",
+   "title": "《能源週》台塑新智能彰濱二期擴產，長線投資逾400億",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZEp0R1FNOGpZSlQyd2tSUTRRbXJwNzd6TGpWVkxnRGVCV0wzU2l2VTByLVZhaEhMSVpzR1M2dVNTRFpJNXFCcFlBNEtFMmppSzhfX2hzQWo5YkdwWVRCUnRPZURvVnZLaWlsekxqcC10TjZIV25GV0VRNkpTcUU1cG1UeFY3d1oxVnBySW03YmVxQQ?oc=5",
+   "source": "MoneyDJ",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.489
+  },
+  {
+   "id": "02e86ed2c2ab324d",
+   "title": "台塑攻半導體擬擴大美國製造 坐擁德州地理優勢 支持客戶擴產",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnQnFJc01jbXllRWFyRUVVREw4YWFab2ZSWVJHYVQzS3NaNV9ObzVnVzFSNV9XaFZBTV9oMF9FdW04d3hkS1Jqa3NVSFFORUJtbTRhRDhQNTN5d9IBX0FVX3lxTFBvWEFJNGxqQmgzUkVwVmhZdEhDaWNJeklSUkNsSHZ5RGYxamNSNnVwRTJYaWV0RFVxZU16SmlSeXVhb25zcl9nYUlrNUdwV1Nvb1VYclpuR3lNWjN0eGI4?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.444
+  },
+  {
+   "id": "3b68c4e914a90492",
+   "title": "灑破10億元高雄蓋新廠！中鋼旗下「這龍頭」拚智慧轉型 鎖定高階低碳鋁材產品",
+   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1KUDJvcHJBTTRKTUwtdWpYY2kyT281SXZfV1NqQmZIb3FlTUpCVlNzWlYxTDRqMUM0aHRib2EwSFpDZzRmbGVvZlp2Yw?oc=5",
+   "source": "FTNN 新聞網",
+   "published": "2026-10-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.377
+  },
+  {
+   "id": "7a9e4867ec0c089a",
+   "title": "中鋼子公司中鋼鋁業投資10億元高雄建新廠 發展低碳高階鋁材",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9UWTd2SDJoSVZ5VkMtQlNfeHpIVFRHZ2Rvbi1uckRKZTRKQnJRS2ZSRmpKVmlqeWNyNWZ1Qk1XYXphbkVRdDRZQlM3NUtEcU1kZXdRUmxITlM3UdIBX0FVX3lxTE5PcUhCNGN3YzJReGxnY1NiZnI1amlyRkpiX1h1bUw2ZmVpU3N5TUF2RXpfWGRISGZrRHM0MEVEbVRaVzMyRFhERHc4d2xtMEdZRlpOWERBSENXSmJwelc0?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.219
+  },
+  {
+   "id": "5ddbeadb4834e229",
+   "title": "2家企業加碼投資台灣！中鋼鋁業投資10.2億建智慧新廠 搶攻低碳高階鋁材",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9aM1Z1cDZvallTNmdQVDhSVVlITHZrVWhmSDNsNm1wdml1TDJNV3lwekNaMy1DbENScXB3MkFGd3FkTEx2U29TWk1iaEJvODQ?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.219
+  },
+  {
+   "id": "32b6943ffd35b6a7",
+   "title": "中鋼鋁業投資逾10億高雄建新廠 強化高階鋁材供應",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBpQzY4bVJfcUt5WWZIbjNKVFFlU3lRMFZHdVNrQ3loRHo0U3hEUWZXVy0tSThkVTdYS1VJTVlVVGZGNXRPbDNhNEdfQUNRM0RNckh5QlpQZnE2UdIBX0FVX3lxTE84N3c4WmxJU01qODAzbkQwd2tKczl6QXIzR3BSZ0hYc3ZaVlpubHZkeU5PVW9KVXVzdlV3ak5DMkZnTU5yWXN1NVE0eEhfTGdCVVpGMEZMUnQ2VDRSVXJZ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.219
+  },
+  {
+   "id": "059858c08a095da6",
+   "title": "經部今通過中鋼鋁業投資10.2億元 高雄市小港區興建新廠",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5MRGZjbWRQajgxR3hBcmtIVElTbXZ3d1ZiZ0RUMC1teUd1VXBXeG9sUjNHZXdFUmcxSEx3Wk5QUkJtM3NxbFctcDhqcTdicFpKdmx2UENrRW5BZ9IBX0FVX3lxTE84dHpsaEpEVGt6ekpDMXBTZ2YtbDZoS0M2UmRTX2Z3cFJRaWhIUGVRd3hWaHNhX3RLOTA3T3R5bUluLTBQaHNxU2YwTVRSX2JCUE5GbHhsVE13N2FJM1d3?oc=5",
+   "source": "經濟日報",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.219
+  },
+  {
+   "id": "4bd323ae3cea394d",
+   "title": "台塑集團半導體布局 大升級 卡位晶圓大廠擴產商機",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE93N3VMR25qZTVrWnhsS0txUTktcFNCVFhSZFBkQ0hPaTVCR282WjZLUlh2V1o1dXNjdDVzekxHSnhCSnJyNEQzMkNTeC1SVUEyOFN1UTNhenF3QVHSAWBBVV95cUxQazg5ajE4dVp6aUEzN3pCWVZkQldrLXM0ZFRvcVVnVUw2TlZZeUVGRlNqY19Wa19ySVVfMFhuNm5idjZmdVVBRXBRRGpFTEFqVF9tY0M2MTVDQ1haMFhCUms?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.2
+  },
+  {
+   "id": "7efc8d9859d1b79b",
+   "title": "台塑攜台紙攻電子級鹽酸 搶美國晶圓廠擴產商機",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBlOWdKZ1hwN3lydjYtU2VXMTJ0VkhFX1VaYWlmQ08ydVpmSnZQbU90SDZHZVVrbS1sUDk3V09RbjdSTnJlTnZnRTROUmxQUEJlV2NlUlJCV3dZQdIBX0FVX3lxTE5MTUdSOHdxQy1LTEpwbmFxNFd1a0pFcjlqRFozQ2NlT0RfSW9rSjBESmVZUXJJQ0p3TFhGY01naW5tRHMyRnhoc3ZDdnYzU2J1UzRBYjB3SU15V0w5a3ZJ?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.182
+  },
+  {
+   "id": "6469764f312765b2",
+   "title": "半導體特化材料迎產能缺口，斥資60億搶攻電子級硫酸商機，台塑集團攜手台廠擴產！-財經焦點情報站",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOamUzMVVFcVNzeGZzYkxpT1BfaUtYRHdHMElTUUNodEhUNmpVQVEwUXd3TVZ5M2dDRTJBZTVBWTJZYV96ZHYySkJXM3h0b1FxYXAycXVqV0w3a1RLUXRJZjBKVjhHYzJsN3pPaHcxcklQXzZxdkY3cUJKdmlaQUV2akhn?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.182
+  },
+  {
+   "id": "9992fc3d1e27c2a1",
+   "title": "南亞(1303)高階CCL真的放量了嗎？M9認證時程與日東紡玻纖布放量時間曝光！",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBkNUpsNGNsT0plbGFvaEkxdEQtNVNOTFZFUGZicUtla1Y1SXlhZU8wMHNZWVYxSDhvajZaZVRnYy00TGdQYnlhQmxNZDhxNFE?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "南亞塑膠"
+   ],
+   "accounts": [
+    "南亞塑膠"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.821
+  },
+  {
+   "id": "6979deb2994da43d",
+   "title": "台塑化斥資3.06億元 向台朔重工採購設備",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5tRXYyR0VlOHgtanZOYUtqcmVFWXdUTWxkZnVydW1xYWZhZ0U3eUdoeU1XNXlBa1c2ZEoydk11VFY0X2hoRmRqU21SRGlIeU9jRUdWMnBpTklPZ9IBX0FVX3lxTE03cF93OEZzSVhQdFVPeVUtTGEtc0tjbS1IMlFMbV9hTk5wLVNFeHJuTHN0YW4wWDBXd3VfaHVyYXYzSUl0eW5hb05lZGlYWERjc1RNc203UnNKMGF5X0c0?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "oil_gas"
+   },
+   "intents": [
+    "tender"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑化",
+    "台朔重工"
+   ],
+   "accounts": [
+    "台塑化",
+    "台朔重工"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.368
+  },
+  {
+   "id": "68021e1cd99f5dc4",
+   "title": "台塑化砸3億元採購設備！關係人交易細節曝光，還有1.2億元等董事會點頭 | 下班經濟學 | 財經",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBGdG51cHBEcVcxeGw0M08xLUExMzVMc0RUQXpWMUp0TVRmY2VIbU5OSElxMU9VZl9malEtZmE5WW1LWDZBMkJsZ2NMVG9pUQ?oc=5",
+   "source": "風傳媒",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "other",
+    "nickel": "oil_gas"
+   },
+   "intents": [
+    "tender"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑化"
+   ],
+   "accounts": [
+    "台塑化"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.368
+  },
+  {
+   "id": "250dd0f5f1ae8076",
+   "title": "台塑化重訊揭露！砸3.06億向台朔重工採購設備- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5FdDdOVGFqeE5id3JfU09OMGpvbzJpbml6dDB6d1R0SU9jMzdyQllSTE5iU2MyMXRQbHM0eWo5ZkV6b1RicUZ3YjNSRWlOcWQyaGZ0bTRiRHNNTHJZcjlR?oc=5",
+   "source": "工商時報",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "oil_gas"
+   },
+   "intents": [
+    "tender"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑化",
+    "台朔重工"
+   ],
+   "accounts": [
+    "台塑化",
+    "台朔重工"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.368
+  },
+  {
+   "id": "576b972b29dd8d54",
+   "title": "《鋼鐵股》燁輝加碼投資燁聯8億元 力挺產線升級",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONjJmbVVVb2FqVUJjenZ5ZFExQkhjY3RhNjF1Ml9qSkdzclQ1anY0QW9PcEFjYVVMcHZkWko3ZGF6SmdjcjRGMmNrZkc4YnlvUzUyZ3dyZS1tWTBQamtKNWUtYTItcHI1d1V3SXdPTFJldTdfMjJLMmlKVDdaVkFpVHJ1SW5rbUZF?oc=5",
+   "source": "富聯網",
+   "published": "2026-09-23",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "燁聯鋼鐵"
+   ],
+   "accounts": [
+    "燁聯鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.077
+  },
+  {
+   "id": "9b3f22e3ff8e82cb",
+   "title": "東聯法說會／EG 供應吃緊支撐價格 調高兩岸開動率、樂觀看第3季獲利",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9KOXRtc2FBd1J4X2t4M0FjZ3VkT0NwUUo4T2xYdVdvbFlPSlFGNlU5cGVTVFlaQ3pvaW01bktJTjh1WUVRNHZmSFVlbGplbG9iOVlxWnhnOUxKQdIBX0FVX3lxTFBxT3lsQWRUaENwVEIxbmpzUlBiMkxIck0zWWFTSlJWa1cxcTR1cWgxWlV4WC1vUTlidGx4Snh4dXpIUWdoRWl2MzI4YWRRVVZIM0YxWHVObUt0eHY0QVg4?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-22",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "chemical"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "東聯化學"
+   ],
+   "accounts": [
+    "東聯化學"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.061
+  },
+  {
+   "id": "f28b7c6897f37910",
+   "title": "房市、建廠工程兩樣情 東鋼：高科技投資強烈支撐鋼構接單",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZFNkR3dOazY0Rjc3OXlOb2FaY3ZjQ1lWYXBJampCeEZpNTFvSHV4ZnF2WEFnb203U2hXUE9wS0V1ZmVFaDQ3WVFFdHZtRENsaVpCYkdUdGR1cmZmMlhwWWMtNXlucFRfRy1LOXZUZC0zTFNtcWItWlFhakRid2FweVJTMG5TdXU0YklKMTNB?oc=5",
+   "source": "DIGITIMES",
+   "published": "2026-09-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "東和鋼鐵"
+   ],
+   "accounts": [
+    "東和鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.982
+  },
+  {
+   "id": "c2187818dfe3e10f",
+   "title": "老牌石化廠攻進半導體，東聯如何趕上非紅供應鏈商機？花15年布局百項化學品，甩開大宗商品包袱",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPR1d3WTJNRF82OFpqNEtxejZKdWNSaEc0SU1MQ1BqcGR0N0sxOG81OHIwRkJPc2dkNGhqOGNTTmtHcHVCVnAzNl9ReTB5X0tqb0JlYWUtT3RsTTlaczdVbDdTUlhwY01PdzRUWW5DdnUwY2V6Y09kRVNiQlFRbzdoTA?oc=5",
+   "source": "今周刊",
+   "published": "2026-09-09",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "chemical"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "東聯化學"
+   ],
+   "accounts": [
+    "東聯化學"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.651
+  },
+  {
+   "id": "f980f75f6f5b0556",
+   "title": "走過80載！台肥靠「藍氨」搶進半導體供應鏈 3大因素加持肥料本業持續減虧",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9fSjE5ajlPeHlENmtqYVV3VTBTcThMOWdON19GZDNrVk9CcUpMdVJzdWk3VGtZbDdtRzNMSFBTTno4SkROQXRJdTFUZk1mN0k2cnNKWUd3?oc=5",
+   "source": "優分析UAnalyze",
+   "published": "2026-09-03",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台肥"
+   ],
+   "accounts": [
+    "台肥"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.594
+  },
+  {
+   "id": "b1898f2ed6d04de0",
+   "title": "中鋼公告鋼胚與線材廠歲修時程",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9Ya2ZzY0JBLVEwVlRaQ2ZSZkxsYlVWT2JPVWpISzR6TDQ5cHZDRnlyZzZ1NWx0MjNoUFJGQWFMOEd1UEdLSm5hc3BGeHVUSHlt0gFWQVVfeXFMT2lJQXNDSlZWdUplbVJoZ0JLd1dCLWRJWU5HamJPZDRFTEVob0ppenRXNFdweVZ4b1JIZlF1djVhN2dCVDB3blBka1Q0Yk9Fa2ZLTzVhX3c?oc=5",
+   "source": "UDN",
+   "published": "2026-08-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "maintenance"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.55
+  },
+  {
+   "id": "b12570caa13570ea",
+   "title": "台塑集團擴大投資四領域",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1UN3lTXy02WnkyS2REYTFsM1czaWJtd2dEaEhhanVSRmQ3WHNON0xyLTZBem9yd2hpbGx3Q1F5ckJ0WC1rUE1jSHBzc0hVVWw3cWZxUFFTR1pQd9IBX0FVX3lxTFBYVl9UNHJ5TVpXdGJLSUhGYTQwLVZtbGpvVzZ6S1ZLRHRRNkljQnpJZmRyN1pkRHFZTk1oaWFfTE5Pb19DQ3NzYzgtN0wxZ1kxaVQxTDA4YmZ5SjFITVlV?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.582
+  },
+  {
+   "id": "705b52ca22be60d0",
+   "title": "忠群螺絲超級不銹鋼材料可超越64鈦合金 成本只需其1/10至1/15 | 產業動態 | 商情",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5kT2F0bmpJbmRjZG9nWmtHQm15eE50NVBtTWlieGZMRUxULUtuZjZHNTZrYmxjMnExMy1OTHdaTEMzSnpCNTlMaWtBMVBrVUltMHVMUVBGT1VUS2c?oc=5",
+   "source": "經濟日報",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium"
+   ],
+   "industries": {
+    "titanium": "steel"
+   },
+   "intents": [],
+   "region": "TW",
+   "orgs": [],
+   "accounts": [],
+   "relevance": 1.0,
+   "inferred": false,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.109
+  },
+  {
+   "id": "5661a551dc77170d",
+   "title": "AI材料缺貨 南亞(1303) 電子材料取代塑化 為長期成長主軸",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1pOUZRZ2lZd3hrbnNrSXBaWWVaZFVpcjJYT1JoQU1tcFpOY2xTb3kybDRHOXNuQTVUalU0U1A5WXhGYVdiMHB6dXNldkh2UmdObFh3WEtWV2EwMTJuTUxCaEgzX0xVdHg1clNKQTlKRQ?oc=5",
+   "source": "理財周刊",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "shortage"
+   ],
+   "region": "TW",
+   "orgs": [
+    "南亞塑膠"
+   ],
+   "accounts": [
+    "南亞塑膠"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.522
+  },
+  {
+   "id": "28cbd92423e3e431",
+   "title": "東鋼、緯穎訂單滿手- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ta2pGOWpIWHJsYnhqeUk4THMzLUduV1dLUGRMdGpxMTBzbHpJWGtxVmVwN0d0WjJaQi1yZE83T3p3Q3JqUE1lck5RMkg5TlNCblpfWHA2MGNDYml6SzZF?oc=5",
+   "source": "工商時報",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "steel"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "緯穎",
+    "東和鋼鐵"
+   ],
+   "accounts": [
+    "緯穎",
+    "東和鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.392
+  },
+  {
+   "id": "246d5fbd084d6cbb",
+   "title": "東和鋼鐵(2006)受惠 AI 建廠需求，Q2 獲利年增 60%-朱家泓X林穎",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTWxJaVJFMDBNeHNsdEgxeHJUYWE0cXoxLS1VV19WWS1LQmdqTmplM3A1VU1BN25FUGpZbHRidlUzcHEyckYtY3ozQWtWT29wT0VRejdxbFR3VmR1cllvbzUtWFR0MFhtcmVIUllxYW5sMjFrYVR4WDRkTHhVVzB1TDMycjJhUW9ldHc?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-07",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "nickel"
+   ],
+   "industries": {
+    "nickel": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "東和鋼鐵"
+   ],
+   "accounts": [
+    "東和鋼鐵"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.522
+  },
+  {
+   "id": "6f2998ba08de3eef",
+   "title": "台塑德山加碼投資高雄10億元打造循環永續供應鏈- 產業",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9nS0UyZUFnV0lFeFd3UmRCbFlUZFc2ZmFQN1F5QThuVVFCYjFGMW1VVU1IMWNSM0I4eU1sX2tJTmhXM1A1TDhJU1BZN3d6VUd0dFhmR1hQaVllMkNRV0xz?oc=5",
+   "source": "工商時報",
+   "published": "2026-07-31",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.352
+  },
+  {
+   "id": "1746c09f5975f488",
+   "title": "中鋼轉型！砸14億擴產 搶攻半導體關鍵材料",
+   "link": "https://news.google.com/rss/articles/CBMipAJBVV95cUxOSDl5eXZtWnhoeU1RUFBLNHBlVHFpV0J4VXlDZ2tnWERaeTNUTjF4anJKbGZZOXJXLXg4QzB1eUtsVWlUb1dteWd1eVNWdFpJcl93OUFrQ3Z3Q1U5d1o0dTdOb3V1MUNPLTJWY3BFaVAtU0w3eU5jZlhJeGM5Q0VDRnh1eHlPdGJIMFp6Qi1VVVpJNU5ZQ2NlTWYwZG4tMHQ0V3NybWM1YllNdlhxRG9NUDljNkZtSDJEZVpwZjVVRUVyaE1kc1lkcjR2LWxNOGMzZXA3c3NtdnJ3TVM4SFR4YWh3bm5wcDRtc3BFeXU4OVM3UTItVDdzdVZocjJDeGtmRk9kVWZXWDJaNExsNVZuaUlXQ21aYUxqVzZaY01nRU5jNkJB?oc=5",
+   "source": "Yahoo新聞",
+   "published": "2026-07-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "titanium": "steel",
+    "nickel": "steel",
+    "copper": "steel"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中鋼"
+   ],
+   "accounts": [
+    "中鋼"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.455
+  },
+  {
+   "id": "1fe2321a1f292fec",
+   "title": "華新麗華英國子公司SMP與勞斯萊斯簽約 拿下2.4億美元訂單",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfam81Qm5hQVhYSGQtY2FVM241TXphY2ZCTWJnY2FDVnBxNjZ1SDh3YkNSTE1KU1g4QW1raUE5N0d1UE5CWGt3Sy1lNW4tRWM1RGdCYW0zRGh1WWlQXzFz0gFkQVVfeXFMT1BVQm9vU2w2c19TSTE2VWNJMl94aGxxaVowUnZJZ1Y2cUt4cF9IYjlnOVJiVEFLc2RQVllPVW1qMERCS05mQ1FqUFZqd3ctNlBQVTRzTjdLb1hvZHZpNHZqOFQ0bQ?oc=5",
+   "source": "自由財經",
+   "published": "2026-07-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "aerospace",
+    "nickel": "aerospace"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "EU",
+   "orgs": [
+    "Rolls-Royce",
+    "華新麗華"
+   ],
+   "accounts": [
+    "Rolls-Royce",
+    "華新麗華"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.316
+  },
+  {
+   "id": "4de9ff6f8be4f1dd",
+   "title": "台灣中油誠信論壇今日高雄登場！防堵採購舞弊、把關民生能源安全最前線 | 陳逸群 | 地方新聞",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9HUHhxekxNMEZTdTJuU3NINERXdi02NGQyWTZ0WUJ5QkFRTHlZWGhGV1VHWXk0alJjeEFDMHRFSFpiZGlmOHFDbWVHMnNLZw?oc=5",
+   "source": "風傳媒",
+   "published": "2026-07-17",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "other",
+    "nickel": "oil_gas"
+   },
+   "intents": [
+    "tender"
+   ],
+   "region": "TW",
+   "orgs": [
+    "中油"
+   ],
+   "accounts": [
+    "中油"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.472
+  }
+ ],
+ "segment": {
+  "key": "tw_heavy_industry",
+  "name": "台灣重工業製造廠",
+  "description": "台灣鋼鐵、不銹鋼、煉油與石化、化學品與塑化製造廠,以及承攬其工廠的工程統包商;高溫爐體、酸洗與電解、海水冷卻與腐蝕性製程的設備零組件,是鎳基合金與鈦材的長期耗用市場。需求多在歲修、汰換與擴建時出現",
+  "subsegments": {
+   "steel": "鋼鐵冶煉",
+   "stainless": "不銹鋼與特殊鋼",
+   "refinery": "煉油與石化上游",
+   "chemical": "化學品與塑化",
+   "epc": "工程統包與設備製造",
+   "other": "其他未歸戶業者"
+  },
+  "days": 120,
+  "half_life_days": 45.0
+ },
+ "links": [
+  {
+   "name": "業務報告",
+   "page": "report"
+  }
+ ],
+ "title": "台灣設備廠",
+ "accounts": [
+  {
+   "org": "中鋼",
+   "ticker": "2002",
+   "subsegment": "steel",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 2
+   },
+   "note": "一貫作業鋼廠;加熱爐 / 退火爐的爐輥、輻射管與爐內構件用鎳基耐熱合金,酸洗線熱交換器與海水冷卻用鈦,高爐風口與冷卻壁用銅;歲修備品是主要切入點",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 4.45,
+    "nickel": 4.45,
+    "copper": 4.45
+   },
+   "signal_score": 29.5,
+   "signals": 5,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-07",
+   "opportunity": 68.6,
+   "fit_part": 40.0,
+   "signal_part": 17.7,
+   "value_part": 10.9,
+   "value_score": 72.5,
+   "estimate": {
+    "value": 150000000,
+    "product": "nickel",
+    "by_product": {
+     "nickel": 100000000,
+     "copper": 33333333,
+     "titanium": 16666667
+    },
+    "amount": 25000000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.004,
+    "fit": 3,
+    "signal": "d81bbf3e1907d4ac",
+    "title": "中鋼揪伴攻熱鐵磚商機 潛在投資規模衝250億元",
+    "score": 72.5,
+    "summary": "約 NT$150.0 百萬 / 年(主要為鎳基合金):報導金額 NT$250.0 億 × 擴產與新廠係數 1 × 鎳基合金占比 0.4% × 適配 3/3"
+   },
+   "tier": "積極經營",
+   "best_product": "nickel",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "d81bbf3e1907d4ac",
+    "b1898f2ed6d04de0",
+    "fbe998128815a1ea",
+    "1746c09f5975f488",
+    "3b68c4e914a90492",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 10
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 10 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "d81bbf3e1907d4ac": "inferred",
+    "b1898f2ed6d04de0": "inferred",
+    "fbe998128815a1ea": "inferred",
+    "1746c09f5975f488": "inferred",
+    "3b68c4e914a90492": "inferred",
+    "5ddbeadb4834e229": "inferred",
+    "32b6943ffd35b6a7": "inferred",
+    "059858c08a095da6": "inferred"
+   }
+  },
+  {
+   "org": "台塑",
+   "ticker": "1301",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 3,
+    "nickel": 3,
+    "copper": 0
+   },
+   "note": "PVC 與氯鹼;電解槽陽極與氯氣系統用鈦,燒鹼蒸發器用純鎳 / 鎳合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 7.06,
+    "nickel": 7.06,
+    "copper": 0.0
+   },
+   "signal_score": 38.5,
+   "signals": 5,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-05",
+   "opportunity": 63.1,
+   "fit_part": 40.0,
+   "signal_part": 23.1,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "積極經營",
+   "best_product": "titanium",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "d4997b251396ddc4",
+    "6816d751ad562a8c",
+    "4bd323ae3cea394d",
+    "b12570caa13570ea",
+    "6f2998ba08de3eef",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "9e87397c99bc6473"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 11
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 11 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "d4997b251396ddc4": "inferred",
+    "6816d751ad562a8c": "inferred",
+    "4bd323ae3cea394d": "inferred",
+    "b12570caa13570ea": "inferred",
+    "6f2998ba08de3eef": "inferred",
+    "6469764f312765b2": "inferred",
+    "7efc8d9859d1b79b": "inferred",
+    "9e87397c99bc6473": "inferred"
+   }
+  },
+  {
+   "org": "台塑化",
+   "ticker": "6505",
+   "subsegment": "refinery",
+   "fit": {
+    "target": 0,
+    "titanium": 3,
+    "nickel": 3,
+    "copper": 1
+   },
+   "note": "麥寮煉油與輕油裂解;高溫爐管與硫腐蝕環境用鎳基合金(625 / 825),海水冷卻器與冷凝器用鈦",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 3.91,
+    "nickel": 3.91,
+    "copper": 0.0
+   },
+   "signal_score": 29.6,
+   "signals": 2,
+   "top_intent": "maintenance",
+   "last_signal": "2026-11-06",
+   "opportunity": 60.7,
+   "fit_part": 40.0,
+   "signal_part": 17.8,
+   "value_part": 3.0,
+   "value_score": 19.7,
+   "estimate": {
+    "value": 3900000,
+    "product": "nickel",
+    "by_product": {
+     "nickel": 2400000,
+     "titanium": 1500000
+    },
+    "amount": 300000000,
+    "intent": "tender",
+    "factor": 1.0,
+    "share": 0.008,
+    "fit": 3,
+    "signal": "68021e1cd99f5dc4",
+    "title": "台塑化砸3億元採購設備！關係人交易細節曝光，還有1.2億元等董事會點頭 | 下班經濟學 | 財經",
+    "score": 19.7,
+    "summary": "約 NT$3.9 百萬 / 年(主要為鎳基合金):報導金額 NT$3.0 億 × 招標採購係數 1 × 鎳基合金占比 0.8% × 適配 3/3"
+   },
+   "tier": "積極經營",
+   "best_product": "titanium",
+   "next_action": "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "f482d8b096d77dc4",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 4
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 4 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "f482d8b096d77dc4": "inferred",
+    "68021e1cd99f5dc4": "inferred",
+    "6979deb2994da43d": "inferred",
+    "250dd0f5f1ae8076": "inferred"
+   }
+  },
+  {
+   "org": "華新麗華",
+   "ticker": "1605",
+   "subsegment": "stainless",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 1
+   },
+   "note": "不銹鋼與電線電纜;不銹鋼酸洗、退火設備用鎳基合金與鈦",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 1.86,
+    "nickel": 1.86,
+    "copper": 0.0
+   },
+   "signal_score": 17.7,
+   "signals": 2,
+   "top_intent": "qualification",
+   "last_signal": "2026-11-04",
+   "opportunity": 58.1,
+   "fit_part": 40.0,
+   "signal_part": 10.6,
+   "value_part": 7.4,
+   "value_score": 49.6,
+   "estimate": {
+    "value": 30720000,
+    "product": "nickel",
+    "by_product": {
+     "nickel": 23040000,
+     "titanium": 7680000
+    },
+    "amount": 7680000000,
+    "intent": "contract",
+    "factor": 0.5,
+    "share": 0.006,
+    "fit": 3,
+    "signal": "1fe2321a1f292fec",
+    "title": "華新麗華英國子公司SMP與勞斯萊斯簽約 拿下2.4億美元訂單",
+    "score": 49.6,
+    "summary": "約 NT$30.7 百萬 / 年(主要為鎳基合金):報導金額 NT$76.8 億 × 訂單與專案係數 0.5 × 鎳基合金占比 0.6% × 適配 3/3"
+   },
+   "tier": "積極經營",
+   "best_product": "nickel",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "8dd8d66c8d79b902",
+    "1fe2321a1f292fec"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "8dd8d66c8d79b902": "inferred",
+    "1fe2321a1f292fec": "inferred"
+   }
+  },
+  {
+   "org": "燁聯鋼鐵",
+   "ticker": "",
+   "subsegment": "stainless",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 0
+   },
+   "note": "不銹鋼一貫廠(高雄);酸洗與退火設備用鎳基合金與鈦",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 1.08,
+    "nickel": 1.08,
+    "copper": 0.0
+   },
+   "signal_score": 10.2,
+   "signals": 1,
+   "top_intent": "expansion",
+   "last_signal": "2026-09-23",
+   "opportunity": 50.2,
+   "fit_part": 40.0,
+   "signal_part": 6.1,
+   "value_part": 4.0,
+   "value_score": 26.9,
+   "estimate": {
+    "value": 6400000,
+    "product": "nickel",
+    "by_product": {
+     "nickel": 4800000,
+     "titanium": 1600000
+    },
+    "amount": 800000000,
+    "intent": "expansion",
+    "factor": 1.0,
+    "share": 0.006,
+    "fit": 3,
+    "signal": "576b972b29dd8d54",
+    "title": "《鋼鐵股》燁輝加碼投資燁聯8億元 力挺產線升級",
+    "score": 26.9,
+    "summary": "約 NT$6.4 百萬 / 年(主要為鎳基合金):報導金額 NT$8.0 億 × 擴產與新廠係數 1 × 鎳基合金占比 0.6% × 適配 3/3"
+   },
+   "tier": "積極經營",
+   "best_product": "nickel",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "576b972b29dd8d54"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "576b972b29dd8d54": "inferred"
+   }
+  },
+  {
+   "org": "中油",
+   "ticker": "",
+   "subsegment": "refinery",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 1
+   },
+   "note": "國營煉油與石化;煉製設備高溫耐蝕合金、熱交換器用鈦,常有公開標案",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.47,
+    "nickel": 0.47,
+    "copper": 0.0
+   },
+   "signal_score": 4.6,
+   "signals": 1,
+   "top_intent": "tender",
+   "last_signal": "2026-07-17",
+   "opportunity": 42.8,
+   "fit_part": 40.0,
+   "signal_part": 2.8,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "4de9ff6f8be4f1dd"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "4de9ff6f8be4f1dd": "inferred"
+   }
+  },
+  {
+   "org": "台朔重工",
+   "ticker": "",
+   "subsegment": "epc",
+   "fit": {
+    "target": 0,
+    "titanium": 3,
+    "nickel": 3,
+    "copper": 1
+   },
+   "note": "台塑集團的設備製造廠(壓力容器、熱交換器、反應器與鍋爐),承製台塑化等集團工廠的製程設備;鈦與鎳基合金板材、管材的直接買家",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.34,
+    "nickel": 0.34,
+    "copper": 0.0
+   },
+   "signal_score": 2.9,
+   "signals": 0,
+   "top_intent": "tender",
+   "last_signal": "2026-09-24",
+   "opportunity": 41.7,
+   "fit_part": 40.0,
+   "signal_part": 1.7,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "立即索取標案 / RFQ 規格,確認投標資格、交期與截止日",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "6979deb2994da43d": "inferred",
+    "250dd0f5f1ae8076": "inferred"
+   }
+  },
+  {
+   "org": "中鼎工程",
+   "ticker": "9933",
+   "subsegment": "epc",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 0
+   },
+   "note": "煉油、石化與電廠工程統包;為業主採購製程設備與管材,是鎳基合金與鈦材進入專案規格的關鍵窗口",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "台化",
+   "ticker": "1326",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 3,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "PTA、芳香烴與纖維;PTA 氧化反應器與熱交換器是鈦的大宗用途",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "首次拜訪:以純鈦 / 鈦合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "唐榮",
+   "ticker": "2035",
+   "subsegment": "stainless",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 3,
+    "copper": 0
+   },
+   "note": "不銹鋼冷熱軋;硝酸 / 氫氟酸酸洗與光輝退火線用鎳基合金與鈦",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 40.0,
+   "fit_part": 40.0,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "台肥",
+   "ticker": "1722",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "肥料、三聚氰胺與化學品;尿素與酸類製程設備用耐蝕材料",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 2.01,
+    "nickel": 2.01,
+    "copper": 0.0
+   },
+   "signal_score": 19.9,
+   "signals": 2,
+   "top_intent": "new_product",
+   "last_signal": "2026-11-04",
+   "opportunity": 38.6,
+   "fit_part": 26.7,
+   "signal_part": 11.9,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "91c15886f3cd8538",
+    "f980f75f6f5b0556"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "91c15886f3cd8538": "inferred",
+    "f980f75f6f5b0556": "inferred"
+   }
+  },
+  {
+   "org": "東和鋼鐵",
+   "ticker": "2006",
+   "subsegment": "steel",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 1
+   },
+   "note": "電爐鋼(型鋼、鋼筋);加熱爐耐熱零件,電爐水冷件用銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 1.9,
+    "copper": 0.0
+   },
+   "signal_score": 16.0,
+   "signals": 3,
+   "top_intent": "expansion",
+   "last_signal": "2026-09-17",
+   "opportunity": 36.3,
+   "fit_part": 26.7,
+   "signal_part": 9.6,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "f28b7c6897f37910",
+    "246d5fbd084d6cbb",
+    "28cbd92423e3e431"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 3
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 3 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "f28b7c6897f37910": "inferred",
+    "246d5fbd084d6cbb": "inferred",
+    "28cbd92423e3e431": "inferred"
+   }
+  },
+  {
+   "org": "東聯化學",
+   "ticker": "1710",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "乙二醇、環氧乙烷與工業氣體;高溫與腐蝕環境零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 1.71,
+    "copper": 0.0
+   },
+   "signal_score": 15.6,
+   "signals": 2,
+   "top_intent": "shortage",
+   "last_signal": "2026-09-22",
+   "opportunity": 36.0,
+   "fit_part": 26.7,
+   "signal_part": 9.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "9b3f22e3ff8e82cb",
+    "c2187818dfe3e10f"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "9b3f22e3ff8e82cb": "inferred",
+    "c2187818dfe3e10f": "inferred"
+   }
+  },
+  {
+   "org": "中鴻鋼鐵",
+   "ticker": "2014",
+   "subsegment": "steel",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "熱軋 / 冷軋鋼捲;酸洗與退火線的耐熱、耐酸零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 1.57,
+    "nickel": 1.57,
+    "copper": 0.0
+   },
+   "signal_score": 13.8,
+   "signals": 1,
+   "top_intent": "contract",
+   "last_signal": "2026-10-22",
+   "opportunity": 34.9,
+   "fit_part": 26.7,
+   "signal_part": 8.3,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "58a11a867ddfffaf",
+    "699cb9209f6408d2"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "58a11a867ddfffaf": "inferred",
+    "699cb9209f6408d2": "inferred"
+   }
+  },
+  {
+   "org": "和益化工",
+   "ticker": "1709",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "烷基苯(LAB)與界面活性劑原料;酸性製程設備用耐蝕合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 1.5,
+    "copper": 0.0
+   },
+   "signal_score": 13.8,
+   "signals": 1,
+   "top_intent": "maintenance",
+   "last_signal": "2026-10-23",
+   "opportunity": 34.9,
+   "fit_part": 26.7,
+   "signal_part": 8.3,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "在歲修 / 停爐排程前提案備品材料、替代牌號與交期,爭取列入備品清單",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "6816f190fb425533"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 1
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 1 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "6816f190fb425533": "inferred"
+   }
+  },
+  {
+   "org": "南亞塑膠",
+   "ticker": "1303",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 2,
+    "nickel": 2,
+    "copper": 1
+   },
+   "note": "塑膠、聚酯與電子材料;化工反應與熱交換設備用耐蝕合金",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 1.34,
+    "nickel": 1.34,
+    "copper": 0.0
+   },
+   "signal_score": 12.4,
+   "signals": 2,
+   "top_intent": "qualification",
+   "last_signal": "2026-09-24",
+   "opportunity": 34.1,
+   "fit_part": 26.7,
+   "signal_part": 7.4,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "titanium",
+   "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
+   "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "9992fc3d1e27c2a1",
+    "5661a551dc77170d"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 2
+   },
+   "material_terms": [],
+   "material_summary": "未提材料的公司動態 2 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "9992fc3d1e27c2a1": "inferred",
+    "5661a551dc77170d": "inferred"
+   }
+  },
+  {
+   "org": "台聚",
+   "ticker": "1304",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "LDPE / EVA 高壓聚合;高壓反應管與耐熱零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 26.7,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "國喬石化",
+   "ticker": "1312",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "苯乙烯與 ABS;高溫與腐蝕環境零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 26.7,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "李長榮化工",
+   "ticker": "",
+   "subsegment": "chemical",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 0
+   },
+   "note": "溶劑與熱可塑性彈性體;化工製程設備零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 26.7,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  },
+  {
+   "org": "豐興鋼鐵",
+   "ticker": "2015",
+   "subsegment": "steel",
+   "fit": {
+    "target": 0,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 1
+   },
+   "note": "電爐鋼筋;加熱爐耐熱零件",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 0.0,
+    "titanium": 0.0,
+    "nickel": 0.0,
+    "copper": 0.0
+   },
+   "signal_score": 0.0,
+   "signals": 0,
+   "top_intent": "",
+   "last_signal": "",
+   "opportunity": 26.7,
+   "fit_part": 26.7,
+   "signal_part": 0.0,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "持續觀察",
+   "best_product": "nickel",
+   "next_action": "首次拜訪:以鎳基合金的應用案例切入,確認採購與研發窗口",
+   "pitch": "718 / 625 / C-276 等耐熱耐蝕牌號,鍛件 / 棒材 / 粉末,材料證明與航太 / 能源規範對應",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 0,
+    "manual": 0,
+    "inferred": 0
+   },
+   "material_terms": [],
+   "material_summary": "近期沒有新聞;材料依產品適配度推估",
+   "evidence_basis": {}
+  }
+ ],
+ "other_mentions": [
+  {
+   "org": "Rolls-Royce",
+   "signal_score": 1.0,
+   "signals": 1,
+   "last_signal": "2026-07-24",
+   "product": "nickel",
+   "evidence": [
+    "1fe2321a1f292fec"
+   ]
+  }
+ ],
+ "segment_cells": [
+  {
+   "subsegment": "steel",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.61,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "steel",
+   "product": "titanium",
+   "heat": 6.027,
+   "count": 5,
+   "z": 1.65,
+   "level": "warm",
+   "signal_ids": [
+    "1746c09f5975f488",
+    "b1898f2ed6d04de0",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2",
+    "58a11a867ddfffaf",
+    "d81bbf3e1907d4ac",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  },
+  {
+   "subsegment": "steel",
+   "product": "nickel",
+   "heat": 7.923,
+   "count": 8,
+   "z": 2.19,
+   "level": "hot",
+   "signal_ids": [
+    "1746c09f5975f488",
+    "28cbd92423e3e431",
+    "246d5fbd084d6cbb",
+    "b1898f2ed6d04de0",
+    "f28b7c6897f37910",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "699cb9209f6408d2",
+    "58a11a867ddfffaf"
+   ]
+  },
+  {
+   "subsegment": "steel",
+   "product": "copper",
+   "heat": 4.453,
+   "count": 4,
+   "z": 0.13,
+   "level": "neutral",
+   "signal_ids": [
+    "1746c09f5975f488",
+    "b1898f2ed6d04de0",
+    "5ddbeadb4834e229",
+    "32b6943ffd35b6a7",
+    "059858c08a095da6",
+    "7a9e4867ec0c089a",
+    "3b68c4e914a90492",
+    "d81bbf3e1907d4ac",
+    "1a9e2698265fb492",
+    "fbe998128815a1ea"
+   ]
+  },
+  {
+   "subsegment": "stainless",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.5,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "stainless",
+   "product": "titanium",
+   "heat": 2.936,
+   "count": 3,
+   "z": 0.47,
+   "level": "neutral",
+   "signal_ids": [
+    "1fe2321a1f292fec",
+    "576b972b29dd8d54",
+    "8dd8d66c8d79b902"
+   ]
+  },
+  {
+   "subsegment": "stainless",
+   "product": "nickel",
+   "heat": 2.936,
+   "count": 3,
+   "z": 0.83,
+   "level": "neutral",
+   "signal_ids": [
+    "1fe2321a1f292fec",
+    "576b972b29dd8d54",
+    "8dd8d66c8d79b902"
+   ]
+  },
+  {
+   "subsegment": "stainless",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.18,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "refinery",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.29,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "refinery",
+   "product": "titanium",
+   "heat": 4.38,
+   "count": 3,
+   "z": 0.81,
+   "level": "neutral",
+   "signal_ids": [
+    "4de9ff6f8be4f1dd",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "f482d8b096d77dc4"
+   ]
+  },
+  {
+   "subsegment": "refinery",
+   "product": "nickel",
+   "heat": 4.38,
+   "count": 3,
+   "z": 1.17,
+   "level": "warm",
+   "signal_ids": [
+    "4de9ff6f8be4f1dd",
+    "68021e1cd99f5dc4",
+    "6979deb2994da43d",
+    "250dd0f5f1ae8076",
+    "f482d8b096d77dc4"
+   ]
+  },
+  {
+   "subsegment": "refinery",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.98,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chemical",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.21,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chemical",
+   "product": "titanium",
+   "heat": 10.415,
+   "count": 9,
+   "z": 2.47,
+   "level": "hot",
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473",
+    "7a7e5e8f21e62847",
+    "9cb99295712255e0"
+   ]
+  },
+  {
+   "subsegment": "chemical",
+   "product": "nickel",
+   "heat": 13.624,
+   "count": 12,
+   "z": 3.12,
+   "level": "hot",
+   "signal_ids": [
+    "6f2998ba08de3eef",
+    "5661a551dc77170d",
+    "b12570caa13570ea",
+    "f980f75f6f5b0556",
+    "c2187818dfe3e10f",
+    "9b3f22e3ff8e82cb",
+    "9992fc3d1e27c2a1",
+    "6469764f312765b2",
+    "7efc8d9859d1b79b",
+    "4bd323ae3cea394d",
+    "02e86ed2c2ab324d",
+    "9e87397c99bc6473"
+   ]
+  },
+  {
+   "subsegment": "chemical",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.11,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "epc",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.91,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "epc",
+   "product": "titanium",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.22,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "epc",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.13,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "epc",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.6,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "target",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.91,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "titanium",
+   "heat": 0.109,
+   "count": 1,
+   "z": -0.2,
+   "level": "neutral",
+   "signal_ids": [
+    "705b52ca22be60d0"
+   ]
+  },
+  {
+   "subsegment": "other",
+   "product": "nickel",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.14,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "other",
+   "product": "copper",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.59,
+   "level": "neutral",
+   "signal_ids": []
+  }
+ ],
+ "signal_materials": {
+  "059858c08a095da6": [],
+  "1746c09f5975f488": [],
+  "1fe2321a1f292fec": [],
+  "246d5fbd084d6cbb": [],
+  "250dd0f5f1ae8076": [],
+  "28cbd92423e3e431": [],
+  "32b6943ffd35b6a7": [],
+  "3b68c4e914a90492": [],
+  "4bd323ae3cea394d": [],
+  "4de9ff6f8be4f1dd": [],
+  "5661a551dc77170d": [],
+  "576b972b29dd8d54": [],
+  "58a11a867ddfffaf": [],
+  "5ddbeadb4834e229": [],
+  "6469764f312765b2": [],
+  "68021e1cd99f5dc4": [],
+  "6816d751ad562a8c": [],
+  "6816f190fb425533": [],
+  "6979deb2994da43d": [],
+  "699cb9209f6408d2": [],
+  "6f2998ba08de3eef": [],
+  "7efc8d9859d1b79b": [],
+  "8dd8d66c8d79b902": [],
+  "91c15886f3cd8538": [],
+  "9992fc3d1e27c2a1": [],
+  "9b3f22e3ff8e82cb": [],
+  "9e87397c99bc6473": [],
+  "b12570caa13570ea": [],
+  "b1898f2ed6d04de0": [],
+  "c2187818dfe3e10f": [],
+  "d4997b251396ddc4": [],
+  "d81bbf3e1907d4ac": [],
+  "f28b7c6897f37910": [],
+  "f482d8b096d77dc4": [],
+  "f980f75f6f5b0556": [],
+  "fbe998128815a1ea": []
+ }
+}
