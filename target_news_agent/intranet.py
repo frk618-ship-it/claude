@@ -21,8 +21,6 @@ import re
 import shutil
 from pathlib import Path
 
-from .visits import END as VISITS_END, START as VISITS_START
-
 THREE_CDN = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"
 VENDOR = Path(__file__).with_name("assets") / "vendor"
 KIT = Path(__file__).resolve().parents[1] / "deploy" / "intranet"
@@ -36,12 +34,8 @@ EXTERNAL_LOADS = re.compile(r'<(?:script|img|iframe|source|video|audio)\b[^>]*\b
                             r"|'(https?://[^']+\.(?:m?js|css|woff2?))'")
 
 
-VISITS = re.compile(re.escape(VISITS_START) + ".*?" + re.escape(VISITS_END), re.S)  # no visitor counting inside the intranet
-
-
 def rewrite(page: str, public_base: str, depth: int) -> str:
     page = FONT_LINKS.sub("", page)
-    page = VISITS.sub("", page)
     page = page.replace(THREE_CDN, "./vendor/three.module.min.js")  # module specifiers need ./
     if public_base:
         page = page.replace(public_base.rstrip("/") + "/", "../" * depth or "./")

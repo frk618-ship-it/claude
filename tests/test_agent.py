@@ -1486,18 +1486,3 @@ def test_notion_sync_fills_in_late_summaries(config):
     props = patches[0][1]["properties"]
     assert set(props) == {"標題", "摘要", "重要度"} and props["重要度"]["number"] == 4  # other columns untouched
     assert props["摘要"]["rich_text"][0]["text"]["content"] == "後補的繁中摘要"
-
-
-def test_visitor_counter_only_on_homepage_and_never_leaks_the_path(config):
-    from target_news_agent.intranet import external_loads, rewrite
-    from target_news_agent.site import HOME_PAGE, render_page
-
-    report = {"items": [], "span": ["2026-11-13"], "generated": "2026-11-13T08:00"}
-    home = render_page(report, config, [], HOME_PAGE, is_latest=True)
-    daily = render_page(report, config, [], "2026-11-13")
-    assert 'id="visits" hidden' in home and "rodhsu.goatcounter.com" in home and "visits" not in daily
-    assert "path: path" in home and '"/news/"' in home and "referrer: ''" in home  # fixed path, no referrer
-    assert "location" not in home.split("<!--visits-->")[1].split("<!--/visits-->")[0]
-    assert 'content="strict-origin-when-cross-origin"' in home
-    inside = rewrite(home, "", 1)  # the intranet copy does not count visits
-    assert "goatcounter" not in inside and not any("zgo.at" in u for u in external_loads(inside))

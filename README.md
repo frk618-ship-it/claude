@@ -104,8 +104,6 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 
 每次「靶材產業新聞」workflow 執行後,會把 `reports/` 的所有報告產生成網站並發布到 GitHub Pages 的 `/news/`:首頁合併最近 3 天的報告(重點新聞、技術文獻、可依類型與公司篩選的全部新聞;本期總結為最新一期的 AI 整理),各日完整內容保留在「歷次報告」的日期頁。網站不提供原始 MD / JSON 下載(報告檔仍保存在 repo 的 `reports/`)。
 
-- **訪客計數器**:新聞首頁頁尾顯示 GoatCounter(`rodhsu.goatcounter.com`)統計的累計訪客,同一瀏覽器每天計一次;設定在 `target_news_agent/visits.py`。只回報固定路徑 `/news/`、不帶來源網址,秘密路徑不會送出。需在 GoatCounter 站台設定開啟「Allow adding visitor counts on your website」頁尾才會顯示數字;內網版不計數。
-
 - 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
 - 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。
 - 每則新聞會自動標上類型(新聞、公司公告、行情數據、論壇與自媒體、市場報告、資料頁),方便略過雜訊。

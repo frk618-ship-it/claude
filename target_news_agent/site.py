@@ -19,7 +19,6 @@ from .config import Config
 from .charts import CHART_SCRIPT, CHART_STYLE, columns, hbar, index_lines, meter
 from .fabnav import fab_nav
 from .taste import FONT_LINKS
-from .visits import STYLE as VISITS_STYLE, counter_line
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
@@ -514,10 +513,9 @@ def _share_meta(title: str, description: str, site_url: str, page: str) -> str:
 def _head(title: str, description: str = SITE_DESCRIPTION, site_url: str = "", page: str = "") -> str:
     return (
         '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<meta name="referrer" content="strict-origin-when-cross-origin">'
         f'<title>{esc(title)}</title>{_share_meta(title, description, site_url, page)}<link rel="icon" href="{favicon_href()}">'
         + FONT_LINKS
-        + f"<style>{STYLE}{VISITS_STYLE}</style></head><body>{SPRITE}"
+        + f"<style>{STYLE}</style></head><body>{SPRITE}"
     )
 
 
@@ -799,7 +797,7 @@ def render_page(
 <footer class="foot"><p>{icon("news")}<span><strong>資料來源</strong>Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集,更新於 <span class="mono">{esc(generated)}</span>。每期蒐集最近 {esc(report.get("days", ""))} 天新聞。</span></p>
 <p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
 <p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p>
-{counter_line(icon("user")) if current == HOME_PAGE else ""}<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
+<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
 </div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
 
