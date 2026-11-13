@@ -24,8 +24,9 @@ _SCRIPT = """
   var site = %(site)s, path = %(path)s, box = document.getElementById('visits');
   function show(){
     if (!window.fetch || !box) return;
-    fetch(site + '/counter/' + encodeURIComponent(path) + '.json').then(function(r){ return r.ok ? r.json() : null; })
-      .then(function(d){ if (d && d.count) { box.querySelector('.n').textContent = d.count; box.hidden = false; } })
+    // a path with no visits yet answers 404 with {"count": "0"}, so read the body whatever the status
+    fetch(site + '/counter/' + encodeURIComponent(path) + '.json').then(function(r){ return r.json(); })
+      .then(function(d){ if (d && d.count != null) { box.querySelector('.n').textContent = d.count; box.hidden = false; } })
       .catch(function(){});
   }
   var s = document.createElement('script');
