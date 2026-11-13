@@ -279,7 +279,7 @@ def render_segment_markdown(rep: dict) -> str:
             row.append(f"{c['z']:+.1f}({c['count']}){mark}" if c and c["heat"] else "·")
         out.append(f"| {name} | " + " | ".join(row) + " |")
     out += ["", "格內為 Gi* z 值(訊號數);🔥 熱點、▲ 溫點。", "", "## 目標客戶開發順序", "",
-            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號 + 規模) | 分級 | 主推產品 | 適配(靶/鈦/鎳/銅) | 近期訊號 | 材料依據 | 建議行動 |",
+            "| 順位 | 公司 | 代號 | 次產業 | 綜合分數(適配 + 訊號 + 規模) | 分級 | 主推產品 | 適配(靶/鈦/鎳/銅/蒸) | 近期訊號 | 材料依據 | 建議行動 |",
             "|---:|---|---|---|---:|---|---|---|---|---|---|"]
     for i, a in enumerate(rep["accounts"], 1):
         fit = "/".join(str(a["fit"].get(p, 0)) for p in prod)
