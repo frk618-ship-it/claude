@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T17:15:18+00:00",
+ "generated": "2026-11-13T17:22:15+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -13,7 +13,8 @@
    "target": "濺鍍靶材",
    "titanium": "純鈦 / 鈦合金",
    "nickel": "鎳基合金",
-   "copper": "銅材 / 銅合金"
+   "copper": "銅材 / 銅合金",
+   "evaporation": "蒸鍍材料"
   },
   "industries": {
    "semiconductor": "半導體",
@@ -133,6 +134,16 @@
     "steel",
     "cpo",
     "other"
+   ],
+   "evaporation": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "cpo",
+    "other"
    ]
   }
  },
@@ -201,7 +212,8 @@
    "target": 8,
    "titanium": 15,
    "nickel": 13,
-   "copper": 18
+   "copper": 18,
+   "evaporation": 0
   },
   "other_mentions": 3,
   "accounts": 8,
@@ -540,7 +552,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "Gr.1–Gr.5 板 / 棒 / 線 / 粉,AS9100 / ISO 13485 文件、小量多樣與快速打樣",
@@ -578,7 +590,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "need": "",
    "evidence": [],
@@ -611,7 +623,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -644,7 +656,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -677,7 +689,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -710,7 +722,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -743,7 +755,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -776,7 +788,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.79
+    "z": -0.58
    },
    "need": "",
    "evidence": [],
@@ -1565,7 +1577,8 @@
     "target": 0,
     "titanium": 3,
     "nickel": 2,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "PCB 與載板濕製程設備(顯影、蝕刻、去膜、電鍍前處理);鈦掛具、鈦加熱器與耐蝕槽體配件是切入點;銅:PCB 電鍍線用磷銅球 / 銅陽極",
    "chain_tier": 0,
@@ -1575,7 +1588,8 @@
     "target": 0.0,
     "titanium": 3.44,
     "nickel": 3.44,
-    "copper": 3.44
+    "copper": 3.44,
+    "evaporation": 0.0
    },
    "signal_score": 26.6,
    "signals": 5,
@@ -1633,7 +1647,8 @@
     "target": 0,
     "titanium": 3,
     "nickel": 2,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "PCB 與載板表面處理藥水與電鍍設備;電鍍線的鈦陽極籃、掛具與耐蝕管路配件;銅:電鍍銅藥水與電鍍設備,搭配磷銅陽極",
    "chain_tier": 0,
@@ -1643,7 +1658,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1683,7 +1699,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 0,
-    "copper": 0
+    "copper": 0,
+    "evaporation": 0
    },
    "note": "PCB 鑽孔與成型機;材料關聯較低,可從設備結構件與治具了解需求",
    "chain_tier": 0,
@@ -1693,7 +1710,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1733,7 +1751,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 0,
-    "copper": 0
+    "copper": 0,
+    "evaporation": 0
    },
    "note": "PCB 與載板 AOI 檢測設備;材料關聯較低",
    "chain_tier": 0,
@@ -1743,7 +1762,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1783,7 +1803,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 0,
-    "copper": 0
+    "copper": 0,
+    "evaporation": 0
    },
    "note": "PCB、載板與面板 AOI 檢測設備;材料關聯較低",
    "chain_tier": 0,
@@ -1793,7 +1814,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1833,7 +1855,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 1,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "PCB 壓合與真空壓膜設備;熱壓板與耐熱零件,關聯較低",
    "chain_tier": 0,
@@ -1843,7 +1866,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1883,7 +1907,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 1,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "PCB / 載板塗佈、烘烤與壓膜設備;高溫爐體零件或有耐熱合金需求,關聯較低",
    "chain_tier": 0,
@@ -1893,7 +1918,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -1933,7 +1959,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 0,
-    "copper": 0
+    "copper": 0,
+    "evaporation": 0
    },
    "note": "PCB 與半導體自動化搬運設備;材料關聯較低",
    "chain_tier": 0,
@@ -1943,7 +1970,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -2018,7 +2046,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": 0.46,
+   "z": 0.72,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2027,7 +2055,7 @@
    "product": "titanium",
    "heat": 3.44,
    "count": 4,
-   "z": 1.35,
+   "z": 1.64,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -2047,7 +2075,7 @@
    "product": "nickel",
    "heat": 3.44,
    "count": 4,
-   "z": 1.09,
+   "z": 1.38,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -2067,7 +2095,7 @@
    "product": "copper",
    "heat": 3.44,
    "count": 4,
-   "z": 1.61,
+   "z": 1.91,
    "level": "warm",
    "signal_ids": [
     "038cbe742f88124f",
@@ -2083,11 +2111,20 @@
    ]
   },
   {
+   "subsegment": "wet",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.09,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
    "subsegment": "imaging",
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.02,
+   "z": -0.82,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2096,7 +2133,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.79,
+   "z": -0.58,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2105,7 +2142,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.05,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2114,7 +2151,16 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.53,
+   "z": -0.31,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "imaging",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.63,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2123,7 +2169,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.02,
+   "z": -0.82,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2132,7 +2178,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.79,
+   "z": -0.58,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2141,7 +2187,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.05,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2150,7 +2196,16 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.53,
+   "z": -0.31,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "drilling",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.63,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2159,7 +2214,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.02,
+   "z": -0.82,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2168,7 +2223,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.79,
+   "z": -0.58,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2177,7 +2232,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.05,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2186,7 +2241,16 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.53,
+   "z": -0.31,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "inspection",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.63,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2195,7 +2259,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.02,
+   "z": -0.82,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2204,7 +2268,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.79,
+   "z": -0.58,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2213,7 +2277,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.05,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2222,7 +2286,16 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": -0.53,
+   "z": -0.31,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "automation",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.63,
    "level": "neutral",
    "signal_ids": []
   },
@@ -2231,7 +2304,7 @@
    "product": "target",
    "heat": 5.415,
    "count": 5,
-   "z": 2.35,
+   "z": 2.68,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2249,7 +2322,7 @@
    "product": "titanium",
    "heat": 3.595,
    "count": 3,
-   "z": 2.23,
+   "z": 2.56,
    "level": "neutral",
    "signal_ids": [
     "ac33cc8f2d5f0a28",
@@ -2264,7 +2337,7 @@
    "product": "nickel",
    "heat": 1.82,
    "count": 2,
-   "z": 1.64,
+   "z": 1.94,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2277,7 +2350,7 @@
    "product": "copper",
    "heat": 5.415,
    "count": 5,
-   "z": 2.84,
+   "z": 3.19,
    "level": "neutral",
    "signal_ids": [
     "ebb14cf8156c591c",
@@ -2289,6 +2362,15 @@
     "66138b52b06c3af7",
     "1245d198b101e6d0"
    ]
+  },
+  {
+   "subsegment": "other",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": 0.79,
+   "level": "neutral",
+   "signal_ids": []
   }
  ],
  "signal_materials": {

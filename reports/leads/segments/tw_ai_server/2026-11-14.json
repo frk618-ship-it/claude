@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T17:15:57+00:00",
+ "generated": "2026-11-13T17:22:58+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -13,7 +13,8 @@
    "target": "濺鍍靶材",
    "titanium": "純鈦 / 鈦合金",
    "nickel": "鎳基合金",
-   "copper": "銅材 / 銅合金"
+   "copper": "銅材 / 銅合金",
+   "evaporation": "蒸鍍材料"
   },
   "industries": {
    "semiconductor": "半導體",
@@ -133,6 +134,16 @@
     "steel",
     "cpo",
     "other"
+   ],
+   "evaporation": [
+    "semiconductor",
+    "semi_equipment",
+    "display",
+    "display_equipment",
+    "solar",
+    "optical_coating",
+    "cpo",
+    "other"
    ]
   }
  },
@@ -201,7 +212,8 @@
    "target": 11,
    "titanium": 1,
    "nickel": 10,
-   "copper": 103
+   "copper": 103,
+   "evaporation": 0
   },
   "other_mentions": 8,
   "accounts": 17,
@@ -586,7 +598,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -633,7 +645,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.15
+    "z": 2.47
    },
    "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -682,7 +694,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.95
+    "z": 3.3
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -728,7 +740,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -774,7 +786,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.95
+    "z": 3.3
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -823,7 +835,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -868,7 +880,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.15
+    "z": 2.47
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -904,7 +916,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "need": "",
    "evidence": [],
@@ -944,7 +956,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -983,7 +995,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1021,7 +1033,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1052,7 +1064,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.99
+    "z": 1.27
    },
    "need": "",
    "evidence": [],
@@ -1085,7 +1097,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.22
+    "z": 3.58
    },
    "need": "",
    "evidence": [],
@@ -1118,7 +1130,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "need": "",
    "evidence": [],
@@ -1151,7 +1163,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.35
+    "z": 1.64
    },
    "need": "",
    "evidence": [],
@@ -1184,7 +1196,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.59
+    "z": -1.41
    },
    "need": "",
    "evidence": [],
@@ -1217,7 +1229,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.27
+    "z": -1.07
    },
    "need": "",
    "evidence": [],
@@ -5143,7 +5155,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 1,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "水冷板、均熱片、熱管與液冷機櫃;無氧銅板材與銅管是主要用料",
    "chain_tier": 0,
@@ -5153,7 +5166,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 9.6
+    "copper": 9.6,
+    "evaporation": 0.0
    },
    "signal_score": 44.2,
    "signals": 14,
@@ -5223,7 +5237,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "CPU / GPU 插座與連接器;端子用鈹銅、磷青銅等銅合金",
    "chain_tier": 0,
@@ -5233,7 +5248,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 6.45
+    "copper": 6.45,
+    "evaporation": 0.0
    },
    "signal_score": 42.0,
    "signals": 6,
@@ -5291,7 +5307,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 2
+    "copper": 2,
+    "evaporation": 0
    },
    "note": "AI 伺服器電源、機櫃配電與液冷;匯流排、磁性元件用銅",
    "chain_tier": 0,
@@ -5301,7 +5318,8 @@
     "target": 1.17,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 9.89
+    "copper": 9.89,
+    "evaporation": 0.0
    },
    "signal_score": 47.9,
    "signals": 11,
@@ -5370,7 +5388,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 1,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "水冷板與液冷模組;無氧銅板材、銅管是主要用料",
    "chain_tier": 0,
@@ -5380,7 +5399,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 7.36
+    "copper": 7.36,
+    "evaporation": 0.0
    },
    "signal_score": 38.9,
    "signals": 11,
@@ -5438,7 +5458,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 2
+    "copper": 2,
+    "evaporation": 0
    },
    "note": "伺服器電源與機櫃電源架;匯流排、磁性元件用銅",
    "chain_tier": 0,
@@ -5448,7 +5469,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 6.93
+    "copper": 6.93,
+    "evaporation": 0.0
    },
    "signal_score": 37.2,
    "signals": 6,
@@ -5517,7 +5539,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 1,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "AI 晶片均熱片(IHS)與水冷板;高純度無氧銅板材是核心用料",
    "chain_tier": 0,
@@ -5527,7 +5550,8 @@
     "target": 0.24,
     "titanium": 0.0,
     "nickel": 0.24,
-    "copper": 2.64
+    "copper": 2.64,
+    "evaporation": 0.0
    },
    "signal_score": 22.0,
    "signals": 5,
@@ -5583,7 +5607,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 2
+    "copper": 2,
+    "evaporation": 0
    },
    "note": "高速銅纜與機櫃線束;銅導線為主要用料",
    "chain_tier": 0,
@@ -5593,7 +5618,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 3.73
+    "copper": 3.73,
+    "evaporation": 0.0
    },
    "signal_score": 29.7,
    "signals": 6,
@@ -5647,7 +5673,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 3
+    "copper": 3,
+    "evaporation": 0
    },
    "note": "熱管與散熱模組;銅管與銅粉是主要用料",
    "chain_tier": 0,
@@ -5657,7 +5684,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -5697,7 +5725,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 1,
-    "copper": 2
+    "copper": 2,
+    "evaporation": 0
    },
    "note": "液冷 CDU 與板式熱交換器;銅焊材、銅管,特殊冷卻液環境可能用到耐蝕合金",
    "chain_tier": 0,
@@ -5707,7 +5736,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.51
+    "copper": 0.51,
+    "evaporation": 0.0
    },
    "signal_score": 4.9,
    "signals": 2,
@@ -5753,7 +5783,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "AI 伺服器代工;材料多經散熱、電源模組廠間接採購",
    "chain_tier": 0,
@@ -5763,7 +5794,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 1.59
+    "copper": 1.59,
+    "evaporation": 0.0
    },
    "signal_score": 15.9,
    "signals": 1,
@@ -5807,7 +5839,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "AI 伺服器代工;材料關聯間接",
    "chain_tier": 0,
@@ -5817,7 +5850,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 1.59
+    "copper": 1.59,
+    "evaporation": 0.0
    },
    "signal_score": 15.9,
    "signals": 1,
@@ -5861,7 +5895,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "伺服器機殼與機櫃;材料以鋼板為主,關聯較低",
    "chain_tier": 0,
@@ -5871,7 +5906,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -5911,7 +5947,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "伺服器風扇與液冷泵浦;馬達線圈用銅,關聯中等偏低",
    "chain_tier": 0,
@@ -5921,7 +5958,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -5961,7 +5999,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "AI 伺服器主機板與機櫃代工;材料關聯間接",
    "chain_tier": 0,
@@ -5971,7 +6010,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -6011,7 +6051,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "雲端資料中心伺服器與液冷機櫃;材料關聯間接",
    "chain_tier": 0,
@@ -6021,7 +6062,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -6061,7 +6103,8 @@
     "target": 0,
     "titanium": 1,
     "nickel": 0,
-    "copper": 1
+    "copper": 1,
+    "evaporation": 0
    },
    "note": "AI 伺服器機櫃代工龍頭;散熱與電源多向模組廠採購,材料關聯間接,可了解自製機構件需求",
    "chain_tier": 0,
@@ -6071,7 +6114,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -6111,7 +6155,8 @@
     "target": 0,
     "titanium": 0,
     "nickel": 0,
-    "copper": 0
+    "copper": 0,
+    "evaporation": 0
    },
    "note": "伺服器滑軌;材料以鋼材為主,關聯低",
    "chain_tier": 0,
@@ -6121,7 +6166,8 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 0.0
+    "copper": 0.0,
+    "evaporation": 0.0
    },
    "signal_score": 0.0,
    "signals": 0,
@@ -6245,7 +6291,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.11,
+   "z": -0.91,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6254,7 +6300,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.59,
+   "z": -1.41,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6263,7 +6309,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.21,
+   "z": -1.01,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6272,18 +6318,27 @@
    "product": "copper",
    "heat": 3.172,
    "count": 1,
-   "z": 1.35,
+   "z": 1.64,
    "level": "warm",
    "signal_ids": [
     "bc22d0ce438c33eb"
    ]
   },
   {
+   "subsegment": "odm",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.46,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
    "subsegment": "cooling",
    "product": "target",
    "heat": 0.487,
    "count": 1,
-   "z": -0.25,
+   "z": -0.02,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6294,7 +6349,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.76,
+   "z": -0.55,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6303,7 +6358,7 @@
    "product": "nickel",
    "heat": 0.487,
    "count": 1,
-   "z": -0.35,
+   "z": -0.12,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6314,7 +6369,7 @@
    "product": "copper",
    "heat": 19.307,
    "count": 16,
-   "z": 3.22,
+   "z": 3.58,
    "level": "hot",
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -6332,11 +6387,20 @@
    ]
   },
   {
+   "subsegment": "cooling",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.6,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
    "subsegment": "power",
    "product": "target",
    "heat": 2.338,
    "count": 1,
-   "z": -0.21,
+   "z": 0.02,
    "level": "neutral",
    "signal_ids": [
     "03d6494277c511b0",
@@ -6348,7 +6412,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.84,
+   "z": -0.63,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6357,7 +6421,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.46,
+   "z": -0.23,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6366,7 +6430,7 @@
    "product": "copper",
    "heat": 16.343,
    "count": 12,
-   "z": 2.95,
+   "z": 3.3,
    "level": "hot",
    "signal_ids": [
     "379afef5cab0476f",
@@ -6384,11 +6448,20 @@
    ]
   },
   {
+   "subsegment": "power",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.68,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
    "subsegment": "chassis",
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.27,
+   "z": -1.07,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6397,7 +6470,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.74,
+   "z": -1.57,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6406,7 +6479,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.36,
+   "z": -1.17,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6415,7 +6488,16 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 0.99,
+   "z": 1.27,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
+   "subsegment": "chassis",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.62,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6424,7 +6506,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.77,
+   "z": -0.56,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6433,7 +6515,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.25,
+   "z": -1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6442,7 +6524,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.86,
+   "z": -0.66,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6451,7 +6533,7 @@
    "product": "copper",
    "heat": 10.241,
    "count": 8,
-   "z": 2.15,
+   "z": 2.47,
    "level": "hot",
    "signal_ids": [
     "5037a4d7e94816a7",
@@ -6469,11 +6551,20 @@
    ]
   },
   {
+   "subsegment": "interconnect",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -1.1,
+   "level": "neutral",
+   "signal_ids": []
+  },
+  {
    "subsegment": "other",
    "product": "target",
    "heat": 8.036,
    "count": 4,
-   "z": 0.51,
+   "z": 0.77,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6491,7 +6582,7 @@
    "product": "titanium",
    "heat": 1.029,
    "count": 1,
-   "z": -0.42,
+   "z": -0.19,
    "level": "neutral",
    "signal_ids": [
     "5c7c653be4039eb3"
@@ -6502,7 +6593,7 @@
    "product": "nickel",
    "heat": 8.428,
    "count": 5,
-   "z": 0.44,
+   "z": 0.7,
    "level": "neutral",
    "signal_ids": [
     "28cbd92423e3e431",
@@ -6521,7 +6612,7 @@
    "product": "copper",
    "heat": 8.478,
    "count": 5,
-   "z": 2.8,
+   "z": 3.14,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6534,6 +6625,15 @@
     "00377c3525c81206",
     "0ee120d103f2357f"
    ]
+  },
+  {
+   "subsegment": "other",
+   "product": "evaporation",
+   "heat": 0.0,
+   "count": 0,
+   "z": -0.31,
+   "level": "neutral",
+   "signal_ids": []
   }
  ],
  "signal_materials": {
