@@ -407,6 +407,7 @@ Email 設定範例:
 | 台灣面板設備廠 | `tw_display_equipment` | 鍍膜與電漿設備、濕製程、雷射與 Micro LED、檢測、自動化 | 7 | `<網站>/leads/tw_display_equipment/` |
 | 台灣 AI 伺服器設備廠 | `tw_ai_server` | 伺服器代工組裝、散熱與液冷、電源與配電、機殼與滑軌、連接器與線材 | 17 | `<網站>/leads/tw_ai_server/` |
 | 台灣重工業製造廠 | `tw_heavy_industry` | 鋼鐵冶煉、不銹鋼與特殊鋼、煉油與石化上游、化學品與塑化、工程統包 | 20 | `<網站>/leads/tw_heavy_industry/` |
+| 台灣 CPO 與光通訊供應鏈 | `tw_cpo` | 雷射與磊晶、光引擎與封裝、光收發模組、光纖與被動元件、光學鍍膜、測試介面與設備、交換器系統 | 18 | `<網站>/leads/tw_cpo/` |
 
 主要客群由設定檔 `settings.primary_segment` 指定,是網站 `/leads/` 的首頁;頁首的客群頁籤可切換。原本「產品線 × 應用產業 × 地區」的全市場商機總覽已移除(未屬於任何客群的公司不再搜尋)。
 
