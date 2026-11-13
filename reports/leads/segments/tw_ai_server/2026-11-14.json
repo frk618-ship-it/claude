@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T16:42:46+00:00",
+ "generated": "2026-11-13T17:15:57+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -184,8 +184,8 @@
   }
  },
  "stats": {
-  "signals": 103,
-  "attributed": 103,
+  "signals": 104,
+  "attributed": 104,
   "new_signals": 15,
   "hot_cells": 4,
   "warm_cells": 1,
@@ -194,16 +194,16 @@
    "A": 0,
    "B": 2,
    "C": 6,
-   "D": 9
+   "D": 10
   },
   "enriched": 0,
   "by_product": {
    "target": 11,
    "titanium": 1,
    "nickel": 10,
-   "copper": 102
+   "copper": 103
   },
-  "other_mentions": 7,
+  "other_mentions": 8,
   "accounts": 17,
   "tiers": {
    "優先開發": 1,
@@ -304,7 +304,7 @@
    "region": "TW",
    "heat": 10.861,
    "count": 6,
-   "z": 2.83,
+   "z": 2.82,
    "level": "hot",
    "trend": "persistent",
    "history": [
@@ -329,14 +329,14 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 46.325,
+   "heat": 46.68,
    "count": 36,
    "z": 6.21,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    36.253,
-    46.325
+    36.648,
+    46.68
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -399,6 +399,7 @@
     "b63bdfa987c59524",
     "7425c71284d6b863",
     "9c9b7171e70906a6",
+    "526b7253fd9edca6",
     "487fb88d64c894ce",
     "762815d02e9c5fec",
     "cb8eebf124365120",
@@ -463,14 +464,14 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 46.325,
+   "heat": 46.68,
    "count": 36,
    "z": 6.21,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    36.253,
-    46.325
+    36.648,
+    46.68
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -520,7 +521,7 @@
    "region": "TW",
    "heat": 10.861,
    "count": 6,
-   "z": 2.83,
+   "z": 2.82,
    "level": "hot",
    "trend": "persistent",
    "history": [
@@ -632,7 +633,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.15
    },
    "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -846,7 +847,7 @@
   {
    "org": "貿聯-KY",
    "account": true,
-   "score": 44.2,
+   "score": 44.5,
    "grade": "持續觀察",
    "product": "copper",
    "products": [
@@ -860,14 +861,14 @@
     "expansion",
     "contract"
    ],
-   "signals": 5,
+   "signals": 6,
    "first_seen": "2026-11-06",
    "last_signal": "2026-11-13",
    "new": false,
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.15
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -877,13 +878,14 @@
     "d5ddd640476398d5",
     "08a7d8610b750e64",
     "874c28ecfc594815",
+    "526b7253fd9edca6",
     "577b7d8cfd94725c",
     "5128cdcb1aab1e62"
    ],
-   "signal_score": 29.3,
+   "signal_score": 29.7,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 17.6,
+   "signal_part": 17.8,
    "value_part": 0.0
   },
   {
@@ -1182,7 +1184,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.58
+    "z": -1.59
    },
    "need": "",
    "evidence": [],
@@ -1215,7 +1217,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.26
+    "z": -1.27
    },
    "need": "",
    "evidence": [],
@@ -2815,6 +2817,46 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.256
+  },
+  {
+   "id": "526b7253fd9edca6",
+   "title": "輝達 CPO 交換器量產超前！外資點名波若威、貿聯吃香；大立光入冷宮",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAzMnJ3Nnd4SzRHQzVEZWR6ZFFibEoxY1RRQnhjbWVMQTA0cDM2QlktX0x4enBnaG16NzVfU2I2czZjZ3MyaWxrNjk2Ym1Wdlg3MWdMZ3Z3OUNlWFY5UGhBV3prRQ?oc=5",
+   "source": "鏈新聞 ABMedia",
+   "published": "2026-09-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "大立光",
+    "貿聯-KY",
+    "波若威"
+   ],
+   "accounts": [
+    "大立光",
+    "貿聯-KY",
+    "波若威"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.354
   },
   {
    "id": "5128cdcb1aab1e62",
@@ -5551,15 +5593,15 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 3.56
+    "copper": 3.73
    },
-   "signal_score": 29.3,
-   "signals": 5,
+   "signal_score": 29.7,
+   "signals": 6,
    "top_intent": "qualification",
    "last_signal": "2026-11-13",
-   "opportunity": 44.2,
+   "opportunity": 44.5,
    "fit_part": 26.7,
-   "signal_part": 17.6,
+   "signal_part": 17.8,
    "value_part": 0.0,
    "value_score": 0.0,
    "estimate": {
@@ -5576,6 +5618,7 @@
     "d5ddd640476398d5",
     "08a7d8610b750e64",
     "874c28ecfc594815",
+    "526b7253fd9edca6",
     "577b7d8cfd94725c",
     "5128cdcb1aab1e62"
    ],
@@ -5583,14 +5626,15 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 5
+    "inferred": 6
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 5 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
    "evidence_basis": {
     "d5ddd640476398d5": "inferred",
     "08a7d8610b750e64": "inferred",
     "874c28ecfc594815": "inferred",
+    "526b7253fd9edca6": "inferred",
     "577b7d8cfd94725c": "inferred",
     "5128cdcb1aab1e62": "inferred"
    }
@@ -6183,6 +6227,16 @@
    "evidence": [
     "8778a00472475273"
    ]
+  },
+  {
+   "org": "大立光",
+   "signal_score": 1.7,
+   "signals": 1,
+   "last_signal": "2026-09-29",
+   "product": "copper",
+   "evidence": [
+    "526b7253fd9edca6"
+   ]
   }
  ],
  "segment_cells": [
@@ -6200,7 +6254,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.58,
+   "z": -1.59,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6209,7 +6263,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.2,
+   "z": -1.21,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6229,7 +6283,7 @@
    "product": "target",
    "heat": 0.487,
    "count": 1,
-   "z": -0.24,
+   "z": -0.25,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6240,7 +6294,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.75,
+   "z": -0.76,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6249,7 +6303,7 @@
    "product": "nickel",
    "heat": 0.487,
    "count": 1,
-   "z": -0.34,
+   "z": -0.35,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6282,7 +6336,7 @@
    "product": "target",
    "heat": 2.338,
    "count": 1,
-   "z": -0.2,
+   "z": -0.21,
    "level": "neutral",
    "signal_ids": [
     "03d6494277c511b0",
@@ -6294,7 +6348,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.83,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6303,7 +6357,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.45,
+   "z": -0.46,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6334,7 +6388,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.26,
+   "z": -1.27,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6370,7 +6424,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.78,
+   "z": -0.77,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6379,7 +6433,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.26,
+   "z": -1.25,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6388,16 +6442,16 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.88,
+   "z": -0.86,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "interconnect",
    "product": "copper",
-   "heat": 9.887,
+   "heat": 10.241,
    "count": 8,
-   "z": 2.11,
+   "z": 2.15,
    "level": "hot",
    "signal_ids": [
     "5037a4d7e94816a7",
@@ -6419,7 +6473,7 @@
    "product": "target",
    "heat": 8.036,
    "count": 4,
-   "z": 0.52,
+   "z": 0.51,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6437,7 +6491,7 @@
    "product": "titanium",
    "heat": 1.029,
    "count": 1,
-   "z": -0.41,
+   "z": -0.42,
    "level": "neutral",
    "signal_ids": [
     "5c7c653be4039eb3"
@@ -6448,7 +6502,7 @@
    "product": "nickel",
    "heat": 8.428,
    "count": 5,
-   "z": 0.45,
+   "z": 0.44,
    "level": "neutral",
    "signal_ids": [
     "28cbd92423e3e431",
@@ -6495,6 +6549,7 @@
   "4b9ee0956b9fdb6f": [],
   "5128cdcb1aab1e62": [],
   "519a5f4b8ab3831f": [],
+  "526b7253fd9edca6": [],
   "577b7d8cfd94725c": [],
   "5a98528c30ed9a7e": [],
   "62c4d2d0bb748b93": [],

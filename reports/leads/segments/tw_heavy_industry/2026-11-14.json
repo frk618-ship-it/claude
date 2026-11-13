@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T16:43:28+00:00",
+ "generated": "2026-11-13T17:16:37+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -231,13 +231,13 @@
    "product": "titanium",
    "industry": "chemical",
    "region": "TW",
-   "heat": 11.099,
+   "heat": 11.096,
    "count": 9,
    "z": 6.46,
    "level": "hot",
    "trend": "new",
    "history": [
-    11.099
+    11.096
    ],
    "signal_ids": [
     "6f2998ba08de3eef",
@@ -251,9 +251,9 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
+    "9cb99295712255e0",
     "9e87397c99bc6473",
     "7a7e5e8f21e62847",
-    "9cb99295712255e0",
     "6816d751ad562a8c",
     "91c15886f3cd8538",
     "d4997b251396ddc4"
@@ -347,13 +347,13 @@
    "product": "nickel",
    "industry": "chemical",
    "region": "TW",
-   "heat": 13.624,
+   "heat": 13.621,
    "count": 12,
    "z": 6.36,
    "level": "hot",
    "trend": "new",
    "history": [
-    13.624
+    13.621
    ],
    "signal_ids": [
     "6f2998ba08de3eef",
@@ -367,9 +367,9 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
+    "9cb99295712255e0",
     "9e87397c99bc6473",
     "7a7e5e8f21e62847",
-    "9cb99295712255e0",
     "6816d751ad562a8c",
     "6816f190fb425533",
     "91c15886f3cd8538",
@@ -439,13 +439,13 @@
    "product": "titanium",
    "industry": "chemical",
    "region": "TW",
-   "heat": 11.099,
+   "heat": 11.096,
    "count": 9,
    "z": 6.46,
    "level": "hot",
    "trend": "new",
    "history": [
-    11.099
+    11.096
    ],
    "signal_ids": [
     "6f2998ba08de3eef",
@@ -459,20 +459,20 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
-    "9e87397c99bc6473"
+    "9cb99295712255e0"
    ]
   },
   {
    "product": "nickel",
    "industry": "chemical",
    "region": "TW",
-   "heat": 13.624,
+   "heat": 13.621,
    "count": 12,
    "z": 6.36,
    "level": "hot",
    "trend": "new",
    "history": [
-    13.624
+    13.621
    ],
    "signal_ids": [
     "6f2998ba08de3eef",
@@ -486,7 +486,7 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
-    "9e87397c99bc6473"
+    "9cb99295712255e0"
    ]
   },
   {
@@ -1812,44 +1812,6 @@
    "heat": 1.489
   },
   {
-   "id": "9cb99295712255e0",
-   "title": "台塑新智能估砸400億元彰濱擴產 董座王瑞瑜：要做AI資料中心長期夥伴",
-   "link": "https://news.google.com/rss/articles/CBMivwNBVV95cUxNNnVHai0zMFlmQ3c2ZFV6UkhlSHpTZHh0d0NIRmlBcWJqWml6c3VjQ09EbTNTbGNubTlEWjBjUGNpczh2cGZJbFNpU0I5Sk1aQndESXFmTTVDYjNtQ1Vya0JBOGJibTdjeTc3OF9ON1F1eFI1clM0djByN2xXMUpfNy1vcE42NjlxSkx6TnZ6eDY5RkdEeUEtTEhLcW14U0Z2eHdRZ2x2OXJLdXpBMklDX3Q1V2p3clNtaVZrNzF5c3hicC1OclFsWWhpQjhvSVRWcU1oTFdYQzdDd1pDZ1Q4cF9mTmN1TXVYejEycGVxSmNtZGo1Z1A2dFBVZHFUUjQyNU03SVpqMlVneUhIdHBWN1BSeXhObFFWcXlWaXJXZVFxYzlBbE5vYURsZUlPeTN0X0huRjZCc011akNDN1o4dFBxX01wdXJaOUxXOGdVR3NiYnBwMWwzQUpOTnFsR1NyTHFMZEN1d05PTkJuckVsTWVSeHFMMzJZU3NiRTdmbnpmYVZmM3FWdWNZa3BPYjlIMWVCeFhqaVZrQ291c2RCeG54NHJOeFpqaFVmbEVOMlN0NDNfaUZnbmFVZmM3bFU?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-10-14",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "titanium",
-    "nickel"
-   ],
-   "industries": {
-    "titanium": "chemical",
-    "nickel": "chemical"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台塑"
-   ],
-   "accounts": [
-    "台塑"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.489
-  },
-  {
    "id": "7a7e5e8f21e62847",
    "title": "《能源週》台塑新智能彰濱二期擴產，長線投資逾400億",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZEp0R1FNOGpZSlQyd2tSUTRRbXJwNzd6TGpWVkxnRGVCV0wzU2l2VTByLVZhaEhMSVpzR1M2dVNTRFpJNXFCcFlBNEtFMmppSzhfX2hzQWo5YkdwWVRCUnRPZURvVnZLaWlsekxqcC10TjZIV25GV0VRNkpTcUU1cG1UeFY3d1oxVnBySW03YmVxQQ?oc=5",
@@ -1886,6 +1848,44 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.489
+  },
+  {
+   "id": "9cb99295712255e0",
+   "title": "台塑新智能估砸400億元彰濱擴產 董座王瑞瑜：要做AI資料中心長期夥伴",
+   "link": "https://news.google.com/rss/articles/CBMivwNBVV95cUxNNnVHai0zMFlmQ3c2ZFV6UkhlSHpTZHh0d0NIRmlBcWJqWml6c3VjQ09EbTNTbGNubTlEWjBjUGNpczh2cGZJbFNpU0I5Sk1aQndESXFmTTVDYjNtQ1Vya0JBOGJibTdjeTc3OF9ON1F1eFI1clM0djByN2xXMUpfNy1vcE42NjlxSkx6TnZ6eDY5RkdEeUEtTEhLcW14U0Z2eHdRZ2x2OXJLdXpBMklDX3Q1V2p3clNtaVZrNzF5c3hicC1OclFsWWhpQjhvSVRWcU1oTFdYQzdDd1pDZ1Q4cF9mTmN1TXVYejEycGVxSmNtZGo1Z1A2dFBVZHFUUjQyNU03SVpqMlVneUhIdHBWN1BSeXhObFFWcXlWaXJXZVFxYzlBbE5vYURsZUlPeTN0X0huRjZCc011akNDN1o4dFBxX01wdXJaOUxXOGdVR3NiYnBwMWwzQUpOTnFsR1NyTHFMZEN1d05PTkJuckVsTWVSeHFMMzJZU3NiRTdmbnpmYVZmM3FWdWNZa3BPYjlIMWVCeFhqaVZrQ291c2RCeG54NHJOeFpqaFVmbEVOMlN0NDNfaUZnbmFVZmM3bFU?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-10-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "titanium",
+    "nickel"
+   ],
+   "industries": {
+    "titanium": "chemical",
+    "nickel": "chemical"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台塑"
+   ],
+   "accounts": [
+    "台塑"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.466
   },
   {
    "id": "02e86ed2c2ab324d",
@@ -4321,7 +4321,7 @@
   {
    "subsegment": "chemical",
    "product": "titanium",
-   "heat": 10.415,
+   "heat": 10.413,
    "count": 9,
    "z": 2.47,
    "level": "hot",
@@ -4335,15 +4335,15 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
+    "9cb99295712255e0",
     "9e87397c99bc6473",
-    "7a7e5e8f21e62847",
-    "9cb99295712255e0"
+    "7a7e5e8f21e62847"
    ]
   },
   {
    "subsegment": "chemical",
    "product": "nickel",
-   "heat": 13.624,
+   "heat": 13.621,
    "count": 12,
    "z": 3.12,
    "level": "hot",
@@ -4359,7 +4359,7 @@
     "7efc8d9859d1b79b",
     "4bd323ae3cea394d",
     "02e86ed2c2ab324d",
-    "9e87397c99bc6473"
+    "9cb99295712255e0"
    ]
   },
   {
@@ -4376,7 +4376,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.91,
+   "z": -1.92,
    "level": "neutral",
    "signal_ids": []
   },

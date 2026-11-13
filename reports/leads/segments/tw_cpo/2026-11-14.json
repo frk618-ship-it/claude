@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T16:44:00+00:00",
+ "generated": "2026-11-13T17:17:08+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -183,9 +183,9 @@
   }
  },
  "stats": {
-  "signals": 119,
-  "attributed": 119,
-  "new_signals": 7,
+  "signals": 113,
+  "attributed": 113,
+  "new_signals": 6,
   "hot_cells": 6,
   "warm_cells": 1,
   "leads": 18,
@@ -193,16 +193,16 @@
    "A": 0,
    "B": 1,
    "C": 6,
-   "D": 15
+   "D": 14
   },
   "enriched": 0,
   "by_product": {
-   "target": 50,
-   "titanium": 21,
+   "target": 44,
+   "titanium": 15,
    "nickel": 6,
    "copper": 95
   },
-  "other_mentions": 10,
+  "other_mentions": 9,
   "accounts": 18,
   "tiers": {
    "優先開發": 0,
@@ -217,7 +217,7 @@
    "region": "TW",
    "heat": 10.007,
    "count": 6,
-   "z": 4.49,
+   "z": 4.79,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -249,13 +249,13 @@
    "product": "target",
    "industry": "cpo",
    "region": "TW",
-   "heat": 14.71,
-   "count": 14,
-   "z": 5.67,
+   "heat": 12.52,
+   "count": 11,
+   "z": 5.49,
    "level": "hot",
    "trend": "new",
    "history": [
-    14.71
+    12.52
    ],
    "signal_ids": [
     "7e1672bb00424ba8",
@@ -264,7 +264,6 @@
     "b96e4e6b68016aee",
     "729ba267dd6f698c",
     "bff5de388733a151",
-    "66631b8469f6651b",
     "0596968a3341e405",
     "81cee755682a7e2f",
     "25a97b08797fbe4b",
@@ -275,44 +274,34 @@
     "a86ae3101d82dd73",
     "5bb2f01e338ded40",
     "3abf730d54e79b7f",
-    "ab3aea7af436aa7d",
     "935395e72d53d871",
     "631118f640bef23f",
     "cbb438a24d1d4c9b",
-    "1eca502eaafc7ea0",
     "3c51075904b573f7",
-    "cb5ee5af53082d97",
-    "e4d6cc69bf4f2029",
     "54e4df494c52327b",
     "0603f94c1f0924bc",
     "3ac43f5f8fd51b9a",
     "0d15530f1c8f308c",
-    "58cd83d7065fa196",
-    "1f79c7dc27a2e467"
+    "58cd83d7065fa196"
    ]
   },
   {
    "product": "titanium",
    "industry": "cpo",
    "region": "TW",
-   "heat": 10.77,
-   "count": 8,
+   "heat": 8.581,
+   "count": 5,
    "z": 6.58,
    "level": "hot",
    "trend": "new",
    "history": [
-    10.77
+    8.581
    ],
    "signal_ids": [
-    "66631b8469f6651b",
-    "ab3aea7af436aa7d",
     "266737a8d793851e",
     "631118f640bef23f",
     "cbb438a24d1d4c9b",
-    "1eca502eaafc7ea0",
     "68cc6d1880dc02f6",
-    "cb5ee5af53082d97",
-    "e4d6cc69bf4f2029",
     "dfdb857bb6828222",
     "55da103bce89a169",
     "48c9e5a4e76ea912",
@@ -323,8 +312,7 @@
     "6221a812837a1354",
     "d3436283b0d33cc1",
     "67a91338b01eebe8",
-    "58cd83d7065fa196",
-    "1f79c7dc27a2e467"
+    "58cd83d7065fa196"
    ]
   },
   {
@@ -528,27 +516,27 @@
    "product": "titanium",
    "industry": "cpo",
    "region": "TW",
-   "heat": 10.77,
-   "count": 8,
+   "heat": 8.581,
+   "count": 5,
    "z": 6.58,
    "level": "hot",
    "trend": "new",
    "history": [
-    10.77
+    8.581
    ],
    "signal_ids": [
-    "66631b8469f6651b",
-    "ab3aea7af436aa7d",
     "266737a8d793851e",
     "631118f640bef23f",
     "cbb438a24d1d4c9b",
-    "1eca502eaafc7ea0",
     "68cc6d1880dc02f6",
-    "cb5ee5af53082d97",
-    "e4d6cc69bf4f2029",
     "dfdb857bb6828222",
     "55da103bce89a169",
-    "48c9e5a4e76ea912"
+    "48c9e5a4e76ea912",
+    "489a62cb460a95c1",
+    "079fa22c8092db84",
+    "8148d310bd56d625",
+    "e1cbbe3a5a5d890b",
+    "6221a812837a1354"
    ]
   },
   {
@@ -582,13 +570,13 @@
    "product": "target",
    "industry": "cpo",
    "region": "TW",
-   "heat": 14.71,
-   "count": 14,
-   "z": 5.67,
+   "heat": 12.52,
+   "count": 11,
+   "z": 5.49,
    "level": "hot",
    "trend": "new",
    "history": [
-    14.71
+    12.52
    ],
    "signal_ids": [
     "7e1672bb00424ba8",
@@ -597,12 +585,12 @@
     "b96e4e6b68016aee",
     "729ba267dd6f698c",
     "bff5de388733a151",
-    "66631b8469f6651b",
     "0596968a3341e405",
     "81cee755682a7e2f",
     "25a97b08797fbe4b",
     "949d4b6adfdfe054",
-    "5d7755fc7745d8f2"
+    "5d7755fc7745d8f2",
+    "c5dbc799f0eb08b1"
    ]
   },
   {
@@ -611,7 +599,7 @@
    "region": "TW",
    "heat": 10.007,
    "count": 6,
-   "z": 4.49,
+   "z": 4.79,
    "level": "hot",
    "trend": "new",
    "history": [
@@ -702,7 +690,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.38
+    "z": 3.54
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -727,7 +715,7 @@
   {
    "org": "統新光訊",
    "account": true,
-   "score": 61.5,
+   "score": 55.7,
    "grade": "積極經營",
    "product": "target",
    "products": [
@@ -739,17 +727,16 @@
    "top_intent": "expansion",
    "intents": [
     "expansion",
-    "contract",
-    "shortage"
+    "contract"
    ],
-   "signals": 5,
+   "signals": 2,
    "first_seen": "2026-11-14",
    "last_signal": "2026-11-10",
    "new": true,
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.48
+    "z": -0.02
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -757,18 +744,13 @@
    "need": "",
    "evidence": [
     "58cd83d7065fa196",
-    "e4d6cc69bf4f2029",
-    "ab3aea7af436aa7d",
     "cbb438a24d1d4c9b",
-    "66631b8469f6651b",
-    "1f79c7dc27a2e467",
-    "cb5ee5af53082d97",
-    "1eca502eaafc7ea0"
+    "631118f640bef23f"
    ],
-   "signal_score": 35.9,
+   "signal_score": 26.1,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 21.5,
+   "signal_part": 15.7,
    "value_part": 0.0
   },
   {
@@ -891,7 +873,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.67
+    "z": 1.81
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -940,7 +922,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.38
+    "z": 3.54
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -986,7 +968,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.67
+    "z": 1.81
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1029,9 +1011,9 @@
    "last_signal": "2026-10-13",
    "new": false,
    "hotspot": {
-    "level": "warm",
+    "level": "hot",
     "trend": "",
-    "z": 1.85
+    "z": 2.0
    },
    "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1077,9 +1059,9 @@
    "last_signal": "2026-10-12",
    "new": true,
    "hotspot": {
-    "level": "warm",
+    "level": "hot",
     "trend": "",
-    "z": 1.85
+    "z": 2.0
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1121,9 +1103,9 @@
    "last_signal": "2026-09-10",
    "new": true,
    "hotspot": {
-    "level": "warm",
+    "level": "hot",
     "trend": "",
-    "z": 1.85
+    "z": 2.0
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1199,9 +1181,9 @@
    "last_signal": "2026-10-28",
    "new": true,
    "hotspot": {
-    "level": "warm",
+    "level": "hot",
     "trend": "",
-    "z": 1.85
+    "z": 2.0
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1232,7 +1214,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.52
+    "z": -1.56
    },
    "need": "",
    "evidence": [],
@@ -1265,7 +1247,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.52
+    "z": -1.56
    },
    "need": "",
    "evidence": [],
@@ -1298,7 +1280,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 0.54
+    "z": 0.67
    },
    "need": "",
    "evidence": [],
@@ -1331,7 +1313,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.52
+    "z": -1.56
    },
    "need": "",
    "evidence": [],
@@ -1364,7 +1346,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.07
+    "z": -0.09
    },
    "need": "",
    "evidence": [],
@@ -1397,7 +1379,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -0.07
+    "z": -0.09
    },
    "need": "",
    "evidence": [],
@@ -1597,44 +1579,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 2.257
-  },
-  {
-   "id": "1f79c7dc27a2e467",
-   "title": "統新前3Q EPS為5.02元較去年虧轉盈 新產線於2027年Q1起陸續量產",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5OaENqcEVCamx1SXpubUtDVG1ocXlSQWV2X253bGlrT1h6OWRoRzlwSEJ0WlBtaHBvN1V1Y3VhcV96ZHdpRFZRV1E4cGs1TkE?oc=5",
-   "source": "鉅亨網",
-   "published": "2026-11-10",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": true,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.677
   },
   {
    "id": "731d575b46dc9dfd",
@@ -2375,8 +2319,7 @@
    ],
    "region": "TW",
    "orgs": [
-    "光環科技",
-    "上游材料"
+    "光環科技"
    ],
    "accounts": [
     "光環科技"
@@ -2620,82 +2563,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.354
-  },
-  {
-   "id": "e4d6cc69bf4f2029",
-   "title": "大統新創看Q4訂單回溫；拓展中國戶外品牌- 新聞",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOYl9FY3F6bW5iZFJoT1RlS3VKbExsRVJyYnhLSjdIVXBkLTZWVTFfcjZ6NERzek9abTl5SXFIWHhjVERBYnhEc2xpU1dTbkU1T18yWU00b2VRaXAwa1pxZGVYdi1DTXAwek5LNU8wb0hmbHFZOS1LYjctZjNpMVlhQmhoMzNFQUoySWhCNS03WXRlUQ?oc=5",
-   "source": "MoneyDJ",
-   "published": "2026-09-24",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.821
-  },
-  {
-   "id": "cb5ee5af53082d97",
-   "title": "今日最夯股／光通訊訂單滿載 統新漲停創新高 | 市場焦點 | 證券",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9MTFRTaV9WUjcxeVlOMDdrbUNsZ0VOUjBjZy1zTTc5U0o1M2MtLXF2VGdhSFhpYW9CcVAwZ1lNdnJwMUtxb0pmN3ZWTnJBS1NNRU1oSlFvSlNkQQ?oc=5",
-   "source": "經濟日報",
-   "published": "2026-09-23",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": true,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.242
   },
   {
    "id": "bd5df0614de7f35d",
@@ -3172,44 +3039,6 @@
    ],
    "accounts": [
     "穎崴"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": true,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.192
-  },
-  {
-   "id": "1eca502eaafc7ea0",
-   "title": "【即時新聞】最新統新連三漲亮燈，訂單看4個月法人狂掃小心拉回！",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQNnMwbnFBdUZjM2NEd20xeERHTnFWdDN3QVl0NU12ZGluY080Yk1QeW8tdEJGT1VrRlhxSVZtRXJVVG83VW1oNjY5a0JOWTBkVDc4R183Wk80ZVpkbzQ1SVdPbllOLXRHSVhWWXVReEZNdTZKSm02bGhLY2ZGd3E5LWZZR0paV2hybU1WZWxDcU8?oc=5",
-   "source": "CMoney投資網誌",
-   "published": "2026-09-08",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -4091,44 +3920,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.541
-  },
-  {
-   "id": "ab3aea7af436aa7d",
-   "title": "統新法說會／產線接近滿載、出貨交期拉長 後續仍有成長動能",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBSdjRiZXF0WDZOTlNwMTRJaTE0ZlRYUGNsY0RyVFZmZDg1WFMwODM1MU5xTWxaYVVsd3hmM29pOUlvOHBEOEd1aDc4bzdSSDZKNngyZFlPVWhBd9IBX0FVX3lxTE9iblVnczlXR2JzZnFmdVg5eWpZZkplV1IyazlGcktia0p4WlQzUmdncTFZQmdLMUtmcG5nRUlobVhXUWZQVnlPd2ZDZk5fdXZ3Rm9jNU9kNWVMWDYtd1pZ?oc=5",
-   "source": "經濟日報",
-   "published": "2026-08-27",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "shortage"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.711
   },
   {
    "id": "5bb2f01e338ded40",
@@ -5458,44 +5249,6 @@
    "heat": 0.152
   },
   {
-   "id": "66631b8469f6651b",
-   "title": "統新美國訂單能見度拉長，光通訊濾光片續放量",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPN0ZOdFVSSVN2WHJfVzQ0UkdyRkVNcGY4eFlPZ1Y4dWdJVGoyNXM1WHVYbkhMcEI1VjhsbHAzM0hBMVFLMTZ4Q1hlaHFONU1EQkdtMm8wbmN1aF9ESlIzSW82Rm9yM19MT2YybWFVS0NkMlZMdlVjeHNFdTBOSUp1M0ZiVFJlZ1BqLTQxMmhWQUlkQQ?oc=5",
-   "source": "台視全球資訊網",
-   "published": "2026-08-05",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium"
-   ],
-   "industries": {
-    "target": "cpo",
-    "titanium": "cpo"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "統新光訊"
-   ],
-   "accounts": [
-    "統新光訊"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.38
-  },
-  {
    "id": "729ba267dd6f698c",
    "title": "輝達高層證實 CPO 進入量產！光通訊族群鎖死漲停，聯亞、智邦衝鋒",
    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1GQ2RRTW9ILS04YWctUGQxWWIwUFE4N1lTOUZzMjBreGtwaE1BeW94SXh1aWdvTFpMeGUyYnlHcnBDWEpIaF9wODYzeDNCdmk2MlRkNE8zV2I?oc=5",
@@ -5970,18 +5723,18 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 5.13,
-    "titanium": 5.13,
+    "target": 2.95,
+    "titanium": 2.95,
     "nickel": 0.0,
     "copper": 0.0
    },
-   "signal_score": 35.9,
-   "signals": 5,
+   "signal_score": 26.1,
+   "signals": 2,
    "top_intent": "expansion",
    "last_signal": "2026-11-10",
-   "opportunity": 61.5,
+   "opportunity": 55.7,
    "fit_part": 40.0,
-   "signal_part": 21.5,
+   "signal_part": 15.7,
    "value_part": 0.0,
    "value_score": 0.0,
    "estimate": {
@@ -5996,31 +5749,21 @@
    "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
    "evidence": [
     "58cd83d7065fa196",
-    "e4d6cc69bf4f2029",
-    "ab3aea7af436aa7d",
     "cbb438a24d1d4c9b",
-    "66631b8469f6651b",
-    "1f79c7dc27a2e467",
-    "cb5ee5af53082d97",
-    "1eca502eaafc7ea0"
+    "631118f640bef23f"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 9
+    "inferred": 3
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 9 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 3 則;材料依產品適配度推估",
    "evidence_basis": {
     "58cd83d7065fa196": "inferred",
-    "e4d6cc69bf4f2029": "inferred",
-    "ab3aea7af436aa7d": "inferred",
     "cbb438a24d1d4c9b": "inferred",
-    "66631b8469f6651b": "inferred",
-    "1f79c7dc27a2e467": "inferred",
-    "cb5ee5af53082d97": "inferred",
-    "1eca502eaafc7ea0": "inferred"
+    "631118f640bef23f": "inferred"
    }
   },
   {
@@ -7015,16 +6758,6 @@
    ]
   },
   {
-   "org": "上游材料",
-   "signal_score": 6.9,
-   "signals": 1,
-   "last_signal": "2026-10-13",
-   "product": "copper",
-   "evidence": [
-    "501f36e4855e9700"
-   ]
-  },
-  {
    "org": "帆宣系統",
    "signal_score": 5.7,
    "signals": 2,
@@ -7104,7 +6837,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.57,
+   "z": -0.6,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7113,7 +6846,7 @@
    "product": "nickel",
    "heat": 0.517,
    "count": 1,
-   "z": -0.95,
+   "z": -0.84,
    "level": "neutral",
    "signal_ids": [
     "c5dbc799f0eb08b1"
@@ -7124,8 +6857,8 @@
    "product": "copper",
    "heat": 4.098,
    "count": 4,
-   "z": 1.84,
-   "level": "warm",
+   "z": 1.99,
+   "level": "hot",
    "signal_ids": [
     "dadd22db474cd3f6",
     "7dd0a576fc4ba1de",
@@ -7142,7 +6875,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.14,
+   "z": -0.17,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7151,7 +6884,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.04,
+   "z": -1.08,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7160,7 +6893,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.46,
+   "z": -1.36,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7169,7 +6902,7 @@
    "product": "copper",
    "heat": 7.502,
    "count": 7,
-   "z": 1.67,
+   "z": 1.81,
    "level": "warm",
    "signal_ids": [
     "b451da472c60f4c5",
@@ -7191,7 +6924,7 @@
    "product": "target",
    "heat": 0.085,
    "count": 0,
-   "z": -0.05,
+   "z": -0.08,
    "level": "neutral",
    "signal_ids": [
     "ea5f33d7ae11726d"
@@ -7202,7 +6935,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.96,
+   "z": -0.99,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7211,7 +6944,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.37,
+   "z": -1.27,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7220,8 +6953,8 @@
    "product": "copper",
    "heat": 8.69,
    "count": 9,
-   "z": 1.85,
-   "level": "warm",
+   "z": 2.0,
+   "level": "hot",
    "signal_ids": [
     "5021247b03767200",
     "2eafe37cfe3708d5",
@@ -7242,7 +6975,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.62,
+   "z": -0.66,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7251,7 +6984,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.52,
+   "z": -1.56,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7260,7 +6993,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.94,
+   "z": -1.85,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7269,46 +7002,34 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 0.54,
+   "z": 0.67,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "coating",
    "product": "target",
-   "heat": 5.134,
-   "count": 5,
-   "z": 0.48,
+   "heat": 2.945,
+   "count": 2,
+   "z": -0.02,
    "level": "neutral",
    "signal_ids": [
-    "66631b8469f6651b",
-    "ab3aea7af436aa7d",
     "631118f640bef23f",
     "cbb438a24d1d4c9b",
-    "1eca502eaafc7ea0",
-    "cb5ee5af53082d97",
-    "e4d6cc69bf4f2029",
-    "58cd83d7065fa196",
-    "1f79c7dc27a2e467"
+    "58cd83d7065fa196"
    ]
   },
   {
    "subsegment": "coating",
    "product": "titanium",
-   "heat": 5.134,
-   "count": 5,
-   "z": -0.42,
+   "heat": 2.945,
+   "count": 2,
+   "z": -0.92,
    "level": "neutral",
    "signal_ids": [
-    "66631b8469f6651b",
-    "ab3aea7af436aa7d",
     "631118f640bef23f",
     "cbb438a24d1d4c9b",
-    "1eca502eaafc7ea0",
-    "cb5ee5af53082d97",
-    "e4d6cc69bf4f2029",
-    "58cd83d7065fa196",
-    "1f79c7dc27a2e467"
+    "58cd83d7065fa196"
    ]
   },
   {
@@ -7316,7 +7037,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.28,
+   "z": -1.46,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7325,7 +7046,7 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 1.2,
+   "z": 1.05,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7334,7 +7055,7 @@
    "product": "target",
    "heat": 3.263,
    "count": 3,
-   "z": 1.11,
+   "z": 1.1,
    "level": "warm",
    "signal_ids": [
     "615f1cbb10740e06",
@@ -7347,7 +7068,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.07,
+   "z": -0.09,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7356,7 +7077,7 @@
    "product": "nickel",
    "heat": 3.263,
    "count": 3,
-   "z": -0.2,
+   "z": -0.09,
    "level": "neutral",
    "signal_ids": [
     "615f1cbb10740e06",
@@ -7369,7 +7090,7 @@
    "product": "copper",
    "heat": 16.1,
    "count": 13,
-   "z": 3.38,
+   "z": 3.54,
    "level": "hot",
    "signal_ids": [
     "dc9330cb7bbe4bf7",
@@ -7391,7 +7112,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.62,
+   "z": -0.66,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7400,7 +7121,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.52,
+   "z": -1.56,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7409,7 +7130,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.94,
+   "z": -1.85,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7418,7 +7139,7 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 0.54,
+   "z": 0.67,
    "level": "neutral",
    "signal_ids": []
   },
@@ -7427,7 +7148,7 @@
    "product": "target",
    "heat": 6.105,
    "count": 3,
-   "z": 1.1,
+   "z": 1.09,
    "level": "neutral",
    "signal_ids": [
     "28871d27e3a0153c",
@@ -7449,7 +7170,7 @@
    "product": "titanium",
    "heat": 5.636,
    "count": 3,
-   "z": 0.16,
+   "z": 0.14,
    "level": "neutral",
    "signal_ids": [
     "266737a8d793851e",
@@ -7471,7 +7192,7 @@
    "product": "nickel",
    "heat": 0.469,
    "count": 0,
-   "z": -0.7,
+   "z": -0.59,
    "level": "neutral",
    "signal_ids": [
     "28871d27e3a0153c",
@@ -7483,7 +7204,7 @@
    "product": "copper",
    "heat": 6.459,
    "count": 3,
-   "z": 2.3,
+   "z": 2.45,
    "level": "neutral",
    "signal_ids": [
     "28871d27e3a0153c",
@@ -7510,8 +7231,6 @@
   "146911f12ae32347": [],
   "17d82a30b64e2965": [],
   "1e84105aaf9c8f57": [],
-  "1eca502eaafc7ea0": [],
-  "1f79c7dc27a2e467": [],
   "2464d1957d8d5fa4": [],
   "25a97b08797fbe4b": [],
   "294ef4da6e1501ab": [],
@@ -7531,8 +7250,8 @@
   "5d7755fc7745d8f2": [],
   "5fdfa4d3a0b8ff4e": [],
   "615f1cbb10740e06": [],
+  "631118f640bef23f": [],
   "6347cdf84d13dd52": [],
-  "66631b8469f6651b": [],
   "6a2af8c465237ac1": [],
   "6d5ba320da3db370": [],
   "731d575b46dc9dfd": [],
@@ -7549,7 +7268,6 @@
   "a0a3ec30f33d5eac": [],
   "a331e6b2bb294c33": [],
   "a9f5ce0198429b3f": [],
-  "ab3aea7af436aa7d": [],
   "b451da472c60f4c5": [],
   "b8dc1e74d756ccdc": [],
   "bc1fb84f7f46b5a3": [],
@@ -7558,13 +7276,11 @@
   "c0089bf01133adfd": [],
   "c5dbc799f0eb08b1": [],
   "c93f8c74c00cc984": [],
-  "cb5ee5af53082d97": [],
   "cbb438a24d1d4c9b": [],
   "d02a50bbaace7770": [],
   "dadd22db474cd3f6": [],
   "dc9330cb7bbe4bf7": [],
   "e0a32e40efaeda12": [],
-  "e4d6cc69bf4f2029": [],
   "ea5f33d7ae11726d": [],
   "ec72c5782e686191": [],
   "eca02a754eb6444e": [],
