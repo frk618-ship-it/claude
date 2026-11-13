@@ -2,19 +2,21 @@
   "generated": "2026-11-13T08:44:31.530720+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 44 則,其中新聞與公司公告 34 則;報導最多的是 江豐電子(14 則)、Singulus Technologies(11 則)、JX金屬(4 則)、古屋金屬(2 則)。依主題:產業動態 26 則、原物料與價格 4 則、技術與新產品 2 則、併購與合作 2 則。",
+    "overview": "本期最大焦點是江豐電子向港交所遞交 H 股上市申請,招股資料稱其為全球第二大超高純金屬濺射靶材供應商,赴港募資可望支撐後續擴產,與 JX金屬的競爭將更受關注。另一主線是德國設備商 Singulus 取得 SpaceX 的 HJT 太陽能整廠產線合約,消息帶動股價翻倍;HJT 電池的透明導電膜需大量使用 ITO 等濺鍍靶材,值得追蹤後續產能落地。JX金屬方面,與 Oxide 資本業務合作並發布整合報告。貴金屬全面重挫,美國通膨升溫與聯準會 12 月升息預期使金價跌破 3,900 美元、創逾一年新低,白銀與鈀金跌幅更大,有利貴金屬靶材原料成本。",
     "key_trends": [
-      "產業動態(26 則):江豐電子：公司已於11月12日向港交所遞交H股發行上市申請",
-      "原物料與價格(4 則):JX Advanced Metals Corporation (JXAMY) Stock Price, News, Quote & History",
-      "技術與新產品(2 則):日月光成長加速！旗下矽品CoWoS、CPO背後貴人：輝達！研發大將還原10年佈局新賽道",
-      "併購與合作(2 則):Investors Acquire 16.75% Stake in German manufacturer Singulus Technologies"
+      "江豐電子赴港上市,中國靶材龍頭擴大國際募資管道",
+      "SpaceX 向 Singulus 訂購 HJT 太陽能產線,太陽能 TCO 鍍膜與靶材需求受關注",
+      "JX金屬透過與 Oxide 資本業務合作延伸材料布局",
+      "日月光/矽品在 CoWoS、CPO 先進封裝的布局持續擴大",
+      "美國通膨與升息預期壓低金、銀、鉑、鈀價格"
     ],
     "watch_points": [
-      "日月光成長加速！旗下矽品CoWoS、CPO背後貴人：輝達！研發大將還原10年佈局新賽道(CMoney)",
-      "Investors Acquire 16.75% Stake in German manufacturer Singulus Technologies(Leaders League)",
-      "オキサイド---ストップ高買い気配、JX金屬と資本業務提攜し約27億円調達(フィスコ)(Yahoo!ファイナンス)"
+      "江豐電子 H 股募資規模與用途,是否用於靶材擴產",
+      "Singulus 的 SpaceX 訂單實際規模(100 GW 數字仍不明確)與 ITO 靶材採購動向",
+      "貴金屬價格是否續跌,對金、銀、鈀靶材報價的影響",
+      "美國 PPI 與聯準會 12 月利率決策"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -30,11 +32,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 4.65,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導回顧日月光旗下矽品在 CoWoS 與 CPO 的十年布局,指輝達是其成長推手;先進封裝產能擴張將帶動凸塊、RDL 等 PVD 製程與靶材需求。",
+      "importance": 4,
       "title_zh": "日月光成長加速！旗下矽品CoWoS、CPO背後貴人：輝達！研發大將還原10年佈局新賽道",
       "snippet_zh": ""
     },
@@ -53,9 +56,9 @@
         "併購與合作"
       ],
       "score": 4.44,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "投資人取得德國濺鍍設備商 Singulus Technologies 16.75% 股權,公司股權結構出現變化,值得留意後續經營方向。",
+      "importance": 3,
+      "title_zh": "投資人取得德國設備商 Singulus Technologies 16.75% 股權",
       "snippet_zh": ""
     },
     {
@@ -73,9 +76,9 @@
         "併購與合作"
       ],
       "score": 4.07,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Oxide 宣布與 JX金屬資本業務合作並籌資約 27 億日圓,股價漲停買單湧入;JX金屬藉此強化與單晶材料廠的合作布局。",
+      "importance": 4,
+      "title_zh": "Oxide 股價漲停買盤湧現,與 JX金屬資本業務合作籌資約 27 億日圓(FISCO)",
       "snippet_zh": ""
     },
     {
@@ -94,8 +97,8 @@
         "技術與新產品"
       ],
       "score": 4.02,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價急跌,盤中一度失守 3,930 美元,市場關注技術面支撐;貴金屬價格下行可減輕金靶等貴金屬靶材的原料成本。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -111,12 +114,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.75,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬(JXAMY)股價、新聞與報價資訊頁,本身不含新事件。",
+      "importance": 1,
+      "title_zh": "JX金屬(JXAMY)股價、新聞、報價與歷史資料",
       "snippet_zh": ""
     },
     {
@@ -131,11 +135,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "原物料與價格"
       ],
       "score": 3.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子向香港聯交所遞交 H 股發行上市申請並刊發申請資料,擬在 A 股之外增加境外募資管道,可能挹注其靶材擴產。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -151,11 +156,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "原物料與價格"
       ],
       "score": 3.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所,招股資料指其在全球超高純金屬濺射靶材供應商中位列第二;赴港上市有助提升其國際能見度與擴產資金。",
+      "importance": 4,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -171,11 +177,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "原物料與價格"
       ],
       "score": 3.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子向港交所遞交 H 股上市申請,與同日多則報導內容一致。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -191,12 +198,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "技術與新產品"
       ],
       "score": 3.72,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "旭化成、Circularise 與古屋金屬啟動食鹽電解用電極的貴金屬溯源實證,追蹤貴金屬回收與循環履歷,與貴金屬材料再生議題相關。",
+      "importance": 2,
+      "title_zh": "旭化成、Circularise 與古屋金屬啟動食鹽電解電極貴金屬溯源實證計畫",
       "snippet_zh": ""
     },
     {
@@ -214,9 +222,9 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元走強,分析師下修金價目標區間;貴金屬價格走弱對貴金屬靶材成本屬利多。",
+      "importance": 2,
+      "title_zh": "黃金(XAU/USD)價格預測:美元走強,下檔目標擴大",
       "snippet_zh": ""
     },
     {
@@ -231,11 +239,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告已於 11 月 12 日向港交所遞交 H 股發行上市申請。",
+      "importance": 3,
       "title_zh": "江豐電子：公司已於11月12日向港交所遞交H股發行上市申請",
       "snippet_zh": ""
     },
@@ -251,12 +260,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 將供應 SpaceX 達 100 GW 的太陽能電池製造設備;這類太陽能產線包含濺鍍鍍膜機台,可能帶動相關靶材需求。",
+      "importance": 4,
+      "title_zh": "Singulus 將供應 SpaceX 100 GW 太陽能製造設備",
       "snippet_zh": ""
     },
     {
@@ -271,11 +281,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子於 11 月 12 日向香港聯交所遞交 H 股上市申請。",
+      "importance": 3,
       "title_zh": "江豐電子11月12日向香港聯交所遞交H股上市申請",
       "snippet_zh": ""
     },
@@ -291,11 +302,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子向港交所遞交 H 股發行上市申請並刊發申請資料,為同一事件的轉載報導。",
+      "importance": 3,
       "title_zh": "江豐電子(300666.SZ)向香港聯交所遞交H股發行上市申請並刊發申請資料 提供者 智通財經",
       "snippet_zh": ""
     },
@@ -311,11 +323,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11 月 12 日主力資金淨賣出 3,861.79 萬元,屬個股盤後資金流向資訊。",
+      "importance": 1,
       "title_zh": "股票行情快報：江豐電子（300666）11月12日主力資金淨賣出3861.79萬元_主力研究",
       "snippet_zh": ""
     },
@@ -331,11 +344,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所,稱其在全球超高純金屬濺射靶材供應商中排名第二,凸顯其與日系大廠競爭的地位。",
+      "importance": 4,
       "title_zh": "江豐電子遞表港交所 在全球超高純金屬濺射靶材供應商中位列第二",
       "snippet_zh": ""
     },
@@ -351,11 +365,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告向香港聯交所遞交境外上市股份(H 股)發行並上市申請並刊發申請資料。",
+      "importance": 3,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -371,11 +386,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子申請發行 H 股赴港上市,為同日相關公告的轉載。",
+      "importance": 3,
       "title_zh": "江豐電子：申請發行H股赴港上市",
       "snippet_zh": ""
     },
@@ -391,11 +407,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所,由招商證券擔任獨家保薦人。",
+      "importance": 3,
       "title_zh": "江豐電子遞表港交所 招商證券獨家保薦",
       "snippet_zh": ""
     },
@@ -411,11 +428,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所的轉載新聞,內容與同日報導一致。",
+      "importance": 2,
       "title_zh": "新股消息 | 江豐電子(300666.SZ)遞表港交所 提供者 智通財經",
       "snippet_zh": ""
     },
@@ -431,12 +449,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "報導指 SpaceX 在向 Singulus 下單太陽能產線前,曾先借給其 5,500 萬歐元,雙方合作關係更為緊密。",
+      "importance": 3,
+      "title_zh": "SpaceX 下單太陽能產線前,先借給 Singulus 5,500 萬歐元",
       "snippet_zh": ""
     },
     {
@@ -451,11 +470,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所的簡訊報導。",
+      "importance": 2,
       "title_zh": "江豐電子遞表港交所",
       "snippet_zh": ""
     },
@@ -471,12 +491,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得 SpaceX 訂單後股價翻倍,市值增加 1.23 億歐元,反映市場看好其太陽能鍍膜設備業務。",
+      "importance": 3,
+      "title_zh": "Singulus 獲 SpaceX 訂單股價翻倍,市值增加 1.23 億歐元",
       "snippet_zh": ""
     },
     {
@@ -491,11 +512,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子大宗交易成交 10.26 萬股、金額 2,104.02 萬元,屬個股交易資訊。",
+      "importance": 1,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -511,12 +533,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向 Singulus 訂購用於 Starmind 計畫的太陽能電池產線,但報導指 100 GW 的數字含義仍不明確。",
+      "importance": 3,
+      "title_zh": "SpaceX 為 Starmind 向 Singulus 訂購太陽能電池產線,但 100 GW 數字仍不明",
       "snippet_zh": ""
     },
     {
@@ -531,12 +554,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 取得 SpaceX 的 HJT(異質接面)太陽能設備合約;HJT 電池的 TCO 鍍膜需使用 ITO 等濺鍍靶材,可能帶動相關需求。",
+      "importance": 4,
+      "title_zh": "Singulus 取得 SpaceX HJT 太陽能設備合約",
       "snippet_zh": ""
     },
     {
@@ -551,12 +575,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus 簽訂 6,900 萬美元合約,採購 100 GW 太陽能設備,供馬斯克規劃中的 Starmind 衛星網路使用。",
+      "importance": 4,
+      "title_zh": "SpaceX 與 Singulus 簽 6,900 萬美元合約,採購 100 GW 太陽能設備供 Starmind 衛星網路使用",
       "snippet_zh": ""
     },
     {
@@ -571,12 +596,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "JX金屬發布《2026 整合報告》,可從中了解其半導體材料事業策略與永續布局。",
+      "importance": 2,
+      "title_zh": "JX金屬發布《JX金屬整合報告 2026》",
       "snippet_zh": ""
     },
     {
@@ -591,12 +617,13 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "旭化成與古屋金屬等合作,在食鹽電解用電極上實證可視化貴金屬的循環履歷,屬貴金屬回收溯源議題。",
+      "importance": 2,
+      "title_zh": "旭化成與古屋金屬等可視化貴金屬循環履歷,於食鹽電解電極實證",
       "snippet_zh": ""
     },
     {
@@ -611,11 +638,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 11 日融資淨買入 8,815.09 萬元,當日排名第 30,屬個股資金面資訊。",
+      "importance": 1,
       "title_zh": "有研新材：11月11日融資淨買入8815.09萬元，當日排名第30",
       "snippet_zh": ""
     },
@@ -631,12 +659,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 與 SpaceX 簽訂 HJT 太陽能電池整廠產線供應合約,為馬斯克在光電領域的新進展;HJT 製程的透明導電膜鍍膜會用到濺鍍靶材。",
+      "importance": 4,
+      "title_zh": "馬斯克光電新進展:SINGULUS 與 SpaceX 簽訂 HJT 太陽能電池整廠產線供應合約",
       "snippet_zh": ""
     },
     {
@@ -651,11 +680,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創公告截至 2026 年 11 月 10 日股東戶數為 39,912 戶,屬例行股務資訊。",
+      "importance": 1,
       "title_zh": "阿石創：截至2026年11月10日股東戶數為39,912戶_公司新聞",
       "snippet_zh": ""
     },
@@ -671,12 +701,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 首條異質接面產線交由德國 Singulus 承製,報導分析中國太陽能設備商未能得標的原因,反映供應鏈選擇的地緣考量。",
+      "importance": 3,
+      "title_zh": "SpaceX 首條異質接面產線交給德國 SINGULUS:中國太陽能設備商為何落敗",
       "snippet_zh": ""
     },
     {
@@ -691,11 +722,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.83,
-      "summary": "",
-      "importance": 0,
+      "summary": "寧波江豐電子材料股份有限公司遞表港交所,啟動 H 股上市程序。",
+      "importance": 3,
       "title_zh": "寧波江豐電子材料股份有限公司遞表港交所",
       "snippet_zh": ""
     },
@@ -711,12 +743,13 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.81,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "社群貼文指 JX金屬(5016.JP)股價今日再度走熱,屬投資人討論,資訊有限。",
+      "importance": 1,
+      "title_zh": "JX金屬(5016.JP)今天又熱起來了",
       "snippet_zh": ""
     },
     {
@@ -731,12 +764,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.75,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 與 Singulus Technologies 合作生產太陽能電池,為同一訂單事件的報導。",
+      "importance": 3,
+      "title_zh": "SpaceX 與 Singulus Technologies 合作生產太陽能電池",
       "snippet_zh": ""
     },
     {
@@ -751,12 +785,13 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.68,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "Singulus 宣布與 SpaceX 簽訂供應合約,為後續一連串報導的起點。",
+      "importance": 4,
+      "title_zh": "Singulus 宣布與 SpaceX 簽訂供應合約",
       "snippet_zh": ""
     },
     {
@@ -771,12 +806,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "金價與銅價雙雙跌破重要支撐,分析後續走勢;金、銅價格同步走弱可能減輕相關靶材原料成本。",
+      "importance": 2,
+      "title_zh": "黃金與銅跌破重要支撐,下一步如何?",
       "snippet_zh": ""
     },
     {
@@ -791,12 +827,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元走強,金價跌破 3,900 美元,報導同時提供白銀與鉑金走勢預測;貴金屬全面走弱。",
+      "importance": 2,
+      "title_zh": "黃金、白銀、鉑金預測:美元走強,金價跌破 3,900 美元",
       "snippet_zh": ""
     },
     {
@@ -811,11 +848,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "綜述 PVD 製備的 MeSiN 氮化物奈米複合塗層之力學與防護性能研究現況與展望,屬硬質塗層領域,與半導體靶材關聯較弱。",
+      "importance": 2,
       "title_zh": "PVD MeSiN氮化物納米複合塗層的力學與防護性能研究現狀與展望",
       "snippet_zh": ""
     },
@@ -831,12 +869,13 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "通膨疑慮下金價跌破 3,900 美元、創逾一年新低,市場等待美國 PPI 數據。",
+      "importance": 2,
+      "title_zh": "通膨疑慮下金價跌破 3,900 美元創逾一年新低,美國 PPI 數據將公布",
       "snippet_zh": ""
     },
     {
@@ -851,11 +890,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材的早盤評論,標題未提供具體內容。",
+      "importance": 1,
       "title_zh": "11.09早評：有研新材",
       "snippet_zh": ""
     },
@@ -871,11 +911,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "美國 10 月 CPI 影響持續發酵,金價失守 4,000 美元關口,市場出現新一輪拋售風險。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -891,11 +932,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "美國通膨升溫、聯準會 12 月升息預期升高,金價連續下跌失守 4,000 美元。",
+      "importance": 2,
       "title_zh": "",
       "snippet_zh": ""
     }
