@@ -765,7 +765,7 @@ accounts:
   - {name: 光聖, aliases: [光聖, 光紅建聖], ticker: "6442", segment: tw_cpo, subsegment: passive,
      industry: cpo, region: TW, products: [], fit: {target: 0, titanium: 1, nickel: 1, copper: 1},
      note: "光纖跳線與連接器;關聯較低"}
-  - {name: 統新光訊, aliases: [統新], ticker: "6426", segment: tw_cpo, subsegment: coating,
+  - {name: 統新光訊, aliases: [統新光訊, "統新(6426)", "統新:", "統新："], ticker: "6426", segment: tw_cpo, subsegment: coating,
      industry: cpo, region: TW, products: [target, titanium], fit: {target: 3, titanium: 2, nickel: 0, copper: 0},
      note: "光學濾光片(薄膜濾光片)鍍膜;多層光學鍍膜大量使用鈦、鉭、鈮、矽等靶材,是靶材在光通訊最直接的用戶"}
   - {name: 旺矽, aliases: [旺矽], ticker: "6223", segment: tw_cpo, subsegment: test,

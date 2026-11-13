@@ -778,3 +778,12 @@ def test_cpo_segment(cfg):
     assert accs["統新光訊"]["best_product"] == "target"
     assert accs["穎崴"]["best_product"] == "copper" and accs["穎崴"]["value_part"] > 0     # decision tree: test × copper
 
+
+
+def test_cpo_name_matching(cfg):
+    from lead_radar.signals import extract_orgs
+
+    s = classify(cfg, title="大統新創看Q4訂單回溫 擴產")
+    assert s is None or "統新光訊" not in s.orgs
+    assert sig(cfg, "統新:Q3 EPS2.06元 追加資本支出強化接單與供應能力").orgs[0] == "統新光訊"
+    assert extract_orgs("光環 InP代工擴產加速,上游材料吃緊成最大變數") == []
