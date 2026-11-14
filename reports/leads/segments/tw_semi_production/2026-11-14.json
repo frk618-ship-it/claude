@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T17:22:01+00:00",
+ "generated": "2026-11-14T10:15:57+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -195,9 +195,9 @@
   }
  },
  "stats": {
-  "signals": 949,
-  "attributed": 937,
-  "new_signals": 102,
+  "signals": 964,
+  "attributed": 952,
+  "new_signals": 108,
   "hot_cells": 6,
   "warm_cells": 4,
   "leads": 16,
@@ -209,10 +209,10 @@
   },
   "enriched": 0,
   "by_product": {
-   "target": 908,
-   "titanium": 128,
-   "nickel": 273,
-   "copper": 931,
+   "target": 922,
+   "titanium": 130,
+   "nickel": 278,
+   "copper": 946,
    "evaporation": 9
   },
   "other_mentions": 22,
@@ -228,14 +228,14 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 186.038,
-   "count": 123,
-   "z": 5.87,
+   "heat": 188.819,
+   "count": 124,
+   "z": 5.85,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    166.344,
-    186.038
+    168.832,
+    188.819
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -255,6 +255,7 @@
     "9ece520123e7162f",
     "e8ec0268f00134ab",
     "61e90b566947a603",
+    "2e453409fd43eab4",
     "d6a50e83c5e1a17c",
     "5645ba2dbc3efce2",
     "302cb5f8fc082788",
@@ -265,8 +266,8 @@
     "f53812fab3a1d398",
     "fb3c82a8df5e7e64",
     "44dc2bea98072912",
-    "e381d0a8a6185832",
     "1200da5a21c0b83d",
+    "e381d0a8a6185832",
     "c719e04b91800ed5",
     "06168b51d76a12ff",
     "657eb94abc871e51",
@@ -294,6 +295,7 @@
     "fb5c28d8dcf4be8a",
     "2486441a2c5f99b4",
     "950ea253651cd64a",
+    "30229d5b567cca80",
     "52bc478e66202662",
     "c82d4f96dc57c641",
     "f0122a6859973c0b",
@@ -383,6 +385,7 @@
     "613cf3970892ff86",
     "ddf4776bcd00e806",
     "e390d76a319af31b",
+    "43af5dc41fe440fe",
     "9e8156b856c804d8",
     "ec10bf1e7ba644cb",
     "6b08f60d3add29a6",
@@ -406,6 +409,7 @@
     "148899a85091d126",
     "3171106d2e649ec7",
     "49f1defdf9e70d27",
+    "2beae28fb881ca20",
     "6b89a866e0a92d2c",
     "fdca620501b1421b",
     "701a1fe4d60762a5",
@@ -427,6 +431,7 @@
     "33ee96c971bdef7a",
     "97c4d4b26e92d871",
     "16c185a4a8ba3e79",
+    "3f22a4db76f4a449",
     "f9372e93ce95e519",
     "4e7ab79a1e6fa131",
     "4c493569d9263f8a",
@@ -530,6 +535,7 @@
     "bd4d9b010837e887",
     "ed30d779231ad1c1",
     "ad06f06bf76db659",
+    "7a5ce8f1a9dc647d",
     "3653c7333439fa18",
     "821001cd957e19e9",
     "c23173f0005161f8",
@@ -542,6 +548,7 @@
     "493341a646316e3a",
     "f45c0c3e28031efa",
     "7310947722bdadbb",
+    "37772b2175ec61d0",
     "2ead7ba227a4e123",
     "6a5d93adf232fd14",
     "b714a9e6644cb3ba",
@@ -576,7 +583,6 @@
     "21c2bb31e1ff1f16",
     "807e86e8e622aefb",
     "4966aea2e715a441",
-    "37772b2175ec61d0",
     "85e6a74cbff961eb",
     "55a486fb4836f1ee",
     "721fe99308c24976",
@@ -633,6 +639,7 @@
     "502c94fa01b0b7c2",
     "66138b52b06c3af7",
     "71e60b9326bb4a37",
+    "e126cd6121026e38",
     "329a986b0b73d256",
     "26ad54dfcbf4a9b1",
     "4cf163ce91a51b61",
@@ -653,6 +660,7 @@
     "23ebc949237ee758",
     "110ddb3861c14663",
     "a759c580239dd516",
+    "a0c8f87f84ad2311",
     "538d80e5307369b9",
     "34b5a0448fec757c",
     "32fcc9d73fbc9863",
@@ -824,7 +832,6 @@
     "fdc53a3bb116e929",
     "c86b0974824336b1",
     "693a5a2c10091029",
-    "7b2cc6bf9514ec72",
     "03e384c39a04fe05",
     "8448a9c95b01e14c",
     "03ae456c1b01d66d",
@@ -851,7 +858,7 @@
     "d40798a03638437a",
     "092b1d3b1324d96d",
     "236751960898c54a",
-    "a01aa113480b7dc4",
+    "7b2cc6bf9514ec72",
     "48c9e5a4e76ea912",
     "7080144a3f8cfb7b",
     "1c869f06df4bf060",
@@ -882,6 +889,7 @@
     "48ede6d2b03387b6",
     "1f8ae3578f306e1f",
     "dab529695336b527",
+    "a01aa113480b7dc4",
     "d3436283b0d33cc1",
     "de6ecc1fbd65632c",
     "56a7196e154426e1",
@@ -1080,12 +1088,11 @@
     "21411ea71d4f4a5a",
     "613887f355d8d25f",
     "6cf5d197b00f9ffb",
-    "142869cf1f0ef990",
-    "de397428ebcb2714",
     "01bf0ea9adbd596c",
     "6e868ed6ca648c6a",
     "21524feeb8470091",
     "5d0e3e16dded7d4f",
+    "8ffef7497e8738c4",
     "ebc5c3bb515275b8",
     "9e3a2d151fec86a5",
     "5ffacacc365bc39b",
@@ -1098,6 +1105,7 @@
     "124a34a6d7d99f74",
     "390a9b5413cd77e5",
     "d9d28ef1e79170ec",
+    "142869cf1f0ef990",
     "d183ebf4a152147e",
     "44b4279d9778e85e",
     "dcaf305061258d0e",
@@ -1108,6 +1116,7 @@
     "39177c700b835aeb",
     "7783bbdc35844de6",
     "f746990c5a67e96b",
+    "de397428ebcb2714",
     "9dae696dcd3142ac",
     "f607e089fbc312a6",
     "a981b1a5c59c0ccc",
@@ -1133,21 +1142,26 @@
     "c5ed19432f11ae2e",
     "eadaa801630c4c67",
     "4ab0ab008ce2bb70",
-    "321369c0ae5eaf18"
+    "321369c0ae5eaf18",
+    "e423b8a5cd56b526",
+    "17acbe054386d732",
+    "7e415845dd843688",
+    "498c57aedee078ab",
+    "1138e430f2bb145c"
    ]
   },
   {
    "product": "target",
    "industry": "semiconductor",
    "region": "US",
-   "heat": 0.258,
+   "heat": 0.097,
    "count": 0,
    "z": 1.43,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.287,
-    0.258
+    0.108,
+    0.097
    ],
    "signal_ids": [
     "a6ab8ad7399906f8",
@@ -1160,14 +1174,14 @@
    "product": "target",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 0.073,
+   "heat": 0.07,
    "count": 0,
-   "z": 1.46,
+   "z": 1.45,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.081,
-    0.073
+    0.078,
+    0.07
    ],
    "signal_ids": [
     "6d5236e4ef09889f",
@@ -1178,14 +1192,14 @@
    "product": "target",
    "industry": "display",
    "region": "TW",
-   "heat": 3.456,
-   "count": 2,
-   "z": 1.54,
+   "heat": 1.619,
+   "count": 1,
+   "z": 1.48,
    "level": "warm",
    "trend": "",
    "history": [
-    3.849,
-    3.456
+    1.803,
+    1.619
    ],
    "signal_ids": [
     "933331e421043b2a",
@@ -1200,7 +1214,7 @@
    "region": "TW",
    "heat": 0.309,
    "count": 0,
-   "z": 1.47,
+   "z": 1.45,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1232,14 +1246,14 @@
    "product": "titanium",
    "industry": "aerospace",
    "region": "TW",
-   "heat": 0.059,
+   "heat": 0.055,
    "count": 0,
    "z": 2.21,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.066,
-    0.059
+    0.062,
+    0.055
    ],
    "signal_ids": [
     "450db22be86db53c"
@@ -1268,14 +1282,14 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.191,
+   "heat": 5.179,
    "count": 5,
    "z": 3.14,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    5.025,
-    5.191
+    5.012,
+    5.179
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -1355,14 +1369,14 @@
    "product": "titanium",
    "industry": "other",
    "region": "TW",
-   "heat": 26.304,
+   "heat": 26.298,
    "count": 13,
    "z": 6.97,
    "level": "neutral",
    "trend": "",
    "history": [
-    18.282,
-    26.304
+    18.274,
+    26.298
    ],
    "signal_ids": [
     "f0122a6859973c0b",
@@ -1401,7 +1415,6 @@
     "bbbb4333632ed04d",
     "d4139f44f3a3d7e8",
     "84112e215bea5036",
-    "a01aa113480b7dc4",
     "7080144a3f8cfb7b",
     "1c869f06df4bf060",
     "90c771863f081027",
@@ -1411,6 +1424,7 @@
     "6d0bc91384789db5",
     "7e285b995be1342d",
     "233b65214079b2c9",
+    "a01aa113480b7dc4",
     "de6ecc1fbd65632c",
     "56a7196e154426e1",
     "d7386ea0405839da",
@@ -1447,21 +1461,23 @@
     "6a6dae787fc4d0c3",
     "c5ed19432f11ae2e",
     "4ab0ab008ce2bb70",
-    "321369c0ae5eaf18"
+    "321369c0ae5eaf18",
+    "7e415845dd843688",
+    "498c57aedee078ab"
    ]
   },
   {
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 39.497,
+   "heat": 39.997,
    "count": 27,
-   "z": 6.64,
+   "z": 6.63,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    33.413,
-    39.497
+    33.407,
+    39.997
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -1505,6 +1521,7 @@
     "556fc49d5655cbbe",
     "148899a85091d126",
     "3171106d2e649ec7",
+    "2beae28fb881ca20",
     "99ffdbaf407ec9f0",
     "e1eb77751f10d655",
     "16c185a4a8ba3e79",
@@ -1542,6 +1559,7 @@
     "ce89175b517b5caf",
     "1926243a8fa970e2",
     "ed30d779231ad1c1",
+    "7a5ce8f1a9dc647d",
     "3653c7333439fa18",
     "821001cd957e19e9",
     "c23173f0005161f8",
@@ -1551,6 +1569,7 @@
     "493341a646316e3a",
     "f45c0c3e28031efa",
     "7310947722bdadbb",
+    "37772b2175ec61d0",
     "2ead7ba227a4e123",
     "6a5d93adf232fd14",
     "46c073d3a5a17984",
@@ -1560,7 +1579,6 @@
     "21c2bb31e1ff1f16",
     "807e86e8e622aefb",
     "4966aea2e715a441",
-    "37772b2175ec61d0",
     "85e6a74cbff961eb",
     "3a6604ab34f31a8e",
     "f264a89482d56543",
@@ -1677,8 +1695,6 @@
     "8931cc65a12b35c1",
     "cf8d3470db047eac",
     "fe649fc9e5a10f0e",
-    "142869cf1f0ef990",
-    "de397428ebcb2714",
     "01bf0ea9adbd596c",
     "6e868ed6ca648c6a",
     "ebc5c3bb515275b8",
@@ -1689,6 +1705,7 @@
     "0ee120d103f2357f",
     "390a9b5413cd77e5",
     "d9d28ef1e79170ec",
+    "142869cf1f0ef990",
     "44b4279d9778e85e",
     "dcaf305061258d0e",
     "c3807fa9ab1a190f",
@@ -1697,6 +1714,7 @@
     "39177c700b835aeb",
     "7783bbdc35844de6",
     "f746990c5a67e96b",
+    "de397428ebcb2714",
     "9dae696dcd3142ac",
     "f607e089fbc312a6",
     "a981b1a5c59c0ccc",
@@ -1704,21 +1722,23 @@
     "ca78150ec0d96a85",
     "b225b7da3c7dce97",
     "16b309d77a1d3867",
-    "eadaa801630c4c67"
+    "eadaa801630c4c67",
+    "e423b8a5cd56b526",
+    "1138e430f2bb145c"
    ]
   },
   {
    "product": "nickel",
    "industry": "semiconductor",
    "region": "US",
-   "heat": 0.228,
+   "heat": 0.067,
    "count": 0,
-   "z": 1.6,
+   "z": 1.57,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.254,
-    0.228
+    0.075,
+    0.067
    ],
    "signal_ids": [
     "f04d0af68e2c28e4",
@@ -1729,14 +1749,14 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.601,
+   "heat": 5.592,
    "count": 5,
-   "z": 2.53,
+   "z": 2.52,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    5.482,
-    5.601
+    5.472,
+    5.592
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -1759,6 +1779,7 @@
     "616806023e62cc77",
     "8f0016a8fd512ac6",
     "1d2a963d4b19f6b5",
+    "e126cd6121026e38",
     "329a986b0b73d256",
     "26ad54dfcbf4a9b1",
     "4cf163ce91a51b61",
@@ -1775,7 +1796,7 @@
    "region": "US",
    "heat": 0.03,
    "count": 0,
-   "z": -0.18,
+   "z": -0.19,
    "level": "neutral",
    "trend": "",
    "history": [
@@ -1791,14 +1812,14 @@
    "product": "copper",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 190.454,
+   "heat": 191.421,
    "count": 120,
-   "z": 6.05,
+   "z": 6.04,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    169.344,
-    190.454
+    169.811,
+    191.421
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -1815,6 +1836,7 @@
     "51e2c4900d864d96",
     "e8ec0268f00134ab",
     "61e90b566947a603",
+    "2e453409fd43eab4",
     "d6a50e83c5e1a17c",
     "5645ba2dbc3efce2",
     "302cb5f8fc082788",
@@ -1826,9 +1848,9 @@
     "ae84a905043eeee4",
     "fb3c82a8df5e7e64",
     "44dc2bea98072912",
+    "1200da5a21c0b83d",
     "f7adc03292bd2d0a",
     "e381d0a8a6185832",
-    "1200da5a21c0b83d",
     "c719e04b91800ed5",
     "06168b51d76a12ff",
     "657eb94abc871e51",
@@ -1857,6 +1879,7 @@
     "fb5c28d8dcf4be8a",
     "2486441a2c5f99b4",
     "950ea253651cd64a",
+    "30229d5b567cca80",
     "52bc478e66202662",
     "c82d4f96dc57c641",
     "f0122a6859973c0b",
@@ -1949,6 +1972,7 @@
     "e7e303415a90a597",
     "20ab7c97e3b695c8",
     "e390d76a319af31b",
+    "43af5dc41fe440fe",
     "9e8156b856c804d8",
     "ec10bf1e7ba644cb",
     "6b08f60d3add29a6",
@@ -1970,6 +1994,7 @@
     "556fc49d5655cbbe",
     "148899a85091d126",
     "3171106d2e649ec7",
+    "2beae28fb881ca20",
     "6b89a866e0a92d2c",
     "fdca620501b1421b",
     "701a1fe4d60762a5",
@@ -1990,6 +2015,7 @@
     "33ee96c971bdef7a",
     "97c4d4b26e92d871",
     "16c185a4a8ba3e79",
+    "3f22a4db76f4a449",
     "f9372e93ce95e519",
     "4e7ab79a1e6fa131",
     "4c493569d9263f8a",
@@ -2064,9 +2090,9 @@
     "190059e0289b43aa",
     "68cc6d1880dc02f6",
     "fe0c09aee84ab024",
-    "e574b96cb8fbc7d0",
     "0902ed73f89c3b4b",
     "b6f23410f0a6761a",
+    "e574b96cb8fbc7d0",
     "9b57be7020b9ae7f",
     "5c7c653be4039eb3",
     "6dcb9d269f2ff1f1",
@@ -2092,6 +2118,7 @@
     "ad06f06bf76db659",
     "24e9ac299ea9c559",
     "5804d07689e13c6c",
+    "7a5ce8f1a9dc647d",
     "3653c7333439fa18",
     "821001cd957e19e9",
     "c23173f0005161f8",
@@ -2103,6 +2130,7 @@
     "493341a646316e3a",
     "f45c0c3e28031efa",
     "7310947722bdadbb",
+    "37772b2175ec61d0",
     "2ead7ba227a4e123",
     "6a5d93adf232fd14",
     "b714a9e6644cb3ba",
@@ -2136,7 +2164,6 @@
     "21c2bb31e1ff1f16",
     "807e86e8e622aefb",
     "4966aea2e715a441",
-    "37772b2175ec61d0",
     "85e6a74cbff961eb",
     "55a486fb4836f1ee",
     "721fe99308c24976",
@@ -2192,6 +2219,7 @@
     "502c94fa01b0b7c2",
     "66138b52b06c3af7",
     "71e60b9326bb4a37",
+    "e126cd6121026e38",
     "4cf163ce91a51b61",
     "e717441d62ca4f03",
     "6e5421ccece878e8",
@@ -2211,6 +2239,7 @@
     "23ebc949237ee758",
     "110ddb3861c14663",
     "a759c580239dd516",
+    "a0c8f87f84ad2311",
     "538d80e5307369b9",
     "34b5a0448fec757c",
     "32fcc9d73fbc9863",
@@ -2287,6 +2316,7 @@
     "05fbbdfc0a5daf0c",
     "20b56c42b4fe15dd",
     "79da836970c73afa",
+    "c0151337810cb332",
     "84852c8168488af5",
     "b472ed91901c3519",
     "9821a0d34da2832c",
@@ -2391,7 +2421,6 @@
     "fdc53a3bb116e929",
     "c86b0974824336b1",
     "693a5a2c10091029",
-    "7b2cc6bf9514ec72",
     "03e384c39a04fe05",
     "8448a9c95b01e14c",
     "03ae456c1b01d66d",
@@ -2418,8 +2447,8 @@
     "d40798a03638437a",
     "092b1d3b1324d96d",
     "236751960898c54a",
+    "7b2cc6bf9514ec72",
     "6b87c7288cff91d8",
-    "a01aa113480b7dc4",
     "48c9e5a4e76ea912",
     "7080144a3f8cfb7b",
     "1c869f06df4bf060",
@@ -2450,6 +2479,7 @@
     "48ede6d2b03387b6",
     "1f8ae3578f306e1f",
     "dab529695336b527",
+    "a01aa113480b7dc4",
     "d3436283b0d33cc1",
     "de6ecc1fbd65632c",
     "56a7196e154426e1",
@@ -2655,12 +2685,11 @@
     "21411ea71d4f4a5a",
     "613887f355d8d25f",
     "6cf5d197b00f9ffb",
-    "142869cf1f0ef990",
-    "de397428ebcb2714",
     "01bf0ea9adbd596c",
     "6e868ed6ca648c6a",
     "21524feeb8470091",
     "5d0e3e16dded7d4f",
+    "8ffef7497e8738c4",
     "ebc5c3bb515275b8",
     "9e3a2d151fec86a5",
     "5ffacacc365bc39b",
@@ -2673,6 +2702,7 @@
     "124a34a6d7d99f74",
     "390a9b5413cd77e5",
     "d9d28ef1e79170ec",
+    "142869cf1f0ef990",
     "44b4279d9778e85e",
     "dcaf305061258d0e",
     "c3807fa9ab1a190f",
@@ -2682,6 +2712,7 @@
     "39177c700b835aeb",
     "7783bbdc35844de6",
     "f746990c5a67e96b",
+    "de397428ebcb2714",
     "9dae696dcd3142ac",
     "f607e089fbc312a6",
     "a981b1a5c59c0ccc",
@@ -2708,21 +2739,26 @@
     "de08e45c4efbc2b2",
     "eadaa801630c4c67",
     "4ab0ab008ce2bb70",
-    "321369c0ae5eaf18"
+    "321369c0ae5eaf18",
+    "e423b8a5cd56b526",
+    "17acbe054386d732",
+    "7e415845dd843688",
+    "498c57aedee078ab",
+    "1138e430f2bb145c"
    ]
   },
   {
    "product": "copper",
    "industry": "semiconductor",
    "region": "US",
-   "heat": 0.243,
+   "heat": 0.082,
    "count": 0,
    "z": 1.49,
    "level": "neutral",
    "trend": "",
    "history": [
-    0.271,
-    0.243
+    0.092,
+    0.082
    ],
    "signal_ids": [
     "337d3f426529067f",
@@ -2734,14 +2770,14 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 3.688,
+   "heat": 3.673,
    "count": 3,
    "z": 1.61,
    "level": "warm",
    "trend": "",
    "history": [
-    3.351,
-    3.688
+    3.335,
+    3.673
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -2829,14 +2865,14 @@
    "product": "nickel",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 39.497,
+   "heat": 39.997,
    "count": 27,
-   "z": 6.64,
+   "z": 6.63,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    33.413,
-    39.497
+    33.407,
+    39.997
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -2857,14 +2893,14 @@
    "product": "copper",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 190.454,
+   "heat": 191.421,
    "count": 120,
-   "z": 6.05,
+   "z": 6.04,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    169.344,
-    190.454
+    169.811,
+    191.421
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -2885,14 +2921,14 @@
    "product": "target",
    "industry": "semiconductor",
    "region": "TW",
-   "heat": 186.038,
-   "count": 123,
-   "z": 5.87,
+   "heat": 188.819,
+   "count": 124,
+   "z": 5.85,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    166.344,
-    186.038
+    168.832,
+    188.819
    ],
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -2913,14 +2949,14 @@
    "product": "titanium",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.191,
+   "heat": 5.179,
    "count": 5,
    "z": 3.14,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    5.025,
-    5.191
+    5.012,
+    5.179
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -2969,14 +3005,14 @@
    "product": "nickel",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 5.601,
+   "heat": 5.592,
    "count": 5,
-   "z": 2.53,
+   "z": 2.52,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    5.482,
-    5.601
+    5.472,
+    5.592
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -3038,14 +3074,14 @@
    "product": "copper",
    "industry": "semi_equipment",
    "region": "TW",
-   "heat": 3.688,
+   "heat": 3.673,
    "count": 3,
    "z": 1.61,
    "level": "warm",
    "trend": "",
    "history": [
-    3.351,
-    3.688
+    3.335,
+    3.673
    ],
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -3066,14 +3102,14 @@
    "product": "target",
    "industry": "display",
    "region": "TW",
-   "heat": 3.456,
-   "count": 2,
-   "z": 1.54,
+   "heat": 1.619,
+   "count": 1,
+   "z": 1.48,
    "level": "warm",
    "trend": "",
    "history": [
-    3.849,
-    3.456
+    1.803,
+    1.619
    ],
    "signal_ids": [
     "933331e421043b2a",
@@ -3114,7 +3150,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.1
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3139,14 +3175,14 @@
   {
    "org": "美光台灣",
    "account": true,
-   "score": 91.8,
+   "score": 92.9,
    "grade": "優先開發",
    "product": "target",
    "products": [
     "target",
     "copper",
-    "evaporation",
-    "nickel"
+    "nickel",
+    "evaporation"
    ],
    "industry": "semiconductor",
    "region": "TW",
@@ -3159,14 +3195,14 @@
     "contract",
     "policy"
    ],
-   "signals": 18,
+   "signals": 19,
    "first_seen": "2026-11-03",
    "last_signal": "2026-11-12",
    "new": false,
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.67
+    "z": 1.66
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3175,23 +3211,23 @@
    "evidence": [
     "be4570850a051cb0",
     "12c9ba3b6e450a42",
+    "7b2cc6bf9514ec72",
     "10f78a2d0c55f0c0",
     "46bc1765d231c8bc",
     "c016e1a3200aec0c",
     "9e513e8efeca99bb",
-    "db2c223ccecf99ae",
-    "9b57be7020b9ae7f"
+    "db2c223ccecf99ae"
    ],
-   "signal_score": 61.4,
+   "signal_score": 63.2,
    "fit_max": 3,
    "fit_part": 40.0,
-   "signal_part": 36.8,
+   "signal_part": 37.9,
    "value_part": 15.0
   },
   {
    "org": "聯電",
    "account": true,
-   "score": 90.5,
+   "score": 89.6,
    "grade": "優先開發",
    "product": "target",
    "products": [
@@ -3218,7 +3254,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.1
+    "z": 3.11
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3231,68 +3267,14 @@
     "fc2461de2de10192",
     "5970b244c1f20eed",
     "ffa5dd8308c0a1d9",
-    "339604d9b06559dd",
-    "c62fffb5362ad963"
+    "43af5dc41fe440fe",
+    "339604d9b06559dd"
    ],
-   "signal_score": 61.2,
+   "signal_score": 61.1,
    "fit_max": 3,
    "fit_part": 40.0,
    "signal_part": 36.7,
-   "value_part": 13.8
-  },
-  {
-   "org": "台積電",
-   "account": true,
-   "score": 89.6,
-   "grade": "優先開發",
-   "product": "target",
-   "products": [
-    "target",
-    "nickel",
-    "copper",
-    "titanium",
-    "evaporation"
-   ],
-   "industry": "semiconductor",
-   "region": "TW",
-   "top_intent": "expansion",
-   "intents": [
-    "expansion",
-    "qualification",
-    "shortage",
-    "new_product",
-    "contract",
-    "policy",
-    "hiring"
-   ],
-   "signals": 39,
-   "first_seen": "2026-11-03",
-   "last_signal": "2026-11-13",
-   "new": false,
-   "hotspot": {
-    "level": "hot",
-    "trend": "",
-    "z": 3.1
-   },
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "need": "",
-   "evidence": [
-    "ebc5c3bb515275b8",
-    "19fe10bf3e4bbc34",
-    "6b87c7288cff91d8",
-    "142869cf1f0ef990",
-    "55bab70da8e5d646",
-    "bc4781013a822c9d",
-    "6fd303869174d6eb",
-    "46c073d3a5a17984"
-   ],
-   "signal_score": 64.0,
-   "fit_max": 3,
-   "fit_part": 40.0,
-   "signal_part": 38.4,
-   "value_part": 11.2
+   "value_part": 13.0
   },
   {
    "org": "南亞科",
@@ -3323,7 +3305,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.67
+    "z": 1.66
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3374,7 +3356,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.67
+    "z": 1.66
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3425,7 +3407,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.1
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3446,6 +3428,60 @@
    "fit_part": 40.0,
    "signal_part": 32.9,
    "value_part": 9.8
+  },
+  {
+   "org": "台積電",
+   "account": true,
+   "score": 77.7,
+   "grade": "優先開發",
+   "product": "target",
+   "products": [
+    "target",
+    "nickel",
+    "copper",
+    "titanium",
+    "evaporation"
+   ],
+   "industry": "semiconductor",
+   "region": "TW",
+   "top_intent": "expansion",
+   "intents": [
+    "expansion",
+    "qualification",
+    "shortage",
+    "new_product",
+    "contract",
+    "policy",
+    "hiring"
+   ],
+   "signals": 40,
+   "first_seen": "2026-11-03",
+   "last_signal": "2026-11-14",
+   "new": false,
+   "hotspot": {
+    "level": "hot",
+    "trend": "",
+    "z": 3.11
+   },
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "need": "",
+   "evidence": [
+    "ebc5c3bb515275b8",
+    "19fe10bf3e4bbc34",
+    "142869cf1f0ef990",
+    "55bab70da8e5d646",
+    "7bd1cf7371629f94",
+    "6fd303869174d6eb",
+    "46c073d3a5a17984",
+    "b472ed91901c3519"
+   ],
+   "signal_score": 62.8,
+   "fit_max": 3,
+   "fit_part": 40.0,
+   "signal_part": 37.7,
+   "value_part": 0.0
   },
   {
    "org": "世界先進",
@@ -3475,7 +3511,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.1
+    "z": 3.11
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3526,7 +3562,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.1
+    "z": 3.11
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3624,7 +3660,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.1
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3673,7 +3709,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.11
+    "z": 2.1
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
@@ -3694,7 +3730,7 @@
   {
    "org": "精材科技",
    "account": true,
-   "score": 53.5,
+   "score": 52.0,
    "grade": "積極經營",
    "product": "copper",
    "products": [
@@ -3711,7 +3747,7 @@
     "qualification",
     "new_product"
    ],
-   "signals": 7,
+   "signals": 6,
    "first_seen": "2026-11-03",
    "last_signal": "2026-11-13",
    "new": false,
@@ -3728,16 +3764,16 @@
     "7c5a89d196aed245",
     "547cc05486567dda",
     "604b31a3afc2097f",
-    "6b87c7288cff91d8",
     "8e9b16eafdaebbe1",
     "62b197f593cb5b80",
     "278229334d778fdc",
-    "7ca6e6038c9edc56"
+    "7ca6e6038c9edc56",
+    "96ce93cf9f368db5"
    ],
-   "signal_score": 44.7,
+   "signal_score": 42.3,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 26.8,
+   "signal_part": 25.4,
    "value_part": 0.0
   },
   {
@@ -3778,8 +3814,8 @@
     "b6f23410f0a6761a",
     "190059e0289b43aa",
     "67955d1b310fd539",
-    "1120655733abc219",
     "655e72da32a7e729",
+    "1120655733abc219",
     "f7adc03292bd2d0a"
    ],
    "signal_score": 14.0,
@@ -3870,6 +3906,46 @@
   }
  ],
  "signals": [
+  {
+   "id": "1138e430f2bb145c",
+   "title": "累計EPS飆60元！「無塵室大廠」Q3營收、獲利齊創高 握台積電訂單需求達2029年",
+   "link": "https://news.google.com/rss/articles/CBMipwNBVV95cUxNSTNYLUJYcTJPaGlGd1JWWlFVVWI5STFMcDY4WDdwSlQ5dXRLeU9HZnNISG5IMEZTVDZSc2xYS0s0Mms3QllSUUlOV2dJOVNRRzdabG5ocEJ1Y3lIYnU4QmpYZm9FVVNjXzNwOW42VGVpOXBDQ3REWG9fS0k5b0F6ZWVPdkQtSy1GOEFvckRzUXNEY1lLbWpDMzJNMHllNlM2VTNTOS1oZks4cXZHeDRMRzJDUE9wMDZsVjV5d3FhbWo2cnpuSU1EZzJRb0JuTDZ2cUxIS0JwQTVsa0hTbmppNnBTX1ZJdVZrS25ZWHNTZktIQVFrOWJiNVc5bDhGazhlcEkxRmxmMVRiSHdxMmVXTnFEN3FscFgzdmhjRGhRZG5Db2xZd3JfdEtXSW1UUFFGTzdKZ3BfX1R1dEpPOFRKV01mSU5nNnZrTkRfOU1Ic2ZELWswMEhncktQVk5DR3I5NE41Z2JoMzN1QjJWLVlOREtaVGp1M1FEejJoTWJhRXFsYUtRT21MMTFQV1dDb0JiTFdvRVNxSi1vUXNNUWxuSzJ2dTVlRTA?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-11-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.54
+  },
   {
    "id": "ff987ec1480886a2",
    "title": "日月光路竹廠一期啟用、二期動土千億投資擴充先進封裝產能- 產業",
@@ -4073,7 +4149,7 @@
   {
    "id": "eadaa801630c4c67",
    "title": "精材與台積電簽逾7年產能外包協議 2029年量產後段先進封裝",
-   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5KdHJuTUtTWml2X0Z0SFhnX2VpUmc4UnRQZVoyV1FVdjh5b0lzcEhqU3Vjc2hkN2Y1ZnBDMEVXWGxtYk5MT3UtbGlRRmFpTjJSYlVTVTR4NTQyV3hxdVFR0gFfQVVfeXFMTkp0cm5NS1NaaXZfRnRIWGdfZWlSZzhSdFBlWjJXUVV2OHlvSXNwSGpTdWNzaGQ3ZjVmcEMwRVdYbG1iTkxPdS1saVFGYWlOMlJiVVNVNHg1NDJXeHF1UVE?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5YLXRXVUFvZXBza1o1X1hOMU81azF5V012dmpxR2lYZkpJTGVhMmVPeVdwRlZMSzdhMHo5NHAydlNseFJGVU5NX2dJOEctZlk0M3hyM2Y5alYtd9IBX0FVX3lxTE5KdHJuTUtTWml2X0Z0SFhnX2VpUmc4UnRQZVoyV1FVdjh5b0lzcEhqU3Vjc2hkN2Y1ZnBDMEVXWGxtYk5MT3UtbGlRRmFpTjJSYlVTVTR4NTQyV3hxdVFR?oc=5",
    "source": "經濟日報",
    "published": "2026-11-13",
    "snippet": "",
@@ -4100,6 +4176,88 @@
    "accounts": [
     "台積電",
     "精材科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.363
+  },
+  {
+   "id": "e423b8a5cd56b526",
+   "title": "【即時新聞】精材簽台積電產能外包協議，擬發百億可轉債建置產線！",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPZndYQm5mOUxsVG13ck1LSk16X1I4X18zc2ZFSVZ1djdDYWlfR0ZHYWVXbC1zTE1DZ3M5amtSbGxuZmd4dVFMemowckdKMjJ4NERubnVBOXBFU1haUzJNRUJiNXUxNmN4YnNCZVB2V2Y4TVNGci0wMloxeVlJSmhyNjNSbnlvVHdaa3d0MzY3eXc?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "精材科技"
+   ],
+   "accounts": [
+    "台積電",
+    "精材科技"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.709
+  },
+  {
+   "id": "de397428ebcb2714",
+   "title": "高啟全：台積電不會跨入DRAM製造，中國DRAM擴廠驚人兩年時間產能開出",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB3eWpOTWY5OEpHcnpjUzJ2S3hQT0x1UmZGTm1aOFhRaG9DY0FQdVZYY1FoVzh0YW1KSzJWWHZuamw2eHhCRlRWeG9LNlhIVEk5cGR6T2NqblpHeng2Y3g1YTFqLUNTbW9UNDJkb01NYlJaZGdobHY2S3lONA?oc=5",
+   "source": "財訊",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -4554,6 +4712,46 @@
    "heat": 1.92
   },
   {
+   "id": "7e415845dd843688",
+   "title": "大砸千億 日月光擴產 年營收貢獻800億",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE50eXV3UzhHd05YdXMxRlB1Zk40ZV9ncUM3cU0wdXBjemVsWUVZNTQxVGRUc0VfNzBtaldNa05WREpfSnZ2b2ZKNlhiODlnY0JtX1R2YUptNlJUUkZtbmZZ?oc=5",
+   "source": "工商時報",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "other",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.363
+  },
+  {
    "id": "7ca6e6038c9edc56",
    "title": "精材董事會決議通過與客戶簽訂產能外包協議，成為先進封裝供應鏈中oS模組生力軍",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOdUNQMXAwSFpFYkR1RjBTR0RkeG1qc1JNQXVUemJ1M1A2LURuMnB3a1NINlM0dXVoTHdDb2pKOVo2d2tsczBhU0U2OEQxTFJHTWEwaG1Xa05TTEhSRzI5Y0Z6NXltejNzVFV6N0trLUZCU2phckRzLW1kMkVpX0MwelJCb0xrRG9hNi1xR29DODJPZw?oc=5",
@@ -4878,6 +5076,46 @@
    "heat": 2.363
   },
   {
+   "id": "498c57aedee078ab",
+   "title": "日月光千億布局 路竹廠一期啟用、二期動土 可望創造5,000職缺",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zSFBfSUcyQWxYS1hxbGVES0taNkRaSUZzV0JJQmhGMVl2cDRnRE05NWJyLXJxeWtGaEM1bmpQekp6VzBFbjA5R1NGb3M0bmNIX0JuejJieGZwUdIBX0FVX3lxTFBUSFMyUHJxM1lTWjdtTHQ5U1BHbk1pcmVrTEk2OWRoTmJublMxTHpnNzRZd2dxVE9ZaC1FTTFScGVGVWNQUnRMREF2M3Z3cjE1V3pZbE1QVHg0N0Fud21r?oc=5",
+   "source": "經濟日報",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "other",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.363
+  },
+  {
    "id": "3a332574e96df41b",
    "title": "日月光千億先進封裝布局，路竹廠一期啟用二期動土",
    "link": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxQNjlMSElndzM0SFI3dHNOdFdTOUpUV1lON3JrYXdrRElhUmo1b3VMSmk0eGRLTUVFdXFFRWlWQms4bXVTcndBVXVZbXgyY3h6andNS0JuT2hNVk15dm9PYWl6bkVjdlhvMUFFeW4tallHZUFWOFBkd2Job0hqNDNvUlBab2FEYTJJT2hnRHVMeE1STGZfTEVtT2NoVXEwVWo1Q0hCa0dUdHhieV9rRDBIdGp1WjdkdmsxMzZZTkE0MEtfZERaZWRxQll1UnZFSmNYLWJMU3lVbVB0d3IzWndTcGpqUHJ5dXlQUFAwdDRzcVgySEF3Zm9DNE1PNTFEdWdVOXFaY0cyTUxRMi10eHVIX1k2QzFlZlFzMDhMT0h2NlYxbXRmazZ3MG9uWXdNdWpnNVVDVHJNNVE2YnNRVHQ3RWYxNlBPSF9MU0N6Zkk0WjU4ZlgzMnBNckZ3?oc=5",
@@ -4985,6 +5223,44 @@
    ],
    "accounts": [
     "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.363
+  },
+  {
+   "id": "17acbe054386d732",
+   "title": "精材牽緊台積簽產能外包協議衝先進封裝| 經濟日報",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1xSEZfclZLZWhZRTV2TFhDdWcyMHFKbHRZYXEtYWkxRHZMeFEwWTVodmx5WFhfMkU0dF82ZGxmM0xtU082VGxfMEFjVlBnNGRjbkRRS2RR?oc=5",
+   "source": "LINE TODAY",
+   "published": "2026-11-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "精材科技"
+   ],
+   "accounts": [
+    "精材科技"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -5328,8 +5604,8 @@
   {
    "id": "44b4279d9778e85e",
    "title": "台積電大單護體！「這大廠」在手訂單衝上1657億 目標價上看580元",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1Eazh0OFEzZURVVk9XSmE0Skg2ZHRCdkpQMExVc3EwY2NSZWtzLWlneUR6WEx1TTNJbXpFXy1uT3huNkJpWnpTdzhSZw?oc=5",
-   "source": "三立新聞網SETN.com",
+   "link": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxNSXA0UEhIbjd6QkdQMmFUUXd5WkJScWhYZ1JqWWNFcHJabnhmN1NuWDl6OFViZi1sbW9KdjNmRTd4OHFNV1Y2VGJVeXlPUjFPaUs0M3FqSFVldWR4QU1LTEh4TVEzdzJNV1pjRWJEUUhCNDFzdjBpZmNJc0UzRFZwN2E0SE5jZ2JDaHF3dGVIM0JUUHRJZjJBUC1WbTdmWkEwTVlLQ3dtRzhQbU9NQl9TVHJzMGV4MERiZmhyQUU4ZUdNcTdwU09tUjdtQy1RQUlyanZlaEFMemk1Uld2MUQxMkVfa240REsxYzZKUVlxSUg3clJ5S19LSHV2b1BMWTZpQ3FfMzRtcVZXeDRVVDlYWHVmZTBjQzN1eGtQYTA5Ml9DVVdiRk5MMDRJbmxCM1Yxd01ERlQ0Ty1IM0x4SG5NNF9ZWHBMTUt1dXRLMDRUZEhLZWVlczljSmVhQXBEakVpRXB6QVR2d0JQYk5fRVVrazI1TXY?oc=5",
+   "source": "Yahoo新聞",
    "published": "2026-11-12",
    "snippet": "",
    "edition": "zh-TW",
@@ -5364,6 +5640,46 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.524
+  },
+  {
+   "id": "142869cf1f0ef990",
+   "title": "整理包／台積電供應鏈全解析！護國神山受惠股...先進製程 CoWoS、CoPoS 十大產業鏈一次看",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ZLVp5RjlPenFrcTRSSnFmem04R1h0SVZPSzhaVjdZVkJ1UG5WMWl5Tm5Gc2J6Wjlia0g0R3NQa2JkekdsUnRudWNwQWtHcGRpaDNleE5iNEJNc3o4?oc=5",
+   "source": "經濟日報",
+   "published": "2026-11-12",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.745
   },
   {
    "id": "ebc5c3bb515275b8",
@@ -5921,46 +6237,6 @@
    "heat": 1.692
   },
   {
-   "id": "de397428ebcb2714",
-   "title": "高啟全：台積電不會跨入 DRAM 製造，中國 DRAM 擴廠驚人兩年時間產能開出",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbENjclVTWTBNWWEteklfdG5uWG1tWFhWVUVweTlhOTNreDFKbzY0dGM1LVpVWTZnblpiRFhYamRGaF9HWkZiQVRGRjBESlk2Ui01S0pydDV3TG5PcHd2QkZnVU4tSUxDc2F3RnFfMDFvNFRYbzM1TWdkaGJ2ZGpXZDJrUng?oc=5",
-   "source": "TechNews 科技新報",
-   "published": "2026-11-10",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電"
-   ],
-   "accounts": [
-    "台積電"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 2.257
-  },
-  {
    "id": "cf8d3470db047eac",
    "title": "想追台積電遇挫！日本Rapidus傳關鍵技術卡關 2奈米晶片量產恐跳票",
    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5mbHkyU05KcGNJYWw5Z0Q1VWE3LTE0bi1rZ3M0Yk5POWdWTnRYLVhZLUZkY3BZblcyZExtMFJ2YWJlV1UwWEtCYmEwWGx3Qjh2M2ZqZnA4TVJKYmV6T3Q1TQ?oc=5",
@@ -6186,6 +6462,44 @@
    ],
    "accounts": [
     "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.257
+  },
+  {
+   "id": "8ffef7497e8738c4",
+   "title": "傳美光45億美元桃園新廠因勞資爭議暫緩 11／17迎第四次協商",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9ZT1FYQW1rNjFYYUpqR0F0cUVOZmlMb1M5ampSVThKQU54SUl4YnJhQkhkSEhSR0p2aUYyalJvaXZ6QXJnWXA1dkNudm15YXlGQWZocWY5MVgwZmVoZVkwa1FEOVc4OTRqVjJZWldR?oc=5",
+   "source": "中時新聞網",
+   "published": "2026-11-10",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "美光台灣"
+   ],
+   "accounts": [
+    "美光台灣"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -6742,46 +7056,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 2.257
-  },
-  {
-   "id": "142869cf1f0ef990",
-   "title": "整理包／台積電供應鏈全解析！護國神山受惠股...先進製程 CoWoS、CoPoS 十大產業鏈一次看",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ZLVp5RjlPenFrcTRSSnFmem04R1h0SVZPSzhaVjdZVkJ1UG5WMWl5Tm5Gc2J6Wjlia0g0R3NQa2JkekdsUnRudWNwQWtHcGRpaDNleE5iNEJNc3o4?oc=5",
-   "source": "經濟日報",
-   "published": "2026-11-10",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "qualification"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電"
-   ],
-   "accounts": [
-    "台積電"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.692
   },
   {
    "id": "13939851f8250de7",
@@ -14113,6 +14387,47 @@
    "heat": 0.571
   },
   {
+   "id": "a01aa113480b7dc4",
+   "title": "日月光AI大考1》訂單多到沒廠房 資本支出衝115億美元",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1PXzFBV192R0g3Vm52SzA3bEFRaW9wOG5TeGNrYjQ4T0RabF9mcVFTSlZNQ1Q0Z3JRdElseVNENVBWamlYRTRKLUF2cGptTEE2UmgyV3FTTzRHb084Q1hxVV9hcGc?oc=5",
+   "source": "民報",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "titanium",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "titanium": "other",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "日月光投控"
+   ],
+   "accounts": [
+    "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 2.024
+  },
+  {
    "id": "8d2af1417eab2978",
    "title": "半導體Q3財報總體檢：先進封裝與記憶體獲利狂飆，聯電砸千億資本支出！-財經焦點情報站",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbVRuMkxhbExoRkZ5TGgtbWNfX2Z5THJDb19BaF8zdno5Z1hzbnl1TFZ5cG5zVUo3WWcwa0NBY3hTOUVtUUlJOGp6VmhOcktxM1g2dHhINE9ONFpleHVWeEs5aVhJMTJ0SWFTQjUwTWJsNF9vLTNMTzN2d3FSOElRMUln?oc=5",
@@ -14464,47 +14779,6 @@
    "heat": 1.876
   },
   {
-   "id": "a01aa113480b7dc4",
-   "title": "日月光AI大考1》訂單多到沒廠房 資本支出衝115億美元",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1PXzFBV192R0g3Vm52SzA3bEFRaW9wOG5TeGNrYjQ4T0RabF9mcVFTSlZNQ1Q0Z3JRdElseVNENVBWamlYRTRKLUF2cGptTEE2UmgyV3FTTzRHb084Q1hxVV9hcGc?oc=5",
-   "source": "民報",
-   "published": "2026-10-29",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "titanium",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "titanium": "other",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "expansion",
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "日月光投控"
-   ],
-   "accounts": [
-    "日月光投控"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.993
-  },
-  {
    "id": "90c771863f081027",
    "title": "日月光投控 2026 年 LEAP 營收上調至逾 40 億美元，今明資本支出與毛利率同步走揚",
    "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPTVVBQU5mV0pKQTJYbmlxcWpzS2kyc2U2VkRlNFdsbnVVd3RSZ2M2U0YxcjVmYmRDeHJCUGhaYkpwbFNXYmRnYWVkOVRCUFZ4OGt5S2k5NVBUZTk5azJKX1RUREpSd2o4WEhkYWtmajNyaGRaeHFqODFJekdEZERIQkE1SEVmVVFUdlloUm9mUDFOSzliTmxLcFV1U0ZYdVI0dGJrS0dEYUlrZGFiQWhLb1hQYXhRNjdDaUhwMy1DSGZaWThHYkg3Y1RHeV9lQzg?oc=5",
@@ -14655,6 +14929,48 @@
    ],
    "accounts": [
     "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.876
+  },
+  {
+   "id": "7b2cc6bf9514ec72",
+   "title": "科技大廠加碼台中！美光新封裝廠啟用 台積電4座1.4奈米廠明年起投產",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBvQm1xYzJrNkpSdm1WWllodEgwRk5tZ0YteHhkZFJYZnR4Z29tOE5FM1d1NTFDbUxKaFpFb0RIZGoxdC1FTEtBMW1PaThKUEpMcDFTNHJWTkp3TnBCazVZ0gFkQVVfeXFMTlVOMU5VbENnM0FHVEhhbEpaVi1PaVMwUFdpZGtkRXRmM2NHM1BKV2VrU252STA1UEwtTnVZbDRYWHlMUHJNLTZpbmtmYzZSVWdjdkNhNFFFTVBMb1hpRzNYbDRybg?oc=5",
+   "source": "自由財經",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "美光台灣"
+   ],
+   "accounts": [
+    "台積電",
+    "美光台灣"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -15956,48 +16272,6 @@
    ],
    "accounts": [
     "聯電"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 1.847
-  },
-  {
-   "id": "7b2cc6bf9514ec72",
-   "title": "科技大廠加碼台中！美光新封裝廠啟用 台積電4座1.4奈米廠明年起投產",
-   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBvQm1xYzJrNkpSdm1WWllodEgwRk5tZ0YteHhkZFJYZnR4Z29tOE5FM1d1NTFDbUxKaFpFb0RIZGoxdC1FTEtBMW1PaThKUEpMcDFTNHJWTkp3TnBCazVZ0gFkQVVfeXFMTlVOMU5VbENnM0FHVEhhbEpaVi1PaVMwUFdpZGtkRXRmM2NHM1BKV2VrU252STA1UEwtTnVZbDRYWHlMUHJNLTZpbmtmYzZSVWdjdkNhNFFFTVBMb1hpRzNYbDRybg?oc=5",
-   "source": "自由財經",
-   "published": "2026-10-28",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "expansion"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電",
-    "美光台灣"
-   ],
-   "accounts": [
-    "台積電",
-    "美光台灣"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -20810,6 +21084,42 @@
    "heat": 1.489
   },
   {
+   "id": "c0151337810cb332",
+   "title": "廠房還沒蓋輝達先付款京元電美國產能綁定雙方都有小算盤- 日報",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE14VEhXd2M1RXpUS2dfZkY1X3pRSEMxREVZSzBwOFp6QmFXdXVGTWdHVGdaeEdPc01qNnZqRkFaeW9xU1ZRSXBkMGpWMEpWN0k2Qmk5UXVFaVByYmkwMXVJ?oc=5",
+   "source": "工商時報",
+   "published": "2026-10-14",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "京元電子"
+   ],
+   "accounts": [
+    "京元電子"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.489
+  },
+  {
    "id": "8e9b16eafdaebbe1",
    "title": "【11:14 即時新聞】精材(3374)股價走強，市場聚焦晶圓級封裝與測試擴產題材",
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTEkta2xucXZaT3k3YVRIaTJaWEgzbVVlemtidzRieFZWX1hWZmx3X2dFUEkwQ1NOTG5tWHFmM3ZQUG1BN1BORFh4U1FWMFdURmZyMEpTdERrbmNkUFZuMEVVbEttV0ViYXFmMFl0UGNvR2dldTNWU2k3NDdxcy1PSF9aaFE2OU4tS3JKT0xn?oc=5",
@@ -22197,8 +22507,8 @@
   {
    "id": "08069dd88e394fb0",
    "title": "家碩(6953) 合約負債創近期新高！台積電N2放量與EUV光罩需求暴增！",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5BSTVack5la21LM2lIRE8yaUFfclBRZVZVTVByemQ0T3RTT1FkdDEyUWRvdF9pQi0zWmhmUWFmZXZuc0pjUWwzaEU3b2xMNVAyNDk5NTZB?oc=5",
-   "source": "優分析UAnalyze",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAtenprdWhlTm9HTGFNTWMxUkZZb0lNLWNfdzVCZWh5YS1zamVpajBBM0E0LTVzSnBvbHFaaElrQzFmUEhMU09OU1dvZEZ6M1U?oc=5",
+   "source": "鉅亨網",
    "published": "2026-10-12",
    "snippet": "",
    "edition": "zh-TW",
@@ -23383,8 +23693,8 @@
   {
    "id": "58a6bde70a5d26e9",
    "title": "聯電擬發18億美元可轉債，資本支出升至20億美元、投資重心轉向矽光子與12奈米",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA2aVJxMkkwaHg3c21lTWdNMVNteWlhR0dhR1V4dV9yYk5VMEpET0JpZjRQdkwzTXU1cTA1RlhMYTZfZGljZFVMX2lHa3BjMUU4ZUJSYkt3?oc=5",
-   "source": "優分析UAnalyze",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9aUzdLb1Y0NWE3bFRud3pFT3Q0czFiSGphYTl4aUllVktkdWQ1OEV1bDZZaW1qVHFDZTV0MG9UTTh0d2tSX0JvbnJ4OGdXcEk?oc=5",
+   "source": "鉅亨網",
    "published": "2026-10-05",
    "snippet": "",
    "edition": "zh-TW",
@@ -23813,8 +24123,8 @@
   {
    "id": "e717441d62ca4f03",
    "title": "漢唐(2404)、帆宣(6196)卡位台積電赴美大單！美國P2、P3發包時程與在手訂單營運能見度全解析",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE96YjJYRmMtdHdJZUYyZkVxZjR4TzhXOE1zcl96YUhOdzFLNkRlTDdKaG1CWWRhaUI3ekFiVU5FS3pqNjBDYVMtdVQxV3NXcmVsVlZ0RVJR?oc=5",
-   "source": "優分析UAnalyze",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE4waE45bEdHZWhTeG9JbDhSYzRWUURPOEhwVUlmTjRXRWQ2RHh3MjJWa1ZhMndWOC1hZHNONjJXU2l0MlFGT0xfSUphZWJVWWs?oc=5",
+   "source": "鉅亨網",
    "published": "2026-10-02",
    "snippet": "",
    "edition": "zh-TW",
@@ -24036,6 +24346,44 @@
    "accounts": [
     "大立光",
     "日月光投控"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.238
+  },
+  {
+   "id": "a0c8f87f84ad2311",
+   "title": "世界先進（5347）新廠產能已被預訂：AI如何帶旺成熟製程？",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB4M3diUnhGdU9LOWgtZDFqanJqektIRDBFZHNwM2ppRjFVamRwa3g4NDB0ZklRTENPWEtRcFFiTFVueFphNzIyTng0Z3dhQUZTOFkzMXh3?oc=5",
+   "source": "口袋證券",
+   "published": "2026-10-02",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "世界先進"
+   ],
+   "accounts": [
+    "世界先進"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -24677,6 +25025,49 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.914
+  },
+  {
+   "id": "e126cd6121026e38",
+   "title": "美光台灣擴產排到2028年，漢唐與亞翔誰先吃到訂單-子敏左側交易",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNS1U4dUZCOWV3WXdzb3lfRTd3ZTIwV1RnNy1uY3FVd0c0Q1JXRl95MDZmLUl3OG80cmExN3J1cUh0WDRpajVKOS1Fcl9IVVoxVHQ5cDg0LXQwTnZMcmlBR2JoZ19oSW9XUGpKTG1QZkdzT25aRVJPM1o3QW00SlhlcGhVMA?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-10-01",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semi_equipment",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "亞翔工程",
+    "美光台灣"
+   ],
+   "accounts": [
+    "亞翔工程",
+    "美光台灣"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.388
   },
   {
    "id": "df6c17614d2443d3",
@@ -26569,7 +26960,7 @@
    "id": "775873e97affd083",
    "title": "記憶體+晶片訂單多到產能滿載！「這封測大廠」豪砸500億創新高、明年EPS拚15元南茂擴產一路衝到2027",
    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBBUERINWRyY1hoUklxS0pEeHYyYmxhaGN4WmFBdjVLbWktWktHektFbzJrWXBQajVkUnBpUk54ZzZuZFp0VTFLMjhrOA?oc=5",
-   "source": "FTNN 新聞網",
+   "source": "FTNN",
    "published": "2026-09-29",
    "snippet": "",
    "edition": "zh-TW",
@@ -26797,46 +27188,6 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.182
-  },
-  {
-   "id": "37772b2175ec61d0",
-   "title": "三星要搶台積電訂單 ！喊晶圓代工客戶增4倍、HPC營收占比衝66% 高調設2029目標",
-   "link": "https://news.google.com/rss/articles/CBMivANBVV95cUxOMGpvQkVtcl8tVy1PSkxCSDhJYUthSHJZNk9IczY0cXdYajVsQlNRV1UxSDExLTByNHJqTy0wSGJGczZfOWp0cGkyMlJtYUJ6aDM2ancxUUt5TDI5b3dEcGowdFZvVUdKQjZkU0tEQVBWTWZTeDlPbnlrNHFoVFAxczd0S1NaaFRPWV9nVmdLMTRCSTM0LXBldVptUzV6NnVtdVN6aVl2bDBqZm9HSWg1emRQOXhnR0ZhN3RWaHItZURuZjNHaERWVEpEVEl6aWNTWmswSDJwejFtNTJZcU5faWlMeTZ5YnZIak9aUnNWazlWc1ROSThZbGYtRjBFNXdMaE9ONXh2alFzWXlZVVVNcUpVOFQ5MVlqUnVQVEpGTWZMdmhsUkNHRnh5RDhCazZSUzZ6bFM2azRwSUtndGozZE5pbi1CeWYwSGx1bHhETUo4NlBzUlRlRVc3eThpTmxkMm5rXy16Qm9TME40R25ESTVwUHJfRGpPSVNicmp3LTA2c2E4YWNzczY3UU9sRThtVXhPMUZpNzhCVFduYUNRMk13WkFxOTctb211UkppU3R5by11ZHJFVm9ibjE?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-09-29",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電"
-   ],
-   "accounts": [
-    "台積電"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.886
   },
   {
    "id": "351fbf5d093bf033",
@@ -28087,6 +28438,46 @@
    "heat": 1.164
   },
   {
+   "id": "37772b2175ec61d0",
+   "title": "三星要搶台積電訂單 ！喊晶圓代工客戶增4倍、HPC營收占比衝66% 高調設2029目標",
+   "link": "https://news.google.com/rss/articles/CBMivANBVV95cUxOMGpvQkVtcl8tVy1PSkxCSDhJYUthSHJZNk9IczY0cXdYajVsQlNRV1UxSDExLTByNHJqTy0wSGJGczZfOWp0cGkyMlJtYUJ6aDM2ancxUUt5TDI5b3dEcGowdFZvVUdKQjZkU0tEQVBWTWZTeDlPbnlrNHFoVFAxczd0S1NaaFRPWV9nVmdLMTRCSTM0LXBldVptUzV6NnVtdVN6aVl2bDBqZm9HSWg1emRQOXhnR0ZhN3RWaHItZURuZjNHaERWVEpEVEl6aWNTWmswSDJwejFtNTJZcU5faWlMeTZ5YnZIak9aUnNWazlWc1ROSThZbGYtRjBFNXdMaE9ONXh2alFzWXlZVVVNcUpVOFQ5MVlqUnVQVEpGTWZMdmhsUkNHRnh5RDhCazZSUzZ6bFM2azRwSUtndGozZE5pbi1CeWYwSGx1bHhETUo4NlBzUlRlRVc3eThpTmxkMm5rXy16Qm9TME40R25ESTVwUHJfRGpPSVNicmp3LTA2c2E4YWNzczY3UU9sRThtVXhPMUZpNzhCVFduYUNRMk13WkFxOTctb211UkppU3R5by11ZHJFVm9ibjE?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-09-28",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.873
+  },
+  {
    "id": "343e7b9033da0c03",
    "title": "世界先進攜手恩智浦 VSMC 新加坡 12 吋廠開幕，2027 年第一季量產",
    "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxONkZIeHRmcThZaV9COXhrMmxoMVM2V3pNQnlRc1pHem12R2g5VnQ0X2M3V3lFSGdpaXYzbTF6aEhaeVhEWTNtZVZJS2R4S2ltR0tzelZuRlJ6WjJsSklXbEtYdkxoQS0ydE80Y1FEQlZic2lfc3lRRUdkbDljV0F5VlNFTFhiQk56V3hmbUdDM2JSbnNBRTc3SktBejBndDdnUFlQdUQxY3l3LWlsQXlEM3VqeDRKWF9zVFJxQ21sbGdPLUVSMW9LS1NZTQ?oc=5",
@@ -28245,8 +28636,8 @@
   {
    "id": "088d0e91124a2f51",
    "title": "直擊VSMC開幕2｜訂單爆滿供不應求！ 世界先進董座方略鬆口二期廠規劃擬提前",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE90UVJOX0c0NjlPbl9uc1lBYWpKNlZ6bnFOQlo2c0d4NGgwb0w1RldpOG9HeEcwQzV3SktDdlNRQW9mQ29XbEVqdmtydEJ3NElCeDFMWVhlTnZaOEJMTE1VS3EyVjEyS3JDVFAxeWdCaw?oc=5",
-   "source": "知新聞",
+   "link": "https://news.google.com/rss/articles/CBMizANBVV95cUxQTUdhUWZ1dGR5N1FjUXhIUF9PX216RUIzNEhnVXNiZ0ctc3NuRGRoVzBVdVFFUHkxdFdsZ3M2M2UwR1FXV1A3Z1dpRG1wUHhMQ19ZVWxCdWVNZFlZY0taeDBQMmp0VDhSVmkyVTZacWdRM1prU2dpUUV3c2JCMnVMT0c0Zzh4cGFPY3gzYmxSa3JnNHJhNFA1TTdXUFZYd1J0RnhvNUlFTmlsY2NYa3dZN21reVc3U3UxdEJwRHpjYVFaTzI0U1lqNnRwMmlfMTVHUU9XWk1MbzYxbWdXTjc0Ymg0bmFUSVNXM0RzMUJuQTNmaG8zSFFhVVlMMVBfVWQ4RnJQU0FocHFQc2doMkV4dnJCTUp1LUpSTmhKcVFCWVR1clBvVXpScHNHWGFrWXNUclIzVk0tNVNZam9nUWJNT2ttal80Umt4eDgtVUQ0aUd5Uk1tWG40MUV2SFVSTEY1ZHhJMlM1V1Z5Z0IwUFZnSWJaZ2hjU3UtQmVyWVZITVp5bGltLTM4VVo0LVJoS2JvS1J2bW83N2l1YlVmWmRSSkFTTXBZbDREanY4VW9iQXBIU1BpUXdfSU5BZDZIdU54cnM3blU5LVZ1LWp0?oc=5",
+   "source": "Yahoo股市",
    "published": "2026-09-28",
    "snippet": "",
    "edition": "zh-TW",
@@ -28843,9 +29234,49 @@
    "heat": 1.094
   },
   {
+   "id": "7a5ce8f1a9dc647d",
+   "title": "DigiTimes: 台積電明年起漲價多達6% 訂單能見度到2030年",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1ReWxkTjN0eFE1ekpaSEl3bUZveUhaNmRMalFiMzlpT2RlaU8wQjgzWDVUMFg2Uk1qSWVteWJYM1Bndk53YzlfbGxuWHF5TmlLSUxteWFVQTN3Z9IBX0FVX3lxTE01dEw0ZW5jMWpqSm14dnBfRGtGbFRlU1ZfLUNIWDY4UUNLdnZsc09nd2o4dkVreEthaG9zYW4yblJwc0RGOXo0UDZCQU91VWFON0otNnpXS2RPMUtEdHNz?oc=5",
+   "source": "經濟日報",
+   "published": "2026-09-24",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.821
+  },
+  {
    "id": "5804d07689e13c6c",
    "title": "京元電子卡位旗艦手機測試，AI晶片訂單續強",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNWFp3WkJIYUR3dzd6QXVtenNZbHR4N2JVdFd3QXFCc1JSVmxsT21uVWtMM0ctcWVZS1dZZ1k0ak9vc0dCRmJFX1JuLTVRSW93b2JQUW9TVjl5UTF3dFh0a2JQQmdYVGRHczRqeFp1LU5VVjMwZWY3MHMyMm9yYnUtMVZmV1hwZlcwSlpzUXZpbXZoUQ?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQc3VzZWFqRzVaTGVQR0hGQlpNQUhmYVNlSXpJLW9PRTdrUnhBQ3o4X1hqSHlOeGVEekkyckJPTUNoZjdRRThRY3pRMzR6amdkRFRPTi1sUlpFblZtbmpiNzZ4X2VaTzdEME1TLXVJMVRWcHZab1lKWWUzNzJ6dE8zMml1YlE5d0tjUTlRZ0hCYWYyQQ?oc=5",
    "source": "台視全球資訊網",
    "published": "2026-09-24",
    "snippet": "",
@@ -29638,6 +30069,48 @@
    "heat": 1.029
   },
   {
+   "id": "e574b96cb8fbc7d0",
+   "title": "台積電、美光砸錢擴廠停不下來！訂單一路看到2028年 7檔廠務工程股吃大補丸",
+   "link": "https://news.google.com/rss/articles/CBMiwwNBVV95cUxOM0Nhel80eFh6aF9WUm54dmxXM2ctWGZsSHlTdnJVUVRkdWFiV3FTRmF6cUNQaUt6X2ZyMzZrWXNyNkZ4UmlSam9QYmxkWGJrNHpNTVVGSWVIeHJkUXJOcEtvdlhjRlVBdXZVZXl6c1o3cnpvVGpVWTd2ZzhJTWRUaFpXTXl3SmtrdEJuWWZLWlpXUFdQc2dEdXctZWpkekVkaXNwam5IVXgwd082bTZZYkdWSGFXTGU5b0pGLWppUHN3djN1ZjNnb0ZnVDF0ZUVvdUVPUVFXNmtZX0cySDhWcV9qLTlSSHc0UkJVQmhRMkNLdW45U1NPdTYzZ19ZMVZfZi14V2htMUpVWnF6RVZhYjd0OXI1S1ZGSV9CdmkzYW15Uk9OLTRFMGpGNFZSNEVaNHhYTDZ1cHZWblFrZkZIczJWMUNwdC1BeEJwV2RBeWZZNHlPd2wzelJ4TDg3c1dkcVNVUXdmUFJ1bUt0N2ZxTkcwOExkeDUtQjlfUEVwSGh0aWw5d1RsWU43eTNSeUpYbWJpNlNLLV91MEg5Ym9FR1V0N1VaYzNuQ3RHSWVqa2J0NFRsLVhPNTdwWm9mOUZTcUIw?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-09-19",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "美光台灣"
+   ],
+   "accounts": [
+    "台積電",
+    "美光台灣"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.76
+  },
+  {
    "id": "9b57be7020b9ae7f",
    "title": "搶吃美光、聯電擴產紅利！這「重電廠」在手訂單衝130億 台電711億撥補上路助攻營運",
    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBnQXJEVXRkRXZwa1NXZFR4MjRyQ01IMndsQWNGY09zR0M0YWRFUWRDWnlXT1RvZEVoYzNQck9VZlVmXzNINFA0VDRLYw?oc=5",
@@ -29685,48 +30158,6 @@
    "title": "台積電、美光擴廠踩油門 廠務工程訂單看到2028年 7檔受惠股出列",
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE95TkkySmp2U2xfOGhwSFBkYmxxNGd2YkVNTVZHQlFiSkp5cXFwd2VnQW9zVkpTeW1DMm9KQjZrZDdNQ0tQWEtnS1NpZ0xXR2VmYmxCdGU5WjBqZ9IBX0FVX3lxTFBzVExCVVFoZHFIV01HZ1lqLU1pMXQwWk1EbmluRm13S2gyWTNfMkNyWko5VzEtVERad2pqdGhlRHFZYTZTc01oYW1vb2hOeGJ1YWh0b3FjQzFTTjRfamln?oc=5",
    "source": "經濟日報",
-   "published": "2026-09-18",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電",
-    "美光台灣"
-   ],
-   "accounts": [
-    "台積電",
-    "美光台灣"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.748
-  },
-  {
-   "id": "e574b96cb8fbc7d0",
-   "title": "台積電、美光砸錢擴廠停不下來！訂單一路看到2028年 7檔廠務工程股吃大補丸",
-   "link": "https://news.google.com/rss/articles/CBMiwwNBVV95cUxOM0Nhel80eFh6aF9WUm54dmxXM2ctWGZsSHlTdnJVUVRkdWFiV3FTRmF6cUNQaUt6X2ZyMzZrWXNyNkZ4UmlSam9QYmxkWGJrNHpNTVVGSWVIeHJkUXJOcEtvdlhjRlVBdXZVZXl6c1o3cnpvVGpVWTd2ZzhJTWRUaFpXTXl3SmtrdEJuWWZLWlpXUFdQc2dEdXctZWpkekVkaXNwam5IVXgwd082bTZZYkdWSGFXTGU5b0pGLWppUHN3djN1ZjNnb0ZnVDF0ZUVvdUVPUVFXNmtZX0cySDhWcV9qLTlSSHc0UkJVQmhRMkNLdW45U1NPdTYzZ19ZMVZfZi14V2htMUpVWnF6RVZhYjd0OXI1S1ZGSV9CdmkzYW15Uk9OLTRFMGpGNFZSNEVaNHhYTDZ1cHZWblFrZkZIczJWMUNwdC1BeEJwV2RBeWZZNHlPd2wzelJ4TDg3c1dkcVNVUXdmUFJ1bUt0N2ZxTkcwOExkeDUtQjlfUEVwSGh0aWw5d1RsWU43eTNSeUpYbWJpNlNLLV91MEg5Ym9FR1V0N1VaYzNuQ3RHSWVqa2J0NFRsLVhPNTdwWm9mOUZTcUIw?oc=5",
-   "source": "Yahoo股市",
    "published": "2026-09-18",
    "snippet": "",
    "edition": "zh-TW",
@@ -33452,6 +33883,45 @@
    "heat": 0.525
   },
   {
+   "id": "3f22a4db76f4a449",
+   "title": "聯電(2303)上調資本支出！搶AI先進封裝與CPO商機，這4檔半導體供應鏈一次看-財經焦點情報站",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQdVNvY0EwOGY0VTViMUVIdmFYMDYzQjlibEd0WWx4NlF4cG1Sc3BtVHpqYk16UkFSRFloSjkxN2h4NGo5U1cxb2ppN2RYVEhHN2VHVmlPaEg2OGFfb2pYM05mbUlod0ROcldZYUVDQ2ZpZHNoYXdXbXdfQWkwaFl6QjZR?oc=5",
+   "source": "CMoney投資網誌",
+   "published": "2026-08-26",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion",
+    "qualification"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電"
+   ],
+   "accounts": [
+    "聯電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.744
+  },
+  {
    "id": "37916dca061ecdb3",
    "title": "力成先進封裝全面加速FOPLP明年中量產- 產業",
    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5LbndLRmp5dkZGQk9HWmh0VWM1c1hRcHkxVExrWnpwbkg4VXRfZ2NrbVhmQnVUOHoxN2ZHS0lISHUtbUdyRG9tX21IS3p4TkZoeG0xRDFYaWZjTG82RmM4?oc=5",
@@ -34237,6 +34707,46 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.678
+  },
+  {
+   "id": "2beae28fb881ca20",
+   "title": "台積電吃不下的訂單，正在砸暈這家封測巨頭",
+   "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5CbkFqSEJDaVpTUU5tZXhrMF9rZmhIdWFVYUpleWJ0QWlPVEtqaXJqWUVvYmd1RjNCSE03U0tKdm15SWJoejZTTw?oc=5",
+   "source": "鉅亨號",
+   "published": "2026-08-20",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電"
+   ],
+   "accounts": [
+    "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.479
   },
   {
    "id": "148899a85091d126",
@@ -35033,6 +35543,44 @@
    "heat": 0.573
   },
   {
+   "id": "43af5dc41fe440fe",
+   "title": "AI下一波黑馬是聯電？矽光子正式量產、2大成長引擎啟動，一文看懂還能不能上車！ | 先探投資週刊 | 財經",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAtd2hSZkYweFREVVlmWEJuSG1CWWVscFhxWjVyaHZNVC1uWnhOUE1FSWlYZzM1T0NuTUlKbjRVVUdzUU1MRmczY28tNWItQQ?oc=5",
+   "source": "風傳媒",
+   "published": "2026-08-13",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電"
+   ],
+   "accounts": [
+    "聯電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.573
+  },
+  {
    "id": "fe5239db0a617e7c",
    "title": "南茂2026、2027年加碼調高資本支出 跨足光通訊 、AI ASIC",
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNeU5Oa2dGMmhfSUk0N0RYRHRydVIyTWR2WTR0NHBtbUVaSTlaTHVGb1VOSkgzQnFxR0NIUTBPLXFhMEpUUjJacjZEZ0l6V291UGNMd1NWcHFDTWhFTFB2Tk9GbThQWVRpaUg4YkpzZkF5cU9qLTVqSHJ5a2F0SlBmV05KYWxrX2VGenpuOXZR?oc=5",
@@ -35682,8 +36230,8 @@
   {
    "id": "0f10313d074a94e9",
    "title": "【即時新聞】京元電(2449)砸32億大擴產！這「6檔概念股」買盤強勢點火！",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaW5PMHRwSVA0WVROckdhVUpNZG1fRDJkMVFIb1ppTndoUFNOb1h4M3VsUWs4UE1WbTZWdVlMT2M4Q2dGaVhWMTQ5WEUtV0ZZM2U2VkU4MlJTNHV4aUtkdWxJTjlJVlhYTzNZYW84S1BPUWRKWjRVaVNGNjN0UjBMOXk4cGZRbTQybktjQjZROFE?oc=5",
-   "source": "CMoney投資網誌",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9YWnNCOEtYVklBVDN2eVFUYl9tc3lyRTh5aUIxVDdMSGtLRDkwQ1dHcmhTNDNDdFlhajluSVJqTlRqblhxenYwbHQxNno4VjRIVmw0LUJVSUp3cVNSalJqVGlicGhZekk?oc=5",
+   "source": "CMoney",
    "published": "2026-08-10",
    "snippet": "",
    "edition": "zh-TW",
@@ -39071,6 +39619,44 @@
    "heat": 0.455
   },
   {
+   "id": "30229d5b567cca80",
+   "title": "聯電宣布新加坡擴產及台南興建新廠 因應 AI 需求加速成長",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4wUDctc0tnUnZlUFR0WE1qbndsSFl6V1RaclJjOTgtdS1FM3BuUmtIeUlTMnhNUkdCLUFXdXNxZmNZSkw4c1lhVHBXUEotTVlOeTg3SkIxM2hkM2_SAWBBVV95cUxOQ044T0RuV1dEUlVYOGxYbENUcU9pRmV4RDN6bmNYMUltbGJVMnItdExvajBoWmhZTExUdG5yQ3hKT2RZOFk1MXJxYS1ta2VQNG9HbnRZZ1plVWJ2YVdzLTg?oc=5",
+   "source": "經濟日報",
+   "published": "2026-07-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電"
+   ],
+   "accounts": [
+    "聯電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.455
+  },
+  {
    "id": "2486441a2c5f99b4",
    "title": "聯電業績亮眼且上調資本開支 AI訂單從GPU外溢至成熟製程",
    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4yTmU5cDlRSnpBWl9IYzdpMHhmODc0M1FIX01wQVRjcW9Kcmw4cm1aRVg5Ym9uel9sRm0wWHdYdW04NFV3RWtXQnVnWHZmV3NscWRDZGpHOTJtLTIzZi1kR3NvTkk5aUc2VGc?oc=5",
@@ -39776,48 +40362,6 @@
    "heat": 0.098
   },
   {
-   "id": "1200da5a21c0b83d",
-   "title": "台積電、美光狂砸逾2400億美元擴廠！法人點名7檔廠務工程股 訂單一路看到2028年後",
-   "link": "https://news.google.com/rss/articles/CBMi1ANBVV95cUxNUU9VZVBrVm9YT0g5WjVkVjhPdEdxOEg5bXRFTmxYOVlRRXZlUWdFVml3eXhGOXRqekd5bklHYTlJV0QwakZ2THktRkt2Z2VVOG5MZlJpY2tYRWlxR1lLU0tvUFIxbnlpVHhrVS1LVWxNOXVqSmFKN242amFwLWkxSGJpam1TRzRubUhSb0gxTG1LRGFpWkdmZ3RMWVR3NXZ3NWc4SzJTbXJhQUJDWi13NkNOWlZBaVo0MDRJejV2eTdYT194TVJMclM2U2JMQ2RmSDRhY1liODVWSWpUdTF2TldCYkwyeXhOQUNBTU53ckotRlNpNVNwZFZJQ2gzb1pZTmswazNNc0JwWTE2Z2czbDVOZXFsNkc2NHhOZHNIOEpDU2RJMGlhdnJvM1dCUUtXZU1YLU04MWEwWF9Gc2t3eGRxbFQ0RkluZGhhdXdkQmxYU0g1azI2TDJiY3lCR2VtYW5yR1VtQjUtell4bFVhRXBCX0lJMTVPdTJpWFFBUGdmTDZlT3hrRVFOMXZaWGRjTHBQMjA3eC1HZDNScWF6Ry1aZjJtQW4zZ0NyT2JnRWNLT0tDTDM1ajY0dHNhZEJOS1BSWmhqZGt3Q2xvN2YyTXhTNGo?oc=5",
-   "source": "Yahoo股市",
-   "published": "2026-07-26",
-   "snippet": "",
-   "edition": "zh-TW",
-   "origin": "news",
-   "products": [
-    "target",
-    "nickel",
-    "copper"
-   ],
-   "industries": {
-    "target": "semiconductor",
-    "nickel": "semiconductor",
-    "copper": "semiconductor"
-   },
-   "intents": [
-    "contract"
-   ],
-   "region": "TW",
-   "orgs": [
-    "台積電",
-    "美光台灣"
-   ],
-   "accounts": [
-    "台積電",
-    "美光台灣"
-   ],
-   "relevance": 0.6,
-   "inferred": true,
-   "noise": false,
-   "weight_hint": 0.0,
-   "need": "",
-   "urgency": 0,
-   "suppliers": [],
-   "title_zh": "",
-   "enriched": false,
-   "heat": 0.326
-  },
-  {
    "id": "06168b51d76a12ff",
    "title": "台積電資本支出上修！不只AI需求強 還藏著魏哲家「一寸不讓」鬥志",
    "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1WYXJfZExqSFlwbDQ0c3QyQlVEVnBCVFZLVVUzcTR0MHZMNlJ6VEJBMVFQUGs3NWROdlBYaFQyeWtzOE1Rdmd1bkpPNG8zcUpZ?oc=5",
@@ -39961,6 +40505,48 @@
    ],
    "accounts": [
     "台積電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.321
+  },
+  {
+   "id": "1200da5a21c0b83d",
+   "title": "台積電、美光狂砸逾2400億美元擴廠！法人點名7檔廠務工程股 訂單一路看到2028年後",
+   "link": "https://news.google.com/rss/articles/CBMi1ANBVV95cUxNUU9VZVBrVm9YT0g5WjVkVjhPdEdxOEg5bXRFTmxYOVlRRXZlUWdFVml3eXhGOXRqekd5bklHYTlJV0QwakZ2THktRkt2Z2VVOG5MZlJpY2tYRWlxR1lLU0tvUFIxbnlpVHhrVS1LVWxNOXVqSmFKN242amFwLWkxSGJpam1TRzRubUhSb0gxTG1LRGFpWkdmZ3RMWVR3NXZ3NWc4SzJTbXJhQUJDWi13NkNOWlZBaVo0MDRJejV2eTdYT194TVJMclM2U2JMQ2RmSDRhY1liODVWSWpUdTF2TldCYkwyeXhOQUNBTU53ckotRlNpNVNwZFZJQ2gzb1pZTmswazNNc0JwWTE2Z2czbDVOZXFsNkc2NHhOZHNIOEpDU2RJMGlhdnJvM1dCUUtXZU1YLU04MWEwWF9Gc2t3eGRxbFQ0RkluZGhhdXdkQmxYU0g1azI2TDJiY3lCR2VtYW5yR1VtQjUtell4bFVhRXBCX0lJMTVPdTJpWFFBUGdmTDZlT3hrRVFOMXZaWGRjTHBQMjA3eC1HZDNScWF6Ry1aZjJtQW4zZ0NyT2JnRWNLT0tDTDM1ajY0dHNhZEJOS1BSWmhqZGt3Q2xvN2YyTXhTNGo?oc=5",
+   "source": "Yahoo股市",
+   "published": "2026-07-25",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "nickel",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "nickel": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台積電",
+    "美光台灣"
+   ],
+   "accounts": [
+    "台積電",
+    "美光台灣"
    ],
    "relevance": 0.6,
    "inferred": true,
@@ -40416,6 +41002,44 @@
    "title_zh": "",
    "enriched": false,
    "heat": 0.121
+  },
+  {
+   "id": "2e453409fd43eab4",
+   "title": "聯電新加坡矽光子交付落地，12吋平台銜接量產",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObjNoZk9yTEVQeDNkeUs0RU9NQ3MtRXFkQ25LQW92ZWtKSlZjbnYzcnlXeHUybU5FQXZDSU1RYlZBVEVRSVVkME16NWtwUy04OExldjczTkJXeGhjMEVPS1E0VlZ1ekNxQ3l3dVZtWURSMFY5U1NXT2tlT3lIUW1SNlNXanhRZUsxRW5lUFFsWVJuQQ?oc=5",
+   "source": "台視全球資訊網",
+   "published": "2026-07-21",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "target",
+    "copper"
+   ],
+   "industries": {
+    "target": "semiconductor",
+    "copper": "semiconductor"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "聯電"
+   ],
+   "accounts": [
+    "聯電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.402
   },
   {
    "id": "e8ec0268f00134ab",
@@ -41111,10 +41735,10 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 32.18,
-    "titanium": 32.18,
+    "target": 32.17,
+    "titanium": 32.17,
     "nickel": 1.42,
-    "copper": 30.21,
+    "copper": 30.2,
     "evaporation": 0.0
    },
    "signal_score": 71.2,
@@ -41164,10 +41788,10 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 1,
-    "inferred": 103
+    "inferred": 105
    },
    "material_terms": [],
-   "material_summary": "人工整理 1 則、未提材料的公司動態 103 則;材料依產品適配度推估",
+   "material_summary": "人工整理 1 則、未提材料的公司動態 105 則;材料依產品適配度推估",
    "evidence_basis": {
     "5a7632dd70865872": "inferred",
     "0eec235f3ccd408a": "inferred",
@@ -41195,19 +41819,19 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 23.48,
+    "target": 25.3,
     "titanium": 0.0,
-    "nickel": 0.63,
-    "copper": 23.48,
+    "nickel": 2.47,
+    "copper": 25.3,
     "evaporation": 0.25
    },
-   "signal_score": 61.4,
-   "signals": 18,
+   "signal_score": 63.2,
+   "signals": 19,
    "top_intent": "expansion",
    "last_signal": "2026-11-12",
-   "opportunity": 91.8,
+   "opportunity": 92.9,
    "fit_part": 40.0,
-   "signal_part": 36.8,
+   "signal_part": 37.9,
    "value_part": 15.0,
    "value_score": 100.0,
    "estimate": {
@@ -41236,30 +41860,30 @@
    "evidence": [
     "be4570850a051cb0",
     "12c9ba3b6e450a42",
+    "7b2cc6bf9514ec72",
     "10f78a2d0c55f0c0",
     "46bc1765d231c8bc",
     "c016e1a3200aec0c",
     "9e513e8efeca99bb",
-    "db2c223ccecf99ae",
-    "9b57be7020b9ae7f"
+    "db2c223ccecf99ae"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 174
+    "inferred": 176
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 174 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 176 則;材料依產品適配度推估",
    "evidence_basis": {
     "be4570850a051cb0": "inferred",
     "12c9ba3b6e450a42": "inferred",
+    "7b2cc6bf9514ec72": "inferred",
     "10f78a2d0c55f0c0": "inferred",
     "46bc1765d231c8bc": "inferred",
     "c016e1a3200aec0c": "inferred",
     "9e513e8efeca99bb": "inferred",
-    "db2c223ccecf99ae": "inferred",
-    "9b57be7020b9ae7f": "inferred"
+    "db2c223ccecf99ae": "inferred"
    }
   },
   {
@@ -41278,38 +41902,38 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 17.25,
+    "target": 17.48,
     "titanium": 0.03,
-    "nickel": 0.55,
-    "copper": 17.25,
+    "nickel": 0.54,
+    "copper": 17.48,
     "evaporation": 0.01
    },
-   "signal_score": 61.2,
+   "signal_score": 61.1,
    "signals": 15,
    "top_intent": "expansion",
    "last_signal": "2026-11-11",
-   "opportunity": 90.5,
+   "opportunity": 89.6,
    "fit_part": 40.0,
    "signal_part": 36.7,
-   "value_part": 13.8,
-   "value_score": 91.9,
+   "value_part": 13.0,
+   "value_score": 86.5,
    "estimate": {
-    "value": 569633333,
+    "value": 392533333,
     "product": "target",
     "by_product": {
-     "target": 445800000,
-     "copper": 99066667,
-     "nickel": 24766667
+     "target": 307200000,
+     "copper": 68266667,
+     "nickel": 17066667
     },
-    "amount": 148600000000,
+    "amount": 102400000000,
     "intent": "expansion",
     "factor": 1.0,
     "share": 0.003,
     "fit": 3,
-    "signal": "cfea5be577bc8bfa",
-    "title": "不只做成熟製程！聯電砸1,486億元擴產、押寶矽光子AI營收3年要衝破10億美元- 產業",
-    "score": 91.9,
-    "summary": "約 NT$569.6 百萬 / 年(主要為濺鍍靶材):報導金額 NT$1,486.0 億 × 擴產與新廠係數 1 × 濺鍍靶材占比 0.3% × 適配 3/3"
+    "signal": "03e384c39a04fe05",
+    "title": "不拚先進製程照樣供不應求！聯電追加32億美元擴產滿足客戶",
+    "score": 86.5,
+    "summary": "約 NT$392.5 百萬 / 年(主要為濺鍍靶材):報導金額 NT$1,024.0 億 × 擴產與新廠係數 1 × 濺鍍靶材占比 0.3% × 適配 3/3"
    },
    "tier": "優先開發",
    "best_product": "target",
@@ -41323,17 +41947,17 @@
     "fc2461de2de10192",
     "5970b244c1f20eed",
     "ffa5dd8308c0a1d9",
-    "339604d9b06559dd",
-    "c62fffb5362ad963"
+    "43af5dc41fe440fe",
+    "339604d9b06559dd"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 89
+    "inferred": 93
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 89 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 93 則;材料依產品適配度推估",
    "evidence_basis": {
     "1d8aac6fd8c6e539": "inferred",
     "93c523923132f298": "inferred",
@@ -41341,92 +41965,8 @@
     "fc2461de2de10192": "inferred",
     "5970b244c1f20eed": "inferred",
     "ffa5dd8308c0a1d9": "inferred",
-    "339604d9b06559dd": "inferred",
-    "c62fffb5362ad963": "inferred"
-   }
-  },
-  {
-   "org": "台積電",
-   "ticker": "2330",
-   "subsegment": "foundry",
-   "fit": {
-    "target": 3,
-    "titanium": 1,
-    "nickel": 2,
-    "copper": 3,
-    "evaporation": 1
-   },
-   "note": "先進製程與 CoWoS / SoIC 先進封裝都大量使用 PVD 靶材;新廠的特氣與化學品供應系統用耐蝕合金。在地化與第二供應商計畫是切入點;銅:銅導線與先進封裝電鍍銅大量使用磷銅陽極 / 高純銅",
-   "chain_tier": 0,
-   "customers": [],
-   "chain_source": "",
-   "heat": {
-    "target": 39.08,
-    "titanium": 2.93,
-    "nickel": 39.08,
-    "copper": 39.08,
-    "evaporation": 0.04
-   },
-   "signal_score": 64.0,
-   "signals": 39,
-   "top_intent": "expansion",
-   "last_signal": "2026-11-13",
-   "opportunity": 89.6,
-   "fit_part": 40.0,
-   "signal_part": 38.4,
-   "value_part": 11.2,
-   "value_score": 74.4,
-   "estimate": {
-    "value": 170720000,
-    "product": "target",
-    "by_product": {
-     "target": 116400000,
-     "copper": 38800000,
-     "nickel": 12933333,
-     "titanium": 2586667
-    },
-    "amount": 38800000000,
-    "intent": "expansion",
-    "factor": 1.0,
-    "share": 0.003,
-    "fit": 3,
-    "signal": "6b87c7288cff91d8",
-    "title": "台積電砸 388 億拿下友達中科兩廠！先進封裝擴產再加速、精材地位升",
-    "score": 74.4,
-    "summary": "約 NT$170.7 百萬 / 年(主要為濺鍍靶材):報導金額 NT$388.0 億 × 擴產與新廠係數 1 × 濺鍍靶材占比 0.3% × 適配 3/3"
-   },
-   "tier": "優先開發",
-   "best_product": "target",
-   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
-   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
-   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
-   "evidence": [
-    "ebc5c3bb515275b8",
-    "19fe10bf3e4bbc34",
-    "6b87c7288cff91d8",
-    "142869cf1f0ef990",
-    "55bab70da8e5d646",
-    "bc4781013a822c9d",
-    "6fd303869174d6eb",
-    "46c073d3a5a17984"
-   ],
-   "material_basis": {
-    "explicit": 0,
-    "co_mention": 1,
-    "manual": 0,
-    "inferred": 264
-   },
-   "material_terms": [],
-   "material_summary": "同篇提及材料但主詞為他公司 1 則、未提材料的公司動態 264 則;材料依產品適配度推估",
-   "evidence_basis": {
-    "ebc5c3bb515275b8": "inferred",
-    "19fe10bf3e4bbc34": "inferred",
-    "6b87c7288cff91d8": "inferred",
-    "142869cf1f0ef990": "inferred",
-    "55bab70da8e5d646": "inferred",
-    "bc4781013a822c9d": "inferred",
-    "6fd303869174d6eb": "inferred",
-    "46c073d3a5a17984": "inferred"
+    "43af5dc41fe440fe": "inferred",
+    "339604d9b06559dd": "inferred"
    }
   },
   {
@@ -41528,10 +42068,10 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 14.3,
+    "target": 14.29,
     "titanium": 0.0,
     "nickel": 0.01,
-    "copper": 14.3,
+    "copper": 14.29,
     "evaporation": 0.0
    },
    "signal_score": 58.3,
@@ -41679,6 +42219,76 @@
    }
   },
   {
+   "org": "台積電",
+   "ticker": "2330",
+   "subsegment": "foundry",
+   "fit": {
+    "target": 3,
+    "titanium": 1,
+    "nickel": 2,
+    "copper": 3,
+    "evaporation": 1
+   },
+   "note": "先進製程與 CoWoS / SoIC 先進封裝都大量使用 PVD 靶材;新廠的特氣與化學品供應系統用耐蝕合金。在地化與第二供應商計畫是切入點;銅:銅導線與先進封裝電鍍銅大量使用磷銅陽極 / 高純銅",
+   "chain_tier": 0,
+   "customers": [],
+   "chain_source": "",
+   "heat": {
+    "target": 38.5,
+    "titanium": 2.92,
+    "nickel": 38.5,
+    "copper": 38.5,
+    "evaporation": 0.03
+   },
+   "signal_score": 62.8,
+   "signals": 40,
+   "top_intent": "expansion",
+   "last_signal": "2026-11-14",
+   "opportunity": 77.7,
+   "fit_part": 40.0,
+   "signal_part": 37.7,
+   "value_part": 0.0,
+   "value_score": 0.0,
+   "estimate": {
+    "value": 0,
+    "score": 0.0,
+    "summary": ""
+   },
+   "tier": "優先開發",
+   "best_product": "target",
+   "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
+   "pitch": "高純度(4N5–6N)金屬 / 合金靶、綁定與背板一站式、在地交期與殘靶回收",
+   "pitch_source": "一般產業常見規格,尚未對照公司型錄與實際製造能力",
+   "evidence": [
+    "ebc5c3bb515275b8",
+    "19fe10bf3e4bbc34",
+    "142869cf1f0ef990",
+    "55bab70da8e5d646",
+    "7bd1cf7371629f94",
+    "6fd303869174d6eb",
+    "46c073d3a5a17984",
+    "b472ed91901c3519"
+   ],
+   "material_basis": {
+    "explicit": 0,
+    "co_mention": 1,
+    "manual": 0,
+    "inferred": 268
+   },
+   "material_terms": [],
+   "material_summary": "同篇提及材料但主詞為他公司 1 則、未提材料的公司動態 268 則;材料依產品適配度推估",
+   "evidence_basis": {
+    "ebc5c3bb515275b8": "inferred",
+    "19fe10bf3e4bbc34": "inferred",
+    "142869cf1f0ef990": "inferred",
+    "55bab70da8e5d646": "inferred",
+    "7bd1cf7371629f94": "inferred",
+    "6fd303869174d6eb": "inferred",
+    "46c073d3a5a17984": "inferred",
+    "b472ed91901c3519": "inferred"
+   }
+  },
+  {
    "org": "世界先進",
    "ticker": "5347",
    "subsegment": "foundry",
@@ -41694,10 +42304,10 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 11.08,
+    "target": 11.26,
     "titanium": 0.0,
-    "nickel": 0.18,
-    "copper": 11.08,
+    "nickel": 0.24,
+    "copper": 11.26,
     "evaporation": 0.0
    },
    "signal_score": 56.0,
@@ -41733,10 +42343,10 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 54
+    "inferred": 55
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 54 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 55 則;材料依產品適配度推估",
    "evidence_basis": {
     "560cafd013bae8fa": "inferred",
     "7ac8789d65832127": "inferred",
@@ -41764,10 +42374,10 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 8.91,
+    "target": 8.9,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 8.91,
+    "copper": 8.9,
     "evaporation": 0.0
    },
    "signal_score": 44.6,
@@ -41850,7 +42460,7 @@
     "target": 4.43,
     "titanium": 3.22,
     "nickel": 0.0,
-    "copper": 11.9,
+    "copper": 11.91,
     "evaporation": 0.0
    },
    "signal_score": 56.2,
@@ -41886,10 +42496,10 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 1,
-    "inferred": 30
+    "inferred": 31
    },
    "material_terms": [],
-   "material_summary": "人工整理 1 則、未提材料的公司動態 30 則;材料依產品適配度推估",
+   "material_summary": "人工整理 1 則、未提材料的公司動態 31 則;材料依產品適配度推估",
    "evidence_basis": {
     "de08e45c4efbc2b2": "inferred",
     "659f9d0147713362": "inferred",
@@ -42063,19 +42673,19 @@
    "customers": [],
    "chain_source": "",
    "heat": {
-    "target": 6.8,
+    "target": 5.77,
     "titanium": 0.0,
-    "nickel": 3.92,
-    "copper": 7.66,
+    "nickel": 2.86,
+    "copper": 6.63,
     "evaporation": 0.0
    },
-   "signal_score": 44.7,
-   "signals": 7,
+   "signal_score": 42.3,
+   "signals": 6,
    "top_intent": "expansion",
    "last_signal": "2026-11-13",
-   "opportunity": 53.5,
+   "opportunity": 52.0,
    "fit_part": 26.7,
-   "signal_part": 26.8,
+   "signal_part": 25.4,
    "value_part": 0.0,
    "value_score": 0.0,
    "estimate": {
@@ -42092,31 +42702,31 @@
     "7c5a89d196aed245",
     "547cc05486567dda",
     "604b31a3afc2097f",
-    "6b87c7288cff91d8",
     "8e9b16eafdaebbe1",
     "62b197f593cb5b80",
     "278229334d778fdc",
-    "7ca6e6038c9edc56"
+    "7ca6e6038c9edc56",
+    "96ce93cf9f368db5"
    ],
    "material_basis": {
     "explicit": 1,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 19
+    "inferred": 21
    },
    "material_terms": [
     "銅製程"
    ],
-   "material_summary": "明確提及材料 1 則(銅製程)、未提材料的公司動態 19 則",
+   "material_summary": "明確提及材料 1 則(銅製程)、未提材料的公司動態 21 則",
    "evidence_basis": {
     "7c5a89d196aed245": "explicit",
     "547cc05486567dda": "inferred",
     "604b31a3afc2097f": "inferred",
-    "6b87c7288cff91d8": "inferred",
     "8e9b16eafdaebbe1": "inferred",
     "62b197f593cb5b80": "inferred",
     "278229334d778fdc": "inferred",
-    "7ca6e6038c9edc56": "inferred"
+    "7ca6e6038c9edc56": "inferred",
+    "96ce93cf9f368db5": "inferred"
    }
   },
   {
@@ -42166,8 +42776,8 @@
     "b6f23410f0a6761a",
     "190059e0289b43aa",
     "67955d1b310fd539",
-    "1120655733abc219",
     "655e72da32a7e729",
+    "1120655733abc219",
     "f7adc03292bd2d0a"
    ],
    "material_basis": {
@@ -42184,8 +42794,8 @@
     "b6f23410f0a6761a": "inferred",
     "190059e0289b43aa": "inferred",
     "67955d1b310fd539": "inferred",
-    "1120655733abc219": "inferred",
     "655e72da32a7e729": "inferred",
+    "1120655733abc219": "inferred",
     "f7adc03292bd2d0a": "inferred"
    }
   },
@@ -42207,8 +42817,8 @@
    "heat": {
     "target": 1.1,
     "titanium": 0.36,
-    "nickel": 0.38,
-    "copper": 0.38,
+    "nickel": 0.37,
+    "copper": 0.37,
     "evaporation": 1.1
    },
    "signal_score": 8.8,
@@ -42313,7 +42923,7 @@
  "other_mentions": [
   {
    "org": "Apple",
-   "signal_score": 13.8,
+   "signal_score": 13.5,
    "signals": 1,
    "last_signal": "2026-11-06",
    "product": "titanium",
@@ -42324,20 +42934,8 @@
    ]
   },
   {
-   "org": "友達光電",
-   "signal_score": 11.9,
-   "signals": 2,
-   "last_signal": "2026-11-02",
-   "product": "target",
-   "evidence": [
-    "6b87c7288cff91d8",
-    "6fd303869174d6eb",
-    "f9191c1af7a9dcd1"
-   ]
-  },
-  {
    "org": "辛耘企業",
-   "signal_score": 7.9,
+   "signal_score": 7.8,
    "signals": 3,
    "last_signal": "2026-11-12",
    "product": "nickel",
@@ -42349,7 +42947,7 @@
   },
   {
    "org": "漢唐集成",
-   "signal_score": 7.7,
+   "signal_score": 7.6,
    "signals": 1,
    "last_signal": "2026-10-02",
    "product": "nickel",
@@ -42367,6 +42965,18 @@
     "2d1fe38d1823cc27",
     "d82c45aebb9dc651",
     "e1deac2e1e00ef84"
+   ]
+  },
+  {
+   "org": "友達光電",
+   "signal_score": 6.1,
+   "signals": 1,
+   "last_signal": "2026-11-02",
+   "product": "target",
+   "evidence": [
+    "6fd303869174d6eb",
+    "f9191c1af7a9dcd1",
+    "6b87c7288cff91d8"
    ]
   },
   {
@@ -42393,7 +43003,7 @@
   },
   {
    "org": "群創光電",
-   "signal_score": 4.7,
+   "signal_score": 4.6,
    "signals": 1,
    "last_signal": "2026-11-02",
    "product": "target",
@@ -42412,6 +43022,18 @@
    ]
   },
   {
+   "org": "亞翔工程",
+   "signal_score": 3.6,
+   "signals": 1,
+   "last_signal": "2026-10-01",
+   "product": "nickel",
+   "evidence": [
+    "c678815b9c34c77c",
+    "cadd6d674c7cd6a2",
+    "8f0016a8fd512ac6"
+   ]
+  },
+  {
    "org": "家登精密",
    "signal_score": 3.4,
    "signals": 1,
@@ -42421,18 +43043,6 @@
     "697265169036c55a",
     "6abf881cb21893f7",
     "8b69faeb2060d218"
-   ]
-  },
-  {
-   "org": "亞翔工程",
-   "signal_score": 3.3,
-   "signals": 1,
-   "last_signal": "2026-10-01",
-   "product": "nickel",
-   "evidence": [
-    "c678815b9c34c77c",
-    "cadd6d674c7cd6a2",
-    "8f0016a8fd512ac6"
    ]
   },
   {
@@ -42474,8 +43084,8 @@
    "last_signal": "2026-09-29",
    "product": "target",
    "evidence": [
-    "a227fc29b166d7cc",
-    "6d5236e4ef09889f"
+    "6d5236e4ef09889f",
+    "a227fc29b166d7cc"
    ]
   },
   {
@@ -42556,9 +43166,9 @@
   {
    "subsegment": "foundry",
    "product": "target",
-   "heat": 78.911,
+   "heat": 79.577,
    "count": 56,
-   "z": 3.1,
+   "z": 3.11,
    "level": "hot",
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -42578,9 +43188,9 @@
   {
    "subsegment": "foundry",
    "product": "titanium",
-   "heat": 4.067,
+   "heat": 4.053,
    "count": 3,
-   "z": 0.58,
+   "z": 0.59,
    "level": "neutral",
    "signal_ids": [
     "d82c45aebb9dc651",
@@ -42600,9 +43210,9 @@
   {
    "subsegment": "foundry",
    "product": "nickel",
-   "heat": 41.983,
+   "heat": 42.286,
    "count": 29,
-   "z": 1.13,
+   "z": 1.14,
    "level": "warm",
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -42622,9 +43232,9 @@
   {
    "subsegment": "foundry",
    "product": "copper",
-   "heat": 78.911,
+   "heat": 79.577,
    "count": 56,
-   "z": 3.14,
+   "z": 3.15,
    "level": "hot",
    "signal_ids": [
     "dab11f0b91fe9f1e",
@@ -42644,9 +43254,9 @@
   {
    "subsegment": "foundry",
    "product": "evaporation",
-   "heat": 0.048,
+   "heat": 0.044,
    "count": 0,
-   "z": 0.13,
+   "z": 0.14,
    "level": "neutral",
    "signal_ids": [
     "51e2c4900d864d96",
@@ -42658,9 +43268,9 @@
   {
    "subsegment": "memory",
    "product": "target",
-   "heat": 50.538,
+   "heat": 50.521,
    "count": 30,
-   "z": 1.67,
+   "z": 1.66,
    "level": "warm",
    "signal_ids": [
     "5645ba2dbc3efce2",
@@ -42689,7 +43299,7 @@
   {
    "subsegment": "memory",
    "product": "nickel",
-   "heat": 0.197,
+   "heat": 0.2,
    "count": 0,
    "z": -0.49,
    "level": "neutral",
@@ -42697,15 +43307,16 @@
     "cadd6d674c7cd6a2",
     "616806023e62cc77",
     "1d2a963d4b19f6b5",
+    "e126cd6121026e38",
     "4cf163ce91a51b61"
    ]
   },
   {
    "subsegment": "memory",
    "product": "copper",
-   "heat": 49.681,
+   "heat": 49.663,
    "count": 29,
-   "z": 1.7,
+   "z": 1.69,
    "level": "warm",
    "signal_ids": [
     "5645ba2dbc3efce2",
@@ -42736,7 +43347,7 @@
   {
    "subsegment": "thinning",
    "product": "target",
-   "heat": 4.312,
+   "heat": 4.337,
    "count": 2,
    "z": 0.13,
    "level": "neutral",
@@ -42771,7 +43382,7 @@
    "product": "nickel",
    "heat": 0.698,
    "count": 0,
-   "z": -1.39,
+   "z": -1.38,
    "level": "neutral",
    "signal_ids": [
     "d183ebf4a152147e"
@@ -42780,7 +43391,7 @@
   {
    "subsegment": "thinning",
    "product": "copper",
-   "heat": 4.443,
+   "heat": 4.467,
    "count": 2,
    "z": 0.18,
    "level": "neutral",
@@ -42804,7 +43415,7 @@
    "product": "evaporation",
    "heat": 1.425,
    "count": 1,
-   "z": -1.81,
+   "z": -1.8,
    "level": "neutral",
    "signal_ids": [
     "613cf3970892ff86",
@@ -42816,9 +43427,9 @@
   {
    "subsegment": "packaging",
    "product": "target",
-   "heat": 53.201,
+   "heat": 53.191,
    "count": 29,
-   "z": 2.11,
+   "z": 2.1,
    "level": "hot",
    "signal_ids": [
     "0b51387730d9bbce",
@@ -42838,9 +43449,9 @@
   {
    "subsegment": "packaging",
    "product": "titanium",
-   "heat": 36.355,
+   "heat": 36.345,
    "count": 18,
-   "z": 0.38,
+   "z": 0.37,
    "level": "neutral",
    "signal_ids": [
     "e381d0a8a6185832",
@@ -42874,9 +43485,9 @@
   {
    "subsegment": "packaging",
    "product": "copper",
-   "heat": 49.603,
+   "heat": 49.593,
    "count": 27,
-   "z": 2.1,
+   "z": 2.09,
    "level": "hot",
    "signal_ids": [
     "0b51387730d9bbce",
@@ -42925,14 +43536,14 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.41,
+   "z": -1.4,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "testing",
    "product": "copper",
-   "heat": 10.595,
+   "heat": 10.605,
    "count": 6,
    "z": 0.25,
    "level": "neutral",
@@ -42956,7 +43567,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -1.84,
+   "z": -1.83,
    "level": "neutral",
    "signal_ids": []
   },
@@ -43053,6 +43664,7 @@
   "383cabe6e28856b2": [],
   "3b711c7cfb8e117d": [],
   "3bfef702c65fa615": [],
+  "43af5dc41fe440fe": [],
   "46bc1765d231c8bc": [],
   "46c073d3a5a17984": [],
   "49f1defdf9e70d27": [],
@@ -43079,12 +43691,13 @@
   "67a91338b01eebe8": [],
   "68cc6d1880dc02f6": [],
   "6a6dae787fc4d0c3": [],
-  "6b87c7288cff91d8": [],
   "6b89a866e0a92d2c": [],
   "6cf5d197b00f9ffb": [],
   "6fd303869174d6eb": [],
   "764558e68453cf67": [],
   "7ac8789d65832127": [],
+  "7b2cc6bf9514ec72": [],
+  "7bd1cf7371629f94": [],
   "7c5a89d196aed245": [
    "銅製程"
   ],
@@ -43094,24 +43707,23 @@
   "88d7b9560b890aaf": [],
   "8e9b16eafdaebbe1": [],
   "93c523923132f298": [],
+  "96ce93cf9f368db5": [],
   "97a688027b17e4e5": [],
-  "9b57be7020b9ae7f": [],
   "9e513e8efeca99bb": [],
   "a0e1f3db5fb1bb22": [],
   "a759c580239dd516": [],
   "aa0b3f4a367b4507": [],
   "b34a4db383412758": [],
+  "b472ed91901c3519": [],
   "b65abbad9cf78376": [],
   "b6f23410f0a6761a": [],
   "b86edc9bea90cdb3": [],
   "b8d2b5fed75c18c9": [],
-  "bc4781013a822c9d": [],
   "bd0005035b3ad6f8": [],
   "be4570850a051cb0": [],
   "c016e1a3200aec0c": [],
   "c3a1cecaa98dd16e": [],
   "c3b84906129b2989": [],
-  "c62fffb5362ad963": [],
   "cb77ee97747d10b8": [],
   "d183ebf4a152147e": [],
   "d46ad8f935793561": [],

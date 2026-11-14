@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T17:22:58+00:00",
+ "generated": "2026-11-14T10:16:51+00:00",
  "asof": "2026-11-14",
  "days": 120,
  "half_life_days": 45.0,
@@ -195,8 +195,8 @@
   }
  },
  "stats": {
-  "signals": 104,
-  "attributed": 104,
+  "signals": 108,
+  "attributed": 108,
   "new_signals": 15,
   "hot_cells": 4,
   "warm_cells": 1,
@@ -212,15 +212,15 @@
    "target": 11,
    "titanium": 1,
    "nickel": 10,
-   "copper": 103,
+   "copper": 107,
    "evaporation": 0
   },
   "other_mentions": 8,
   "accounts": 17,
   "tiers": {
    "優先開發": 1,
-   "積極經營": 5,
-   "持續觀察": 11
+   "積極經營": 6,
+   "持續觀察": 10
   }
  },
  "cells": [
@@ -316,7 +316,7 @@
    "region": "TW",
    "heat": 10.861,
    "count": 6,
-   "z": 2.82,
+   "z": 2.78,
    "level": "hot",
    "trend": "persistent",
    "history": [
@@ -341,14 +341,14 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 46.68,
-   "count": 36,
+   "heat": 48.144,
+   "count": 37,
    "z": 6.21,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    36.648,
-    46.68
+    38.047,
+    48.144
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -385,6 +385,7 @@
     "a556bdcd13c2cb67",
     "4e78036e8e08db06",
     "04fd95082ecd45d0",
+    "8ba834e30d375232",
     "577b7d8cfd94725c",
     "ab964931518cf4b5",
     "ad6e127097273a1c",
@@ -421,6 +422,9 @@
     "e80fc5b08cc3ad9f",
     "bc22d0ce438c33eb",
     "e0d9098510c156c9",
+    "febd7858258dd0a8",
+    "1b8413ad97456ddf",
+    "36c047412822f417",
     "a88e10f76fcc8673",
     "b498fa4f22ae9f79",
     "ae3967aba71280e8",
@@ -476,14 +480,14 @@
    "product": "copper",
    "industry": "ai_server",
    "region": "TW",
-   "heat": 46.68,
-   "count": 36,
+   "heat": 48.144,
+   "count": 37,
    "z": 6.21,
    "level": "hot",
    "trend": "persistent",
    "history": [
-    36.648,
-    46.68
+    38.047,
+    48.144
    ],
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -533,7 +537,7 @@
    "region": "TW",
    "heat": 10.861,
    "count": 6,
-   "z": 2.82,
+   "z": 2.78,
    "level": "hot",
    "trend": "persistent",
    "history": [
@@ -598,7 +602,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -645,7 +649,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.47
+    "z": 2.54
    },
    "next_action": "主動提出可交貨量、交期與替代牌號 / 規格方案",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -670,7 +674,7 @@
   {
    "org": "台達電",
    "account": true,
-   "score": 64.0,
+   "score": 64.1,
    "grade": "積極經營",
    "product": "copper",
    "products": [
@@ -687,14 +691,14 @@
     "expansion",
     "qualification"
    ],
-   "signals": 11,
+   "signals": 12,
    "first_seen": "2026-11-03",
    "last_signal": "2026-11-10",
    "new": false,
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.3
+    "z": 3.36
    },
    "next_action": "安排研發端技術拜訪,提供試樣與材料數據",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -710,10 +714,10 @@
     "ddd03988562ae128",
     "8bc9f5da639909ff"
    ],
-   "signal_score": 47.9,
+   "signal_score": 48.1,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 28.7,
+   "signal_part": 28.9,
    "value_part": 8.6
   },
   {
@@ -740,7 +744,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -765,7 +769,7 @@
   {
    "org": "光寶科",
    "account": true,
-   "score": 60.7,
+   "score": 60.4,
    "grade": "積極經營",
    "product": "copper",
    "products": [
@@ -786,7 +790,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.3
+    "z": 3.36
    },
    "next_action": "鎖定得標方與其一階供應商,提案配套材料與備料",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -797,15 +801,15 @@
     "e80fc5b08cc3ad9f",
     "eaf9a5db148d62fc",
     "a09dec386d48aabc",
-    "b498fa4f22ae9f79",
-    "ae3967aba71280e8",
     "eba3db6a90e7c820",
-    "657336051e8bd117"
+    "657336051e8bd117",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8"
    ],
-   "signal_score": 37.2,
+   "signal_score": 36.7,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 22.3,
+   "signal_part": 22.0,
    "value_part": 11.7
   },
   {
@@ -835,7 +839,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -859,8 +863,8 @@
   {
    "org": "貿聯-KY",
    "account": true,
-   "score": 44.5,
-   "grade": "持續觀察",
+   "score": 45.9,
+   "grade": "積極經營",
    "product": "copper",
    "products": [
     "copper"
@@ -873,14 +877,14 @@
     "expansion",
     "contract"
    ],
-   "signals": 6,
+   "signals": 7,
    "first_seen": "2026-11-06",
    "last_signal": "2026-11-13",
    "new": false,
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 2.47
+    "z": 2.54
    },
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -889,15 +893,16 @@
    "evidence": [
     "d5ddd640476398d5",
     "08a7d8610b750e64",
+    "8ba834e30d375232",
     "874c28ecfc594815",
     "526b7253fd9edca6",
     "577b7d8cfd94725c",
     "5128cdcb1aab1e62"
    ],
-   "signal_score": 29.7,
+   "signal_score": 32.1,
    "fit_max": 2,
    "fit_part": 26.7,
-   "signal_part": 17.8,
+   "signal_part": 19.3,
    "value_part": 0.0
   },
   {
@@ -916,7 +921,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "need": "",
    "evidence": [],
@@ -956,7 +961,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -995,7 +1000,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.64
+    "z": 1.65
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1033,7 +1038,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.64
+    "z": 1.65
    },
    "next_action": "聯繫採購與廠務,提案新產線材料認證並安排送樣",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -1064,7 +1069,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": 1.27
+    "z": 1.29
    },
    "need": "",
    "evidence": [],
@@ -1097,7 +1102,7 @@
    "hotspot": {
     "level": "hot",
     "trend": "",
-    "z": 3.58
+    "z": 3.55
    },
    "need": "",
    "evidence": [],
@@ -1130,7 +1135,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.64
+    "z": 1.65
    },
    "need": "",
    "evidence": [],
@@ -1163,7 +1168,7 @@
    "hotspot": {
     "level": "warm",
     "trend": "",
-    "z": 1.64
+    "z": 1.65
    },
    "need": "",
    "evidence": [],
@@ -1229,7 +1234,7 @@
    "hotspot": {
     "level": "neutral",
     "trend": "",
-    "z": -1.07
+    "z": -1.08
    },
    "need": "",
    "evidence": [],
@@ -1395,8 +1400,8 @@
   {
    "id": "74a8832f0d4ceb44",
    "title": "奇鋐(3017) 水冷產能 2027 年再擴五成！越南新公司、新土地同步到位",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TbkQ5X212OW5iNXdscWlJZUFNMWZ2dng1bDh5Y08zTzNfeFBaX0ZVdkJxTWdJLW56RnEyRFgyLXZYM2hZZkMyOU03bV85RTQ?oc=5",
-   "source": "鉅亨網",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBtU1dRWVlSUGdMU3R6aUR2ekpQaXdsOUpSbmM2cFFaYTZyWk9kTnJjd1NyRVcxemFKeTdYN3labWJpNF83UFB4aVpIMV9YREZNMVE2SVh3?oc=5",
+   "source": "優分析UAnalyze",
    "published": "2026-11-11",
    "snippet": "",
    "edition": "zh-TW",
@@ -2217,6 +2222,114 @@
    "title_zh": "",
    "enriched": false,
    "heat": 1.451
+  },
+  {
+   "id": "36c047412822f417",
+   "title": "〈光寶科法說〉800V Power Rack明年Q1出貨 2027資本支出高於197億元",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8ydk5rY0FNSms5aFBlbHc0bFctOXFrbW4weHBRWE1RNmxCWVhUWGdDc0hDMzVpMy0tTXZ0ZjRNcmFZUkgxeHBRZU9FQW1CQ0E?oc=5",
+   "source": "鉅亨網",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.905
+  },
+  {
+   "id": "1b8413ad97456ddf",
+   "title": "光寶科客戶延後拉貨、存貨達661億，為何還敢大舉擴產？",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQMjZRQy1sTkpUU2hVSXBvdm1RWHFObkY1YlA2alhkaXdEQkRPU2kwRUNDUmJYVWtqdWdvbXlvYm1NNkg5VUdONHlHZko3NzI3S1VvcDlUdmhPby0yc1dLMHdwZHVPdlFRSUdiV1pHSGwxdTJVbHJmSWE1bF9mMTJjMk5FMUxlS1FNREx1bDQ1Umd1cUJiUWFSaFRn?oc=5",
+   "source": "數位時代",
+   "published": "2026-10-30",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "光寶科"
+   ],
+   "accounts": [
+    "光寶科"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 1.905
+  },
+  {
+   "id": "febd7858258dd0a8",
+   "title": "台達電股價14天崩3成墜熊市…法說會喊訂單能見度高，為何庫存增加、毛利降？鄭平「一句話」能穩市場？",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQYzFHd2hoaldFN1dJLUFsX3ZJd1VlVGR5UU01N1ZHTjJGQU5SWnhDMjZfSzFxanV4endweEx1MVpfVEQxODhLUkRUdWczZkFxNkJHSnp6UDc0Y1RDNUlfMEM3RGE4VDlOXzJVcHQzdmZzSEJuUUJmQXBFX2JMcDBFSg?oc=5",
+   "source": "今周刊",
+   "published": "2026-10-29",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "contract"
+   ],
+   "region": "TW",
+   "orgs": [
+    "台達電"
+   ],
+   "accounts": [
+    "台達電"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": true,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.422
   },
   {
    "id": "893b35d25ea0c716",
@@ -3884,6 +3997,42 @@
    "heat": 0.711
   },
   {
+   "id": "8ba834e30d375232",
+   "title": "貿聯-KY第二季不是終點：UBS看第三季出貨恢復與選擇性擴產",
+   "link": "https://news.google.com/rss/articles/CBMi4wJBVV95cUxQVnRhZnZtSW1yMUYtQTlXek1NYlhRdkw4ZXJvNmZHMDBxODVSaXlRNFZ0UkxJUGxqZ3hJX3FFbUpnS1lXX0dRcWd0UlR4YmV5WWU3UkpudlBNNk1DVWJyZFpUNXZjYnBrbWJTOFdmNW5BX1ZjQ3FoSVNXOFkxUDBRN0QzaWFnYXgtR3RNb1RHNXdUSGZOTFRCMklyOWxkVnJFelVscmdQQjFUdHJ6cE1kZzhOcDF3U2hXNkdoaUx3QWszODdJSWdhamM2TDdWcmNuUXJ5dVB4dDJPMHh0SlE0SUZDNGdVNlBCcVBFWXJFRnNmSVlzU3R4LUliRjRIWnRKeXloUU1PNXhLd1otMXRQR1V0azYwYmcxU05wWnVvNVkzS01XZ2h6ZzBvNTVhdVFTcFIzdVFKRGpFY2lqLUtqZFl3bko1SjRqOW1wSC1YeW1XRzhVY3U4aVlQdUNmSlJQY29V?oc=5",
+   "source": "報新聞 Mega News",
+   "published": "2026-08-27",
+   "snippet": "",
+   "edition": "zh-TW",
+   "origin": "news",
+   "products": [
+    "copper"
+   ],
+   "industries": {
+    "copper": "ai_server"
+   },
+   "intents": [
+    "expansion"
+   ],
+   "region": "TW",
+   "orgs": [
+    "貿聯-KY"
+   ],
+   "accounts": [
+    "貿聯-KY"
+   ],
+   "relevance": 0.6,
+   "inferred": true,
+   "noise": false,
+   "weight_hint": 0.0,
+   "need": "",
+   "urgency": 0,
+   "suppliers": [],
+   "title_zh": "",
+   "enriched": false,
+   "heat": 0.711
+  },
+  {
    "id": "4e78036e8e08db06",
    "title": "雙鴻均熱片產能翻倍，水冷產品涵蓋全機零組件",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOTDFobGJfQnlTSVl1NGdlTlNhQWFUSkFFcWNWTzRoN0ZzT2c0UUp4d0haMXE4RXQxVk1vTFNwYTRSeW1tWGxOR2hFVWh3WXdTdkQ1WFFtRmFsMzJib3VvS2ZFNGo2WUFXSlRZRjBzU3ZCRDgzbEstZzBVWExzaTh6OHRXSDdadzZzbHd5Vm9MYjRQUQ?oc=5",
@@ -5318,16 +5467,16 @@
     "target": 1.17,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 9.89,
+    "copper": 10.67,
     "evaporation": 0.0
    },
-   "signal_score": 47.9,
-   "signals": 11,
+   "signal_score": 48.1,
+   "signals": 12,
    "top_intent": "new_product",
    "last_signal": "2026-11-10",
-   "opportunity": 64.0,
+   "opportunity": 64.1,
    "fit_part": 26.7,
-   "signal_part": 28.7,
+   "signal_part": 28.9,
    "value_part": 8.6,
    "value_score": 57.2,
    "estimate": {
@@ -5365,10 +5514,10 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 20
+    "inferred": 21
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 20 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 21 則;材料依產品適配度推估",
    "evidence_basis": {
     "09de31d6dd849d54": "inferred",
     "eaf9a5db148d62fc": "inferred",
@@ -5469,16 +5618,16 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 6.93,
+    "copper": 6.91,
     "evaporation": 0.0
    },
-   "signal_score": 37.2,
+   "signal_score": 36.7,
    "signals": 6,
    "top_intent": "contract",
    "last_signal": "2026-11-12",
-   "opportunity": 60.7,
+   "opportunity": 60.4,
    "fit_part": 26.7,
-   "signal_part": 22.3,
+   "signal_part": 22.0,
    "value_part": 11.7,
    "value_score": 78.1,
    "estimate": {
@@ -5507,28 +5656,28 @@
     "e80fc5b08cc3ad9f",
     "eaf9a5db148d62fc",
     "a09dec386d48aabc",
-    "b498fa4f22ae9f79",
-    "ae3967aba71280e8",
     "eba3db6a90e7c820",
-    "657336051e8bd117"
+    "657336051e8bd117",
+    "b498fa4f22ae9f79",
+    "ae3967aba71280e8"
    ],
    "material_basis": {
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 12
+    "inferred": 14
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 12 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 14 則;材料依產品適配度推估",
    "evidence_basis": {
     "fcbc6a593990f2ea": "inferred",
     "e80fc5b08cc3ad9f": "inferred",
     "eaf9a5db148d62fc": "inferred",
     "a09dec386d48aabc": "inferred",
-    "b498fa4f22ae9f79": "inferred",
-    "ae3967aba71280e8": "inferred",
     "eba3db6a90e7c820": "inferred",
-    "657336051e8bd117": "inferred"
+    "657336051e8bd117": "inferred",
+    "b498fa4f22ae9f79": "inferred",
+    "ae3967aba71280e8": "inferred"
    }
   },
   {
@@ -5618,16 +5767,16 @@
     "target": 0.0,
     "titanium": 0.0,
     "nickel": 0.0,
-    "copper": 3.73,
+    "copper": 4.44,
     "evaporation": 0.0
    },
-   "signal_score": 29.7,
-   "signals": 6,
+   "signal_score": 32.1,
+   "signals": 7,
    "top_intent": "qualification",
    "last_signal": "2026-11-13",
-   "opportunity": 44.5,
+   "opportunity": 45.9,
    "fit_part": 26.7,
-   "signal_part": 17.8,
+   "signal_part": 19.3,
    "value_part": 0.0,
    "value_score": 0.0,
    "estimate": {
@@ -5635,7 +5784,7 @@
     "score": 0.0,
     "summary": ""
    },
-   "tier": "持續觀察",
+   "tier": "積極經營",
    "best_product": "copper",
    "next_action": "準備材料認證文件(AS9100、NADCAP、ISO 13485、材質證明),爭取第二供應商資格",
    "pitch": "無氧銅(C10100 / C10200)板棒管、磷銅陽極(球 / 板,電鍍銅用)、鈹銅與鉻鋯銅等高導電高強度合金,材質證明與潔淨包裝",
@@ -5643,6 +5792,7 @@
    "evidence": [
     "d5ddd640476398d5",
     "08a7d8610b750e64",
+    "8ba834e30d375232",
     "874c28ecfc594815",
     "526b7253fd9edca6",
     "577b7d8cfd94725c",
@@ -5652,13 +5802,14 @@
     "explicit": 0,
     "co_mention": 0,
     "manual": 0,
-    "inferred": 6
+    "inferred": 7
    },
    "material_terms": [],
-   "material_summary": "未提材料的公司動態 6 則;材料依產品適配度推估",
+   "material_summary": "未提材料的公司動態 7 則;材料依產品適配度推估",
    "evidence_basis": {
     "d5ddd640476398d5": "inferred",
     "08a7d8610b750e64": "inferred",
+    "8ba834e30d375232": "inferred",
     "874c28ecfc594815": "inferred",
     "526b7253fd9edca6": "inferred",
     "577b7d8cfd94725c": "inferred",
@@ -6291,7 +6442,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.91,
+   "z": -0.92,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6309,7 +6460,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.01,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6318,7 +6469,7 @@
    "product": "copper",
    "heat": 3.172,
    "count": 1,
-   "z": 1.64,
+   "z": 1.65,
    "level": "warm",
    "signal_ids": [
     "bc22d0ce438c33eb"
@@ -6338,7 +6489,7 @@
    "product": "target",
    "heat": 0.487,
    "count": 1,
-   "z": -0.02,
+   "z": -0.05,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6349,7 +6500,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.55,
+   "z": -0.57,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6358,7 +6509,7 @@
    "product": "nickel",
    "heat": 0.487,
    "count": 1,
-   "z": -0.12,
+   "z": -0.15,
    "level": "neutral",
    "signal_ids": [
     "519a5f4b8ab3831f"
@@ -6369,7 +6520,7 @@
    "product": "copper",
    "heat": 19.307,
    "count": 16,
-   "z": 3.58,
+   "z": 3.55,
    "level": "hot",
    "signal_ids": [
     "0cc5c5805ea7d7ef",
@@ -6391,7 +6542,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -0.6,
+   "z": -0.62,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6400,7 +6551,7 @@
    "product": "target",
    "heat": 2.338,
    "count": 1,
-   "z": 0.02,
+   "z": 0.03,
    "level": "neutral",
    "signal_ids": [
     "03d6494277c511b0",
@@ -6412,7 +6563,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -0.63,
+   "z": -0.61,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6421,16 +6572,16 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.23,
+   "z": -0.22,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "power",
    "product": "copper",
-   "heat": 16.343,
+   "heat": 17.096,
    "count": 12,
-   "z": 3.3,
+   "z": 3.36,
    "level": "hot",
    "signal_ids": [
     "379afef5cab0476f",
@@ -6452,7 +6603,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -0.68,
+   "z": -0.66,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6461,7 +6612,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -1.07,
+   "z": -1.08,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6470,7 +6621,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.57,
+   "z": -1.56,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6479,7 +6630,7 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -1.17,
+   "z": -1.18,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6488,7 +6639,7 @@
    "product": "copper",
    "heat": 0.0,
    "count": 0,
-   "z": 1.27,
+   "z": 1.29,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6497,7 +6648,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -1.62,
+   "z": -1.61,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6506,7 +6657,7 @@
    "product": "target",
    "heat": 0.0,
    "count": 0,
-   "z": -0.56,
+   "z": -0.54,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6515,7 +6666,7 @@
    "product": "titanium",
    "heat": 0.0,
    "count": 0,
-   "z": -1.05,
+   "z": -1.02,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6524,16 +6675,16 @@
    "product": "nickel",
    "heat": 0.0,
    "count": 0,
-   "z": -0.66,
+   "z": -0.64,
    "level": "neutral",
    "signal_ids": []
   },
   {
    "subsegment": "interconnect",
    "product": "copper",
-   "heat": 10.241,
-   "count": 8,
-   "z": 2.47,
+   "heat": 10.952,
+   "count": 9,
+   "z": 2.54,
    "level": "hot",
    "signal_ids": [
     "5037a4d7e94816a7",
@@ -6547,7 +6698,7 @@
     "f494513b05a2f119",
     "c0f62d5891ce3546",
     "4892577685bfd964",
-    "577b7d8cfd94725c"
+    "8ba834e30d375232"
    ]
   },
   {
@@ -6555,7 +6706,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -1.1,
+   "z": -1.07,
    "level": "neutral",
    "signal_ids": []
   },
@@ -6564,7 +6715,7 @@
    "product": "target",
    "heat": 8.036,
    "count": 4,
-   "z": 0.77,
+   "z": 0.72,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6582,7 +6733,7 @@
    "product": "titanium",
    "heat": 1.029,
    "count": 1,
-   "z": -0.19,
+   "z": -0.22,
    "level": "neutral",
    "signal_ids": [
     "5c7c653be4039eb3"
@@ -6593,7 +6744,7 @@
    "product": "nickel",
    "heat": 8.428,
    "count": 5,
-   "z": 0.7,
+   "z": 0.65,
    "level": "neutral",
    "signal_ids": [
     "28cbd92423e3e431",
@@ -6612,7 +6763,7 @@
    "product": "copper",
    "heat": 8.478,
    "count": 5,
-   "z": 3.14,
+   "z": 3.12,
    "level": "neutral",
    "signal_ids": [
     "c3719ed7d674a88b",
@@ -6631,7 +6782,7 @@
    "product": "evaporation",
    "heat": 0.0,
    "count": 0,
-   "z": -0.31,
+   "z": -0.34,
    "level": "neutral",
    "signal_ids": []
   }
@@ -6659,6 +6810,7 @@
   "7dcc705f604a4d8b": [],
   "874c28ecfc594815": [],
   "8b808d98a646def9": [],
+  "8ba834e30d375232": [],
   "8bc9f5da639909ff": [],
   "90b8df3dc4436752": [],
   "9acc296cdd7aa431": [],
