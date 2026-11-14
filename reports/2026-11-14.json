@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T08:28:30.622246+08:00",
+  "generated": "2026-11-14T09:43:27.705504+08:00",
   "days": 7,
   "digest": {
     "overview": "本期主軸是先進封裝擴產:日月光以千億元投資路竹廠,一期啟用、二期動土,滿載後年營收估 800 億元;精材則與台積電簽訂逾 7 年產能外包協議,2029 年量產 CoWoS 後段製程,將帶動凸塊、RDL 等 PVD 製程與靶材需求。晶圓端,台積電美國廠前三季獲利創高,中芯國際指出設備採購價格上漲、交期拉長,美光則加碼新加坡、桃園新廠進度出現變數。靶材廠方面,江豐電子衝刺港股並亮相 IC China,第三季營收 17 億元;古屋金屬第一季營業利益成長 3.8 倍,受惠資料中心需求。金價單週重挫 4.78%,白銀與鉑金續跌。",
@@ -19,6 +19,66 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "d56f41cb49a2aef4",
+      "title": "半导体靶材龙头江丰电子闯港股，光鲜业绩下藏多重考验",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBadExNUUwxSmFHRVUyMjJPOGhWQW1VRk5vaWFDMkdDR3lFUUx1ekRIUmpWV0xUQUNuX09reEVfeldnVTRIamdIMC0zeGcwcXNSVmt3SjhrWUFNZU8wSHFWVzhEcEkwRDZnanFFTWZFODl1MU04QkVqcmRYSTJfeEk?oc=5",
+      "source": "新浪财经",
+      "published": "2026-11-13T03:10:28+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.87,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "半導體靶材龍頭江豐電子闖港股，光鮮業績下藏多重考驗",
+      "snippet_zh": ""
+    },
+    {
+      "id": "943de5fc68670033",
+      "title": "SpaceX Orders First SINGULUS Solar Line for More Than €60 Million",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1FTm0zZ294MnprRnViYnFMY210SmcyQmlDSHRBbHk4cThMYmpMVGV0ZHQyT2dqb1U2aXRhSW1ULXk5RnNfalNEdno1VkhIWVdsMUIwUXJJY2o?oc=5",
+      "source": "TOKENPOST",
+      "published": "2026-11-11T23:28:54+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.7,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7e509011d9b3841d",
+      "title": "The Dollar Hits Its Targets. Is Silver Approaching a Major Breakout?",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNLVJ1bU5iUlJBeXpxa2JjUGYyR1BzbDY4clZ3cEdLek1scldLeWZBcnk3OFB5Y0lsZlhHTloxZ2JjSVZNVkZ4Q0lCRzN5RW16VlFDazVDektMbi02LXdQek5mOWVJdzVHNUhhYTV0TmZMOTY2S0lJLUktSlNLbWxRS1dfVTdfUWNibXFmTUxmMGRRTU1jZEpuYkt4al9ZNHpoM19rdFFyOGlFZDhlbTNabUxCVXYtTHhC?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-14T01:33:41+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "39177c700b835aeb",
       "title": "台積電美國新廠續賺 前三季獲利539.86億元創高",
