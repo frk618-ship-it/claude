@@ -1486,3 +1486,32 @@ def test_notion_sync_fills_in_late_summaries(config):
     props = patches[0][1]["properties"]
     assert set(props) == {"標題", "摘要", "重要度"} and props["重要度"]["number"] == 4  # other columns untouched
     assert props["摘要"]["rich_text"][0]["text"]["content"] == "後補的繁中摘要"
+
+
+def test_reprints_fold_into_one_event_and_low_value_items_collapse(config):
+    from target_news_agent.events import group_events
+    from target_news_agent.site import HOME_PAGE, item_kind, render_page
+
+    def it(i, title, ents, day="2026-11-13", **kw):
+        return {"id": i, "title": title, "link": f"https://e.com/{i}", "source": f"媒體{i}", "published": f"{day}T08:00:00+08:00",
+                "entities": ents, **kw}
+
+    kfmi, jx = "江豐電子 (KFMI)", "JX金屬 (JX Advanced Metals)"
+    items = [
+        it("a", "江丰电子11月12日向香港联交所递交H股上市申请", [kfmi], importance=3),
+        it("b", "江豐電子(300666.SZ)向香港聯交所遞交H股發行上市申請並刊發申請資料 作者 智通財經 - Investing.com", [kfmi], importance=4, summary="遞表港交所"),
+        it("c", "江丰电子携多款产品亮相IC China 2026", [kfmi]),                      # same company, another story
+        it("d", "江丰电子向港交所递交H股上市申请", [kfmi], day="2026-11-01"),          # too far apart in time
+        it("e", "JX Advanced Metals Corporation (5016.T) stock price, news, quote and history", [jx]),
+        it("f", "JX金屬上修全年獲利預估", [jx], importance=1),
+    ]
+    groups = group_events(items, config)
+    assert [[x["id"] for x in g] for g in groups] == [["a", "b"], ["c"], ["d"], ["e"], ["f"]]
+    assert item_kind(items[4]) == "market"
+
+    page = render_page({"items": items, "span": ["2026-11-13"]}, config, [], HOME_PAGE, is_latest=True)
+    listed = page.split('id="list"')[1]
+    assert "6 則,合併為 5 個事件" in page
+    assert "另有 1 家媒體報導" in listed and listed.count('<article class="card') == 5  # b leads (higher rating), a folds under it
+    main, low = listed.split('id="lowgrp"')
+    assert "上修全年獲利" not in main and "上修全年獲利" in low and "stock price" not in main  # rated 1 and quote pages collapse

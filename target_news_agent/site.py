@@ -22,6 +22,7 @@ from .taste import FONT_LINKS
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
+from .events import group_events
 from .translate import to_traditional
 
 OG_IMAGE = Path(__file__).with_name("assets") / "og.png"  # 1200x630 share-preview image
@@ -41,7 +42,11 @@ KINDS = OrderedDict([
 SIGNAL_KINDS = ("news", "filing", "recycling")
 RECYCLING_CATEGORY = "回收與循環"
 
-_MARKET_RE = re.compile(r"主力资金|主力資金|股东户数|股東戶數|开盘|開盤|低开|低開|賣超|买超|買超|周KD|週KD|大阳线|跌近|涨停|漲停|Decline|shares? (?:rose|fell)|stock (?:rose|fell)", re.I)
+_MARKET_RE = re.compile(
+    r"主力资金|主力資金|股东户数|股東戶數|开盘|開盤|低开|低開|賣超|买超|買超|周KD|週KD|大阳线|跌近|涨停|漲停|Decline|shares? (?:rose|fell)|stock (?:rose|fell)"
+    # quote pages, fund flows, block trades, dividends, short interest, valuation scores and daily stock recaps
+    r"|融资净|融資淨|净买入|淨買入|净卖出|淨賣出|大宗交易|出来高|出來高|起漲K線|复盘|復盤|覆盤|早评|早評"
+    r"|stock price, news, quote|\bStock Price\b|Short Interest|Ex-Dividend|GF Value|GF Score|Seasonality|Stock Forecast", re.I)
 _RESEARCH_RE = re.compile(r"市場|市场|Market|レポート|予測|CAGR", re.I)
 _FILING_RE = re.compile(r"\(\d{6}\)[::]|公告")
 
@@ -52,7 +57,7 @@ def item_kind(item: dict) -> str:
         return "metals"
     if "企業情報" in title or "個股概覽" in title:
         return "profile"
-    if "股市爆料同學會" in title or source in ("财富号", "財富號", "PTT", "Mobile01"):
+    if "股市爆料同學會" in title or source in ("财富号", "財富號", "PTT", "Mobile01", "YouTube"):
         return "forum"
     if any(e.startswith(TOPIC_PREFIXES + (RECYCLE_PREFIX,)) for e in item.get("entities", [])) and _RESEARCH_RE.search(title):
         return "research"
@@ -63,6 +68,22 @@ def item_kind(item: dict) -> str:
     if item.get("entities") and all(e.startswith(RECYCLE_PREFIX) for e in item["entities"]):
         return "recycling"
     return "news"
+
+
+def is_low(item: dict) -> bool:
+    """Little to act on: quotes, forums, reports and profile pages, or a story Claude rated 1 of 5."""
+    return item["kind"] not in SIGNAL_KINDS or item.get("importance") == 1
+
+
+def pick_events(items: list[dict], config: Config) -> list[dict]:
+    """One card per event: the best-rated report leads, the rest ride along as item["also"]."""
+    reps = []
+    for group in group_events(items, config):
+        lead = max(group, key=lambda it: (it["kind"] in SIGNAL_KINDS, it.get("importance", 0), bool(it.get("summary")), it.get("score", 0)))
+        lead["also"] = [it for it in group if it is not lead]
+        lead["ev_entities"] = list(dict.fromkeys(e for it in group for e in it.get("entities", [])))
+        reps.append(lead)
+    return reps
 
 
 # Industry-wide searches are named after their search phrase; show which language edition they cover instead.
@@ -187,6 +208,10 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
 .thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 var(--space-2xs);border-radius:4px;background:var(--k);color:var(--on-accent);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
 .card.low .thumb{filter:saturate(.55);opacity:.85}
+.also{font-size:.82rem;color:var(--muted)}.also summary{cursor:pointer;width:fit-content;color:var(--accent);font-weight:500}.also ul{margin:var(--space-xs) 0 0;padding-left:1.1em;display:grid;gap:var(--space-2xs)}
+.also li a{color:var(--fg)}.also .src{margin-left:var(--space-xs);color:var(--faint)}
+.lowgrp{grid-column:1/-1;border-top:1px solid var(--line);padding-top:var(--space-md)}.lowgrp>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-xs);align-items:center;font-weight:600}
+.lowgrp>summary .sub{font-weight:400}.lowgrp>.cards{margin-top:var(--space-md)}
 .k-market .thumb .sym{color:var(--on-signal)}/* label inside a fill: white, near-black on yellow */
 /* per-type colour wins over the .card default */
 .card.k-news{--k:var(--k-news)}.card.k-filing{--k:var(--k-filing)}.card.k-market{--k:var(--k-market)}.card.k-forum{--k:var(--k-forum)}.card.k-research{--k:var(--k-research)}.card.k-profile{--k:var(--k-profile)}.card.k-metals{--k:var(--k-metals)}.card.k-recycling{--k:var(--k-recycling)}
@@ -216,9 +241,10 @@ footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);paddi
 """ + CHART_STYLE
 
 SCRIPT = """
-(function(){var items=[].slice.call(document.querySelectorAll('#list > article')),shown=document.getElementById('shown'),reset=document.getElementById('reset'),
+(function(){var items=[].slice.call(document.querySelectorAll('#list article.card')),low=document.getElementById('lowgrp'),shown=document.getElementById('shown'),reset=document.getElementById('reset'),
 buttons=[].slice.call(document.querySelectorAll('button.f')),active={kind:null,ent:null};
 function apply(){var n=0;items.forEach(function(el){var ok=(!active.kind||el.dataset.kind===active.kind)&&(!active.ent||el.dataset.ent.split('|').indexOf(active.ent)!==-1);el.hidden=!ok;if(ok)n++;});
+if(low){var m=low.querySelectorAll('article.card:not([hidden])').length;low.querySelector('.n').textContent=m;low.hidden=m===0;low.open=!!(active.kind||active.ent)&&m>0;}
 buttons.forEach(function(b){b.setAttribute('aria-pressed',String(active[b.dataset.filter]===b.dataset.value));});shown.textContent='顯示 '+n+' / '+items.length+' 則';reset.hidden=!active.kind&&!active.ent;}
 buttons.forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.filter;active[k]=active[k]===b.dataset.value?null:b.dataset.value;apply();});});
 reset.addEventListener('click',function(){active={kind:null,ent:null};apply();});})();
@@ -263,8 +289,17 @@ def _thumb(motif: str, caption: str, symbol: str = "") -> str:
     )
 
 
+def _also(item: dict) -> str:
+    """The other outlets that ran the same story, folded under the card."""
+    others = item.get("also") or []
+    if not others:
+        return ""
+    rows = "".join(f'<li>{_title_link(o)}<span class="src">{esc(source_name(o.get("source")))}</span></li>' for o in others)
+    return f'<details class="also"><summary>另有 {len(others)} 家媒體報導</summary><ul>{rows}</ul></details>'
+
+
 def _card(kind_class: str, label: str, label_icon: str, published: str | None, title: str, summary: str,
-          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "") -> str:
+          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "", also: str = "") -> str:
     """One card: thumbnail, then label + date, title, summary and source details."""
     date = esc((published or "")[:10])
     sum_html = f'<p class="sum">{esc(summary)}</p>' if summary else ""
@@ -272,7 +307,7 @@ def _card(kind_class: str, label: str, label_icon: str, published: str | None, t
         f'<article class="card {kind_class}{extra_class}{" has-thumb" if thumb else ""}"{attrs}>{thumb}'
         f'<div class="head"><span class="kind {kind_class}">{icon(label_icon)}{esc(label)}</span>'
         f'<time datetime="{date}">{_date(published, full=full_date)}</time></div>'
-        f"<h3>{title}</h3>{sum_html}<div class=\"co\">{meta}</div></article>"
+        f"<h3>{title}</h3>{sum_html}<div class=\"co\">{meta}</div>{also}</article>"
     )
 
 
@@ -299,12 +334,12 @@ def _news_meta(item: dict) -> str:
 def _item_html(item: dict, extra_class: str = "") -> str:
     """News card for the filterable list."""
     kind = item["kind"]
-    ents = [short_name(e) for e in item.get("entities", [])]
+    ents = [short_name(e) for e in item.get("ev_entities") or item.get("entities", [])]
     stars = f" {'★' * item['importance']}" if item.get("importance") else ""
-    low = "" if kind in SIGNAL_KINDS else " low"
-    attrs = f' data-kind="{kind}" data-ent="{esc("|".join(ents))}"'
+    low = " low" if is_low(item) else ""
+    attrs = f' data-kind="{kind}" data-ent="{esc("|".join(dict.fromkeys(ents)))}"'
     return _card(f"k-{kind}", KINDS[kind], KIND_ICONS[kind], item.get("published"), _title_link(item) + stars,
-                 _news_summary(item), _news_meta(item), attrs, low + extra_class, thumb=_thumb(*pick_thumb(item)))
+                 _news_summary(item), _news_meta(item), attrs, low + extra_class, thumb=_thumb(*pick_thumb(item)), also=_also(item))
 
 
 def _card_html(item: dict) -> str:
@@ -549,7 +584,7 @@ def _lead_html(item: dict) -> str:
         f'<time datetime="{date}">{_date(item.get("published"))}</time></div>'
         f'<h2 class="lead-title">{_title_link(item)}</h2>'
         + (f'<p class="sum">{esc(summary)}</p>' if summary else "")
-        + f'<div class="co">{_news_meta(item)}</div></article>'
+        + f'<div class="co">{_news_meta(item)}</div>{_also(item)}</article>'
     )
 
 
@@ -709,7 +744,9 @@ def render_page(
         it["kind"] = item_kind(it)
         it["roles"] = [role_of.get(e, "") for e in it.get("entities", [])]
     digest = report.get("digest") or {}
-    kinds = Counter(it["kind"] for it in items)
+    events = pick_events(items, config)  # one card per story; reprints fold under it
+    kinds = Counter(ev["kind"] for ev in events)
+    chip_counts = Counter(n for ev in events for n in {short_name(e) for e in ev["ev_entities"]})
     ent_counts = Counter(short_name(e) for it in items for e in it.get("entities", []))
     companies = [e for e in config.entities if not e.is_topic]
     covered = [e for e in companies if ent_counts.get(short_name(e.name))]
@@ -740,7 +777,7 @@ def render_page(
 
     # Highest-rated news/filings, at most 2 per company so one busy company doesn't fill the list.
     top, per_company = [], Counter()
-    for it in sorted(signal, key=lambda it: (it.get("importance", 0), it.get("score", 0)), reverse=True):
+    for it in sorted((ev for ev in events if ev["kind"] in SIGNAL_KINDS), key=lambda it: (it.get("importance", 0), it.get("score", 0)), reverse=True):
         key = (it.get("entities") or [""])[0]
         if per_company[key] < 2:
             top.append(it)
@@ -761,8 +798,16 @@ def render_page(
     )
     ent_chips = "".join(
         f'<button type="button" class="f" data-filter="ent" data-value="{esc(e)}" aria-pressed="false">{esc(e)}<span class="mono">{n}</span></button>'
-        for e, n in ent_counts.most_common()
+        for e, n in chip_counts.most_common()
     )
+    main_cards = [ev for ev in events if not is_low(ev)]
+    low_cards = [ev for ev in events if is_low(ev)]
+    low_html = (
+        f'<details class="lowgrp" id="lowgrp"><summary>{icon("layers")}其他 <span class="n">{len(low_cards)}</span> 則參考價值較低'
+        f'<span class="sub">行情與股價、論壇、市場報告、資料頁,以及 AI 評為 1 分的報導</span></summary>'
+        f'<div class="cards rows">{"".join(_item_html(ev) for ev in low_cards)}</div></details>' if low_cards else ""
+    )
+    all_count = f"{len(items)} 則" + (f",合併為 {len(events)} 個事件" if len(events) < len(items) else "")
     figures = [(str(len(items)), "蒐集到的新聞(則)"), (str(len(signal)), "其中新聞與公司公告"),
                (f"{len(covered)} / {len(companies)}", "有報導的追蹤公司")]
     if "papers" in report:
@@ -785,18 +830,18 @@ def render_page(
 <section aria-labelledby="sum" class="split"><div>{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</div>{f'<aside class="digest-aside">{aside}</aside>' if aside else ""}</section>
 <section aria-labelledby="top" class="top">{_h2("top", "star", "重點新聞", f"評分最高的 {len(top)} 則,每家最多 2 則;第一則在頁首")}{top_html}</section>
 {_data_section(items, config, daily or [], current)}
-{_recycling_section(items, config)}
+{_recycling_section(events, config)}
 {_papers_section(report, library, is_latest, home)}
-<section aria-labelledby="all">{_h2("all", "list", "全部新聞", f"{len(items)} 則")}
+<section aria-labelledby="all">{_h2("all", "list", "全部新聞", all_count)}
 <div class="filters" role="group" aria-label="篩選新聞"><div class="frow"><span class="lbl">{icon("filter")}類型</span>{kind_chips}</div>
 <div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
-<div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(items)} / {len(items)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
-<div class="cards rows" id="list">{"".join(_item_html(it) for it in items)}</div></section>
+<div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(events)} / {len(events)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
+<div class="cards rows" id="list">{"".join(_item_html(ev) for ev in main_cards)}{low_html}</div></section>
 <div class="pair"><section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
 <section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section></div>
 <footer class="foot"><p>{icon("news")}<span><strong>資料來源</strong>Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集,更新於 <span class="mono">{esc(generated)}</span>。每期蒐集最近 {esc(report.get("days", ""))} 天新聞。</span></p>
 <p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
-<p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;淡色項目(行情數據、論壇、市場報告、資料頁)參考價值較低。</span></p>
+<p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;同一事件的多家報導合併為一張卡片,行情與股價、論壇、市場報告、資料頁與 AI 評為 1 分的報導收在「全部新聞」最後。</span></p>
 <p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
 </div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
