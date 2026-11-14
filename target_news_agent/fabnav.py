@@ -19,12 +19,12 @@ PAGES = [
     ("news", "新聞摘要", "news/index.html", "news"),
     ("papers", "技術文獻庫", "news/papers.html", "book"),
     ("forecast", "商情預測", "news/forecast.html", "chart"),
-    ("companies", "公司追蹤", "news/companies.html", "building"),
-    ("search", "全站搜尋", "news/search.html", "search"),
     ("quiz", "靶材產業島", "news/quiz.html", "island"),
     ("financials", "財務儀表板", "financials/", "bars"),
     ("metals", "貴金屬預警", "metals/", "bell"),
     ("leads", "商機雷達", "leads/", "radar"),
+    ("companies", "公司追蹤", "news/companies.html", "building"),
+    ("search", "全站搜尋", "news/search.html", "search"),
 ]
 
 ICONS = {
