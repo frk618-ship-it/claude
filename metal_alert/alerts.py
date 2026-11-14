@@ -120,7 +120,7 @@ def email_subject(alerts: list[dict]) -> str:
     return f"【貴金屬預警】{icon}|{first['title']}{more}"
 
 
-def _send_email(env: dict, subject: str, body: str) -> None:
+def _send_email(env: dict, subject: str, body: str, html: str = "") -> None:
     """SMTP with SSL on port 465, otherwise STARTTLS (587) — Gmail, Outlook, company mail servers."""
     host = env["SMTP_HOST"].strip()
     port = int(env.get("SMTP_PORT", "").strip() or 465)
@@ -131,6 +131,8 @@ def _send_email(env: dict, subject: str, body: str) -> None:
     msg["From"] = env.get("ALERT_EMAIL_FROM", "").strip() or user
     msg["To"] = ", ".join(to)
     msg.set_content(body)
+    if html:  # plain text stays as the fallback part
+        msg.add_alternative(html, subtype="html")
     ctx = ssl.create_default_context()
     if port == 465:
         with smtplib.SMTP_SSL(host, port, context=ctx, timeout=30) as s:

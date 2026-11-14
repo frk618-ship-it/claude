@@ -27,6 +27,7 @@ SYSTEM_PROMPT = """你是半導體與顯示器材料產業的分析師,專門追
 - 每則新聞一段 1-2 句的重點摘要,說明發生什麼事、對靶材供需或競爭格局可能的影響;只根據提供的內容,不要捏造數字。
 - importance:1-5 分,5 = 直接影響靶材產能、價格、重大客戶或併購,或濺鍍設備的重大訂單、新機種,以及半導體廠 / 封裝廠的 PVD 製程變化、先進封裝產能、資本支出與擴產(會帶動 PVD 機台與靶材需求);1 = 與靶材及濺鍍製程關聯薄弱。
 - category:從以下擇一最適合的:{categories}。
+- reason:importance 4 分以上時,用 8-20 字說明這則新聞為什麼對靶材業重要,格式為「影響面:原因」,影響面從 靶材需求、靶材供給、競爭格局、原料成本、技術趨勢、政策風險 擇一,例如「靶材需求:日月光擴產先進封裝」;3 分以下輸出空字串。
 """
 
 
@@ -54,6 +55,7 @@ class ItemDigest(BaseModel):
     summary: str
     importance: int
     category: str
+    reason: str = ""
 
 
 class ItemDigestBatch(BaseModel):
@@ -148,6 +150,7 @@ class Summarizer:
                     continue
                 item.summary = d.summary.strip()
                 item.importance = min(max(d.importance, 1), 5)
+                item.reason = d.reason.strip() if item.importance >= 4 else ""
                 if d.category in self.categories:
                     item.categories = [d.category] + [c for c in item.categories if c != d.category]
 

@@ -75,6 +75,35 @@ def is_low(item: dict) -> bool:
     return item["kind"] not in SIGNAL_KINDS or item.get("importance") == 1
 
 
+KEY_IMPORTANCE = 4  # stories rated this or higher are pinned and carry a "why it matters" line
+CUSTOMER_ROLES = {"process", "packaging"}
+# when Claude gave no reason: the story's first category, read from the side of the first company's role
+_WHY = {
+    "擴產與投資": ("靶材需求:客戶擴產與資本支出", "靶材供給:靶材廠產能擴充", "靶材需求:設備商接單與擴產"),
+    "營收與財報": ("靶材需求:客戶營運與資本支出動向", "競爭格局:靶材廠營運表現", "靶材需求:設備商營運反映機台需求"),
+    "併購與合作": ("靶材需求:客戶合作與產能布局", "競爭格局:併購與策略合作", "競爭格局:設備商合作與訂單"),
+    "原物料與價格": ("原料成本:金屬與原料價格變動",) * 3,
+    "技術與新產品": ("技術趨勢:客戶製程與材料變化", "技術趨勢:靶材新產品與製程", "技術趨勢:濺鍍設備新機種"),
+    "客戶與供應鏈": ("靶材需求:客戶供應鏈與產能變化", "競爭格局:供應鏈與客戶認證", "靶材需求:設備供應鏈變化"),
+    "回收與循環": ("原料成本:回收再生與循環供應",) * 3,
+    "政策與貿易": ("政策風險:關稅、管制與補貼",) * 3,
+}
+
+
+def why(item: dict) -> str:
+    """Why a key story matters: Claude's reason, else one inferred from its category and companies."""
+    if (item.get("importance") or 0) < KEY_IMPORTANCE:
+        return ""
+    if item.get("reason"):
+        return item["reason"]
+    roles = item.get("roles") or []
+    side = 0 if roles and roles[0] in CUSTOMER_ROLES else 2 if roles and roles[0] == "equipment" else 1
+    for cat in item.get("categories") or []:
+        if cat in _WHY:
+            return _WHY[cat][side]
+    return ""
+
+
 def pick_events(items: list[dict], config: Config) -> list[dict]:
     """One card per event: the best-rated report leads, the rest ride along as item["also"]."""
     reps = []
@@ -208,6 +237,8 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .thumb .ic{width:32px;height:32px;stroke-width:1.5;vertical-align:0}.thumb .cap{font-size:.66rem;line-height:1;color:var(--muted);white-space:nowrap}
 .thumb .sym{position:absolute;right:-5px;bottom:-5px;min-width:24px;height:22px;padding:0 var(--space-2xs);border-radius:4px;background:var(--k);color:var(--on-accent);font-family:var(--font-data);font-size:.7rem;font-weight:500;display:grid;place-items:center;border:2px solid var(--surface)}
 .card.low .thumb{filter:saturate(.55);opacity:.85}
+.why{display:flex;gap:var(--space-2xs);align-items:flex-start;margin:0;font-size:.82rem;font-weight:600;color:var(--brand-orange-ink)}.why .ic{width:13px;height:13px;margin-top:.2em;flex:none}
+.card.pin{border-color:var(--accent-track)}
 .also{font-size:.82rem;color:var(--muted)}.also summary{cursor:pointer;width:fit-content;color:var(--accent);font-weight:500}.also ul{margin:var(--space-xs) 0 0;padding-left:1.1em;display:grid;gap:var(--space-2xs)}
 .also li a{color:var(--fg)}.also .src{margin-left:var(--space-xs);color:var(--faint)}
 .lowgrp{grid-column:1/-1;border-top:1px solid var(--line);padding-top:var(--space-md)}.lowgrp>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-xs);align-items:center;font-weight:600}
@@ -300,15 +331,17 @@ def _also(item: dict) -> str:
 
 
 def _card(kind_class: str, label: str, label_icon: str, published: str | None, title: str, summary: str,
-          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "", also: str = "") -> str:
+          meta: str, attrs: str = "", extra_class: str = "", full_date: bool = False, thumb: str = "", also: str = "",
+          reason: str = "") -> str:
     """One card: thumbnail, then label + date, title, summary and source details."""
     date = esc((published or "")[:10])
     sum_html = f'<p class="sum">{esc(summary)}</p>' if summary else ""
+    why_html = f'<p class="why">{icon("star")}<span>{esc(reason)}</span></p>' if reason else ""
     return (
         f'<article class="card {kind_class}{extra_class}{" has-thumb" if thumb else ""}"{attrs}>{thumb}'
         f'<div class="head"><span class="kind {kind_class}">{icon(label_icon)}{esc(label)}</span>'
         f'<time datetime="{date}">{_date(published, full=full_date)}</time></div>'
-        f"<h3>{title}</h3>{sum_html}<div class=\"co\">{meta}</div>{also}</article>"
+        f"<h3>{title}</h3>{why_html}{sum_html}<div class=\"co\">{meta}</div>{also}</article>"
     )
 
 
@@ -340,7 +373,8 @@ def _item_html(item: dict, extra_class: str = "") -> str:
     low = " low" if is_low(item) else ""
     attrs = f' data-kind="{kind}" data-ent="{esc("|".join(dict.fromkeys(ents)))}"'
     return _card(f"k-{kind}", KINDS[kind], KIND_ICONS[kind], item.get("published"), _title_link(item) + stars,
-                 _news_summary(item), _news_meta(item), attrs, low + extra_class, thumb=_thumb(*pick_thumb(item)), also=_also(item))
+                 _news_summary(item), _news_meta(item), attrs, low + (" pin" if why(item) else "") + extra_class,
+                 thumb=_thumb(*pick_thumb(item)), also=_also(item), reason=why(item))
 
 
 def _card_html(item: dict) -> str:
@@ -584,6 +618,7 @@ def _lead_html(item: dict) -> str:
         f'<article class="lead-story k-{kind}"><div class="head"><span class="kind k-{kind}">{icon(KIND_ICONS[kind])}{esc(KINDS[kind])}</span>'
         f'<time datetime="{date}">{_date(item.get("published"))}</time></div>'
         f'<h2 class="lead-title">{_title_link(item)}</h2>'
+        + (f'<p class="why">{icon("star")}<span>{esc(why(item))}</span></p>' if why(item) else "")
         + (f'<p class="sum">{esc(summary)}</p>' if summary else "")
         + f'<div class="co">{_news_meta(item)}</div>{_also(item)}</article>'
     )
@@ -810,7 +845,8 @@ def render_page(
         f'<button type="button" class="f" data-filter="ent" data-value="{esc(e)}" aria-pressed="false">{esc(e)}<span class="mono">{n}</span></button>'
         for e, n in chip_counts.most_common()
     )
-    main_cards = [ev for ev in events if not is_low(ev)]
+    # key stories (4-5 stars) pinned to the top of the list, newest first within each group
+    main_cards = sorted((ev for ev in events if not is_low(ev)), key=lambda ev: not why(ev))
     low_cards = [ev for ev in events if is_low(ev)]
     low_html = (
         f'<details class="lowgrp" id="lowgrp"><summary>{icon("layers")}其他 <span class="n">{len(low_cards)}</span> 則參考價值較低'
@@ -834,7 +870,7 @@ def render_page(
 <div class="hero-text"><p class="dateline">{icon("calendar")}<span>{esc(label)}{" 合併" if len(span) > 1 else ""}</span></p>
 <h1 id="h1">靶材產業新聞摘要</h1>
 <p class="lede">{esc(lede)}</p>
-<div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a></div></div>
+<div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a><a class="btn" href="{home}weekly.html">上週週報</a></div></div>
 {lead_story}</section>
 {_figures(figures)}
 <section aria-labelledby="sum" class="split"><div>{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</div>{f'<aside class="digest-aside">{aside}</aside>' if aside else ""}</section>
@@ -919,9 +955,11 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config, pap
         (out / "quiz.html").write_text(render_quiz(config, merge_recent(reports)["items"], generated, seed=reports[0][0]), encoding="utf-8")
         written.append(out / "quiz.html")
     if reports:
-        from .explore import build_explore  # explore imports this module
+        from .explore import build_explore  # explore and weekly import this module
+        from .weekly import build_weekly_pages
 
         written += build_explore(reports, config, out, generated)
+        written += build_weekly_pages(reports, config, out, generated)
         home = merge_recent(reports)
         page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True, daily=daily)
         (out / "index.html").write_text(page, encoding="utf-8")

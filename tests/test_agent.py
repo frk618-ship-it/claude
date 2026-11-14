@@ -1544,3 +1544,60 @@ def test_company_pages_and_search_index(tmp_path, config):
     key = derive_key("pw", site_salt("p" * 20))
     blob = encrypt_data(b'[{"t":"x"}]', key)
     assert gzip.decompress(AESGCM(key).decrypt(blob[:12], blob[12:], None)) == b'[{"t":"x"}]'
+
+
+def test_key_stories_carry_a_reason_and_lead_the_list(config):
+    from target_news_agent.site import HOME_PAGE, render_page, why
+
+    assert why({"importance": 3, "reason": "x"}) == ""
+    assert why({"importance": 5, "reason": "靶材需求:日月光擴產"}) == "靶材需求:日月光擴產"
+    assert why({"importance": 4, "categories": ["擴產與投資"], "roles": ["packaging"]}) == "靶材需求:客戶擴產與資本支出"
+    assert why({"importance": 4, "categories": ["擴產與投資"], "roles": ["producer"]}) == "靶材供給:靶材廠產能擴充"
+    items = [{"id": "a", "title": "台積電公布月營收", "link": "https://e.com/a", "published": "2026-11-13T09:00:00+08:00",
+              "entities": ["台積電 (TSMC)"], "importance": 3, "categories": ["營收與財報"]},
+             {"id": "b", "title": "日月光擴產先進封裝", "link": "https://e.com/b", "published": "2026-11-12T09:00:00+08:00",
+              "entities": ["日月光投控 (ASE)"], "importance": 5, "reason": "靶材需求:日月光擴產先進封裝", "categories": ["擴產與投資"]}]
+    listed = render_page({"items": items, "span": ["2026-11-13"]}, config, [], HOME_PAGE, is_latest=True).split('id="list"')[1]
+    assert listed.index("日月光擴產先進封裝") < listed.index("台積電公布月營收")  # pinned although older
+    assert '<p class="why">' in listed and "card k-news pin" in listed.replace(" has-thumb", "")
+
+
+def test_weekly_report_page_and_email(tmp_path, config):
+
+    from metal_alert.alerts import _send_email
+    from target_news_agent.weekly import build_week, build_weekly_pages, complete_weeks, email_html, last_week
+    from datetime import date
+
+    asm = "日月光投控 (ASE)"
+    def rep(day, items, au):
+        return (day, {"items": items, "metals": [{"name": "黃金", "code": "Au", "price": au, "unit": "USD/oz"}],
+                      "digest": {"overview": f"{day} 焦點:日月光擴產。其餘略。", "source": "claude"}})
+    story = {"id": "s", "title": "日月光千億擴產先進封裝", "link": "https://e.com/s", "published": "2026-11-04T09:00:00+08:00",
+             "entities": [asm], "importance": 5, "reason": "靶材需求:日月光擴產", "summary": "擴產", "categories": ["擴產與投資"]}
+    reports = [rep("2026-11-10", [], 4100), rep("2026-11-08", [], 4074.9), rep("2026-11-04", [story], 4000), rep("2026-11-01", [], 3900)]
+    assert last_week(date(2026, 11, 14)) == date(2026, 11, 2) and complete_weeks(reports) == [date(2026, 11, 2), date(2026, 10, 26)]
+    week = build_week(reports, config, date(2026, 11, 2))
+    assert [ev["id"] for ev in week["key"]] == ["s"] and week["reports"] == 2
+    au = week["metals"][0]
+    assert au["price"] == 4074.9 and au["change_pct"] == round((4074.9 - 3900) / 3900 * 100, 2) and (au["low"], au["high"]) == (4000, 4074.9)
+    body = email_html(week, "https://site/news/week-2026-11-02.html")
+    assert "靶材需求:日月光擴產" in body and "week-2026-11-02.html" in body and "+4.48%" in body
+    written = build_weekly_pages(reports, config, tmp_path, "2026-11-10 08:00")
+    assert (tmp_path / "weekly.html").read_text(encoding="utf-8") == (tmp_path / "week-2026-11-02.html").read_text(encoding="utf-8")
+
+    sent = {}
+    class FakeSMTP:
+        def __init__(self, *a, **k): pass
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def login(self, *a): pass
+        def send_message(self, msg): sent["msg"] = msg
+    import smtplib
+    orig = smtplib.SMTP_SSL
+    smtplib.SMTP_SSL = FakeSMTP
+    try:
+        _send_email({"SMTP_HOST": "h", "SMTP_PORT": "465", "ALERT_EMAIL_TO": "a@x.com"}, "週報", "純文字", html=body)
+    finally:
+        smtplib.SMTP_SSL = orig
+    parts = [p.get_content_type() for p in sent["msg"].walk()]
+    assert "text/plain" in parts and "text/html" in parts

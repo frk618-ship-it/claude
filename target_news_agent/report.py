@@ -24,6 +24,8 @@ def _item_line(item: NewsItem) -> str:
     line = f"- **[{_md_escape(item.title_zh or item.title)}]({item.link})**{stars}  \n  {date} · {item.source or '未知來源'} · {', '.join(item.entities)}"
     if item.summary:
         line += f"  \n  > {item.summary}"
+    if item.reason and item.importance >= 4:
+        line += f"  \n  > 為何重要:{item.reason}"
     return line
 
 

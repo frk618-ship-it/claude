@@ -91,8 +91,10 @@ def _sorted_new(items: list[dict]) -> list[dict]:
 
 
 def render_company(entity: Entity, items: list[dict], config: Config, generated: str, days: int = COMPANY_DAYS) -> str:
+    role_of = {e.name: e.role for e in config.entities}
     for it in items:
         it["kind"] = item_kind(it)
+        it["roles"] = [role_of.get(e, "") for e in it.get("entities", [])]
     items = _sorted_new(items)
     events = pick_events(items, config)
     main = [ev for ev in events if not is_low(ev)]

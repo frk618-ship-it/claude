@@ -108,6 +108,8 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **低參考價值收合**:行情與股價頁、資金流向、論壇與自媒體、市場報告、資料頁,以及 Claude 評為 1 分的報導,收在「全部新聞」最後的「其他 N 則參考價值較低」,預設收合;篩選時若有符合的項目會自動展開。
 - **公司追蹤**(`/news/companies.html`、`/news/co-<公司>.html`):每家追蹤公司近 30 天的新聞時間軸(同一事件合併、低參考價值收合)、主題分布與重要事件數;首頁「追蹤清單」的公司名稱可直接點進去。
 - **全站搜尋**(`/news/search.html`):搜尋 `reports/` 保存中的所有報告(預設一年)的標題(含原文)、摘要、公司與來源,多個關鍵字須全部符合,可依類型篩選;網址 `search.html#q=關鍵字` 可直接帶入搜尋。索引是另一個檔案 `search-index.json`;受保護的網站上改為以相同金鑰加密的 `search-index.bin`,頁面用解鎖時記住的金鑰解密,未解鎖時無法讀取。
+- **重點新聞置頂與理由**:評為 4-5 分的新聞在「全部新聞」中置頂,卡片標出「為何重要」(例如「靶材需求:日月光擴產先進封裝」)。理由由 Claude 摘要時一併寫入(`reason` 欄位);沒有時依新聞主題與公司角色(客戶 / 靶材廠 / 設備商)自動推得。
+- **週報**(`/news/weekly.html`、`/news/week-<週一>.html`):每週一至週日的重點事件(4-5 分,同一事件合併,附理由)、貴金屬週行情(週漲跌與區間)、主題分布、報導最多的公司與每日焦點;首頁有「上週週報」按鈕。`.github/workflows/weekly-report.yml` 每週一台北時間約 09:47 把上週週報寄給貴金屬預警的 email 群組(同一組 SMTP_* 與 ALERT_EMAIL_TO secrets),也可手動執行並指定週一日期。本機預覽:`python -m target_news_agent weekly-email --dry-run weekly.html`。
 
 - 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
 - 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。

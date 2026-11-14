@@ -92,6 +92,12 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("--papers-archive", default="data/papers.json", help="永久保存的技術文獻庫(每日報告只保存 keep_days 天)")
     st.add_argument("--root-redirect", metavar="DIR", help="在 DIR/index.html 放一個轉址到新聞網站的首頁(GitHub Pages 根目錄用)")
 
+    wk = sub.add_parser("weekly-email", help="把上週(週一至週日)的週報寄給貴金屬預警的 email 群組(SMTP_* 與 ALERT_EMAIL_TO)")
+    wk.add_argument("-c", "--config", default="config/watchlist.yaml")
+    wk.add_argument("-i", "--reports-dir", default="reports")
+    wk.add_argument("--monday", help="週報那一週的週一(YYYY-MM-DD,預設為上週)")
+    wk.add_argument("--dry-run", metavar="FILE", help="不寄出,把 HTML 寫到 FILE")
+
     pr = sub.add_parser("protect", help="把建好的網站加密、放到秘密路徑下(SITE_PATH / SITE_PASSWORD 環境變數)")
     pr.add_argument("--src", default="site", help="建好的網站資料夾")
     pr.add_argument("--out", default="public", help="要發布的資料夾")
@@ -143,6 +149,8 @@ def main(argv: list[str] | None = None) -> int:
         return _pending(args, config)
     if args.command == "apply-digest":
         return _apply(args, config)
+    if args.command == "weekly-email":
+        return _weekly_email(args, config)
 
     if args.command == "queries":
         for url in iter_feed_urls(config):
@@ -317,7 +325,7 @@ def _apply(args, config) -> int:
                 r.summary, n = e["summary"].strip(), n + 1
             if e.get("importance"):
                 r.importance = min(max(int(e["importance"]), 1), 5)
-            for key in ("title_zh", "snippet_zh", "abstract_zh"):
+            for key in ("title_zh", "snippet_zh", "abstract_zh", "reason"):
                 if (e.get(key) or "").strip() and hasattr(r, key):
                     setattr(r, key, e[key].strip())
             cat = e.get("category")
@@ -467,6 +475,35 @@ def _check_papers(args, config) -> int:
     failed = [s["source"] for s in stats if s["fetched"] is None]
     if failed:
         print("\nfailed sources: " + ", ".join(failed))
+    return 0
+
+
+def _weekly_email(args, config) -> int:
+    from datetime import date
+
+    from .weekly import build_week, email_html, email_subject, email_text, last_week, load_reports
+
+    monday = date.fromisoformat(args.monday) if args.monday else last_week(datetime.now(ZoneInfo("Asia/Taipei")).date())
+    week = build_week(load_reports(args.reports_dir), config, monday)
+    if not week["reports"]:
+        log.error("no daily reports for the week of %s", monday)
+        return 1
+    page = os.environ.get("WEEKLY_PAGE_URL", "").strip()
+    if not page and os.environ.get("SITE_BASE_URL", "").strip():
+        page = os.environ["SITE_BASE_URL"].strip().rstrip("/") + f"/news/week-{monday.isoformat()}.html"
+    subject, body = email_subject(week), email_html(week, page)
+    if args.dry_run:
+        Path(args.dry_run).write_text(body, encoding="utf-8")
+        print(f"{subject} -> {args.dry_run}")
+        return 0
+    env = os.environ
+    if not (env.get("SMTP_HOST", "").strip() and env.get("ALERT_EMAIL_TO", "").strip()):
+        log.error("SMTP_HOST / ALERT_EMAIL_TO not set: weekly report not sent")
+        return 1
+    from metal_alert.alerts import _send_email
+
+    _send_email(env, subject, email_text(week, page), html=body)
+    print(f"sent: {subject}")
     return 0
 
 
