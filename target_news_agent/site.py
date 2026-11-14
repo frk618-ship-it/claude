@@ -222,6 +222,7 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .region ul{list-style:none;margin:0;padding:0}.region li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:var(--space-sm);padding:var(--space-xs) 0;border-bottom:1px solid var(--line);font-size:.92rem}
 .region li:last-child{border-bottom:0}
 .tk{font-family:var(--font-data);font-size:.72rem;color:var(--muted);margin-left:var(--space-xs)}.pill{font-size:.72rem;padding:1px var(--space-xs);border-radius:99px;white-space:nowrap}
+.ledger li a{color:var(--fg);text-decoration:none}.ledger li a:hover{color:var(--accent);text-decoration:underline}
 .pill.yes{background:var(--ok-soft);color:var(--ok);font-weight:700}.pill.no{background:var(--none-soft);color:var(--none)}
 .archive{display:grid;gap:var(--space-sm);font-size:.9rem}.archive a{color:var(--fg);text-decoration:none;font-family:var(--font-data);font-variant-numeric:tabular-nums}
 .archive a:hover{color:var(--accent);text-decoration:underline}.archive a[aria-current=page]{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-thickness:2px}
@@ -695,7 +696,13 @@ NON_PRODUCER_GROUPS = {"distributor": "銷售商", "equipment": "濺鍍設備商
 GROUP_ICONS = {"銷售商": "store", "濺鍍設備商": "cube", "製程相關(PVD 半導體廠)": "building", "封裝廠(PVD)": "layers"}
 
 
-def _ledger(config: Config, counts: Counter) -> str:
+def company_slug(entity) -> str:
+    from .explore import slug
+
+    return slug(entity)
+
+
+def _ledger(config: Config, counts: Counter, links: dict[str, str] | None = None) -> str:
     groups: "OrderedDict[str, list]" = OrderedDict(
         (k, []) for k in ("日本", "中國大陸", "台灣", "韓國", "歐美", "銷售商", "濺鍍設備商", "製程相關(PVD 半導體廠)", "封裝廠(PVD)", "其他")
     )
@@ -714,7 +721,10 @@ def _ledger(config: Config, counts: Counter) -> str:
             n = counts.get(short_name(e.name), 0)
             tk = f'<span class="tk">{esc(e.ticker)}</span>' if e.ticker else ""
             pill = f'<span class="pill yes">{n} 則</span>' if n else '<span class="pill no">無報導</span>'
-            lis.append(f"<li><span>{esc(short_name(e.name))}{tk}</span>{pill}</li>")
+            name = esc(short_name(e.name))
+            href = (links or {}).get(short_name(e.name))
+            name = f'<a href="{esc(href)}">{name}</a>' if href else name
+            lis.append(f"<li><span>{name}{tk}</span>{pill}</li>")
         group_icon = GROUP_ICONS.get(key)
         label = key if group_icon else f"{key}靶材生產商"
         badge = icon(group_icon) if group_icon else REGION_CODES.get(key, "OT")
@@ -837,7 +847,7 @@ def render_page(
 <div class="frow"><span class="lbl">{icon("building")}公司</span>{ent_chips}</div>
 <div class="frow"><span class="shown" id="shown" aria-live="polite">顯示 {len(events)} / {len(events)} 則</span><button type="button" class="reset" id="reset" hidden>清除篩選</button></div></div>
 <div class="cards rows" id="list">{"".join(_item_html(ev) for ev in main_cards)}{low_html}</div></section>
-<div class="pair"><section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts)}</div></section>
+<div class="pair"><section aria-labelledby="ledger">{_h2("ledger", "globe", "追蹤清單", f"{len(companies)} 家公司的本期報導則數")}<div class="ledger">{_ledger(config, ent_counts, {short_name(e.name): f"{home}co-{company_slug(e)}.html" for e in companies})}</div></section>
 <section aria-labelledby="arc">{_h2("arc", "calendar", "歷次報告")}<div class="archive">{archive_html}</div></section></div>
 <footer class="foot"><p>{icon("news")}<span><strong>資料來源</strong>Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集,更新於 <span class="mono">{esc(generated)}</span>。每期蒐集最近 {esc(report.get("days", ""))} 天新聞。</span></p>
 <p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
@@ -909,6 +919,9 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config, pap
         (out / "quiz.html").write_text(render_quiz(config, merge_recent(reports)["items"], generated, seed=reports[0][0]), encoding="utf-8")
         written.append(out / "quiz.html")
     if reports:
+        from .explore import build_explore  # explore imports this module
+
+        written += build_explore(reports, config, out, generated)
         home = merge_recent(reports)
         page = render_page(home, config, archive, HOME_PAGE, library=library, is_latest=True, daily=daily)
         (out / "index.html").write_text(page, encoding="utf-8")

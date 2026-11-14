@@ -9,7 +9,8 @@ GitHub Pages has no access control, so the site is made private by obscurity plu
   ``#k=<password>`` unlocks directly, so "anyone with the link" can read it; the fragment
   never reaches the server. The derived key is remembered in the browser session (or on the
   device, if the visitor ticks the box), so moving between pages doesn't ask again;
-- raw data files (.json / .csv) are not published.
+- raw data files (.json / .csv) are not published, except the search index, which is gzipped and
+  encrypted with the same key (search-index.bin) for the search page to decrypt.
 
 SITE_PATH and SITE_PASSWORD come from the environment (GitHub Actions secrets). When either
 is missing, only a placeholder page is published, so the content is never exposed by mistake.
@@ -18,6 +19,7 @@ is missing, only a placeholder page is published, so the content is never expose
 from __future__ import annotations
 
 import base64
+import gzip
 import hashlib
 import html
 import json
@@ -33,6 +35,7 @@ from .fabnav import corner_logo
 ITERATIONS = 210_000
 PATH_RE = re.compile(r"^[A-Za-z0-9_-]{16,64}$")
 SKIP_SUFFIXES = {".json", ".csv"}
+ENCRYPTED_DATA = {"search-index.json"}  # published encrypted as <name>.bin instead of skipped
 
 PLACEHOLDER = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Not found</title>
@@ -128,6 +131,12 @@ def encrypt_page(page: str, key: bytes, salt: bytes) -> str:
     return SHELL.replace("__PAYLOAD__", json.dumps(payload)).replace("__LOGO__", corner_logo(), 1)
 
 
+def encrypt_data(data: bytes, key: bytes) -> bytes:
+    """iv || AES-GCM(gzip(data)); the search page decrypts it with the key the unlock page remembered."""
+    iv = os.urandom(12)
+    return iv + AESGCM(key).encrypt(iv, gzip.compress(data, mtime=0), None)
+
+
 def decrypt_page(shell: str, password: str) -> str:
     """Inverse of encrypt_page (for tests and checks)."""
     payload = json.loads(re.search(r"const P = (\{.*?\});", shell).group(1))
@@ -172,6 +181,11 @@ def protect(src: str | Path, out: str | Path, path: str | None, password: str | 
     tops = sorted(d.name for d in src.iterdir() if d.is_dir())
     for f in sorted(p for p in src.rglob("*") if p.is_file()):
         rel = f.relative_to(src)
+        if f.name in ENCRYPTED_DATA:  # data a page loads itself: gzip, then encrypt with the pages' key
+            dest = (base / rel).with_suffix(".bin")
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(encrypt_data(f.read_bytes(), key))
+            continue
         if rel == Path("index.html") or f.suffix.lower() in SKIP_SUFFIXES:
             continue  # the root redirect would reveal the path; raw data stays unpublished
         dest = base / rel

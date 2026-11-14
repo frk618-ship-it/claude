@@ -1515,3 +1515,32 @@ def test_reprints_fold_into_one_event_and_low_value_items_collapse(config):
     assert "另有 1 家媒體報導" in listed and listed.count('<article class="card') == 5  # b leads (higher rating), a folds under it
     main, low = listed.split('id="lowgrp"')
     assert "上修全年獲利" not in main and "上修全年獲利" in low and "stock price" not in main  # rated 1 and quote pages collapse
+
+
+def test_company_pages_and_search_index(tmp_path, config):
+    import gzip
+
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+    from target_news_agent.explore import build_explore, search_index, slug
+    from target_news_agent.protect import derive_key, encrypt_data, site_salt
+
+    kfmi = "江豐電子 (KFMI)"
+    assert slug(kfmi) == "kfmi" and slug("Materion") == "materion" and len(slug("光洋科")) == 8
+    new = {"items": [{"id": "a", "title": "江丰电子递表港交所", "title_zh": "江豐電子遞表港交所", "link": "https://e.com/a", "source": "觀點網",
+                      "published": "2026-11-13T08:00:00+08:00", "entities": [kfmi], "summary": "啟動 H 股上市", "importance": 4}]}
+    old = {"items": [{"id": "b", "title": "江豐電子擴產", "link": "https://e.com/b", "source": "經濟日報",
+                      "published": "2026-10-01T08:00:00+08:00", "entities": [kfmi], "importance": 3},
+                     dict(new["items"][0], summary="")]}  # an older copy of a: the newest report's copy wins
+    reports = [("2026-11-14", new), ("2026-10-02", old)]
+    written = build_explore(reports, config, tmp_path, "2026-11-14 08:00")
+    page = (tmp_path / "co-kfmi.html").read_text(encoding="utf-8")
+    assert "遞表港交所" in page and "江豐電子擴產" not in page  # 30-day window
+    assert 'href="co-kfmi.html"' in (tmp_path / "companies.html").read_text(encoding="utf-8")
+    rows = search_index(reports)
+    assert [r["t"] for r in rows] == ["江豐電子遞表港交所", "江豐電子擴產"] and rows[0]["s"] == "啟動 H 股上市" and rows[0]["o"] == "江丰电子递表港交所"
+    assert tmp_path / "search.html" in written and "共 2 則" in (tmp_path / "search.html").read_text(encoding="utf-8")
+
+    key = derive_key("pw", site_salt("p" * 20))
+    blob = encrypt_data(b'[{"t":"x"}]', key)
+    assert gzip.decompress(AESGCM(key).decrypt(blob[:12], blob[12:], None)) == b'[{"t":"x"}]'
