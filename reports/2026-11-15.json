@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T08:28:38.271864+08:00",
+  "generated": "2026-11-15T09:17:00.958340+08:00",
   "days": 7,
   "digest": {
     "overview": "本期延續先進封裝擴產主軸,日月光路竹廠千億元布局持續發酵,滿載年營收可望達 800 億元,精材與台積電的產能外包協議也獲更多報導,封裝 PVD 製程與靶材需求可望擴大。設備端,拓荊科技以 25 億元收購 PVD 設備業者,中國 PVD 設備走向平台化競爭。靶材廠方面,江豐電子推進 A+H 上市,但營收成長下毛利率承壓受到檢視。貴金屬方面,金價本週觸及逾一年低點,白銀與鉑金續跌,鈀金小幅反彈。",
@@ -17,6 +17,48 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "6ef27b7315f12e31",
+      "title": "Gold prices fall sharply, buyers lose up to 31.2 million VND/tael after 6 months",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVEF2VVY3Mm8zVXl1OVpsNDlFS090c3VzYUllbHdTbXBQOGN2ZWFxOUR2MlRoZUh4eS1pTTE0MUtUaERub1VxSVBXRDRTUlEzbW04azJfMkJMT2RScTVhSnpWUkgwcGlSNUZkOTVRSGU4UGM2dVJwVXhpRWNyYm5JeFFURVpJNzNDNDk3bzZnR2hGX0tybmRnLWttUWRLR2tZZl9GaFNwLXZnZXpkemtFTG4zazNmbHRSVlE?oc=5",
+      "source": "Laodong.vn",
+      "published": "2026-11-15T00:41:31+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d364011f482ba514",
+      "title": "フルヤ金属は大幅反発、第１四半期営業利益３．８倍 (2026年11月9日掲載)",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1RS0NuWTJVcXhGd3dJdzhxYjFvWlFhVGwzS2JmRmpOcWtrd2xiWkVUbW4tdXRKRG9VV3pXNVFBcGc1dWdkWE9rZ2xobzV5UmNieFlyNFd6RkZiaktyanc?oc=5",
+      "source": "ライブドアニュース",
+      "published": "2026-11-09T00:31:09+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.14,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "3ea14aa77eeb4908",
       "title": "滿載年營收可望達800億！日月光擴建路竹廠搶先進封裝產能 昨股價進逼600元大關",
