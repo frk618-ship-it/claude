@@ -2,18 +2,19 @@
   "generated": "2026-11-15T08:28:38.271864+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 21 則,其中新聞與公司公告 12 則;報導最多的是 日月光投控(3 則)、Singulus Technologies(3 則)、精材(1 則)、江豐電子(1 則)。依主題:產業動態 8 則、擴產與投資 2 則、營收與財報 2 則。",
+    "overview": "本期延續先進封裝擴產主軸,日月光路竹廠千億元布局持續發酵,滿載年營收可望達 800 億元,精材與台積電的產能外包協議也獲更多報導,封裝 PVD 製程與靶材需求可望擴大。設備端,拓荊科技以 25 億元收購 PVD 設備業者,中國 PVD 設備走向平台化競爭。靶材廠方面,江豐電子推進 A+H 上市,但營收成長下毛利率承壓受到檢視。貴金屬方面,金價本週觸及逾一年低點,白銀與鉑金續跌,鈀金小幅反彈。",
     "key_trends": [
-      "產業動態(8 則):日月光首度進駐科學園區，路竹廠千億佈局擴大先進封裝量能",
-      "擴產與投資(2 則):滿載年營收可望達800億！日月光擴建路竹廠搶先進封裝產能 昨股價進逼600元大關",
-      "營收與財報(2 則):IPO新觀察｜營收增長、毛利率承壓，江豐電子能否撐起“A+H”？"
+      "日月光、精材擴大先進封裝產能,封裝 PVD 需求升溫",
+      "中國 PVD 設備商透過併購走向平台化",
+      "江豐電子 A+H 上市推進,毛利率表現受檢視",
+      "金價觸及逾一年低點,貴金屬整體偏弱"
     ],
     "watch_points": [
-      "滿載年營收可望達800億！日月光擴建路竹廠搶先進封裝產能 昨股價進逼600元大關(Yahoo股市)",
-      "精材牽緊臺積簽產能外包協議衝先進封裝| 經濟日報(LINE TODAY)",
-      "IPO新觀察｜營收增長、毛利率承壓，江豐電子能否撐起“A+H”？(新京报)"
+      "拓荊科技收購後的 PVD 設備布局與對靶材供應鏈的影響",
+      "江豐電子 H 股招股進度與毛利率變化",
+      "貴金屬價格是否止跌"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -32,9 +33,9 @@
         "營收與財報"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光擴建路竹廠搶攻先進封裝產能,滿載年營收可望達 800 億元,股價逼近 600 元;封裝擴產將帶動 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -50,12 +51,13 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.32,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "精材與台積電簽產能外包協議衝刺先進封裝,為前日消息的轉載。",
+      "importance": 4,
+      "reason": "靶材需求:先進封裝產能擴大",
       "title_zh": "精材牽緊臺積簽產能外包協議衝先進封裝| 經濟日報",
       "snippet_zh": ""
     },
@@ -71,11 +73,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "貴金屬投資人士認為美國陷入高債務、高利率困境,看好金銀長期行情,屬市場評論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -95,8 +98,8 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導分析江豐電子營收成長但毛利率承壓,質疑其能否支撐 A+H 雙重上市,點出靶材龍頭的獲利挑戰。",
+      "importance": 3,
       "reason": "",
       "title_zh": "IPO新觀察｜營收增長、毛利率承壓，江豐電子能否撐起“A+H”？",
       "snippet_zh": ""
@@ -116,10 +119,10 @@
         "營收與財報"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析 Materion 強勁季度財報是否改變其看多理由,屬投資評論。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "強勁季報是否改變 Materion(MTRN)的看多理由?",
       "snippet_zh": ""
     },
     {
@@ -137,10 +140,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "11 月 15 日越南金價:國際金價重挫,SJC 金條每盎司下跌 350 萬越南盾,屬當地金價行情。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11 月 15 日金價:國際金價重挫,SJC 金價每盎司跌 350 萬越南盾",
       "snippet_zh": ""
     },
     {
@@ -158,10 +161,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "2026 年 11 月 15 日越南 SJC 金條、BTMC 9999 金戒與國際金價報價,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 15 日金價:SJC 金條、BTMC 9999 金戒與國際金價",
       "snippet_zh": ""
     },
     {
@@ -179,10 +182,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "11 月 15 日早盤金價:本週劇烈波動,金價觸及逾一年低點。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11 月 15 日早盤金價:本週劇烈波動,觸及逾一年低點",
       "snippet_zh": ""
     },
     {
@@ -200,10 +203,10 @@
         "原物料與價格"
       ],
       "score": 3.28,
-      "summary": "",
-      "importance": 0,
+      "summary": "吉爾吉斯金價過去一週每盎司下跌 16,000 索姆,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "吉爾吉斯金價一週內每盎司下跌 16,000 索姆",
       "snippet_zh": ""
     },
     {
@@ -218,11 +221,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材融資淨償還 1,138.99 萬元,融資餘額 9.38 億元,屬個股資金面資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材：融資淨償還1138.99萬元，融資餘額9.38億元",
       "snippet_zh": ""
@@ -239,11 +243,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.85,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群對光洋科半年股價統計的討論貼文,資訊有限。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -260,12 +265,13 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.75,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光首度進駐科學園區,路竹廠千億元布局擴大先進封裝量能。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "日月光首度進駐科學園區，路竹廠千億佈局擴大先進封裝量能",
       "snippet_zh": ""
     },
@@ -281,13 +287,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.74,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指 Singulus 因 SpaceX 訂單股價大漲 1,500%,並提及其他個股動態,屬投資新聞。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "拜馬斯克所賜 Singulus 股價漲 1,500%!Almonty 與 Bayer 動態如何?",
       "snippet_zh": ""
     },
     {
@@ -302,12 +309,13 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.74,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光千億元先進封裝布局,路竹廠一期啟用、二期動土。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "日月光千億先進封裝佈局，路竹廠一期啟用二期動土- 新聞",
       "snippet_zh": ""
     },
@@ -323,11 +331,12 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "社群貼文指半導體類股大漲,但 JX金屬股價漲幅有限,屬投資人討論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "$JX金屬 (5016.JP)$ 半導體板塊暴漲，但這裡卻沒怎麼漲呢(>_",
       "snippet_zh": ""
@@ -344,13 +353,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.72,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬與旭化成、Circularise 共同驗證食鹽電解用電極的貴金屬溯源與數位產品護照(DPP)發行,為同一事件的轉載。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬與旭化成、Circularise 共同開始驗證食鹽電解電極的貴金屬溯源與數位產品護照(DPP)發行(2026 年 11 月 13 日刊載)",
       "snippet_zh": ""
     },
     {
@@ -365,11 +375,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.69,
-      "summary": "",
-      "importance": 0,
+      "summary": "個股早盤評論,提及有研新材等多檔股票,未提供與靶材相關的具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11.13早評：永鼎股份，金安國紀，掌閱科技，有研新材，粵傳媒",
       "snippet_zh": ""
@@ -386,13 +397,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "SpaceX 與德國 Singulus 合作,擴大衛星用太陽能電池製造,為同一訂單事件的報導。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "SpaceX 與德國 Singulus 合作,為 Starlink 衛星擴大太陽能電池製造",
       "snippet_zh": ""
     },
     {
@@ -407,13 +419,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies 簽訂 SpaceX 太陽能設備合約。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "SINGULUS TECHNOLOGIES(SNG)簽訂 SpaceX 太陽能設備合約",
       "snippet_zh": ""
     },
     {
@@ -428,12 +441,13 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.29,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "拓荊科技以 25 億元收購一家 PVD 設備隱形冠軍,中國設備商走向平台化競爭;國產 PVD 設備擴張將影響中國濺鍍機台與靶材供應鏈。",
+      "importance": 4,
+      "reason": "競爭格局:中國 PVD 設備商整併",
       "title_zh": "拓荊科技25億拿下PVD隱形冠軍：國產設備平臺化競賽，開賽了",
       "snippet_zh": ""
     },
@@ -449,11 +463,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材的早盤評論,標題未提供具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11.10早評：有研新材",
       "snippet_zh": ""
@@ -524,11 +539,12 @@
       "doi": "10.1016/j.ceramint.2026.11.136",
       "source": "OpenAlex",
       "topics": [
+        "陶瓷與氧化物靶",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以混合設計方法篩選低銦 IZTO 靶材,連結靶材相組成與濺鍍薄膜的傳輸特性;摘要未提供細節。",
+      "importance": 4,
+      "title_zh": "以混合設計引導篩選低銦 IZTO 靶材:連結相組成與濺鍍薄膜傳輸特性",
       "abstract_zh": "",
       "tier": "related"
     }
