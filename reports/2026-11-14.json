@@ -31,11 +31,13 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指半導體靶材龍頭江豐電子闖關港股,亮眼業績背後仍面臨多重考驗,值得留意其 H 股上市進度與風險。",
+      "importance": 3,
+      "reason": "",
       "title_zh": "半導體靶材龍頭江豐電子闖港股，光鮮業績下藏多重考驗",
       "snippet_zh": ""
     },
@@ -51,12 +53,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.7,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "SpaceX 向 Singulus 訂購首條太陽能產線,金額逾 6,000 萬歐元;HJT 電池的透明導電膜鍍膜會用到 ITO 等濺鍍靶材。",
+      "importance": 4,
+      "reason": "靶材需求:HJT 太陽能產線帶動 ITO 靶材",
+      "title_zh": "SpaceX 向 SINGULUS 訂購首條太陽能產線,金額逾 6,000 萬歐元",
       "snippet_zh": ""
     },
     {
@@ -71,12 +75,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "美元達到目標價位,分析白銀是否即將出現重大突破;白銀走勢影響銀靶原料成本。",
+      "importance": 1,
+      "reason": "",
+      "title_zh": "美元觸及目標價位,白銀是否即將大突破?",
       "snippet_zh": ""
     },
     {
@@ -98,6 +104,7 @@
       "score": 6.4,
       "summary": "台積電美國新廠持續獲利,前三季獲利 539.86 億元創新高,顯示海外晶圓廠營運步上軌道,有利當地 PVD 製程與靶材需求穩定成長。",
       "importance": 4,
+      "reason": "",
       "title_zh": "臺積電美國新廠續賺 前三季獲利539.86億元創高",
       "snippet_zh": ""
     },
@@ -120,6 +127,7 @@
       "score": 6.24,
       "summary": "精材與台積電簽訂逾 7 年產能外包協議,2029 年量產後段先進封裝,將擴大台灣先進封裝產能並帶動相關 PVD 製程與靶材需求。",
       "importance": 5,
+      "reason": "",
       "title_zh": "精材與臺積電簽逾7年產能外包協議 2029年量產後段先進封裝",
       "snippet_zh": ""
     },
@@ -142,6 +150,7 @@
       "score": 5.85,
       "summary": "討論文章回顧世界先進大擴產的布局與方略攜手恩智浦打造新局,反映晶圓代工擴產趨勢,可能帶動 PVD 機台與靶材需求。",
       "importance": 3,
+      "reason": "",
       "title_zh": "討論牆 | 世界先進大擴產3／20年前掌臺積電新加坡廠 方略攜手恩智浦打造世界先進新局",
       "snippet_zh": ""
     },
@@ -164,6 +173,7 @@
       "score": 5.67,
       "summary": "中芯國際業績會指出上游設備採購價格提高、交付週期拉長,AI 配套晶片代工價格維持上行,顯示中國晶圓廠擴產持續,靶材需求可望跟進。",
       "importance": 4,
+      "reason": "",
       "title_zh": "直擊中芯國際業績會：上游設備採購價格提高、交付週期拉長 AI配套芯片代工價格維持上行趨勢",
       "snippet_zh": ""
     },
@@ -185,6 +195,7 @@
       "score": 5.47,
       "summary": "日月光砸千億元擴產先進封裝,滿載後年營收貢獻約 800 億元,將大幅帶動凸塊、RDL 等 PVD 製程與靶材需求。",
       "importance": 5,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -206,6 +217,7 @@
       "score": 5.43,
       "summary": "台積電與精材簽訂七年協議以擴充 CoWoS 封裝產能,先進封裝供應鏈持續擴大。",
       "importance": 5,
+      "reason": "",
       "title_zh": "台積電與精材簽七年協議,擴充 CoWoS 封裝產能",
       "snippet_zh": ""
     },
@@ -227,6 +239,7 @@
       "score": 5.42,
       "summary": "精材董事會通過與客戶簽訂產能外包協議,成為先進封裝供應鏈中 oS 模組的新生力軍。",
       "importance": 4,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -248,6 +261,7 @@
       "score": 5.39,
       "summary": "日月光路竹廠一期啟用、二期動土,千億元擴產先進封裝,滿載後年營收估 800 億元,將推升 PVD 製程材料需求。",
       "importance": 5,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -269,6 +283,7 @@
       "score": 5.39,
       "summary": "江豐電子衝刺港股上市,第三季營收 17 億元、淨利 2.7 億元,且剛完成 19 億元定增,資金面支撐其靶材擴產。",
       "importance": 4,
+      "reason": "",
       "title_zh": "江豐電子衝刺港股：第三季營收17億 淨利2.7億 剛定增19億",
       "snippet_zh": ""
     },
@@ -290,6 +305,7 @@
       "score": 5.36,
       "summary": "房地產評論提及美光傳出停建桃園新廠,質疑科技宅穩賺迷思;若美光擴產放緩,將影響當地記憶體廠 PVD 與靶材需求。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -311,6 +327,7 @@
       "score": 4.97,
       "summary": "美光新加坡 310 億美元擴產布局受矚目,桃園新廠進度則因勞資協商(11/17 再談)添變數,記憶體擴產重心可能移轉。",
       "importance": 4,
+      "reason": "",
       "title_zh": "美光新加坡310億美元擴產佈局受矚！桃園新廠進度添變數勞資11/17再協商| 綜合 | 要聞",
       "snippet_zh": ""
     },
@@ -332,6 +349,7 @@
       "score": 4.88,
       "summary": "中芯國際業績亮眼,持續受 AI 溢出效應提振,但產業緊張情勢擾動資本支出節奏,影響其設備與靶材採購步調。",
       "importance": 3,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -354,6 +372,7 @@
       "score": 4.74,
       "summary": "分析文章指江豐電子業績穩步兌現並衝刺港股,A+H 布局或成其發展關鍵,有助擴大募資以支撐靶材擴產。",
       "importance": 3,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -375,6 +394,7 @@
       "score": 4.74,
       "summary": "台積電盤前上漲近 1%,攜手精材布局先進封裝,首期產線預計 2029 年量產。",
       "importance": 4,
+      "reason": "",
       "title_zh": "臺積電盤前漲近1%：攜手精材科技佈局先進封裝，首期產線預計2029年量產",
       "snippet_zh": ""
     },
@@ -396,6 +416,7 @@
       "score": 4.71,
       "summary": "精材攜手台積電搶進 CoWoS 後段製程,首期產線預計 2029 年量產,先進封裝供應鏈新增產能。",
       "importance": 4,
+      "reason": "",
       "title_zh": "精材攜手臺積電搶進CoWoS後段製程首期產線預計2029年量產- 產業",
       "snippet_zh": ""
     },
@@ -417,6 +438,7 @@
       "score": 4.46,
       "summary": "精材與台積電簽產能外包協議衝刺先進封裝,為同一事件的報導。",
       "importance": 4,
+      "reason": "",
       "title_zh": "精材牽緊臺積簽產能外包協議 衝先進封裝",
       "snippet_zh": ""
     },
@@ -437,6 +459,7 @@
       "score": 4.42,
       "summary": "先進封裝產能擴張戰開打,南台灣半導體聚落迎千億元投資,日月光擴廠成焦點。",
       "importance": 4,
+      "reason": "",
       "title_zh": "先進封裝產能擴張戰開打！南臺灣半導體聚落迎千億元投資，日月光擴廠成焦點-財經焦點情報站",
       "snippet_zh": ""
     },
@@ -457,6 +480,7 @@
       "score": 4.4,
       "summary": "日月光砸千億元投資進駐南科擴充先進封裝產能,將帶動封裝 PVD 製程與靶材需求。",
       "importance": 5,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -477,6 +501,7 @@
       "score": 4.38,
       "summary": "日月光路竹廠一期啟用、二期動土,千億元布局擴大先進封裝產能,屬股市社群轉載。",
       "importance": 3,
+      "reason": "",
       "title_zh": "2311 2311 - 日月光路竹廠一期啟用、二期動土千億元佈局擴大先進封裝產能- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -497,6 +522,7 @@
       "score": 4.38,
       "summary": "日月光路竹廠一期啟用、二期動土,以千億元布局擴大先進封裝產能。",
       "importance": 4,
+      "reason": "",
       "title_zh": "日月光路竹廠一期啟用、二期動土 千億元佈局擴大先進封裝產能",
       "snippet_zh": ""
     },
@@ -517,6 +543,7 @@
       "score": 4.38,
       "summary": "日月光路竹廠一期啟用、二期動土,千億投資擴充先進封裝產能。",
       "importance": 4,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -538,6 +565,7 @@
       "score": 4.11,
       "summary": "SpaceX 與德國 Singulus 合作擴大太陽能電池產能,為 HJT 產線訂單的後續報導。",
       "importance": 3,
+      "reason": "",
       "title_zh": "SpaceX 與德國 Singulus 攜手擴大太陽能電池產能",
       "snippet_zh": ""
     },
@@ -558,6 +586,7 @@
       "score": 3.93,
       "summary": "分析 Materion 財報優於預期是否改變其投資前景,屬投資評論。",
       "importance": 2,
+      "reason": "",
       "title_zh": "財報優於預期是否改變 Materion(MTRN)的投資前景?",
       "snippet_zh": ""
     },
@@ -578,6 +607,7 @@
       "score": 3.91,
       "summary": "Singulus 營收成長 36%,並取得 SpaceX 的 HJT 太陽能設備訂單;HJT 電池透明導電膜鍍膜需使用 ITO 等濺鍍靶材。",
       "importance": 4,
+      "reason": "",
       "title_zh": "SINGULUS 營收成長 36%,拿下 SpaceX HJT 訂單",
       "snippet_zh": ""
     },
@@ -599,6 +629,7 @@
       "score": 3.87,
       "summary": "IPO 前瞻文章指半導體靶材龍頭江豐電子闖關港股,亮眼業績下仍面臨多重考驗。",
       "importance": 3,
+      "reason": "",
       "title_zh": "【IPO前哨】半導體靶材龍頭江豐電子（300666.SZ）闖港股，光鮮業績下藏多重考驗",
       "snippet_zh": ""
     },
@@ -619,6 +650,7 @@
       "score": 3.8,
       "summary": "報導指輝達助攻矽品從 CoWoS 代工邁向 CPO 新藍海,研發老將揭密十年技術布局;先進封裝擴大將帶動 PVD 製程需求。",
       "importance": 3,
+      "reason": "",
       "title_zh": "輝達助攻矽品登峰！從 CoWoS 代工邁向 CPO 新藍海，研發老將揭密十年技術佈局",
       "snippet_zh": ""
     },
@@ -640,6 +672,7 @@
       "score": 3.8,
       "summary": "江豐電子業績穩步兌現並衝刺港股,文章探討 A+H 布局對其發展的助益。",
       "importance": 3,
+      "reason": "",
       "title_zh": "業績穩步兌現江豐電子衝刺港股，A+H佈局或成賦能發展關鍵一躍？",
       "snippet_zh": ""
     },
@@ -661,6 +694,7 @@
       "score": 3.72,
       "summary": "旭化成、Circularise 與古屋金屬啟動貴金屬溯源計畫,追蹤貴金屬回收循環履歷。",
       "importance": 2,
+      "reason": "",
       "title_zh": "旭化成、Circularise 與古屋金屬啟動貴金屬溯源計畫",
       "snippet_zh": ""
     },
@@ -682,6 +716,7 @@
       "score": 3.71,
       "summary": "江豐電子遞表港交所,其靶材全球市佔率居第二。",
       "importance": 3,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -703,6 +738,7 @@
       "score": 3.63,
       "summary": "Singulus Technologies(SNG.DE)股價、新聞與報價資訊頁,本身不含新事件。",
       "importance": 1,
+      "reason": "",
       "title_zh": "Singulus Technologies(SNG.DE)股價、新聞、報價與歷史資料",
       "snippet_zh": ""
     },
@@ -723,6 +759,7 @@
       "score": 3.3,
       "summary": "分析歐元、美元指數與白銀價格展望,討論反彈是否停滯;白銀價格走勢影響銀靶原料成本。",
       "importance": 1,
+      "reason": "",
       "title_zh": "歐元/美元、美元指數與白銀價格展望:多頭反彈暫停?",
       "snippet_zh": ""
     },
@@ -743,6 +780,7 @@
       "score": 3.29,
       "summary": "11 月 14 日早盤金價更新,貴金屬面臨困境,全週走跌。",
       "importance": 1,
+      "reason": "",
       "title_zh": "11 月 14 日早盤金價:全週走跌,貴金屬面臨困境",
       "snippet_zh": ""
     },
@@ -764,6 +802,7 @@
       "score": 3.24,
       "summary": "Materion(NYSE:MTRN)股價資訊頁,本身不含新事件。",
       "importance": 1,
+      "reason": "",
       "title_zh": "Materion(NYSE:MTRN)股價",
       "snippet_zh": ""
     },
@@ -784,6 +823,7 @@
       "score": 3.17,
       "summary": "2027 SMM 貴金屬年會暨金銀產業峰會公布會議地點,預計 500 多位業界人士參加,屬產業會議資訊。",
       "importance": 1,
+      "reason": "",
       "title_zh": "會議地點正式揭曉！2027 SMM貴金屬年會暨金銀產業峰會，500+行業人士即將集結作者FX168 - Investing.com 香港 - 股市報價& 財經新聞",
       "snippet_zh": "會議地點正式揭曉！2027 SMM貴金屬年會暨金銀產業峰會，500+行業人士即將集結作者FX168 Investing.com 香港 - 股市報價& 財經新聞"
     },
@@ -804,6 +844,7 @@
       "score": 3.17,
       "summary": "川普表示無需與伊朗達成協議,金價大跌失守 3,900 美元,市場關注 10 月 PPI 能否帶動反彈。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -825,6 +866,7 @@
       "score": 2.97,
       "summary": "台積電擴大後段委外,精材搶進 CoWoS 製程,先進封裝供應鏈擴大。",
       "importance": 4,
+      "reason": "",
       "title_zh": "臺積擴大委外 精材搶進CoWoS",
       "snippet_zh": ""
     },
@@ -846,6 +888,7 @@
       "score": 2.94,
       "summary": "文章介紹江豐電子創辦人身價約 130 億元,並報導江豐電子再度申請 IPO。",
       "importance": 2,
+      "reason": "",
       "title_zh": "130億寧波新晉富豪，攜江豐電子又雙叒IPO了！",
       "snippet_zh": ""
     },
@@ -867,6 +910,7 @@
       "score": 2.94,
       "summary": "Singulus Technologies 將為 SpaceX 供應 HJT 太陽能電池產線。",
       "importance": 3,
+      "reason": "",
       "title_zh": "Singulus Technologies 將為 SpaceX 供應 HJT 太陽能電池產線",
       "snippet_zh": ""
     },
@@ -888,6 +932,7 @@
       "score": 2.94,
       "summary": "阿石創 11 月 13 日主力資金淨買入 2,054.13 萬元,屬個股資金流向資訊。",
       "importance": 1,
+      "reason": "",
       "title_zh": "股票行情快報：阿石創（300706）11月13日主力資金淨買入2054.13萬元",
       "snippet_zh": ""
     },
@@ -909,6 +954,7 @@
       "score": 2.93,
       "summary": "江豐電子攜多款產品亮相 IC China 2026,展示其靶材等半導體材料產品線。",
       "importance": 3,
+      "reason": "",
       "title_zh": "江豐電子攜多款產品亮相IC China 2026",
       "snippet_zh": ""
     },
@@ -930,6 +976,7 @@
       "score": 2.92,
       "summary": "光洋科股價收 93.2 元創 12 日高點,近 5 日上漲 29.62%,屬技術面股價資訊。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -951,6 +998,7 @@
       "score": 2.92,
       "summary": "SpaceX 與 Singulus 簽訂 6,900 萬美元的 HJT 太陽能電池合約。",
       "importance": 3,
+      "reason": "",
       "title_zh": "SpaceX 與 Singulus 簽訂 6,900 萬美元 HJT 太陽能電池合約",
       "snippet_zh": ""
     },
@@ -972,6 +1020,7 @@
       "score": 2.91,
       "summary": "日月光首度進駐科學園區,路竹廠千億布局擴大先進封裝量能,屬股市社群轉載。",
       "importance": 3,
+      "reason": "",
       "title_zh": "2311 2311 - 日月光首度進駐科學園區，路竹廠千億佈局擴大先進封裝量能- 股市爆料同學會",
       "snippet_zh": ""
     },
@@ -993,6 +1042,7 @@
       "score": 2.9,
       "summary": "Stanford Advanced Materials 推出鉭芯鎳鈦合金線材,讓醫療器材在 X 光透視下持續可見;屬醫材應用,與靶材關聯薄弱。",
       "importance": 1,
+      "reason": "",
       "title_zh": "Stanford Advanced Materials 推出鉭芯鎳鈦諾線材,醫療器材可於透視下持續顯影",
       "snippet_zh": ""
     },
@@ -1014,6 +1064,7 @@
       "score": 2.9,
       "summary": "日月光首度進駐科學園區,以千億元布局擴大先進封裝量能。",
       "importance": 4,
+      "reason": "",
       "title_zh": "日月光首度進駐科學園區 千億佈局擴大先進封裝量能",
       "snippet_zh": ""
     },
@@ -1035,6 +1086,7 @@
       "score": 2.9,
       "summary": "JX金屬冠名的廣播特別節目公開募集聽眾來信,屬企業宣傳,與靶材業務無關。",
       "importance": 1,
+      "reason": "",
       "title_zh": "募集來信中!【特別節目】『JX金屬 presents 久野美咲的要來說故事嗎?』",
       "snippet_zh": ""
     },
@@ -1056,6 +1108,7 @@
       "score": 2.9,
       "summary": "日月光擴大導入 Ainos 化學智慧 AI 系統,推動先進封裝製造的感測應用。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1077,6 +1130,7 @@
       "score": 2.89,
       "summary": "日月光砸 2.9 億元導入 AI 電子鼻,強化先進封裝良率與智慧製造。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1098,6 +1152,7 @@
       "score": 2.89,
       "summary": "日月光千億先進封裝布局,路竹廠一期啟用、二期動土。",
       "importance": 4,
+      "reason": "",
       "title_zh": "日月光千億先進封裝佈局，路竹廠一期啟用二期動土",
       "snippet_zh": ""
     },
@@ -1119,6 +1174,7 @@
       "score": 2.89,
       "summary": "江豐電子遞交 IPO 招股書,擬赴香港上市。",
       "importance": 3,
+      "reason": "",
       "title_zh": "江豐電子(300666)，遞交IPO招股書，擬赴香港上市",
       "snippet_zh": ""
     },
@@ -1140,6 +1196,7 @@
       "score": 2.89,
       "summary": "古屋金屬參與追蹤貴金屬循環履歷的實證計畫。",
       "importance": 2,
+      "reason": "",
       "title_zh": "古屋金屬參與追蹤貴金屬循環履歷的實證",
       "snippet_zh": ""
     },
@@ -1161,6 +1218,7 @@
       "score": 2.88,
       "summary": "日月光投控擴大導入智慧感測,加碼採購 5,000 套 Ainos 系統以強化先進封裝製程管理。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1182,6 +1240,7 @@
       "score": 2.88,
       "summary": "日月光千億元擴充先進封裝,首度進駐科學園區,路竹廠一期啟用、二期動土。",
       "importance": 4,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1203,6 +1262,7 @@
       "score": 2.88,
       "summary": "古屋金屬與旭化成等開始食鹽電解用電極的貴金屬溯源實證。",
       "importance": 2,
+      "reason": "",
       "title_zh": "古屋金屬與旭化成等開始食鹽電解電極的貴金屬溯源實證",
       "snippet_zh": ""
     },
@@ -1224,6 +1284,7 @@
       "score": 2.87,
       "summary": "古屋金屬開始貴金屬溯源試驗。",
       "importance": 2,
+      "reason": "",
       "title_zh": "古屋金屬開始貴金屬溯源試驗",
       "snippet_zh": ""
     },
@@ -1245,6 +1306,7 @@
       "score": 2.87,
       "summary": "古屋金屬啟動貴金屬溯源試驗,為同一事件的轉載。",
       "importance": 1,
+      "reason": "",
       "title_zh": "古屋金屬啟動貴金屬溯源試驗",
       "snippet_zh": ""
     },
@@ -1266,6 +1328,7 @@
       "score": 2.85,
       "summary": "港交所早報:江豐電子遞表港交所,另有哈薩克國家鐵路公司通過港交所聆訊。",
       "importance": 2,
+      "reason": "",
       "title_zh": "江豐電子遞表港交所；哈薩克斯坦國家鐵路公司通過港交所聆訊｜港交所早參",
       "snippet_zh": ""
     },
@@ -1287,6 +1350,7 @@
       "score": 2.79,
       "summary": "旭化成、Circularise 與古屋金屬合作,以數位產品護照追蹤關鍵貴金屬。",
       "importance": 2,
+      "reason": "",
       "title_zh": "旭化成、Circularise 與古屋金屬合作以數位護照追蹤關鍵貴金屬",
       "snippet_zh": ""
     },
@@ -1308,6 +1372,7 @@
       "score": 2.78,
       "summary": "江豐電子遞表港交所的轉載新聞。",
       "importance": 2,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1329,6 +1394,7 @@
       "score": 2.76,
       "summary": "影片探討 JX金屬獲利成長 2.8 倍、股價卻只剩一半的原因,屬投資評論。",
       "importance": 2,
+      "reason": "",
       "title_zh": "JX金屬獲利 2.8 倍股價卻腰斬,為什麼?",
       "snippet_zh": ""
     },
@@ -1350,6 +1416,7 @@
       "score": 2.69,
       "summary": "個股早盤評論,提及有研新材等多檔股票,未提供與靶材相關的具體內容。",
       "importance": 1,
+      "reason": "",
       "title_zh": "11.12老朱早評：有研新材，魅視科技，星網銳捷，肯特股份，寶通科技，愛仕達",
       "snippet_zh": ""
     },
@@ -1371,6 +1438,7 @@
       "score": 2.5,
       "summary": "聯準會升息預期壓抑貴金屬,金價單週重挫 4.78%,為 6 月以來最大跌幅;有助減輕貴金屬靶材原料成本。",
       "importance": 2,
+      "reason": "",
       "title_zh": "金價一週重挫 4.78%,為 6 月以來最大跌幅,聯準會升息預期壓抑貴金屬",
       "snippet_zh": ""
     },
@@ -1392,6 +1460,7 @@
       "score": 2.49,
       "summary": "美債殖利率上升、聯準會緊縮預期延續,金價單週大幅下跌。",
       "importance": 2,
+      "reason": "",
       "title_zh": "美債殖利率上升、聯準會緊縮預期延續,金價單週大跌——Kitco 午後報告",
       "snippet_zh": ""
     },
@@ -1413,6 +1482,7 @@
       "score": 2.47,
       "summary": "Materion 放空股數與放空比率資料頁(2026 年 11 月更新),屬交易數據。",
       "importance": 1,
+      "reason": "",
       "title_zh": "Materion(MTRN)放空股數與放空比率(2026 年 11 月更新)",
       "snippet_zh": ""
     },
@@ -1434,6 +1504,7 @@
       "score": 2.43,
       "summary": "JX金屬將於 2027 年 3 月 30 日除息,每股股利 0.088 美元,屬股務資訊。",
       "importance": 1,
+      "reason": "",
       "title_zh": "JX金屬將於 2027 年 3 月 30 日除息,每股股利 0.088 美元",
       "snippet_zh": ""
     },
@@ -1455,6 +1526,7 @@
       "score": 2.38,
       "summary": "評論指多重因素支撐下,黃金中長期配置價值仍在。",
       "importance": 1,
+      "reason": "",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -1476,6 +1548,7 @@
       "score": 2.29,
       "summary": "古屋金屬名列 10 點時段成交量變化率排行,屬個股交易資訊。",
       "importance": 1,
+      "reason": "",
       "title_zh": "成交量變化率排行(10 點時段):古屋金屬、EG 等上榜(FISCO)",
       "snippet_zh": "成交量變化率排行(10 點時段):古屋金屬、EG 等上榜(FISCO)"
     },
@@ -1497,6 +1570,7 @@
       "score": 2.29,
       "summary": "古屋金屬第一季營業利益成長 3.8 倍,受惠資料中心相關需求擴大,股價出現買盤;其貴金屬靶材等產品受益於 AI 相關需求。",
       "importance": 4,
+      "reason": "",
       "title_zh": "古屋金屬買盤湧現,第一季營業利益 3.8 倍,資料中心相關需求擴大挹注",
       "snippet_zh": ""
     },
@@ -1518,6 +1592,7 @@
       "score": 2.29,
       "summary": "專題報導江豐電子從簡陋廠房起步、發展為世界一流靶材企業的創業歷程。",
       "importance": 2,
+      "reason": "",
       "title_zh": "創業故事 ｜ 一塊靶材的“爭氣”之路——江豐電子從“帶魚”廠房走向世界一流",
       "snippet_zh": ""
     }
