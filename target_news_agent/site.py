@@ -22,7 +22,6 @@ from .taste import FONT_LINKS
 from .icons import SPRITE, favicon_href, icon, topic_icon
 from .research import GENERAL_TOPIC
 from .thumbs import pick as pick_thumb
-from . import subscribe
 from .events import group_events
 from .translate import to_traditional
 
@@ -872,7 +871,7 @@ def render_page(
 <div class="hero-text"><p class="dateline">{icon("calendar")}<span>{esc(label)}{" 合併" if len(span) > 1 else ""}</span></p>
 <h1 id="h1">靶材產業新聞摘要</h1>
 <p class="lede">{esc(lede)}</p>
-<div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a><a class="btn" href="{home}weekly.html">上週週報</a>{subscribe.button() if current == HOME_PAGE else ""}</div></div>
+<div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a><a class="btn" href="{home}weekly.html">上週週報</a></div></div>
 {lead_story}</section>
 {_figures(figures)}
 <section aria-labelledby="sum" class="split"><div>{_h2("sum", "sparkle", "本期總結", span[0] if len(span) > 1 else "")}{span_note}{summary}</div>{f'<aside class="digest-aside">{aside}</aside>' if aside else ""}</section>
@@ -891,7 +890,7 @@ def render_page(
 <p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
 <p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;同一事件的多家報導合併為一張卡片,行情與股價、論壇、市場報告、資料頁與 AI 評為 1 分的報導收在「全部新聞」最後。</span></p>
 {visits_badge() if current == HOME_PAGE else ""}<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
-</div><script>{SCRIPT}{CHART_SCRIPT}</script>{subscribe.dialog() if current == HOME_PAGE else ""}{_fab("news", config)}</body></html>"""
+</div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
 
 

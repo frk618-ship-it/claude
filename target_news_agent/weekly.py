@@ -18,7 +18,6 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import subscribe
 from .config import Config
 from .site import (
     KEY_IMPORTANCE,
@@ -169,7 +168,7 @@ def render_week(week: dict, config: Config, weeks: list[date], generated: str) -
 <p class="dateline">{icon("calendar")}<span>{esc(_span(week))}</span></p>
 <h1 id="h1">靶材產業週報</h1>
 <p class="lede">{esc(lede)}</p>
-<div class="actions"><a class="btn primary" href="#key">看重點事件</a><a class="btn" href="index.html">回到每日新聞</a>{subscribe.button()}</div></div></section>
+<div class="actions"><a class="btn primary" href="#key">看重點事件</a><a class="btn" href="index.html">回到每日新聞</a></div></div></section>
 {_figures([(str(week['items']), "本週報導(則)"), (str(week['events']), "新聞事件"), (str(len(week['key'])), "重點事件(4 分以上)"), (str(week['reports']), "每日報告(期)")])}
 <section aria-labelledby="key">{_h2("key", "star", "本週重點事件", "評為 4-5 分,依評分與日期排序")}<div class="cards rows">{key_html}</div></section>
 <section aria-labelledby="metals">{_h2("metals", "coin", "貴金屬週行情")}{metals}</section>
@@ -178,7 +177,7 @@ def render_week(week: dict, config: Config, weeks: list[date], generated: str) -
 <section aria-labelledby="daily">{_h2("daily", "calendar", "每日焦點", "各期總結的第一句")}<ol class="daily">{daily or "<li>本週沒有 AI 總結。</li>"}</ol></section>
 <section aria-labelledby="weeks">{_h2("weeks", "list", "歷次週報")}<div class="weeks">{week_links}</div></section>
 <footer>資料來源為公開新聞,摘要為改寫整理,不構成投資建議。更新於 <span class="mono">{esc(generated)}</span>。</footer>
-</div>{subscribe.dialog()}{_fab("news", config)}</body></html>"""
+</div>{_fab("news", config)}</body></html>"""
     )
 
 

@@ -20,9 +20,6 @@ def write_site(snapshot: dict | None, out_dir: Path) -> Path:
 
     out_dir.mkdir(parents=True, exist_ok=True)
     page = out_dir / "index.html"
-    from target_news_agent import subscribe
-
-    html = render_page(snapshot).replace("</body>", subscribe.dialog() + fab_nav("metals", "../") + "\n</body>", 1)
-    html = html.replace('<button class="btn" id="refresh"', subscribe.button() + '\n      <button class="btn" id="refresh"', 1)
+    html = render_page(snapshot).replace("</body>", fab_nav("metals", "../") + "\n</body>", 1)
     page.write_text(html, encoding="utf-8")
     return page
