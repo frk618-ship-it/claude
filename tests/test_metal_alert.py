@@ -304,37 +304,42 @@ def test_web_api(cfg, tmp_path):
 
 # ---------- subscriptions ----------
 
-def _mail(subject, body, sender="visitor@example.com"):
+def _mail(subject, body, sender="visitor@example.com", n=0):
     return (f"From: Visitor <{sender}>\r\nTo: alerts@company.com\r\nSubject: {subject}\r\n"
+            f"Message-ID: <m{n}@example.com>\r\nDate: Mon, 16 Nov 2026 0{n % 10}:00:00 +0000\r\n"
             "Content-Type: text/plain; charset=utf-8\r\n\r\n" + body).encode("utf-8")
 
 
 class FakeIMAP:
-    """A mailbox with numbered messages, answering the SEARCH / FETCH forms subscribers.py uses."""
-    boxes = {}
+    """Gmail-like folders (All Mail and Spam marked with special-use flags) answering the calls subscribers.py makes."""
+    folders = {}
 
     def __init__(self, host, port):
-        self.host, self.port = host, port
+        self.host, self.port, self.current = host, port, None
 
     def login(self, user, password):
         self.user = user
 
+    def list(self):
+        return "OK", [b'(\\HasNoChildren) "/" "INBOX"', b'(\\All \\HasNoChildren) "/" "[Gmail]/All Mail"',
+                      b'(\\HasNoChildren \\Junk) "/" "[Gmail]/Spam"']
+
     def select(self, name, readonly=False):
-        self.readonly = readonly
+        self.current = FakeIMAP.folders.get(name.strip('"'), {})
+        return "OK", [b"1"]
 
     def response(self, code):
         return code, [b"777"]
 
     def uid(self, cmd, *args):
-        msgs = FakeIMAP.boxes
+        msgs = self.current
         if cmd == "SEARCH":
             assert args[1].startswith("SINCE ")  # subjects are filtered locally, never by the server
             return "OK", [b" ".join(str(u).encode() for u in msgs)]
         if cmd == "FETCH" and "HEADER.FIELDS" in args[1]:
             out = []
             for u in args[0].split(b","):
-                raw = msgs[int(u)]
-                head = raw.split(b"\r\n\r\n", 1)[0] + b"\r\n\r\n"
+                head = msgs[int(u)].split(b"\r\n\r\n", 1)[0] + b"\r\n\r\n"
                 out += [(b"1 (UID " + u + b" BODY[HEADER.FIELDS (SUBJECT)] {9}", head), b")"]
             return "OK", out
         if cmd == "FETCH":
@@ -347,13 +352,14 @@ class FakeIMAP:
 def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch, tmp_path):
     from metal_alert import subscribers as sb
 
-    FakeIMAP.boxes = {
-        1: _mail("[TTMC-NOTIFY] SUBSCRIBE 訂閱", "訂閱信箱:Amy@Example.com\n請直接寄出"),
-        2: _mail("Re: [ttmc-notify] subscribe", "hello", sender="bob@example.com"),   # no field: the sender; any case
-        3: _mail("Weekly newsletter - subscribe now", "x"),                           # not ours
-        4: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "取消信箱:bob@example.com"),
-        5: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "", sender="boss@company.com"),          # a group member opts out
+    all_mail = {
+        1: _mail("[TTMC-NOTIFY] SUBSCRIBE 訂閱", "訂閱信箱:Amy@Example.com\n請直接寄出", n=1),
+        2: _mail("Re: [ttmc-notify] subscribe", "hello", sender="bob@example.com", n=2),   # no field: the sender; any case
+        3: _mail("Weekly newsletter - subscribe now", "x", n=3),                           # not ours
+        5: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "", sender="boss@company.com", n=5),          # a group member opts out
     }
+    FakeIMAP.folders = {"INBOX": {1: all_mail[1]}, "[Gmail]/All Mail": all_mail,
+                        "[Gmail]/Spam": {9: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "取消信箱:bob@example.com", n=4)}}
     env = {"SMTP_HOST": "smtp.gmail.com", "SMTP_USER": "alerts@company.com", "SMTP_PASSWORD": "pw",
            "ALERT_EMAIL_TO": "boss@company.com, team@company.com", "SUBSCRIPTIONS": "on"}
     assert sb.imap_host(env) == "imap.gmail.com" and sb.imap_host({"SMTP_HOST": "smtp.example.org"}) == "imap.example.org"
@@ -367,7 +373,7 @@ def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch, tmp_p
     assert [s[0] for s in sent] == ["amy@example.com", "bob@example.com", "bob@example.com", "boss@company.com"]
     assert "訂閱成功" in sent[0][1] and "UNSUBSCRIBE" in sent[0][2] and "已取消訂閱" in sent[2][1]
     assert sb.process(env, lambda *a: sent.append(a), FakeIMAP, state)["answered"] == 0  # answered once, kept in the state file
-    FakeIMAP.boxes[6] = _mail("[TTMC-NOTIFY] SUBSCRIBE", "訂閱信箱:carol@example.com")
+    all_mail[6] = _mail("[TTMC-NOTIFY] SUBSCRIBE", "訂閱信箱:carol@example.com", n=6)
     assert sb.process(env, lambda *a: sent.append(a), FakeIMAP, state)["answered"] == 1
 
     mails = {}

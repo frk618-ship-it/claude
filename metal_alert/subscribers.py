@@ -24,7 +24,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 from email.policy import default as default_policy
-from email.utils import getaddresses, parseaddr
+from email.utils import getaddresses, parseaddr, parsedate_to_datetime
 
 log = logging.getLogger(__name__)
 
@@ -83,13 +83,6 @@ def parse_request(raw: bytes, own: str = "") -> tuple[str, str] | None:
     return action, addr
 
 
-def _open(env, imap_factory, readonly: bool):
-    box = imap_factory(imap_host(env), int(env.get("IMAP_PORT", "").strip() or 993))
-    box.login(env["SMTP_USER"].strip(), env["SMTP_PASSWORD"])
-    box.select("INBOX", readonly=readonly)
-    return box
-
-
 def _search(box, criteria: str) -> list[bytes]:
     status, data = box.uid("SEARCH", None, criteria)
     return data[0].split() if status == "OK" and data and data[0] else []
@@ -133,19 +126,62 @@ def _candidates(box, since: date) -> list[bytes]:
     return sorted(set(hits), key=int)
 
 
+_LIST_RE = re.compile(rb'\((?P<flags>[^)]*)\) "?(?P<sep>[^" ]*)"? (?P<name>.+)$')
+
+
+def _folders(box) -> list[str]:
+    """INBOX, plus the "all mail" and "junk" folders when the server marks them (RFC 6154; Gmail does):
+    a request sent from the mailbox to itself may sit only in Sent / All Mail, and filters may file it as spam."""
+    found = {"all": "", "junk": ""}
+    try:
+        status, rows = box.list()
+    except Exception:
+        rows = []
+    for row in rows or []:
+        m = _LIST_RE.match(row if isinstance(row, bytes) else b"")
+        if not m:
+            continue
+        flags, name = m.group("flags").lower(), m.group("name").strip()
+        for key, flag in (("all", b"\\all"), ("junk", b"\\junk")):
+            if flag in flags and not found[key]:
+                found[key] = name.decode("utf-8", "replace")
+    names = [found["all"] or "INBOX"] + ([found["junk"]] if found["junk"] else [])
+    return [n if n.startswith('"') else f'"{n}"' if " " in n else n for n in names]
+
+
 def read_requests(env, imap_factory=imaplib.IMAP4_SSL, today: date | None = None) -> list[tuple[str, str, str]]:
-    """[(key, action, address)] in arrival order; key = "<UIDVALIDITY>:<UID>" identifies the message."""
-    box = _open(env, imap_factory, readonly=True)
+    """[(key, action, address)] in the order the requests were sent. key identifies the message
+    (its Message-ID, else folder + UIDVALIDITY + UID), so one mail seen in two folders counts once."""
+    box = imap_factory(imap_host(env), int(env.get("IMAP_PORT", "").strip() or 993))
+    box.login(env["SMTP_USER"].strip(), env["SMTP_PASSWORD"])
     try:
         own = mailbox_address(env)
-        validity = _uidvalidity(box)
         since = (today or date.today()) - timedelta(days=LOOKBACK_DAYS)
-        out = []
-        for uid in _candidates(box, since):
-            req = parse_request(_fetch(box, uid), own)
-            if req:
-                out.append((f"{validity}:{uid.decode()}", *req))
-        return out
+        found: dict[str, tuple] = {}
+        for folder in _folders(box):
+            try:
+                status, _ = box.select(folder, readonly=True)
+            except Exception as exc:
+                log.warning("cannot open folder %s: %s", folder, exc)
+                continue
+            if status != "OK":
+                continue
+            validity = _uidvalidity(box)
+            uids = _candidates(box, since)
+            log.info("folder %s: %d message(s) with %s in the subject", folder, len(uids), TOKEN)
+            for uid in uids:
+                raw = _fetch(box, uid)
+                req = parse_request(raw, own)
+                if not req:
+                    continue
+                msg = email.message_from_bytes(raw, policy=default_policy)
+                key = str(msg.get("Message-ID", "")).strip() or f"{folder}:{validity}:{uid.decode()}"
+                try:
+                    when = parsedate_to_datetime(str(msg.get("Date", ""))).timestamp()
+                except Exception:
+                    when = 0.0
+                found.setdefault(key, (when, len(found), key, *req))
+        return [(key, action, addr) for _, _, key, action, addr in sorted(found.values())]
     finally:
         try:
             box.logout()
