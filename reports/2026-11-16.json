@@ -2,18 +2,20 @@
   "generated": "2026-11-16T08:28:29.417368+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 22 則,其中新聞與公司公告 14 則;報導最多的是 古屋金屬(3 則)、SK海力士(2 則)、日月光投控(2 則)、Singulus Technologies(2 則)。依主題:產業動態 9 則、擴產與投資 4 則、營收與財報 1 則。",
+    "overview": "本期焦點轉向記憶體擴產:三星電子投入 46 兆韓元擴充 HBM 產能,SK 海力士也將在 2027 年加速 HBM4 擴產,清州 P&T6 後段設備已開始下單,記憶體與封裝的 PVD 製程及靶材需求可望增加。台積電獲各國政府補助 1,670 億元,主要用於海外建廠;日月光路竹廠擴產持續,可望創造 5,000 個職缺。靶材廠方面,江豐電子推進 A+H 布局,Materion 有兩名股東申報持股逾 5%。金價在一年低點附近震盪,回到 3,900 美元之上。",
     "key_trends": [
-      "產業動態(9 則):日月光投控成長加速矽品CoWoS、CPO背後共同貴人是輝達",
-      "擴產與投資(4 則):臺積電獲得各國政府補助 1,670 億元，主要補貼「海外建廠」",
-      "營收與財報(1 則):Singulus Technologies AG I (SNG.DE) Q3 FY2026 earnings call transcript"
+      "三星、SK 海力士擴充 HBM 產能,記憶體 PVD 需求升溫",
+      "台積電海外建廠獲各國補助,海外晶圓廠持續擴建",
+      "日月光等封裝廠擴產,先進封裝需求延續",
+      "江豐電子 A+H 上市推進",
+      "金價於一年低點附近震盪"
     ],
     "watch_points": [
-      "臺積電獲得各國政府補助 1,670 億元，主要補貼「海外建廠」(動區動趨)",
-      "삼성전자 46조원 HBM 증설, 美 투자 매체가 2028년 가동률부터 따진 이유(글로벌이코노믹)",
-      "SK Hynix to Accelerate HBM4 Production Capacity Expansion in 2027(KuCoin)"
+      "三星與 SK 海力士 HBM 擴產的設備與靶材採購時程",
+      "台積電海外新廠進度與當地靶材供應鏈",
+      "聯準會 12 月利率決策對貴金屬價格的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -28,14 +30,14 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
-        "客戶與供應鏈",
-        "政策與貿易"
+        "客戶與供應鏈"
       ],
       "score": 6.28,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "台積電獲各國政府補助共 1,670 億元,主要用於補貼海外建廠;海外晶圓廠持續擴建將帶動當地 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:台積電海外建廠獲補助",
       "title_zh": "臺積電獲得各國政府補助 1,670 億元，主要補貼「海外建廠」",
       "snippet_zh": ""
     },
@@ -55,10 +57,10 @@
         "客戶與供應鏈"
       ],
       "score": 5.48,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "三星電子投入 46 兆韓元擴充 HBM 產能,美國投資媒體從 2028 年稼動率角度檢視其效益;記憶體擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 5,
+      "reason": "靶材需求:三星大舉擴充 HBM",
+      "title_zh": "三星電子 46 兆韓元擴充 HBM,美國投資媒體為何從 2028 年稼動率評估",
       "snippet_zh": ""
     },
     {
@@ -77,10 +79,10 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士將在 2027 年加速擴充 HBM4 產能,記憶體擴產可望推升 PVD 與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士擴充 HBM4",
+      "title_zh": "SK 海力士將於 2027 年加速擴充 HBM4 產能",
       "snippet_zh": ""
     },
     {
@@ -99,9 +101,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.4,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "SK 海力士加速 HBM4 擴產,清州 P&T6 後段製程設備已啟動下單,封裝與記憶體 PVD 需求同步增加。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士 HBM4 擴產下單",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -118,11 +120,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指輝達是日月光旗下矽品 CoWoS 與 CPO 業務的共同推手,日月光投控成長加速。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -139,11 +142,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群週復盤:台積電先進封裝外包帶動封測股連 5 漲創高,屬投資討論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "3374 精材- 【本週復盤】臺積電先進封裝外包，「IC封測廠」連5漲創高！ - 股市爆料同學會",
       "snippet_zh": ""
@@ -160,13 +164,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.61,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies(SNG.SG)股價、新聞與報價資訊頁,本身不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus Technologies(SNG.SG)股價、新聞、報價與歷史資料",
       "snippet_zh": ""
     },
     {
@@ -184,10 +189,10 @@
         "營收與財報"
       ],
       "score": 3.33,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies 2026 會計年度第三季法說會逐字稿,可追蹤其太陽能設備訂單與營運展望。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus Technologies(SNG.DE)2026 會計年度第三季法說會逐字稿",
       "snippet_zh": ""
     },
     {
@@ -205,10 +210,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "11 月 16 日早盤金價:結束一週意外波動的行情。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11 月 16 日早盤金價:一週意外行情收官",
       "snippet_zh": ""
     },
     {
@@ -226,10 +231,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "現貨金價上漲 0.40%,回到每盎司 3,900 美元之上。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "現貨金價漲 0.40%,回升至每盎司 3,900 美元之上",
       "snippet_zh": ""
     },
     {
@@ -247,10 +252,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "2026 年 11 月 16 日越南金條、9999 金戒與國際金價報價,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 16 日金價:金條、9999 金戒與國際金價一覽",
       "snippet_zh": ""
     },
     {
@@ -268,10 +273,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價預測:交易員期待金價回到 4,000 美元,白銀走勢可望轉正,屬市場預測。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:交易員寄望金價重回 4,000 美元,白銀可望轉正",
       "snippet_zh": ""
     },
     {
@@ -286,11 +291,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "港股 IPO 週報指江豐電子遞表衝刺 A+H 布局,為本週靶材龍頭的重要資本市場動態。",
+      "importance": 3,
       "reason": "",
       "title_zh": "港股IPO週報：江豐電子遞表衝刺“A+H”佈局 遠信儲能首周累漲130%",
       "snippet_zh": ""
@@ -307,13 +313,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析古屋金屬參與貴金屬數位溯源計畫後,其投資看多理由是否改變,屬投資評論。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬參與數位溯源計畫後,看多理由可能如何改變",
       "snippet_zh": ""
     },
     {
@@ -328,13 +335,14 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "Smartkarma 發布江豐電子(KFMI HK)的模擬專家訪談紀錄,屬投資研究資料。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "江豐電子(KFMI HK):模擬專家訪談紀錄(2026 年 11 月 15 日)",
       "snippet_zh": ""
     },
     {
@@ -349,13 +357,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.81,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "德文評論分析 Singulus 與 SpaceX 合作:德國設備商在百萬歐元訂單與數十億願景之間的處境。",
+      "importance": 2,
+      "reason": "Singulus 與 SpaceX:德國設備商在百萬訂單與十億願景之間(Xpert.Digital)",
+      "title_zh": "Singulus 與 SpaceX:德國設備商在百萬訂單與十億願景之間",
       "snippet_zh": ""
     },
     {
@@ -370,12 +379,13 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.68,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光千億元布局衝刺先進封裝,路竹廠一期啟用、二期動土,可望創造 5,000 個職缺。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "日月光千億佈局衝先進封裝 路竹廠一期啟用、二期動土可望創造5,000職缺",
       "snippet_zh": ""
     },
@@ -391,13 +401,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬與旭化成、Circularise 共同驗證食鹽電解用電極的貴金屬溯源與數位產品護照,為同一事件的轉載。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬與旭化成、Circularise 共同開始驗證食鹽電解電極的貴金屬溯源與數位產品護照",
       "snippet_zh": ""
     },
     {
@@ -412,11 +423,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價重挫失守關卡,屬貴金屬行情快訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -433,13 +445,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.22,
-      "summary": "",
-      "importance": 0,
+      "summary": "兩名股東申報持有 Materion 逾 5% 股權,屬股權申報資訊。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "兩名股東申報持有 Materion(MTRN)逾 5% 股權",
       "snippet_zh": ""
     },
     {
@@ -454,11 +467,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.16,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯準會升息預期升溫,國際金價回落至一年前水準;有助減輕貴金屬靶材原料成本。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -475,13 +489,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.01,
-      "summary": "",
-      "importance": 0,
+      "summary": "11 月 9 日上午盤異動股包括古屋金屬等,屬個股交易資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "異動股・9 日(上午盤):Securite、TOWA、古屋金屬、A&D Holon(2026 年 11 月 9 日刊載)",
       "snippet_zh": ""
     }
   ],
