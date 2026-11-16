@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T08:28:29.417368+08:00",
+  "generated": "2026-11-16T09:21:42.774762+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點轉向記憶體擴產:三星電子投入 46 兆韓元擴充 HBM 產能,SK 海力士也將在 2027 年加速 HBM4 擴產,清州 P&T6 後段設備已開始下單,記憶體與封裝的 PVD 製程及靶材需求可望增加。台積電獲各國政府補助 1,670 億元,主要用於海外建廠;日月光路竹廠擴產持續,可望創造 5,000 個職缺。靶材廠方面,江豐電子推進 A+H 布局,Materion 有兩名股東申報持股逾 5%。金價在一年低點附近震盪,回到 3,900 美元之上。",
@@ -18,6 +18,155 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "5dd6fdf5e9f7f386",
+      "title": "台韓半導體戰場延伸至先進封裝！三星、台積電、日月光、精材接連宣布重大投資，將帶來哪些影響？",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNYS1NQWh5Zm1EU2dKNTdxeUFadko1Q0p5dnBGWkVsOS1ZSER3QzNXWXFlNU5EMHVSczR6VDdyS2RQU1AtRW1VNTllZkdvMUFFM01jVjlITXlpN1R5RzIyalV2QS1QN1owOEh3SnhhVFhWcUtEc2hTbm9vQUtKUUVKcA?oc=5",
+      "source": "今周刊",
+      "published": "2026-11-16T01:10:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "精材 (XinTec)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 6.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺韓半導體戰場延伸至先進封裝！三星、臺積電、日月光、精材接連宣佈重大投資，將帶來哪些影響？",
+      "snippet_zh": ""
+    },
+    {
+      "id": "85d6006086622b16",
+      "title": "【芯片+Samsung】三星電子據報為SpaceX旗下星鏈衛星生產芯片擬斥資19億美元擴建美德州廠房",
+      "link": "https://news.google.com/rss/articles/CBMiigRBVV95cUxOUF9xdzF0OWx5dG5MMEZxWDltU0QwQlNBd0pNeThrbThDeXlzQ0dSYzZkYTFnOXFVZjFlSGxlWFRSVDJsM3gzOTUzRVc0SzIxeFlhZmI2cjU1V0dCMWRRVnV2MjBsRG43a0dZUFg2eFRwVVlHYmFENkZQQzRsdFI4bV8tLUFrRzBLUEhLWlJJeWt6SFhnbGx4dDhpdjBwSTNxRWRUMllieUhYb2FzaHlWeHpBdFRIYi1QUVJDQ3lZdGFHcmMyN3d1aGtsU1ktLTdIWnh2NU5mOGpIYWxObjRJRUJHN3JFYjdCTWhVRkV0clZJb1pKS0dQZDE1SndjM3pOQVVDdGVNdHNTMXJsRDhTZVRKQzU0bVVuUjdsaUlkTGxpcWFQVTBqTUVzcWJMVUJIdktzV3lNa2NqeWNMbXRKRkZPR0JSZDhyZHFkdVJTMXVvM1A2VW11S1RCQkhqcHVod05kYU81N3F2ckxhVnpPWjhnT1JUaHEzNG5ESkRtbzdKRGVJaWZHZmg4a2lNQXB1aFpaUHlZbDlVTHZPVXRBV3h1YWZsdkdremxSQkRhdGk0bm1wbFpjSjdNWU9EeUNEeDc1Ty01SloxYVpHekxWazJGOTNXUnY1ckxIcF9qVjVOVkNfYmlQbTR6N3lPRmZFS251TFhVUE1TNTgyajMxOWFRaFZieHFKV2c?oc=5",
+      "source": "香港經濟日報HKET",
+      "published": "2026-11-16T01:14:51+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "三星電子 (Samsung Electronics)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "15bf271bdfdfa1de",
+      "title": "日月光高雄再砸千億擴先進封裝！路竹廠一期啟用、二期動土 年營收拚800億",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAtcU1SQXhjTURzcC1VQ29SdDZ0NlhuRjdoSUtMUFRGZnUtTUtVaTJoSGtWcGZrS2t6cTQ0SVBMeTVfaGhmUWF0VVRRZ2c2TTZabnc?oc=5",
+      "source": "鏡報",
+      "published": "2026-11-13T07:19:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.61,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e760a9c4d2186e06",
+      "title": "Gold Price Today Monday, November 16, 2026: Antam IDR 2.517 Million, Check UBS and Galeri24",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQjJBTnpsb1pFZng4MTNLVlFyLTBIblRyUzJSTUFFUWs2WG1Ea2hWbWl0RC0tX1FiS1NCVklsd3pZQ0Y3UnVvQ3k5R1J1SEJsb0hyRHRVc05qMjVkWHR5V1hyelctV2MwanpWMm40QS1SdXozMmpORTJ3eWhyT1ZkY0RiY2QyOTRGOHhSMHR0NE1RUWw5cGx2T2R0c3J1V04tZVd6WVpjUUs5bjNxWUh0cnJ2SXhQYXhFUUE?oc=5",
+      "source": "Aktualita.co",
+      "published": "2026-11-16T00:59:35+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a19d06ebe7b38258",
+      "title": "Gold prices today, November 16, 2026: Will gold rings and gold bars increase or decrease?",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOMWFUaHN0V2FoVGhZMXI3bUdtMjlLNnBuTHBlVmpHcnAzNEhVVFlRTnJILTdMRUxGTEtUaWpKcFpnMTFUc0FIenlOSkJFejJfMm1tOEVxeW9tekZsVzY2QUV1YjM3X2NQdGh2TGQ2Y1NYSUI5Mk0tU1c5RWw4RURQWmZNVWYzUEJTOTVpRGY2b3I0bGxERC1zNVlB?oc=5",
+      "source": "Vietnam.vn",
+      "published": "2026-11-16T00:53:19+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "45368231b03da5e9",
+      "title": "Gold prices today, November 16th: Global prices fall, SJC gold price drops by 5 million VND compared to the beginning of November.",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcEROQU9CdTNlT0NHRmpmOU1vZERmSzRVTWdNOGV0LW5DaXdGTnF0ekVxYm56ZFVyem15bVNLcjRqZ2dNLWpoNHFHWWJlcDhQMEFsTlllUXRBT1JzS1pvUVo2VnlKYldHcEE2OERmWUU0YVdXNDNIMnJqSk9BSU96dUprMDRjM1Z5MnBiR2phQThYbmlQOHlidTRiYm5JOGlVdUVoWg?oc=5",
+      "source": "Vietnam.vn",
+      "published": "2026-11-16T00:35:21+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6ad1b1bb21ebb979",
+      "title": "Gold Outlook: Asia Buys the Dip, US Hammers the Rip",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSklUb1liYkM4aldGZkF2ZDlSUVE5WmlBRmlLMHVpNUFNeGp4VXlIM3FFOTV0Vm9EcUYxcWJIMEE1RDk5N2thdllVNTc3X2ZncFpWbnROOFo0Nldod2tIWVJKRjdsMXpqLVQzZlZjQTZKc0VHMHNJU1hfRU5Vb3F5LUIwbEFYdUItMlZEeXRCZnpoMk16WS1zTllOLTYxVGQ1akFyVjJTVTZYbnQ5?oc=5",
+      "source": "StoneX",
+      "published": "2026-11-16T00:31:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "e8a0b45cd2a9e46b",
       "title": "台積電獲得各國政府補助 1,670 億元，主要補貼「海外建廠」",
@@ -504,42 +653,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3894.2,
+      "price": 3878.2,
       "prev": 3886.3,
       "date": "2026-11-16",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.2
+      "change_pct": -0.21
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 48.74,
+      "price": 48.19,
       "prev": 49.03,
       "date": "2026-11-16",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.59
+      "change_pct": -1.71
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1497.6,
+      "price": 1487.4,
       "prev": 1488.5,
       "date": "2026-11-16",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.61
+      "change_pct": -0.07
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 1002.0,
+      "price": 998.0,
       "prev": 1006.0,
       "date": "2026-11-16",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.4
+      "change_pct": -0.8
     }
   ],
   "papers": [],
