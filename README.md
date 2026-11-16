@@ -110,7 +110,6 @@ python -m target_news_agent queries                      # 列出會抓取的 RS
 - **全站搜尋**(`/news/search.html`):搜尋 `reports/` 保存中的所有報告(預設一年)的標題(含原文)、摘要、公司與來源,多個關鍵字須全部符合,可依類型篩選;網址 `search.html#q=關鍵字` 可直接帶入搜尋。索引是另一個檔案 `search-index.json`;受保護的網站上改為以相同金鑰加密的 `search-index.bin`,頁面用解鎖時記住的金鑰解密,未解鎖時無法讀取。
 - **重點新聞置頂與理由**:評為 4-5 分的新聞在「全部新聞」中置頂,卡片標出「為何重要」(例如「靶材需求:日月光擴產先進封裝」)。理由由 Claude 摘要時一併寫入(`reason` 欄位);沒有時依新聞主題與公司角色(客戶 / 靶材廠 / 設備商)自動推得。
 - **週報**(`/news/weekly.html`、`/news/week-<週一>.html`):每週一至週日的重點事件(4-5 分,同一事件合併,附理由)、貴金屬週行情(週漲跌與區間)、主題分布、報導最多的公司與每日焦點;首頁有「上週週報」按鈕。`.github/workflows/weekly-report.yml` 每週一台北時間約 09:47 把上週週報寄給貴金屬預警的 email 群組(同一組 SMTP_* 與 ALERT_EMAIL_TO secrets),也可手動執行並指定週一日期。本機預覽:`python -m target_news_agent weekly-email --dry-run weekly.html`。
-- **訂閱通知(信箱)**:網頁上已不提供訂閱按鈕;仍可手動寄一封主旨「[TTMC-NOTIFY] SUBSCRIBE」的信到寄件信箱(`ALERT_EMAIL_FROM` 或 `SMTP_USER`);`.github/workflows/subscriptions.yml` 每小時以 IMAP 讀取這些信並回覆確認信(主旨由程式比對,已回覆的記在 Actions cache,信件是否已讀不影響)。訂閱名單就是信箱中的訂閱 / 取消訂閱信(依時間重播,最後一封為準),不另外儲存;貴金屬預警與週報寄出時以密件副本寄給訂閱者,信末附取消訂閱方式(主旨「[TTMC-NOTIFY] UNSUBSCRIBE」)。寄件信箱需支援 IMAP(Gmail 請開啟 IMAP 並使用應用程式密碼);IMAP 主機預設由 `SMTP_HOST` 推得,可用 `IMAP_HOST` secret 指定。程式見 `metal_alert/subscribers.py` 與 `target_news_agent/subscribe.py`。
 
 - 網址:`https://<帳號>.github.io/<repo>/news/`(根目錄會自動轉到這裡)。
 - 只重新發布網站、不蒐集新聞:Actions 頁面執行「發布網站」workflow。

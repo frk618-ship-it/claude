@@ -64,8 +64,6 @@ jobs:
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
           METAL_ALERT_PAGE_URL: ${{ secrets.METAL_ALERT_PAGE_URL }}
-          IMAP_HOST: ${{ secrets.IMAP_HOST }}
-          SUBSCRIPTIONS: "on"   # 也寄給網站上訂閱的人(讀取寄件信箱中的訂閱信,見 metal_alert/subscribers.py)
           SITE_PATH: ${{ secrets.SITE_PATH }}
         run: |
           if [ -z "$METAL_ALERT_PAGE_URL" ] && [ -n "$SITE_PATH" ]; then

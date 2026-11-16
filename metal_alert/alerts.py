@@ -120,35 +120,16 @@ def email_subject(alerts: list[dict]) -> str:
     return f"【貴金屬預警】{icon}|{first['title']}{more}"
 
 
-def _send_email(env: dict, subject: str, body: str, html: str = "", recipients=None) -> None:
-    """To the alert group (ALERT_EMAIL_TO) plus Bcc to everyone who subscribed on the site (see subscribers.py)."""
-    from . import subscribers
-
-    to, bcc = (recipients or subscribers.recipients)(env)
-    note = subscribers.unsubscribe_note(env) if subscribers.reading_on(env) else ""
-    if note:
-        body += "\n\n" + note
-        if html:
-            html = html.replace("</body>", f'<p style="font-size:12px;color:#7c7d80;text-align:center">{note}</p></body>', 1)
+def _send_email(env: dict, subject: str, body: str, html: str = "") -> None:
+    """To the alert group (ALERT_EMAIL_TO); with `html`, plain text stays as the fallback part."""
+    to = [a.strip() for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()]
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
-    msg["To"] = ", ".join(to) or msg["From"]
-    if bcc:
-        msg["Bcc"] = ", ".join(bcc)  # send_message delivers to Bcc and leaves the header out
+    msg["To"] = ", ".join(to)
     msg.set_content(body)
-    if html:  # plain text stays as the fallback part
+    if html:
         msg.add_alternative(html, subtype="html")
-    _deliver(env, msg)
-
-
-def send_one(env: dict, to: str, subject: str, body: str) -> None:
-    """A single message to one address (subscription confirmations)."""
-    msg = EmailMessage()
-    msg["Subject"] = subject
-    msg["From"] = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
-    msg["To"] = to
-    msg.set_content(body)
     _deliver(env, msg)
 
 
