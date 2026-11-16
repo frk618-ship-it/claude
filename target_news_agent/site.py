@@ -239,6 +239,7 @@ button.f[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:va
 .card.low .thumb{filter:saturate(.55);opacity:.85}
 .why{display:flex;gap:var(--space-2xs);align-items:flex-start;margin:0;font-size:.82rem;font-weight:600;color:var(--brand-orange-ink)}.why .ic{width:13px;height:13px;margin-top:.2em;flex:none}
 .card.pin{border-color:var(--accent-track)}
+.hits{display:block;margin-top:var(--space-2xs);height:20px;width:auto}
 .also{font-size:.82rem;color:var(--muted)}.also summary{cursor:pointer;width:fit-content;color:var(--accent);font-weight:500}.also ul{margin:var(--space-xs) 0 0;padding-left:1.1em;display:grid;gap:var(--space-2xs)}
 .also li a{color:var(--fg)}.also .src{margin-left:var(--space-xs);color:var(--faint)}
 .lowgrp{grid-column:1/-1;border-top:1px solid var(--line);padding-top:var(--space-md)}.lowgrp>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-xs);align-items:center;font-weight:600}
@@ -888,9 +889,21 @@ def render_page(
 <footer class="foot"><p>{icon("news")}<span><strong>資料來源</strong>Google News RSS(繁中、簡中、英、日、韓),由靶材新聞 Agent 每日自動蒐集,更新於 <span class="mono">{esc(generated)}</span>。每期蒐集最近 {esc(report.get("days", ""))} 天新聞。</span></p>
 <p>{icon("book")}<span><strong>技術文獻</strong>OpenAlex 學術索引、arXiv 預印本與期刊 RSS,每篇只出現一次。</span></p>
 <p>{icon("info")}<span><strong>類型標籤</strong>依標題與來源自動判斷;同一事件的多家報導合併為一張卡片,行情與股價、論壇、市場報告、資料頁與 AI 評為 1 分的報導收在「全部新聞」最後。</span></p>
-<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
+{visits_badge() if current == HOME_PAGE else ""}<p class="disclaimer">資料來源為公開新聞,摘要為改寫整理,不構成投資建議。</p></footer>
 </div><script>{SCRIPT}{CHART_SCRIPT}</script>{_fab("news", config)}</body></html>"""
     )
+
+
+# Visitor badge (hits.sh): every homepage load fetches this image and counts one view; it shows
+# today's / total views. A fixed key, no referrer: the secret path never reaches the service.
+HITS_KEY = "frk618-ship-it.github.io/claude/news"
+VISITS_START, VISITS_END = "<!--visits-->", "<!--/visits-->"
+
+
+def visits_badge() -> str:
+    src = f"https://hits.sh/{HITS_KEY}.svg?view=today-total&style=flat-square&label=%E7%80%8F%E8%A6%BD%E4%BA%BA%E6%AC%A1&color=173c66&labelColor=4d4e4f"
+    return (f'{VISITS_START}<p>{icon("user")}<span><strong>瀏覽人次</strong>今日 / 累計:'
+            f'<img class="hits" src="{src}" alt="今日與累計瀏覽人次" height="20" referrerpolicy="no-referrer"></span></p>{VISITS_END}')
 
 
 HOME_DAYS = 3  # the homepage combines this many of the latest daily reports

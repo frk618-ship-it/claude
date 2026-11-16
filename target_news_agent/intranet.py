@@ -34,8 +34,12 @@ EXTERNAL_LOADS = re.compile(r'<(?:script|img|iframe|source|video|audio)\b[^>]*\b
                             r"|'(https?://[^']+\.(?:m?js|css|woff2?))'")
 
 
+VISITS = re.compile(r"<!--visits-->.*?<!--/visits-->", re.S)  # the intranet copy does not count views outside
+
+
 def rewrite(page: str, public_base: str, depth: int) -> str:
     page = FONT_LINKS.sub("", page)
+    page = VISITS.sub("", page)
     page = page.replace(THREE_CDN, "./vendor/three.module.min.js")  # module specifiers need ./
     if public_base:
         page = page.replace(public_base.rstrip("/") + "/", "../" * depth or "./")

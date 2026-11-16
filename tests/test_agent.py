@@ -1601,3 +1601,14 @@ def test_weekly_report_page_and_email(tmp_path, config):
         smtplib.SMTP_SSL = orig
     parts = [p.get_content_type() for p in sent["msg"].walk()]
     assert "text/plain" in parts and "text/html" in parts
+
+
+def test_visitor_badge_only_on_homepage_without_referrer(config):
+    from target_news_agent.intranet import external_loads, rewrite
+    from target_news_agent.site import HOME_PAGE, render_page
+
+    report = {"items": [], "span": ["2026-11-16"]}
+    home = render_page(report, config, [], HOME_PAGE, is_latest=True)
+    assert 'src="https://hits.sh/frk618-ship-it.github.io/claude/news.svg?' in home and 'referrerpolicy="no-referrer"' in home
+    assert "hits.sh" not in render_page(report, config, [], "2026-11-16")
+    assert not any("hits.sh" in u for u in external_loads(rewrite(home, "", 1)))
