@@ -33,6 +33,8 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("-o", "--out", default="site/metals")
     s.add_argument("--fetch", action="store_true", help="先抓最新資料(唯讀:不發通知、不更新狀態與預警紀錄)")
 
+    sub.add_parser("subscriptions", help="處理網站「訂閱通知」寄來的訂閱 / 取消訂閱信:回覆確認信並標為已讀(排程用)")
+
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     cfg = load_config(args.config)
@@ -44,6 +46,16 @@ def main(argv: list[str] | None = None) -> int:
             write_site(snap, Path(args.site))
         _summary(snap)
         return 0 if snap["metals"] else 1
+
+    if args.command == "subscriptions":
+        from .alerts import send_one
+        from .subscribers import enabled, process
+
+        if not enabled(os.environ):
+            log.error("SMTP_HOST / SMTP_USER / SMTP_PASSWORD 未設定")
+            return 1
+        print(f"{process(os.environ, send_one)} 封訂閱信已處理")
+        return 0
 
     if args.command == "serve":
         from .web import serve

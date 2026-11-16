@@ -300,3 +300,93 @@ def test_web_api(cfg, tmp_path):
         assert monitor.due_in() > 0
     finally:
         httpd.shutdown()
+
+
+# ---------- subscriptions ----------
+
+def _mail(subject, body, sender="visitor@example.com"):
+    return (f"From: Visitor <{sender}>\r\nTo: alerts@company.com\r\nSubject: {subject}\r\n"
+            "Content-Type: text/plain; charset=utf-8\r\n\r\n" + body).encode("utf-8")
+
+
+class FakeIMAP:
+    """A mailbox with numbered messages; records logins, selects and stored flags."""
+    boxes = {}
+
+    def __init__(self, host, port):
+        self.host, self.port, self.flags = host, port, []
+        FakeIMAP.last = self
+
+    def login(self, user, password):
+        self.user = user
+
+    def select(self, name, readonly=False):
+        self.readonly = readonly
+
+    def uid(self, cmd, *args):
+        msgs = FakeIMAP.boxes
+        if cmd == "SEARCH":
+            unseen = "UNSEEN" in args[1]
+            hits = [str(u).encode() for u, (raw, seen) in msgs.items() if b"[TTMC-NOTIFY]" in raw and not (unseen and seen)]
+            return "OK", [b" ".join(hits)]
+        if cmd == "FETCH":
+            return "OK", [(b"1 (BODY[] {n}", msgs[int(args[0])][0]), b")"]
+        if cmd == "STORE":
+            raw, _ = msgs[int(args[0])]
+            msgs[int(args[0])] = (raw, True)
+            self.flags.append(int(args[0]))
+            return "OK", []
+
+    def logout(self):
+        pass
+
+
+def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch):
+    from metal_alert import subscribers as sb
+
+    FakeIMAP.boxes = {
+        1: (_mail("[TTMC-NOTIFY] SUBSCRIBE 訂閱", "訂閱信箱:Amy@Example.com\n請直接寄出"), False),
+        2: (_mail("[TTMC-NOTIFY] SUBSCRIBE", "hello", sender="bob@example.com"), False),   # no field: the sender
+        3: (_mail("Weekly newsletter - subscribe now", "x"), False),                          # not ours
+        4: (_mail("[TTMC-NOTIFY] UNSUBSCRIBE", "取消信箱:bob@example.com"), False),
+        5: (_mail("[TTMC-NOTIFY] UNSUBSCRIBE", "", sender="boss@company.com"), True),         # a group member opts out
+    }
+    env = {"SMTP_HOST": "smtp.gmail.com", "SMTP_USER": "alerts@company.com", "SMTP_PASSWORD": "pw",
+           "ALERT_EMAIL_TO": "boss@company.com, team@company.com", "SUBSCRIPTIONS": "on"}
+    assert sb.imap_host(env) == "imap.gmail.com" and sb.imap_host({"SMTP_HOST": "smtp.example.org"}) == "imap.example.org"
+    to, bcc = sb.recipients(env, FakeIMAP)
+    assert to == ["team@company.com"] and bcc == ["amy@example.com"]
+    assert sb.recipients(dict(env, SUBSCRIPTIONS=""), FakeIMAP) == (["boss@company.com", "team@company.com"], [])
+
+    sent = []
+    assert sb.process(env, lambda e, to, subject, body: sent.append((to, subject, body)), FakeIMAP) == 3
+    assert [s[0] for s in sent] == ["amy@example.com", "bob@example.com", "bob@example.com"]
+    assert "訂閱成功" in sent[0][1] and "UNSUBSCRIBE" in sent[0][2] and "已取消訂閱" in sent[2][1]
+    assert sb.process(env, lambda *a: sent.append(a), FakeIMAP) == 0  # answered once, then marked read
+
+    mails = {}
+
+    class FakeSMTP:
+        def __init__(self, *a, **k): pass
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def login(self, *a): pass
+        def send_message(self, msg): mails["msg"] = msg
+
+    monkeypatch.setattr(al.smtplib, "SMTP_SSL", FakeSMTP)
+    al._send_email(dict(env, SMTP_PORT="465"), "主旨", "內容", recipients=lambda e: (["team@company.com"], ["amy@example.com"]))
+    msg = mails["msg"]
+    assert msg["To"] == "team@company.com" and msg["Bcc"] == "amy@example.com"
+    assert "取消訂閱:寄信到 alerts@company.com" in msg.get_body(("plain",)).get_content()
+
+
+def test_subscribe_button_only_with_a_mailbox(monkeypatch, tmp_path):
+    from metal_alert.page import write_site
+    from target_news_agent import subscribe
+
+    monkeypatch.delenv("SUBSCRIBE_EMAIL", raising=False)
+    assert subscribe.button() == "" and subscribe.dialog() == ""
+    monkeypatch.setenv("SUBSCRIBE_EMAIL", "通知 <alerts@company.com>")
+    assert "data-subscribe" in subscribe.button() and '"alerts@company.com"' in subscribe.dialog()
+    page = write_site(None, tmp_path).read_text(encoding="utf-8")
+    assert page.count("data-subscribe>") == 1 and 'id="sub-dlg"' in page

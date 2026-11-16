@@ -64,6 +64,8 @@ jobs:
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
           METAL_ALERT_PAGE_URL: ${{ secrets.METAL_ALERT_PAGE_URL }}
+          IMAP_HOST: ${{ secrets.IMAP_HOST }}
+          SUBSCRIPTIONS: "on"   # 也寄給網站上訂閱的人(讀取寄件信箱中的訂閱信,見 metal_alert/subscribers.py)
           SITE_PATH: ${{ secrets.SITE_PATH }}
         run: |
           if [ -z "$METAL_ALERT_PAGE_URL" ] && [ -n "$SITE_PATH" ]; then
@@ -96,6 +98,8 @@ jobs:
 
       - name: Build site
         if: steps.flags.outputs.publish == 'true'
+        env:
+          SUBSCRIBE_EMAIL: ${{ secrets.ALERT_EMAIL_FROM || secrets.SMTP_USER }}   # 「訂閱通知」按鈕的收件信箱;沒設則不顯示按鈕
         run: |
           python -m target_news_agent site -i reports -o site/news --root-redirect site
           if [ -f reports/dashboard/index.html ]; then

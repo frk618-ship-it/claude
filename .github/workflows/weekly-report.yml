@@ -40,6 +40,8 @@ jobs:
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
           WEEKLY_PAGE_URL: ${{ secrets.WEEKLY_PAGE_URL }}
+          IMAP_HOST: ${{ secrets.IMAP_HOST }}
+          SUBSCRIPTIONS: "on"   # 也寄給網站上訂閱的人
           SITE_PATH: ${{ secrets.SITE_PATH }}
           MONDAY: ${{ github.event.inputs.monday }}
         run: |

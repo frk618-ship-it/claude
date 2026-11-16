@@ -40,6 +40,8 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Build site
+        env:
+          SUBSCRIBE_EMAIL: ${{ secrets.ALERT_EMAIL_FROM || secrets.SMTP_USER }}   # 「訂閱通知」按鈕的收件信箱;沒設則不顯示按鈕
         run: python -m target_news_agent site -i reports -o site/news --root-redirect site
 
       - name: Add financial dashboard
@@ -52,6 +54,8 @@ jobs:
 
       - name: Add precious-metal alert page
         continue-on-error: true   # Yahoo 暫時無法連線時略過,下一次每小時排程會補上
+        env:
+          SUBSCRIBE_EMAIL: ${{ secrets.ALERT_EMAIL_FROM || secrets.SMTP_USER }}   # 「訂閱通知」按鈕的收件信箱;沒設則不顯示按鈕
         run: python -m metal_alert site --fetch -o site/metals
 
       - name: Add lead radar page
