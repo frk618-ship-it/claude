@@ -310,12 +310,11 @@ def _mail(subject, body, sender="visitor@example.com"):
 
 
 class FakeIMAP:
-    """A mailbox with numbered messages; records logins, selects and stored flags."""
+    """A mailbox with numbered messages, answering the SEARCH / FETCH forms subscribers.py uses."""
     boxes = {}
 
     def __init__(self, host, port):
-        self.host, self.port, self.flags = host, port, []
-        FakeIMAP.last = self
+        self.host, self.port = host, port
 
     def login(self, user, password):
         self.user = user
@@ -323,33 +322,37 @@ class FakeIMAP:
     def select(self, name, readonly=False):
         self.readonly = readonly
 
+    def response(self, code):
+        return code, [b"777"]
+
     def uid(self, cmd, *args):
         msgs = FakeIMAP.boxes
         if cmd == "SEARCH":
-            unseen = "UNSEEN" in args[1]
-            hits = [str(u).encode() for u, (raw, seen) in msgs.items() if b"[TTMC-NOTIFY]" in raw and not (unseen and seen)]
-            return "OK", [b" ".join(hits)]
+            assert args[1].startswith("SINCE ")  # subjects are filtered locally, never by the server
+            return "OK", [b" ".join(str(u).encode() for u in msgs)]
+        if cmd == "FETCH" and "HEADER.FIELDS" in args[1]:
+            out = []
+            for u in args[0].split(b","):
+                raw = msgs[int(u)]
+                head = raw.split(b"\r\n\r\n", 1)[0] + b"\r\n\r\n"
+                out += [(b"1 (UID " + u + b" BODY[HEADER.FIELDS (SUBJECT)] {9}", head), b")"]
+            return "OK", out
         if cmd == "FETCH":
-            return "OK", [(b"1 (BODY[] {n}", msgs[int(args[0])][0]), b")"]
-        if cmd == "STORE":
-            raw, _ = msgs[int(args[0])]
-            msgs[int(args[0])] = (raw, True)
-            self.flags.append(int(args[0]))
-            return "OK", []
+            return "OK", [(b"1 (BODY[] {n}", msgs[int(args[0])]), b")"]
 
     def logout(self):
         pass
 
 
-def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch):
+def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch, tmp_path):
     from metal_alert import subscribers as sb
 
     FakeIMAP.boxes = {
-        1: (_mail("[TTMC-NOTIFY] SUBSCRIBE 訂閱", "訂閱信箱:Amy@Example.com\n請直接寄出"), False),
-        2: (_mail("[TTMC-NOTIFY] SUBSCRIBE", "hello", sender="bob@example.com"), False),   # no field: the sender
-        3: (_mail("Weekly newsletter - subscribe now", "x"), False),                          # not ours
-        4: (_mail("[TTMC-NOTIFY] UNSUBSCRIBE", "取消信箱:bob@example.com"), False),
-        5: (_mail("[TTMC-NOTIFY] UNSUBSCRIBE", "", sender="boss@company.com"), True),         # a group member opts out
+        1: _mail("[TTMC-NOTIFY] SUBSCRIBE 訂閱", "訂閱信箱:Amy@Example.com\n請直接寄出"),
+        2: _mail("Re: [ttmc-notify] subscribe", "hello", sender="bob@example.com"),   # no field: the sender; any case
+        3: _mail("Weekly newsletter - subscribe now", "x"),                           # not ours
+        4: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "取消信箱:bob@example.com"),
+        5: _mail("[TTMC-NOTIFY] UNSUBSCRIBE", "", sender="boss@company.com"),          # a group member opts out
     }
     env = {"SMTP_HOST": "smtp.gmail.com", "SMTP_USER": "alerts@company.com", "SMTP_PASSWORD": "pw",
            "ALERT_EMAIL_TO": "boss@company.com, team@company.com", "SUBSCRIPTIONS": "on"}
@@ -358,11 +361,14 @@ def test_subscriptions_replay_the_mailbox_and_bcc_subscribers(monkeypatch):
     assert to == ["team@company.com"] and bcc == ["amy@example.com"]
     assert sb.recipients(dict(env, SUBSCRIPTIONS=""), FakeIMAP) == (["boss@company.com", "team@company.com"], [])
 
-    sent = []
-    assert sb.process(env, lambda e, to, subject, body: sent.append((to, subject, body)), FakeIMAP) == 3
-    assert [s[0] for s in sent] == ["amy@example.com", "bob@example.com", "bob@example.com"]
+    sent, state = [], tmp_path / "answered.json"
+    r = sb.process(env, lambda e, to, subject, body: sent.append((to, subject, body)), FakeIMAP, state)
+    assert r == {"requests": 4, "answered": 4, "subscribers": 1}
+    assert [s[0] for s in sent] == ["amy@example.com", "bob@example.com", "bob@example.com", "boss@company.com"]
     assert "訂閱成功" in sent[0][1] and "UNSUBSCRIBE" in sent[0][2] and "已取消訂閱" in sent[2][1]
-    assert sb.process(env, lambda *a: sent.append(a), FakeIMAP) == 0  # answered once, then marked read
+    assert sb.process(env, lambda *a: sent.append(a), FakeIMAP, state)["answered"] == 0  # answered once, kept in the state file
+    FakeIMAP.boxes[6] = _mail("[TTMC-NOTIFY] SUBSCRIBE", "訂閱信箱:carol@example.com")
+    assert sb.process(env, lambda *a: sent.append(a), FakeIMAP, state)["answered"] == 1
 
     mails = {}
 

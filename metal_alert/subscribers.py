@@ -5,8 +5,9 @@ The site's "訂閱通知" button opens the visitor's mail program with a message
 "[TTMC-NOTIFY] UNSUBSCRIBE" takes it off again. Nothing is stored anywhere else: the mailbox is the
 list. Every notification reads it over IMAP (same account and password as SMTP), replays the requests
 in the order they arrived, and Bcc's the subscribers next to ALERT_EMAIL_TO, so subscribers never see
-each other's addresses. The hourly `python -m metal_alert subscriptions` job answers new requests with
-a confirmation and marks them read.
+each other's addresses. The hourly `python -m metal_alert subscriptions` job answers each new request
+with a confirmation; which ones were answered is remembered in a small state file (Actions cache), so
+reading the mailbox in a mail program changes nothing.
 
 IMAP_HOST is optional: smtp.gmail.com -> imap.gmail.com, smtp.office365.com -> outlook.office365.com,
 otherwise "smtp." is swapped for "imap.". IMAP_PORT defaults to 993 (SSL). Reading the list is switched
@@ -17,8 +18,11 @@ from __future__ import annotations
 
 import email
 import imaplib
+import json
 import logging
 import re
+from datetime import date, timedelta
+from pathlib import Path
 from email.policy import default as default_policy
 from email.utils import getaddresses, parseaddr
 
@@ -99,16 +103,48 @@ def _fetch(box, uid: bytes) -> bytes:
     return b""
 
 
-def read_requests(env, imap_factory=imaplib.IMAP4_SSL, unseen: bool = False) -> list[tuple[bytes, str, str]]:
-    """[(uid, action, address)] in arrival order."""
-    box = _open(env, imap_factory, readonly=not unseen)
+LOOKBACK_DAYS = 400   # requests older than this are no longer read (re-subscribing renews them)
+_MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
+_UID_RE = re.compile(rb"UID (\d+)")
+
+
+def _uidvalidity(box) -> str:
+    try:
+        typ, data = box.response("UIDVALIDITY")
+        return (data[0] or b"").decode() if data and data[0] else ""
+    except Exception:
+        return ""
+
+
+def _candidates(box, since: date) -> list[bytes]:
+    """UIDs whose subject carries TOKEN. Subjects are matched here, not by the server's SEARCH,
+    which (Gmail especially) tokenises "[TTMC-NOTIFY]" and misses it."""
+    uids = _search(box, f"SINCE {since.day:02d}-{_MONTHS[since.month - 1]}-{since.year}")
+    hits = []
+    for i in range(0, len(uids), 300):
+        status, data = box.uid("FETCH", b",".join(uids[i:i + 300]), "(UID BODY.PEEK[HEADER.FIELDS (SUBJECT)])")
+        for part in data or []:
+            if not (isinstance(part, tuple) and len(part) > 1):
+                continue
+            m = _UID_RE.search(part[0] or b"")
+            subject = str(email.message_from_bytes(part[1] or b"", policy=default_policy).get("Subject", ""))
+            if m and TOKEN in subject.upper():
+                hits.append(m.group(1))
+    return sorted(set(hits), key=int)
+
+
+def read_requests(env, imap_factory=imaplib.IMAP4_SSL, today: date | None = None) -> list[tuple[str, str, str]]:
+    """[(key, action, address)] in arrival order; key = "<UIDVALIDITY>:<UID>" identifies the message."""
+    box = _open(env, imap_factory, readonly=True)
     try:
         own = mailbox_address(env)
+        validity = _uidvalidity(box)
+        since = (today or date.today()) - timedelta(days=LOOKBACK_DAYS)
         out = []
-        for uid in sorted(_search(box, f'{"UNSEEN " if unseen else ""}SUBJECT "{TOKEN}"'), key=int):
+        for uid in _candidates(box, since):
             req = parse_request(_fetch(box, uid), own)
             if req:
-                out.append((uid, *req))
+                out.append((f"{validity}:{uid.decode()}", *req))
         return out
     finally:
         try:
@@ -153,26 +189,36 @@ CONFIRM = {
 }
 
 
-def process(env, send_one, imap_factory=imaplib.IMAP4_SSL) -> int:
-    """Answer each unread request with a confirmation, then mark it read. Returns how many were answered."""
-    new = read_requests(env, imap_factory, unseen=True)
-    if not new:
-        return 0
-    box = _open(env, imap_factory, readonly=False)
+def _load_answered(path: Path) -> set[str]:
     try:
-        done = 0
-        for uid, action, addr in new:
-            subject, body = CONFIRM[action]
-            try:
-                send_one(env, addr, subject, body.format(addr=addr, note=unsubscribe_note(env), box=mailbox_address(env)))
-            except Exception as exc:
-                log.warning("confirmation to %s failed: %s", addr, exc)
-            box.uid("STORE", uid, "+FLAGS", "(\\Seen)")
-            done += 1
-            log.info("%s %s", action, addr)
-        return done
-    finally:
+        return set(json.loads(path.read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        return set()
+
+
+def process(env, send_one, imap_factory=imaplib.IMAP4_SSL, state: Path | None = None) -> dict:
+    """Answer every request not answered before with a confirmation. Which ones were answered is kept in
+    `state` (a JSON list of message keys, carried between runs in the Actions cache), not in the mail's
+    read flag, so opening the mailbox in a mail program does not hide a request."""
+    state = state or Path(env.get("SUBSCRIPTIONS_STATE", "").strip() or "data/subscriptions/answered.json")
+    answered = _load_answered(state)
+    requests = read_requests(env, imap_factory)
+    new = [r for r in requests if r[0] not in answered]
+    for key, action, addr in new:
+        subject, body = CONFIRM[action]
         try:
-            box.logout()
-        except Exception:
-            pass
+            send_one(env, addr, subject, body.format(addr=addr, note=unsubscribe_note(env), box=mailbox_address(env)))
+            answered.add(key)
+            log.info("%s %s", action, _mask(addr))
+        except Exception as exc:
+            log.warning("confirmation to %s failed (retried next run): %s", _mask(addr), exc)
+    state.parent.mkdir(parents=True, exist_ok=True)
+    state.write_text(json.dumps(sorted(answered)), encoding="utf-8")
+    subscribed, _ = current(requests)
+    return {"requests": len(requests), "answered": sum(1 for r in new if r[0] in answered), "subscribers": len(subscribed)}
+
+
+def _mask(addr: str) -> str:
+    """a***@example.com: enough to tell requests apart in the public Actions log."""
+    name, _, domain = addr.partition("@")
+    return f"{name[:1]}***@{domain}"

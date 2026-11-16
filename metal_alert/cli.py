@@ -54,7 +54,8 @@ def main(argv: list[str] | None = None) -> int:
         if not enabled(os.environ):
             log.error("SMTP_HOST / SMTP_USER / SMTP_PASSWORD 未設定")
             return 1
-        print(f"{process(os.environ, send_one)} 封訂閱信已處理")
+        r = process(os.environ, send_one)
+        print(f"信箱中的訂閱 / 取消信 {r['requests']} 封,本次回覆確認信 {r['answered']} 封,目前訂閱 {r['subscribers']} 人")
         return 0
 
     if args.command == "serve":

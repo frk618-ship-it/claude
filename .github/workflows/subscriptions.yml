@@ -1,6 +1,6 @@
 name: 通知訂閱處理
 # 每小時讀取寄件信箱(與貴金屬預警相同的 SMTP 帳號,以 IMAP 登入)中網站「訂閱通知」寄來的
-# 「[TTMC-NOTIFY] SUBSCRIBE / UNSUBSCRIBE」信,回覆確認信並標為已讀。訂閱名單就是信箱裡的這些信,
+# 「[TTMC-NOTIFY] SUBSCRIBE / UNSUBSCRIBE」信並回覆確認信(已回覆的記在 Actions cache,信件讀過與否不影響)。訂閱名單就是信箱裡的這些信,
 # 貴金屬預警與週報寄出時會讀取它並以密件副本寄給訂閱者。
 # Secrets:SMTP_HOST、SMTP_PORT、SMTP_USER、SMTP_PASSWORD、ALERT_EMAIL_FROM(選填)、IMAP_HOST(選填,預設由 SMTP_HOST 推得)。
 # Gmail 需在帳號設定開啟 IMAP,SMTP_PASSWORD 使用應用程式密碼。
@@ -31,6 +31,14 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      # 已回覆過確認信的訂閱信清單(只有信件編號,沒有 email),放在 Actions cache,不 commit
+      - name: Restore answered list
+        uses: actions/cache/restore@v4
+        with:
+          path: data/subscriptions/answered.json
+          key: subscriptions-state-${{ github.run_id }}
+          restore-keys: subscriptions-state-
+
       - name: Answer subscription requests
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -41,3 +49,10 @@ jobs:
           IMAP_HOST: ${{ secrets.IMAP_HOST }}
           SUBSCRIPTIONS: "on"
         run: python -m metal_alert -v subscriptions
+
+      - name: Save answered list
+        if: always() && hashFiles('data/subscriptions/answered.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/subscriptions/answered.json
+          key: subscriptions-state-${{ github.run_id }}
