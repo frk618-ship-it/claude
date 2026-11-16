@@ -5,8 +5,8 @@ then opens their mail program with a ready-made request to the alert mailbox (su
 "[TTMC-NOTIFY] SUBSCRIBE", the address in the body). An hourly job reads that mailbox, adds the
 address to the notification list and sends a confirmation (metal_alert/subscribers.py).
 
-The mailbox address comes from SUBSCRIBE_EMAIL at build time (the workflows pass ALERT_EMAIL_FROM or
-SMTP_USER); without it the button is left out.
+The mailbox address comes from SUBSCRIBE_EMAIL at build time (the workflows pass SMTP_USER, whose inbox
+the subscription job reads, and ALERT_EMAIL_FROM as SUBSCRIBE_EMAIL_ALT); without one the button is left out.
 """
 
 from __future__ import annotations
@@ -59,8 +59,15 @@ SCRIPT = """
 
 
 def mailbox() -> str:
-    addr = parseaddr(os.environ.get("SUBSCRIBE_EMAIL", "").strip())[1]
-    return addr if _ADDRESS.fullmatch(addr or "") else ""
+    """The first real address among SUBSCRIBE_EMAIL (the SMTP login, whose inbox the job reads) and
+    SUBSCRIBE_EMAIL_ALT (ALERT_EMAIL_FROM, which may be "Name <addr>" or only a name)."""
+    for key in ("SUBSCRIBE_EMAIL", "SUBSCRIBE_EMAIL_ALT"):
+        value = os.environ.get(key, "").strip()
+        addr = parseaddr(value)[1]
+        m = _ADDRESS.search(addr if _ADDRESS.fullmatch(addr or "") else value)
+        if m:
+            return m.group(0)
+    return ""
 
 
 def button(cls: str = "btn") -> str:

@@ -390,3 +390,16 @@ def test_subscribe_button_only_with_a_mailbox(monkeypatch, tmp_path):
     assert "data-subscribe" in subscribe.button() and '"alerts@company.com"' in subscribe.dialog()
     page = write_site(None, tmp_path).read_text(encoding="utf-8")
     assert page.count("data-subscribe>") == 1 and 'id="sub-dlg"' in page
+
+
+def test_mailbox_address_survives_odd_secret_values(monkeypatch):
+    from metal_alert.subscribers import mailbox_address
+    from target_news_agent import subscribe
+
+    assert mailbox_address({"SMTP_USER": "box@company.com", "ALERT_EMAIL_FROM": "鑫科通知"}) == "box@company.com"
+    assert mailbox_address({"SMTP_USER": "apikey", "ALERT_EMAIL_FROM": "鑫科通知 <alerts@company.com>"}) == "alerts@company.com"
+    monkeypatch.setenv("SUBSCRIBE_EMAIL", "apikey")
+    monkeypatch.setenv("SUBSCRIBE_EMAIL_ALT", "鑫科材料 通知 alerts@company.com")
+    assert subscribe.mailbox() == "alerts@company.com"
+    monkeypatch.setenv("SUBSCRIBE_EMAIL", "box@company.com")
+    assert subscribe.mailbox() == "box@company.com"

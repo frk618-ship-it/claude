@@ -41,8 +41,11 @@ jobs:
 
       - name: Build site
         env:
-          SUBSCRIBE_EMAIL: ${{ secrets.ALERT_EMAIL_FROM || secrets.SMTP_USER }}   # 「訂閱通知」按鈕的收件信箱;沒設則不顯示按鈕
-        run: python -m target_news_agent site -i reports -o site/news --root-redirect site
+          SUBSCRIBE_EMAIL: ${{ secrets.SMTP_USER }}           # 「訂閱通知」按鈕的收件信箱(訂閱處理讀取的信箱);沒設則不顯示按鈕
+          SUBSCRIBE_EMAIL_ALT: ${{ secrets.ALERT_EMAIL_FROM }}  # SMTP_USER 不是 email 時改用寄件人地址
+        run: |
+          python -m target_news_agent site -i reports -o site/news --root-redirect site
+          grep -q 'data-subscribe>' site/news/index.html && echo "訂閱通知按鈕:已加入" || echo "::warning::訂閱通知按鈕未加入:SMTP_USER / ALERT_EMAIL_FROM 中找不到 email 地址"
 
       - name: Add financial dashboard
         run: |
@@ -55,7 +58,8 @@ jobs:
       - name: Add precious-metal alert page
         continue-on-error: true   # Yahoo 暫時無法連線時略過,下一次每小時排程會補上
         env:
-          SUBSCRIBE_EMAIL: ${{ secrets.ALERT_EMAIL_FROM || secrets.SMTP_USER }}   # 「訂閱通知」按鈕的收件信箱;沒設則不顯示按鈕
+          SUBSCRIBE_EMAIL: ${{ secrets.SMTP_USER }}           # 「訂閱通知」按鈕的收件信箱(訂閱處理讀取的信箱);沒設則不顯示按鈕
+          SUBSCRIBE_EMAIL_ALT: ${{ secrets.ALERT_EMAIL_FROM }}  # SMTP_USER 不是 email 時改用寄件人地址
         run: python -m metal_alert site --fetch -o site/metals
 
       - name: Add lead radar page

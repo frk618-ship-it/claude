@@ -33,9 +33,13 @@ IMAP_HOSTS = {"smtp.gmail.com": "imap.gmail.com", "smtp.office365.com": "outlook
 
 
 def mailbox_address(env) -> str:
-    """The address people write to: ALERT_EMAIL_FROM (its address part), else SMTP_USER."""
-    addr = parseaddr(env.get("ALERT_EMAIL_FROM", "").strip())[1] or env.get("SMTP_USER", "").strip()
-    return addr if ADDRESS_RE.fullmatch(addr or "") else ""
+    """The address people write to: the SMTP login (the inbox this module reads), else ALERT_EMAIL_FROM's address."""
+    for value in (env.get("SMTP_USER", "").strip(), env.get("ALERT_EMAIL_FROM", "").strip()):
+        addr = parseaddr(value)[1]
+        m = ADDRESS_RE.search(addr if ADDRESS_RE.fullmatch(addr or "") else value)
+        if m:
+            return m.group(0)
+    return ""
 
 
 def imap_host(env) -> str:
