@@ -1612,3 +1612,28 @@ def test_visitor_badge_only_on_homepage_without_referrer(config):
     assert 'src="https://hits.sh/frk618-ship-it.github.io/claude/news.svg?' in home and 'referrerpolicy="no-referrer"' in home
     assert "hits.sh" not in render_page(report, config, [], "2026-11-16")
     assert not any("hits.sh" in u for u in external_loads(rewrite(home, "", 1)))
+
+
+def test_security_hardening(tmp_path, config):
+    import re
+    from pathlib import Path
+
+    from target_news_agent.site import build_site
+
+    # lead radar: feed links become clickable only when they are web links
+    tpl = (Path(__file__).resolve().parents[1] / "lead_radar" / "template.html").read_text(encoding="utf-8")
+    assert "esc(s.link)" not in tpl and tpl.count("esc(webUrl(s.link))") == 4
+    # quiz: three.js comes from the site, not a CDN
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    (reports / "2026-11-16.json").write_text(json.dumps({"items": [], "generated": "2026-11-16T08:00:00+08:00"}), encoding="utf-8")
+    out = tmp_path / "site" / "news"
+    build_site(reports, out, config)
+    if config.quiz:
+        quiz = (out / "quiz.html").read_text(encoding="utf-8")
+        assert "cdn.jsdelivr.net" not in quiz and "./vendor/three.module.min.js" in quiz
+        assert (out / "vendor" / "three.module.min.js").stat().st_size > 100_000 and (out / "vendor" / "three.LICENSE").exists()
+    # workflows: dispatch inputs reach shell scripts only through env, never pasted into a run: block
+    for wf in (Path(__file__).resolve().parents[1] / ".github" / "workflows").glob("*.yml"):
+        for block in re.findall(r"run: \|\n((?:\s{10,}.*\n?)+)", wf.read_text(encoding="utf-8")):
+            assert "${{ github.event.inputs" not in block and "${{ inputs." not in block, wf.name

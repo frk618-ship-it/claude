@@ -25,7 +25,8 @@ from .thumbs import pick as pick_thumb
 from .events import group_events
 from .translate import to_traditional
 
-OG_IMAGE = Path(__file__).with_name("assets") / "og.png"  # 1200x630 share-preview image
+OG_IMAGE = Path(__file__).with_name("assets") / "og.png"
+VENDOR = Path(__file__).with_name("assets") / "vendor"  # 1200x630 share-preview image
 HOME_PAGE = "home"  # `current` value for the combined homepage
 REPORT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
 
@@ -967,6 +968,11 @@ def build_site(reports_dir: str | Path, out_dir: str | Path, config: Config, pap
 
         (out / "quiz.html").write_text(render_quiz(config, merge_recent(reports)["items"], generated, seed=reports[0][0]), encoding="utf-8")
         written.append(out / "quiz.html")
+        vendor = out / "vendor"  # three.js served from the site itself: no third-party script runs on a decrypted page
+        vendor.mkdir(exist_ok=True)
+        for name in ("three.module.min.js", "three.LICENSE"):
+            shutil.copyfile(VENDOR / name, vendor / name)
+            written.append(vendor / name)
     if reports:
         from .explore import build_explore  # explore and weekly import this module
         from .weekly import build_weekly_pages

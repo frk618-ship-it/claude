@@ -283,7 +283,7 @@ const conquered = i => i.id === 'play' ? matchDone : i.questions.length > 0 && l
 // three.js is loaded on demand; until it arrives (or if WebGL is unavailable) the side panel
 // still lists every island, so the game stays playable. Labels and the guide's speech bubble
 // are HTML overlays positioned from the 3D scene, so Chinese text stays crisp.
-const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
+const THREE_URL = './vendor/three.module.min.js';  // served with the site (MIT licence alongside), no CDN
 const S = 10, R = 3.2, TH = .9, PL = .4, D2R = Math.PI / 180;  // island spacing, target radius / thickness, backing plate
 const PLAZA = {id: 'plaza', plaza: true, name: '靶材廣場', hex: [0, 0]};
 const ALL = B.islands.concat(PLAZA);

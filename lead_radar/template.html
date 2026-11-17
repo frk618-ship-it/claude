@@ -256,6 +256,8 @@ const DATA = /*__DATA__*/null;
 (function () {
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+  // only web links from feed data become clickable: never javascript:, data: or anything else a source might carry
+  const webUrl = u => /^https?:\/\//i.test(String(u ?? "").trim()) ? String(u).trim() : "";
   if (!DATA) { $(".wrap").insertAdjacentHTML("beforeend", '<p class="empty-note">尚無資料:請先執行 <code>python -m lead_radar run</code>。</p>'); return; }
   const L = DATA.labels, st = DATA.stats;
   const name = (k, v) => (L[k] && L[k][v]) || v;
@@ -414,7 +416,7 @@ const DATA = /*__DATA__*/null;
           <dt>切入重點</dt><dd>${esc(l.pitch)}<span class="src-note">規格依據:${esc(l.pitch_source || "未標示")}</span></dd>
           ${l.products.length > 1 ? `<dt>其他產品線</dt><dd>${l.products.slice(1).map(p => esc(L.products[p])).join("、")}</dd>` : ""}
           <dt>訊號類型</dt><dd>${l.intents.map(i => esc(L.intents[i])).join("、") || "—"}</dd></dl>
-          <ol class="ev">${ev.map(s => `<li>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}
+          <ol class="ev">${ev.map(s => `<li>${webUrl(s.link) ? `<a href="${esc(webUrl(s.link))}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}
             <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol></div></details>`;
     }).join("");
     $("#more").hidden = list.length <= state.shown;
@@ -428,7 +430,7 @@ const DATA = /*__DATA__*/null;
     $("#others-list").innerHTML = others.slice(0, 40).map(o => {
       const s = sigById[o.evidence[0]];
       return `<li><b>${esc(o.org)}</b> <span class="mono">訊號強度 ${Math.round(o.signal_score)},${o.signals} 則,最近 ${esc(o.last_signal)}</span>
-        ${s ? `<br><span class="src">${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} · ${esc(s.source)}</span>` : ""}</li>`;
+        ${s ? `<br><span class="src">${webUrl(s.link) ? `<a href="${esc(webUrl(s.link))}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} · ${esc(s.source)}</span>` : ""}</li>`;
     }).join("");
   }
   ["#q", "#fgrade", "#fprod", "#facc", "#fnew"].forEach(s => $(s).addEventListener("input", () => { state.shown = 30; renderLeads(); }));
@@ -440,7 +442,7 @@ const DATA = /*__DATA__*/null;
     if (state.cell) list = list.filter(inCell);
     $("#sig-count").textContent = `${list.length} 則${state.cell ? "(已依格子篩選)" : ""}`;
     $("#signals").innerHTML = list.length ? list.slice(0, state.shownSig).map(s => `<article class="sig">
-      <div class="t">${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}</div>
+      <div class="t">${webUrl(s.link) ? `<a href="${esc(webUrl(s.link))}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title_zh || s.title)}</div>
       ${s.need ? `<div style="font-size:.84rem">${esc(s.need)}</div>` : ""}
       <div class="row"><span class="mono">${esc(s.published)}</span><span>${esc(s.source)}</span>
         ${s.intents.slice(0, 2).map(i => `<span class="badge${i === "tender" ? " hot" : ""}">${esc(L.intents[i])}</span>`).join("")}
@@ -550,7 +552,7 @@ const DATA = /*__DATA__*/null;
           <dt>推估理由</dt><dd>${esc(a.note)}<span class="src-note">產品適配度依公開業務內容推估,尚未經拜訪確認</span></dd>
           <dt>切入重點</dt><dd>${esc(a.pitch)}<span class="src-note">規格依據:${esc(a.pitch_source || "未標示")}</span></dd>
           ${(l.intents || []).length ? `<dt>訊號類型</dt><dd>${l.intents.map(k => esc(L.intents[k])).join("、")}</dd>` : ""}</dl>
-          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${matTag(s.id, a)}${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`; }).join("") + "</tbody>";
+          ${a.evidence.length ? `<ol class="ev" style="margin-top:6px">${a.evidence.map(id => sigById[id]).filter(Boolean).map(s => `<li>${matTag(s.id, a)}${webUrl(s.link) ? `<a href="${esc(webUrl(s.link))}" target="_blank" rel="noopener">${esc(s.title_zh || s.title)}</a>` : esc(s.title)} <span class="src">${esc(s.source)} · ${esc(s.published)}</span></li>`).join("")}</ol>` : ""}</td></tr>`; }).join("") + "</tbody>";
     };
     // one list on segment pages: filters and the other-companies list move to the table; the card list is hidden
     $("#acc-filters").appendChild(document.querySelector("#leads-sec .filters"));

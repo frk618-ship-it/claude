@@ -64,16 +64,22 @@ jobs:
           # 選填:技術文獻搜尋(OpenAlex)用的聯絡 email / API key
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          # 手動執行的輸入值一律經環境變數傳入並先驗證,不直接嵌進指令(避免指令注入)
           PAPERS_DAYS_INPUT: ${{ github.event.inputs.papers_days }}
+          DAYS_INPUT: ${{ github.event.inputs.days }}
+          PAPERS_ONLY: ${{ github.event.inputs.papers_only }}
+          RESUMMARIZE: ${{ github.event.inputs.resummarize }}
         run: |
+          DAYS=7
+          if [[ "$DAYS_INPUT" =~ ^[0-9]+$ ]]; then DAYS="$DAYS_INPUT"; fi
           PAPERS_DAYS=""
           if [[ "$PAPERS_DAYS_INPUT" =~ ^[0-9]+$ ]]; then PAPERS_DAYS="--papers-days $PAPERS_DAYS_INPUT"; fi
-          if [ "${{ github.event.inputs.papers_only }}" = "true" ]; then
+          if [ "$PAPERS_ONLY" = "true" ]; then
             python -m target_news_agent -v run --papers-only $PAPERS_DAYS
           else
-            python -m target_news_agent -v run --days "${{ github.event.inputs.days || '7' }}" $PAPERS_DAYS
+            python -m target_news_agent -v run --days "$DAYS" $PAPERS_DAYS
           fi
-          if [ "${{ github.event.inputs.resummarize }}" = "true" ]; then
+          if [ "$RESUMMARIZE" = "true" ]; then
             python -m target_news_agent -v resummarize
           fi
 
