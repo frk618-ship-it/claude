@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T08:28:00.244123+08:00",
+  "generated": "2026-11-17T12:09:58.985165+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是記憶體大廠資本支出創新高:SK 海力士前三季設備投資累計 31 兆韓元,已超越去年全年,並加快 HBM4 擴產;三星電子今年以來資本支出與研發合計逾 98 兆韓元,記憶體 PVD 機台與靶材需求可望延續。先進封裝方面,台積電與精材的合作延伸至 2033 年,並傳出投入 CoPoS 玻璃基板,但精材股價利多出盡跌停。材料端,JX金屬的半導體材料獲台灣次世代半導體開發計畫採用。貴金屬全面走弱,金價跌至 3,850 美元附近的一年低點,白銀與鈀金跌幅較大。",
@@ -18,6 +18,575 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "64f2ba0914fca064",
+      "title": "【ライブ】〈決算速報〉JX金属 ソフトバンクG 任天堂 NTT /日経平均株価下落/株式投資/最新情報/オムロン年初来高値/食料品消費税 減税へ｜8月6日(木)〈Every Stock NEWS〉 Baylen Out Loud (uxDnnFOi9E)",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNV3NBVnAtNW5PdUhsQ3o5MlVLd0htekhDYWY4U0MzcFl0UkF3YkZJQ2NQbFNDV0s4NTkwNnZPd3JHaldwWUVZR2tPb204bjhWN1ZuYkNGeXkyczh4MkxGVzdOU1ZYRmtHbWNIYk9rMHAyVG40bkl2OEU2S1RJLXdoZGI5dw?oc=5",
+      "source": "Unisba Media",
+      "published": "2026-11-15T22:02:22+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.32,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "22a33bf890295309",
+      "title": "日月光豪砸1237億帶動擴產潮！技術員職缺年增35%大廠開年薪80萬搶人",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1OWmc1VzhudXpPcDRKSnpxY1BSWkFIUTB1UzF3ZVJ2Z3ZOWUI0NGFhZWg5ZUhFWVliTk14bXlwUU9nTVhjajh0bG5HQmJuZHc?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-17T04:02:36+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "技術與新產品"
+      ],
+      "score": 5.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "955463fd9d215000",
+      "title": "日月光砸1,237億元擴產 科技業缺工燒向產線基層、職缺年增35%",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5KV1pyZnNrZE1wX25EYjN2ZHg2dl9NeEZyaENJMGoxOUNyc055N1ZZZUNSanl4elZXNmFlTEctZGtBdmx1QTZZckthVjYzeVAz0gFWQVVfeXFMTU96MlhjU2VTNU95MUVkakgzWXhkWHhBN0x3UWNQTFVWNUgyRFl4Uk1hcmVJYm1LUnFhc0ZGdnFGZElhVXVSS1dOblV5SGlucDNUZUhGQnc?oc=5",
+      "source": "udn",
+      "published": "2026-11-17T04:00:01+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2faf44d024f9f363",
+      "title": "SK海力士今年前三季度資本支出達31.216萬億韓元",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1zd1ZpUEpGNUtBVjREUTNzRU5BMjlQY28wVnZJT0g5ZDlGTnpNUGc3TFlpT0prZzJYTHB6QmV6aVhDUkw4U213RDFiUm16SGpQakdGUVBxUGZPS01BbXQ2M0Y0OUZFVlpXaEE?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-17T03:22:37+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5e069aacb6617ea1",
+      "title": "TSMC supplier Konfoong seeks funds for push into chipmaking parts",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcjJlOUJjVVBYNWkwNTBJdHlZb0tGZUVTYm5zYk8wbFNXRFpGaDNLaWZVbkw5elhoZmR6Smp2OWh5cHN5WVhhX1lZaldCbHBDSVdyZmh0TXczUDhQR0w3NkIwSElXZEZTZlIxN0wzRWZVYW0xdE9TYW5RRDZEa1BJNmlEbVQyelRoS1dXQUpOVmVRVlMySkhaNw?oc=5",
+      "source": "Bamboo Works",
+      "published": "2026-11-17T03:03:48+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c1d43cf0eb49c500",
+      "title": "三星8吋晶圓廠退場倒數！聯電、頎邦迎轉單商機 2027年DDIC供應鏈洗牌",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE14WHhMQkZoNk9Ub1FpM3FzREZxUW0yZE1uNlBDWVhpYVhmZmJUdmNlWVpnYmxlb0VIeC01Q0RINzVLTkk4Y09BM09wZ0FBYTktcFE2YVZ2XzZ3TGd2bWZ6S09jZEVHN0MyYTdOMHpvWQ?oc=5",
+      "source": "理財周刊",
+      "published": "2026-11-17T01:40:34+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "聯電 (UMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6462d71744dd80df",
+      "title": "日本JX金屬攻入台灣次世代封裝供應鏈",
+      "link": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxNNHB6WUtzTm1scW80NFhEeExubU84ckgyQ3RFRzBLTndhNk1FZHYtWlg5NWZDSzlJMVEtRC1YcUJ3b1dPVzlDWl9IeG95X0hYUEVxM19GY2lLdkkxdURkQmhqVTAzT3FTOS1wRjRNcUZBUkhTZVV3THBXd1V5YUdxVjF2VWVwTUtWTEJfekxoQ1NlMi00MEVDUmx5c0xCYVJZWEl1aTk4NVZ3X3FZeEZ1YzFhZmtVOFoyRm9iRDRHdHlfdkY4YW1ocGdtaFYzSGlLT0NsWUFCWVVNWS1XWFg2R3RoclRTNTlJTnJJX0I4TV9XejdHTWd1Nmc1Z3J6VHRFZ3pvblJoVGh1dkJ0N0hrY2RuMzJXcVpTTzNNd2I1SnlvV2NVN19zODF2aw?oc=5",
+      "source": "商傳媒",
+      "published": "2026-11-17T00:42:48+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "日本JX金屬攻入臺灣次世代封裝供應鏈",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f2551a56a6e0d9f5",
+      "title": "江丰电子递表港交所：报告期内为核心供应商同创普润贡献超五成营收",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSWYtNlJHLTZuXzJDc216U1Z1OTRMYWZHdkxwUldNVzVPZlFYWlVuaGRqRXUxNl9xR3dOUVF2NTZpVEJKVVZyVjVGSUpBdmhvUS1BZ3pwTWlGMEtXRlNLQU5oeFFZOHowaVQ2LTRTQ0tJQVctUk1QS3NTSVEwald6YWhB?oc=5",
+      "source": "手机新浪网",
+      "published": "2026-11-17T00:14:09+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子遞表港交所：報告期內為核心供應商同創普潤貢獻超五成營收",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fa01df6739016431",
+      "title": "스퍼터링 장비 캐소드 시장 2035년 전망: 반도체·디스플레이 설비 투자로 수요 가속 - 뉴스 및 통계",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNb0Z2UVVTRTl3b3Nad1V4RUN3T1h2ajA3ekxBSXNjcW83V3Z2ZW1lY0NYR1NmZFkwLXBic1ZiWWFwZDI0VE9nT2tRMzFUWTRqbV9ialhLb3gtZW1lakRmMHNSYW83aTc3NGtEQWJPZ2hWRDdYX0h5UE8xRlZDQnoxWFpvSjhzWTV4S01SRVVURUZvdWZoQk0xV09TX2tTQ0liLWVtU0hpSFQtNWZ4bUZ1eEtpZDhpQ0FkQnFqbDVybXdJSGRIa3U3cExrUjlweW9TOXdPRE1ZcjBmZEFTanVyXzM2TjVZOW02bC04?oc=5",
+      "source": "IndexBox",
+      "published": "2026-11-16T04:56:05+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "產業綜合:스퍼터링 타겟"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "27ff6231a1898756",
+      "title": "スパッタリング装置用カソード市場2035年見通し：半導体・ディスプレイ投資で需要加速 - ニュースと統計",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPSUFyQzhfemV0Unh2eWtJZXNRazA3NTg0SU1YbUlHVExkcWEwcWhtZXBGbEhZdWNkV3BLa0h0dXo0SWR3S1BtamNZV2FnanZDdVpxREpVQ3ZUcVEtWmdSaVFfZHpDMHZKMkI3dFNmTE81WHMtM0hNR0VIdHRWNGtwQVYxYTE0dnMxQncyaW1MYkRFRXAxV3JuRW5ISW1xWmtELTE1WVRYQTVLcTBlZ0NndFFWVnFydms0YUZkYlJEelg0YmJKaUFZUVVDaUs4OWpHeXhRaGQwVTNLM1J0WGRhMHFQU1d3YkpHRHBR?oc=5",
+      "source": "IndexBox",
+      "published": "2026-11-16T04:56:05+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "設備綜合:スパッタ装置"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a10d001056cc24de",
+      "title": "Taiwan's Xintec Wins TSMC CoWoS Back-End Outsourcing Deal, Bets NT$15 Billion Convertible Bond on 2029 Mass Production",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBvb3BvYUYwUWZmNUU2NXE1SUs2N0swekJiYzA3RmNvUU9QcTNpaVQ4d09fSTBoQkd1aUt3VDF1QmpheHh3VlI1SVY3ZTJnOFJzaXRjQkFiS2Zzcjc0NnRPZGlYV0VpRkpKYjFnblI4bDl0VzJWM0E?oc=5",
+      "source": "BigGo Finance",
+      "published": "2026-11-16T04:35:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "精材 (XinTec)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f6806a0cbe764490",
+      "title": "JX ADVANCED METALS CORPORATION(JXAMY.US)將於11月09日發佈業績",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUjZYWnlveHN5NEZEWkgzYmJxQ1dIbG5ObzVhNVpmWHJ3SS0wZXR3TzNZTDVscVM1aG83UXVZYWdncEFsekhyMnFmSTAzVERjVWp3UXU2MGx2T0swYVJrVWlZblZYS3BZd2licW95MGhtVUhqTXl5Z3REaDVZYzh1TklKcUlfejA4TXo5bU9yM2N6cTk2Q2FBOElhUy1paENDdzZQQWt0anBKVnptc0dhckxxaW5KZw?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-16T00:37:39+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.84,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bf3b50af673aecca",
+      "title": "黃金價格預測：金價守住3850美元關鍵支撐，美國10月零售銷售或將推動黃金反彈向4000美元",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNZWhVazVmbi1zODlCXzlMckIxNlhMLUViWUlweE9PWDR1bUxqSkRTdmtmNmxJcE5PcDN6Und2d2RDaktZclFDV3NwVnVFUTlvSldaVV9NYjNReENvWS0zd3dvcnB2aDU3UVhQT2dsM2Z3YU9VRFZSVGE4ejJzUFdFWExGY0cxVFIxVGQxZlN4WjhNWFBsek05UzVWdzdEQU5TT3F2UnhRV1pRazhYcEFlSkJuclg4N1BfZ3g4V1hVS2hnU3VkT1VROE9Rcm0zMUhrYmhOOUJlSmZLdWhyV3c?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-17T04:10:16+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e695b8d30de59dac",
+      "title": "Gold Price Forecast: Gold Holds Key $3,850 Support, US October Retail Sales May Drive Rebound Toward $4,000",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOV090d2VzOXBFbTBRQlBQak1vbVIza2RPdDBOUzhJNWhURkJNN3pEWTJXaVhNQmpNZHBXODJhelpRdTh0WEVpU19pckUyeFdmRUhOSllPbENVbGV1UVBTX3hBOFRuYng1TFpNYWE4X0lfZ3FFWGduQzlQZUhKbW1yNlJoWm1SbHE4dXktVW54R0ZNZnA2d3E1OG1ITU54eHRITmVvSVo5NXN2WExmY0xPY0Faall1d2JrREFyNUFLNWV2Zlo3T3pYcW1oY0FLbnc2R2ZF?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-17T04:10:11+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a1a00b17930a6bed",
+      "title": "Silver prices show signs of recovery after a sharp drop",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbFVwR1U1VVB3ZXhONHNJX2lvTVlwWjQzZmtXcm5Oamo5SkhZWmQ5ajI0SjFQdE1aMWl4bTdSMWN1N0NOd3h4Y1Bac3NRU1Q5RTdKWXJqWEZoQk9qRkdaV0taM1JDbTU5dTI1bWNnWlc2VGlDVG9sbTRCRk95ZUJVdHp6a1VCT0pET1E2WGd6UzNNcTMtUWhoNjBFTlctQQ?oc=5",
+      "source": "Laodong.vn",
+      "published": "2026-11-17T03:51:32+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e5fb101abf9afa2e",
+      "title": "Goldman Sachs Adjusts Bellevue Gold's Price Target to AU$1.85",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNc0s0SU9SNTlHVGxZLWtsZFU4Q1g5enlnTnNXWmN1U2cxd2J2V1FlTWs4cF8xa2Fjd2VBMmFST1ZsUlJlUG1nR05IRjNEQzQtb3M1Zl8zYUlmd0FTZ0pYZkd5enB4azFjY0NnbVBFZTBDdGhkaUl1NjhUSkk0RVFuRkR4ZF9Cd1U2cS1tSHpyQlRieHRUZG9namxoNmE4Tm1TdWxIazNoVWJaRjRGd210OVMxYms?oc=5",
+      "source": "www.marketscreener.com",
+      "published": "2026-11-17T03:39:14+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8ece75efd6c53bda",
+      "title": "Gold Price Forecast: XAU/USD stays vulnerable amid Fed hike bets, geopolitical uncertainty",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQYnBqMTVHa2ZYbHBiNkdZZEtVM0sxWEpUS3NTQTJxTEpKQ2c0bEpRV3JzV1RrcXZjYUtReG9VLVJ2TGo3LXBTUlRITGR5dUdhRnNvbEdiSEJEeEM3VFdNckNycThBNW5SVEJXaXJ2RjBOMzkxNUYzZC1hUHlsa0duX2ZfMVZVWDZOeDg2Rl9pTEhyeXhyZDBRbFJ4dGZxOHNDUm80M1gyakp0UEJyTm1nbWl4NzBCcVlWVnloN3NwcjNEM0NOMThCR010ZEh3VW9H?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-17T03:37:03+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1f465d9e2afe1765",
+      "title": "主力资金流入前20：有研新材流入13.02亿元、寒武纪流入9.87亿元",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1rWk1oeEw3dzNEMEtjLWdNWkRkUG00YV94eEdEVnduNkU1M1dXRUVYV0RXRjdoclBFWEdNUzREWGoxQW9LQ21wUnlxQ2dBbmN4dG1yR1RUR1p6ZTRDdmhDS0t2TDZWRmtINWZ5OEtzVQ?oc=5",
+      "source": "金融界",
+      "published": "2026-11-17T03:42:31+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "主力資金流入前20：有研新材流入13.02億元、寒武紀流入9.87億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c281d95973e8bfa5",
+      "title": "有研新材：11月13日融券卖出3.73万股，融资融券余额9.57亿元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOYXZjNXZTWWYtd2NadHdrdzdLZU5GNm1VZ1N6eVhFa21kM2c4bVRKWnZDQ3pDRjZOdEJPanJIREY3NDFLeV9jRHNOOHh2d1ZhMVVCR1pJbk45SHpFc2wtYzNvZm1VUUZCaHhrMEFkUGlpTmtMb21nMFVjNS1MVjRjTmRDbmNnOVhV?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-16T04:32:46+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材：11月13日融券賣出3.73萬股，融資融券餘額9.57億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5af51761048bc6cc",
+      "title": "11.16早评：郑州煤电 有研新材 金安国际今天操作思路",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPSXJwTDFxM21Db3g2aVIwQlZELUYxVG0xTDEyLW1kdHZpbTRrRVh5aFdnNzZIVEJqN0pfUTNCR2xqLWp0ZTFJbkk2aTc3Z1dkRVI1TE5hQ3NPa2xJb0FGN2JneEt6S0ZUT3VhNFh2Y2c4djVNVFphQk1rSFJhTjJrNUVCajIteXZNRGtTSlZKN2R5QlVCdWtqNkRObFZaSk9IRV9OWncyTFpRWDl0QkVXc1RqelRPTVktRTZFOHMtbnJKQUdCTWxyaEstWkRob2s4aVhCaXFmZVhiTHJlSVBTc2Z5cmFCMGhjX2NBR1lQYm1rWUFja3FOQTZrSnJQYjQ?oc=5",
+      "source": "财富号",
+      "published": "2026-11-15T21:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.81,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11.16早評：鄭州煤電 有研新材 金安國際今天操作思路",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0f1cc72e78df3541",
+      "title": "$Furuya Metal (7826.JP)$",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdnVhb1V2d2d6dm9qdnpfM2NJNHNDZnZ4UGloX0cxTF85QmFMX2JjOFVLTHhnM2lGVnFVRTktak96b0FIRUpfZVI5MUd1bUdBcDl6VU1sbGY2bHZqYjNNOHRmUzlJQlp2WlFCcXpMbXlqUG1rU01tLUZFeXRHTXNnYkxBV2JIaU5ZTU9IZnU4b1B1MEJKWmI0cEI4d2xoRWRaNzdURFd4a0VjS0lBM0lrNnBB?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-15T11:18:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.76,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2e510ada9d125092",
+      "title": "IPO Databook: Konfoong Materials International (300666 HK) - Nov 2026",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPN0FkczE1M1hkWUJDVWhkV3ZfOC1zQTlIcG1aaW5hTnR0R1NWNnlKaEJGT1doNkpUcmRJNVRPc1ZmY042YjVWUEpYREFOTktvME9UX3dsNjlVVzNUZDNuUWZlYVdBMFRpNFlXZFJuT3M4RHJ5TmR1MVp2Y290VDVvSFFndy1hcjctU2NfeW5NclFVNFBLVjVLUVkzT0RMZFlyVWc?oc=5",
+      "source": "Smartkarma",
+      "published": "2026-11-14T03:00:10+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.56,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c5427a87a5d379dd",
+      "title": "政府債務與財政主導將支撐黃金長期多頭行情- 新聞",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNSHg0UVdkcVBuVGU3NzFtekdOUC1mb1kyeEk3Y01TNzFxNlBWeFcwTWVfRGNnOTJLSTJmczlrZDE2eFFBY0FZQTVGc0F4Y29BZmFBQnF6bnowUktnejZCUlZOS0IzSTMteHNRUGc0dmhLcHJhb05uc1EtbDlJemU1ZFFsTFg3Tmg3R2NJRzJmV3pOZw?oc=5",
+      "source": "MoneyDJ",
+      "published": "2026-11-17T00:56:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.48,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6dc533668cf71e33",
+      "title": "11.13复盘：永鼎股份，金安国纪，掌阅科技，有研新材，粤传媒",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0xZjM1NnZzWjc2N0R0blFOcXQyLXZmSk9WQ1dPc0hrVm5iMklLWVd6azkxMnhPTjBWUzUyN3pzbEVWT0Z2a3RwZXpOb1F3a3FUbFRPMmxDVUVHNWc4anJiVkNXTlVmTEdUajFv?oc=5",
+      "source": "财富号",
+      "published": "2026-11-13T07:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.45,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11.13覆盤：永鼎股份，金安國紀，掌閱科技，有研新材，粵傳媒",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a4a8f23e2fa1a920",
+      "title": "11.13早评：郑州煤电和有研新材今天操作思路",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNdFdNWEEzbW9xdnJhdXJWQzVXWWZSZ1VsbzNwQU9ha29LZGVtWFNBMkxNRTROUkpRaGsxbUY0STdleUVDTHlhRWh3Qm11ZUxrQ1BoTk5XRnBBUmptODlQbTZhT0p5a0xSRmtBbnhxalFtNXd5XzVYZ2NNR09henJraFFhTk1WRHJmeWxzWDhwR0xrUkhpblp0RmhPYmRSZmVKY2F5d2pmM19SSzdWcDJOemsxbEF3dFZKdnBmdWZyY3JuUHlBOF9paThwdUdvTnBodERVaFM3OWpTU1BPcDRvQTJwVF9ta2hTcUNYRGhoYU5TaEpSMXVuV3hPdGozWmc?oc=5",
+      "source": "财富号",
+      "published": "2026-11-12T21:15:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11.13早評：鄭州煤電和有研新材今天操作思路",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bf108f3fadade67b",
+      "title": "11月13老朱早评：有研新材",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE80a0VfX2pFVDR5UFJXcG5LVDF0RTJxNEVaMXZaOEF0ZEN1Rkw5MUVMb3lPc3RtTjlLSEdRTWx4UG1mUjd0dTBPTHkzc0NlbGgxY1I4WHgtOFFfNEtmYzdGU1ZXVEY3cHppTW9n?oc=5",
+      "source": "财富号",
+      "published": "2026-11-12T20:40:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月13老朱早評：有研新材",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2a76c0eaaf5fbdac",
+      "title": "Singulus Technologies Aktiengesellschaft (SNG) Signs SpaceX Contract Exceeding €60M",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQMkxiM0pYcXpRaGpWWjA1OEVBV0NHaUFCUXdPYmd1TnJYYVE5c2ZFbHRPR0JnUzU4WTdGLTFtclpIUnRUaEtxRHN4djNFYVQtazBKSWVfWGRxajVNZ1NUcVB1Vk5FX1d4N1R0Q1U4bnY1ZUJvTm1xbUJLTWhhNzh1aHRtM2ZLUGpncHJzUUxyUXI5STVSNXpHQUhQN1J3ZXFWUUV3MExXYWZSUEY5Z2ZZaHZwcFVmVnZBaWRwTG5UcGxIMF9RVXpjTVdjMU02bGVXa2pVRGU2cm03QQ?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-11T07:15:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.16,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "0a015f395f6cce9e",
       "title": "SK하이닉스 설비투자 올해 3분기까지 31조원…사상 최대 규모",
@@ -881,42 +1450,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3860.7,
-      "prev": 3886.3,
+      "price": 3873.0,
+      "prev": 3853.0,
       "date": "2026-11-17",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.66
+      "change_pct": 0.52
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 47.01,
-      "prev": 49.03,
+      "price": 47.33,
+      "prev": 46.78,
       "date": "2026-11-17",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -4.12
+      "change_pct": 1.18
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1447.7,
-      "prev": 1488.5,
+      "price": 1470.9,
+      "prev": 1448.0,
       "date": "2026-11-17",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -2.74
+      "change_pct": 1.58
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 969.0,
-      "prev": 1006.0,
+      "price": 977.5,
+      "prev": 971.8,
       "date": "2026-11-17",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -3.68
+      "change_pct": 0.59
     }
   ],
   "papers": [],
