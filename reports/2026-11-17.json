@@ -2,19 +2,20 @@
   "generated": "2026-11-17T08:28:00.244123+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 39 則,其中新聞與公司公告 29 則;報導最多的是 精材(7 則)、SK海力士(6 則)、JX金屬(4 則)、Singulus Technologies(3 則)。依主題:產業動態 10 則、擴產與投資 9 則、客戶與供應鏈 5 則、併購與合作 2 則、技術與新產品 2 則。",
+    "overview": "本期焦點是記憶體大廠資本支出創新高:SK 海力士前三季設備投資累計 31 兆韓元,已超越去年全年,並加快 HBM4 擴產;三星電子今年以來資本支出與研發合計逾 98 兆韓元,記憶體 PVD 機台與靶材需求可望延續。先進封裝方面,台積電與精材的合作延伸至 2033 年,並傳出投入 CoPoS 玻璃基板,但精材股價利多出盡跌停。材料端,JX金屬的半導體材料獲台灣次世代半導體開發計畫採用。貴金屬全面走弱,金價跌至 3,850 美元附近的一年低點,白銀與鈀金跌幅較大。",
     "key_trends": [
-      "產業動態(10 則):Compañía de Minas Buenaventura, Companhia Siderúrgica Nacional, AXT, Materion, and Southern Copper shares are falling, what you need to know",
-      "擴產與投資(9 則):SK하이닉스 설비투자 올해 3분기까지 31조원…사상 최대 규모",
-      "客戶與供應鏈(5 則):BofA Says TSMC’s Capex Plans Could Foreshadow US Chip Demand",
-      "併購與合作(2 則):TSMC Signs Seven-Year Advanced Packaging Agreement With Xintec; Shares Down 4%"
+      "SK 海力士、三星資本支出創新高,記憶體擴產帶動 PVD 需求",
+      "台積電與精材深化先進封裝合作,CoPoS 玻璃基板受關注",
+      "JX金屬材料打入台灣次世代半導體計畫",
+      "濺鍍設備陰極市場預期隨半導體與顯示器資本支出成長",
+      "美元走強與升息預期壓低貴金屬價格"
     ],
     "watch_points": [
-      "SK하이닉스 설비투자 올해 3분기까지 31조원…사상 최대 규모(전자신문)",
-      "SK하이닉스, 3분기 누적 설비투자 31조원 돌파…9개월 만에 작년 연간 투자 추월(Chosunbiz)",
-      "SK하이닉스, 3분기 누적 R&D 10조 돌파…31조 설비투자(뉴스토마토)"
+      "SK 海力士 HBM4 擴產的設備與靶材採購時程",
+      "CoPoS 玻璃基板量產進度對 PVD 製程的影響",
+      "美國 10 月 PPI 與聯準會政策對金價的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -34,10 +35,10 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士今年前三季設備投資達 31 兆韓元,創歷史新高;記憶體大舉擴產將帶動 PVD 機台與靶材需求。",
+      "importance": 5,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
+      "title_zh": "SK 海力士今年前三季設備投資 31 兆韓元,創歷來最大規模",
       "snippet_zh": ""
     },
     {
@@ -57,10 +58,10 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士前三季累計設備投資突破 31 兆韓元,9 個月即超越去年全年投資額。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
+      "title_zh": "SK 海力士前三季累計設備投資破 31 兆韓元,9 個月超越去年全年",
       "snippet_zh": ""
     },
     {
@@ -80,10 +81,10 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士前三季累計研發支出突破 10 兆韓元,設備投資達 31 兆韓元。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
+      "title_zh": "SK 海力士前三季累計研發破 10 兆韓元,設備投資 31 兆",
       "snippet_zh": ""
     },
     {
@@ -103,10 +104,10 @@
         "客戶與供應鏈"
       ],
       "score": 6.41,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士前三季累計設備投資 31 兆韓元,創歷來最大,為同一事件的報導。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
+      "title_zh": "SK 海力士前三季累計設備投資 31 兆韓元創歷來最大",
       "snippet_zh": ""
     },
     {
@@ -121,14 +122,14 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "技術與新產品",
-        "客戶與供應鏈"
+        "技術與新產品"
       ],
       "score": 6.21,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "台積電擴大先進封裝布局,轉投資的精材產線將於 2029 年量產。",
+      "importance": 4,
+      "reason": "靶材需求:先進封裝產能擴大",
       "title_zh": "【即時新聞】最新宣佈！臺積電擴大先進封裝佈局，轉投資精材產線將於2029量產",
       "snippet_zh": ""
     },
@@ -144,14 +145,14 @@
         "精材 (XinTec)"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "台積電委託精材提供先進封裝產能至 2033 年,先進封裝外包合作期間拉長。",
+      "importance": 4,
+      "reason": "靶材需求:先進封裝產能擴大",
+      "title_zh": "台積電委託精材提供先進封裝產能至 2033 年",
       "snippet_zh": ""
     },
     {
@@ -166,14 +167,14 @@
         "精材 (XinTec)"
       ],
       "categories": [
-        "併購與合作",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "併購與合作"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電與精材簽訂七年先進封裝協議,精材股價下跌 4%。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "台積電與精材簽七年先進封裝協議,股價跌 4%",
       "snippet_zh": ""
     },
     {
@@ -192,9 +193,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "消息指 SK 海力士加快設備投資進度,進一步擴大 HBM4 產能。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士擴充 HBM4",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -210,11 +211,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 4.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "精材與台積電簽產能外包協議,攻先進封裝 oS 模組,為同一事件的報導。",
+      "importance": 3,
       "reason": "",
       "title_zh": "精材與臺積簽產能外包協議 攻先進封裝oS模組",
       "snippet_zh": ""
@@ -234,10 +236,10 @@
         "併購與合作"
       ],
       "score": 4.34,
-      "summary": "",
-      "importance": 0,
+      "summary": "金辰股份連續三根漲停後澄清,其對 Singulus 合資公司的投資帳面價值僅 8.27 萬元,屬題材股澄清公告。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金辰股份連三漲停後澄清:對 SINGULUS 合資公司投資帳面價值僅 8.27 萬元",
       "snippet_zh": ""
     },
     {
@@ -252,13 +254,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 4.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "AVACO 的投資分析文章,標題未提供具體內容。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 投資分析 2026.11.15",
       "snippet_zh": ""
     },
     {
@@ -276,10 +279,10 @@
         "客戶與供應鏈"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "美銀指出台積電的資本支出計畫可能預示美國晶片需求走向;台積電擴產帶動 PVD 與靶材需求。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "美銀:台積電資本支出計畫可能預示美國晶片需求",
       "snippet_zh": ""
     },
     {
@@ -294,13 +297,14 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "SK 海力士僅三季設備投資即突破 31 兆韓元,創年度紀錄。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
+      "title_zh": "SK 海力士三季設備投資即破 31 兆韓元,創年度紀錄",
       "snippet_zh": ""
     },
     {
@@ -315,13 +319,14 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "三星電子今年以來資本支出與研發合計超過 98 兆韓元,記憶體與晶圓代工投資持續,支撐 PVD 與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:三星資本支出與研發擴大",
+      "title_zh": "三星電子今年以來資本支出與研發合計破 98 兆韓元",
       "snippet_zh": ""
     },
     {
@@ -336,11 +341,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "精材與台積電合作搶攻 CoWoS 的利多出盡,股價跌停,台積電也下跌逾 3%,屬股價動態。",
+      "importance": 2,
       "reason": "",
       "title_zh": "焦點股／攜手搶攻CoWoS商機！精材利多出盡摔跌停 臺積電也跌逾3%",
       "snippet_zh": ""
@@ -357,12 +363,13 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導指台積電傳留用友達兩座廠三分之一員工專攻 CoPoS 玻璃基板,精材擔任先鋒;面板級封裝發展可能帶動新的 PVD 製程需求。",
+      "importance": 4,
+      "reason": "技術趨勢:CoPoS 玻璃基板封裝",
       "title_zh": "精材當先鋒！臺積電傳留友達兩廠三分之一員工，專攻 CoPoS 玻璃基板",
       "snippet_zh": ""
     },
@@ -378,11 +385,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "券商整理金價跌破 4,000 美元的影響因素與黃金買賣攻略,屬投資教學。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -399,13 +407,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 3.77,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "JX金屬集團的半導體材料獲台灣次世代半導體開發計畫採用,有助擴大其在台灣的材料供應。",
+      "importance": 4,
+      "reason": "競爭格局:JX金屬材料打入台灣次世代計畫",
+      "title_zh": "JX金屬集團半導體材料獲台灣次世代半導體開發計畫採用",
       "snippet_zh": ""
     },
     {
@@ -420,13 +429,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.69,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬預估股價淨值比資料頁,屬估值數據。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬預估股價淨值比(LSX:724563)",
       "snippet_zh": ""
     },
     {
@@ -441,13 +451,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.31,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 股價與公司概況資訊頁,本身不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(MTRN)股價、公司概況與新聞",
       "snippet_zh": ""
     },
     {
@@ -465,10 +476,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "美元走強,金價跌至一年多以來低點,屬越南金價行情。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11 月 17 日金價:美元走強,觸及逾一年低點",
       "snippet_zh": ""
     },
     {
@@ -486,10 +497,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "印尼 Antam 公布 2026 年 11 月 17 日金條每公克售價與回購價,屬當地行情。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Antam 今日金價(2026 年 11 月 17 日):最新 1 公克與回購價格",
       "snippet_zh": ""
     },
     {
@@ -507,10 +518,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "國際金價下跌,越南國內金價持平,屬當地行情。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 17 日金價:國際金價下跌,國內持平",
       "snippet_zh": ""
     },
     {
@@ -529,8 +540,8 @@
         "回收與循環"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "深度解析光洋科在先進材料與循環經濟的布局,指 AI 帶動半導體與硬碟兩大引擎;屬投資分析。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -547,13 +558,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 等多檔原物料與材料股股價下跌,屬盤勢報導。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Buenaventura、CSN、AXT、Materion 與 Southern Copper 股價下跌,須知重點",
       "snippet_zh": ""
     },
     {
@@ -568,13 +580,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬(JXAMY)預定於 11 月 9 日公布財報,屬財報行事曆資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬(JXAMY.US)預定 11 月 9 日公布財報",
       "snippet_zh": ""
     },
     {
@@ -589,11 +602,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "精材 CoWoS 合作利多出盡、股價跌停,法人點出三大隱憂,屬股價與投資評論。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -610,13 +624,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬(7826.JP)的社群貼文,未提供具體內容。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬(7826.JP)",
       "snippet_zh": ""
     },
     {
@@ -631,13 +646,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "美元強勢與聯準會升息預期升溫,金價跌至約 3,850 美元的一年低點。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "美元強勢與升息預期升溫,金價跌至 3,850 美元附近一年低點",
       "snippet_zh": ""
     },
     {
@@ -652,11 +668,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所,位列全球超高純金屬濺射靶材供應商第二。",
+      "importance": 3,
       "reason": "",
       "title_zh": "江豐電子遞表港交所 列全球超高純金屬濺射靶材供應商中第二",
       "snippet_zh": ""
@@ -673,13 +690,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies 季節性報酬圖表頁,屬投資數據。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus Technologies(SNG.DE)季節性報酬圖表",
       "snippet_zh": ""
     },
     {
@@ -694,11 +712,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "市場報告預估至 2035 年濺鍍設備陰極市場需求將因半導體與顯示器資本支出而加速成長,與靶材需求高度相關。",
+      "importance": 3,
       "reason": "",
       "title_zh": "濺射設備陰極市場展望2035：半導體與顯示資本開支推動需求加速 - 新聞和統計",
       "snippet_zh": ""
@@ -715,13 +734,14 @@
         "設備綜合:Sputtering Equipment"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "英文版市場報告:半導體與顯示器資本支出推動濺鍍設備陰極市場至 2035 年需求加速。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "濺鍍設備陰極市場展望至 2035 年:半導體與顯示器資本支出推動需求加速",
       "snippet_zh": ""
     },
     {
@@ -736,11 +756,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "專家認為金價已接近底部,戰事是關鍵變數,屬市場評論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -757,11 +778,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.37,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價上週暴跌近 5%、創近一年新低,市場關注美國 10 月 PPI 降溫能否帶動反彈。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -778,11 +800,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子遞表港交所,位列全球超高純金屬濺射靶材供應商第二,為轉載報導。",
+      "importance": 2,
       "reason": "",
       "title_zh": "新股消息 | 江豐電子(300666.SZ)遞表港交所 在全球超高純金屬濺射靶材供應商中位列第二",
       "snippet_zh": ""
@@ -799,11 +822,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.33,
-      "summary": "",
-      "importance": 0,
+      "summary": "以圖解方式整理江豐電子衝刺港股 IPO,其為全球第二大超高純金屬濺射靶材供應商。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -820,13 +844,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.19,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析 JX金屬(5016)股價前景、配息與是否值得買進,屬投資評論。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬(5016)股價前景如何?將來性、配息與是否該買徹底解說",
       "snippet_zh": ""
     },
     {
@@ -841,13 +866,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.11,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies 將向 SpaceX 交付異質接面太陽能電池產線。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus Technologies:將向 SpaceX 交付異質接面太陽能電池產線",
       "snippet_zh": ""
     }
   ],
