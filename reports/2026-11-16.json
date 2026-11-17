@@ -35,9 +35,9 @@
         "客戶與供應鏈"
       ],
       "score": 6.5,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導分析台韓半導體競爭延伸至先進封裝,三星、台積電、日月光、精材接連宣布重大投資,先進封裝擴產將帶動 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:台韓先進封裝擴產",
       "title_zh": "臺韓半導體戰場延伸至先進封裝！三星、臺積電、日月光、精材接連宣佈重大投資，將帶來哪些影響？",
       "snippet_zh": ""
     },
@@ -53,12 +53,13 @@
         "三星電子 (Samsung Electronics)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導指三星電子為 SpaceX 星鏈衛星生產晶片,擬斥資 19 億美元擴建美國德州廠房;晶圓廠擴建將帶動當地 PVD 機台與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:三星擴建德州晶圓廠",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -74,12 +75,13 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "擴產與投資",
         "營收與財報"
       ],
       "score": 3.61,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光在高雄再砸千億元擴充先進封裝,路竹廠一期啟用、二期動土,年營收目標 800 億元。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -98,10 +100,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "印尼 Antam 公布 2026 年 11 月 16 日金條每公克 251.7 萬印尼盾,並列出 UBS 與 Galeri24 報價,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 16 日(週一)金價:Antam 251.7 萬印尼盾,UBS 與 Galeri24 報價一覽",
       "snippet_zh": ""
     },
     {
@@ -119,10 +121,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "越南 2026 年 11 月 16 日金戒與金條價格走勢預測,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 16 日金價:金戒與金條會漲還是跌?",
       "snippet_zh": ""
     },
     {
@@ -140,10 +142,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "國際金價下跌,越南 SJC 金價較 11 月初下跌 500 萬越南盾,屬當地行情資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11 月 16 日金價:國際金價下跌,SJC 金價較 11 月初跌 500 萬越南盾",
       "snippet_zh": ""
     },
     {
@@ -158,13 +160,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價展望分析指亞洲買盤逢低承接、美國則在反彈時賣出,屬市場評論。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金展望:亞洲逢低買進,美國逢高賣出",
       "snippet_zh": ""
     },
     {
