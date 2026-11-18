@@ -1,5 +1,33 @@
 [
  {
+  "id": "p-bef5671659d85482",
+  "title": "Effect of Nb2O5-TiO2 Co-doping on the Properties of ITO Targets",
+  "link": "https://doi.org/10.21203/rs.3.rs-11533697/v1",
+  "published": "2026-11-16T00:00:00+00:00",
+  "venue": "Research Square",
+  "authors": [
+   "Yuwen Pang",
+   "Yi Zhong",
+   "ZHU Guisheng",
+   "Shenfeng Long",
+   "JIANG Xupeng",
+   "Huarui Xu"
+  ],
+  "abstract": "Abstract With the development of high-performance high-end display devices and the iterative upgrading of photovoltaic cells, higher requirements have been imposed on ITO targets. The preparation technology for ITO targets with high carrier mobility has therefore become a research focus in related fields. Conventional ITO targets have relatively low carrier mobility (30–40 cm²·V⁻¹·s⁻¹), making it difficult to meet the performance requirements of transparent conductive oxide targets for the next generation of high-end displays and photovoltaic devices. In this study, 0.1 wt% Nb 2 O 5 and 0.1 wt% TiO 2 were co-doped into an indium tin oxide powder (In₂O₃:SnO₂ = 9:1, wt%). After die pressing and cold isostatic pressing, ITO green bodies were prepared and sintered in an oxygen atmosphere at 1450°C for 6 h, yielding an ITO target with a relative density of 99.54%, a resistivity of 1.940×10⁻⁴ Ω·cm, and a carrier mobility of 57.4 cm 2 ·V − 1 ·s − 1 . The results showed that an appropriate amount of Nb 2 O 5 -TiO 2 co-doping could improve the carrier mobility of ITO targets. In addition, Nb 2 O 5 -TiO 2 co-doping could reduce the sintering temperature of the ITO target from 1550°C to 1450°C. This study achieved the preparation of an ITO target with high density and high mobility while reducing the sintering temperature, providing a reference for the development of low-temperature sintering processes for high-performance ITO transparent conductive targets and for research on TCO materials for high-end displays and photovoltaic devices.",
+  "doi": "10.21203/rs.3.rs-11533697/v1",
+  "source": "OpenAlex",
+  "topics": [
+   "粉末冶金與燒結",
+   "陶瓷與氧化物靶"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "core",
+  "collected": "2026-11-18"
+ },
+ {
   "id": "p-d733d03d9d222d5c",
   "title": "APPLICATION NOTE Optimizing the Sintering Density of ITO Targets via High-Resolution Particle Size Analysis",
   "link": "https://doi.org/10.13140/rg.2.2.28577.77922",

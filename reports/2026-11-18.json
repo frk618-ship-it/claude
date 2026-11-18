@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T08:28:10.234539+08:00",
+  "generated": "2026-11-18T11:07:10.948112+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是記憶體與先進封裝擴產持續升溫:南亞科第三季獲利創新高,並大幅上修資本支出至 697 億元;三星與 SK 海力士資本支出合計 88 兆韓元;中芯國際產能利用率升至 97.3%,記憶體與晶圓代工的 PVD 與靶材需求可望增加。封裝端,輝達擴大台灣供應鏈合作,矽品、景碩簽長約擴產,CPO 產品進入量產。靶材廠方面,江豐電子已打入台積電並赴港募資進軍零部件;光洋科以電子廢棄物提煉黃金的回收技術打進台積電供應鏈;有研新材股價漲停、資金大舉流入。貴金屬方面,金價在 3,850 美元附近的一年低點盤整,白銀小幅反彈。",
@@ -19,6 +19,538 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "25d9791866551463",
+      "title": "輝達Q3營收翻倍成長！ 台廠供應鏈吃大補丸 點名京元電、矽品、欣興擴產",
+      "link": "https://news.google.com/rss/articles/CBMiswNBVV95cUxPcDVxNmVwZlBpcG11bFA1RU1CblFMYXh6OC1NOHJEMG15ZDlHQTV4eE1xNElwMlZVM0UyZ2dMXzk3RnJ4c0FneDM4R3I2OTRuRDZ6dmt0YVRROV9sNjZNdGx5b0tQdkliZHNaSkdyc0YxMC1DTGo3WWstaFhKckRfTWVIdTNjRFdOaHpjTE01Ylp3UWdXUGNlVW5OdDgxV3QwMVVyX09uTWpOVVg2am9MaHY5RWY0eG13UkVrSjFQejNGeDBqeTI1TlpDWTNHLVJmNnc4YUY2Sk5VNnl2Q2hfWWctd3pDanBUYXFjVk1lcUkydmQ5aHZGUjNwRWRvWUZBZElBci1ENDZlc3hRYW5tZTBsYUxXd0JfTzhOcS1FZjI5Yk9QeUl0emJNMjAwanFlV2F6UFgyN1JkQkNNVUpZMnpKVnk5OU8yVDZZbHh5V2VDUWJFcUpRZFhMRVlsbm92X2JfaU1iSHI4N2ltLVQtQlAwR2w3ckMxaEd3UEJDRF9NU0NLd3VOWnp6ZF84NE52eTRSMnlmV0tkdGN0a095QXNkMl80ZVdaTDExa1B1elRDU2M?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-11-18T02:30:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 6.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "輝達Q3營收翻倍成長！ 臺廠供應鏈吃大補丸 點名京元電、矽品、欣興擴產",
+      "snippet_zh": ""
+    },
+    {
+      "id": "232a999f5024b412",
+      "title": "台積電35家優良供應商獎出爐！東京威力回歸 矽品等新廠商入榜",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9yQmtNTl9pUEFVMl9sX1M5SU9HVFVUS3VRX05YZ2Uxemsyb21XMU5TVmk5aVNqb1RKQVozdlRTUDJGd3JnYjJjNTc4TjBTWnVp0gFWQVVfeXFMTXpwR0pQdk4xbjhNRG91c0t3VUhHM2ZwQ1BSQS0tU3lXOHhsWEpMUGNxcWJ5Undza280WTZGX3I5ek85cC1tZTctVHoyN0pULWR5MnRYWmc?oc=5",
+      "source": "UDN",
+      "published": "2026-11-18T01:02:59+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 6.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電35家優良供應商獎出爐！東京威力回歸 矽品等新廠商入榜",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4631d03a3355731a",
+      "title": "日月光旗下矽品與輝達簽署數十億美元協議 2029年中先進封裝產能擴增3倍",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9xVm9BR3RaVENucy1rTElZM2txenl3c3pDWGI4UlM0ZTEyNmdMVmVnSWhEWmF2N0ZzS0JGbDg5UTJvWW5SNFp2cUFPdzE2TGc?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-18T02:49:19+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 5.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "54ca2aff6069c284",
+      "title": "輝達擴產點名6家台廠！台積電鴻海領軍 景碩載板衝3.5倍以上",
+      "link": "https://news.google.com/rss/articles/CBMijANBVV95cUxNT1p2YVk4eFR5QzF0UDlvUDVnNGo4ZnV0eDg5cFh3bUwzTnJ5YVlWazJfb2V6emxoOERhREVmek5xVm5vUDNrenlkbkZvZmw4QlZwZkxPYks3dmUxZUxINUs1V19qM2ZWU1c4cGR0MHp4dnB1RVRjSjZyNWR6Ty04alJZRjliemZ6NVFxUndzV1VOX1hUMGFmUUY5VnVtNTdpU0N6aEE3cHV4aUhrZ0QyVkZRZWxRdHNLTGdxOHNYTFdQUlV1Z2tLTk55dGt2WHl5endzSFJLaFpvUTZfOHl5ZUxHTnBnTEZ3YVhwelFRcGxzcUo2SXNPRDFod0d3R3hlSEJqY0hBelhtXzdfYV92UDVKRzNJaHlzSjVkem9vVm9jWlRpNC0xXzRxQWJQRFlLelhOcFRVUHV3SHhaVVhzdmVfRWJiNnlybjFzVVZGa0NFdGNNNzFuZUU2T1BfSk5jemwzdkFNNS1mTjBwQzBWNzJaaVBpSVNxRS1sVEtrdGYwcU9MQkswWS1KSWM?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-11-18T02:14:07+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "輝達擴產點名6家臺廠！臺積電鴻海領軍 景碩載板衝3.5倍以上",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cc1cc744360f9205",
+      "title": "輝達擴大台灣供應鏈合作！景碩攻載板、矽品接先進封裝，CPO產品進入量產",
+      "link": "https://news.google.com/rss/articles/CBMitwNBVV95cUxNcTNDbGpGTVVmR0duOW5qb1pEa1R2YkZTMVRoMXZsVWxJVEI5aEJNNmNaa3ZnVk4tNDh4NmplcDBNeUdBOEt2QXl2SUc1ZGwxSWhaRTZnaEswSnFYaVVuZEFJUWk4THlUUElucFBfTk11WWlKa1hCWWFmemRnVHpsd0lPZUZieXptUnBCTW1NR2hROEdxd0QwNHd3b3ZVOGZ3N0Nmakk3NUVtMmtIT1hMUGo1d0RlalAxdS0yMnJUTHpLaGJobXJCdDZLaldyWHIwNU1PWHl4bzk2UlBkRnRpWURZaTRXRWNRU3Z2akJrOER1TFh1NWo0V1VPTXEwQkU0ME1TR19yYmNzbFg4c0Q1TTdEVWRXTjJtVHZVSC1yR1p0VHd3Z2lNanBGeDI4bDVFUXlpSTU5WlppeWdpMjg5NW9LRUxHQ2o5RG1Kd1BKYjNlbFQyd051eWJUUTN4V1A4VU9yNGg5cTVDVnV5bS1BWFpHV3dxOTV3NlNHaGJLZnhReU5ZdHpnMmlHUFBiaDZSMUNpc1FzRzBGY3c0dWtYbXNaOFhxT29qMU1oU2lfa3Y0MThHMHZJ?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-11-18T01:33:21+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 4.79,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "輝達擴大臺灣供應鏈合作！景碩攻載板、矽品接先進封裝，CPO產品進入量產",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5020d6bd498b3e43",
+      "title": "【即時新聞】日月光半導體最新宣布千億擴產，外資狂倒近五千張還能追嗎？",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRE1ZMDdpTHFXRjc5ZnBVWXVRMWw2UXFEcGNKTElIQXdDWk8wdDJCYTRzRWE1M2tJdG8zalBvQzdCZGVJZEN5UGlLQTh3RkxPNWlaNm56UVFha1hTM1gyNGlsWURERnFQZXJFTTl6c3E0WXRXWjR1eUZFdE9TNTBkUklTd3lacnI0U1J3LVlqWng?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-18T02:47:40+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "【即時新聞】日月光半導體最新宣佈千億擴產，外資狂倒近五千張還能追嗎？",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8761c7b0c6d95a4e",
+      "title": "矽品攜手輝達簽數十億美元合作協議 先進封裝產能2029年中擴增至三倍",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE93TXZtYXZsbnFBdWtQUWMwY295VHQ3aUkxb2tEN0V4QWVFekMtREp3LWRxX3RnZHJpMVhZdWY2MFEtbTE0RWJVZjd2aVFJY3B50gFWQVVfeXFMUFowTDl4YnFNR2gyaGZ2VmVHWDF2LXVsbTE3TzdrVFRpZUhfcm5EaVNVOWFfOUtvb3UyeElNd1JUOFhOZkJCY05DRWlIbkhycjFveDM4NHc?oc=5",
+      "source": "UDN",
+      "published": "2026-11-18T02:17:42+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "06dd1918615a748b",
+      "title": "矽品與輝達簽署數十億美元協議，擴建台灣先進封裝產能達三倍",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNX0hjSFVqUTZIUTVKLXVENUplR21EZXFXaWVhWGZ5OXkzMUpUSVVCNnBaOXM0SUM5U0d0T0FHTjdPckd1R1ZLQ3hwVXZ4eWktLU9XcnJqYzRrSkg0NW93RS0wVzRKQ1lYbnlQRHN0b1R3US1DNV9vOFZYN3VvOHF3bUlQSWl6UURSTFNv?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-18T01:48:02+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "矽品與輝達簽署數十億美元協議，擴建臺灣先進封裝產能達三倍",
+      "snippet_zh": ""
+    },
+    {
+      "id": "86dc9559ac12da2d",
+      "title": "輝達砸數十億美元攜手矽品擴產先進封裝 2029年產能增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE12RWJCcHFTU25PNjBLU2o1OFR5YW5OcVp3clRJMVIyZ2J4aEtJdWRKWW8xcnhZdjBENzd3Z2RTdlc1dXRRR1FQRTB1NVlBVzZm0gFWQVVfeXFMT2ptcU9YRjExakJpMjhYZ3otUDc5NDc2cHIydjh2cnU3dWlBUlhpTko4MTZZdEFCRXh6d3B4ZHY5WUJ4c1I1cmRGVGZNMUN4eDd1dXJGc0E?oc=5",
+      "source": "UDN",
+      "published": "2026-11-18T01:47:35+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "57851e6dba549d6b",
+      "title": "矽品：與輝達簽多年擴產計畫 AI先進封裝增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9rTVdjdVU5a2RsMzRCcmdfYWNYc1YySHdnanMwaWxLdlNBdVV2b1c5cDBzc0N5WGdKbkx4bkFYYXZPVEpNR1JwbXdTNW0wSDlR?oc=5",
+      "source": "UDN",
+      "published": "2026-11-18T01:39:44+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "516979938aeb1dc9",
+      "title": "矽品吃下輝達大單！總額達數十億美元 在台擴大先進封裝產能",
+      "link": "https://news.google.com/rss/articles/CBMijgNBVV95cUxQV0NvQVpYcG1MQ3hZSHVNTm9PQ0JPT1VVc2ljRDVKN1RhYXpQNmRvalJsSlVERjFndjE4UTYzUzVpSlRMVkcwN2RRSVNNa0VZYUx1TEc4Q18xQ0dTZS1ZNnRsUzVqc1FrTlM3S2R1R0VGeDRKZThtbkhTbFpnQnprMG5qZ3N1c3F2dUFwWE90djRLbVFiNHMxQ1NMQ3pDMFJqTXRSNkgxZmRUVzJRV2N0aGQ0OEtCMFJvVmY3UnZTRkdmWlJlQUZQRWZQTjlQdVMyYTE4NjJkYXFSbzlQSmtGc0ZjS2NkSkw4VTlxWm80SzgzOFhZbzdFcEdtNHBGcHNBd3hYdWh1NUtpWkZDM3hveEo3SEFFaWwzTlFnSDRMaWJneGNUcHJ3SFlOYWRGSDNyU2tIN2pKM0hVUGY5LU85TEdpLWN2aXZSclk3MFN3MkdlX0VCYlI4TXppRkpySWhRcWxETm5XaGN3eWRwM3BWLXRSMDVzbDlvTUx0dDNsdng0b0RwcHktZlpiWGV4dw?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-11-18T01:36:58+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "矽品吃下輝達大單！總額達數十億美元 在臺擴大先進封裝產能",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dd97ae00fa3c345a",
+      "title": "輝達、矽品宣布多年期合作擴產計畫！台灣先進封裝產能將提高3倍",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9iY2FpUm04RDZqcGtNSzh4WnFOR0VWdGp0Z2lRY1RMZnhtWVlET3JLNU0yblp0WUZaWUp3RjY0aFRGdkZtMzlPR2JvdlByeDQ?oc=5",
+      "source": "TVBS新聞網",
+      "published": "2026-11-18T01:28:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "輝達、矽品宣佈多年期合作擴產計畫！臺灣先進封裝產能將提高3倍",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d19401bf45e64265",
+      "title": "《半導體》矽品獲輝達數十億美元大單 先進封裝產能拚2029倍增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPamRIcWU1OGJ3OUU0NTlJRC12bkRwN0QwQkx2eUpZWGVyemlUSm51T0RqaDdDSGxvMER4RGtVQlhzRklFSFd4Skw5eU1RNFVWYzNVbHFxZGd4TU5Wd1E2aFlOZ2F4X0haaThDazI4MU5IV0NrT0pQa2lIVS1GUl9kMXJNOXhSNmRJ?oc=5",
+      "source": "富聯網",
+      "published": "2026-11-18T01:25:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c31e9dc13c28c3e2",
+      "title": "矽品攜手輝達擴大先進封裝產能 2029年中前大增至目前的3倍",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5IaDhGbEJZRXVSa0dBMUZTLTZXcHNYOFVXeE5LeWpEVWhQTmwyLVNlTlhUaGFrWTZsQkZ3UjJ0WHdFU2ZNeVhTbGIzZk1DUS04ZktzRDdoTm1nZlZtNm9V0gFkQVVfeXFMTzV5UkNBbl8tckR3Nms1cktMcW5jby02bTRTTmRpWl9EemNnRTVtbmg2TEN5ekRSTDFsb0g4ekZTS2ZYSC10cDlUNG1lWlRTb1JwSVJKc0hBaGNqaEY1NmtwLVE4bA?oc=5",
+      "source": "自由財經",
+      "published": "2026-11-18T01:21:51+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9196e08483c9d73a",
+      "title": "矽品攜輝達簽數十億美元協議 台灣先進封裝產能2029年中擴至3倍",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9yOWNPV3FfZXVTRDE4Xzl0VGNreFhnMjJWNzRKM2JKZ2pPdUhRR2pab0piWXZlX2pwZ3JfMzJFOG9WMmtqdS1GNnQ5UGZJTjN4LVQ4a2swM0NTZ9IBX0FVX3lxTE9OOTlhS3RVVTZaNm42bGc2RFdCRlk2ak1pVGhtb2VLRHUtWkVUQlRWQl93Z0FGNlBrb3lIRWgwX0lXb005ZjMtdDV3TDNqNHVRcnlLa0QtQ3U2NXZTYVNF?oc=5",
+      "source": "經濟日報",
+      "published": "2026-11-18T01:10:06+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "矽品攜輝達簽數十億美元協議 臺灣先進封裝產能2029年中擴至3倍",
+      "snippet_zh": ""
+    },
+    {
+      "id": "590f3c4c47141f46",
+      "title": "輝達攜矽品擴大產能 2029年先進封裝拚增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVFFoTjdLMHhnQ0x3R09qQ013NGdESHhIOGxkX3Q3WVFNQTFCWTBEUVp4YXR3T2Jwbklzdk1UYWR2SVYzLTdKSTBYaGhzUW5SRlo5cnNhWGd1RnNpUUNscktHTGlmd0piWHNwYVMtTmRHZTRZek9BSmpnUmxuenRlYm1yd09OVU1FcmNIRkZ0Rk5ZZw?oc=5",
+      "source": "MoneyDJ",
+      "published": "2026-11-18T01:06:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cd6c8d7dad5e4214",
+      "title": "輝達先進封裝大單力挺 矽品2029年產能擴大3倍",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE93dEsxZFNpeW9sbkZ2eGdFaDZlQ18wYmxWY0s5b3NtdVpfRjJvWnZCSlY0X1g0a2VTQ2hJTVZ0c29ZNkJBRU5oaEkwUVhIRE5ocGlkclI1Q0M0VmhqbS1wMHJpUdIBaEFVX3lxTE1ONHp6dE1ZMTJQRWVuREVnOWNOMWh0ZnR4X2g5ckV4V2k5Z2x1bWxobHIzbGpsZ0doR2trclRydVRpQllRLTh5NTFSSWdjTThwX1kydHhBVDFpTU11My1sWmk4OEhDRG1y?oc=5",
+      "source": "鏡週刊Mirror Media",
+      "published": "2026-11-18T01:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "362e5508aa935463",
+      "title": "輝達擴大供應鏈合作矽品入列 2029年先進封裝拚增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1vekV2M3RIR3o3R2ZUMmFGR3pDVXBVWVpVamZqTzk5ZlRZZmZNRnRQUGhTbF9DNUU4cWp0RDZnMU5hV0dxTVVxcmQtY2EzQVV4RHhjT2o3ZHluMDJHenU0a3h0ZW1HMGI1RnRMREV3?oc=5",
+      "source": "中時新聞網",
+      "published": "2026-11-18T02:36:14+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "884564a6e937ea1e",
+      "title": "UBS Adjusts JX Advanced Metals' Price Target to 2,300 Yen",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxONGZ4T0ZkWms4UkdmSU9waDZxQkRTWmNXWjdQbTJUZ3c2RGFpajlTUll5aG53SVJZdXRiU2NKcDUyRmJQYUFDTmNjb2lfNUlPSGQ1UW5nWjY4NlpkMzFaaWItSm1LV2lGQ2h3NTdQTGVpMy1zUVZUZjFDNVVNcEpyQmpSa3piVVpVNXN0MTFGaUFjOVNNY0dYX3FlSkFlbHRkRmxaSXBSamVzN1FoM2c?oc=5",
+      "source": "www.marketscreener.com",
+      "published": "2026-11-18T01:10:13+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.79,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b6ffdf7028a59a39",
+      "title": "Goldman Sachs Cuts Gold Price Forecast for Second Time This Month to $4,650; Bank of Korea Bucked the Trend by Raising Its Gold ETF Stake by More Than 40%",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1vaThUeW1uN1JQMGlzZGxqRm1GSm05VkZnVzJ6LXFpcGhxQXZOcXhEQklKRHhzWFk4b3JsM2JYX0ZQNVFkTldmamxFcFRBN3ZmandYSF9nMGtVUWFFVjZrQ0dFMzFvRVRvdUhoSlN6TWZGQXlYNlE?oc=5",
+      "source": "BigGo Finance",
+      "published": "2026-11-18T02:25:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e096f1734d9ae6d8",
+      "title": "記憶體雙雄「這檔」參戰確認！00913成分股3進3出小震動 光洋科與「探針卡巨頭」被下車",
+      "link": "https://news.google.com/rss/articles/CBMi_gJBVV95cUxNamg5c1ROeFRQMzZLZUMxd3REUmdIUzExRm5PLUJsWDFqcTNNOHlwbkZOUURuUUR2TFphUDBhUU9XRGZ5V1lFelJHVnlmbkYxeVZXTGEyaTdyczd3dmtqUUdOT0lFTVh2WDNsT1AtN3d3T3pvY1NlOTNySkdzcm1HdExyZWZxSlhkS0FFU2ItcmN3eUxNcEU0S3lTWTFJaEJoQVB2N0VFWFVJWGQ1d1BXYk9GeGlnc3gtR29QSTZ4dXRsMnpQcENKSkU2dDdGLXAxQ2Y0YUFfYkE1emtaN3J5NDBCS3dBMEpqNzI4czg3TXZ3bW5mZ2VrbGF1MXYwbkVHYzRPS2ZXeUJlMU5GNjZfRkhFb0ZkWFJxQVFVVTdFLWI1b19OMmRPaTZ6cFVnZ3lvR1VKR2djbmRmMlZ3akpTRzZlaUpwM3dOWldTRDJWMFJwX2RIYzZybkdoQmgxVVVSWV9RRXI3RVVTRll1ekE2Nkk3WjhqcnFRakJyRXNB?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-11-18T00:53:47+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7213127c87ed37ea",
+      "title": "Silver Is Paying for a Rate Rise That Has Not Happened Yet",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOYmdkYll2RUhlZGpJVndiMmZVTXRvQnR0OFg0cUVOTERXMzhxRDlPNklZZUJuU2hpRUkyTnRWdktOcVVvTFNRckhyRm1YRWlrWVFpTEJDSkZYbzFNc05qd2RyZ2xnQVBhcXpqVFFoLUYzVnVDeDdUZmRHeDBuNWRBalltUVEteXZTcWhHWDhxNTBja0ZQeFd3Q19kSE9xeVM0dDBpLXFZOVpxRWU4NkE?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-18T02:47:24+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "85a22e75e9da6ddb",
+      "title": "基于靶面磁通密度与高斯沉积核的磁控溅射膜厚分布标定预测方法",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE81eG5RQkMxN05GbnlhaFZpMlp3aTUxa3pVMG1tZE9hRVpCclNYMlV5ek5ZdzZjeDdpdUkzeF9nZ0tNRHZhYXpGbzhnT1Q5eU1xeDBpTkNMcWNFYXhmc2JiRHNPZ1NEb3Y2bUgzbW1R?oc=5",
+      "source": "生物通",
+      "published": "2026-11-18T00:42:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "設備綜合:溅射设备"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "基於靶面磁通密度與高斯沉積核的磁控濺射膜厚分佈標定預測方法",
+      "snippet_zh": ""
+    },
+    {
+      "id": "66e2a8283a668939",
+      "title": "日月光高雄路竹廠一期啟用、二期動土 千億布局擴大先進封裝量能",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1sOTVrQXNzRVRQa0NPQXJUN1dHVllsNGMwZEJOZWZ1Z1IyMndIOUNqT25QcTVHTjJJaUg1QmhfLTY1MENlN1MzbE4tWVhxN00?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-13T06:00:14+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "日月光高雄路竹廠一期啟用、二期動土 千億佈局擴大先進封裝量能",
+      "snippet_zh": ""
+    },
+    {
+      "id": "12fcbe12578fcdf8",
+      "title": "Sputtering Targets - Global Market Analysis and Forecast 2026-2036 | AI Chips, Advanced Fabs, and Supply Localization Drive 6.8% CAGR",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYURJQUYyTmE2UTJZRjRZcnBBZmh3OEpwSG1aTWFYU2xpcTZ2WjFpdFB3aEpsdHlFUjQ2ZG1Wa01QcFlCcFc2RHNfYmxZci00ekJCLVNBS3FyYzE2czBLQ2hiWG1Yd1puZllnY3FhNVYtTVZrWHZVZkloUG9lRVdYem04bjh4RkVWZlJvZ0ctY2pGVGdo?oc=5",
+      "source": "Yahoo Finance UK",
+      "published": "2026-11-16T14:13:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "產業綜合:Sputtering Target"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.28,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "4f860f45f4be620d",
       "title": "台積電、鴻海入列！輝達擴大合作 矽品、景碩大擴產",
@@ -1038,44 +1570,72 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3844.1,
-      "prev": 3853.0,
+      "price": 3801.6,
+      "prev": 3864.2,
       "date": "2026-11-18",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.23
+      "change_pct": -1.62
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 47.22,
-      "prev": 46.78,
+      "price": 46.04,
+      "prev": 47.29,
       "date": "2026-11-18",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.94
+      "change_pct": -2.64
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1423.8,
-      "prev": 1448.0,
+      "price": 1406.0,
+      "prev": 1426.2,
       "date": "2026-11-18",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.67
+      "change_pct": -1.42
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 967.5,
-      "prev": 971.8,
+      "price": 952.5,
+      "prev": 974.6,
       "date": "2026-11-18",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -0.44
+      "change_pct": -2.27
     }
   ],
-  "papers": [],
+  "papers": [
+    {
+      "id": "p-bef5671659d85482",
+      "title": "Effect of Nb2O5-TiO2 Co-doping on the Properties of ITO Targets",
+      "link": "https://doi.org/10.21203/rs.3.rs-11533697/v1",
+      "published": "2026-11-16T00:00:00+00:00",
+      "venue": "Research Square",
+      "authors": [
+        "Yuwen Pang",
+        "Yi Zhong",
+        "ZHU Guisheng",
+        "Shenfeng Long",
+        "JIANG Xupeng",
+        "Huarui Xu"
+      ],
+      "abstract": "Abstract With the development of high-performance high-end display devices and the iterative upgrading of photovoltaic cells, higher requirements have been imposed on ITO targets. The preparation technology for ITO targets with high carrier mobility has therefore become a research focus in related fields. Conventional ITO targets have relatively low carrier mobility (30–40 cm²·V⁻¹·s⁻¹), making it difficult to meet the performance requirements of transparent conductive oxide targets for the next generation of high-end displays and photovoltaic devices. In this study, 0.1 wt% Nb 2 O 5 and 0.1 wt% TiO 2 were co-doped into an indium tin oxide powder (In₂O₃:SnO₂ = 9:1, wt%). After die pressing and cold isostatic pressing, ITO green bodies were prepared and sintered in an oxygen atmosphere at 1450°C for 6 h, yielding an ITO target with a relative density of 99.54%, a resistivity of 1.940×10⁻⁴ Ω·cm, and a carrier mobility of 57.4 cm 2 ·V − 1 ·s − 1 . The results showed that an appropriate amount of Nb 2 O 5 -TiO 2 co-doping could improve the carrier mobility of ITO targets. In addition, Nb 2 O 5 -TiO 2 co-doping could reduce the sintering temperature of the ITO target from 1550°C to 1450°C. This study achieved the preparation of an ITO target with high density and high mobility while reducing the sintering temperature, providing a reference for the development of low-temperature sintering processes for high-performance ITO transparent conductive targets and for research on TCO materials for high-end displays and photovoltaic devices.",
+      "doi": "10.21203/rs.3.rs-11533697/v1",
+      "source": "OpenAlex",
+      "topics": [
+        "粉末冶金與燒結",
+        "陶瓷與氧化物靶"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "core"
+    }
+  ],
   "research_days": 30
 }
