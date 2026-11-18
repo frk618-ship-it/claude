@@ -30,14 +30,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "擴產與投資",
-        "營收與財報"
+        "營收與財報",
+        "擴產與投資"
       ],
       "score": 5.32,
-      "summary": "",
-      "importance": 0,
+      "summary": "日本股市直播節目,提及 JX金屬等多家公司財報速報,屬投資影音內容,資訊有限。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "【直播】〈財報速報〉JX金屬、軟銀集團、任天堂、NTT/日經指數下跌/股票投資最新資訊",
       "snippet_zh": ""
     },
     {
@@ -56,9 +56,9 @@
         "技術與新產品"
       ],
       "score": 5.3,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光砸 1,237 億元擴產帶動擴產潮,技術員職缺年增 35%,大廠開出年薪 80 萬元搶人;封裝擴產將帶動 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:日月光擴產先進封裝",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -77,8 +77,8 @@
         "擴產與投資"
       ],
       "score": 4.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光砸 1,237 億元擴產,科技業缺工延燒至產線基層,職缺年增 35%,為同一事件的報導。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -95,12 +95,13 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "SK 海力士今年前三季資本支出達 31.216 兆韓元,記憶體擴產帶動 PVD 機台與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:SK 海力士資本支出創新高",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -116,13 +117,14 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.99,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "台積電供應商江豐電子尋求募資,推進晶片製造零部件業務;赴港上市資金將支撐其靶材與零部件擴產。",
+      "importance": 4,
+      "reason": "競爭格局:江豐電子募資擴充業務",
+      "title_zh": "台積電供應商江豐電子募資,進軍晶片製造零部件",
       "snippet_zh": ""
     },
     {
@@ -140,8 +142,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星 8 吋晶圓廠退場倒數,聯電、頎邦可望迎來轉單,2027 年 DDIC 供應鏈將洗牌;產能移轉影響相關廠的 PVD 與靶材採購。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -161,9 +163,9 @@
         "客戶與供應鏈"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日本 JX金屬打入台灣次世代封裝供應鏈,有助擴大其在台灣先進封裝材料的市占。",
+      "importance": 4,
+      "reason": "競爭格局:JX金屬打入台灣先進封裝",
       "title_zh": "日本JX金屬攻入臺灣次世代封裝供應鏈",
       "snippet_zh": ""
     },
@@ -179,11 +181,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "營收與財報"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子招股書顯示,報告期內核心供應商同創普潤貢獻其逾五成營收,供應鏈集中度受關注。",
+      "importance": 3,
       "reason": "",
       "title_zh": "江豐電子遞表港交所：報告期內為核心供應商同創普潤貢獻超五成營收",
       "snippet_zh": ""
@@ -200,13 +203,14 @@
         "產業綜合:스퍼터링 타겟"
       ],
       "categories": [
+        "技術與新產品",
         "擴產與投資"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "韓文版市場報告:半導體與顯示器設備投資推動濺鍍設備陰極市場需求至 2035 年加速成長。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "濺鍍設備陰極市場 2035 年展望:半導體與顯示器設備投資推動需求加速",
       "snippet_zh": ""
     },
     {
@@ -221,13 +225,14 @@
         "設備綜合:スパッタ装置"
       ],
       "categories": [
+        "技術與新產品",
         "擴產與投資"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "日文版市場報告:半導體與顯示器投資推動濺鍍設備用陰極市場需求至 2035 年加速成長。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "濺鍍設備用陰極市場 2035 年展望:半導體與顯示器投資推動需求加速",
       "snippet_zh": ""
     },
     {
@@ -245,10 +250,10 @@
         "客戶與供應鏈"
       ],
       "score": 3.86,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "精材取得台積電 CoWoS 後段外包訂單,並以 150 億元新台幣可轉債押注 2029 年量產,先進封裝產能擴大。",
+      "importance": 4,
+      "reason": "靶材需求:先進封裝產能擴大",
+      "title_zh": "精材拿下台積電 CoWoS 後段外包訂單,以 150 億元可轉債押注 2029 年量產",
       "snippet_zh": ""
     },
     {
@@ -266,8 +271,8 @@
         "營收與財報"
       ],
       "score": 3.84,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬(JXAMY)預定於 11 月 9 日公布業績,屬財報行事曆資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -287,8 +292,8 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價守住 3,850 美元關鍵支撐,美國 10 月零售銷售數據或推動金價反彈至 4,000 美元。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -308,10 +313,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "英文版金價預測:金價守住 3,850 美元支撐,美國 10 月零售銷售或帶動反彈至 4,000 美元。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:守住 3,850 美元關鍵支撐,美國 10 月零售銷售或推動反彈至 4,000 美元",
       "snippet_zh": ""
     },
     {
@@ -329,10 +334,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀價格在大跌後出現回穩跡象;銀價走勢影響銀靶原料成本。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "白銀大跌後出現回穩跡象",
       "snippet_zh": ""
     },
     {
@@ -350,10 +355,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "高盛將 Bellevue Gold 目標價調整為 1.85 澳元,屬金礦股評等,與靶材關聯薄弱。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "高盛將 Bellevue Gold 目標價調整為 1.85 澳元",
       "snippet_zh": ""
     },
     {
@@ -371,10 +376,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯準會升息預期與地緣政治不確定性下,金價仍顯疲弱,屬市場預測。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:升息預期與地緣不確定性下,XAU/USD 仍顯脆弱",
       "snippet_zh": ""
     },
     {
@@ -389,11 +394,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "主力資金流入前 20 名中,有研新材流入 13.02 億元,屬個股資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "主力資金流入前20：有研新材流入13.02億元、寒武紀流入9.87億元",
       "snippet_zh": ""
@@ -410,11 +416,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 13 日融券賣出 3.73 萬股,融資融券餘額 9.57 億元,屬個股資金面資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材：11月13日融券賣出3.73萬股，融資融券餘額9.57億元",
       "snippet_zh": ""
@@ -431,11 +438,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.81,
-      "summary": "",
-      "importance": 0,
+      "summary": "個股早盤操作評論,提及有研新材,未提供具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11.16早評：鄭州煤電 有研新材 金安國際今天操作思路",
       "snippet_zh": ""
@@ -452,13 +460,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.76,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬(7826.JP)的社群貼文,未提供具體內容。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬(7826.JP)",
       "snippet_zh": ""
     },
     {
@@ -473,13 +482,14 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.56,
-      "summary": "",
-      "importance": 0,
+      "summary": "Smartkarma 發布江豐電子港股 IPO 資料彙編,屬投資研究資料。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "IPO 資料彙編:江豐電子(300666 HK)- 2026 年 11 月",
       "snippet_zh": ""
     },
     {
@@ -494,11 +504,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指政府債務與財政主導將支撐黃金長期多頭行情,屬市場評論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -515,11 +526,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "個股盤後複盤文章,提及有研新材等多檔股票,未提供與靶材相關的具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11.13覆盤：永鼎股份，金安國紀，掌閱科技，有研新材，粵傳媒",
       "snippet_zh": ""
@@ -536,11 +548,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "個股早盤操作評論,提及有研新材,未提供具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11.13早評：鄭州煤電和有研新材今天操作思路",
       "snippet_zh": ""
@@ -557,11 +570,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材的早盤評論,標題未提供具體內容。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11月13老朱早評：有研新材",
       "snippet_zh": ""
@@ -578,13 +592,14 @@
         "Singulus Technologies"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.16,
-      "summary": "",
-      "importance": 0,
+      "summary": "Singulus Technologies 簽訂逾 6,000 萬歐元的 SpaceX 合約,為先前訂單的轉載。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus Technologies(SNG)簽訂逾 6,000 萬歐元 SpaceX 合約",
       "snippet_zh": ""
     },
     {
