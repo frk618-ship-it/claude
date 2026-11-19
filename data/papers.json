@@ -17,12 +17,12 @@
   "doi": "10.21203/rs.3.rs-11533697/v1",
   "source": "OpenAlex",
   "topics": [
-   "粉末冶金與燒結",
-   "陶瓷與氧化物靶"
+   "陶瓷與氧化物靶",
+   "粉末冶金與燒結"
   ],
-  "summary": "",
-  "importance": 0,
-  "title_zh": "",
+  "summary": "在 ITO 粉末中共摻 0.1 wt% Nb2O5 與 0.1 wt% TiO2,經模壓與冷均壓後於氧氣氛 1450°C 燒結 6 小時,得到相對密度 99.54%、電阻率 1.940×10⁻⁴ Ω·cm、載子遷移率 57.4 cm²/V·s 的靶材,並將燒結溫度由 1550°C 降至 1450°C。",
+  "importance": 5,
+  "title_zh": "Nb2O5-TiO2 共摻雜對 ITO 靶材特性的影響",
   "abstract_zh": "",
   "tier": "core",
   "collected": "2026-11-18"
