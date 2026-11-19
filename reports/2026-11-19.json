@@ -1,0 +1,848 @@
+{
+  "generated": "2026-11-19T08:29:08.937239+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期蒐集 37 則,其中新聞與公司公告 23 則;報導最多的是 江豐電子(5 則)、矽品(4 則)、有研新材(3 則)、日月光投控(2 則)。依主題:產業動態 14 則、擴產與投資 6 則、客戶與供應鏈 2 則、技術與新產品 1 則。",
+    "key_trends": [
+      "產業動態(14 則):旭化成とフルヤ金屬など、貴金屬の再生から電極製造まで情報連攜",
+      "擴產與投資(6 則):電子行業定增募資額居首 中芯國際等六家超百億元 A股年內定增超5000億元 擴產、補流、整合成主線",
+      "客戶與供應鏈(2 則):搶攻無人化晶圓廠，三星、SK 海力士、美光聯手製定機器人充電標準",
+      "技術與新產品(1 則):臺積電米玉傑、南亞科李培瑛都來了！科林研發竹南擴建研發重鎮"
+    ],
+    "watch_points": [
+      "臺積電米玉傑、南亞科李培瑛都來了！科林研發竹南擴建研發重鎮(壹蘋新聞網)",
+      "電子行業定增募資額居首 中芯國際等六家超百億元 A股年內定增超5000億元 擴產、補流、整合成主線(中国经济网)",
+      "輝達出資支持矽品擴產，日月光的現金壓力會減輕嗎？(口袋證券)"
+    ],
+    "source": "auto"
+  },
+  "items": [
+    {
+      "id": "528cc679d0d096a7",
+      "title": "台積電米玉傑、南亞科李培瑛都來了！科林研發竹南擴建研發重鎮",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUGVjMTQ4Y3BBSEg0SGIxY2ZtQkVEX1pXWGdraGU4a01PdFA2NlY1VXZLZURzb2xERGxfR1BnUUR4Mi1XeWRGeWpYWDFWNjY0cTZ5dXpoNmtIeVZxWExUbGZVR1paUHd2Wjd4bFlOMmZaT3NsdVBINVpHTzdPVGdFaFhR?oc=5",
+      "source": "壹蘋新聞網",
+      "published": "2026-11-18T03:03:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)",
+        "南亞科 (Nanya Technology)"
+      ],
+      "categories": [
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 5.67,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電米玉傑、南亞科李培瑛都來了！科林研發竹南擴建研發重鎮",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5cbb532c3f2690ec",
+      "title": "电子行业定增募资额居首 中芯国际等六家超百亿元 A股年内定增超5000亿元 扩产、补流、整合成主线",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1BZVNFUFB0ZmJUMGN4TllEWGwydXpJYTJ6azBvMVotQW1nRzZJemtRa2Q0T1JMcDV1WVF6YnlESzhKTV83LUVkR1VBZ1ZKclFzQm9ZYkF3SUxiWGVmX19mWjZFM2lZTk9SNkd2eTRaU0tjUQ?oc=5",
+      "source": "中国经济网",
+      "published": "2026-11-18T23:14:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "中芯國際 (SMIC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "電子行業定增募資額居首 中芯國際等六家超百億元 A股年內定增超5000億元 擴產、補流、整合成主線",
+      "snippet_zh": ""
+    },
+    {
+      "id": "51cbf50a2e47a0c3",
+      "title": "輝達出資支持矽品擴產，日月光的現金壓力會減輕嗎？",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1lSTdELU9sQWtIYXB5cC15OEhWQ3d4V1FaM0ItUWNVaFZzZFFrdnEwWTFYWFdhN1JXVjZoeEIyTmZZeVAxUHlBOFZjNTNDUXZsYzljbkUyY1pJbkxfejl3X1pvZ1gxUQ?oc=5",
+      "source": "口袋證券",
+      "published": "2026-11-18T06:47:43+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)",
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 5.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3b5523b52be45b67",
+      "title": "輝達AI晶片供應鏈再升級！矽品擴建封裝產線 拚2029年產能增3倍 | 產業動態 | 財經",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5zcXhlcDlWa2d3MWREenBadDlZSlBERnpqR2pyVnNDMUZBYXZQT2lUeTZnYVh3bm9nYmJpckxhR0kyUGs1NUJvbGRuMjU?oc=5",
+      "source": "NOWnews今日新聞",
+      "published": "2026-11-18T04:34:44+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "61e8fb4e89a68c4a",
+      "title": "欧莱新材：11月17日召开业绩说明会，投资者参与",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1GUG5zWVJEczNWYksweERhWURSamhMcU8zNWxRN2RPejhDR2JfNmdmU1F5OEVUVDlNc0EtWWVpOTJFU0h6T1BQMkM1aUgtdFdIaWczTkJCbEt0c3E1UnEwNGpB?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-17T11:01:35+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.28,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材：11月17日召開業績說明會，投資者參與",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c1909e6dcc6190b4",
+      "title": "熱門股／輝達攜手擴產！京元電子強攻漲停、日月光漲逾8%",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1qU3Zzdl93d0lEVjVJV2FoTGExTmNXclhnT2c0UWVsNXB0WXhNekdnbk5odVRXRTZ1NHlqNTJqU2pkZmdCRmc0eXd2azNEQXJrU1VORHVXb213UzN3UnlJeg?oc=5",
+      "source": "非凡新聞台",
+      "published": "2026-11-18T15:23:28+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.45,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b050d7284982a32d",
+      "title": "AI擴產不只靠晶圓！輝達攜矽品先進封裝產能拚3倍，景碩擴建ABF載板，布局看到2029年",
+      "link": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxOT1ItaFV6Q09zRlUyZVJQaEhfZ0hxLU5qczlxWFhlT1dvVkJfRUtwcTAzeUJnQ2tqQnZCUk14VkZHUUZOQjN2WjM4Snk1OWRsOFhUNDNheU5FVWJOYkhsTXhwVGhLTnRfYmNmZjRCUmpMNG5TWThMczBkVVhENC1HM1NRVmtsZkdrdDNzUjBzZmgtV3hSZ21uYVdDTGNobkNhV0NERzNtSTFOank4ZURWdmFtWmpxZy1RRFdQZEpRenBFeF9QWldrd0FnWXhMdEJkZzZobXExd2VTcG5vOVBIMjY1LXkzRzNObmVTdG04OVpFNnRDWUtCX2JlYjNmYVVZb3Jfak1Fa2U3OC1xWXBtcEp3eGNVbWhqTThJZVpZbjJiRENUb3FnYTJUTEVKTmxIME1vd0F4QURzS3JNYmRiU3FKN1pvclpBbmZmblE0Z1lUQVJqRzVuV0lpQ3NUcWpCazlrOVA0YVhYMzhhb1lIenFXb3RiUzhkV3hWNHZhMTdfeXhkUVh6b0FYaUxIWEp4Z3hNY09jaXNTZDd2ZDFWX18zOTlNOHdhYmRIZ2MtcER2bmtWeUZ3RVQ1SndDaHBEOWp5YktfS0cxWjRIcXhGWVcwWFlnT1BS?oc=5",
+      "source": "Yahoo新聞",
+      "published": "2026-11-18T06:02:42+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "AI擴產不只靠晶圓！輝達攜矽品先進封裝產能拚3倍，景碩擴建ABF載板，佈局看到2029年",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4f90cb356761fd67",
+      "title": "NVIDIA、矽品簽數十億美元協議 2029先進封裝產能增至3倍",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE81TEROS3Fvb2hweWp0QkpnT3VLN194Vkplc3E5ZG9jVjFHc0dHYXZ3amlMZGhjNTZGWW1VaGtvMjZjcHZLcUVrb2RrY3BEWHZ1SVg1V05vQTl0TEIyYTdLcHVOT215VDZ5Q2JB?oc=5",
+      "source": "DIGITIMES",
+      "published": "2026-11-18T03:40:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9e36e6f1c3d828b1",
+      "title": "搶攻無人化晶圓廠，三星、SK 海力士、美光聯手制定機器人充電標準",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZm9BSTJZVE81LWtON3VnMzM3UkZBWU53NkhKY1hmQmdIRzBpak53SXJaOW5JNzFuM21tUXVRc3pRSmVyZHBBY2pnNld2UkF2a0t4cWVPOFpnUzhxdTZSMEdwTGRSUW1NdXFEcURDcGd1akJMWEVldmtsV09LUWxHS2J2RndPdw?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-18T06:56:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "搶攻無人化晶圓廠，三星、SK 海力士、美光聯手製定機器人充電標準",
+      "snippet_zh": ""
+    },
+    {
+      "id": "10654302f9c60980",
+      "title": "三星電子高管：在敲定股東回報方案細節前，仍有包括資本支出在內的諸多事項需要考慮。",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSldlVjM0d2x5R2tKdDl3dUFuQi1JaWdaQ1haTFFJckdzVEFDVHZGSmptMlVyY1BERkZGUzZLWllaWlhuMk9mVkJpaTk0aTQ0R1JCeUM0dFhTLU80ZkhmX0F5N0lrMTVfREd0TUFaVl9iOVctd1F3N3Btd3lKblluT2YwWFp5OGgtejJDN1F3cVEwYlFEZ0lBRFczby00RFRQXzBQR1o4Nk5BSmtnSXE1Z2dZSEtCX0hidV9uNVZyRnROWWs?oc=5",
+      "source": "富途牛牛",
+      "published": "2026-11-18T05:29:15+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "三星電子 (Samsung Electronics)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7cbcfd4eb3aa2283",
+      "title": "1785 光洋科- 台積電供應商？！ - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAxSTFlMkNLd0E3VG5uOWxxZUl2T200b2E4a2syYkR2Sk05ck5DSzJyLWlrUkRYU0RYQk9wM0tnTU5EWkg1RmZmN09CUE5hVEN6aGlkT0s0ZXA?oc=5",
+      "source": "CMoney",
+      "published": "2026-11-17T23:52:34+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.85,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "1785 光洋科- 臺積電供應商？！ - 股市爆料同學會",
+      "snippet_zh": ""
+    },
+    {
+      "id": "495d6196ed1c436f",
+      "title": "Central banks rethink gold: OMFIF 2026 reserve trends and price risks for miners",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNbzdTMFJMaWdBeGhzRlAxbWJUODR2V3BRN1ZsNFJjVmpvVlhtUGxQYjVISmZkbDZ4am1EVHdVemRTQXFRQWtrY0d5c1ZiNjVXbXhGQnlxN3ZRN1Qxa19mRm9tODZaVzlPcnpLcW5aYVQ2UTZYdFpmYy1TVEt0THBSM3pBb3RKcGl5YTZUamthdWVKY011LUFST3dSR1dUWDFJTGcyWndZQUhxMkpTQ0VMMGdvaURKRVY2cGNScw?oc=5",
+      "source": "Geomechanics.io",
+      "published": "2026-11-19T00:02:36+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cf1b629cc252f4c9",
+      "title": "聯儲局會議紀要「放鷹」 原油、貴金屬價格顯著下跌 | 環球市場",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOU1lGLVZPUUtkMDhQOXgxdmFPaHJlY05tdG1EWUVYVHhtSVoxNmRWZUtsY0NJSFNPYU9MWXVlR3NlXzh2b2hmSXFNeEV2Z3Z4a2IwLURoT1ktM0ZjclFUcEoxSUZJdi1sV1N3WDYweDZMX0ZBODZwT09OcFN0ZDhhbnN5clUySm8xTFMxRDBWYzRxRVRYSjQwS2MxZ0ExQTAwRGY3MkVFVDNEVS1ZT3JV?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-18T23:20:31+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "69376f66c5caa356",
+      "title": "金價近一年半新低！黃金價格失守3,800美元關卡，空頭壓境恐下探3,500美元",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObTliMUVRbjJTVnFkSk0weHgwS2FtRl9vMWpWNXkwZEtfbzZwalIxbHJ3Q2hJZUZPZXdlRmZPTWVSLUVVUzNXUDlIZXI2MFlMX09td25lS21TM3JBcG5ndUMwc0hjNkppUk1ob0tfMkZubzNpdWVqaDZwTF9RQ19yTHhkQ01wVF9sRUFnMjZfVHA0Q05nYlBwNWZ1YTBVQjFvZ1FqQzRld0VUSmRMQXdWRGlkdmxwdk5SUE5OQVl3aUJ3QTFGeHNpSg?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-18T06:31:07+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.19,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d29147a9364a595a",
+      "title": "旭化成とフルヤ金属など、貴金属の再生から電極製造まで情報連携",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1uOTJ0RS0yRTFjQXhfR0hsbjVhb0JUMldfalNxZ01GMFFZSV8tQkFkSGlNXy1JMGFQa05zVmowVk9jc1EydVptWjlBcGJic0ZvYWJsQ2pNM3ZjYWYx?oc=5",
+      "source": "日経クロステック",
+      "published": "2026-11-18T20:00:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.97,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b2cd1699c8295a91",
+      "title": "3 Reasons Why Growth Investors Shouldn't Overlook Materion (MTRN)",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHYzVFhJbGpJYzctUU1HZk1LQS1UVWlUSmdEN1FIc0tnWlR3TFMwSVN1c0dEeC1vMV8xOHlTeDNWWUhySldrR05IOWY4Q05wbUNVaEFVYm9hREJFVmNVTVBheVFZSl9YeGE3Sm5qOXdnWUlBWGdxWTk3LWVxVHNXenhuVWRpNHY1S3JnM1ExbFV0ZGpZVDFFRHpFSQ?oc=5",
+      "source": "Yahoo Finance",
+      "published": "2026-11-18T16:45:03+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "89c546cb287eff86",
+      "title": "11.18盘后持仓分析：华胜天成、有研新材、九阳股份、北鼎股份",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0xanFFUFN2TDkwQjBvXzE2Q1N6Ym14Z3VVMXQtQWc2bXZyY1EweFgtaVIyd0w3STdGcjVVR01aMUxrLXlBcjlCblNtNVdnQQ?oc=5",
+      "source": "虎扑",
+      "published": "2026-11-18T15:16:59+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.95,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11.18盤後持倉分析：華勝天成、有研新材、九陽股份、北鼎股份",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d1e848e83794b50d",
+      "title": "波士頓動力跨界半導體，人型機器人 Atlas 2027 年進駐格羅方德晶圓廠",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPWlg5ZFl2eWpISVQwam03bnJaQzhkSjVTYm1zb2R3RF8xUURwWVBkbERxYlFuSGlEZUVwVWFBS19KOGlOSDQ0eGc5VmxuUHdteC1WU3dvTm9DUnZtbzNQcnB0dm8tSlRjb1NlLVI1Q3NSSUNuQURiYWQxOS1Mak0yMWh4Yw?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-18T09:42:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "格羅方德 (GlobalFoundries)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "daa4aafa315ff64a",
+      "title": "11月18日有研新材涨5.82%，稀土ETF嘉实基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNnJZWG11cTJVLWl5SU0yWENXN2txMG9SUXZwMFJuNmpWVVA2akhpdlpqb1NCWk9ESTNIdFBFcEJpNHhsMkNyUlFoeVNRVlRwRnNHa1VCM05ieHZIeVpCNVViQ2ZrVUpVSlFFdmlxOHZZQVpnTmY1YlRRLWJMamtMRzBLcmljREJk?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-18T08:35:55+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月18日有研新材漲5.82%，稀土ETF嘉實基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b10274f2602347ef",
+      "title": "阿石创（300706）11月18日主力资金净买入3197.16万元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZzFmYml5cDdXUWlrb3ZsY09IYzk2S2hjMWtkSWgtSzNnZ3NtcXd0d0ZyRFRxc1JHUlh1UHpfdnl1OHJTdHpuT3J3Y2hNSFcxUXc5dWY3TXpINTVxZlV5T2xmbVdOc2pRZHo4b3p5dUhfUWVhRnV6VEtFZEJUdmt0Z29ESU9XTmdj?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-18T07:29:07+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.9,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "阿石創（300706）11月18日主力資金淨買入3197.16萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a49c29153270ae4b",
+      "title": "江丰电子成立半导体科技公司",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE16cUZ6VjJlRXpJaXBoeG92LXVoTW1IQW9rUVFIT0dTcUZ1aEZsaWxnRXhEYVJSUUpXUFRRVmtkY2hpQy14d1U2ZUFicFhLQkZFXzhLM0gzN2JnOWNMMkJDekl3?oc=5",
+      "source": "同花顺财经",
+      "published": "2026-11-18T05:28:42+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子成立半導體科技公司",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2bba6564f6045946",
+      "title": "江丰电子旗下上海睿昇全资设立广东睿昇 注册资本1亿元",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE44OWlXTEpBYUhfREkwMG90M0hXV0hlVUF2dHhqdmZqMjFXM08wOEZEcDVUVGxrS3RhSjJrMlZ2a2VfeXMxLUFMcUVvZnVVb3NpcDE1c2FjTl9hVWNsdDFVTHZn?oc=5",
+      "source": "观点网",
+      "published": "2026-11-18T05:27:28+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子旗下上海睿昇全資設立廣東睿昇 註冊資本1億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "276e8e8d7804d469",
+      "title": "後場の日経平均は201円安でスタート、楽天銀行やJX金属などが下落",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZjJubEpYZ2dZTkNIeWxQNHMwVmljYjB0NVBWbHFKdXYwQWlTZS11b0dZcEctVUY5MmxzRjg2dm1nSzMtb0RnbERXNTNYXy15YVU1M3hSM2doQjNsWHN6bm1qZXFWSkRIVWVjLTM2aVFtOWVFWHZkdE5Lc1NVdGpLNWFNVWhsTzDSAYwBQVVfeXFMUEMtVWUxQzZuclRCTENuNzJ3d3ZHX2o2dnh5XzRBdzlQX09jV3N0LV95QU9BblUzWFRNMWVSYmRrNDgyQi10ZzJiVzI0WlFXcVZBeE8tYlBnZTh2Q1VXV1B3U193Y1NxWE4wNlNTMjhzeWlWY3VkU0Y2blRrZk5XWElhTW5jOEhfUFRoVG4?oc=5",
+      "source": "ｄメニューニュース",
+      "published": "2026-11-18T03:57:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "eb55d26480651d73",
+      "title": "【即時新聞】日月光豪擲千億擴大先進封裝，這「5檔概念股」資金輪動升溫！",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQai1USEs5VVlRb0JLTFJ5cGZuUFBtWGNlREJ5UTlEVDE2THJyYkc4M2hUMi16TWQyNkUzYWJ3TzFmYmhaaUF4RXFTQm5jT0VlZ05LTmVEOW9wWlRua0liSl93SEVFbjBnNENNV212NGhCLUdfYk5UeXJnRXJzOTl0U211bzlpZWloTXRCcHFobFc?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-18T03:30:36+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.87,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9a7346fc063f017a",
+      "title": "2.62亿资金抢筹有研新材，机构狂买凡拓数创",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFAxVEUzQTRUTjRUUnExN2VxcUNkWkhIcm01bDM2d2h6M3hmWmN3RWRRam43RHVsZS1ObmoyRFZUSThYeGUwdEZGYVhEUWVtWW5sb2JPa0lQMUF4X2Y2bUE?oc=5",
+      "source": "同花顺",
+      "published": "2026-11-17T18:33:45+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.82,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "2.62億資金搶籌有研新材，機構狂買凡拓數創",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ac1e0adfd306d023",
+      "title": "欧莱新材(688530.SH)：公司已形成\"高纯金属—靶材—关键零部件\"一体化布局_公司新闻",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE14OW1kYk9mQWtqOHVYTXdsYUV0aGJRbER1X0ZXb3VUMnY1a3JFbEJkQlJIWGxGRVZLQ0RLOWRLSGVCdWVpMi03NzRsWWthYWZKSE9IZlBQdzRzX1JKZG1meWJta0E?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-17T15:02:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.8,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材(688530.SH)：公司已形成\"高純金屬—靶材—關鍵零部件\"一體化佈局_公司新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "81232337680be7f4",
+      "title": "1785 光洋科 - 多了7千張的借劵—沒賣 鎖碼開始嗎？ - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5rR1I4Tm9TZTVJaEljNGUtcGd0UDhscW16WUFlb0dXdjRIR3dEb0NBVUpKbTROcUVSR0hrYnptLVZNV3dsb0VwbkJSSXVyU3VwWnhnMFo4ZEI?oc=5",
+      "source": "CMoney",
+      "published": "2026-11-17T13:47:52+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.79,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a96d75e1c15a1e27",
+      "title": "11月17日有研新材（600206）龙虎榜数据：北向资金净买入8884.96万元",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBHb1JFb3poN0dCaS1qUl9XZ1RMOVVSVzBwTDBRSFZnWVFTV3BFT1hjSkVDN1N0Z21KWnRSRjZ0VUpuSVVIOFBwWXE0X3g?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-17T09:49:42+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.77,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月17日有研新材（600206）龍虎榜數據：北向資金淨買入8884.96萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "ebef917c3d577e38",
+      "title": "江丰电子冲击A+H双重上市，深耕溅射靶材领域，总部位于浙江宁波",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5wQnRRemRLNm5kRUNsc1RaWWlTM3ZVT1Q2akFKQ3d2WDhvVDZnYjBRVlIycjZ0QkpKM2Z2QnY3eG55aHFwNGxGSUN5aDQ?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-16T10:09:19+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.63,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子衝擊A+H雙重上市，深耕濺射靶材領域，總部位於浙江寧波",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cd5bb02888505a34",
+      "title": "The Dollar Climbs Higher as Gold Breaks Below 3800",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM1FaUVJWWlBsWnlWVWIyUUM4amYyOWlNYWZINTl4bkZSZGlKb0pQMmNmcklwUWxDcENvcmdXakFqN0s1cUdlWXF2RUZtbmdnYnIxMkpELVBYZXlJa2Y3bGdSbl9KWEV1S3lSRDNxUHFweW5BT1E4cXZ6WEhXN0U4SUY2cHdoRTdxb3FqN1NvQ0xrX0JTNGk5V25Ed0ZZOEtBRktn?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-19T00:17:03+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "383224784f5745b4",
+      "title": "Gold (XAUUSD), Silver, Platinum Forecasts – Gold Dives 3%, Testing Yearly Lows",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNcUJHS3NtX25kcl9KWkthaEEtLWc5NUwtLUxTTzFmVVhCeFJId0FUaWhZRndxcmtTc3laRzRkU2hUQjJ0VXBmSGhpSXJJMG9vXzM5MnlLS2RLZVphY0phWWFSZ0pQT2ktSkljbmRvc1B3Q0lwcms1RGFHZmJPbmRVY0hiNUN1V1RVOWNWa0Y5YzhrVk5JNDdmT2FrZFpmNE9hRnZGVVR2ejF1QUM4X1c5My1PQjFHQ1RNd0FSSzBn?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-19T00:08:02+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e1dc55d3106a6de7",
+      "title": "Alamos Gold Cautions Shareholders Regarding Newcastle Capital Partners' Mini-Tender Offer For Shares",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObVo5enZiMHRiUmRRcWpsU0JfWnF5TVh1TkZ3dTBWM0NYVGR5Q2x4ZGZXbWxJMHMzZHlCT2xlUWRtdzRZMzVNY1RCaE9xSFItcGdYRHVsSFpETWE3Y1JEOHhGOVFDR2h0emZSMnZZanBqTEJ4eVBXUlFLbVhpbThxbkY5YUMzYWhDbHlQWmhtS1k0M2I4R21ncHJCSFpZMVZmRmdPR0pNRFlSUllURE5oQjIxZ0V3YTRtZHVEYUNjTVN3MUlG?oc=5",
+      "source": "Investing News Network",
+      "published": "2026-11-18T23:30:44+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9a6d87de9a0d98e9",
+      "title": "高盛11天連砍金價預測！最新目標價曝光",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1SMnpibzdOaGtTLUtKMWxnMTFiQkdBTVZGQTlUSWZqUHQ2cTdMRk1XeG5YX0NGSHFuOF92SXhhOFU1OGJ0Q2lwNzFXc2tDUEJJT1BSX0dtX0tQekNfa0E?oc=5",
+      "source": "鏡週刊Mirror Media",
+      "published": "2026-11-18T19:10:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.47,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b325f0b2bba89029",
+      "title": "高純度貴金属ターゲット市場分析レポート（2026年）：2032年984百万米ドル到達予測",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5rWG5pWTJ4MFJHTWVnTVF5M0xEa25QUHN2LUFoUDFiZXhxcmxNLTk3Y204dzRpcmplZVdFNDFtbUpjaG1tS3R0bUQySFJGT2NVYzdLbV9CM0lVOVBlU01tdkhMb250X2ZUdVo5Si1GNA?oc=5",
+      "source": "ニコニコニュース",
+      "published": "2026-11-18T06:36:35+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "產業綜合:スパッタリングターゲット"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "eecb9e6ecf20832c",
+      "title": "高盛2027年貴金屬策略：黃金短期謹防大幅回撤，白銀難再現逼空行情",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9wRlJXcVN5QWxJdUNPWjVRT0xucUw4MGhORllNZ1JoekVGQjduaHd1dkJfUTc2anpxRmZDZHFEZXVHam1WRHREaFUzdmpYRDJFNTJNZnVpdzJNWThO?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-18T02:19:31+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.37,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4d0dfb02938e5e63",
+      "title": "江丰电子赴港IPO：全球第二的半导体靶材企业，正在寻找第二增长曲线",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFA5azZMRFc2ck1CczBPSkIyX0ZIQ01DY0dER2NtakU1UGJVZ2o5NTZhMGxaUWpCdmRzQzd6RjB5NnR1b3JCNzdUYkhMS3l6aG5L?oc=5",
+      "source": "雪球",
+      "published": "2026-11-12T14:21:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.08,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子赴港IPO：全球第二的半導體靶材企業，正在尋找第二增長曲線",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1fa70d7b9a921262",
+      "title": "江丰电子：向香港联交所递交H股发行上市申请并刊发申请资料",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWi0tclR5WGNFOTQzQlNlZWVXT3dEUzNCZ0xRVENtQ3B6dFUtZ1dreWd3dDI5NEpibzdhazZvdmk4TUZScE92X3VhVFRXMFlLRk12Ylg3azVKalNFYzNSQnVGTXFrcm01WTE2Nmk0R2ZTTzNvWnlZajJqNnlYOHZVZXR2WWQ3cHZDQnViNQ?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-12T12:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.07,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子：向香港聯交所遞交H股發行上市申請並刊發申請資料",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 3742.0,
+      "prev": 3864.2,
+      "date": "2026-11-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -3.16
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 45.45,
+      "prev": 47.29,
+      "date": "2026-11-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -3.89
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1374.4,
+      "prev": 1426.2,
+      "date": "2026-11-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -3.63
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 956.0,
+      "prev": 974.6,
+      "date": "2026-11-19",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": -1.91
+    }
+  ],
+  "papers": [],
+  "research_days": 30
+}
