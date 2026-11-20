@@ -37,6 +37,35 @@ def fetch_one(c: Company, cfg: FinConfig, start: str):
     return fetch_yahoo(c.ticker, name=c.name, currency=c.currency, previous=previous)
 
 
+def _complete_trade_lines(data, cfg: FinConfig, online: bool = True) -> int:
+    """Taiwan: receivables / payables with notes and related parties from MOPS (FinMind's sheet is condensed)."""
+    from .mops import apply_cache, load_cache, update_cache
+
+    folder = Path(cfg.data_dir) / data.ticker
+    cache = load_cache(folder)
+    if online:
+        try:
+            cache = update_cache(folder, data.ticker, data.periods)
+        except Exception as exc:  # MOPS unreachable: keep what is cached
+            log.warning("%s: MOPS trade lines not updated: %s", data.ticker, exc)
+    return apply_cache(data, cache)
+
+
+def cmd_mops_trade(args, cfg: FinConfig) -> int:
+    """Update saved Taiwan companies' receivables / payables from MOPS without refetching FinMind."""
+    tw = [c for c in cfg.companies if c.market == "TW" and (not args.tickers or c.ticker in args.tickers)]
+    for c in tw:
+        try:
+            data = load_company(c.ticker, cfg.data_dir, c.name, c.par_value)
+        except (FileNotFoundError, ValueError) as exc:
+            log.warning("%s skipped: %s", c.ticker, exc)
+            continue
+        n = _complete_trade_lines(data, cfg)
+        save_company(data, cfg.data_dir)
+        print(f"{data.label}: {n} 季的應收/應付帳款及票據已依公開資訊觀測站更新")
+    return 0
+
+
 def cmd_fetch(args, cfg: FinConfig) -> int:
     known = {c.ticker: c for c in cfg.companies}
     tickers = args.tickers or list(known)
@@ -49,6 +78,8 @@ def cmd_fetch(args, cfg: FinConfig) -> int:
             log.error("%s: fetch failed: %s", t, exc)
             failed.append(t)
             continue
+        if c.market == "TW":
+            _complete_trade_lines(data, cfg, online=not args.no_mops)
         folder = save_company(data, cfg.data_dir)
         print(f"{data.label}[{c.market}/{data.currency}]: {len(data.periods)} 季、{len(data.monthly_revenue)} 個月營收 -> {folder}")
 
@@ -150,6 +181,12 @@ def main(argv: list[str] | None = None) -> int:
     fetch.add_argument("--start", help="FinMind 起始日期,預設取設定檔 start_date")
     fetch.add_argument("--data-dir", help="覆寫資料資料夾")
     fetch.add_argument("--no-fx", action="store_true", help="不更新匯率")
+    fetch.add_argument("--no-mops", action="store_true", help="台股不連公開資訊觀測站補應付票據等科目(只套用已快取的)")
+
+    mt = sub.add_parser("mops-trade", help="台股:以公開資訊觀測站完整資產負債表更新應收/應付帳款及票據(含關係人),不重抓 FinMind")
+    mt.add_argument("-c", "--config", default=DEFAULT_CONFIG)
+    mt.add_argument("--tickers", nargs="+")
+    mt.add_argument("--data-dir", help="覆寫資料資料夾")
 
     dash = sub.add_parser("dashboard", help="產生跨公司比較的互動 HTML 儀表板")
     dash.add_argument("-c", "--config", default=DEFAULT_CONFIG)
@@ -192,7 +229,7 @@ def main(argv: list[str] | None = None) -> int:
     if getattr(args, "data_dir", None):
         cfg.data_dir = args.data_dir
     return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos,
-            "switcher": cmd_switcher, "items": cmd_items}[args.command](args, cfg)
+            "switcher": cmd_switcher, "items": cmd_items, "mops-trade": cmd_mops_trade}[args.command](args, cfg)
 
 
 def _recent_quarters(today, n: int = 2) -> list[tuple[int, int]]:

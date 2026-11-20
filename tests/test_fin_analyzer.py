@@ -343,3 +343,28 @@ def test_recent_quarters_wait_for_filing_deadlines():
     assert _recent_quarters(date(2026, 11, 20)) == [(2026, 3), (2026, 2)]
     assert _recent_quarters(date(2026, 11, 10)) == [(2026, 2), (2026, 1)]
     assert _recent_quarters(date(2027, 2, 1)) == [(2026, 3), (2026, 2)]
+
+
+def test_mops_cache_lays_full_trade_lines_over_finmind(tmp_path):
+    from fin_analyzer import mops
+    from fin_analyzer.models import CompanyData
+
+    data = CompanyData(ticker="3663", name="鑫科", currency="TWD")
+    data.quarters = {"2026Q2": {"receivables": 563_345_000.0, "payables": 48_264_000.0},
+                     "2026Q3": {"receivables": 507_330_000.0, "payables": 57_017_000.0}}
+    sheets = {(2026, 2): {"應收票據淨額": 508_121_000, "應收帳款淨額": 563_345_000, "應付票據": 570_653_000, "應付帳款": 48_264_000},
+              (2026, 3): {}}  # Q3 not reachable this run
+    calls = []
+    def fake(t, y, q):
+        calls.append((y, q))
+        return (sheets[(y, q)], "test") if sheets[(y, q)] else ({}, "down")
+    cache = mops.update_cache(tmp_path, "3663", data.periods, fetch=fake)
+    assert calls == [(2026, 2), (2026, 3)] and set(cache) == {"2026Q2"}
+    assert mops.apply_cache(data, cache) == 1
+    assert data.quarters["2026Q2"] == {"receivables": 1_071_466_000.0, "payables": 618_917_000.0}
+    assert data.quarters["2026Q3"]["payables"] == 57_017_000.0  # untouched until MOPS answers
+    sheets[(2026, 3)] = {"應付票據": 685_161_000, "應付帳款": 57_017_000}
+    calls.clear()
+    cache = mops.update_cache(tmp_path, "3663", data.periods, fetch=fake)
+    assert calls == [(2026, 3)] and cache["2026Q3"] == {"receivables": None, "payables": 742_178_000}
+    assert mops.load_cache(tmp_path) == cache

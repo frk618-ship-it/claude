@@ -14,6 +14,7 @@ Amounts on MOPS are in NT$ thousands; they are returned in NT$ like the rest of 
 from __future__ import annotations
 
 import html
+import json
 import logging
 import re
 import time
@@ -95,3 +96,64 @@ def trade_totals(lines: dict[str, float]) -> dict[str, float | None]:
         vals = [lines[n] for n in names if n in lines]
         return sum(vals) if vals else None
     return {"receivables": total(RECEIVABLE_LINES), "payables": total(PAYABLE_LINES)}
+
+
+# ---- per-company cache: data/financials/<ticker>/mops_trade.json -------------------------------------
+# {"2026Q3": {"receivables": ..., "payables": ...}, ...}; a quarter once filed does not change, so each one
+# is fetched once and kept in the repo. `fetch` (FinMind) rewrites quarterly.csv every run, and the cached
+# totals are laid back over it, so a run that cannot reach MOPS still keeps the complete figures.
+CACHE_NAME = "mops_trade.json"
+RECENT_QUARTERS = 13  # the dashboard trend shows 12 quarters; one more for the first average balance
+
+
+def _yq(period: str) -> tuple[int, int]:
+    return int(period[:4]), int(period[-1])
+
+
+def load_cache(folder) -> dict:
+    from pathlib import Path
+
+    path = Path(folder) / CACHE_NAME
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def update_cache(folder, ticker: str, periods: list[str], fetch=fetch_balance, recent: int = RECENT_QUARTERS) -> dict:
+    """Fetch the recent quarters not cached yet; returns the whole cache (saved back to the folder)."""
+    from pathlib import Path
+
+    cache = load_cache(folder)
+    added = 0
+    for p in sorted(periods)[-recent:]:
+        if p in cache:
+            continue
+        lines, src = fetch(ticker, *_yq(p))
+        if not lines:
+            log.warning("%s %s: MOPS balance sheet unavailable (%s)", ticker, p, src)
+            continue
+        totals = trade_totals(lines)
+        if totals["receivables"] is None and totals["payables"] is None:
+            log.warning("%s %s: no trade receivable / payable lines on the MOPS balance sheet", ticker, p)
+            continue
+        cache[p] = totals
+        added += 1
+    if added:
+        Path(folder).mkdir(parents=True, exist_ok=True)
+        (Path(folder) / CACHE_NAME).write_text(json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1), encoding="utf-8")
+    return cache
+
+
+def apply_cache(data, cache: dict) -> int:
+    """Lay the cached totals over a company's quarters; returns how many quarters changed."""
+    n = 0
+    for p, totals in cache.items():
+        q = data.quarters.get(p)
+        if q is None:
+            continue
+        for key in ("receivables", "payables"):
+            if totals.get(key) is not None:
+                q[key] = float(totals[key])
+        n += 1
+    return n
