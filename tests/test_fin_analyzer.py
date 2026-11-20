@@ -314,3 +314,32 @@ def test_items_lists_raw_line_items(monkeypatch, capsys):
     out = capsys.readouterr().out
     assert seen["dataset"] == "TaiwanStockBalanceSheet" and seen["data_id"] == "3663"
     assert "應付帳款－關係人" in out and "900,000,000" in out and "存貨" not in out and "2 個科目" in out
+
+
+def test_mops_balance_sheet_trade_totals():
+    from fin_analyzer import mops
+
+    page = """<table class='hasBorder'><tr><th>會計項目</th><th>2026年09月30日</th></tr>
+    <tr><td style='text-align:left'>&nbsp;&nbsp;應收票據淨額</td><td>651,196</td><td>11</td></tr>
+    <tr><td>&nbsp;&nbsp;應收帳款淨額</td><td>507,330</td><td>8</td></tr>
+    <tr><td>&nbsp;&nbsp;應付票據</td><td>412,000</td><td>7</td></tr>
+    <tr><td>&nbsp;&nbsp;應付帳款</td><td>57,017</td><td>1</td></tr>
+    <tr><td>&nbsp;&nbsp;應付帳款－關係人</td><td>3,000</td><td>0</td></tr>
+    <tr><td>　資產總計</td><td>5,973,105</td><td>100</td></tr></table>"""
+    calls = []
+    lines, src = mops.fetch_balance("3663", 2026, 3, post=lambda url, f: calls.append((url, f)) or page, pause=0)
+    assert calls[0][1]["co_id"] == "3663" and calls[0][1]["year"] == "115" and calls[0][1]["season"] == "03"
+    assert lines["應付票據"] == 412_000_000 and src == mops.ENDPOINTS[0][0]
+    assert mops.trade_totals(lines) == {"receivables": 1_158_526_000, "payables": 472_017_000}
+    empty, why = mops.fetch_balance("3663", 2026, 3, post=lambda url, f: "<html>查詢過於頻繁</html>", pause=0)
+    assert empty == {} and "查詢過於頻繁" in why
+
+
+def test_recent_quarters_wait_for_filing_deadlines():
+    from datetime import date
+
+    from fin_analyzer.cli import _recent_quarters
+
+    assert _recent_quarters(date(2026, 11, 20)) == [(2026, 3), (2026, 2)]
+    assert _recent_quarters(date(2026, 11, 10)) == [(2026, 2), (2026, 1)]
+    assert _recent_quarters(date(2027, 2, 1)) == [(2026, 3), (2026, 2)]

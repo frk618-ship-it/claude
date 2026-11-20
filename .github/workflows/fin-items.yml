@@ -16,6 +16,14 @@ on:
         description: "只列出科目名稱或 type 含此文字者(regex,留空 = 全部)"
         required: false
         default: ""
+      source:
+        description: "finmind(簡化報表)或 mops(公開資訊觀測站完整資產負債表)"
+        required: true
+        default: "finmind"
+      quarter:
+        description: "mops 用:季度,例如 2026Q3(留空 = 最近兩季)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -37,7 +45,11 @@ jobs:
           TICKER: ${{ github.event.inputs.ticker }}
           STATEMENT: ${{ github.event.inputs.statement }}
           MATCH: ${{ github.event.inputs.match }}
+          SOURCE: ${{ github.event.inputs.source }}
+          QUARTER: ${{ github.event.inputs.quarter }}
         run: |
           if [[ ! "$TICKER" =~ ^[0-9A-Za-z]{4,6}$ ]]; then echo "代號格式不正確"; exit 1; fi
-          python -m fin_analyzer -v items "$TICKER" --statement "$STATEMENT" --match "$MATCH" | tee items.tsv
+          if [[ -n "$QUARTER" && ! "$QUARTER" =~ ^[0-9]{4}[Qq][1-4]$ ]]; then echo "季度格式不正確"; exit 1; fi
+          set -o pipefail
+          python -m fin_analyzer -v items "$TICKER" --statement "$STATEMENT" --match "$MATCH" --source "$SOURCE" --quarter "$QUARTER" | tee items.tsv
           { echo '```'; cat items.tsv; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

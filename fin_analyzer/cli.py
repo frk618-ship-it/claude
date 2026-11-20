@@ -182,6 +182,9 @@ def main(argv: list[str] | None = None) -> int:
     it.add_argument("--match", default="", help="只列出 type 或中文科目名稱含這段文字(regex)的科目")
     it.add_argument("--start", default="", help="起始日期(預設最近約 15 個月)")
     it.add_argument("-c", "--config", default=DEFAULT_CONFIG)
+    it.add_argument("--source", choices=["finmind", "mops"], default="finmind",
+                    help="mops = 公開資訊觀測站完整資產負債表(含應付票據、關係人科目)")
+    it.add_argument("--quarter", default="", help="mops 用:季度,例如 2026Q3(預設最近兩個已公布的季度)")
 
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
@@ -192,6 +195,47 @@ def main(argv: list[str] | None = None) -> int:
             "switcher": cmd_switcher, "items": cmd_items}[args.command](args, cfg)
 
 
+def _recent_quarters(today, n: int = 2) -> list[tuple[int, int]]:
+    """The n latest quarters whose statements are due (45 days after quarter end; Q4 in March)."""
+    from datetime import date, timedelta
+
+    q, y, out = (today.month - 1) // 3 + 1, today.year, []
+    while len(out) < n:
+        q -= 1
+        if q == 0:
+            q, y = 4, y - 1
+        end = date(y, q * 3, 28) + timedelta(days=4)
+        due = end + timedelta(days=90 if q == 4 else 46)
+        if due <= today:
+            out.append((y, q))
+    return out
+
+
+def _items_mops(args) -> int:
+    import re
+    from datetime import date
+
+    from .mops import fetch_balance, trade_totals
+
+    m = re.fullmatch(r"(\d{4})Q([1-4])", args.quarter.upper()) if args.quarter else None
+    quarters = [(int(m.group(1)), int(m.group(2)))] if m else _recent_quarters(date.today())
+    pat = re.compile(args.match) if args.match else None
+    ok = False
+    for y, q in quarters:
+        lines, src = fetch_balance(args.ticker, y, q)
+        print(f"== {args.ticker} {y}Q{q} 公開資訊觀測站資產負債表 ({len(lines)} 個科目;單位:元) 來源:{src}")
+        if not lines:
+            continue
+        ok = True
+        for k, v in lines.items():
+            if not pat or pat.search(k):
+                print(f"{k}\t{v:,.0f}")
+        t = trade_totals(lines)
+        print("合計:應收帳款及票據(含關係人)\t" + (f"{t['receivables']:,.0f}" if t["receivables"] is not None else "—"))
+        print("合計:應付帳款及票據(含關係人)\t" + (f"{t['payables']:,.0f}" if t["payables"] is not None else "—"))
+    return 0 if ok else 1
+
+
 def cmd_items(args, cfg) -> int:
     """Raw FinMind line items, period by period, so a field mapping can be checked against the statements."""
     import re
@@ -199,6 +243,8 @@ def cmd_items(args, cfg) -> int:
 
     from .sources import DATASETS, http_fetch
 
+    if args.source == "mops":
+        return _items_mops(args)
     start = args.start or (date.today() - timedelta(days=460)).isoformat()
     rows = http_fetch(DATASETS[args.statement], {"data_id": args.ticker, "start_date": start})
     pat = re.compile(args.match) if args.match else None
