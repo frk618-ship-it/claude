@@ -63,6 +63,9 @@ STYLE = """
 .fab-main:hover .fab-hint{opacity:1;transform:translate(0,-50%);transition-delay:800ms}
 .fab-main:focus-visible .fab-hint{opacity:1;transform:translate(0,-50%);transition-delay:0ms}
 .fabnav.open .fab-hint{opacity:0}
+/* the closed menu still occupies its box above the button: let clicks pass through it to the page;
+   only the round button, and the links once the menu is open, take clicks */
+.fabnav,.fab-list,.fab-list li{pointer-events:none}.fab-main{pointer-events:auto}
 .fab-list{display:grid;justify-items:end;gap:8px;margin:0;padding:0;list-style:none}
 .fab-list a{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--fab-ink);background:var(--fab-surface);border:2px solid color-mix(in srgb,var(--fab-accent) 25%,transparent);
   border-radius:999px;padding:4px 8px 4px 16px;font-size:14px;font-weight:600;white-space:nowrap;

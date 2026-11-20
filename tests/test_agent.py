@@ -1637,3 +1637,11 @@ def test_security_hardening(tmp_path, config):
     for wf in (Path(__file__).resolve().parents[1] / ".github" / "workflows").glob("*.yml"):
         for block in re.findall(r"run: \|\n((?:\s{10,}.*\n?)+)", wf.read_text(encoding="utf-8")):
             assert "${{ github.event.inputs" not in block and "${{ inputs." not in block, wf.name
+
+
+def test_closed_page_switcher_lets_clicks_through():
+    from target_news_agent.fabnav import STYLE
+
+    # the closed menu keeps its box above the round button; it must not swallow clicks on the page under it
+    assert ".fabnav,.fab-list,.fab-list li{pointer-events:none}" in STYLE and ".fab-main{pointer-events:auto}" in STYLE
+    assert ".fabnav.open .fab-list a{opacity:1;transform:none;pointer-events:auto" in STYLE
