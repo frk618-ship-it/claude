@@ -1,5 +1,34 @@
 [
  {
+  "id": "p-f1a1117de3f3844a",
+  "title": "Effects of Target‐Selective HiPIMS on Microstructure and Thermoelectric Transport in Pd‐Doped Bi 2 Te 3 Thin Films on Al 2 O 3 Substrates",
+  "link": "https://doi.org/10.1002/pssa.70608",
+  "published": "2026-11-17T00:00:00+00:00",
+  "venue": "physica status solidi (a)",
+  "authors": [
+   "Sayan Chaiwas",
+   "Patinya Sakwan",
+   "Athorn Vora–ud",
+   "Surasak Ruamruk",
+   "Tosawat Seetawan",
+   "Saksorn Limwichean",
+   "Mati Horprathum"
+  ],
+  "abstract": "Pd‐doped Bi 2 Te 3 thin films were deposited on Al 2 O 3 substrates using magnetron cosputtering with direct‐current (DC), pulsed‐DC (DC‐P), and high‐power impulse magnetron sputtering (HiPIMS) to investigate the effects of deposition configuration and annealing on microstructure and thermoelectric (TE) transport. HiPIMS was selectively applied to either the Bi 2 Te 3 or Pd target, followed by vacuum annealing at 250 °C. Deposition rates increased when HiPIMS was applied to the Pd target but decreased when applied to the Bi 2 Te 3 target. FESEM revealed nanocolumnar films approximately 400 nm thick, while annealing promoted grain growth and microstructural evolution. GI‐XRD and HRTEM indicated improved crystalline ordering, with additional diffraction features suggesting possible PdTe 2 secondary‐phase formation. Hall‐effect and temperature‐dependent TE measurements revealed deposition‐dependent changes in carrier transport. All films exhibited n‐type conduction. Among the investigated configurations, annealed DC‐P (Bi 2 Te 3 )/HiPIMS (Pd) films achieved the highest Seebeck coefficient magnitude of 78.10 μV K −1 and maximum power factor of 0.91 μW cm −1 K −2 at 200 °C. These findings demonstrate the importance of target‐selective HiPIMS and annealing in controlling microstructure and TE transport in Pd‐containing Bi 2 Te 3 thin films.",
+  "doi": "10.1002/pssa.70608",
+  "source": "OpenAlex",
+  "topics": [
+   "塑性加工與晶粒織構",
+   "濺鍍行為與靶材利用率"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "core",
+  "collected": "2026-11-20"
+ },
+ {
   "id": "p-bef5671659d85482",
   "title": "Effect of Nb2O5-TiO2 Co-doping on the Properties of ITO Targets",
   "link": "https://doi.org/10.21203/rs.3.rs-11533697/v1",

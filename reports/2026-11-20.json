@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T08:29:00.759778+08:00",
+  "generated": "2026-11-20T10:34:09.012655+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是日月光再砸 2,489 億元在高雄仁武興建高階測試新廠,加上先前路竹廠,仁武雙基地合計投資逾 3,663 億元,AI 測試產能預計 2029 年前到位,封測設備與 PVD 製程材料需求可望延續。中國方面,長電科技 XDFOI 已量產,華天科技推進南京二期與 FOPLP,微導納米推出兩款 PVD 設備。靶材廠方面,江豐電子上半年淨利年增 113.61%,靶材產能滿載待擴;JX金屬則因 LME 銅價下跌與 AI 投資減速疑慮,股價跌至年初以來新低。貴金屬全面重挫,聯準會偏鷹,金價跌破 3,650 美元、創 14 個月新低,白銀與鈀金跌幅逾 4%。",
@@ -19,6 +19,216 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "9c346f5fd46edf51",
+      "title": "Furuya Metal Co., Ltd. (7826.T) Stock Price, News, Quote & History",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9uMzZHaVg3eVdCa2pYT2lFYkVOUjRvY21oMXBVSGh5azhtTHRkRWVkeWlfZ0ZleWl1ZTRXellvN0xzcGhwd0w3YTNoYmVHYTdYXzBqVQ?oc=5",
+      "source": "Yahoo! Finance Canada",
+      "published": "2026-11-18T23:39:35+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.64,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "768df68822aa2f6d",
+      "title": "Gold Plunges More Than 7% in a Week, Spot Price Falls Below $3,600 as Silver Tumbles 13%",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5QdlRxN05XdklYRUJXZTFCbVVWR2JSaUN4RkRwd0dOLXVJb0dmOVU0SjdjVWxTeEg2YXdHMWRGZzlzRGUtYlVybTRYSk9JejJpTklIV2ZaaGVaUllHNjdiTkRYNXhibmNYdHAzT2xCLW45eHJBblE?oc=5",
+      "source": "BigGo Finance",
+      "published": "2026-11-20T02:07:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "78e6b1b83bfcf2f0",
+      "title": "XAUUSD|黃金現貨|價格:3723.210|漲跌幅:-1.520",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5aT1FxSE41UDdHNzdlNGpHcG5TWkVKdTBseWMtOFA1VGtCcjNkS0NuWGpSejlmZ0c3YlV2YnpZZGZob25zVjVrOFZjSnh6ZG1kaWlBTU5JX3loeE9mMG1OYTQ0MXdMdi1YNVAw?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-19T04:05:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.17,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0eed3a2d3ded7acd",
+      "title": "XAGUSD|白銀|價格:45.552|漲跌幅:+0.505",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1hZlRoZ3JRcGZqYnBBNWdvYldLallJbkVLT3J2bnliZ3lHdDV2LVUtcE9oVGxvS0UxVmJ3VVFZN3VtRVg3WVNXMlhpV1MybFN4clFjNXpJNXRob1VVeUxNLVpsU0xMZU5EVy04VzFB?oc=5",
+      "source": "TradingKey",
+      "published": "2026-11-18T18:04:18+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.11,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "dd9ef900256b8535",
+      "title": "有研新材（600206）11月19日主力资金净卖出2.03亿元_主力研究",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1OeWNUd2FQeTVxcnB4MnZUTGp1WVZFc1A5VGVKaFVhTnJtX05JaHNSbmdnakwzQ0pZbTV5WXAtQk9SS2J5cVcxU29yUjRCdURYbC1RRDhjazExd3Z6ZTBEUg?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-20T00:32:40+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材（600206）11月19日主力資金淨賣出2.03億元_主力研究",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9e39d5bb4a691308",
+      "title": "欧莱新材（688530）11月19日主力资金净卖出1059.69万元_主力研究",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBfN0xycmltS3VzcWZJQ1AxNlNhZUVGZWxad29IdXd2S0RJNlR1QlM3dnUzZU1CZXlHSGY5T1dFV3hEdHhtYnBRQ1dwNkdfTVRXTm95WDFRdmpjaU9TU25ERjNn?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-20T00:27:23+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材（688530）11月19日主力資金淨賣出1059.69萬元_主力研究",
+      "snippet_zh": ""
+    },
+    {
+      "id": "054f3193aaca9257",
+      "title": "後場の日経平均は70円安でスタート、JX金属や古河電工などが下落／後場の寄り付き概況(フィスコ)",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQTBacVV0NG8xUTk5UkpyUVN0U25GS1NJUVZxRGVKWHhtTGJIbE1XSnU4T0FZSU9kRFBjbG1NNlFwWmc3OEdlUHVlSlZkQ3ZDMHp3dmVIWGlxT3E0Ni1fX043VWYwaTdINU9lQThBVnAta2tqMTI5M2VtSTI4RHI3dzVxT1FfeTQ?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-11-19T03:55:06+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1731a7bf3a404a27",
+      "title": "2.62亿资金抢筹有研新材，机构狂买凡拓数创丨龙虎榜",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQanRkSTJaWXFobWJGMnNEZllPX2tvOGtZak85WjVFVWNIRlQ3bGtMR1IwUEZqN0VxWnlOemhaSGdldzBUeXQxWDdmODJUN3dlYlBsVnV2c2tyWnppWnNkY2NJbldQM2RUQUlnU1ZSWmV4NGVQbVM0Z1ZKTXBGSEZtWWNuazNIY0JIS0Nnc1lHRQ?oc=5",
+      "source": "21财经",
+      "published": "2026-11-17T10:50:37+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.62,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "2.62億資金搶籌有研新材，機構狂買凡拓數創丨龍虎榜",
+      "snippet_zh": ""
+    },
+    {
+      "id": "047d628bcea9ccdc",
+      "title": "Gold (XAUUSD), Silver, Platinum Forecasts – Gold Tests Yearly Lows As Sell-Off Continues",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQM3c4dnNlZXh0U194M3dIeFBFTU95RTNPajRGMC1ITFNhbXU1LVE3N3JYN3lDUnFyNWlxeEhsOGtNTDhBVDl2MmJVSzdjdk1zUDVVeWRlWEx5RlR3RHk5YWEzT25GY19kMDJqcHFjNnIyeGh6WjE1N28xZWtBVkpua2t4ZVJoUURsZUtBUTBTTW9aeHNHZWNzMGhZTWpBU0tTWEIwZ25kRUF3T0ZaSDBEZW5ucFVCdmhKay1PaGE2RjY3cTNIR29vSkZIN2FyZw?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-20T01:06:39+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "5878310a83463c1a",
+      "title": "Furuya Metal Co., Ltd. Begins Precious Metal Traceability Trial",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbHlvakhIZDJNVmd0NEk1UWNDc0ZLTDR5c3Raa2x0SmtwVWFxSllmVmtpNUJ6NFBKTTFpTzVKUm4zWHN4bWZ6WjV6dmVfejJPc25weTZUUC1DY3c0Q29ocHI4bWJqRmxrd3Z2QUFPeHVEZGd1b2Q2a2lNR21BNElOSTQ3ckxPSkdFWWxVTTRTQ19rZUdFeTdNcmduMm9ldGd4ODdSLVhVQTBBSnJyRjVPT2JPWkJ0ZlkwYzVGd2RpOA?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-13T04:42:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "古屋金屬 (Furuya Metal)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.01,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "5fa7719a1ab61047",
       "title": "水庫光電爭議升溫！七大公協會提科學數據反擊半導體、AI綠電需求成焦點烏山頭水庫水質檢測符合飲用水標準2025年太陽光電發電167億度，台積電、聯電及美光擴產推升綠電需求",
@@ -1354,44 +1564,73 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3621.0,
-      "prev": 3741.9,
+      "price": 3538.0,
+      "prev": 3685.5,
       "date": "2026-11-20",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -3.23
+      "change_pct": -4.0
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 42.88,
-      "prev": 45.0,
+      "price": 41.62,
+      "prev": 44.32,
       "date": "2026-11-20",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -4.71
+      "change_pct": -6.09
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1338.4,
-      "prev": 1360.1,
+      "price": 1294.0,
+      "prev": 1347.6,
       "date": "2026-11-20",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -1.6
+      "change_pct": -3.98
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 910.0,
-      "prev": 950.1,
+      "price": 880.0,
+      "prev": 916.7,
       "date": "2026-11-20",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -4.22
+      "change_pct": -4.0
     }
   ],
-  "papers": [],
+  "papers": [
+    {
+      "id": "p-f1a1117de3f3844a",
+      "title": "Effects of Target‐Selective HiPIMS on Microstructure and Thermoelectric Transport in Pd‐Doped Bi 2 Te 3 Thin Films on Al 2 O 3 Substrates",
+      "link": "https://doi.org/10.1002/pssa.70608",
+      "published": "2026-11-17T00:00:00+00:00",
+      "venue": "physica status solidi (a)",
+      "authors": [
+        "Sayan Chaiwas",
+        "Patinya Sakwan",
+        "Athorn Vora–ud",
+        "Surasak Ruamruk",
+        "Tosawat Seetawan",
+        "Saksorn Limwichean",
+        "Mati Horprathum"
+      ],
+      "abstract": "Pd‐doped Bi 2 Te 3 thin films were deposited on Al 2 O 3 substrates using magnetron cosputtering with direct‐current (DC), pulsed‐DC (DC‐P), and high‐power impulse magnetron sputtering (HiPIMS) to investigate the effects of deposition configuration and annealing on microstructure and thermoelectric (TE) transport. HiPIMS was selectively applied to either the Bi 2 Te 3 or Pd target, followed by vacuum annealing at 250 °C. Deposition rates increased when HiPIMS was applied to the Pd target but decreased when applied to the Bi 2 Te 3 target. FESEM revealed nanocolumnar films approximately 400 nm thick, while annealing promoted grain growth and microstructural evolution. GI‐XRD and HRTEM indicated improved crystalline ordering, with additional diffraction features suggesting possible PdTe 2 secondary‐phase formation. Hall‐effect and temperature‐dependent TE measurements revealed deposition‐dependent changes in carrier transport. All films exhibited n‐type conduction. Among the investigated configurations, annealed DC‐P (Bi 2 Te 3 )/HiPIMS (Pd) films achieved the highest Seebeck coefficient magnitude of 78.10 μV K −1 and maximum power factor of 0.91 μW cm −1 K −2 at 200 °C. These findings demonstrate the importance of target‐selective HiPIMS and annealing in controlling microstructure and TE transport in Pd‐containing Bi 2 Te 3 thin films.",
+      "doi": "10.1002/pssa.70608",
+      "source": "OpenAlex",
+      "topics": [
+        "塑性加工與晶粒織構",
+        "濺鍍行為與靶材利用率"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "core"
+    }
+  ],
   "research_days": 30
 }
