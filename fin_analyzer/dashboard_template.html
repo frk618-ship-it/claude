@@ -204,6 +204,13 @@ svg .qtag { fill: var(--ink-3); font-size: 12px; }
     </section>
   </div>
 
+  <section class="card" id="ccc-card" style="margin-bottom:var(--space-lg)">
+    <h2>現金轉換循環(CCC)比較</h2>
+    <p class="hint">CCC = 應收帳款天數 + 存貨天數 − 應付帳款天數:從付錢買料到收回貨款要多少天,越短代表資金越快回籠、營運資金壓力越小。依最新一季、短到長排序;各段以單季金額與期初期末平均餘額計算。</p>
+    <div class="legend" aria-hidden="true"><span><i class="dot" style="background:var(--s1)"></i>應收帳款天數(DSO)</span><span><i class="dot" style="background:var(--s2)"></i>存貨天數(DIO)</span><span><i class="dot" style="background:var(--s3)"></i>應付帳款天數(DPO,往左扣除)</span><span><i class="dot" style="background:var(--ink-1)"></i>CCC</span></div>
+    <div id="ccc" class="chart sk"></div>
+  </section>
+
   <h3 class="section">完整比較表</h3>
   <p class="hint" style="color:var(--ink-3);font-size:12px;margin:-6px 0 8px">點欄位標題排序;粗體為目前篩選範圍內的最佳值;金額單位 <span id="unit2"></span>;† = 季度資料不足 4 季,營收年增為最近 2–3 季合計比較去年同期(滑鼠移上可看說明)。</p>
   <div class="tablewrap"><table id="table" class="sk"></table></div>
@@ -476,6 +483,50 @@ function renderRank() {
     hit.addEventListener("pointermove", e => { bar.setAttribute("opacity", "0.8"); showTip(e, `${c.name}(${c.ticker})`, rows2); });
     hit.addEventListener("pointerleave", () => { bar.removeAttribute("opacity"); hideTip(); });
     hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.left + L, clientY: b.top}, `${c.name}(${c.ticker})`, rows2); });
+    hit.addEventListener("blur", hideTip);
+    svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+  if (missing.length) box.appendChild(el("div", {class: "hint", style: "margin-top:6px"}, "無資料:" + missing.map(c => c.name).join("、")));
+}
+
+// ---------- cash conversion cycle: DSO + DIO to the right of zero, DPO to the left, CCC marked ----------
+function renderCCC() {
+  const box = $("ccc"); box.replaceChildren(); box.classList.remove("sk");
+  const rows = visible().filter(c => val(c, "ccc") !== null);
+  const missing = visible().filter(c => val(c, "ccc") === null);
+  if (!rows.length) { box.appendChild(el("div", {class: "empty"}, "篩選範圍內沒有現金轉換循環的資料")); return; }
+  rows.sort((a, b) => val(a, "ccc") - val(b, "ccc"));
+  const parts = c => ({dso: val(c, "dso") || 0, dio: val(c, "dio") || 0, dpo: val(c, "dpo") || 0, ccc: val(c, "ccc")});
+  const W = 980, L = 150, R = 96, rowH = 30, top = 8, H = top + rows.length * rowH + 22;
+  const hiV = Math.max(0, ...rows.map(c => { const p = parts(c); return Math.max(p.dso + p.dio, p.ccc); }));
+  const loV = Math.min(0, ...rows.map(c => { const p = parts(c); return Math.min(-p.dpo, p.ccc); }));
+  const ticks = niceTicks(loV, hiV, 6), lo = ticks[0], hi = ticks[ticks.length - 1];
+  const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "各公司現金轉換循環比較"});
+  for (const t of ticks) {
+    svg.appendChild(sv("line", {x1: x(t), x2: x(t), y1: top - 4, y2: H - 20, class: t === 0 ? "baseline" : "gridline"}));
+    svg.appendChild(sv("text", {x: x(t), y: H - 6, "text-anchor": "middle", class: "muted"}, fmtAxis(t, "days")));
+  }
+  const bh = rowH - 12;
+  rows.forEach((c, i) => {
+    const y = top + i * rowH, p = parts(c), isF = c.ticker === state.focus;
+    const g = sv("g", {transform: `translate(0 ${y})`}); svg.appendChild(g);
+    g.appendChild(sv("text", {x: L - 8, y: rowH / 2 + 4, "text-anchor": "end", class: isF ? "strong" : ""}, shortName(c) + (c.target_focus === "diversified" ? "＊" : "")));
+    const seg = (a, b, color) => { if (Math.abs(b - a) < 0.01) return;
+      g.appendChild(sv("rect", {x: Math.min(x(a), x(b)), y: 6, width: Math.max(Math.abs(x(b) - x(a)), 1), height: bh, fill: cssVar(color), opacity: isF ? 1 : .72})); };
+    seg(0, p.dso, "--s1"); seg(p.dso, p.dso + p.dio, "--s2"); seg(-p.dpo, 0, "--s3");
+    const cx = x(p.ccc);
+    g.appendChild(sv("path", {d: `M${cx},${3} L${cx + 5},${rowH / 2} L${cx},${rowH - 3} L${cx - 5},${rowH / 2} Z`, fill: cssVar("--ink-1"), stroke: cssVar("--surface") || "#fff", "stroke-width": 1.5}));
+    const end = x(Math.max(p.dso + p.dio, p.ccc));
+    g.appendChild(sv("text", {x: end + 8, y: rowH / 2 + 4, class: isF ? "strong" : ""}, "CCC " + fmt(p.ccc, "days")));
+    const tipRows = [{label: "應收帳款天數(DSO)", value: fmt(val(c, "dso"), "days")}, {label: "存貨天數(DIO)", value: fmt(val(c, "dio"), "days")},
+      {label: "應付帳款天數(DPO)", value: val(c, "dpo") === null ? "無資料(以 DSO+DIO 計)" : fmt(val(c, "dpo"), "days")},
+      {label: "現金轉換循環", value: fmt(p.ccc, "days")}, {label: "最新季", value: c.latest_quarter}];
+    const hit = sv("rect", {x: 0, y, width: W, height: rowH, fill: "transparent", tabindex: 0});
+    hit.addEventListener("pointermove", e => showTip(e, `${c.name}(${c.ticker})`, tipRows));
+    hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("focus", () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.left + L, clientY: b.top}, `${c.name}(${c.ticker})`, tipRows); });
     hit.addEventListener("blur", hideTip);
     svg.appendChild(hit);
   });
@@ -796,7 +847,7 @@ function renderNotes() {
 }
 
 function renderAll() {
-  renderTiles(); renderRank(); renderScatter(); renderTrend(); renderTable(); renderSignals();
+  renderTiles(); renderRank(); renderScatter(); renderTrend(); renderCCC(); renderTable(); renderSignals();
 }
 
 renderHeader();

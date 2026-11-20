@@ -38,6 +38,7 @@ DASHBOARD_METRICS: list[tuple[str, str, str, str | None, str]] = [
     ("asset_turnover_ttm", "總資產週轉率", "x", "high", "營運效率"),
     ("dso", "應收帳款天數", "days", "low", "營運效率"),
     ("dio", "存貨天數", "days", "low", "營運效率"),
+    ("dpo", "應付帳款天數", "days", "high", "營運效率"),
     ("ccc", "現金轉換循環", "days", "low", "營運效率"),
     ("current_ratio", "流動比率", "x", "high", "財務結構"),
     ("debt_ratio", "負債比率", "pct", "low", "財務結構"),
@@ -53,7 +54,7 @@ DASHBOARD_METRICS: list[tuple[str, str, str, str | None, str]] = [
     ("zscore", "Altman Z''", "x", "high", "綜合評分"),
 ]
 
-TREND_KEYS = ["revenue", "revenue_yoy", "gross_margin", "operating_margin", "net_margin", "roe_ttm", "dio", "debt_ratio"]
+TREND_KEYS = ["revenue", "revenue_yoy", "gross_margin", "operating_margin", "net_margin", "roe_ttm", "dio", "ccc", "debt_ratio"]
 TREND_LABELS = {
     "revenue": ("單季營收", "amt"),
     "revenue_yoy": ("單季營收年增", "pct"),
@@ -62,6 +63,7 @@ TREND_LABELS = {
     "net_margin": ("單季淨利率", "pct"),
     "roe_ttm": ("ROE(近四季)", "pct"),
     "dio": ("存貨天數", "days"),
+    "ccc": ("現金轉換循環", "days"),
     "debt_ratio": ("負債比率", "pct"),
 }
 
