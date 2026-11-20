@@ -299,3 +299,18 @@ def test_http_fetch_retries_on_rate_limit(monkeypatch):
     calls.clear()
     with pytest.raises(RuntimeError, match="402"):
         sources.http_fetch("TaiwanStockInfo", {}, waits=(1,), sleep=waits.append)
+
+
+def test_items_lists_raw_line_items(monkeypatch, capsys):
+    from fin_analyzer import cli, sources
+
+    rows = [{"date": "2026-06-30", "type": "AccountsPayable", "origin_name": "應付帳款", "value": 48264000},
+            {"date": "2026-09-30", "type": "AccountsPayable", "origin_name": "應付帳款", "value": 57017000},
+            {"date": "2026-09-30", "type": "AccountsPayableToRelatedParties", "origin_name": "應付帳款－關係人", "value": 900000000},
+            {"date": "2026-09-30", "type": "Inventories", "origin_name": "存貨", "value": 1799188000}]
+    seen = {}
+    monkeypatch.setattr(sources, "http_fetch", lambda dataset, params: seen.update(dataset=dataset, **params) or rows)
+    assert cli.main(["items", "3663", "--match", "Payable|應付"]) == 0
+    out = capsys.readouterr().out
+    assert seen["dataset"] == "TaiwanStockBalanceSheet" and seen["data_id"] == "3663"
+    assert "應付帳款－關係人" in out and "900,000,000" in out and "存貨" not in out and "2 個科目" in out

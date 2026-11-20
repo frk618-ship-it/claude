@@ -1,0 +1,43 @@
+name: 財報科目檢查
+# 手動執行:列出台股公司 FinMind 原始報表科目(例如確認應付帳款是否還有關係人、票據等科目),結果顯示在執行紀錄。
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "台股代號,例如 3663"
+        required: true
+        default: "3663"
+      statement:
+        description: "報表:balance(資產負債表)/ income(損益表)/ cashflow(現金流量表)"
+        required: true
+        default: "balance"
+      match:
+        description: "只列出科目名稱或 type 含此文字者(regex,留空 = 全部)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  items:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: List line items
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+          TICKER: ${{ github.event.inputs.ticker }}
+          STATEMENT: ${{ github.event.inputs.statement }}
+          MATCH: ${{ github.event.inputs.match }}
+        run: |
+          if [[ ! "$TICKER" =~ ^[0-9A-Za-z]{4,6}$ ]]; then echo "代號格式不正確"; exit 1; fi
+          python -m fin_analyzer -v items "$TICKER" --statement "$STATEMENT" --match "$MATCH" | tee items.tsv
+          { echo '```'; cat items.tsv; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

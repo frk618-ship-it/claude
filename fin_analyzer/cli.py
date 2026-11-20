@@ -176,13 +176,43 @@ def main(argv: list[str] | None = None) -> int:
     an.add_argument("--model", help="Claude 模型 ID(預設 claude-opus-5-5 或 FIN_ANALYZER_MODEL)")
     an.add_argument("--tz", default="Asia/Taipei")
 
+    it = sub.add_parser("items", help="列出台股公司 FinMind 原始報表科目(檢查某個欄位對應到哪些科目;需要網路)")
+    it.add_argument("ticker", help="台股代號,例如 3663")
+    it.add_argument("--statement", choices=["balance", "income", "cashflow"], default="balance")
+    it.add_argument("--match", default="", help="只列出 type 或中文科目名稱含這段文字(regex)的科目")
+    it.add_argument("--start", default="", help="起始日期(預設最近約 15 個月)")
+
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
     cfg = load_fin_config(args.config)
     if getattr(args, "data_dir", None):
         cfg.data_dir = args.data_dir
     return {"fetch": cmd_fetch, "dashboard": cmd_dashboard, "analyze": cmd_analyze, "logos": cmd_logos,
-            "switcher": cmd_switcher}[args.command](args, cfg)
+            "switcher": cmd_switcher, "items": cmd_items}[args.command](args, cfg)
+
+
+def cmd_items(args, cfg) -> int:
+    """Raw FinMind line items, period by period, so a field mapping can be checked against the statements."""
+    import re
+    from datetime import date, timedelta
+
+    from .sources import DATASETS, http_fetch
+
+    start = args.start or (date.today() - timedelta(days=460)).isoformat()
+    rows = http_fetch(DATASETS[args.statement], {"data_id": args.ticker, "start_date": start})
+    pat = re.compile(args.match) if args.match else None
+    periods = sorted({r["date"] for r in rows})
+    table: dict[tuple[str, str], dict[str, float]] = {}
+    for r in rows:
+        name = str(r.get("origin_name") or "")
+        if pat and not (pat.search(str(r["type"])) or pat.search(name)):
+            continue
+        table.setdefault((str(r["type"]), name), {})[r["date"]] = r["value"]
+    print(f"{args.ticker} {args.statement} ({len(table)} 個科目;單位:元)")
+    print("\t".join(["type", "科目", *periods]))
+    for (typ, name), vals in sorted(table.items()):
+        print("\t".join([typ, name, *(f"{vals[p]:,.0f}" if isinstance(vals.get(p), (int, float)) else "" for p in periods)]))
+    return 0
 
 
 if __name__ == "__main__":
