@@ -181,6 +181,7 @@ def main(argv: list[str] | None = None) -> int:
     it.add_argument("--statement", choices=["balance", "income", "cashflow"], default="balance")
     it.add_argument("--match", default="", help="只列出 type 或中文科目名稱含這段文字(regex)的科目")
     it.add_argument("--start", default="", help="起始日期(預設最近約 15 個月)")
+    it.add_argument("-c", "--config", default=DEFAULT_CONFIG)
 
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING, format="%(levelname)s %(message)s")
