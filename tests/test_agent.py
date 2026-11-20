@@ -1645,3 +1645,14 @@ def test_closed_page_switcher_lets_clicks_through():
     # the closed menu keeps its box above the round button; it must not swallow clicks on the page under it
     assert ".fabnav,.fab-list,.fab-list li{pointer-events:none}" in STYLE and ".fab-main{pointer-events:auto}" in STYLE
     assert ".fabnav.open .fab-list a{opacity:1;transform:none;pointer-events:auto" in STYLE
+
+
+def test_opening_line_keeps_whole_sentences_and_numbers():
+    from target_news_agent.site import _headline_clause, _lead_sentences
+
+    ov = "本期焦點是日月光再砸 2,489 億元在高雄仁武興建高階測試新廠,合計投資逾 3,663 億元。中國長電量產。江豐獲利倍增。金價重挫。"
+    assert _headline_clause(ov, limit=60) == "本期焦點是日月光再砸 2,489 億元在高雄仁武興建高階測試新廠。"
+    assert _headline_clause("焦點:日月光", limit=60) == ""  # too short to stand as a headline
+    lead = _lead_sentences(ov, 3)
+    assert lead.startswith("本期焦點是日月光再砸 2,489 億元") and lead.endswith("江豐獲利倍增。") and "金價" not in lead
+    assert _lead_sentences("只有一句沒有句號", 3) == "只有一句沒有句號"

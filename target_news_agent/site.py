@@ -183,7 +183,7 @@ h2 .hic .ic{width:19px;height:19px}h2 .count{font-family:var(--font-body);font-v
 .hero-text{grid-column:1/span 7;display:grid;gap:var(--space-md);align-content:end}.hero-plain .hero-text{grid-column:1/span 9}
 .hero h1{font-size:clamp(2.5rem,5.6vw,4.25rem);font-weight:600;line-height:1.04;letter-spacing:-.035em;max-width:14ch}
 .dateline{display:inline-flex;gap:var(--space-xs);align-items:center;color:var(--muted);font-size:.9375rem;font-variant-numeric:tabular-nums}
-.lede{font-size:1.1875rem;line-height:1.55;max-width:34ch;color:var(--fg)}
+.lede{font-size:1.1875rem;line-height:1.55;max-width:34ch;color:var(--fg)}.lede.long{font-size:1.0625rem;line-height:1.7;max-width:46ch}
 .actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-xs)}.actions .btn{min-height:44px;padding-inline:var(--space-lg);font-size:.9375rem;white-space:nowrap}
 .lead-story{grid-column:8/span 5;display:grid;gap:var(--space-sm);align-content:start;background:var(--accent-soft);border-radius:var(--radius-l);padding:var(--space-lg)}
 .lead-story .head{display:flex;justify-content:space-between;gap:var(--space-xs);align-items:center}.lead-story time{font-family:var(--font-data);font-size:.8125rem;color:var(--muted)}
@@ -626,10 +626,22 @@ def _lead_html(item: dict) -> str:
     )
 
 
+# a clause ends at a colon, semicolon, full stop or comma, but not at the comma inside a number ("2,489 億")
+_CLAUSE_END = re.compile(r"[:;。]|,(?!\d{3})|(?<!\d),")
+
+
 def _headline_clause(text: str, limit: int = 32) -> str:
     """The overview's opening clause when it reads as a headline ("本期焦點為日月光法說"), else ""."""
-    m = re.match(r"([^:;,。]{4,})[:;,。]", (text or "").replace(":", ":").replace(";", ";"))
-    return m.group(1) + "。" if m and len(m.group(1)) <= limit else ""
+    t = (text or "").replace(":", ":").replace(";", ";")
+    m = _CLAUSE_END.search(t)
+    head = t[:m.start()] if m else ""
+    return head + "。" if 4 <= len(head) <= limit else ""
+
+
+def _lead_sentences(text: str, n: int = 3) -> str:
+    """The overview's first n sentences (all of it when shorter), for the page's opening line."""
+    parts = re.findall(r"[^。!?]+[。!?]?", (text or "").strip())
+    return "".join(p.strip() for p in parts[:n] if p.strip())
 
 
 def _count_line(n_items: int, n_covered: int, n_companies: int) -> str:
@@ -806,7 +818,7 @@ def render_page(
         summary = (
             '<p class="sub">AI 摘要尚未產生,以下為依類別與評分自動整理的重點;Claude 摘要完成後會自動更新。</p>' if auto else ""
         )
-        lede = _headline_clause(digest["overview"]) or _count_line(len(items), len(covered), len(companies))
+        lede = _lead_sentences(digest["overview"], 3) or _count_line(len(items), len(covered), len(companies))
         summary += f'<p class="lead" data-moment="word-highlight">{esc(digest["overview"])}</p>'
         if digest.get("key_trends"):
             aside += f"<h3>{'主要主題' if auto else '產業趨勢'}</h3><ol class='plain'>" + "".join(f"<li>{esc(t)}</li>" for t in digest["key_trends"]) + "</ol>"
@@ -871,7 +883,7 @@ def render_page(
 <section class="hero" data-enter aria-labelledby="h1">
 <div class="hero-text"><p class="dateline">{icon("calendar")}<span>{esc(label)}{" 合併" if len(span) > 1 else ""}</span></p>
 <h1 id="h1">靶材產業新聞摘要</h1>
-<p class="lede">{esc(lede)}</p>
+<p class="lede{' long' if len(lede) > 60 else ''}">{esc(lede)}</p>
 <div class="actions"><a class="btn primary" href="#top">看重點新聞</a><a class="btn" href="#all">全部 {len(items)} 則</a><a class="btn" href="{home}weekly.html">上週週報</a></div></div>
 {lead_story}</section>
 {_figures(figures)}
