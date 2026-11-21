@@ -2,19 +2,21 @@
   "generated": "2026-11-21T08:28:10.208516+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 32 則,其中新聞與公司公告 19 則;報導最多的是 江豐電子(4 則)、精材(3 則)、Materion(2 則)、JX金屬(2 則)。依主題:產業動態 11 則、擴產與投資 3 則、技術與新產品 2 則、客戶與供應鏈 2 則、營收與財報 1 則。",
+    "overview": "本期封測擴產消息持續:南茂宣布啟動兩年大擴產計畫,精材以 150 億元可轉債押注 2029 年 CoWoS 後段量產,封裝凸塊與 PVD 製程材料需求可望增加。靶材廠方面,江豐電子推進 A+H 上市,同步規劃海外建廠與磷化銦擴產,並實施首次股份回購。華邦電永續供應鏈論壇聚焦金屬靶材回收,晶圓廠對靶材循環再生的要求升高;中國匯成真空則擬募資擴充連續式 PVD 設備產能。貴金屬持續重挫,金價跌破 3,600 美元、一週跌逾 7%,白銀單日大跌逾 7%,半導體與相關材料股同步走弱。",
     "key_trends": [
-      "產業動態(11 則):Is Materion (MTRN) Reasonable, Or Are Cash Flow Hopes Stretched?",
-      "擴產與投資(3 則):江豐電子A+H：靶材全球第二，海外建廠與磷化銦擴產並行",
-      "技術與新產品(2 則):精材奪臺積電CoWoS後段外包 150億可轉債押注2029年量產",
-      "客戶與供應鏈(2 則):華邦電舉辦永續供應鏈論壇 AI廢水處理、金屬靶材回收成焦點"
+      "南茂、精材等封測廠擴產,PVD 製程需求延續",
+      "江豐電子海外建廠與擴產,靶材龍頭加速布局",
+      "晶圓廠推動金屬靶材回收,循環供應受重視",
+      "中國 PVD 設備商募資擴產",
+      "貴金屬全面重挫,金價跌破 3,600 美元"
     ],
     "watch_points": [
-      "Top movers alert: Tencent AI capex shock sends stock to 52-week low while SMIC continues stock outperformance following record revenue(Moomoo)",
-      "江豐電子A+H：靶材全球第二，海外建廠與磷化銦擴產並行(腾讯新闻)",
-      "精材奪臺積電CoWoS後段外包 150億可轉債押注2029年量產(BigGo 財經)"
+      "南茂擴產的設備與材料採購時程",
+      "江豐電子海外建廠地點與 H 股募資進度",
+      "晶圓廠靶材回收要求對供應商的影響",
+      "金價是否跌破 3,500 美元,對貴金屬靶材報價的影響"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -29,12 +31,13 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "擴產與投資",
         "營收與財報"
       ],
       "score": 4.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "中國內地金價跌至 7 字頭,投資客獲利大幅縮水,屬市場現象報導;金價急跌減輕金靶原料成本。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -55,10 +58,10 @@
         "客戶與供應鏈"
       ],
       "score": 4.73,
-      "summary": "",
-      "importance": 0,
+      "summary": "騰訊 AI 資本支出意外大增使股價跌至 52 週新低,中芯國際則在創紀錄營收後股價持續強勢,為英文轉載。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "熱門異動:騰訊 AI 資本支出衝擊股價至 52 週新低,中芯國際創紀錄營收後持續領漲",
       "snippet_zh": ""
     },
     {
@@ -77,9 +80,9 @@
         "原物料與價格"
       ],
       "score": 4.63,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "江豐電子推進 A+H 上市,作為全球第二大靶材廠,同步推動海外建廠與磷化銦擴產,擴大產能與產品布局。",
+      "importance": 4,
+      "reason": "靶材供給:江豐電子海外建廠與擴產",
       "title_zh": "江豐電子A+H：靶材全球第二，海外建廠與磷化銦擴產並行",
       "snippet_zh": ""
     },
@@ -95,12 +98,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
-        "技術與新產品",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "技術與新產品"
       ],
       "score": 4.11,
-      "summary": "",
-      "importance": 0,
+      "summary": "精材取得台積電 CoWoS 後段外包訂單,並以 150 億元可轉債押注 2029 年量產,為先前消息的轉載。",
+      "importance": 3,
       "reason": "",
       "title_zh": "精材奪臺積電CoWoS後段外包 150億可轉債押注2029年量產",
       "snippet_zh": ""
@@ -117,11 +120,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "液晶面板板塊 11 月 20 日下跌 3.76%,阿石創領跌,主力資金淨流出 19.3 億元,屬盤勢資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "液晶面板/LCD板塊11月20日跌3.76%，阿石創領跌，主力資金淨流出19.3億元",
       "snippet_zh": ""
@@ -138,13 +142,13 @@
         "華邦電 (Winbond)"
       ],
       "categories": [
-        "客戶與供應鏈",
-        "回收與循環"
+        "回收與循環",
+        "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "華邦電舉辦永續供應鏈論壇,AI 廢水處理與金屬靶材回收成為焦點,顯示晶圓廠重視靶材回收循環。",
+      "importance": 4,
+      "reason": "原料成本:晶圓廠推動靶材回收",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -160,11 +164,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電股價盤中跌破 2,000 元,法人聚焦最新 AI 資本支出動向,屬股價動態。",
+      "importance": 2,
       "reason": "",
       "title_zh": "【即時新聞】臺積電股價盤中跌破2000元，法人聚焦最新AI資本支出動向",
       "snippet_zh": ""
@@ -184,9 +189,9 @@
         "擴產與投資"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "南茂法說會表示下半年營運穩健樂觀,並宣布啟動兩年大擴產計畫;封測擴產可望帶動凸塊等 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:南茂兩年大擴產",
       "title_zh": "討論牆 | 〈南茂法說〉下半年營運穩健樂觀 宣佈啟動兩年大擴產計畫",
       "snippet_zh": ""
     },
@@ -202,11 +207,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 3.57,
-      "summary": "",
-      "importance": 0,
+      "summary": "精材與台積電簽產能外包協議衝刺先進封裝,為社群轉載。",
+      "importance": 2,
       "reason": "",
       "title_zh": "討論牆 | 精材牽緊臺積簽產能外包協議 衝先進封裝",
       "snippet_zh": ""
@@ -226,10 +232,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價拋售加深,逼近主要支撐區,屬技術面預測。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金(XAU/USD)價格預測:拋售加深,逼近主要支撐",
       "snippet_zh": ""
     },
     {
@@ -247,10 +253,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價跌近 3,500 美元,分析對金礦商成本與資本支出規劃造成的壓力。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價跌近 3,500 美元:金礦規劃者面臨成本與資本支出壓力",
       "snippet_zh": ""
     },
     {
@@ -268,10 +274,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "Kitco 金、銀、鉑、鈀現貨報價頁,本身不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金現貨價格|白銀價格|鉑金與鈀金",
       "snippet_zh": ""
     },
     {
@@ -289,8 +295,8 @@
         "原物料與價格"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價跌破 3,600 美元,報導分析美股重挫時金價為何同步下跌。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -307,13 +313,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析 Materion 估值是否合理、現金流預期是否過於樂觀,屬投資評論。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(MTRN)估值合理嗎?還是現金流期待過高?",
       "snippet_zh": ""
     },
     {
@@ -328,13 +335,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "比較日本五家非鐵金屬公司業績,探討 JX金屬是否真為一強,並指三菱材料獲利大增 10 倍、住友金屬礦山轉為減益。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "【非鐵 5 社比較】JX金屬一強是真的嗎?三菱材料「獲利 10 倍」與住友金屬礦山「轉為減益」的明暗",
       "snippet_zh": ""
     },
     {
@@ -349,13 +357,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "探討 Materion 最新動態為何值得關注,屬投資評論。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(NYSE:MTRN)最新動態為何值得密切關注?",
       "snippet_zh": ""
     },
     {
@@ -370,11 +379,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 A 股股東戶數減少 2,060 戶、降幅 10.31%,屬股東結構資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材A股股東戶數減少2060戶降幅10.31%，流通A股戶均持股3894.77股增幅11.50%，戶均持股市值17.44萬元降幅8.84%",
       "snippet_zh": ""
@@ -391,11 +401,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指輝達是矽品 CoWoS 與 CPO 業務的共同推手,研發主管還原十年布局,為先前報導的轉載。",
+      "importance": 2,
       "reason": "",
       "title_zh": "矽品CoWoS、CPO共同貴人「輝達」 研發大將還原10年佈局內幕- 財經",
       "snippet_zh": ""
@@ -412,11 +423,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "異質接面電池 HJT 板塊 11 月 20 日下跌 5.44%,阿石創領跌,屬盤勢資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "異質結電池HJT板塊11月20日跌5.44%，阿石創領跌，主力資金淨流出9.03億元",
       "snippet_zh": ""
@@ -433,11 +445,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11 月 20 日龍虎榜數據,屬交易資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "阿石創龍虎榜數據（11月20日）",
       "snippet_zh": ""
@@ -454,11 +467,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子實施首次股份回購,成交金額 226.39 萬元。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -475,11 +489,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子首次回購 1.17 萬股,為同一事件的報導。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -496,13 +511,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬冠名廣播節目的播出報導,屬企業宣傳,與靶材業務無關。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "【節目報導】石川界人談與久野美咲合作配音的幕後(JX金屬 presents 節目)",
       "snippet_zh": ""
     },
     {
@@ -517,11 +533,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "半導體板塊 11 月 20 日下跌 4.9%,阿石創領跌,主力資金淨流出 110.19 億元,屬盤勢資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "半導體板塊11月20日跌4.9%，阿石創領跌，主力資金淨流出110.19億元",
       "snippet_zh": ""
@@ -538,11 +555,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材截至 11 月 10 日股東戶數 1.79 萬戶,較上期減少 10.31%,為轉載。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材：截至11月10日最新股東戶數1.79萬戶，較上期減少10.31%",
       "snippet_zh": ""
@@ -559,11 +577,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市社群對光洋科股價的看多討論貼文,資訊有限。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -580,11 +599,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.52,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子公告控股子公司完成增資及股權轉讓工商變更。",
+      "importance": 2,
       "reason": "",
       "title_zh": "江豐電子：控股子公司完成增資及股權轉讓工商變更",
       "snippet_zh": ""
@@ -601,11 +621,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.52,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材表示已形成「高純金屬—靶材—關鍵零部件」一體化布局,為轉載報導。",
+      "importance": 2,
       "reason": "",
       "title_zh": "歐萊新材(688530.SH)：公司已形成\"高純金屬—靶材—關鍵零部件\"一體化佈局",
       "snippet_zh": ""
@@ -622,13 +643,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "市場恐慌下金價測試新低,白銀與鉑金同步走弱。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金、白銀、鉑金預測:市場恐慌中金價測試新低",
       "snippet_zh": ""
     },
     {
@@ -643,12 +665,13 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.42,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "匯成真空擬將募資投向超精密半導體與連續式 PVD 設備產業化項目,並補充流動資金;中國 PVD 設備擴產可能帶動在地靶材需求。",
+      "importance": 4,
+      "reason": "競爭格局:中國 PVD 設備商擴產",
       "title_zh": "匯成真空： 擬投向超精密半導體及連續式PVD設備產業化項目與補充流動資金",
       "snippet_zh": ""
     },
@@ -664,11 +687,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價跌破 3,600 美元,文章討論是否適合逢低布局黃金,屬投資建議文章。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -685,11 +709,12 @@
         "精材 (XinTec)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.04,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擴大委外,精材搶進 CoWoS,為先前消息的轉載。",
+      "importance": 2,
       "reason": "",
       "title_zh": "《半導體》臺積擴大委外 精材搶進CoWoS",
       "snippet_zh": ""
