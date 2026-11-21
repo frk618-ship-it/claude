@@ -18,12 +18,12 @@
   "doi": "10.1002/pssa.70608",
   "source": "OpenAlex",
   "topics": [
-   "塑性加工與晶粒織構",
-   "濺鍍行為與靶材利用率"
+   "濺鍍行為與靶材利用率",
+   "塑性加工與晶粒織構"
   ],
-  "summary": "",
-  "importance": 0,
-  "title_zh": "",
+  "summary": "以磁控共濺鍍在 Al2O3 基板沉積 Pd 摻雜 Bi2Te3 熱電薄膜,比較 DC、脈衝 DC 與僅施加於 Bi2Te3 或 Pd 靶的 HiPIMS;HiPIMS 用於 Pd 靶時沉積速率提高、用於 Bi2Te3 靶時降低,250°C 退火促進晶粒成長,薄膜皆為 n 型。",
+  "importance": 2,
+  "title_zh": "選擇性靶材 HiPIMS 對 Al2O3 基板上 Pd 摻雜 Bi2Te3 薄膜微結構與熱電傳輸的影響",
   "abstract_zh": "",
   "tier": "core",
   "collected": "2026-11-20"
