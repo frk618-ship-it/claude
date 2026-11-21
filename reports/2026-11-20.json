@@ -31,13 +31,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.64,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬(7826.T)股價、新聞與報價資訊頁,本身不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬(7826.T)股價、新聞、報價與歷史資料",
       "snippet_zh": ""
     },
     {
@@ -55,10 +56,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價一週重挫逾 7%,現貨跌破 3,600 美元,白銀同期大跌 13%;貴金屬價格急跌減輕金、銀靶材的原料成本。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價一週重挫逾 7%,現貨跌破 3,600 美元,白銀大跌 13%",
       "snippet_zh": ""
     },
     {
@@ -76,8 +77,8 @@
         "原物料與價格"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "黃金現貨報價 3,723.21 美元,下跌 1.52%,屬即時行情資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -97,8 +98,8 @@
         "原物料與價格"
       ],
       "score": 3.11,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀報價 45.552 美元,上漲 0.505%,屬即時行情資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -115,11 +116,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11 月 19 日主力資金淨賣出 2.03 億元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材（600206）11月19日主力資金淨賣出2.03億元_主力研究",
       "snippet_zh": ""
@@ -136,11 +138,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 11 月 19 日主力資金淨賣出 1,059.69 萬元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材（688530）11月19日主力資金淨賣出1059.69萬元_主力研究",
       "snippet_zh": ""
@@ -157,13 +160,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "日經指數午盤以下跌 70 點開出,JX金屬與古河電工等下跌,屬盤勢資訊。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "日經指數午盤以下跌 70 點開出,JX金屬與古河電工等走低(FISCO)",
       "snippet_zh": ""
     },
     {
@@ -178,11 +182,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "龍虎榜資料顯示 2.62 億元資金搶籌有研新材,屬交易資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "2.62億資金搶籌有研新材，機構狂買凡拓數創丨龍虎榜",
       "snippet_zh": ""
@@ -199,13 +204,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "拋售延續,金價測試年度低點,白銀與鉑金同步走弱。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金、白銀、鉑金預測:拋售延續,金價測試年度低點",
       "snippet_zh": ""
     },
     {
@@ -220,13 +226,14 @@
         "古屋金屬 (Furuya Metal)"
       ],
       "categories": [
+        "回收與循環",
         "產業動態"
       ],
       "score": 2.01,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬開始貴金屬溯源試驗,為先前消息的轉載。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬開始貴金屬溯源試驗",
       "snippet_zh": ""
     },
     {
@@ -1622,12 +1629,12 @@
       "doi": "10.1002/pssa.70608",
       "source": "OpenAlex",
       "topics": [
-        "塑性加工與晶粒織構",
-        "濺鍍行為與靶材利用率"
+        "濺鍍行為與靶材利用率",
+        "塑性加工與晶粒織構"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "以磁控共濺鍍在 Al2O3 基板沉積 Pd 摻雜 Bi2Te3 熱電薄膜,比較 DC、脈衝 DC 與僅施加於 Bi2Te3 或 Pd 靶的 HiPIMS;HiPIMS 用於 Pd 靶時沉積速率提高、用於 Bi2Te3 靶時降低,250°C 退火促進晶粒成長,薄膜皆為 n 型。",
+      "importance": 2,
+      "title_zh": "選擇性靶材 HiPIMS 對 Al2O3 基板上 Pd 摻雜 Bi2Te3 薄膜微結構與熱電傳輸的影響",
       "abstract_zh": "",
       "tier": "core"
     }
