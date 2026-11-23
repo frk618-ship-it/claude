@@ -33,6 +33,8 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("-o", "--out", default="site/metals")
     s.add_argument("--fetch", action="store_true", help="先抓最新資料(唯讀:不發通知、不更新狀態與預警紀錄)")
 
+    sub.add_parser("test-email", help="寄一封測試信到 ALERT_EMAIL_TO,確認寄件人與 SMTP 設定(不抓資料、不發預警)")
+
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     cfg = load_config(args.config)
@@ -44,6 +46,9 @@ def main(argv: list[str] | None = None) -> int:
             write_site(snap, Path(args.site))
         _summary(snap)
         return 0 if snap["metals"] else 1
+
+    if args.command == "test-email":
+        return _test_email(os.environ)
 
     if args.command == "serve":
         from .web import serve
@@ -59,6 +64,31 @@ def main(argv: list[str] | None = None) -> int:
         print(write_site(snap, Path(args.out)))
         return 0
     return 2
+
+
+def _test_email(env) -> int:
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    from .alerts import _send_email
+
+    missing = [k for k in ("SMTP_HOST", "ALERT_EMAIL_TO") if not env.get(k, "").strip()]
+    if missing:
+        log.error("缺少設定:%s(請在 GitHub Secrets 設定)", "、".join(missing))
+        return 1
+    now = datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M")
+    sender = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
+    body = (f"這是貴金屬價格預警的測試信({now} 台北時間)。\n\n"
+            f"收到這封信,代表寄件人與 SMTP 設定正確,之後的預警通知與週報都會由此寄出。\n"
+            f"寄件人:{sender}\nSMTP:{env['SMTP_HOST'].strip()}:{env.get('SMTP_PORT', '').strip() or 465}")
+    try:
+        _send_email(env, f"【測試】貴金屬價格預警 寄件設定確認 {now}", body)
+    except Exception as exc:  # report the SMTP error (never the password) and fail the run
+        log.error("測試信寄送失敗:%s: %s", type(exc).__name__, exc)
+        return 1
+    n = len([a for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()])
+    print(f"測試信已寄出:寄件人 {sender},收件人 {n} 位")
+    return 0
 
 
 def _summary(snap: dict) -> None:

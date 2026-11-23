@@ -300,3 +300,16 @@ def test_web_api(cfg, tmp_path):
         assert monitor.due_in() > 0
     finally:
         httpd.shutdown()
+
+
+def test_test_email_sends_to_group(monkeypatch, capsys):
+    from metal_alert import alerts, cli
+
+    sent = []
+    monkeypatch.setattr(alerts, "_send_email", lambda env, subject, body, html="": sent.append((subject, body)))
+    env = {"SMTP_HOST": "smtp.example.com", "SMTP_PORT": "587", "ALERT_EMAIL_TO": "a@x.com, b@x.com",
+           "ALERT_EMAIL_FROM": "預警 <alert@x.com>"}
+    assert cli._test_email(env) == 0
+    assert sent and sent[0][0].startswith("【測試】") and "smtp.example.com:587" in sent[0][1]
+    assert "收件人 2 位" in capsys.readouterr().out
+    assert cli._test_email({"SMTP_HOST": ""}) == 1
