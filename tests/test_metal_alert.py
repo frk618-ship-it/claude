@@ -330,3 +330,14 @@ def test_alert_email_headers_and_footer(monkeypatch):
     body = msg.get_content()
     assert "🟢" not in body and "【貴金屬預警】進場" in body
     assert "不是投資建議,也不是廣告或推銷" in body and "回覆此信" in body
+
+
+def test_sender_falls_back_to_smtp_user_when_from_is_not_an_address():
+    from metal_alert.alerts import resolve_sender
+
+    env = {"SMTP_USER": "bot@gmail.com"}
+    assert resolve_sender({**env, "ALERT_EMAIL_FROM": "SMTP_USER"}) == "bot@gmail.com"
+    assert resolve_sender({**env, "ALERT_EMAIL_FROM": "靶材預警"}) == "靶材預警 <bot@gmail.com>"
+    assert resolve_sender({**env, "ALERT_EMAIL_FROM": "靶材預警 <SMTP_USER>"}) == "靶材預警 <bot@gmail.com>"
+    assert resolve_sender({**env, "ALERT_EMAIL_FROM": "預警 <a@corp.com>"}) == "預警 <a@corp.com>"
+    assert resolve_sender(env) == "bot@gmail.com"

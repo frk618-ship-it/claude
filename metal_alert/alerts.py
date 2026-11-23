@@ -141,10 +141,27 @@ def email_footer(sender: str, now: datetime | None = None) -> str:
     ])
 
 
+def resolve_sender(env) -> str:
+    """ALERT_EMAIL_FROM when it holds a real address, else SMTP_USER (keeping a display name if one was given).
+
+    A secret cannot refer to another one: a From of "SMTP_USER" or just "靶材預警" is no address at all, and
+    a message with an invalid From goes straight to spam."""
+    user = env.get("SMTP_USER", "").strip()
+    raw = env.get("ALERT_EMAIL_FROM", "").strip()
+    name, addr = parseaddr(raw)
+    if "@" in addr:
+        return raw
+    if raw:
+        log.warning("ALERT_EMAIL_FROM is not an email address; sending as SMTP_USER")
+        if not name and "<" not in raw and raw.upper() != "SMTP_USER":
+            name = raw  # a bare display name
+    return f"{name} <{user}>" if name and "@" in user else user
+
+
 def _send_email(env: dict, subject: str, body: str, html: str = "") -> None:
     """To the alert group (ALERT_EMAIL_TO); with `html`, plain text stays as the fallback part."""
     to = [a.strip() for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()]
-    sender = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
+    sender = resolve_sender(env)
     addr = parseaddr(sender)[1] or sender
     domain = addr.rpartition("@")[2] or None
     footer = email_footer(addr)

@@ -77,7 +77,9 @@ def _test_email(env) -> int:
         log.error("缺少設定:%s(請在 GitHub Secrets 設定)", "、".join(missing))
         return 1
     now = datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M")
-    sender = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
+    from .alerts import resolve_sender
+
+    sender = resolve_sender(env)
     body = (f"這是貴金屬價格預警的測試信({now} 台北時間)。\n\n"
             f"收到這封信,代表寄件人與 SMTP 設定正確,之後的預警通知與週報都會由此寄出。\n"
             f"寄件人:{sender}\nSMTP:{env['SMTP_HOST'].strip()}:{env.get('SMTP_PORT', '').strip() or 465}")
@@ -100,10 +102,16 @@ def _sender_checks(env) -> list[str]:
     def domain(a: str) -> str:
         return (parseaddr(a)[1] or a).rpartition("@")[2].lower().strip()
 
+    from .alerts import resolve_sender
+
     user = env.get("SMTP_USER", "").strip()
-    sender = env.get("ALERT_EMAIL_FROM", "").strip() or user
+    raw = env.get("ALERT_EMAIL_FROM", "").strip()
+    sender = resolve_sender(env)
     host = env.get("SMTP_HOST", "").strip().lower()
     out = []
+    if raw and "@" not in parseaddr(raw)[1]:
+        out.append("檢查:ALERT_EMAIL_FROM 不是有效的 email 地址(secret 不能引用另一個 secret),已改用 SMTP_USER 寄出;"
+                   "請改填完整地址,例如「靶材預警 <帳號@gmail.com>」,或直接刪除這個 secret")
     if user and domain(sender) and domain(user):
         same = domain(sender) == domain(user)
         out.append(f"檢查:寄件人網域與 SMTP 帳號網域{'一致' if same else '不一致(DMARC 會判定冒名,最常見的進垃圾信原因)'}")
