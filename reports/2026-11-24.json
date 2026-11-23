@@ -2,19 +2,21 @@
   "generated": "2026-11-24T07:28:10.773764+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 35 則,其中新聞與公司公告 26 則;報導最多的是 歐萊新材(5 則)、아바코(5 則)、長電科技(2 則)、有研新材(2 則)。依主題:產業動態 15 則、擴產與投資 5 則、客戶與供應鏈 4 則、原物料與價格 1 則、營收與財報 1 則。",
+    "overview": "本期焦點是 AI 帶動的封裝擴產:輝達擴產 AI 載板選中景碩,景碩砸 10 億美元投資桃園楊梅廠,供應鏈涵蓋矽品與京元電;長電科技定增獲國資委原則同意,將擴充 FCLGA 封裝與模組產能,日月光與矽品產能 2027 年將超越 Amkor 的消息也持續發酵。南茂第三季營收 84 億元創新高,記憶體封測需求帶動兩年擴產,台積電與友達合作玻璃基板封裝亦受關注。靶材廠方面,歐萊新材定增獲證監會同意註冊,江豐電子子公司購置設備擴產超高純靶材並取得時代電氣功率元件靶材訂單,中國靶材廠持續募資擴產。設備端,德國 Singulus 前九月營收成長約三分之一但單季虧損。貴金屬在上週重挫後強勁反彈,金價回升至 3,630 美元、單日漲 3.27%,白銀漲近 5%,鉑金則一度跌至 17 個月低點後回升。",
     "key_trends": [
-      "產業動態(15 則):JX金屬のテルル化カドミウム亜鉛基板、NASAの宇宙望遠鏡向け赤外線検出器に採用（鉄鋼新聞）",
-      "擴產與投資(5 則):輝達擴產AI載板選中景碩！砸10億鎂投資桃園楊梅廠，供應鏈含矽品、京元電",
-      "客戶與供應鏈(4 則):焦點股》光洋科：臺積電供應鏈震盪 股價盤中翻紅",
-      "原物料與價格(1 則):有研新材：暫無磷化銦相關產品和技術"
+      "AI 載板與先進封裝擴產:景碩、長電、日月光/矽品",
+      "記憶體封測需求強,南茂營收創高並擴產",
+      "中國靶材廠募資擴產:歐萊新材定增、江豐電子購置設備",
+      "玻璃基板封裝受關注,可能帶來新的金屬化濺鍍需求",
+      "貴金屬上週重挫後強勁反彈"
     ],
     "watch_points": [
-      "輝達擴產AI載板選中景碩！砸10億鎂投資桃園楊梅廠，供應鏈含矽品、京元電(加密城市CryptoCity)",
-      "長電科技11月23日回應AI算力話題：定增已獲國資委原則同意，擴充FCLGA封裝及模組產能_公司新聞(证券之星)",
-      "歐萊新材：定增申請獲中國證監會同意註冊批覆(东方财富网)"
+      "景碩楊梅廠與長電擴產的設備與材料採購時程",
+      "歐萊新材募資規模與靶材擴產進度",
+      "江豐電子在功率半導體與台積電的接單變化",
+      "金價能否站穩 3,600 美元,鉑金是否續探低點"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -33,9 +35,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導指輝達擴產 AI 載板選中景碩,景碩砸 10 億美元投資桃園楊梅廠,相關供應鏈包括矽品、京元電;AI 封裝與載板擴產將帶動封裝濺鍍材料需求。",
+      "importance": 4,
+      "reason": "靶材需求:AI 載板與封裝供應鏈擴產",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -54,9 +56,9 @@
         "擴產與投資"
       ],
       "score": 4.5,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "長電科技表示定增案已獲國資委原則同意,將擴充 FCLGA 封裝及模組產能,回應 AI 算力需求。",
+      "importance": 4,
+      "reason": "靶材需求:長電科技擴充先進封裝產能",
       "title_zh": "長電科技11月23日回應AI算力話題：定增已獲國資委原則同意，擴充FCLGA封裝及模組產能_公司新聞",
       "snippet_zh": ""
     },
@@ -75,9 +77,9 @@
         "擴產與投資"
       ],
       "score": 4.43,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "歐萊新材定增申請獲中國證監會同意註冊批覆,募資可望用於靶材產能擴充。",
+      "importance": 4,
+      "reason": "競爭格局:中國靶材廠募資擴產",
       "title_zh": "歐萊新材：定增申請獲中國證監會同意註冊批覆",
       "snippet_zh": ""
     },
@@ -93,12 +95,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
-        "原物料與價格",
-        "技術與新產品"
+        "技術與新產品",
+        "原物料與價格"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材回覆投資人,表示公司暫無磷化銦相關產品與技術。",
+      "importance": 2,
       "reason": "",
       "title_zh": "有研新材：暫無磷化銦相關產品和技術",
       "snippet_zh": ""
@@ -118,8 +120,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "長電科技推動高端電源模組先進封裝測試產能升級項目。",
+      "importance": 3,
       "reason": "",
       "title_zh": "長電科技：高端電源模組先進封裝測試產能升級項目",
       "snippet_zh": ""
@@ -139,8 +141,8 @@
         "擴產與投資"
       ],
       "score": 4.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材定增申請獲證監會同意註冊批覆,與同日其他報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "歐萊新材(688530.SH)：定增申請獲得證監會同意註冊批覆",
       "snippet_zh": ""
@@ -160,10 +162,10 @@
         "營收與財報"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "德國濺鍍設備商 Singulus 前九月營收年增約三分之一,但單季虧損使股價承壓。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Singulus 前九月營收成長三分之一,但單季虧損拖累股價",
       "snippet_zh": ""
     },
     {
@@ -178,11 +180,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電供應鏈股價震盪,光洋科盤中翻紅,屬個股行情。",
+      "importance": 2,
       "reason": "",
       "title_zh": "焦點股》光洋科：臺積電供應鏈震盪 股價盤中翻紅",
       "snippet_zh": ""
@@ -199,11 +202,12 @@
         "英特爾 (Intel)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "英特爾以色列廠事故引發晶圓廠工安關注,Ainos 以 AI 氣體偵測切入晶圓廠工安市場。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -223,10 +227,10 @@
         "客戶與供應鏈"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "DIGITIMES 英文版報導伺服器 CPU 封裝轉向 CoWoS 以外方案,日月光與矽品產能 2027 年將超越 Amkor,與前日中文報導為同一事件。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "伺服器 CPU 轉向台積電 CoWoS 以外方案,日月光、矽品 2027 年將超越 Amkor",
       "snippet_zh": ""
     },
     {
@@ -241,11 +245,12 @@
         "通富微電 (TFME)"
       ],
       "categories": [
+        "技術與新產品",
         "客戶與供應鏈"
       ],
       "score": 3.35,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電與友達合作玻璃基板封裝,通富微電受資金關注;玻璃基板封裝的金屬化製程可能增加濺鍍需求。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電友達合攻玻璃基板封裝 通富微電受資金關注",
       "snippet_zh": ""
@@ -265,10 +270,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析銀價跌破 50 美元後對礦商與探勘公司的影響。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "銀價跌破 50 美元,礦商與探勘公司現在該關注什麼?",
       "snippet_zh": ""
     },
     {
@@ -286,10 +291,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 類股反彈與聯準會政策不確定性帶動金、銀價格強勁回升。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AI 類股反彈、聯準會政策不確定性再起,金銀價格強勁反彈(Kitco 盤後報告)",
       "snippet_zh": ""
     },
     {
@@ -307,10 +312,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價上週大跌後,逢低買盤進場推升價格回升。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "上週重挫後逢低買盤進場,金價回升",
       "snippet_zh": ""
     },
     {
@@ -328,8 +333,8 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "鉑金即時報價頁面,不含新事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -346,13 +351,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬的碲化鎘鋅(CdZnTe)基板獲 NASA 太空望遠鏡紅外線偵測器採用,展現其化合物半導體材料技術實力。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬的碲化鎘鋅基板獲 NASA 太空望遠鏡紅外線偵測器採用(鐵鋼新聞)",
       "snippet_zh": ""
     },
     {
@@ -367,13 +373,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 股價在沒有公司特定消息的情況下單日大漲 11%。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion 股價在無公司消息下大漲 11%",
       "snippet_zh": ""
     },
     {
@@ -388,13 +395,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "金屬與礦業類股同步上漲,Materion 名列其中,屬類股行情報導。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Harmony Gold、Materion、Freeport-McMoRan、Southern Copper、Nexa Resources 股價上漲,你需要知道的事",
       "snippet_zh": ""
     },
     {
@@ -409,11 +417,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/23 主力資金淨賣出 9,812.66 萬元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "股票行情快報：江豐電子（300666）11月23日主力資金淨賣出9812.66萬元",
       "snippet_zh": ""
@@ -430,13 +439,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "韓國濺鍍設備商 AVACO 決定註銷相當於已發行股份 4.67% 的庫藏股。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 決定註銷已發行股份 4.67% 的庫藏股",
       "snippet_zh": ""
     },
     {
@@ -451,11 +461,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/23 主力資金淨買入 1,158.12 萬元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "股票行情快報：有研新材（600206）11月23日主力資金淨買入1158.12萬元",
       "snippet_zh": ""
@@ -472,11 +483,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "太平洋證券給予阿石創「買入」評級,屬券商研究報告。",
+      "importance": 2,
       "reason": "",
       "title_zh": "太平洋：給予阿石創買入評級_券商研報_數據解析",
       "snippet_zh": ""
@@ -493,11 +505,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材公告 2026 年度定增申請獲證監會同意註冊,與同日其他報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "歐萊新材(688530):歐萊新材關於2026年度向特定對象發行A股股票申請獲得中國證券監督管理委員會同意註冊批覆",
       "snippet_zh": ""
@@ -514,11 +527,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/23 股價上漲 5.71%,為稀土 ETF 重倉股,屬行情資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11月23日有研新材漲5.71%，稀土ETF嘉實基金重倉該股",
       "snippet_zh": ""
@@ -535,11 +549,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材定增獲證監會同意註冊批覆,與同日其他報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材：向特定對象發行A股股票獲證監會同意註冊批覆",
       "snippet_zh": ""
@@ -556,11 +571,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材定增申請獲證監會同意註冊批覆,與同日其他報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材(688530.SH)：2026年度向特定對象發行A股股票申請獲得中國證監會同意註冊批覆",
       "snippet_zh": ""
@@ -577,13 +593,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "AVACO 註銷約 68.5 萬股庫藏股,延續股東回饋政策,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 註銷庫藏股 68 萬 5 千餘股,延續股東回饋政策",
       "snippet_zh": ""
     },
     {
@@ -598,13 +615,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "AVACO 決定註銷 68.5 萬股庫藏股,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 決定註銷 68.5 萬股庫藏股,延續股東回饋政策",
       "snippet_zh": ""
     },
     {
@@ -619,13 +637,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "AVACO 決定註銷庫藏股 685,135 股,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 決定註銷庫藏股 685,135 股",
       "snippet_zh": ""
     },
     {
@@ -640,13 +659,14 @@
         "아바코 (AVACO)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "AVACO 決定解除規模 100 億韓元的庫藏股取得信託契約。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 決定解除 100 億韓元規模的庫藏股取得信託契約",
       "snippet_zh": ""
     },
     {
@@ -661,13 +681,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "市場下修聯準會升息預期,金價反彈至 3,600 美元以上。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "輝達執行長回歸、市場下修聯準會升息預期,金價反彈至 3,600 美元以上",
       "snippet_zh": ""
     },
     {
@@ -682,11 +703,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11/20 股價大跌 17.23%,屬行情資訊。",
+      "importance": 2,
       "reason": "",
       "title_zh": "11月20日阿石創跌17.23%，中銀先鋒半導體混合發起A基金重倉該股",
       "snippet_zh": ""
@@ -703,11 +725,12 @@
         "產業綜合:溅射靶材"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "廣西北投融資租賃公司落地顯示用靶材融資租賃項目,以租賃方式支援靶材產業發展。",
+      "importance": 3,
       "reason": "",
       "title_zh": "北投融資租賃公司落地顯示用靶材融資租賃項目",
       "snippet_zh": ""
@@ -724,11 +747,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市動盪下網友熱議銀樓購金,屬消費性黃金話題。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -745,11 +769,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價暴跌引發中國搶購,北京菜市口百貨開店 2 小時黃金售罄,上海黃金交易所發出風險提示。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -813,9 +838,9 @@
       "topics": [
         "濺鍍行為與靶材利用率"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "專書系統介紹磁控濺鍍與薄膜沉積,涵蓋濺鍍物理、反應式濺鍍與 HiPIMS 製程控制,並以 Monte Carlo、PIC/MCC、SRIM/TRIM、SIMTRA 等方法連結靶材侵蝕、粒子傳輸與薄膜成長的模擬。",
+      "importance": 3,
+      "title_zh": "磁控濺鍍與薄膜沉積:基礎、製程與數值模擬",
       "abstract_zh": "",
       "tier": "core"
     }
