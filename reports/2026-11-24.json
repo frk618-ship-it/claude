@@ -1,0 +1,824 @@
+{
+  "generated": "2026-11-24T07:28:10.773764+08:00",
+  "days": 7,
+  "digest": {
+    "overview": "本期蒐集 35 則,其中新聞與公司公告 26 則;報導最多的是 歐萊新材(5 則)、아바코(5 則)、長電科技(2 則)、有研新材(2 則)。依主題:產業動態 15 則、擴產與投資 5 則、客戶與供應鏈 4 則、原物料與價格 1 則、營收與財報 1 則。",
+    "key_trends": [
+      "產業動態(15 則):JX金屬のテルル化カドミウム亜鉛基板、NASAの宇宙望遠鏡向け赤外線検出器に採用（鉄鋼新聞）",
+      "擴產與投資(5 則):輝達擴產AI載板選中景碩！砸10億鎂投資桃園楊梅廠，供應鏈含矽品、京元電",
+      "客戶與供應鏈(4 則):焦點股》光洋科：臺積電供應鏈震盪 股價盤中翻紅",
+      "原物料與價格(1 則):有研新材：暫無磷化銦相關產品和技術"
+    ],
+    "watch_points": [
+      "輝達擴產AI載板選中景碩！砸10億鎂投資桃園楊梅廠，供應鏈含矽品、京元電(加密城市CryptoCity)",
+      "長電科技11月23日回應AI算力話題：定增已獲國資委原則同意，擴充FCLGA封裝及模組產能_公司新聞(证券之星)",
+      "歐萊新材：定增申請獲中國證監會同意註冊批覆(东方财富网)"
+    ],
+    "source": "auto"
+  },
+  "items": [
+    {
+      "id": "f440a25782b3bf1d",
+      "title": "輝達擴產AI載板選中景碩！砸10億鎂投資桃園楊梅廠，供應鏈含矽品、京元電",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1Dc2I3SldxSnFRcVY0ZHczdWxRWHItUWlwUl9lbmhVaDRLbDVvbUJ1OUItaVJ3TU5YX2xHR1lPOTExUDNYVUNoaFM2N0RvVW50Y29Na2hFbmVGUXoxemxKeXlMWU9lbmUwZENMakp0dTIzRFU?oc=5",
+      "source": "加密城市CryptoCity",
+      "published": "2026-11-23T05:30:36+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "494824551a26629d",
+      "title": "长电科技11月23日回应AI算力话题：定增已获国资委原则同意，扩充FCLGA封装及模组产能_公司新闻",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5WU3QzbmU3VXR0RHNWVlIyN0xZNVJvbFJhQlNONFlKOU5zWnlndnlHRjQ5b2ZIZmRsYjhSV1FTeHM3WklDMk1CNVBZSVBoNER5d2hSVmlSOGdVTzRkZkFxMA?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-23T23:03:26+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "長電科技11月23日回應AI算力話題：定增已獲國資委原則同意，擴充FCLGA封裝及模組產能_公司新聞",
+      "snippet_zh": ""
+    },
+    {
+      "id": "b9e269c11f0c1a67",
+      "title": "欧莱新材：定增申请获中国证监会同意注册批复",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4wekVFcldWdlRpc1ZDYXdaTUVOTDVHUERUY19GUVliWWczU3BudDl6Y3N1dUQxMDlqVXNnQ1Z3Rm96dnhwMW1YeWd4d0RwTTRfM3FhR19mLTBPdGtIaHVRMA?oc=5",
+      "source": "东方财富网",
+      "published": "2026-11-23T10:54:40+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.43,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材：定增申請獲中國證監會同意註冊批覆",
+      "snippet_zh": ""
+    },
+    {
+      "id": "11a8edc2d6b88615",
+      "title": "有研新材：暂无磷化铟相关产品和技术",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA5UnNFMzF3NVFhVm1SdWJTMDBmUW1sd3hYalRaVzJMQkVHVmV1b2hhRWo2VlJuRmVZaTlsdkZBMEhQcGEzcTFRV0d5LTFhTkNBWGNKUUJvbDlqbkFHMEF1Mk11Qm50SDBES0E?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-22T18:02:08+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "原物料與價格",
+        "技術與新產品"
+      ],
+      "score": 4.42,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材：暫無磷化銦相關產品和技術",
+      "snippet_zh": ""
+    },
+    {
+      "id": "aca8f111954640e9",
+      "title": "长电科技：高端电源模组先进封装测试产能升级项目",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNU1MteEJ1VTZJcTJfckRwcllfNjFOeUNLaFZpYzYzZ3ZVUjhua0Z6dlZvTWRBeGp3LUwweFlLempTYTdoelZHXy1nQ20zSFVXclo4QkpPNlJjckRMRUVhMVVKYXlKdThUWWFVZngyR1hwWTRuOXgyc2JkM0hrYURocm82bFZPaFgt?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-23T10:40:12+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "長電科技 (JCET)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.42,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "長電科技：高端電源模組先進封裝測試產能升級項目",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3315796ad7a1ef2b",
+      "title": "欧莱新材(688530.SH)：定增申请获得证监会同意注册批复",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBCa1hyTkUyVXUwNUdpS2xialV0WVFiODJtM1J6bUZkcTc3N2d4VjI0RnI3LUpsb3ZndklCQjgxM3VRb1VJY2pUU094STEwQzZITi1MU0NtZ19GeWJ6Z3dKdkJtZmN1YS1IdVE?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-23T08:30:09+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.41,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材(688530.SH)：定增申請獲得證監會同意註冊批覆",
+      "snippet_zh": ""
+    },
+    {
+      "id": "01e10b294e86123f",
+      "title": "Singulus Lifts Nine-Month Revenue by a Third but Quarterly Loss Weighs on Shares",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZWZUR2pJcnp3eTV5c0YxNko1M0xDV1paOFFvZjBpVlVRNG1Da0QxbWlQOC0wM2NZanpXeWZocFJ4Q2FfeTU5SlRsMi1vX3FuYlVDQXMxQWJ4R2wwNXdSbkJ5LXJUNWNkWXJXNVdoTW03cXZkMDRSV0w4Ulc1MWR4dllsWEZONFZSdi1PaTJMU2YyWnlUdG5OTVRKMlh6VFlNMWwtbHlUckJoQTE5eS04cVlQZC1SRlhLQW9oaE4wYzlUQ1ZzQTBybVp5ekV1OXdTNUhBb3cyY2pjREZzQ3lCRXdNcHNWX1E?oc=5",
+      "source": "ad-hoc-news.de",
+      "published": "2026-11-23T04:31:42+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Singulus Technologies"
+      ],
+      "categories": [
+        "營收與財報"
+      ],
+      "score": 3.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "26743ab617eaaf03",
+      "title": "焦點股》光洋科：台積電供應鏈震盪 股價盤中翻紅",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBGVEJBWG1DMkZXaWQ0OWNnb182TDVKb3gwaHZLd3hNYjdNSlBkQWk1enVqNDBkUnlRX1hkVW5jSWtaWnJCNzl6TUowelpWUy14bi1QUkNVVWExNkFhMks40gFkQVVfeXFMUHZVbzBqbXNEcFFCOEVFWTNxajlTSVRnZzVJWUdHbWJLMXlPZ2Y5cXZ6cm1FaUlxM3NNLXdFZGxnajRDRkRULWlRby11Y185Q3R4MzVFbWJqZml0MFFMMW9hY0Vqbw?oc=5",
+      "source": "自由財經",
+      "published": "2026-11-23T03:20:33+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "焦點股》光洋科：臺積電供應鏈震盪 股價盤中翻紅",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3b159ed3b93abbae",
+      "title": "英特爾以色列廠事故敲警鐘，Ainos 以 AI「嗅覺」搶攻晶圓廠工安",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTWtIeFZuTGo1MnBtNEhIWTdMcnZGNkRRYUIyNU1Tc1ZqbUhodFBtbFp3YkJJQ2lSaDBvOWdIdkNTQWxGdXdjdTVPNnJpYml4cGRXNWN0bUZzNlk4eEZtMHVEWm5Gd29NNm9KdVExM0xYUFdEY1Bza2tRVm4wLXRiNFFsUDBnbVZMMmluR3p1ZHRwVlNjQUtVZGRfWFJ0SWtfcVE?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-23T03:14:46+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "英特爾 (Intel)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "09d2672c5c58d2da",
+      "title": "ASE, SPIL to overtake Amkor in 2027 as server CPUs shift beyond TSMC CoWoS",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQRl80Mk55RGlhbzd0QWo2bTdwZE5HYm1WY3FQUzEtdGR4dUdVc1VpdU9Ud1dIbktlZkdkbU54ZFkzVkRKZURLT2xPYXVTS1pQWGx5X245UnNwcnJoR0plVHFseDN5aVRmM0xuQi10WHNhb3JYMW9hRU5ER2JJLTJ4SDlRTGlocTQ?oc=5",
+      "source": "digitimes",
+      "published": "2026-11-23T02:19:30+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Amkor 艾克爾"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.87,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "556b146efb470f1d",
+      "title": "台积电友达合攻玻璃基板封装 通富微电受资金关注",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNU2xUN25fRGQ2ckhQd1RydU1QMjNfb1M4Zm94NDR5ODJ3Y01XdzJEa0NOOXBZb29PYkQ5LTFLdDZqNXNPT2xlU1F1ZlNBUUN6VVhMODFBMnBTbmoxQ21PX192c0lXZUEtTXByRERrNE9XY245aWJsQzJ2UTZlS3pVOWo2bExEX1IyY0RsSVRqM2lYdw?oc=5",
+      "source": "Taobao",
+      "published": "2026-11-19T10:56:55+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "通富微電 (TFME)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.35,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電友達合攻玻璃基板封裝 通富微電受資金關注",
+      "snippet_zh": ""
+    },
+    {
+      "id": "92a340620f442470",
+      "title": "Silver Price Drops Below US$50 — What Matters Now for Miners and Explorers?",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE81ZHlwcktNZjVMeHl2Wk1IWWNWX01mOHBPcGlDRDFtMVMtMjh2bGVxNGxTblREVzlyeWFBYXBnVHJ5NGM4U3JlcWtSWWI4MWpEbmE4U0pQd0xsc0tMNkZxQnlmQ1U1X0FFSGZqcQ?oc=5",
+      "source": "Investing News Network",
+      "published": "2026-11-23T23:15:12+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "643ab3194d19684a",
+      "title": "Gold, silver prices see sharp rebounds as AI shares rally, renewed Fed uncertainty - Kitco PM Report",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdEl6eDh4a0ZXaUNNYjlDSzNYOF9IMEd3bkEwWlRuaHdXeUFmZzlNY01ZVk4xQVdOcGdMYUxWTmlHdGZLcmxlaHU0OV9yZGdYczAyODQxOHV1dTRlc0xId1Bpc2c4NEdHUnFBXzZCcnlNQW5zVnhXT0NGeHA3Vkl3cnJoSkdrSjROS3kyZHBqTmg2QVRfYWJJM3RYa1ZUQ0tRR080b2NNeFFyRGRtX19KUg?oc=5",
+      "source": "Kitco",
+      "published": "2026-11-23T23:04:45+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f8cc0faf205b5973",
+      "title": "Gold price rises as bargain hunters step in after steep weekly drop",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOS3dFaXI2cXRwSWZwSHdFd3YyS211UW96RzE5LUF2enZRODktbjZpRTJlUC13MlBFNFhfNm5jV2NtdGZyYmZFcTVDM2JqenZJOVpjMVlzV2pRamowc0VfWW83bnFhX3BHck5SWXlPMlJLNlBXQ29zZzZjZHpwbnp4bm1WQzlXODFkblA4NHRKbG5HSEw3clZfMWdhRQ?oc=5",
+      "source": "Mining.com",
+      "published": "2026-11-23T22:43:02+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a6bda8b2ac808146",
+      "title": "Platinum (XPT) 今日價格| XPT/USD 即時行情圖表",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE85MjNuZHFCY3hyRTNOWWJFaWs5aWlZZUxuVjVmdHhQOTNJczdRX1YwQlNfeWs2cE1TVUhBM190dlZmbGI5TmxHLTlPYmt1YzdDUUZaVVBWNWQ2bEE?oc=5",
+      "source": "WEEX",
+      "published": "2026-11-23T17:28:03+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "09136c466d816877",
+      "title": "JX金属のテルル化カドミウム亜鉛基板、NASAの宇宙望遠鏡向け赤外線検出器に採用（鉄鋼新聞）",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1ILWVCdHFtaDM2V1BJLTlMbDJfNHVIUDROZ0tBV0FrdGMwQVBHYnJiUmJwSDN4aGFHT0hsLWxsblVza200T2pIa2JoYWxQR29xY0xGY3lCdkw2UFR2aTdQTTZvOXNkQlBvbU51ZW9JYU0yeVViODdGclJQYUx0aEk?oc=5",
+      "source": "Yahoo!ニュース",
+      "published": "2026-11-23T21:14:01+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "88a83430085a77b2",
+      "title": "Materion Stock Jumps 11% Without Company-Specific News on Nov. 2",
+      "link": "https://news.google.com/rss/articles/CBMisAJBVV95cUxPdXRYd2F3cHQxdWdMeXg1eHlVNEJrVkdPajdsOGlYeER4N1ViYmVPSWIyQllxd1lBclB6YUFKOU12QWJhNXdRTkVkWHpHV0dTeVJxdDN2YzNzSzhRSnJ1MDN1RzNvaTFFQzFWVk9KSDNYUkFGNjhjbUpGYTFRUDRldmttOGpXTGZ2SG5kY2pWUXlKcGFHN3pSUW5wWXY2UE14MEx2bHlLek1OanM5VU9kOE5CZWZGb2RCSFNHNHpYbExZYU8wbXgxNXJpSXVFT2cxalNRcnUteEpIWlZFSmtJY0IzQUd0WG51LVhJVF9yN1JHNG1UajhYS3psWTlySzlkRmx6REM0U0pIS1JvcHV0N2FhNHBqZ1NuWVZRT0MzY0w1Tk56aDdMMjdPRS04MnJk?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-11-23T18:01:56+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.97,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "93273b4844d22467",
+      "title": "Harmony Gold Mining Company, Materion, Freeport-McMoRan, Southern Copper, and Nexa Resources stocks trade up, what you need to know",
+      "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPYVBkS3FWWDBFU2QxNmtHR0tFZVRpOXA0U2xQY2Z3OWhNd2Vsek1XRW93MzRaWTZRcjFNbGpCNHJzaWNwUlRDZXpuWVZBZm1SN3NfSWV5dHVZUzB0VEwtTEQ5bUp5YlUtb1laUktDOVdtTGoyTE9nRXlJcXF5MmJfcER1ejZsTTBzRGdzQkJpUTRCTE9pbkFtYzVQWXlhbEZIN3VWenZLS0ZrQjkyc255Z1A2bUJWdjlBaHdmQUduZUVkaDFLTDBoWUVwMk5PZFdsWHpWVHE1RnhkdG1GUDJiNzhReXFvbWhIWlBreTZwU1JsckdDZlZIREZxdThjOFBPX3o2dldFamQ3c0YxZ0x1bXduRkUtMGtCeEdZWnBIZkdmTENwZjBxeHBTNG01VHNjVFg5eQ?oc=5",
+      "source": "The Globe and Mail",
+      "published": "2026-11-23T16:49:16+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.96,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7d906b8a9324cdbb",
+      "title": "股票行情快报：江丰电子（300666）11月23日主力资金净卖出9812.66万元",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPUDE1cFFZcU1SZnAzZVpkZ2l3aHhKT2lnd3BtRmxkZ04tbnREQkV0SUxwMUgtbVVjYTBuWFJiVVJlU01pSEhIckNyeEVIM2ZZUGMtdDBTOC1kdUdTMmh4a1pPblhZdTZCZjNHSEE3Ym9pbGxlb2NNcGlsYkhzaUdqUVdnY3NMVTlmdm1kdg?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-23T13:32:47+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "股票行情快報：江豐電子（300666）11月23日主力資金淨賣出9812.66萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6ab85e65983e8456",
+      "title": "아바코, 발행주식 4.67% 자사주 소각 결정",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1RMHd4cFkyNV91Z0otZ3BOZmw4dDlISThMcTdJQ2d0ZnQteVJQejBscndxRjVOb29ZVm5DR1pZQjR4MWdKQ3RyZkNXaE5TODhtU2FaZG1MaENtNGdQWWFIdWFDWHlBQQ?oc=5",
+      "source": "비건뉴스",
+      "published": "2026-11-23T12:53:47+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c6f053d5f0f1e819",
+      "title": "股票行情快报：有研新材（600206）11月23日主力资金净买入1158.12万元",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTWp6MVFySEFsZ3dJUlVrdUNGc3d0X0RsT2NjS20wM3ktSHRXV2dyMWZELU5zRDFZdWRZakxsNnJMY0dyRHhDUkdyZDhrV3NKMEF5djJJR2YzWUJseXdudjNGTG81YVNqd0FGWWxEZzhiQnMyMllnSWdacW5rdW03Vng2Wkp1WEhVcnc4Sg?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-23T12:48:55+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.94,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "股票行情快報：有研新材（600206）11月23日主力資金淨買入1158.12萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3e49472cbcd741b7",
+      "title": "太平洋：给予阿石创买入评级_券商研报_数据解析",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1OSHJ0dVU4cmV4bjdDd1V4NVAzWUhkR2ZQRVMwa1VwcHk2RnR3dXJmMkdPdXFOWmQxT1Azb3ZMeDNMMzNxQ3ZJeHhNWi1sM1BJa1E4TmVEd3Y4SWczTERacXN3?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-23T11:07:34+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.93,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "太平洋：給予阿石創買入評級_券商研報_數據解析",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1dd543987d7166c3",
+      "title": "欧莱新材(688530):欧莱新材关于2026年度向特定对象发行A股股票申请获得中国证券监督管理委员会同意注册批复",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1WNVVxaTlaYXpDcEJVaWpzR3VSRzBKbGJnQm4tNS1WZ0lSY3pCZXNVUWlrdGNiaGpDajBibDlyanRPUXliTG1RUEROYTFpclBiemF0M3VR?oc=5",
+      "source": "中财网",
+      "published": "2026-11-23T09:17:32+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.92,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材(688530):歐萊新材關於2026年度向特定對象發行A股股票申請獲得中國證券監督管理委員會同意註冊批覆",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cf8287def1dffe2f",
+      "title": "11月23日有研新材涨5.71%，稀土ETF嘉实基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUhZbmh0TWpWZ3hTMWdzenYxYkNrTHNYekhOOG1pbVN0Umd2cmZBTGw4VlBZNVNSU0hMclVWNDR4eU5oLWJDSENGalVxNHhkRzJ0WVFaZzRFZmt0ZERMYXNMRHloVE42by1obHU1anhUbXVtYXRsUUl0NDhQamxoNHlJcDFPVElu?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-23T08:36:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月23日有研新材漲5.71%，稀土ETF嘉實基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3a2504c1d95a245d",
+      "title": "欧莱新材：向特定对象发行A股股票获证监会同意注册批复",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcVNfQU51NDVwTVNabTd0M2RfMXEtVXVWQVlkcGlNOG1PNzFIZ2JoU1JEeTBNUFdEZTNjdVhJMklUdmhZZHBxemZGdFpiTy1Kd0JhTlZKcVVkYW5YcVhQYy0wNEMzZVVaWXpQQTRhOTZhRUJOSlkyZGgwODJ3R2Nuc0dmXzhwOTNldG1SQw?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-23T08:32:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材：向特定對象發行A股股票獲證監會同意註冊批覆",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3ada88a3f3f17ecc",
+      "title": "欧莱新材(688530.SH)：2026年度向特定对象发行A股股票申请获得中国证监会同意注册批复",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4wUTNYMklPb083MXJ5ZGw1ZWxPczQ5M0JlMjhsazVyVFhjVTBDc0phUmNBR0ZlOWlobkl1M2F3Wk9SeEZQVzgtblU0NXFQUE1waHh3T1pVRllqdWc5MllNdWNyN25vZVhsM1c0?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-23T08:30:21+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材(688530.SH)：2026年度向特定對象發行A股股票申請獲得中國證監會同意註冊批覆",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0b0ac0129646be11",
+      "title": "아바코, 자사주 68만 5천여 주 소각…주주환원 정책 지속",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBIWmhuS2NSU3FsTTQwNTBzREJyemlhclZIcXFrMGx2bFRHWmtZNVd3NXpROTZYSWFjeUcxOTNUSmFfN2RTeWhHb0d0d3hYd2FoN0JsUXJTUU1wd3hQTExndDJ2R1huN0dXZnRV?oc=5",
+      "source": "BBS 불교방송",
+      "published": "2026-11-23T07:51:33+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0c82edf435ecbc31",
+      "title": "아바코, 68만5000주 자사주 소각 결정…주주환원 정책 지속",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9qbENOWXoxSTIybU1rRlM3ZGxBUEcyZ0h2QzlMQjk0S0VNVWNLbFZQY19URGVYV3o2ekFKdTFqUS04ZjdsakpoaVZQRTRMMFNTblE?oc=5",
+      "source": "매일경제",
+      "published": "2026-11-23T06:47:46+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.9,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fb29791b9e0ed461",
+      "title": "아바코, 자사주 68만5135주 소각 결정",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1PRjkxNndzVHJYRkFvZDkxS2dpX0REdTB2NzdkWHN3MEIxdTFTd1BuU1VSN3ZIdmtSSUNndl9KZ3haOG5NT2dFRk1ZNGp0SXpUY3h2TUNiQ0xVajRaU282RW5vYVJqX0c2NXVzeUxPVWhUYWs?oc=5",
+      "source": "데이터투자",
+      "published": "2026-11-23T05:40:16+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "797257a676f3f0d6",
+      "title": "아바코, 100억원 규모 자기주식 취득 신탁계약 해지 결정",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9jbmxfQ0ZPbDNHR0FiY3lOLW1hQ2d3RjhqV00wdEFCMHVQRkVKb0FBd2p3U3JKalBsTU1LUGRmbFlUVkx2QXNVaU16bUl3ZUZfNWplRVpWUVpIYmtaS2w1OHpXbHJZVGNqSmxvREtLenJfdFE?oc=5",
+      "source": "데이터투자",
+      "published": "2026-11-23T05:31:20+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "아바코 (AVACO)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.89,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e2f41222d56fbb42",
+      "title": "Gold rebounds above $3,600 as CEO Nvidia returns, markets trim Fed hike",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-23T23:26:45+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "57657479343472c6",
+      "title": "11月20日阿石创跌17.23%，中银先锋半导体混合发起A基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5VclkzQjM1S2lGQmZfc2xKUWZYT3luOFNBZV96VVpoQ1FobzFuZDl5NTFZenlkWFNlU292UWIwbXhJb0J3aGRUZXFYcXk?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-20T09:36:53+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "阿石創 (Acetron)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月20日阿石創跌17.23%，中銀先鋒半導體混合發起A基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c1c9d45c160a188d",
+      "title": "北投融资租赁公司落地显示用靶材融资租赁项目",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1fOURyY29LYWNfWWcwTFBrVFZxNThCdlprMlljX19ZLTFrOEloNmx1TjgzX0RpSEQ3eUNhTVVmVkdEeXphbHc3anZYN0hEeXNRMlMyMllUWU1JZWczZnRiX0NtUG9DU3hkN3VXdk00NEpadEx5OUoxWFRNeUtXUlU?oc=5",
+      "source": "广西新闻网",
+      "published": "2026-11-23T14:20:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "產業綜合:溅射靶材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.45,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "北投融資租賃公司落地顯示用靶材融資租賃項目",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7269efbcb3972817",
+      "title": "股市動盪，網友改排隊買黃金？Threads熱議「這間銀樓」低門檻、回收價阿莎力",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9KMGJEbkhQOURUaUlnSjRpSy1WVmg3dVlBbWVJZzhFZ3JnVXJ6NVFsZWlFN2JCRXd2UUJTSEdwYW1fY1hPcEZEblFYM0V0ZHVU?oc=5",
+      "source": "TVBS 女人我最大",
+      "published": "2026-11-23T09:52:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.42,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e9a1adc5f72ad90a",
+      "title": "金價暴跌引發搶購 北京菜市口百貨開店2小時黃金全賣光 上海黃金交易所緊急提示風險",
+      "link": "https://news.google.com/rss/articles/CBMijwNBVV95cUxQVnVXSWtlWkNlTWU2VFJELXNJU2dheGRMdWxxd0R4cVJEYUhUTUVHWkI2dUZWR2pqOXY5MDdHLVdRTUpNaWN1V2dqSlpvekdVTWVFTVpqV2hIaGQ0RG51ZjhpdzBGQ2FkRzVvbVdHcl9KaGVZei1XUDFHMVlEQTJJckljQ0tpYThEek1JV2p4UDBkNWdjM2hzamc2djVOQUtlT2xSTWtSOTNLUFhYcVdRUmlpeEVZU2Y5dW1zSHd2bzU2OTJGQXdMRDRRY2VvUkxNaXdCVlZadHJSaGlTX3pfN1JaQzljbk5tN2pib1FlVDdHR3d4U0R5NUpVdVJ5U3Z4R0xMUlJwR3E3S3pPUW1CT3J6MlhKOERpdkxUWUZ2elhWWUQ0SksxYmR6Nndvd2RSVFZwb0x0R2xpdnZUS1ZGdktQaE1zenZDYWNjRWd3a1RSTTR0TmpraHUyR2hGdFhDeEd0QUVWM042Q0xFQzhZM0hUdGRQZVBJYjFZZXhXRFV5Nzg2d1VhQkJEUExoUHM?oc=5",
+      "source": "LIFE 生活網",
+      "published": "2026-11-23T03:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    }
+  ],
+  "metals": [
+    {
+      "name": "黃金",
+      "code": "Au",
+      "price": 3630.4,
+      "prev": 3515.4,
+      "date": "2026-11-23",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 3.27
+    },
+    {
+      "name": "白銀",
+      "code": "Ag",
+      "price": 43.07,
+      "prev": 41.03,
+      "date": "2026-11-23",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 4.97
+    },
+    {
+      "name": "鉑金",
+      "code": "Pt",
+      "price": 1313.9,
+      "prev": 1289.4,
+      "date": "2026-11-23",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 1.9
+    },
+    {
+      "name": "鈀金",
+      "code": "Pd",
+      "price": 895.0,
+      "prev": 891.7,
+      "date": "2026-11-23",
+      "unit": "USD/oz",
+      "source": "Yahoo Finance",
+      "change_pct": 0.37
+    }
+  ],
+  "papers": [
+    {
+      "id": "p-dc46d947e562f4f2",
+      "title": "Magnetron Sputtering and Thin-Film Deposition: Fundamentals, Processes, and Numerical Modeling",
+      "link": "https://doi.org/10.68265/tuuw29ev",
+      "published": "2026-11-08T00:00:00+00:00",
+      "venue": "",
+      "authors": [
+        "Salah Eddine Chouaib Refas"
+      ],
+      "abstract": "This book provides a comprehensive introduction to magnetron sputtering and thin-film deposition, combining fundamental science, process engineering, and numerical modeling. It explains thin-film growth, morphology, microstructure, and the physical principles of sputtering, then develops the plasma physics, sheath behavior, ion–solid interactions, and sputtering-yield mechanisms that govern material removal. The book also examines magnetron configurations, reactive sputtering, HiPIMS, process parameters, and practical control strategies for reproducible deposition. A dedicated modeling section presents Monte Carlo methods, PIC/MCC, fluid and hybrid plasma models, binary-collision approaches, molecular dynamics, SRIM/TRIM, and SIMTRA. By connecting target erosion, particle transport, substrate arrival, and film growth, the book offers students, researchers, and engineers a unified framework for understanding, simulating, and optimizing modern sputter-deposition processes in advanced materials applications.",
+      "doi": "10.68265/tuuw29ev",
+      "source": "OpenAlex",
+      "topics": [
+        "濺鍍行為與靶材利用率"
+      ],
+      "summary": "",
+      "importance": 0,
+      "title_zh": "",
+      "abstract_zh": "",
+      "tier": "core"
+    }
+  ],
+  "research_days": 30
+}
