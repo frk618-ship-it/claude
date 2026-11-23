@@ -2,19 +2,19 @@
   "generated": "2026-11-23T08:28:16.911537+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 20 則,其中新聞與公司公告 8 則;報導最多的是 江豐電子(3 則)、日月光投控(1 則)、矽品(1 則)、Amkor 艾克爾(1 則)。依主題:產業動態 4 則、擴產與投資 2 則、客戶與供應鏈 1 則、營收與財報 1 則。",
+    "overview": "本期焦點是先進封裝產能版圖變化:伺服器 CPU 封裝轉向類 CoWoS 架構,日月光與矽品的先進封裝產能預計 2027 年首度超越 Amkor,凸塊與 RDL 等 PVD 製程的靶材需求可望隨之增加。競爭者方面,江豐電子已將靶材打入台積電供應鏈,在產能利用率達 98.1% 的滿產狀態下舉債擴張並推動 A+H 上市,但第二成長曲線成效仍待檢驗,對台灣靶材廠的競爭壓力值得關注。日本古屋金屬財報優於預期。貴金屬上週重挫,COMEX 黃金單日跌 4.6%、銀價單週跌 16%,市場擔憂聯準會升息;本週初金價反彈 1.65% 至 3,573 美元,各貴金屬同步回升。",
     "key_trends": [
-      "產業動態(4 則):滿產之下舉債擴張，全球靶材第二的江豐電子赴港上市",
-      "擴產與投資(2 則):伺服器CPU轉向類CoWoS 日月光與矽品產能2027首超Amkor",
-      "客戶與供應鏈(1 則):將靶材賣進臺積電，江豐電子佈局A+H，第二增長曲線成色待考",
-      "營收與財報(1 則):Learn Why The Bull Case For Furuya Metal Stock Could Change Following Earnings Beat"
+      "伺服器 CPU 轉向類 CoWoS 封裝,日月光/矽品產能將超越 Amkor",
+      "江豐電子打入台積電並赴港募資擴產,中國靶材龍頭競爭力提升",
+      "古屋金屬財報優於預期",
+      "貴金屬上週重挫後本週初反彈"
     ],
     "watch_points": [
-      "伺服器CPU轉向類CoWoS 日月光與矽品產能2027首超Amkor(DIGITIMES)",
-      "將靶材賣進臺積電，江豐電子佈局A+H，第二增長曲線成色待考(Sohu)",
-      "我想對你的光洋科投資提出一個重要提醒(CMoney)"
+      "日月光/矽品先進封裝擴產對 PVD 靶材的採購量",
+      "江豐電子在台積電的供貨品項與份額變化",
+      "聯準會升息預期與金、銀價格是否止跌"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -31,12 +31,13 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資"
       ],
       "score": 6.46,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "伺服器 CPU 封裝轉向類 CoWoS 架構,報導指日月光與矽品的先進封裝產能將於 2027 年首度超越 Amkor;先進封裝擴產可望帶動凸塊、RDL 等 PVD 製程與靶材需求。",
+      "importance": 4,
+      "reason": "封測龍頭先進封裝產能擴張,直接牽動 PVD 靶材用量",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -56,9 +57,9 @@
         "客戶與供應鏈"
       ],
       "score": 4.87,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導分析江豐電子已將靶材打入台積電供應鏈,並推動 A+H 雙重上市,但其第二成長曲線(零組件等新業務)成效仍待檢驗。",
+      "importance": 4,
+      "reason": "中國靶材龍頭打入台積電並赴港募資,影響台灣靶材廠競爭格局",
       "title_zh": "將靶材賣進臺積電，江豐電子佈局A+H，第二增長曲線成色待考",
       "snippet_zh": ""
     },
@@ -74,11 +75,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "CMoney 針對光洋科投資人的提醒文章,屬投資評論,未提供新事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -98,8 +100,8 @@
         "擴產與投資"
       ],
       "score": 3.59,
-      "summary": "",
-      "importance": 0,
+      "summary": "短影音介紹國產靶材龍頭產能利用率達 98.1% 並衝刺港股上市,指的應為江豐電子。",
+      "importance": 2,
       "reason": "",
       "title_zh": "產能幹到98.1%國產靶材龍頭要衝港股#微觀公司60秒#港股#港交所#半導體",
       "snippet_zh": ""
@@ -119,10 +121,10 @@
         "營收與財報"
       ],
       "score": 3.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "古屋金屬公布財報優於市場預期,分析探討其看多論點是否隨之改變。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "古屋金屬財報優於預期,看多論點可能因此改變",
       "snippet_zh": ""
     },
     {
@@ -140,10 +142,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析指本波金價拋售與 2022 年相似,市場對聯準會升息的擔憂升高。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:拋售走勢重演 2022 年,聯準會升息疑慮升溫",
       "snippet_zh": ""
     },
     {
@@ -161,8 +163,8 @@
         "原物料與價格"
       ],
       "score": 3.21,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析金價是否續跌,並預測 2027 年金價走勢。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -182,10 +184,10 @@
         "原物料與價格"
       ],
       "score": 3.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "印度總理莫迪稱金價大跌與其呼籲有關,分析師則認為主因是全球市場因素。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "莫迪將金價重挫歸功其購金呼籲,分析師則指全球因素",
       "snippet_zh": ""
     },
     {
@@ -203,10 +205,10 @@
         "原物料與價格"
       ],
       "score": 3.14,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價近期與股市同步下跌,失去避險資產特性,市場視為警訊。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價與股市同步走跌,這不是好現象",
       "snippet_zh": ""
     },
     {
@@ -221,11 +223,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/23 個股評論,無新事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -245,8 +248,8 @@
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "全球靶材第二的江丰電子在滿產情況下舉債擴張,並赴港上市募資,財務槓桿上升值得注意。",
+      "importance": 3,
       "reason": "",
       "title_zh": "滿產之下舉債擴張，全球靶材第二的江豐電子赴港上市",
       "snippet_zh": ""
@@ -263,11 +266,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.63,
-      "summary": "",
-      "importance": 0,
+      "summary": "釩電池板塊 11/20 下跌 1.87%,阿石創領跌,主力資金淨流出 2.11 億元。",
+      "importance": 1,
       "reason": "",
       "title_zh": "釩電池板塊11月20日跌1.87%，阿石創領跌，主力資金淨流出2.11億元",
       "snippet_zh": ""
@@ -287,10 +291,10 @@
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬冠名的廣播特別節目宣傳,屬企業形象活動,與業務無直接關聯。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11/20(五)19 時播出!特別節目《JX金屬 presents 久野美咲的說故事時間》",
       "snippet_zh": ""
     },
     {
@@ -305,13 +309,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 機構持股資料頁,不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(MTRN)2026 年機構持股情況",
       "snippet_zh": ""
     },
     {
@@ -326,11 +331,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子首次回購股份 11,700 股,與先前公告為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "江豐電子：公司首次回購股份11700股",
       "snippet_zh": ""
@@ -347,11 +353,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "銀價單週重挫 16%,但摩根士丹利仍看好後市,目標挑戰 71 美元。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -368,11 +375,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "股市賣壓拖累貴金屬,COMEX 黃金下跌 4.6%。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -389,11 +397,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11/19 主力資金淨賣出 249.10 萬元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "阿石創（300706）11月19日主力資金淨賣出249.10萬元",
       "snippet_zh": ""
@@ -410,11 +419,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.43,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價失守關卡,專家警告恐再跌 300 美元,建議暫勿進場。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -431,11 +441,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.2,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/17 龍虎榜數據顯示北向資金淨買入 8,884.96 萬元。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11月17日有研新材龍虎榜數據：北向資金淨買入8884.96萬元",
       "snippet_zh": ""
