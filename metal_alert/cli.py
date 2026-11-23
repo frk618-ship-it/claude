@@ -88,7 +88,31 @@ def _test_email(env) -> int:
         return 1
     n = len([a for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()])
     print(f"測試信已寄出:寄件人 {sender},收件人 {n} 位")
+    for line in _sender_checks(env):
+        print(line)
     return 0
+
+
+def _sender_checks(env) -> list[str]:
+    """Spam-relevant facts about the sender setup, without printing any address (Actions logs are public)."""
+    from email.utils import parseaddr
+
+    def domain(a: str) -> str:
+        return (parseaddr(a)[1] or a).rpartition("@")[2].lower().strip()
+
+    user = env.get("SMTP_USER", "").strip()
+    sender = env.get("ALERT_EMAIL_FROM", "").strip() or user
+    host = env.get("SMTP_HOST", "").strip().lower()
+    out = []
+    if user and domain(sender) and domain(user):
+        same = domain(sender) == domain(user)
+        out.append(f"檢查:寄件人網域與 SMTP 帳號網域{'一致' if same else '不一致(DMARC 會判定冒名,最常見的進垃圾信原因)'}")
+    free = ("gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "live.com", "yahoo.com", "yahoo.com.tw")
+    if domain(sender) in free and not any(k in host for k in ("gmail", "google", "outlook", "office365", "live", "yahoo")):
+        out.append("檢查:寄件人是免費信箱網域,但不是透過該信箱的 SMTP 寄出,會被判定冒名")
+    kind = next((k for k in ("gmail", "google", "office365", "outlook", "yahoo", "sendgrid", "mailgun", "ses") if k in host), "其他")
+    out.append(f"檢查:SMTP 伺服器類型 {kind}")
+    return out
 
 
 def _summary(snap: dict) -> None:
