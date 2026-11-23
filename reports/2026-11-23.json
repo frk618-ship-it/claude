@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T08:28:16.911537+08:00",
+  "generated": "2026-11-23T09:57:22.094927+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是先進封裝產能版圖變化:伺服器 CPU 封裝轉向類 CoWoS 架構,日月光與矽品的先進封裝產能預計 2027 年首度超越 Amkor,凸塊與 RDL 等 PVD 製程的靶材需求可望隨之增加。競爭者方面,江豐電子已將靶材打入台積電供應鏈,在產能利用率達 98.1% 的滿產狀態下舉債擴張並推動 A+H 上市,但第二成長曲線成效仍待檢驗,對台灣靶材廠的競爭壓力值得關注。日本古屋金屬財報優於預期。貴金屬上週重挫,COMEX 黃金單日跌 4.6%、銀價單週跌 16%,市場擔憂聯準會升息;本週初金價反彈 1.65% 至 3,573 美元,各貴金屬同步回升。",
@@ -17,6 +17,217 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "8f87842f4b501227",
+      "title": "半導體產業鏈／南茂Q3營收84億元創新高！記憶體封測需求帶動兩年擴產",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE03SmFvM3lGdGdwT1hCZHhNc0Q1QXJGbmljX29zWGJGRFBMb1NrOGkwaThUa0dDOW0ydWFtTGdXSkNTc1lMdWtMTHNyQy01MTBMRHg5MUNtTzNheUpDYzhJaGZBazZIV2txVmc?oc=5",
+      "source": "科技島",
+      "published": "2026-11-23T01:24:24+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "南茂 (ChipMOS)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0224c0a00c7f6cc9",
+      "title": "Gold jewelry is gaining popularity in China as international gold prices hit a 14-month low.Accordin..",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1rUW5WVF9MTGhPUkx4XzJjNk9QUGVfQWliei1acTZ5MmVsNmw2QlNvZHdEWEVMTUxnanVPTlU2ZE5ES3VacU95N0tXUUR3UGc?oc=5",
+      "source": "매일경제",
+      "published": "2026-11-23T01:43:30+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9739b2325f323331",
+      "title": "Demand for gold jumps tenfold as prices retreat from record high",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPWGtBMWdHMmw4LWt6T0JRZkc3NXZvbnV2NENoM1AyTXlWUm82WjBlaG5IbVhnVWM0OWVNSEFGVlVteEU4cVZZV0l6UThOU0NDSW81OF9XYVFOUzI1YnJLZUJfWGRuSkJDX0xibTdpdE1SSzI0eDhYUENEdkp4bDVtNnJDbnY2VWswdnlvTEdSZkoyT3ZmRUk5cWFZRkpjMjFhalV0MWxzTzRHbEIxcVZYdUJvVzA1LW1zd2JEUGNnWllkZDVsNjhqbWtn?oc=5",
+      "source": "myRepublica",
+      "published": "2026-11-23T00:20:39+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "1636baf122bbd741",
+      "title": "江丰电子(300666.SZ)：子公司拟购买设备用于生产超高纯金属溅射靶材",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5pdWlPVG45bVBFSWx0MzR5OTg2VEVPQmhKOHdqdHgwZVowcmxSVDNJcmxJa2hCazhnbzJEVW1sVzFIUDV0dzJtRzNvaExqd1hsZjY1cUdHa1paMDRaQlZWd2NZaEE0eVVuUlE?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-20T17:26:39+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.66,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子(300666.SZ)：子公司擬購買設備用於生產超高純金屬濺射靶材",
+      "snippet_zh": ""
+    },
+    {
+      "id": "01ff751943f540a3",
+      "title": "江丰电子：首次回购公司股份1.17万股 成交总金额226.39万元",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9YalM3dU1UOUhwdVVuWnlvTU1kY0pibng4dGh0YXhvNGYyeEhiWF81QUhqSE42SXJpVVJUQ0haaWRwb1h6MW9fanhPbkRFdGllVXFfRGtLVGxXZUdtbFNhdHh1TGU2a3doQ2NDRlRFUFZZa0w0cHZQRQ?oc=5",
+      "source": "新浪财经",
+      "published": "2026-11-20T10:03:24+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.62,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子：首次回購公司股份1.17萬股 成交總金額226.39萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "baf942516bc185dd",
+      "title": "Gold recovers above $3,550 as AI trade concern spurs safe-haven flows",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNSTNQR1B2ZGNzS01kWUxnd0tvSUV4YW1zaE9PN19jajk3S0ZwTEZhN0dxSmkwa3RQX0tzUURMVW9GMVJmV0V1N3dPTGhMdlRselQxTkIybEN2VUlHNm9aYktlZFZOVnV3ZEpwU3RIbGc5eHU1aWs2UWtIMU8tQW01X2NmR0lGaFlnSWVHTjhRekdBRjJSVHltLWwzZWUtWkEwR1pYWlY4ei1rdWNtdFlJMXp1TEIwcnZVRWh1X1M0UUxPaENOLWJVXzRkWXFEc0E?oc=5",
+      "source": "www.tmgm.com",
+      "published": "2026-11-23T01:41:05+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "bae78f66cfb39893",
+      "title": "Platinum hits 17-month low after US speculation",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1kX0g1REdEQmx5aE5jdC1wX0RHQmRWaHdOSm02blpHcThjY09LQjJ2VHluaDIwRUhxSldrQWpFWG53aWlwa3lxdFh0MnVkZUEtXzBuQTRuenRKVkNYTUdDZFVSSUVfc2tfakJaU0J2UEszWkRQbjBNNUxR?oc=5",
+      "source": "Mining.com.au",
+      "published": "2026-11-23T01:23:05+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "917b27dc5e303dab",
+      "title": "11月17日江丰电子涨6.85%，半导体设备ETF国泰基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBtdmVqTHdyOV9KdDJUUko4WmZGU0xGdlhRcW9uaDhNZ0oxQnUxUjRLM2lJbmZYZlNRUGJHTndMb283eFpQUFNQc3RSRWc?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-17T08:53:03+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.18,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月17日江豐電子漲6.85%，半導體設備ETF國泰基金重倉該股",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7371ccb28758f187",
+      "title": "江丰电子中标：时代电气宜兴半导体通用宜兴工厂靶材寻源半导体功率器件及组件采购合同2026110201直接采购公示",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBCRy1GNjhpcllDejVlelFlYkRGb3VuSTZWX04zWWw4NTE4cnRuM25pbnhBd1BqcTlDTm43ekJtM1RCVW9MU3pMMlhDMHF4MDBvTW9QeWpR?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-17T05:48:09+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.17,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子中標：時代電氣宜興半導體通用宜興工廠靶材尋源半導體功率器件及組件採購合同2026110201直接採購公示",
+      "snippet_zh": ""
+    },
+    {
+      "id": "08d15c7f35720b62",
+      "title": "11月16日江丰电子跌5.14%，半导体设备ETF国泰基金重仓该股",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5UeUd5VmRfRFFVbU1GVjREcDhGOGtfOHRMVEZDUWR2OGsyRVZPWHVRUnZ2Z29ZVUxvWnRHOGpPcUo4eUF5UllKNEpzVkc?oc=5",
+      "source": "凤凰网",
+      "published": "2026-11-16T09:06:36+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.04,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11月16日江豐電子跌5.14%，半導體設備ETF國泰基金重倉該股",
+      "snippet_zh": ""
+    },
     {
       "id": "05dbe4ffbbfa531f",
       "title": "伺服器CPU轉向類CoWoS 日月光與矽品產能2027首超Amkor",
@@ -456,42 +667,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3573.4,
+      "price": 3603.9,
       "prev": 3515.4,
       "date": "2026-11-23",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.65
+      "change_pct": 2.52
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 41.95,
+      "price": 42.15,
       "prev": 41.03,
       "date": "2026-11-23",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 2.24
+      "change_pct": 2.73
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1306.8,
+      "price": 1298.3,
       "prev": 1289.4,
       "date": "2026-11-23",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.35
+      "change_pct": 0.69
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 903.5,
+      "price": 895.0,
       "prev": 891.7,
       "date": "2026-11-23",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.32
+      "change_pct": 0.37
     }
   ],
   "papers": [],
