@@ -313,3 +313,20 @@ def test_test_email_sends_to_group(monkeypatch, capsys):
     assert sent and sent[0][0].startswith("【測試】") and "smtp.example.com:587" in sent[0][1]
     assert "收件人 2 位" in capsys.readouterr().out
     assert cli._test_email({"SMTP_HOST": ""}) == 1
+
+
+def test_alert_email_headers_and_footer(monkeypatch):
+    from metal_alert import alerts
+
+    sent = []
+    monkeypatch.setattr(alerts, "_deliver", lambda env, msg: sent.append(msg))
+    a = {"side": "buy", "title": "黃金 轉為偏多", "price": 3573.4, "unit": "USD/oz", "reasons": ["RSI 回升"]}
+    env = {"SMTP_HOST": "x", "ALERT_EMAIL_TO": "a@x.com", "ALERT_EMAIL_FROM": "預警 <alert@corp.com>"}
+    assert alerts.notify([a], [alerts.format_text(a)], env, post=lambda *_: None) == ["email"]
+    msg = sent[0]
+    for h in ("Date", "Message-ID", "Reply-To", "Auto-Submitted", "List-Unsubscribe"):
+        assert msg[h], h
+    assert msg["Message-ID"].endswith("@corp.com>")
+    body = msg.get_content()
+    assert "🟢" not in body and "【貴金屬預警】進場" in body
+    assert "不是投資建議,也不是廣告或推銷" in body and "回覆此信" in body

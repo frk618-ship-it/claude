@@ -11,8 +11,13 @@ import logging
 import os
 import smtplib
 import ssl
+import re
 import urllib.request
+from datetime import datetime
 from email.message import EmailMessage
+from email.utils import formatdate, make_msgid, parseaddr
+from html import escape
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 from .config import Config
@@ -120,15 +125,46 @@ def email_subject(alerts: list[dict]) -> str:
     return f"【貴金屬預警】{icon}|{first['title']}{more}"
 
 
+# Mail filters score automated mail on missing headers, bare links, emoji and stock-tip wording; every
+# message therefore carries complete headers, says who sends it and why, and that it is not advice or an ad.
+EMOJI = re.compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F] ?")
+
+
+def email_footer(sender: str, now: datetime | None = None) -> str:
+    now = now or datetime.now(ZoneInfo("Asia/Taipei"))
+    return "\n".join([
+        "—",
+        "這封信由「靶材產業監測」系統自動寄出,收件人為貴金屬預警通知群組的成員。",
+        "內容為依公開市場報價計算的技術指標摘要,僅供內部市場資訊參考,不是投資建議,也不是廣告或推銷。",
+        f"如不需要再收到,請直接回覆此信告知({sender})。",
+        f"寄件時間:{now:%Y-%m-%d %H:%M}(台北時間)",
+    ])
+
+
 def _send_email(env: dict, subject: str, body: str, html: str = "") -> None:
     """To the alert group (ALERT_EMAIL_TO); with `html`, plain text stays as the fallback part."""
     to = [a.strip() for a in env["ALERT_EMAIL_TO"].replace(";", ",").split(",") if a.strip()]
+    sender = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
+    addr = parseaddr(sender)[1] or sender
+    domain = addr.rpartition("@")[2] or None
+    footer = email_footer(addr)
     msg = EmailMessage()
-    msg["Subject"] = subject
-    msg["From"] = env.get("ALERT_EMAIL_FROM", "").strip() or env.get("SMTP_USER", "").strip()
+    msg["Subject"] = EMOJI.sub("", subject).strip()
+    msg["From"] = sender
     msg["To"] = ", ".join(to)
-    msg.set_content(body)
+    msg["Reply-To"] = sender
+    msg["Date"] = formatdate(localtime=True)
+    msg["Message-ID"] = make_msgid("metal-alert", domain=domain)
+    msg["Content-Language"] = "zh-TW"
+    msg["Auto-Submitted"] = "auto-generated"  # RFC 3834: no auto-replies
+    msg["X-Auto-Response-Suppress"] = "All"
+    if addr:
+        msg["List-Unsubscribe"] = f"<mailto:{addr}?subject=unsubscribe>"
+    msg.set_content(EMOJI.sub("", body).strip() + "\n\n" + footer + "\n")
     if html:
+        foot = "<br>".join(escape(line) for line in footer.splitlines()[1:])
+        block = f'<p style="margin-top:24px;color:#777;font-size:12px;line-height:1.6">{foot}</p>'
+        html = html.replace("</body>", block + "</body>") if "</body>" in html else html + block
         msg.add_alternative(html, subtype="html")
     _deliver(env, msg)
 
@@ -180,7 +216,8 @@ def notify(alerts: list[dict], texts: list[str], env: dict | None = None, post=_
             log.warning("telegram notify failed: %s", exc)
     if env.get("SMTP_HOST", "").strip() and env.get("ALERT_EMAIL_TO", "").strip():
         try:
-            send_email(env, email_subject(alerts), body)
+            intro = f"您好,以下是貴金屬價格監測偵測到的 {len(alerts)} 則技術指標變化:"
+            send_email(env, email_subject(alerts), intro + "\n\n" + body)
             used.append("email")
         except Exception as exc:
             log.warning("email notify failed: %s", exc)
