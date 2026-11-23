@@ -3,7 +3,8 @@ name: 靶材產業新聞
 
 on:
   schedule:
-    # 每天 05:41(台北時間)。GitHub 排程實際常延遲約 2 小時,提早設定讓報告約在 08:00 前後完成;
+    # 備援用。每天的主要觸發改由 Claude 排程任務在台北 07:27 手動執行(workflow_dispatch 會立即開始);
+    # GitHub 排程實際延遲 3～6 小時,晚到時若今天的報告已存在,只補抓晚到的新聞(不重抓技術文獻)。
     # 避開整點與半點:GitHub 在整點前後負載高,排程更容易被延遲或略過。
     - cron: "41 21 * * *"
   workflow_dispatch:
@@ -74,7 +75,12 @@ jobs:
           if [[ "$DAYS_INPUT" =~ ^[0-9]+$ ]]; then DAYS="$DAYS_INPUT"; fi
           PAPERS_DAYS=""
           if [[ "$PAPERS_DAYS_INPUT" =~ ^[0-9]+$ ]]; then PAPERS_DAYS="--papers-days $PAPERS_DAYS_INPUT"; fi
-          if [ "$PAPERS_ONLY" = "true" ]; then
+          TODAY_REPORT="reports/$(TZ=Asia/Taipei date +%F).json"
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && [ -f "$TODAY_REPORT" ]; then
+            # 今天已手動執行過:只把晚到的新聞併入既有報告,已寫好的摘要保留
+            echo "::notice::$TODAY_REPORT 已存在(今天已執行過),這次排程只補抓晚到的新聞"
+            python -m target_news_agent -v run --days "$DAYS" --no-papers
+          elif [ "$PAPERS_ONLY" = "true" ]; then
             python -m target_news_agent -v run --papers-only $PAPERS_DAYS
           else
             python -m target_news_agent -v run --days "$DAYS" $PAPERS_DAYS
@@ -89,7 +95,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reports data
           git diff --cached --quiet || git commit -m "news: 靶材產業新聞 $(TZ=Asia/Taipei date +%F)"
-          git push
+          # 執行期間 main 可能已有新提交(例如 Claude 摘要):先併入再推送,最多重試 3 次
+          for i in 1 2 3; do
+            git pull --rebase --quiet origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep 10
+          done
+          exit 1
 
       - name: Build site
         run: python -m target_news_agent site -i reports -o site/news --root-redirect site
