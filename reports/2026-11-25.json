@@ -31,14 +31,14 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
-        "客戶與供應鏈",
-        "政策與貿易"
+        "客戶與供應鏈"
       ],
       "score": 6.38,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "川普預告晶片關稅可能高達 200%,並表示台積電將赴德州建廠;關稅政策可能促使更多晶圓產能移往美國。",
+      "importance": 4,
+      "reason": "政策風險:美國擬課 200% 晶片關稅",
       "title_zh": "預告晶片關稅200%！ 川普驚爆：臺積電將赴德州建廠",
       "snippet_zh": ""
     },
@@ -59,8 +59,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.28,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指中國 DRAM 技術差距縮小至約 2 年、NAND 約 1 年,三星與 SK海力士以擴充中國廠產能應戰。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -77,13 +77,14 @@
         "美光 (Micron)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "原物料與價格",
         "客戶與供應鏈"
       ],
       "score": 6.17,
-      "summary": "",
-      "importance": 0,
+      "summary": "三星、SK海力士、美光被控聯手操縱記憶體價格,三家公司辯稱中國廠商擴產帶來競爭壓力。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -104,8 +105,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電新廠可能落腳德州,其提出的減稅條件已獲當地主計單位迅速放行。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電新廠落腳德州？提減稅條件主計處秒放行",
       "snippet_zh": ""
@@ -122,12 +123,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.47,
-      "summary": "",
-      "importance": 0,
+      "summary": "社群貼文整理川普稱讚黃仁勳、魏哲家並稱台積電將赴德州建廠,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "【川普讚黃仁勳、魏哲家！稱臺灣搶走晶片 曝臺積電赴德州建廠】 （#大表哥）",
       "snippet_zh": ""
@@ -148,8 +150,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.38,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電德州新廠投資 216.55 億美元,申請房產稅優惠成為建廠關鍵。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電德州新廠投資216.55億美元申請房產稅優惠成建廠關鍵- 國際",
       "snippet_zh": ""
@@ -166,12 +168,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
-        "營收與財報",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "營收與財報"
       ],
       "score": 4.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光股價修正後強攻漲停,投顧指其承接台積電 CoWoS 外溢訂單,與前日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "日月光765元修正41％後「強攻漲停」！吃下臺積電CoWoS外溢大單、EPS估衝35元投顧喊出目標價：還有18％空間 - 上市櫃",
       "snippet_zh": ""
@@ -192,8 +194,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "華爾街估明年大型科技股 AI 資本支出近 1.4 兆美元,三星與 SK海力士的記憶體榮景可望延長,有利記憶體端靶材需求。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -210,11 +212,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電將於 12/4 舉行亞利桑那廠擴建慶祝活動,持續加碼美國投資。",
+      "importance": 3,
       "reason": "",
       "title_zh": "加碼美國 臺積電12月4日慶亞利桑那廠擴建",
       "snippet_zh": ""
@@ -231,13 +234,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 股價下跌 8.3% 後,分析指其股價仍高於 GF 估值。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(MTRN)股價下跌 8.3% 後:GF 價值 161.49 美元、股價 186.99 美元",
       "snippet_zh": ""
     },
     {
@@ -255,8 +259,8 @@
         "擴產與投資"
       ],
       "score": 3.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽品與輝達簽署數十億美元合作協議,先進封裝產能 2029 年中將擴增至三倍,與先前報導為同一事件。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -276,10 +280,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 類股拋售使金、銀價格的關鍵支撐面臨考驗。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金銀價格預測:AI 類股拋售使關鍵支撐面臨考驗",
       "snippet_zh": ""
     },
     {
@@ -297,10 +301,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "市場關注美國 PCE 通膨數據,能否支撐金價止跌。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:美國 PCE 通膨數據能否救援金價多頭?",
       "snippet_zh": ""
     },
     {
@@ -318,10 +322,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "印度各城市金銀零售報價頁,不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11/25(三)今日金銀價格:德里、孟買、加爾各答等地 24K、22K 黃金與 999 白銀報價",
       "snippet_zh": ""
     },
     {
@@ -339,10 +343,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "銀價跌至約 40.50 美元、創 14 個月新低,銀靶原料成本隨之下降。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "銀價預測:XAG/USD 跌至 40.50 美元附近的 14 個月新低,市場轉向關注美國 PCE 數據",
       "snippet_zh": ""
     },
     {
@@ -357,13 +361,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "日本券商買進排行榜中鎧俠居首,JX金屬也名列前茅,反映投資人看好半導體材料股。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "日股買進排行榜:第 1 名是鎧俠,軟銀集團、JX金屬也名列前茅",
       "snippet_zh": ""
     },
     {
@@ -378,11 +383,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材融資淨買入 884 萬元,融資餘額 9.16 億元,屬籌碼面資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材：融資淨買入884萬元，融資餘額9.16億元",
       "snippet_zh": ""
@@ -399,11 +405,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材公告第三季計提資產減值準備,將影響當期獲利。",
+      "importance": 3,
       "reason": "",
       "title_zh": "有研新材：有研新材料股份有限公司關於第三季度計提資產減值準備的公告",
       "snippet_zh": ""
@@ -420,11 +427,12 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.79,
-      "summary": "",
-      "importance": 0,
+      "summary": "Materion 內部人減持股票,可能釋放偏空訊號,與先前英文報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -441,11 +449,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價在亞洲盤一度暴漲逾 50 美元,報導分析背後原因。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
