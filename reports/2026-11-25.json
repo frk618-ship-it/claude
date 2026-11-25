@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T07:28:32.801612+08:00",
+  "generated": "2026-11-25T12:33:44.646902+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是台積電美國擴產:台積電德州新廠申請已送件,報導指將投入逾 7 千億元新台幣、約 226 億美元興建 2 奈米以下製程新廠,能否取得減稅成為關鍵,川普也公開表示台積電將在德州建廠。記憶體端,美光新加坡 HBM 廠首部機台進駐,三星擬在西安擴產快閃記憶體,南亞科則轉攻客製化 DRAM、泰山新廠明年開出產能。封裝方面,報導指輝達擴大投資矽品使封裝產能增加 3 倍,日月光承接 CoWoS 外溢訂單,通富微電在深圳購地建廠。原物料方面,JX金屬下調銅牌價 2 萬日圓,銅靶原料成本下降。貴金屬在前一日反彈後再度回落,金價跌至 3,557 美元、單日跌 2.59%,白銀與鉑金分別重挫 5.42% 與 4.86%。",
@@ -19,6 +19,437 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "5b6f70b58bfec9ac",
+      "title": "預告晶片關稅200%！ 川普驚爆：台積電將赴德州建廠",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBHMVo5STRzZGZKNVRfdFRuTFZmcmlLaDJrcEpjc2RFYWxsbFlwaG10cDNfdXBGTHRBbWhiSEV3dzJCN21rQWpKNGVPQQ?oc=5",
+      "source": "三立新聞",
+      "published": "2026-11-24T09:03:56+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈",
+        "政策與貿易"
+      ],
+      "score": 6.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "預告晶片關稅200%！ 川普驚爆：臺積電將赴德州建廠",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3deb4b8e578055e3",
+      "title": "中國DRAM技術差距縮至2年、NAND約1年，三星與SK海力士以中國廠擴產迎戰",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9OcW9JZXI2ZURhWlNCTUZzWTVZM0VkWnVhSllpMzF4cUdGbE1NUEdiS3BvVjlEd3JLbzk1NWFQcWNzbE9NMGlIT1hIaTdocS0xcU13cUpVZF9ZM2dJNWduRTlnRWVCc3RLYlZIOUVSbjNiSDVMb1U2anR3?oc=5",
+      "source": "BigGo 財經",
+      "published": "2026-11-25T00:25:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 6.28,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7720614222d72ce6",
+      "title": "三星、SK 海力士、美光被控聯手操縱記憶體價格 辯稱中國廠商擴產帶來競爭壓力",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGp4bUYzRTBnbU12djRFaGhsemtTMjhrdmZGSXhvX1VLd3NBbDFOUU9JWlJIZExPMXFEU1B2MHBYM1REQWVoWmpVcEdlNzQ0TTJ0cDR1UDQ5cG1nUmgxX3dEZmE5Tk45YnkyX0tHWGpEbkY4NkFPc3hVNHVoVUw4LUMzUTBuVnc?oc=5",
+      "source": "unwire",
+      "published": "2026-11-24T07:00:19+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "美光 (Micron)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "原物料與價格",
+        "客戶與供應鏈"
+      ],
+      "score": 6.17,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f1b745b077e4b8c2",
+      "title": "台積電新廠落腳德州？提減稅條件主計處秒放行",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1NM1hnTExmQVhYT2wxaFprN2NINkdRUmR3b21QbThESnhaNEpWd0IxbmV3UnJqUGRTYmo0VzNkcUEtcl85UFVZUWlGWkNYbjZJam9CNzNR?oc=5",
+      "source": "鏈新聞 ABMedia",
+      "published": "2026-11-25T04:03:25+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電新廠落腳德州？提減稅條件主計處秒放行",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e7956c9f7fc87a72",
+      "title": "【川普讚黃仁勳、魏哲家！稱台灣搶走晶片 曝台積電赴德州建廠】 （#大表哥）",
+      "link": "https://news.google.com/rss/articles/CBMiuwNBVV95cUxNVTE4NVNlM0FCdjRUOGhVT0F2ZW1mWE5FRGpUcEJseVUtR3BiQVUwMnlheUlxWktkelZYRGE2VzVLdWlJSU1JQms0U3Vwc3pKRm5yTEVGbkI3dzNMaU9kNTRjOXFZQ1pnVEI4WjZIS1NXeFI5anJxbGlVUlF2OUNxVEY2T01ORzh2LUUzcEJNcFBkT0VMZk9fZURMa201RmNhSTV5U2Z4R3VLSC1QWmtPWXFuOUcta0x4ZmlZdDFMeHBNdXpvTTlyemJZUmVJeEtoTXNaenkyZmRQdDFvajM4N3RBLWFwcFNKNFliWFRSQVljclVkMTVlNnFUMU1zdnVFVDJ1RFB0ZXp2TEtGa3ZKakY5MUctUHdnNjdWdmFUcVNuQTByR291X3d1TDVMNl9rclUtUGVzVU04d3dsZHVMbF9taFhqVG5hWkNOcGdxclhRSk9Ha0NyWUJMT3NPbVF0WmdNRHVXYmUxRms2cnluenRPc0pHSnNIdVNraHJlUmlFZTlycmJwMlk4LVl4Q28xN1l4YWxUUHpZUkZVSzh0clN4b1QtUEp4akNYdkwzOEdhNFdGbFFXMzF0aw?oc=5",
+      "source": "Facebook",
+      "published": "2026-11-24T23:49:50+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.47,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "【川普讚黃仁勳、魏哲家！稱臺灣搶走晶片 曝臺積電赴德州建廠】 （#大表哥）",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6c55a7765ff665b9",
+      "title": "台積電德州新廠投資216.55億美元申請房產稅優惠成建廠關鍵- 國際",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBsOTZsSnJpUzlNLXM5TEFCb2wwMUc4TGljS3dYZmt1N1B6T213c19vQ01rcVptV3RkYUpTN1BSODhMeDJiZDZGLTk3eGRBU1ZKMlo0T2VmVWpLalpnYjM4?oc=5",
+      "source": "工商時報",
+      "published": "2026-11-24T09:11:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.38,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電德州新廠投資216.55億美元申請房產稅優惠成建廠關鍵- 國際",
+      "snippet_zh": ""
+    },
+    {
+      "id": "61efe0f596c1374d",
+      "title": "日月光765元修正41％後「強攻漲停」！吃下台積電CoWoS外溢大單、EPS估衝35元投顧喊出目標價：還有18％空間 - 上市櫃",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE10NzRfYjVySUpUUEZ1em9EekI5UEdMbjFIMXJvMHdRNk1rZDBSOVJsT2VvQmdvMjJBMXVtY3F3MElMY00wYUR2NUpCVFhBQ1g5eHJkRGFPekhIaHpJMGFwdkNTX0o2WndDcWc?oc=5",
+      "source": "旺得富理財網",
+      "published": "2026-11-24T22:44:27+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "營收與財報",
+        "客戶與供應鏈"
+      ],
+      "score": 4.97,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "日月光765元修正41％後「強攻漲停」！吃下臺積電CoWoS外溢大單、EPS估衝35元投顧喊出目標價：還有18％空間 - 上市櫃",
+      "snippet_zh": ""
+    },
+    {
+      "id": "88ca8fc22dcce4f9",
+      "title": "華爾街估明年大型科技股AI資本支出近1.4兆美元，韓國三星電子、SK海力士記憶體榮景可望延長",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5GNUtsOFNZcktWeEZ3TDlBY3RSSC0xVkxvSDVwT2NfN2t6c25vbWVOcHdDN050UUZ4Rm9BMWIxaF80ODRzWHdDVHFGVl9CbFh1aWNjYzZDRlVqcWlUSF81T1RDamFkNkhqVWhkNTZtM2l5c3Z0c19fRDhn?oc=5",
+      "source": "BigGo 財經",
+      "published": "2026-11-24T20:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "三星電子 (Samsung Electronics)",
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.95,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2c866eb01c3551db",
+      "title": "加碼美國 台積電12月4日慶亞利桑那廠擴建",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE0wSzV4OFZKRkgzd2NHdkJ0LWxmeG1DTWRCVFMxN2cwbmFMSmVOWmdQZE1UOXczOUZFZkFnYVk3czRxdFVWOW4zZUFyN09oVzg20gFWQVVfeXFMTV9udm41VS1lZUpUQkVjQWs1bUdTRlVzWnRLMHFFTk81YVpYM1FIZnhfM3pXWTl2cjNjSnhMTjhKclNtRlF5Wlc1VmZ1TnFrbnlMT1hTV2c?oc=5",
+      "source": "UDN",
+      "published": "2026-11-24T16:00:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.93,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "加碼美國 臺積電12月4日慶亞利桑那廠擴建",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a7471a96da7f1827",
+      "title": "A Look at Materion Corp (MTRN) After 8.3% Decline -- GF Value $161.49 vs Price $186.99",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxON19ZdktlYVBDUW9FTFIyYy1kb1gxSkxKekxxTUVXMnBKcklJclBqX1VCWXhiVHFnSUh0aWhtd19wQi1MMHNON1dYSXBpVHZhYU9VdVVxSURJU0pQemVDN1hJSmFLLTBieVg4Vld6VF91bmJhNlg2eWJKT2pYQ2N6dzViek9LTTgwUktiSWRJdk1CNTByODZPMlFjbDFuMHNGMVNJQ2ZqaWdwUDk2ZTdZTDZHaVY?oc=5",
+      "source": "GuruFocus",
+      "published": "2026-11-25T01:49:25+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.78,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "681d6786e614eabc",
+      "title": "矽品攜手輝達簽數十億美元合作協議先進封裝產能2029年中擴增至三倍| 經濟日報",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9zMlJjYmFqMXVrZmpGQmNkR0dHYkVKYkpmMi13UTJhMUhTSmZCejYzTUxhWkF0V1ZfQ3luMExyVnlYc0k3M0luMHFOVnJoRGtTX2FyVnBR?oc=5",
+      "source": "LINE TODAY",
+      "published": "2026-11-18T05:20:55+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "矽品 (SPIL)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 3.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a64ab95c2b27806a",
+      "title": "Gold and Silver Price Forecast: AI Selloff Puts Key Support at Risk",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOaVJxdG9oSzBDS2piZDRFdkZQVmo2RWJ2d2kyc3F0aVJvWUg1U2xUdVc0LXJuMW1oaWV3ZGlzRHhZZDM0Y2RGbWRvYVN6RnY4b3FEOXFxdnVDcWtpUnpYbGkzclplZHI2RlBDT3FxcENoU0drcGU0QTE1T0Rpd2VzTUpCenRURjIyaFlaVGJWQTNMQUdkOExMc2ZBR1lUaXR0ekhBbmZPR1hXZTNNYjFsaFZIc0JfT29V?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-25T04:19:33+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "27c705631e3e8e26",
+      "title": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
+      "source": "FXStreet",
+      "published": "2026-11-25T04:11:49+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "59da58e30a242aa2",
+      "title": "Gold, silver prices today 25 November, Wed: Latest 24K, 22K gold, 999 silver rates in Delhi, Mumbai, Kolkata and others",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNVG1fRTNXQVRuRjVKbG1ZUHVnT3dWS1dXakpiTnBESGMyVnBhN0RGNXhpNW1RMnFsUmZia1FDNWxiZWFtN29YR2U4aEl5U2VQRTg4LXhST19xWnZZMnlYWlVzdHBzQ04zUU1XQjJtZHNJNUlUYUJJRXdvbGl6S0RvTHRSMWxYcDBlV2gtc1pXUUxQT0dmejZpWnI0MHZEY1BHcUFfT3k4dEI0Q3F6T241VW5ITmwtTFZqcWRMVEpJVkJsZ3RReHhkVktiMm1hbXVSSlIwX3k0aHdVMWFpbXlMTVlzUnhBVlZJbjkzZDNHMXZxTkhKNlpWV1B5d1JDakdQSVEyZS1aZFdSc2pZ0gGSAkFVX3lxTE54RVY4Y2VhU09ubWlEODVtenR2d3JfYmk2RWJYWVJ2bThxcmtpV3ZPTl81SWlTaHo3ZUVNeTk1b2gxS25YczB1emFTa3ZwR2NVMS1MdDNBMm5WcnVUb3k4bC1VTlprVHVZVnQtNGJ6QnVBTUdqaVp6amw4MWh3YWZ5SkdUNnRQNExTQUJFS21WaWNfd0VSME85ZXZMUzJYT2xEdnR6Q1h2OFRHNmE2MjFid0dqUl92VFBTdUNXVDVQTkdKRFJwOG56YnhpZkNfR1VuVllzZHdKajh0TGtlcnhKMmc4WXZIcl9kcW5LTGlXT3I0SXYyYVhhYm4xQkNXc3hiUGlwak1LZFRRSE9QUTZWOWc?oc=5",
+      "source": "Livemint",
+      "published": "2026-11-25T03:52:47+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "52f2f926e407bcbe",
+      "title": "Silver Price Forecast: XAG/USD drops to new 14-month low near $40.50 as attention turns to US PCE data",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQUzVSSWhlek9vSFk4SlhSc29jMzBEeXBoNXZKUDNGdnFmWlhwR0xRSHNURlZhMXBZM3hzTjRTZVlEV3JmeU9pOUY4MnFHbDV2TDRSUVR3YkItcUE1VkVmM3d4RHZsUXpIN3BVM2lWMy0tcFNtNHlKUUFRWXUxYmNpY1N1cGdYRDRrZFNNVkFNN0ZCXzQ2YThaVW1yOFJReXhtbVVfemxZN09vMFkzTGtUUUIybHdQTmxTRGQ1ODBuc2RucWRjUkl1OWc0UDhvTXBkU1N3MGZvb1RqWHhTNDEyeG04ZXhhVmd6Qnc?oc=5",
+      "source": "www.tmgm.com",
+      "published": "2026-11-25T03:22:07+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f633757e702004c1",
+      "title": "日本株の買付ランキング、1位は「キオクシア」！ ソフトバンクG、JX金属も上位に",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1OQVpZRHNnWkFfQS14R1lidDQ3NEU2Uk5aXzFDaFpCTU95a29FZGJKbXNWeFNLVnRCak5ua2lQbVFBaTh3LXAwc0lpRWFZUUJTWmdoNzhRcVc5akFuVWp2SA?oc=5",
+      "source": "Infoseek",
+      "published": "2026-11-25T02:30:00+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8a1bb04fac57c87f",
+      "title": "有研新材：融资净买入884万元，融资余额9.16亿元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9rVTRqampQU0dnU3Vta3JwVkZHeHZOTGV6NWZkOTJ6b0ZZbExJNVRROUxZcTJmMzZ6SEJ2QVk0YndQZFd0bjVjVzZjUy1mQWN0NGs3WmNUOVAwa1NUYzlLQUJ2OGMwdw?oc=5",
+      "source": "东方财富网",
+      "published": "2026-11-24T23:48:01+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.97,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材：融資淨買入884萬元，融資餘額9.16億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a8d7899ded063c34",
+      "title": "有研新材：有研新材料股份有限公司关于第三季度计提资产减值准备的公告",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNMXljcEhzN1pJbHRnNm5ibDhBeUVlR0NyS3QzTks0QTJaLVQyRmtLcDcyWERyNGFxRGJIWEZpUkJ0eEp4dV9USGZXUzl0VHJHeGNjWkNUMDNWbnFqWGk5N2w0ci1XaGp3SmtpTWcwblpiZWdHMXFQSnNxUk50WDhkQ0daanhtMjZiUGFMZnFwcFJLYmQ4TDkwb1hRT2R6c29Ta01uWkNRYzNPclJBQktZ?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-24T06:25:44+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.87,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材：有研新材料股份有限公司關於第三季度計提資產減值準備的公告",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fb50b70763a78b9c",
+      "title": "Materion內部人士減持股票可能釋放看跌信號",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNa1I0X1V6c3NVMWhHUDBaNDBfTDh4N0VKcUYxb2IzM0thTWF3UDBMdncwQUpGTUtNVk5ZU08yMzJQZVkxbjFMc3lWX1cwbHFKbDRtT2FLckxpSmRKd3Q1U2sxcl9qeExNTlNwS1RacmQ5TFQzNC1RMFE2c1VjLUxTQ1diZWRzMnZSU1ktVXcwTkVXalJReWZZb2lTa2hVZUlqV2dVVzNvd3BqTkJfZmNrQjl3?oc=5",
+      "source": "Moomoo",
+      "published": "2026-11-23T18:09:05+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "Materion"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.79,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f58b7c72d4b01928",
+      "title": "黃金突發大行情！金價亞盤暴漲逾50美元 究竟怎麼回事？",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE43cTMtUmMzRmRnd2tqdUY5cWJwakY0am03UEFnd280TlM4YUc3NnJPZXpwNlEyQnlZeFdEd19GdlFPX25IY1hodHdaZFpQS2xUU3ZpUlNQWDB4RFd6UkFfWU1DeXY?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-23T14:39:09+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.27,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "bdf750014c53e204",
       "title": "台積電德州新廠申請送件",
@@ -701,42 +1132,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3556.8,
-      "prev": 3651.4,
-      "date": "2026-11-24",
+      "price": 3552.4,
+      "prev": 3561.9,
+      "date": "2026-11-25",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -2.59
+      "change_pct": -0.27
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 40.81,
-      "prev": 43.15,
-      "date": "2026-11-24",
+      "price": 40.63,
+      "prev": 40.76,
+      "date": "2026-11-25",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -5.42
+      "change_pct": -0.32
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1258.9,
-      "prev": 1323.2,
-      "date": "2026-11-24",
+      "price": 1252.8,
+      "prev": 1258.7,
+      "date": "2026-11-25",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -4.86
+      "change_pct": -0.47
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 860.0,
-      "prev": 895.2,
-      "date": "2026-11-24",
+      "price": 851.0,
+      "prev": 858.0,
+      "date": "2026-11-25",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": -3.93
+      "change_pct": -0.82
     }
   ],
   "papers": [
