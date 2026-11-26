@@ -1,0 +1,71 @@
+name: 白銀 AI 預測
+# 每個交易日美東收盤後,用「白銀 AI 冠軍模型」(https://silver-ai.streamlit.app/,程式在 frk618-ship-it/silver-ai-trader)
+# 預測白銀未來 7 個交易日,寫入 data/metal_alert/silver_ai.json。貴金屬預警頁的「未來一週價格預測」中,
+# 白銀改以這份預測為中心線(下一次發布網站時生效;「貴金屬價格預警」每小時發布一次)。
+# 只做預測、不訓練:模型由 Streamlit App 訓練並自動備份到私人 repo silver-ai-data,這裡從備份還原。
+#
+# 需要的 secret(Settings → Secrets and variables → Actions):
+#   SILVER_DATA_TOKEN   可讀取 frk618-ship-it/silver-ai-data 的 GitHub fine-grained token
+#                       (可沿用 Streamlit App 的 GITHUB_TOKEN,或另建一個 Contents: Read-only 的 token)
+# 手動執行:Actions 頁面選「白銀 AI 預測」→ Run workflow(例如剛在 App 訓練出新的冠軍模型時)。
+
+on:
+  schedule:
+    # 22:23 UTC(台北 06:23),週一到週五:美東 17:00 收盤之後(冬令 22:00 UTC、夏令 21:00 UTC)
+    - cron: "23 22 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: silver-ai-forecast
+  cancel-in-progress: false
+
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SILVER_DATA_REPO: frk618-ship-it/silver-ai-data
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the silver AI model code
+        uses: actions/checkout@v4
+        with:
+          repository: frk618-ship-it/silver-ai-trader
+          path: silver-ai-trader
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: silver-ai-trader/python/requirements.txt
+
+      # CPU 版 PyTorch(requirements.txt 已指定),約 200 MB,有快取時很快
+      - run: pip install -r silver-ai-trader/python/requirements.txt
+
+      - name: Predict with the champion model
+        env:
+          SILVER_DATA_TOKEN: ${{ secrets.SILVER_DATA_TOKEN }}
+        run: |
+          if [ -z "$SILVER_DATA_TOKEN" ]; then
+            echo "::error::尚未設定 SILVER_DATA_TOKEN secret(可讀取 ${SILVER_DATA_REPO} 的 GitHub token)"
+            exit 1
+          fi
+          cd silver-ai-trader/python
+          python -m silver_trader.export -o "$GITHUB_WORKSPACE/data/metal_alert/silver_ai.json" --days 7
+
+      - name: Commit the forecast
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/metal_alert/silver_ai.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "metals: 白銀 AI 預測 $(TZ=Asia/Taipei date '+%F %H:%M')"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

@@ -10,15 +10,39 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import alerts as al
+from . import silver_ai
 from .config import Config
-from .forecast import forecast
+from .forecast import forecast, next_weekdays
 from .signals import analyse
 from .yahoo import Fetcher, fetch_bars, http_fetch
 
 log = logging.getLogger(__name__)
 
 
-def collect(cfg: Config, fetch: Fetcher = http_fetch, retries: int = 2) -> tuple[list[dict], list[str]]:
+def _forecast(spec, daily, data_dir: Path | None) -> dict | None:
+    """One-week forecast; silver uses the silver AI champion model's prediction as the centre line."""
+    if not daily:
+        return None
+    center, model = None, None
+    if spec.symbol == silver_ai.SYMBOL and data_dir is not None:
+        ai, why = silver_ai.load(data_dir)
+        if ai:
+            center = silver_ai.center_for(ai, next_weekdays(daily[-1].ts))
+            if center is None:
+                why = "AI 預測的日期與本週不符(可能尚未更新)"
+        if center:
+            model = silver_ai.model_info(ai)
+        else:
+            model = {"kind": "stat", "fallback_reason": why}
+            log.warning("silver AI forecast not used: %s", why)
+    f = forecast(daily, center=center)
+    if f is not None and model:
+        f["model"] = model
+    return f
+
+
+def collect(cfg: Config, fetch: Fetcher = http_fetch, retries: int = 2,
+            data_dir: Path | None = None) -> tuple[list[dict], list[str]]:
     metals, errors = [], []
     for spec in cfg.metals:
         try:
@@ -30,7 +54,7 @@ def collect(cfg: Config, fetch: Fetcher = http_fetch, retries: int = 2) -> tuple
                 daily = []
             a = analyse(spec, bars, daily, cfg)
             try:
-                a["forecast"] = forecast(daily) if daily else None
+                a["forecast"] = _forecast(spec, daily, data_dir)
             except Exception as exc:  # the alert itself does not depend on the forecast
                 log.warning("%s forecast failed: %s", spec.symbol, exc)
                 a["forecast"] = None
@@ -50,7 +74,7 @@ def run_once(cfg: Config, data_dir: Path, fetch: Fetcher = http_fetch, notify: b
     alert log and ``latest.json`` are left untouched, so no alert is consumed without being sent.
     """
     now = int(time.time()) if now is None else now
-    metals, errors = collect(cfg, fetch, retries)
+    metals, errors = collect(cfg, fetch, retries, data_dir)
     state_path, log_path = data_dir / "state.json", data_dir / "alerts.jsonl"
     new_alerts: list[dict] = []
     if metals and record:

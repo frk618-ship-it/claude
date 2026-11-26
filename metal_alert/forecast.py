@@ -134,8 +134,14 @@ def next_weekdays(last_ts: int, k: int = HORIZON) -> list[str]:
     return out
 
 
-def forecast(daily, run_backtest: bool = True) -> dict | None:
-    """Forecast from daily bars (oldest first); None when the history is too short."""
+def forecast(daily, run_backtest: bool = True, center: dict[str, float] | None = None) -> dict | None:
+    """Forecast from daily bars (oldest first); None when the history is too short.
+
+    ``center`` (date -> price) replaces the statistical centre line with an outside model's
+    day-by-day prediction (the silver AI champion, see ``silver_ai.py``). The bands keep this
+    model's volatility and residual quantiles around the new centre; days the outside model does
+    not cover fall back to the statistical drift.
+    """
     closes = np.array([b.close for b in daily], dtype=float)
     if len(closes) < MIN_TRAIN + 80:
         return None
@@ -148,10 +154,20 @@ def forecast(daily, run_backtest: bool = True) -> dict | None:
     s = float(sig[t])
     qs = {q: float(np.quantile(resid, q)) for q in QUANTILES}
     base = float(closes[t])
+    days = next_weekdays(daily[-1].ts)
+    stat_z = z
+    if center:
+        last_day = days[-1]
+        if last_day in center and center[last_day] > 0:
+            # the outside model's 5-day move, in the same sigma units the bands and p_up use
+            z = math.log(center[last_day] / base) / (s * math.sqrt(HORIZON))
     path = []
-    for k, day in enumerate(next_weekdays(daily[-1].ts), start=1):
+    for k, day in enumerate(days, start=1):
         sk = s * math.sqrt(k)
-        drift = z * s * math.sqrt(HORIZON) * k / HORIZON
+        if center and center.get(day, 0) > 0:
+            drift = math.log(center[day] / base)
+        else:
+            drift = stat_z * s * math.sqrt(HORIZON) * k / HORIZON
         row = {"date": day}
         for q, v in qs.items():
             row[f"p{int(q * 100)}"] = round(base * math.exp(drift + (v - qs[0.5]) * sk), 2)
@@ -163,12 +179,16 @@ def forecast(daily, run_backtest: bool = True) -> dict | None:
     drivers = [{"key": key, "name": name, "value": round(float(X[t][i]), 2), "effect": round(float(contrib[i]), 3)}
                for i, (key, name) in enumerate(FACTORS)]
     last = path[-1]
+    stat = None
+    if center:   # what the statistical model alone would have said, for comparison on the page
+        stat = {"expected_pct": round((math.exp(stat_z * s5) - 1) * 100, 2),
+                "p_up": round(float(np.mean(stat_z + (resid - qs[0.5]) > 0)) * 100, 1)}
     return {
         "horizon_days": HORIZON,
         "base_price": round(base, 2),
         "base_date": datetime.fromtimestamp(daily[-1].ts, timezone.utc).astimezone(NY).date().isoformat(),
         "path": path,
-        "expected_pct": round((math.exp(z * s5) - 1) * 100, 2),
+        "expected_pct": round((last["p50"] / base - 1) * 100, 2) if center else round((math.exp(z * s5) - 1) * 100, 2),
         "median": last["p50"],
         "range50": [last["p25"], last["p75"]],
         "range80": [last["p10"], last["p90"]],
@@ -179,4 +199,5 @@ def forecast(daily, run_backtest: bool = True) -> dict | None:
         "history": [{"date": datetime.fromtimestamp(b.ts, timezone.utc).astimezone(NY).date().isoformat(), "close": round(b.close, 2)}
                     for b in daily[-60:]],
         "backtest": backtest(closes, X, sig, y) if run_backtest else None,
+        "stat": stat,
     }
