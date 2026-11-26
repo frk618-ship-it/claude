@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T07:28:58.943432+08:00",
+  "generated": "2026-11-26T11:45:20.287107+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是全球晶圓與記憶體擴產:台積電已向德州遞交租稅優惠申請,擬投資約 230 億美元(約 7,100 億元新台幣)興建新晶圓廠,預估創造逾 640 億美元經濟效益。中國記憶體廠加速擴產,長鑫存儲的 DRAM 份額升至 9%,長江存儲的 NAND 出貨份額已超越鎧俠,將推升中國本土靶材需求。靶材市場方面,市調報告預估鎳濺鍍靶材市場至 2035 年年增約 6–9%,江豐電子上半年淨利年增 113.61% 至 5.4 億元人民幣,但 11/25 股價重挫 11.7%。JX金屬以 27.5 億日圓完成認購 Oxide 新股,資本業務合作正式到位。貴金屬方面,美國通膨數據續升使金價一度重挫 3% 跌破 3,500 美元、銀價跌穿 40 美元,隨後在華爾街反彈下收復跌幅,金價收在 3,604 美元。",
@@ -19,6 +19,601 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "2c57cfcb43315939",
+      "title": "台積電亞利桑那擴建、評估德州建廠台灣仍是研發與先進製程核心| 產經",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBhUmt4OEJkTkp2LXFqU1JRU1IybVFJeDR2eHR6eXlrVGZyZW1DdWNud0VUdFlhRGlvQ3dGTUphY09LQUdMbGstSzRiWlVlYm10YW9leWVtMlB5UG1wS1E?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-11-25T08:45:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 6.19,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電亞利桑那擴建、評估德州建廠臺灣仍是研發與先進製程核心| 產經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "052a885b58766d6d",
+      "title": "台積電美國新廠動土倒數！重量級嘉賓曝光",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Xdlc4R1hfd1AwSW1pRXZ0Q2pSWG9pRnBmTW1abFV0VW9kcS01Nkt3MDl5NG9fXzljX1ZKVzk2SnRSTl9WMXR6U3E0cXF4dEFaQVgwYkIzblNfX2RDdGNz0gFkQVVfeXFMTnFZcTZPRV9BMnJtNVdZTU1vM2QyRHVRMVEyRnNiVnVqME1ua3QxRTkxTDJpS3FRdlVlYXdwWWZJQ25rVlRLd3VSbFdodHotNVF4dnp4aERzVHpqMll4bGN4bk1BWQ?oc=5",
+      "source": "自由財經",
+      "published": "2026-11-26T03:07:55+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電美國新廠動土倒數！重量級嘉賓曝光",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a9cc925491f7480a",
+      "title": "美 \"삼성·SK하이닉스 D램 지배력, 정부 지원 결과\"…호남 반도체 증설 정조준",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5vRjRoUjJGcjI2d3F2NUFKUkxZV0VoNkMyZlBUbmRVTTI2cFpzNElYdFV5TU5lN3hjMUNNblNoUFlwQV9BcXhYVGRKNlNOYS1sNHlLQ2xNWFE3N2FT?oc=5",
+      "source": "뉴스핌",
+      "published": "2026-11-26T01:37:00+00:00",
+      "snippet": "",
+      "edition": "ko",
+      "entities": [
+        "SK海力士 (SK hynix)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.49,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "2b685a692183b772",
+      "title": "【即時新聞】台積電(TSM)斥資2650億美元擴張美國產能，川普將出席亞利桑那新廠動土典禮！",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObkhVMl9yZGJkS0hrLWwyRHpKWkVfeUN4clNseFVlWFZkdEFXdVVzRXk3OUtibFI4MjJyaFo5MVJfZGc2RnVEWXVKamNTZkNDYkVxZXBaWEFlZWhMX1R0cDdVX3NuRDA3RWZ1MWxzS0JVQzd2NWtTTmNhME0yLTk3Wm9ESmdYcDZDektmc2RVRWE?oc=5",
+      "source": "CMoney投資網誌",
+      "published": "2026-11-26T00:12:04+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.48,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "【即時新聞】臺積電(TSM)斥資2650億美元擴張美國產能，川普將出席亞利桑那新廠動土典禮！",
+      "snippet_zh": ""
+    },
+    {
+      "id": "492a7b3f37f9e16f",
+      "title": "【科技早餐】台積電美國擴產新進展！向德州申請減稅，評估 226 億美元晶圓廠投資",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUE5FZWlCRFhJY1RQbTAtWnE0Q29zT21pd3VNZkVyd0I0aGFWZkNCb19lUmdJRGVYQ2Z1NjFQV1JZQ21pa3UzN3dFX2tFdkp1SWhWcWRhLVp1UFN5SFVJN2QyLUlnRy0ydlVYcGlWVWNIV1Naa2V6em5uMlhXX0NjNg?oc=5",
+      "source": "TechOrange 科技報橘",
+      "published": "2026-11-25T21:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "【科技早餐】臺積電美國擴產新進展！向德州申請減稅，評估 226 億美元晶圓廠投資",
+      "snippet_zh": ""
+    },
+    {
+      "id": "45b6562e01454e4b",
+      "title": "台積電為何昨漲停，今天卻重挫？砸226億美元赴德州建廠！投資關鍵曝光 | 下班經濟學 | 財經",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA1VmdMNGI4bDhCZllzeWcycHd1a0VpS09RSlgxVE9KZnZ5dktZUEl2ZjJYTGRDRzAxOGRoVmhzZWxiRDVEaE56NHJVMXRDdw?oc=5",
+      "source": "風傳媒",
+      "published": "2026-11-25T03:48:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.36,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電為何昨漲停，今天卻重挫？砸226億美元赴德州建廠！投資關鍵曝光 | 下班經濟學 | 財經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a05c1df692dd4491",
+      "title": "AMD核心封测商，1.08亿元深圳拿地建厂，通富微电加速布局大湾区",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1VNTkxVUI3SWE2Vk5xZUlGQTFlOTVkbDRGRVlMcUVxUjZlSThsY1hSTGJ4NUdQMkc1ck10YUdXQ3p3cnUtMGprNFdnaTFjUlYxOEJBTmV3?oc=5",
+      "source": "腾讯新闻",
+      "published": "2026-11-24T06:56:55+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "通富微電 (TFME)"
+      ],
+      "categories": [
+        "擴產與投資"
+      ],
+      "score": 4.23,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "AMD核心封測商，1.08億元深圳拿地建廠，通富微電加速佈局大灣區",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7c5139d20f748946",
+      "title": "TSMC CoWoS Fully Booked as Orders Overflow; Research Firm Estimates ASE and Amkor's CoWoS-Like Demand to Surge 5.5x by 2027",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5xT1NhOGVxWnBUcnVRRUJ0MmNyS3R2aV9LSnl2R0hSZmFjWEdFR2pFbTBEUFZhUU5hMER3ME1hdERGOWJxSTRfdC1PYXk2SzdWQ2ZYSkNQVnJQLXN5NGtYZm9oTkZvdFdjRTZiejByUGQzYVNWT3c?oc=5",
+      "source": "finance.biggo.com",
+      "published": "2026-11-26T03:36:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "Amkor 艾克爾"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "0585106cfe643b11",
+      "title": "產業：明年AI趨勢不變，先進封裝成必備，台積電佔比最高、日月光集團最受益",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM0QxR2hMZDc5V25nMFlVOC1CTzdHY0kxVHNSd051MklWSHR6QmpaaU14MXk1dkVkc0xGSXZJeGstZXMweHJuaWFEcEZOVExsWTZwM2RVR2F5OEtGNDRITy1RUk9ieUxwZnRXdUZOODZhTXhpUV95Wi1uNjdPTjEzLTRjYkdoWUtz?oc=5",
+      "source": "富聯網",
+      "published": "2026-11-26T03:11:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 4.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "產業：明年AI趨勢不變，先進封裝成必備，臺積電佔比最高、日月光集團最受益",
+      "snippet_zh": ""
+    },
+    {
+      "id": "537e3b3163df1a23",
+      "title": "川普12/4赴亞利桑那州 出席台積電晶片廠擴建動土典禮",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB6Y1E2c3RLdGdQaHI4MThBNlltX1BBQ0ExbFRFMkQtQ0ZCMExpdkpHekV0Z25PSGdQNmFOTXZ3VjdISE5odTV6SkdmakRmNjQ?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-26T01:14:03+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "川普12/4赴亞利桑那州 出席臺積電晶片廠擴建動土典禮",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7af9bf7c6b8852e1",
+      "title": "白宮官員：台積電亞利桑那廠12/4擴建典禮川普可能出席主持| 財經焦點",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1FUFJHb0ZjNkZ5amhIVGh6ejlUaHRXY0c5VkhnRlJCcWx4czhremNWM3E1bThiM014VjRPTzE4Y0ZuaFJTMDlyTG5kOGhCdzlUWnVxWDdJSkhKbVV6?oc=5",
+      "source": "太報 TaiSounds",
+      "published": "2026-11-25T13:01:49+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "白宮官員：臺積電亞利桑那廠12/4擴建典禮川普可能出席主持| 財經焦點",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a889d21f22e5838c",
+      "title": "台積電加碼美國12/4慶亞利桑納廠擴建 黃仁勳可能與會",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAtbjhjN2U1eU1yUldZd0cxSWhvNGppNnZXdzRkbXh1VEQzUTJvOFpUSXo0N29PVjRLZnRmZnFlZnladjNxQmkxck96VDdHX1YwY0lUUmZxN3ZITERlcU9MU3hn0gFnQVVfeXFMTlc5U0FnTWZCUi0xZEpTNy16OE5QbG9VNUlQcnpIUVVwZFFZXzduZENPQTlfS0tBbjFWS055ODNLdC1WSnV1Wmlwem1MLVJiQUdzOWYyZi1zRThadzFXdzRxMUFHSC04OA?oc=5",
+      "source": "世界新聞網",
+      "published": "2026-11-25T12:04:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電加碼美國12/4慶亞利桑納廠擴建 黃仁勳可能與會",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7c9c315e32caaff4",
+      "title": "台積電亞利桑那廠12/4辦擴建典禮彭博：川普將親自出席| 產經",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBVV1NtZEFFYWFpbGlXUUY5dmlxU2JvOVQzX1o3YTR4dlFQRUM5OUVlNDhLNGVBOEtLcjhSWjFKOGYwZnlhYXhtbDZUa09pa2wxblJ0RC1SR01jM2Y4SXc?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-11-25T12:02:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.91,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電亞利桑那廠12/4辦擴建典禮彭博：川普將親自出席| 產經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "103a89cc7b6e1ccf",
+      "title": "彭博：川普下周將親臨台積電亞利桑那廠擴建典禮| 全球財經| 全球",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1KTXUyM01YeGpoRUxTRXBPNGR4Q0tNQ3ByWEFnODdXOC15NFdHVTVzTEp3Z0o2OUl3RHc1blYtc1R2d04tY2VvS3NxVHJjLUw3?oc=5",
+      "source": "UDN",
+      "published": "2026-11-25T11:25:18+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "彭博：川普下週將親臨臺積電亞利桑那廠擴建典禮| 全球財經| 全球",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6816904f19b69040",
+      "title": "台積電美國廠12/4擴建典禮彭博：川普將出席| 科技",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5xSXQxOTJBSDllOXlqS0k0VDdpd1Uxc2cwUkZRZE1RMlBrUlJxRmxjUnlzT1BMeWtCNkRha3BNRkZFOEJVY3EyUG1TdHh6aW1kN2I0U25rajFrcTht?oc=5",
+      "source": "非凡新聞台",
+      "published": "2026-11-25T10:13:42+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.9,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電美國廠12/4擴建典禮彭博：川普將出席| 科技",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a1570ee7a5329703",
+      "title": "台積電亞利桑那廠12/4辦擴建典禮2奈米考慮落腳德州| 產經",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE44dGRvWTdySXJ2TGl3UnRMU2tleHByY192Zk9UZU5TZzFCb2dDMDdqcVA0SkpGbHZ6S2NRbGtfU0t5Q0hOVGhSbGpNZnNsZEJiTmFlVWstT0phdkVOSFE?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-11-25T06:22:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.87,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電亞利桑那廠12/4辦擴建典禮2奈米考慮落腳德州| 產經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "46744b08cb67fc74",
+      "title": "白銀價格預測：XAG/USD力圖在42.00美元上方延續反彈",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNX2hOOXRabHZiTVdnM0FqS2ZuWnllTzNaMm9yVW1ncU03NGFsbkgyV1BHMHduSHVibnhvTkF4TGd1QUd3dzR4TDdhdlRpZHppcVFsTS1IUWFfWDU3OS04YnZEMUNyNWV2dXRheUx5Q1hXSkJHYTJrZlowQWJ6Sll4NGtCVUtUSXJFdjNDSExpUUVYYkVGM2k0aDJoY1lNeWxXZjBHQjZZMzU5akt4dTJSc1FRQmdMYmpIWmpQNW1BX2wwR1Z1QU9neEJTQk00Ykk?oc=5",
+      "source": "www.tmgm.com",
+      "published": "2026-11-26T02:58:45+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7b804b1b1391f654",
+      "title": "Gold (XAU/USD) Price Forecast: Buyers Defend Critical Support After Sharp Selloff",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQNGZMTVE0MlI5cDRTYWh0UkJkcGszVFROQzlSNktoRUhYbTRfQWFiUEpFNEwzV2RZaWdxenEzSnJ2SDNxRlozQjB3di02c1IyUmpnVENfb3plNFp1cHNFQWZzOEQtRTFZb1dMekVwb2N1SmRfYkdWWXlsVmxJWXJoZFoxTGx3TWcxMjdqTGZtWDgxUFdzUlhXTUtya29SV1RObjZlb1FNUWRUMTNaNGloN3NfeWVtU1JFM3dNZWUwVkpPVEJReWJNdQ?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-26T02:03:58+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "cdc6db54f6d38a6d",
+      "title": "Stock Market Today (Nov 25, 2026): Nasdaq Trims Losses, Gold Price Falls, Brent Oil $91",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNd2RjT2JadEU4U2dETV94OG43V0ZnZElweC1GeElfVUkzemF2RU5Yb3ZaVDVUeWFmeDhva0Ntb3JrR2NlcmlteWdja3JadnpCNFp3eXRmR0U3Z1JtaXBpLW9NWllTWTJyeW9Sc1lVNFBmS1FVWlgzMnVHdExvR0hrU1liVVNvaExYbWE3SUszRFdSNl9nTURIU3dKei1LU3dhanFmTmV0aTBOOFFxekY5OW5zSS1sX3IxR1R6MV9kbzRCUQ?oc=5",
+      "source": "Eurasia Business News",
+      "published": "2026-11-25T22:13:37+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.27,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "68a8ec9d8a5b1d36",
+      "title": "Current price of silver as of Wednesday, Nov. 25, 2026",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBmTFRVMzk2cHpIeHZILXkxcUNaT0RMMTRkQzk1bS1Gd3d5bFJON19VQlFHdEJWV3FSSkRXV2FRYm9tanBCdHltRGp6X2p0SnpoTjVXWjl6TnZ3cUY2WU9mYTVlWDlycmtJQ2ZQNVdfTlA?oc=5",
+      "source": "Fortune",
+      "published": "2026-11-25T21:05:32+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.26,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "78987c355ed54751",
+      "title": "日股：鎧俠攜輝達以SSD擴充GPU可用記憶體，股價半日大漲逾12%",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWF80QlVEZTlwYmd4RmpkbUZiSlJlS3J4TG9tNXZ2ZU16ZG1Ia1FPUEtFWk8zWHRuVjlQZTBFRzdDOXFwWGJoc0tVZUp1Y2s0RTJEdUZ3MWhJbjR1YkM5TV9ydThDYWdRYmJTUlQxWFNwZTVpMEhyblBXNlhEUHl3VVdYRHVMN1lN?oc=5",
+      "source": "富聯網",
+      "published": "2026-11-26T03:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "鎧俠 (Kioxia)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 3.0,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "c6a40618a3af67ba",
+      "title": "先進封裝能見度強勁，花旗給日月光投控 908 元目標價",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNYnNhLVpuNWVfYURSV2tCdUdVdmY1dllpVFNWeW5TQmlMLV83eE5ja1lZamh3QVhxV2U3SGg0Q1RMTFlQVkYxeGpaR1FPNi0yNVlXMWZnamlmMnJTaWhJcVB2ZHN2cXZiSDJhd2NDQnpoZjRZanNxU3QzOHNaci02U2dDUzFnWDU3czgzTUh0cmhYYy1jSlB5bmVsMWMzTHpqaWc?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-26T02:20:33+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.99,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6ca25cb6d3e3d55d",
+      "title": "江丰电子（300666）11月25日主力资金净卖出2.90亿元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQX1RwUG1uQmlZOEU3ZGNyV0dGVlM5cjFaWk52RGhPMFo1V2cyUUljTXNIdFJjWk5KX2NRZHV4cFZ4NDFJVXI5YVV2WlZTQl9rbExFMHpISFZ3bUlJelA3Y1FDYXgwdFdjcVFuT21EdFFUTnRHdktLaGJ0OVExYUVYcmw0T3cwVjdH?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-26T01:11:23+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "江豐電子 (KFMI)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "江豐電子（300666）11月25日主力資金淨賣出2.90億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f62b97bac43b21c2",
+      "title": "有研新材(600206.SH)：截至2026年11月20日，公司股东户数为335929",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBtdkxOQ3ltQVZYNnBvRlNPQ3VtQ0NVRk8yemVqeEZkX0FOMVBLcS1ILTR5VEZkSmhjdWVWZ3hJT0VHci1UX0JjYzFzRW5ZTVRLVDRMSWJqTW5Qc1VqN180ZVpBakd3Qk96anBz?oc=5",
+      "source": "TradingView",
+      "published": "2026-11-25T07:35:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材(600206.SH)：截至2026年11月20日，公司股東戶數為335929",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7bce654a6760b2f6",
+      "title": "有研新材跌2.19%，成交额24.59亿元，人气排名43位！后市是否有机会？附走势预测",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPLV94Qy1KdUJwMU12bVRUal96bGNpaWZzTzVnaFNtN05uQlZKclN4cUp1NVJDZEh6a05BaXRNUl93VFFQcml0aVhpWEplTjIxMXpyREZ1OW5JbnNfcUVJU25fVnhJUWo0LWJPSnNBWV9ET3R6bkxCbjd2aXZ1RHNVbF9YZ0ZNd3ExX1lFcQ?oc=5",
+      "source": "新浪财经",
+      "published": "2026-11-25T07:04:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材跌2.19%，成交額24.59億元，人氣排名43位！後市是否有機會？附走勢預測",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4a7a9457a0f8a9a3",
+      "title": "高純度スズの世界市場2026年、グローバル市場規模（純度99.99％、純度99.999％、純度99.9999％以上）・分析レポートを発表",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE94NEhMSURVSjhHaHE5VGhNNFIxNXpZNGJPUU9EdHo5N2h6Y2ZsNndSM2tWaWVQVHpMMVl3WU9FSW5RLTVCZ2F6cjRFUEVUcnZRc2VTVm93Q0I2OVhPT2hqSWN5bGowcDNG?oc=5",
+      "source": "ニコニコニュース",
+      "published": "2026-11-26T03:09:24+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "產業綜合:スパッタリングターゲット"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "e14e9c51500589a1",
+      "title": "微导纳米(688147.SH)：目前已正式推出两款iMagtron系列PVD设备_股市直播_市场",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBkWnk3eXpRLWM2UTZCN2VuS3plOTRZd1N3OWdvVVpxLThzanRiZUlGZzNWbDV0VnlXYk5IeGZ0aGxDdG9MaFBxOGJtUzNfR01aN1A5SUpIeFd2WGxINnRudU5VaFY4cmZ0T01SVw?oc=5",
+      "source": "中金在线",
+      "published": "2026-11-19T08:41:07+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "設備綜合:溅射设备"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 1.53,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "微導納米(688147.SH)：目前已正式推出兩款iMagtron系列PVD設備_股市直播_市場",
+      "snippet_zh": ""
+    },
+    {
+      "id": "de9fcc466392b1d3",
+      "title": "微导纳米(688147.SH)：目前已正式推出两款iMagtron系列PVD设备_公司新闻_财经",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZWEJMYWVDRjFDQzhCakEyQ015VHZodFllOVU4VmVzVkR4a0xkdGlqZGQ5Q0RIZFZsRDV5TktyeXRyVnNreFBMbXhzTHlpRDVrNjZxbkpkU2FEQ2dxQVlvLQ?oc=5",
+      "source": "证券之星",
+      "published": "2026-11-19T08:12:49+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "設備綜合:溅射设备"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 1.53,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "微導納米(688147.SH)：目前已正式推出兩款iMagtron系列PVD設備_公司新聞_財經",
+      "snippet_zh": ""
+    },
     {
       "id": "d4af6093989e9bd7",
       "title": "CXMT、YMTC扩产提速：DRAM份额升至9%，YMTC NAND按出货量计份额超Kioxia",
@@ -722,42 +1317,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3604.2,
-      "prev": 3561.9,
-      "date": "2026-11-25",
+      "price": 3605.3,
+      "prev": 3535.8,
+      "date": "2026-11-26",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.19
+      "change_pct": 1.97
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 41.61,
-      "prev": 40.76,
-      "date": "2026-11-25",
+      "price": 41.95,
+      "prev": 40.05,
+      "date": "2026-11-26",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 2.09
+      "change_pct": 4.74
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1265.8,
-      "prev": 1258.7,
-      "date": "2026-11-25",
+      "price": 1286.1,
+      "prev": 1241.4,
+      "date": "2026-11-26",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.56
+      "change_pct": 3.6
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 861.0,
-      "prev": 858.0,
-      "date": "2026-11-25",
+      "price": 878.5,
+      "prev": 831.1,
+      "date": "2026-11-26",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 0.35
+      "change_pct": 5.7
     }
   ],
   "papers": [
