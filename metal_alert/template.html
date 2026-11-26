@@ -565,10 +565,13 @@ function renderAiForecast(m, f, dp) {
   const drv = (ai.drivers || []).slice(0, 6).map((d) => `<tr><td>${esc(d.name)}</td>
     <td class="num">${d.effect > 0 ? "+" : ""}${Math.abs(d.effect) >= 0.01 ? d.effect.toFixed(3) : d.effect.toFixed(4)}</td>
     <td>${Math.abs(d.effect) < 1e-4 ? "幾乎無影響" : d.effect > 0 ? '<span class="eff-up">推高</span>' : '<span class="eff-down">壓低</span>'}</td></tr>`).join("");
-  const hd = ai.holdout_da;
-  const verdict = hd == null ? "" : hd >= 55
-    ? `冠軍模型在最後一段沒參與訓練的資料(保留集)上,隔日方向命中率 ${hd.toFixed(1)}%,有一定的方向參考性。`
-    : `冠軍模型在保留集上的隔日方向命中率為 ${hd.toFixed(1)}%,<b>接近隨機,請把重點放在價格區間</b>。`;
+  const hd = ai.holdout_da, direct = ai.method === "direct";
+  const H = ai.horizon || f.path.length, hh = ai.holdout_da_h;
+  const vd = direct && hh != null ? hh : hd, vlabel = direct && hh != null ? `T+${H} 方向命中率` : "隔日方向命中率";
+  const verdict = vd == null ? "" : vd >= 55
+    ? `冠軍模型在最後一段沒參與訓練的資料(保留集)上,${vlabel} ${vd.toFixed(1)}%,有一定的方向參考性。`
+    : `冠軍模型在保留集上的${vlabel}為 ${vd.toFixed(1)}%,<b>接近隨機,請把重點放在價格區間</b>。`;
+  const dh = ai.drivers_horizon > 1 ? ` T+${ai.drivers_horizon} ` : "隔日";
   const stat = f.stat ? `統計模型本身的一週預期為 ${fmtPct(f.stat.expected_pct)}、上漲機率 ${f.stat.p_up.toFixed(0)}%。` : "";
   return `
     <div class="chart" id="c-fc"></div>
@@ -580,18 +583,20 @@ function renderAiForecast(m, f, dp) {
         <dl class="kv">
           <dt>預測模型</dt><dd><a href="${esc(ai.app_url || "#")}" target="_blank" rel="noopener">${esc(ai.name)}</a></dd>
           <dt>演算法／預測目標</dt><dd>${esc(ai.algorithm || "—")}/${esc(ai.target || "—")}</dd>
+          <dt>預測方式</dt><dd>${direct ? `直接多日預測(一次輸出 T+1…T+${H})` : "逐日遞迴推算"}</dd>
           <dt>回看天數／因子數</dt><dd>${ai.lookback ?? "—"} 天/${ai.n_factors ?? "—"} 個</dd>
           <dt>保留集隔日方向命中率</dt><dd>${hd == null ? "—" : hd.toFixed(1) + "%"}${ai.holdout_n ? `(${ai.holdout_n} 個交易日)` : ""}</dd>
+          ${direct ? `<dt>保留集 T+${H} 方向命中率</dt><dd>${hh == null ? "—" : hh.toFixed(1) + "%"}${ai.holdout_n_h ? `(${ai.holdout_n_h} 筆)` : ""}</dd>` : ""}
           <dt>模型訓練時間</dt><dd>${fmtStamp(ai.trained_at)}</dd>
           <dt>預測產生時間</dt><dd>${fmtStamp(ai.generated_at)}</dd>
           <dt>一週預期漲跌</dt><dd>${fmtPct(f.expected_pct)}</dd>
           <dt>上漲機率</dt><dd>${f.p_up.toFixed(1)}%</dd>
           <dt>${esc(fmtDay(last.date))} 80% 區間</dt><dd>${fmtNum(last.p10, dp(last.p50))} – ${fmtNum(last.p90, dp(last.p50))}</dd>
         </dl>
-        ${drv ? `<table style="margin-top:var(--space-sm)"><thead><tr><th>影響最大的因子</th><th>對隔日預測(${esc(m.unit)})</th><th></th></tr></thead><tbody>${drv}</tbody></table>` : ""}
+        ${drv ? `<table style="margin-top:var(--space-sm)"><thead><tr><th>影響最大的因子</th><th>對${dh}預測(${esc(m.unit)})</th><th></th></tr></thead><tbody>${drv}</tbody></table>` : ""}
       </div>
     </div>
-    <div class="note">中心線是<a href="${esc(ai.app_url || "#")}" target="_blank" rel="noopener">白銀 AI 冠軍模型</a>的逐日預測(每個交易日美東收盤後更新);
+    <div class="note">中心線是<a href="${esc(ai.app_url || "#")}" target="_blank" rel="noopener">白銀 AI 冠軍模型</a>的${direct ? "直接多日預測" : "逐日預測"}(每個交易日美東收盤後更新);
       50% / 80% 價格區間的寬度沿用統計模型的波動估計,上漲機率也由此換算。${stat} ${verdict}
       預測無法預知政策、地緣政治或央行決策等突發事件;不構成投資建議。</div>`;
 }

@@ -136,3 +136,17 @@ def test_engine_falls_back_when_ai_dates_do_not_cover_this_week(tmp_path):
     snap = run_once(cfg, tmp_path, fetch=_fetch_for(daily), notify=False, record=False)
     ag = next(m for m in snap["metals"] if m["code"] == "Ag")["forecast"]
     assert ag["model"]["kind"] == "stat" and "日期" in ag["model"]["fallback_reason"]
+
+
+def test_engine_shows_direct_multi_day_model(tmp_path):
+    cfg = load_config(CONFIG)
+    daily = _daily()
+    doc = _ai_file(tmp_path, daily, move=0.03, days=5, drivers_horizon=5)
+    doc["model"].update(method="direct", horizon=5, holdout_da_h=58.1, holdout_n_h=71,
+                        pred_target="multi", pred_target_name="多日報酬率（直接預測 T+1…T+N）")
+    (tmp_path / silver_ai.FILE).write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    snap = run_once(cfg, tmp_path, fetch=_fetch_for(daily), notify=False, record=False)
+    ag = next(m for m in snap["metals"] if m["code"] == "Ag")["forecast"]
+    assert ag["model"]["method"] == "direct" and ag["model"]["horizon"] == 5
+    assert ag["model"]["holdout_da_h"] == 58.1 and ag["model"]["drivers_horizon"] == 5
+    assert ag["expected_pct"] == pytest.approx(3.0, abs=0.1)

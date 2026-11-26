@@ -68,6 +68,12 @@ def model_info(ai: dict) -> dict:
         "n_factors": m.get("n_factors"),
         "holdout_da": m.get("holdout_da"),
         "holdout_n": m.get("holdout_n"),
+        # 直接多日模型(method=direct)另附 T+H 方向命中率
+        "method": m.get("method") or "recursive",
+        "horizon": m.get("horizon"),
+        "holdout_da_h": m.get("holdout_da_h"),
+        "holdout_n_h": m.get("holdout_n_h"),
+        "drivers_horizon": ai.get("drivers_horizon") or 1,
         "trained_at": m.get("trained_at"),
         "source": m.get("source"),
         "generated_at": ai.get("generated_at"),
