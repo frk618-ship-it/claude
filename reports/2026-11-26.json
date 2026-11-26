@@ -36,8 +36,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.19,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擴建亞利桑那廠並評估德州建廠,同時強調台灣仍是研發與先進製程核心。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電亞利桑那擴建、評估德州建廠臺灣仍是研發與先進製程核心| 產經",
       "snippet_zh": ""
@@ -58,8 +58,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電美國新廠動土典禮倒數,重量級出席嘉賓曝光。",
+      "importance": 2,
       "reason": "",
       "title_zh": "臺積電美國新廠動土倒數！重量級嘉賓曝光",
       "snippet_zh": ""
@@ -76,14 +76,15 @@
         "SK海力士 (SK hynix)"
       ],
       "categories": [
+        "政策與貿易",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "美方指三星、SK海力士的 DRAM 主導地位來自政府支持,並聚焦韓國湖南地區的半導體擴產計畫。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "美方稱「三星、SK海力士的 DRAM 主導地位是政府補助的結果」…瞄準湖南地區半導體擴產",
       "snippet_zh": ""
     },
     {
@@ -102,9 +103,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.48,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導指台積電斥資 2,650 億美元擴張美國產能,川普將出席亞利桑那新廠動土典禮;美國晶圓產能擴張將帶動當地濺鍍靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:台積電擴大美國晶圓產能",
       "title_zh": "【即時新聞】臺積電(TSM)斥資2650億美元擴張美國產能，川普將出席亞利桑那新廠動土典禮！",
       "snippet_zh": ""
     },
@@ -124,8 +125,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電向德州申請減稅,評估 226 億美元晶圓廠投資,與先前報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "【科技早餐】臺積電美國擴產新進展！向德州申請減稅，評估 226 億美元晶圓廠投資",
       "snippet_zh": ""
@@ -142,12 +143,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "營收與財報",
         "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析台積電股價先漲停後重挫的原因,以及德州 226 億美元建廠投資的關鍵。",
+      "importance": 2,
       "reason": "",
       "title_zh": "臺積電為何昨漲停，今天卻重挫？砸226億美元赴德州建廠！投資關鍵曝光 | 下班經濟學 | 財經",
       "snippet_zh": ""
@@ -167,8 +169,8 @@
         "擴產與投資"
       ],
       "score": 4.23,
-      "summary": "",
-      "importance": 0,
+      "summary": "AMD 核心封測商通富微電以 1.08 億元人民幣在深圳購地建廠,加速布局大灣區,與先前報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "AMD核心封測商，1.08億元深圳拿地建廠，通富微電加速佈局大灣區",
       "snippet_zh": ""
@@ -188,10 +190,10 @@
         "客戶與供應鏈"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "台積電 CoWoS 產能滿載、訂單外溢,研調機構估計日月光與 Amkor 的類 CoWoS 封裝需求到 2027 年將成長 5.5 倍,先進封裝 PVD 用量可望大增。",
+      "importance": 4,
+      "reason": "靶材需求:類 CoWoS 封裝需求成長 5.5 倍",
+      "title_zh": "台積電 CoWoS 訂單滿載外溢,研調估日月光與 Amkor 的類 CoWoS 需求 2027 年將成長 5.5 倍",
       "snippet_zh": ""
     },
     {
@@ -209,8 +211,8 @@
         "客戶與供應鏈"
       ],
       "score": 4.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "產業分析指明年 AI 趨勢不變、先進封裝成為必備,台積電占比最高,日月光集團最受益。",
+      "importance": 3,
       "reason": "",
       "title_zh": "產業：明年AI趨勢不變，先進封裝成必備，臺積電佔比最高、日月光集團最受益",
       "snippet_zh": ""
@@ -227,11 +229,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "川普 12/4 將赴亞利桑那州出席台積電晶片廠擴建動土典禮。",
+      "importance": 2,
       "reason": "",
       "title_zh": "川普12/4赴亞利桑那州 出席臺積電晶片廠擴建動土典禮",
       "snippet_zh": ""
@@ -248,11 +251,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "白宮官員表示川普可能出席並主持台積電亞利桑那廠 12/4 擴建典禮,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "白宮官員：臺積電亞利桑那廠12/4擴建典禮川普可能出席主持| 財經焦點",
       "snippet_zh": ""
@@ -269,11 +273,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 12/4 慶祝亞利桑那廠擴建,黃仁勳可能與會。",
+      "importance": 2,
       "reason": "",
       "title_zh": "臺積電加碼美國12/4慶亞利桑納廠擴建 黃仁勳可能與會",
       "snippet_zh": ""
@@ -290,11 +295,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "彭博報導川普將親自出席台積電亞利桑那廠 12/4 擴建典禮,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "臺積電亞利桑那廠12/4辦擴建典禮彭博：川普將親自出席| 產經",
       "snippet_zh": ""
@@ -311,11 +317,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "彭博報導川普下週將親臨台積電亞利桑那廠擴建典禮,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "彭博：川普下週將親臨臺積電亞利桑那廠擴建典禮| 全球財經| 全球",
       "snippet_zh": ""
@@ -332,11 +339,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電美國廠 12/4 擴建典禮,彭博稱川普將出席,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "臺積電美國廠12/4擴建典禮彭博：川普將出席| 科技",
       "snippet_zh": ""
@@ -353,11 +361,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.87,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電亞利桑那廠 12/4 舉辦擴建典禮,2 奈米產能考慮落腳德州。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電亞利桑那廠12/4辦擴建典禮2奈米考慮落腳德州| 產經",
       "snippet_zh": ""
@@ -377,8 +386,8 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀價格預測指 XAG/USD 力守 42 美元上方,延續反彈。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -398,10 +407,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價急跌後,買盤在關鍵支撐價位進場承接。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金(XAU/USD)價格預測:急跌後買盤守住關鍵支撐",
       "snippet_zh": ""
     },
     {
@@ -419,10 +428,10 @@
         "原物料與價格"
       ],
       "score": 3.27,
-      "summary": "",
-      "importance": 0,
+      "summary": "那斯達克收斂跌幅,金價走跌,布蘭特原油報 91 美元。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "11/25 股市:那斯達克收斂跌幅,金價下跌,布蘭特油價 91 美元",
       "snippet_zh": ""
     },
     {
@@ -440,10 +449,10 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀每日報價頁,不含新事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年 11 月 25 日(三)白銀現價",
       "snippet_zh": ""
     },
     {
@@ -458,11 +467,12 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 3.0,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠攜手輝達以 SSD 擴充 GPU 可用記憶體,股價半日大漲逾 12%;AI 帶動 NAND 新應用,有利記憶體端材料需求。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -479,11 +489,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "花旗看好日月光投控先進封裝能見度強勁,給予 908 元目標價。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -500,11 +511,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/25 主力資金淨賣出 2.90 億元,與前日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "江豐電子（300666）11月25日主力資金淨賣出2.90億元",
       "snippet_zh": ""
@@ -521,11 +533,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材截至 11/20 股東戶數 335,929 戶,與先前公告為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材(600206.SH)：截至2026年11月20日，公司股東戶數為335929",
       "snippet_zh": ""
@@ -542,11 +555,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/25 下跌 2.19%,成交額 24.59 億元,屬行情資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材跌2.19%，成交額24.59億元，人氣排名43位！後市是否有機會？附走勢預測",
       "snippet_zh": ""
@@ -563,13 +577,14 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "市調機構發表全球高純度錫市場報告,依 4N、5N、6N 以上純度分析市場規模;高純錫為部分靶材與焊料原料。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "2026 年全球高純度錫市場:全球市場規模(純度 99.99%、99.999%、99.9999% 以上)分析報告發表",
       "snippet_zh": ""
     },
     {
@@ -584,11 +599,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 1.53,
-      "summary": "",
-      "importance": 0,
+      "summary": "微導納米表示已正式推出兩款 iMagtron 系列 PVD 設備,中國 PVD 設備商持續擴充產品線。",
+      "importance": 3,
       "reason": "",
       "title_zh": "微導納米(688147.SH)：目前已正式推出兩款iMagtron系列PVD設備_股市直播_市場",
       "snippet_zh": ""
@@ -605,11 +621,12 @@
         "設備綜合:溅射设备"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 1.53,
-      "summary": "",
-      "importance": 0,
+      "summary": "微導納米推出兩款 iMagtron 系列 PVD 設備,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "微導納米(688147.SH)：目前已正式推出兩款iMagtron系列PVD設備_公司新聞_財經",
       "snippet_zh": ""
