@@ -2,19 +2,21 @@
   "generated": "2026-11-27T07:28:16.981642+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 31 則,其中新聞與公司公告 18 則;報導最多的是 日月光投控(5 則)、台積電(3 則)、鎧俠(3 則)、Amkor 艾克爾(2 則)。依主題:產業動態 7 則、擴產與投資 6 則、客戶與供應鏈 2 則、營收與財報 2 則、技術與新產品 1 則。",
+    "overview": "本期焦點是台積電 CoWoS 產能滿載後的訂單外溢:研調機構估計日月光與艾克爾的類 CoWoS 封裝需求到 2027 年將成長 5.5 倍,花旗也看好日月光先進封裝能見度,給予 908 元目標價。日月光同步投入 3,663 億元擴建高雄仁武雙基地,增加 AI 高階測試產能,先進封裝與測試的 PVD 靶材需求可望延續。台積電建廠能見度已延伸至 2030 年,德州 2 奈米新廠規劃斥資 226 億美元、創造 2,099 個職缺。靶材廠方面,江豐電子衝刺 A+H 上市,但報導指其實控人關聯企業成為頭號供應商、零部件毛利大幅收縮,值得留意。貴金屬感恩節前全面反彈,金價漲 1.56% 至 3,591 美元,鈀金與白銀分別大漲 4.74% 與 4.02%。",
     "key_trends": [
-      "產業動態(7 則):KIOXIA GP2系列固態硬碟為GPU記憶體擴充帶來全新效能水準",
-      "擴產與投資(6 則):臺積電CoWoS產能滿載 研調：日月光、艾克爾料受惠",
-      "客戶與供應鏈(2 則):臺積電CoWoS爆單滿載 研調估日月光、艾克爾2027年類CoWoS需求飆5.5倍",
-      "營收與財報(2 則):아바코 자기주식 신탁 해지로 현금 192.5억 확대, 매출채권 639.1억 변수"
+      "台積電 CoWoS 滿載,類 CoWoS 封裝需求外溢至日月光、艾克爾",
+      "日月光仁武雙基地擴產,AI 高階測試產能增加",
+      "台積電建廠能見度延伸至 2030 年,德州 2 奈米新廠規劃推進",
+      "江豐電子 A+H 上市進程中關聯交易與毛利受關注",
+      "貴金屬感恩節前全面反彈"
     ],
     "watch_points": [
-      "臺積電CoWoS產能滿載 研調：日月光、艾克爾料受惠(台視全球資訊網)",
-      "討論牆 | 輝達大簽長約擴產 臺積電、矽品等臺廠供應鏈受惠(LINE TODAY)",
-      "【即時新聞】臺積電建廠能見度達2030年，AI算力迭代引領半導體迎新成長(CMoney投資網誌)"
+      "日月光、艾克爾類 CoWoS 產能擴充的設備與材料採購時程",
+      "台積電 12/4 亞利桑那廠擴建典禮與德州新廠進度",
+      "江豐電子港股招股資料揭露的關聯交易與毛利變化",
+      "金價反彈能否站穩 3,600 美元"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -30,12 +32,12 @@
         "Amkor 艾克爾"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 6.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 CoWoS 產能滿載,研調機構指日月光與艾克爾可望承接外溢訂單受惠。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電CoWoS產能滿載 研調：日月光、艾克爾料受惠",
       "snippet_zh": ""
@@ -53,12 +55,12 @@
         "矽品 (SPIL)"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 5.58,
-      "summary": "",
-      "importance": 0,
+      "summary": "輝達大簽長約擴產,台積電、矽品等台灣供應鏈受惠,與先前報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "討論牆 | 輝達大簽長約擴產 臺積電、矽品等臺廠供應鏈受惠",
       "snippet_zh": ""
@@ -79,9 +81,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "台積電建廠能見度延伸至 2030 年,AI 算力迭代帶動半導體新一輪成長,長期支撐晶圓端靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:台積電建廠計畫延伸至 2030 年",
       "title_zh": "【即時新聞】臺積電建廠能見度達2030年，AI算力迭代引領半導體迎新成長",
       "snippet_zh": ""
     },
@@ -97,12 +99,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電 CoWoS 產能塞爆、封裝訂單外溢,日月光大受惠。",
+      "importance": 3,
       "reason": "",
       "title_zh": "CoWoS產能塞爆！ 臺積電封裝訂單外溢 日月光大受惠",
       "snippet_zh": ""
@@ -123,9 +125,9 @@
         "客戶與供應鏈"
       ],
       "score": 4.88,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "研調估日月光、艾克爾的類 CoWoS 需求到 2027 年將成長 5.5 倍,與前日英文報導為同一事件;先進封裝 PVD 用量可望大增。",
+      "importance": 4,
+      "reason": "靶材需求:類 CoWoS 封裝需求成長 5.5 倍",
       "title_zh": "臺積電CoWoS爆單滿載 研調估日月光、艾克爾2027年類CoWoS需求飆5.5倍",
       "snippet_zh": ""
     },
@@ -144,8 +146,8 @@
         "擴產與投資"
       ],
       "score": 4.4,
-      "summary": "",
-      "importance": 0,
+      "summary": "網路論壇討論日月光因 CoWoS 外溢訂單加速擴產。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -165,8 +167,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "論壇轉述研調預估台積電 2027 年 AI 封裝市占約 85.8%,日月光等類 CoWoS 方案瓜分其餘需求。",
+      "importance": 2,
       "reason": "",
       "title_zh": "3481 群創 - AI封裝臺積電2027市佔估85.8% 日月光等類CoWoS... - 股市爆料同學會",
       "snippet_zh": ""
@@ -186,10 +188,10 @@
         "營收與財報"
       ],
       "score": 3.93,
-      "summary": "",
-      "importance": 0,
+      "summary": "韓國濺鍍設備商 AVACO 解除庫藏股信託使現金增加 192.5 億韓元,但 639.1 億韓元的應收帳款成為財務變數。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AVACO 解除庫藏股信託,現金增加 192.5 億韓元;應收帳款 639.1 億韓元成變數",
       "snippet_zh": ""
     },
     {
@@ -207,8 +209,8 @@
         "營收與財報"
       ],
       "score": 3.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指江豐電子實控人關聯企業成為頭號供應商,零部件業務毛利大幅收縮,公司同時衝刺 A+H 上市。",
+      "importance": 3,
       "reason": "",
       "title_zh": "實控人企業成頭號供應商，零部件毛利大幅收縮，江豐電子衝刺A+H上市",
       "snippet_zh": ""
@@ -225,11 +227,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電傳規劃在德州設 2 奈米製程晶圓廠,斥資 226 億美元、創造 2,099 個職缺。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電傳規劃德州2奈米製程晶圓廠 斥資226億美元、創造2099個職缺",
       "snippet_zh": ""
@@ -249,8 +252,8 @@
         "技術與新產品"
       ],
       "score": 3.56,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材回覆投資人,表示目前沒有針對光刻機相關領域的專門研發項目與合作計畫。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材：公司暫無針對光刻機相關領域開展專門的研發項目和合作計劃_董秘互動_數據解析",
       "snippet_zh": ""
@@ -270,9 +273,9 @@
         "擴產與投資"
       ],
       "score": 3.52,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "日月光投入 3,663 億元擴建高雄仁武雙基地,大幅擴充產能,先進封裝與測試材料需求延續。",
+      "importance": 4,
+      "reason": "靶材需求:日月光仁武雙基地擴產",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -291,8 +294,8 @@
         "擴產與投資"
       ],
       "score": 3.51,
-      "summary": "",
-      "importance": 0,
+      "summary": "日月光擴建高雄仁武新廠,增加 AI 高階測試產能。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -312,10 +315,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價向上突破失敗,技術面上的多頭反轉訊號仍未確認。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金(XAU/USD)價格預測:突破失敗,多頭反轉仍未確認",
       "snippet_zh": ""
     },
     {
@@ -333,10 +336,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "報導指金價 2026 年以來下跌 37%,交易員關注 5 項歷史訊號判斷是否見底。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價 2026 年下跌 37%,交易員關注 5 項歷史訊號",
       "snippet_zh": ""
     },
     {
@@ -354,8 +357,8 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "感恩節期間全球股市反彈、美元漲勢暫停,貴金屬走勢分歧,中東突發襲擊推高油價。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -372,11 +375,12 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠 GP2 系列固態硬碟為 GPU 記憶體擴充帶來新的效能水準。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -393,13 +397,14 @@
         "Materion"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.97,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析 Materion 能否延續營運動能,屬投資評論。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Materion(NYSE:MTRN)能否維持營運動能?",
       "snippet_zh": ""
     },
     {
@@ -414,11 +419,12 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.96,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠與輝達展示 GB200 NVL72 AI 記憶體擴充概念驗證,以 144 顆 SSD 提供約 1.1PB 容量。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -435,11 +441,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.94,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/26 主力資金淨賣出 9,170.85 萬元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "股票行情快報：江豐電子（300666）11月26日主力資金淨賣出9170.85萬元",
       "snippet_zh": ""
@@ -456,11 +463,12 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠與輝達合作,以固態硬碟擴充有效高頻寬記憶體容量,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -477,11 +485,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創表示先前提及的發行事宜仍在籌備中。",
+      "importance": 2,
       "reason": "",
       "title_zh": "阿石創：前述發行事宜尚在籌備中_公司新聞",
       "snippet_zh": ""
@@ -498,11 +507,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 A 股股東戶數增加 1.27 萬戶、增幅 3.92%,戶均持股市值下降。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材A股股東戶數增加1.27萬戶增幅3.92%，流通A股戶均持股2520.04股降幅3.77%，戶均持股市值9.54萬元降幅6.11%",
       "snippet_zh": ""
@@ -519,11 +529,12 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "產業動態"
       ],
       "score": 2.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "論壇轉述花旗給予日月光投控 908 元目標價,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -540,11 +551,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.77,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11/25 股價下跌 10.90%,屬行情資訊。",
+      "importance": 2,
       "reason": "",
       "title_zh": "11月25日阿石創跌10.90%，中銀先鋒半導體混合發起A基金重倉該股",
       "snippet_zh": ""
@@ -561,13 +573,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.75,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬的碲化鎘鋅基板用於太空望遠鏡,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬的 CdZnTe 基板飛向太空,助解暗能量之謎(MONOist)",
       "snippet_zh": ""
     },
     {
@@ -582,11 +595,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.62,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 A 股股東戶數增加 7,449 戶、增幅 18.66%,戶均持股市值下降 26.69%。",
+      "importance": 1,
       "reason": "",
       "title_zh": "阿石創A股股東戶數增加7449戶增幅18.66%，流通A股戶均持股2403.46股降幅15.73%，戶均持股市值8.12萬元降幅26.69%",
       "snippet_zh": ""
@@ -603,13 +617,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價反彈後遭獲利了結賣壓,價格回落。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金、白銀、鉑金預測:反彈後交易員急於獲利了結,金價回落",
       "snippet_zh": ""
     },
     {
@@ -624,13 +639,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "感恩節假期交易清淡,聯準會升息預期仍在,金價小跌、銀價上漲。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "假期交易清淡、聯準會升息預期持續,金價小跌、銀價上漲(Kitco 盤後報告)",
       "snippet_zh": ""
     },
     {
@@ -645,11 +661,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "資深策略師認為市場流動性已觸頂下滑,比特幣與金價下跌是美股轉弱的前兆。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -666,11 +683,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "國際金價反彈,投信推薦美國黃金礦業 ETF,屬金融商品行銷資訊,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "國際金價反彈 兆豐美國黃金礦業ETF 009832成即時佈局首選",
       "snippet_zh": ""
