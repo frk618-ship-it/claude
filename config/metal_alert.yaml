@@ -5,7 +5,7 @@ settings:
   interval_minutes: 30        # 檢查頻率(serve 模式的排程與 GitHub Actions 排程都是每半小時一次)
   history_range: 60d          # 抓取多久的小時 K 線(Yahoo 1h 資料最多約 730 天)
   bar_interval: 1h            # K 線週期
-  daily_range: 1y             # 日 K 線(判斷中長期趨勢、52 週位置)
+  daily_range: 5y             # 日 K 線(判斷中長期趨勢;一週價格預測模型的訓練與回測資料)
   chart_bars: 240             # 網頁圖表顯示最近幾根 K 線
   cooldown_hours: 6           # 同一品項、同一方向的預警至少間隔幾小時
   forward_bars: 24            # 回測:訊號出現後觀察幾根 K 線的報酬

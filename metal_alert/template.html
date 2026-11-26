@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>貴金屬價格預警</title>
-<meta name="description" content="黃金、白銀、鉑金、鈀金每小時技術指標綜合評分,提示相對低點(進場)與相對高點(出場)。">
+<meta name="description" content="黃金、白銀、鉑金、鈀金每小時技術指標綜合評分,提示相對低點(進場)與相對高點(出場),並提供未來一週的價格預測區間。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
 <style>
 /* Hallmark · restyle · app screen · brand: 鑫科材料 (TTMC) navy and orange, kept · posture: restrained · layout: kept */
@@ -143,6 +143,17 @@ details summary { cursor: pointer; font-weight: 600; }
 footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: var(--space-lg); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
+.fc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-md); }
+.fc-card { border: 1px solid var(--border); border-radius: 6px; padding: var(--space-sm); background: var(--page); cursor: pointer; text-align: left; font: inherit; color: inherit; }
+.fc-card[aria-pressed="true"] { border-color: var(--brand-navy); outline: 1px solid var(--brand-navy); }
+.fc-card .nm { font-weight: 600; }
+.fc-card .big { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin: var(--space-3xs) 0; }
+.fc-card .rng { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.key i.fan80 { height: 10px; background: var(--buy-soft); }
+.key i.fan50 { height: 10px; background: var(--buy); opacity: .45; }
+.key i.med { background: repeating-linear-gradient(90deg, var(--brand-orange) 0 4px, transparent 4px 7px); height: 2px; }
+.note { border-left: 3px solid var(--brand-orange); background: var(--page); padding: var(--space-xs) var(--space-sm); border-radius: 4px; font-size: 13px; color: var(--ink-2); margin-top: var(--space-sm); }
+
 /* Hallmark redesign: larger prices; cards and panels stay cards (by request) */
 .card .px { font-size: 32px; }
 .card[aria-pressed="true"] { border-color: var(--brand-navy); outline: 1px solid var(--brand-navy); }
@@ -163,6 +174,7 @@ footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: v
   <div id="errors"></div>
   <div class="cards" id="cards" role="group" aria-label="品項"></div>
   <section class="panel" id="detail"></section>
+  <section class="panel" id="forecast"></section>
   <div class="grid2">
     <section class="panel" id="votes"></section>
     <section class="panel" id="plan"></section>
@@ -177,11 +189,12 @@ footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: v
         <li>趨勢濾網:價格與 EMA200(小時)及日線 MA50 的關係判斷多空;多頭中的超賣(回檔)訊號加強,空頭中的超賣訊號打折(避免接刀),出場訊號反之。</li>
         <li>分級:<span id="cutoffs"></span>。分數進入進場 / 出場區、或由「留意」升級為「強烈」時發出預警;同方向預警至少間隔 <span id="cooldown"></span> 小時。</li>
         <li>參考停損 / 目標價以 ATR(14)倍數計算;回測統計為過去資料中「分數剛進入該區」後固定根數 K 線的報酬,樣本少時參考性有限。</li>
+        <li>一週價格預測:以近 5 年日線收盤價建模。波動度用 EWMA(λ = 0.94)估計;預期漲跌由 20 日 / 60 日動能、5 日短線反轉與 50 日均線乖離四個標準化因子,以強力收縮的脊迴歸(ridge)對未來 5 個交易日報酬估計,並限制在 ±0.5 個標準差內;價格區間取模型殘差的歷史分位數(保留肥尾),依天數的平方根放大。每天重新以過去資料訓練,並以過去一年逐日回測方向命中率、相對「價格不變」預測的誤差改善,以及 80% 區間的實際涵蓋率。</li>
       </ul>
     </details>
     <p>本頁僅為技術指標的量化整理,不構成投資建議;期貨價格與現貨、實體金屬報價有價差。</p>
   </section>
-  <footer>資料來源:Yahoo Finance,每小時更新</footer>
+  <footer>資料來源:Yahoo Finance,每小時更新;一週預測以日線收盤價計算</footer>
 </div>
 <div class="tip" id="tip"></div>
 <script>
@@ -268,7 +281,7 @@ function renderDetail() {
     <div class="chart" id="c-osc"></div>
     <div class="sub">最近 ${c.ts.length} 根 1 小時 K 線(${esc(fmtTime(c.ts[0]))} – ${esc(fmtTime(c.ts[c.ts.length - 1]))}),時間為台北時間。滑鼠移到圖上可看各時點數值。</div>`;
   drawCharts(m);
-  renderVotes(m); renderPlan(m);
+  renderVotes(m); renderPlan(m); renderForecast();
 }
 
 // ---------- charts (SVG) ----------
@@ -476,6 +489,107 @@ function renderAlerts() {
     : `<div class="empty">目前沒有預警。分數進入進場 / 出場區時會記錄在這裡。</div>`);
 }
 
+// ---------- one-week forecast ----------
+function fmtDay(iso) { const [y, mo, d] = iso.split("-").map(Number); const w = "日一二三四五六"[new Date(Date.UTC(y, mo - 1, d)).getUTCDay()]; return `${mo}/${d}(${w})`; }
+function signed(v, d = 2) { return v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(d) + "%"; }
+function renderForecast() {
+  const metals = state.data.metals.filter((m) => m.forecast);
+  if (!metals.length) { $("forecast").innerHTML = `<h2>未來一週價格預測</h2><div class="empty">日線資料不足,暫時無法預測。</div>`; return; }
+  const dp = (v) => (v >= 100 ? 0 : 2);
+  const cards = metals.map((m) => {
+    const f = m.forecast;
+    return `<button class="fc-card" type="button" data-code="${esc(m.code)}" aria-pressed="${m.code === state.sel}">
+      <div class="nm">${esc(m.name)} <span class="sym" style="color:var(--muted);font-size:12px">${esc(m.code)}</span></div>
+      <div class="big">${fmtNum(f.median, dp(f.median))} <span style="font-size:13px;font-weight:400">${fmtPct(f.expected_pct)}</span></div>
+      <div class="rng">80% 區間 ${fmtNum(f.range80[0], dp(f.median))} – ${fmtNum(f.range80[1], dp(f.median))}</div>
+      <div class="rng">上漲機率 ${f.p_up.toFixed(0)}%・週波動 ±${f.sigma_week_pct.toFixed(1)}%</div>
+    </button>`;
+  }).join("");
+  const m = cur(), f = m && m.forecast;
+  let body = "";
+  if (f) {
+    const last = f.path[f.path.length - 1], bt = f.backtest;
+    const rows = f.path.map((r) => `<tr><td class="nw">${esc(fmtDay(r.date))}</td><td class="num">${fmtNum(r.p50, dp(r.p50))}</td>
+      <td class="num">${fmtNum(r.p25, dp(r.p50))} – ${fmtNum(r.p75, dp(r.p50))}</td><td class="num">${fmtNum(r.p10, dp(r.p50))} – ${fmtNum(r.p90, dp(r.p50))}</td></tr>`).join("");
+    const drv = f.drivers.map((d) => `<tr><td>${esc(d.name)}</td><td class="num">${d.value > 0 ? "+" : ""}${d.value.toFixed(2)}σ</td>
+      <td>${Math.abs(d.effect) < 0.02 ? "幾乎無影響" : d.effect > 0 ? '<span class="side-buy">偏多</span>' : '<span class="side-sell">偏空</span>'}</td></tr>`).join("");
+    let verdict = "";
+    if (bt) {
+      const skill = bt.skill_pct, hit = bt.hit_rate;
+      verdict = (skill != null && skill > 2 && hit != null && hit > 53)
+        ? `過去一年回測,方向命中率 ${hit}%,中位數預測誤差比「價格不變」低 ${skill}%,具有一定的方向參考性。`
+        : `過去一年回測,方向命中率 ${hit == null ? "—" : hit + "%"},中位數預測的平均誤差 ${bt.mae_model_pct}%,與「價格不變」的 ${bt.mae_rw_pct}% 相當:<b>一週漲跌方向接近隨機,請把重點放在價格區間</b>。`;
+      verdict += ` 80% 區間的實際涵蓋率為 ${bt.coverage80}%(理想值 80%)。`;
+    }
+    body = `
+      <div class="chart" id="c-fc"></div>
+      <div class="grid2" style="margin-top:var(--space-sm)">
+        <div><h2>每日預測(${esc(m.unit)})</h2><div class="scroll"><table style="min-width:420px">
+          <thead><tr><th>日期</th><th>中位數</th><th>50% 區間</th><th>80% 區間</th></tr></thead><tbody>${rows}</tbody></table></div>
+          <div class="sub">以 ${esc(fmtDay(f.base_date))} 收盤 ${fmtNum(f.base_price, dp(f.base_price))} 為基準,未來 ${f.horizon_days} 個交易日(未扣除假日)。</div></div>
+        <div><h2>模型判讀</h2>
+          <dl class="kv">
+            <dt>一週預期漲跌</dt><dd>${fmtPct(f.expected_pct)}</dd>
+            <dt>上漲機率</dt><dd>${f.p_up.toFixed(1)}%</dd>
+            <dt>一週波動(1 個標準差)</dt><dd>±${f.sigma_week_pct.toFixed(2)}%</dd>
+            <dt>${esc(fmtDay(last.date))} 80% 區間</dt><dd>${fmtNum(last.p10, dp(last.p50))} – ${fmtNum(last.p90, dp(last.p50))}</dd>
+          </dl>
+          <table style="margin-top:var(--space-sm)"><thead><tr><th>因子</th><th>目前值</th><th>對預測的影響</th></tr></thead><tbody>${drv}</tbody></table>
+          ${bt ? `<table style="margin-top:var(--space-sm)"><thead><tr><th>回測(近 ${bt.n} 個交易日)</th><th></th></tr></thead><tbody>
+            <tr><td>方向命中率</td><td class="num">${bt.hit_rate == null ? "—" : bt.hit_rate + "%"}</td></tr>
+            <tr><td>中位數預測平均誤差</td><td class="num">${bt.mae_model_pct}%(價格不變:${bt.mae_rw_pct}%)</td></tr>
+            <tr><td>80% 區間涵蓋率</td><td class="num">${bt.coverage80}%</td></tr></tbody></table>` : ""}
+        </div>
+      </div>
+      <div class="note">${verdict} 預測僅反映歷史價格的統計特性,無法預知政策、地緣政治或央行決策等突發事件;不構成投資建議。</div>`;
+  }
+  $("forecast").innerHTML = `<h2>未來一週價格預測</h2><div class="fc-cards">${cards}</div>${body}`;
+  document.querySelectorAll(".fc-card").forEach((el) => el.onclick = () => { state.sel = el.dataset.code; state.hover = null; renderCards(); renderDetail(); });
+  if (f) drawForecast(m);
+}
+function drawForecast(m) {
+  const f = m.forecast, host = $("c-fc");
+  const Wf = Math.max(300, Math.min(1000, host.clientWidth || 1000));
+  const H = Wf < 600 ? 220 : 280, top = 10, bottom = 24, padR = 64, padL = 8;
+  // the forecast gets a fixed share of the width, so the fan stays readable on a phone
+  const hist = f.history.slice(Wf < 600 ? -25 : -60), n = hist.length, k = f.path.length, total = n + k;
+  const split = padL + (Wf - padL - padR) * (Wf < 600 ? 0.58 : 0.72);
+  const x = (i) => i <= n - 1 ? padL + i / (n - 1) * (split - padL) : split + (i - n + 1) / k * (Wf - padR - split);
+  const vals = [...hist.map((h) => h.close), ...f.path.map((r) => r.p10), ...f.path.map((r) => r.p90)];
+  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.05 || 1; lo -= pad; hi += pad;
+  const y = (v) => top + (hi - v) / (hi - lo) * (H - top - bottom);
+  const ticks = niceTicks(lo, hi, 5), dp = f.base_price >= 100 ? 0 : 2;
+  const base = n - 1;
+  const band = (a, b) => {
+    const up = [[x(base), y(f.base_price)], ...f.path.map((r, j) => [x(n + j), y(r[b])])];
+    const dn = [[x(base), y(f.base_price)], ...f.path.map((r, j) => [x(n + j), y(r[a])])].reverse();
+    return "M" + [...up, ...dn].map((p) => p.map((v) => v.toFixed(1)).join(",")).join("L") + "Z";
+  };
+  const histPath = hist.map((h, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(h.close).toFixed(1)).join("");
+  const medPath = `M${x(base).toFixed(1)},${y(f.base_price).toFixed(1)}` + f.path.map((r, j) => `L${x(n + j).toFixed(1)},${y(r.p50).toFixed(1)}`).join("");
+  const labels = [];
+  let lastX = -1e9;
+  [...hist.map((h) => h.date), ...f.path.map((r) => r.date)].forEach((d, i) => {
+    const [, mo, dd] = d.split("-").map(Number);
+    if ((i === base || i === total - 1 || (i < base && (base - i) % 10 === 0)) && x(i) - lastX >= 44 && (i === total - 1 || x(total - 1) - x(i) >= 44 || i === base)) { labels.push(`<text x="${Math.max(x(i), 14)}" y="${H - bottom + 16}" text-anchor="middle">${mo}/${dd}</text>`); lastX = x(i); }
+  });
+  const last = f.path[k - 1];
+  host.innerHTML = `
+    <div class="cap"><b>${esc(m.name)} 近 ${n} 日收盤與未來 ${k} 日預測(${esc(m.unit)})</b>
+      <span class="key"><i></i>收盤價</span><span class="key"><i class="med"></i>預測中位數</span>
+      <span class="key"><i class="fan50"></i>50% 區間</span><span class="key"><i class="fan80"></i>80% 區間</span></div>
+    <svg viewBox="0 0 ${Wf} ${H}" role="img" aria-label="${esc(m.name)}未來一週價格預測區間">
+      <g class="axis">${ticks.map((v) => `<line class="gridline" x1="${padL}" x2="${Wf - padR}" y1="${y(v)}" y2="${y(v)}"/>` + (Math.abs(y(v) - y(f.path[k - 1].p50)) < 14 ? "" : `<text x="${Wf - padR + 8}" y="${y(v) + 4}">${fmtNum(v, dp)}</text>`)).join("")}${labels.join("")}</g>
+      <rect x="${x(base)}" y="${top}" width="${Wf - padR - x(base)}" height="${H - top - bottom}" fill="var(--neutral)" opacity=".5"/>
+      <path d="${band("p10", "p90")}" fill="var(--buy-soft)"/>
+      <path d="${band("p25", "p75")}" fill="var(--buy)" fill-opacity=".35"/>
+      <path d="${histPath}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>
+      <path d="${medPath}" fill="none" stroke="var(--brand-orange)" stroke-width="2" stroke-dasharray="5 4"/>
+      <circle cx="${x(base)}" cy="${y(f.base_price)}" r="4" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>
+      <g class="axis"><text x="${Wf - padR + 8}" y="${y(last.p50) + 4}" style="fill:var(--ink);font-weight:600">${fmtNum(last.p50, dp)}</text></g>
+    </svg>`;
+}
+
 // ---------- live mode (python -m metal_alert serve) ----------
 async function reload(force) {
   const btn = $("refresh");
@@ -497,7 +611,7 @@ window.addEventListener("resize", () => {
   if (innerWidth === lastWidth) return;
   lastWidth = innerWidth;
   clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => { state.hover = null; $("tip").style.display = "none"; const m = cur(); if (m) drawCharts(m); }, 150);
+  resizeTimer = setTimeout(() => { state.hover = null; $("tip").style.display = "none"; const m = cur(); if (m) { drawCharts(m); if (m.forecast) drawForecast(m); } }, 150);
 });
 </script>
 </body>

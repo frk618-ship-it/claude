@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 from . import alerts as al
 from .config import Config
+from .forecast import forecast
 from .signals import analyse
 from .yahoo import Fetcher, fetch_bars, http_fetch
 
@@ -28,6 +29,11 @@ def collect(cfg: Config, fetch: Fetcher = http_fetch, retries: int = 2) -> tuple
                 log.warning("%s daily bars unavailable: %s", spec.symbol, exc)
                 daily = []
             a = analyse(spec, bars, daily, cfg)
+            try:
+                a["forecast"] = forecast(daily) if daily else None
+            except Exception as exc:  # the alert itself does not depend on the forecast
+                log.warning("%s forecast failed: %s", spec.symbol, exc)
+                a["forecast"] = None
             log.info("%-4s %10.2f score %+6.1f %s", spec.code, a["price"], a["score"], a["level_name"])
             metals.append(a)
         except Exception as exc:
