@@ -2,19 +2,21 @@
   "generated": "2026-11-28T07:28:23.031754+08:00",
   "days": 7,
   "digest": {
-    "overview": "本期蒐集 46 則,其中新聞與公司公告 26 則;報導最多的是 台積電(7 則)、JX金屬(5 則)、華邦電(2 則)、聯電(2 則)。依主題:擴產與投資 11 則、產業動態 7 則、客戶與供應鏈 5 則、技術與新產品 2 則、營收與財報 1 則。",
+    "overview": "本期焦點是記憶體與先進封裝的擴產潮:華邦電擬兩年投入 1,127 億元擴產並推動約 360 億元併購,三星表示 AI 資料中心 SSD 需求達預期 2 至 3 倍、同步加速擴產,鎧俠產能也已售罄至 2027 年。先進封裝方面,日月光先進封裝營收估暴增 233%,輝達在台積電 CoWoS 的占比下降、ASIC 客戶搶食產能,Amkor 也看好類 CoWoS 訂單。晶圓廠端,台積電德國廠完成主體結構、美國擬布局第二座先進晶圓廠,聯電擴建新加坡廠,台積電供應鏈論壇並增列「全球支援」評選,供應商的海外服務能力更受重視。靶材市場方面,市調預估鈷濺鍍靶材至 2035 年年增 5–8%,中國靶材股江豐電子、有研新材、歐萊新材、阿石創 11/27 同步漲停。貴金屬在感恩節後強勁反彈,金價較 11/25 上漲 3.75% 至 3,668 美元,白銀大漲 9.11%。",
     "key_trends": [
-      "擴產與投資(11 則):AI泡沫疑慮擋不住訂單！日月光先進封裝營收估暴增233％ 京元電大客戶追著要產能",
-      "產業動態(7 則):Kioxia (285A) Sold Out to 2027: What SEMICON Japan Will Tell Us About Memory Capex and Terafab",
-      "客戶與供應鏈(5 則):川普救回黃仁勳後改盯臺積電！ 白宮證實下週親赴亞利桑那州 出席擴建動土典禮",
-      "技術與新產品(2 則):【00:25 即時新聞】Amkor Technology(AMKR) 大漲逾5%／承接 CoWoS 類封裝訂單展望看俏"
+      "記憶體擴產潮:華邦電 1,127 億元、三星 SSD、鎧俠產能售罄至 2027 年",
+      "先進封裝訂單外溢,日月光先進封裝營收估增 233%",
+      "台積電德國、美國新廠推進,供應鏈評選納入全球支援能力",
+      "鈷靶受先進製程導線帶動,市場年增 5–8%",
+      "中國靶材股集體漲停,貴金屬強勁反彈"
     ],
     "watch_points": [
-      "AI泡沫疑慮擋不住訂單！日月光先進封裝營收估暴增233％ 京元電大客戶追著要產能(Yahoo股市)",
-      "世界シェア約95%の結晶で半導體検査を支え、JX金屬と提攜しAI光通信部材の増産狙う光學単結晶メーカー(みんかぶ)",
-      "傳德國首座晶圓廠已完成主體結構工程臺積電：建廠進度如期且進展順利| 財經焦點(太報 TaiSounds)"
+      "華邦電 Module B 擴產與併購案的時程",
+      "台積電「全球支援」評選對靶材供應商海外布局的要求",
+      "12/4 台積電亞利桑那廠擴建典禮",
+      "美國就業數據對金價 3,500 美元支撐的考驗"
     ],
-    "source": "auto"
+    "source": "claude"
   },
   "items": [
     {
@@ -29,14 +31,14 @@
         "日月光投控 (ASE)"
       ],
       "categories": [
+        "客戶與供應鏈",
         "擴產與投資",
-        "營收與財報",
-        "客戶與供應鏈"
+        "營收與財報"
       ],
       "score": 6.39,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "報導指 AI 泡沫疑慮未影響訂單,日月光先進封裝營收估暴增 233%,京元電大客戶也積極爭取產能;先進封裝擴產將帶動凸塊、RDL 等 PVD 靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:日月光先進封裝營收估增 233%",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -52,14 +54,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
-        "擴產與投資",
-        "併購與合作"
+        "併購與合作",
+        "擴產與投資"
       ],
       "score": 5.99,
-      "summary": "",
-      "importance": 0,
+      "summary": "全球市占約 95% 的光學單晶廠商(Oxide)與 JX金屬合作,鎖定 AI 光通訊元件擴產。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "以全球市占約 95% 的晶體支撐半導體檢測,與 JX金屬合作擴產 AI 光通訊元件的光學單晶廠",
       "snippet_zh": ""
     },
     {
@@ -78,8 +80,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.44,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電德國首座晶圓廠傳已完成主體結構工程,台積電表示建廠進度如期順利;歐洲新廠將帶動當地靶材需求。",
+      "importance": 3,
       "reason": "",
       "title_zh": "傳德國首座晶圓廠已完成主體結構工程臺積電：建廠進度如期且進展順利| 財經焦點",
       "snippet_zh": ""
@@ -100,8 +102,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "SK海力士表示旗下 Solidigm 擴產及在美國新建 NAND 工廠的計畫尚未確定。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -122,8 +124,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.41,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電亞利桑那新廠將動土,報導指川普想帶黃仁勳同行。",
+      "importance": 1,
       "reason": "",
       "title_zh": "臺積電亞利桑那新廠將動土！川普想帶黃仁勳同行",
       "snippet_zh": ""
@@ -144,9 +146,9 @@
         "客戶與供應鏈"
       ],
       "score": 5.39,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "三星電子表示 AI 資料中心 SSD 需求達預期的 2 至 3 倍,供給端擴產同步加速,NAND 擴產可望帶動記憶體端靶材需求。",
+      "importance": 4,
+      "reason": "靶材需求:三星加速 NAND/SSD 擴產",
       "title_zh": "",
       "snippet_zh": ""
     },
@@ -162,13 +164,13 @@
         "台積電 (TSMC)"
       ],
       "categories": [
-        "擴產與投資",
-        "客戶與供應鏈"
+        "客戶與供應鏈",
+        "擴產與投資"
       ],
       "score": 5.37,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "台積電供應鏈論壇登場,配合 AI 建廠需求增列「全球支援」評選項目,供應商的海外支援能力更受重視。",
+      "importance": 4,
+      "reason": "靶材供給:台積電評選納入全球支援能力",
       "title_zh": "臺積電供應鏈論壇登場 緊扣AI建廠增列全球支援評選",
       "snippet_zh": ""
     },
@@ -188,9 +190,9 @@
         "併購與合作"
       ],
       "score": 5.14,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
+      "summary": "華邦電擬於兩年內砸 1,127 億元擴產,並推動約 360 億元併購案,布局下一個十年;記憶體擴產將增加靶材採購。",
+      "importance": 4,
+      "reason": "靶材需求:華邦電兩年 1,127 億元擴產",
       "title_zh": "華邦電兩年擬砸1,127億擴產！再推約360億併購案 焦佑鈞佈局下一個10年",
       "snippet_zh": ""
     },
@@ -210,8 +212,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.06,
-      "summary": "",
-      "importance": 0,
+      "summary": "華邦電法說會指客戶希望將產能談到 2030 年,公司啟動 Module B 擴產計畫,與同期報導相關。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -231,8 +233,8 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電以租地委建方式興建廠房相關工程,金額約 13.72 億元。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -252,10 +254,10 @@
         "擴產與投資"
       ],
       "score": 4.42,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析格羅方德美國 Malta 晶圓廠擴建對其投資價值的影響。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "Malta 廠擴建是否改變格羅方德(GFS)的投資邏輯?",
       "snippet_zh": ""
     },
     {
@@ -274,8 +276,8 @@
         "技術與新產品"
       ],
       "score": 4.04,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價突破 3,600 美元關卡,單日大漲近 3%,市場關注能否續攻 4,000 美元。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -296,8 +298,8 @@
         "技術與新產品"
       ],
       "score": 4.01,
-      "summary": "",
-      "importance": 0,
+      "summary": "白銀在看漲格局下延續上揚,突破 44 美元。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -317,8 +319,8 @@
         "擴產與投資"
       ],
       "score": 4.01,
-      "summary": "",
-      "importance": 0,
+      "summary": "投資評論整理有研新材的投資主題,包括半導體靶材擴產、先進存儲與國產替代。",
+      "importance": 2,
       "reason": "",
       "title_zh": "有研新材（半導體靶材擴產+先進存儲+國產替代）",
       "snippet_zh": ""
@@ -335,11 +337,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "白宮證實川普下週將親赴亞利桑那州,出席台積電擴建動土典禮,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "川普救回黃仁勳後改盯臺積電！ 白宮證實下週親赴亞利桑那州 出席擴建動土典禮",
       "snippet_zh": ""
@@ -356,11 +359,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擬在美國布局第二座先進晶圓廠,美銀重申買進評等、目標價 3,260 元。",
+      "importance": 3,
       "reason": "",
       "title_zh": "臺積電擬在美佈局第二座先進晶圓廠！美銀重申買進、目標價3260、隱含漲幅逾5成",
       "snippet_zh": ""
@@ -377,11 +381,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/27 漲停,受 HBM、中芯國際概念與半導體題材帶動。",
+      "importance": 2,
       "reason": "",
       "title_zh": "11月27日江豐電子漲停：高帶寬存儲器HBM，中芯國際概念股，半導體概念熱股_個股掘金",
       "snippet_zh": ""
@@ -398,11 +403,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/27 漲停,受大矽片、中芯國際概念與半導體題材帶動。",
+      "importance": 2,
       "reason": "",
       "title_zh": "11月27日有研新材漲停：大硅片，中芯國際概念股，半導體概念熱股_個股掘金",
       "snippet_zh": ""
@@ -419,11 +425,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電盤中走強,選前護盤與美國廠擴建成為焦點。",
+      "importance": 1,
       "reason": "",
       "title_zh": "【13:30 即時新聞】臺積電(2330)盤中續強，選前撐盤與美廠擴建成焦點",
       "snippet_zh": ""
@@ -440,11 +447,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "營收與財報",
         "客戶與供應鏈"
       ],
       "score": 3.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "川普將出席台積電亞利桑那廠擴建,台積電盤中股價上漲 25 元至 2,170 元。",
+      "importance": 1,
       "reason": "",
       "title_zh": "【即時新聞】川普將出席臺積電亞利桑那廠擴建，盤中股價上漲25元達2170元",
       "snippet_zh": ""
@@ -464,8 +472,8 @@
         "客戶與供應鏈"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "論壇轉述輝達在台積電 CoWoS 的占比下降近 8 個百分點,ASIC 客戶搶食 CoWoS 產能。",
+      "importance": 2,
       "reason": "",
       "title_zh": "3711 日月光投控- 輝達佔比降近8 百分點，ASIC 搶食臺積電CoWoS！ - 股市爆料同學會",
       "snippet_zh": ""
@@ -485,8 +493,8 @@
         "營收與財報"
       ],
       "score": 3.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子關聯企業成為頭號供應商、零部件毛利收縮,與前日報導為同一篇轉載。",
+      "importance": 1,
       "reason": "",
       "title_zh": "實控人企業成頭號供應商，零部件毛利大幅收縮，江豐電子衝刺A+H上市-yeeyi",
       "snippet_zh": ""
@@ -504,13 +512,14 @@
         "設備綜合:Sputtering Equipment"
       ],
       "categories": [
+        "技術與新產品",
         "原物料與價格"
       ],
       "score": 3.75,
-      "summary": "",
-      "importance": 0,
-      "reason": "",
-      "title_zh": "",
+      "summary": "市調報告指先進製程導線需求將推動鈷濺鍍靶材市場至 2035 年年複合成長約 5–8%,呼應導線材料由銅轉向鈷的趨勢。",
+      "importance": 4,
+      "reason": "技術趨勢:先進製程導線帶動鈷靶成長",
+      "title_zh": "鈷濺鍍靶材市場至 2035 年:先進製程導線需求帶動 5–8% 年複合成長",
       "snippet_zh": ""
     },
     {
@@ -525,11 +534,12 @@
         "Amkor 艾克爾"
       ],
       "categories": [
+        "客戶與供應鏈",
         "技術與新產品"
       ],
       "score": 3.66,
-      "summary": "",
-      "importance": 0,
+      "summary": "Amkor 股價大漲逾 5%,承接 CoWoS 類封裝訂單的展望看俏。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -546,11 +556,12 @@
         "中芯國際 (SMIC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.48,
-      "summary": "",
-      "importance": 0,
+      "summary": "回顧中芯國際創立時資本僅 100 萬美元卻敢興建百億晶圓廠的歷程,屬產業故事文章。",
+      "importance": 1,
       "reason": "",
       "title_zh": "中芯國際創辦時只有100萬美元，為什麼敢建百億晶圓廠？",
       "snippet_zh": ""
@@ -570,10 +581,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金價 3,500 美元支撐將面臨美國就業數據的考驗。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價週預測:3,500 美元支撐面臨美國就業數據考驗",
       "snippet_zh": ""
     },
     {
@@ -591,10 +602,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "技術分析指金價出現多頭反轉,上看 3,900 美元壓力區。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "黃金(XAU/USD)價格預測:多頭反轉,目標 3,900 美元壓力",
       "snippet_zh": ""
     },
     {
@@ -612,10 +623,10 @@
         "原物料與價格"
       ],
       "score": 3.29,
-      "summary": "",
-      "importance": 0,
+      "summary": "技術分析以價格週期對稱性推論金價可能已出現重要底部。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金價預測:週期對稱性顯示可能已出現重要底部",
       "snippet_zh": ""
     },
     {
@@ -633,8 +644,8 @@
         "原物料與價格"
       ],
       "score": 3.26,
-      "summary": "",
-      "importance": 0,
+      "summary": "評論指貴金屬價格同時受到三重因素衝擊。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -654,8 +665,8 @@
         "原物料與價格"
       ],
       "score": 3.24,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析白銀是否續跌,並預測 2027 年銀價走勢。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -675,8 +686,8 @@
         "技術與新產品"
       ],
       "score": 3.12,
-      "summary": "",
-      "importance": 0,
+      "summary": "韓國 EMS 執行長李漢燦介紹公司將鍍膜技術從合金靶材延伸至微鑽頭等應用。",
+      "importance": 3,
       "reason": "",
       "title_zh": "從合金靶材到微鑽……EMS首席執行官李漢燦拓展了塗層技術的應用範圍。",
       "snippet_zh": ""
@@ -693,13 +704,14 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.95,
-      "summary": "",
-      "importance": 0,
+      "summary": "分析指鎧俠產能已售罄至 2027 年,SEMICON Japan 可望透露記憶體資本支出動向,NAND 擴產有利靶材需求。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "鎧俠(285A)產能已售罄至 2027 年:SEMICON Japan 將透露的記憶體資本支出與 Terafab 動向",
       "snippet_zh": ""
     },
     {
@@ -714,11 +726,12 @@
         "聯電 (UMC)"
       ],
       "categories": [
+        "擴產與投資",
         "產業動態"
       ],
       "score": 2.92,
-      "summary": "",
-      "importance": 0,
+      "summary": "聯電擴建新加坡廠,亞翔集團搶下逾 367 億元的廠務工程訂單,顯示聯電新加坡擴產規模可觀。",
+      "importance": 3,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -735,11 +748,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.91,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 11/27 漲停,受半導體、折疊屏與 PET 複合銅箔題材帶動。",
+      "importance": 2,
       "reason": "",
       "title_zh": "11月27日歐萊新材漲停：半導體，摺疊屏，PET複合銅箔概念熱股_個股掘金",
       "snippet_zh": ""
@@ -756,11 +770,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "政策與貿易",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "中國高層會議釋出利多,科技股午後全線爆發,江豐電子 20% 漲停,長電科技、東山精密亦漲停。",
+      "importance": 2,
       "reason": "",
       "title_zh": "高層會議釋放重磅利好！科技股午後全線爆發！江豐電子20CM漲停，長電科技、東山精密漲停！消費電子ETF匯添富(159178)指數大漲超9%",
       "snippet_zh": ""
@@ -777,11 +792,12 @@
         "阿石創 (Acetron)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "阿石創 11/27 盤中觸及漲停。",
+      "importance": 1,
       "reason": "",
       "title_zh": "異動快報：阿石創（300706）11月27日14點48分觸及漲停板",
       "snippet_zh": ""
@@ -798,11 +814,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材盤中漲停,科創板 616 檔個股上漲,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材盤中漲停 616只科創板股上漲",
       "snippet_zh": ""
@@ -819,11 +836,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材 11/27 盤中觸及漲停,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "異動快報：歐萊新材（688530）11月27日14點5分觸及漲停板",
       "snippet_zh": ""
@@ -840,13 +858,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.9,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬股價一度上漲 6.5%,市場期待股價已觸底。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬股價一度上漲 6.5%,市場期待股價已觸底",
       "snippet_zh": ""
     },
     {
@@ -861,11 +880,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/27 盤中觸及漲停,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "異動快報：江豐電子（300666）11月27日13點27分觸及漲停板",
       "snippet_zh": ""
@@ -882,13 +902,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.89,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬的大面積化合物半導體基板獲 NASA 最新太空望遠鏡採用,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "獲 NASA 最新太空望遠鏡採用的 JX金屬化合物半導體基板:大面積基板助取得高精細影像",
       "snippet_zh": ""
     },
     {
@@ -903,11 +924,12 @@
         "江豐電子 (KFMI)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.63,
-      "summary": "",
-      "importance": 0,
+      "summary": "江豐電子 11/25 下跌 11.70%,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11月25日江豐電子跌11.70%，半導體設備ETF國泰基金重倉該股",
       "snippet_zh": ""
@@ -924,13 +946,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.6,
-      "summary": "",
-      "importance": 0,
+      "summary": "與先前報導為同一事件的日文版。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬化合物半導體基板搭載於 NASA 最新望遠鏡,成為暗能量觀測關鍵",
       "snippet_zh": ""
     },
     {
@@ -945,13 +968,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "併購與合作",
         "產業動態"
       ],
       "score": 2.57,
-      "summary": "",
-      "importance": 0,
+      "summary": "Oxide 宣布收到 JX金屬約 27.48 億日圓出資,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "OXIDE 宣布已收到 JX金屬 27.4832 億日圓出資",
       "snippet_zh": ""
     },
     {
@@ -966,13 +990,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.49,
-      "summary": "",
-      "importance": 0,
+      "summary": "華爾街強勁反彈帶動金價站上 3,650 美元,銀價大漲。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "華爾街強勁反彈,金價站上 3,650 美元、銀價急漲(Kitco 盤後報告)",
       "snippet_zh": ""
     },
     {
@@ -987,13 +1012,14 @@
         "產業綜合:スパッタリングターゲット"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "同一份鈷濺鍍靶材市調報告的日文版。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "鈷濺鍍靶材市場 2035 年預測:先進製程導線需求帶動成長",
       "snippet_zh": ""
     }
   ],
@@ -1056,11 +1082,12 @@
       "doi": "10.1088/1361-6595/aec733",
       "source": "OpenAlex",
       "topics": [
+        "濺鍍行為與靶材利用率",
         "其他靶材研究"
       ],
-      "summary": "",
-      "importance": 0,
-      "title_zh": "",
+      "summary": "研究以氦氣進行鉬靶 HiPIMS 濺鍍,搭配電離區模型分析;離子化機率約 88–95%、回吸機率約 87–98%,離子化通量比例隨峰值電壓(650–1000 V)由 27% 提升至 49%。",
+      "importance": 3,
+      "title_zh": "以氦氣為工作氣體的鉬靶高功率脈衝磁控濺鍍",
       "abstract_zh": "",
       "tier": "related"
     }
