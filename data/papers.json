@@ -1,5 +1,30 @@
 [
  {
+  "id": "p-d09ce371adae81cf",
+  "title": "High power impulse magnetron sputtering of a molybdenum target with helium as a working gas",
+  "link": "https://doi.org/10.1088/1361-6595/aec733",
+  "published": "2026-11-26T00:00:00+00:00",
+  "venue": "Plasma Sources Science and Technology",
+  "authors": [
+   "Zakaria Belkaid",
+   "Jón Tómas Guðmundsson",
+   "Erwan Morel",
+   "Tiberiu M Minea"
+  ],
+  "abstract": "High power impulse magnetron sputtering (HiPIMS) discharges with helium as the working gas and a molybdenum target are studied experimentally and by applying the ionisation region model (IRM). As the IRM is a semi-empirical model, given a measured discharge current and voltage waveform, the IRM provides the temporal evolution of the discharge species densities and the average electron energy within the ionisation region, along with values for the internal discharge parameters, the ionisation probability and the back-attraction probability of the sputtered species. The ionisation probability is found to be in the range 95 -88 %, and the back-attraction probability in the range 98 -87%, both decreasing with increasing peak discharge voltage, in the range from 650 V to 1000 V, and correspondingly increasing discharge current density. The ionised flux fraction determined by the IRM is found to increase from 27 % to 49 % in this discharge voltage range. Early on in the pulse the ion density in the discharge is dominated by He + ions, which then decay as a large contribution from Mo 2+ ions takes over, and eventually, as the pulse progresses, the contribution from Mo + ions increases. At the lower peak discharge voltages, as the initial He + current peak decays, Mo 2+ current takes over as the dominating ion species bombarding the target, and at the higher peak discharge voltages the Mo + ion current exceeds the Mo 2+ ion current, while the He + ion contribution to the total discharge current becomes negligible.",
+  "doi": "10.1088/1361-6595/aec733",
+  "source": "OpenAlex",
+  "topics": [
+   "其他靶材研究"
+  ],
+  "summary": "",
+  "importance": 0,
+  "title_zh": "",
+  "abstract_zh": "",
+  "tier": "related",
+  "collected": "2026-11-28"
+ },
+ {
   "id": "p-f1a1117de3f3844a",
   "title": "Effects of Target‐Selective HiPIMS on Microstructure and Thermoelectric Transport in Pd‐Doped Bi 2 Te 3 Thin Films on Al 2 O 3 Substrates",
   "link": "https://doi.org/10.1002/pssa.70608",
