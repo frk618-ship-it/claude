@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T07:28:16.981642+08:00",
+  "generated": "2026-11-27T11:46:19.451139+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是台積電 CoWoS 產能滿載後的訂單外溢:研調機構估計日月光與艾克爾的類 CoWoS 封裝需求到 2027 年將成長 5.5 倍,花旗也看好日月光先進封裝能見度,給予 908 元目標價。日月光同步投入 3,663 億元擴建高雄仁武雙基地,增加 AI 高階測試產能,先進封裝與測試的 PVD 靶材需求可望延續。台積電建廠能見度已延伸至 2030 年,德州 2 奈米新廠規劃斥資 226 億美元、創造 2,099 個職缺。靶材廠方面,江豐電子衝刺 A+H 上市,但報導指其實控人關聯企業成為頭號供應商、零部件毛利大幅收縮,值得留意。貴金屬感恩節前全面反彈,金價漲 1.56% 至 3,591 美元,鈀金與白銀分別大漲 4.74% 與 4.02%。",
@@ -19,6 +19,389 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "08ff9087d29a59dd",
+      "title": "台積電亞利桑那擴建、評估德州建廠台灣仍是研發與先進製程核心－中央社",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9aZlJiR1JZVjE0bnJwV3JoQ1lUQnVyQVdDejFMTWk4TnNGeWlRa0RybzVPbFN3QVI2cnNKc3FDVURBbnJ4NkxJV0wyNWdKWkZ1WVF0ampPdGpzSkhIYV9nQnJYMGNLdw?oc=5",
+      "source": "商業周刊",
+      "published": "2026-11-26T10:04:23+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "技術與新產品",
+        "客戶與供應鏈"
+      ],
+      "score": 6.19,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電亞利桑那擴建、評估德州建廠臺灣仍是研發與先進製程核心－中央社",
+      "snippet_zh": ""
+    },
+    {
+      "id": "a0b071a2744bc982",
+      "title": "台積電美國新廠動土 川普將出席",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9YRjJma0tmUi1nU3ZEeXVBbXppbHB2LTBSaW5NcDJZOWFiZFRwZzJvYTZLWE9Kc0lYcU5GR2tTTkl4X1Niay1CSjFla1ZfUWhGU3Z4NkVn0gFbQVVfeXFMUGZtNU03N0RadV9QSTFoYjRMZHpYMWxBRVlmTll3eC1OMEQ5Zmd0ZGZISlM1eWRJY3MyZ09McUM0NFIyQlVjcVc4QjhCanRPdnItVDdndFp6MTd0TQ?oc=5",
+      "source": "自由財經",
+      "published": "2026-11-26T21:30:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.46,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電美國新廠動土 川普將出席",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7f4eab20ead61262",
+      "title": "AI推升晶片投資布局 川普將出席台積電亞利桑那州新廠動土典禮 | 國際",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5nMGIwMlhadmJFOVh3OUx4Si1CMklmbEhVM05oSy1qM2o1M1JjZmpaUF85T2JoMEZqcjlEbXN5aWRPUE01ZURtNGlnaHZwaGRQWUxrYkZsYjlCSzYycTZR?oc=5",
+      "source": "中央社 CNA",
+      "published": "2026-11-26T04:16:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.36,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "AI推升晶片投資佈局 川普將出席臺積電亞利桑那州新廠動土典禮 | 國際",
+      "snippet_zh": ""
+    },
+    {
+      "id": "70d63e9486a604fc",
+      "title": "矽光子商機燒！光焱營收近半來自半導體 10億新廠與日月光當鄰居",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB1REZrNEZnVm9xZ0N2LUdKVldlampFd2tCeGJ3bG9mVzA3RUZkSjNCMnU4eHdNMzBJUWhDVExlNGlrdF9Qb3ZOODYtcDJoZmh6cjgyQjdSXy1FQkVBcXItMEZ1X01hZw?oc=5",
+      "source": "鏡週刊Mirror Media",
+      "published": "2026-11-25T03:51:00+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "日月光投控 (ASE)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "營收與財報"
+      ],
+      "score": 5.21,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "d42ff3a781be0449",
+      "title": "魏哲家領軍台積電AZ廠擴建典禮 川普將出席!",
+      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQQUoxQkpsbnhGZUttTlFuMGx3VlZRbGZxWlNDbE8tcHhuejRaeDlQSUhWSElzbHZjMG9EV0g1RFF0S0pxX1hZYnhtZlM1NFRqZUVvNmN3R3hRVFFKVDJwQk9OdGc0OFMyM2xLTm41bHp4WW96ZktGZkVCWjdTTGcxUnpySEJoTW84ckE5WEVjcURpWTc1cXVsTDlYekVpanRCWENXNjByYXZPS1pnSzlQSmNRWXZCZndaenAzYy02ajhER2Y1UkpiT054MlY3WFhTRW02enZfRXF0SlpmMmF3U3p2V3JoWHNDRE9xUmhtdnMteFhqZlBMWWtTcm9CZnJsY2dDLThWRUs1SC1Dbk9aT040TzQtZURQci16dlViVmNXTFdlZlJ6YlI5NGNnM3p6Mnh1VDNDQQ?oc=5",
+      "source": "Yahoo股市",
+      "published": "2026-11-26T07:02:20+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.88,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "魏哲家領軍臺積電AZ廠擴建典禮 川普將出席!",
+      "snippet_zh": ""
+    },
+    {
+      "id": "daeeebe234f76602",
+      "title": "台積電亞利桑那廠 12/4 辦擴建典禮，彭博：川普將親自出席",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPUHpyTS02cTNjNlpyWnZ2NVJfOU1xZnkzSzVrNDhDeEJjNUYyMFZGcjVmZFloNFN2ZFE3Y1o0N0hMV1NBZUYyZE5yaU5KRVpFQk5xdnV2WDF1aWxOMVlpRWFScTVsOS1oX2J6R0FmQjFtSURmclpPTGRUNU5WYmFLT0JmQS1aYlNYVGx5NTliU3FrVDgwTmw4Z0VIdlI?oc=5",
+      "source": "TechNews 科技新報",
+      "published": "2026-11-26T01:54:49+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.85,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "臺積電亞利桑那廠 12/4 辦擴建典禮，彭博：川普將親自出席",
+      "snippet_zh": ""
+    },
+    {
+      "id": "f0c3fabe258b9053",
+      "title": "首度造訪！台積電下周亞利桑那廠擴建典禮 川普將出席",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBYaG5KTzVnaTJmOE9WTnB3OVZid25QU3hIRGFUUi1VdUpwQ29mdnlUTlNEVGJSaXkzdEo5NnFfdkI4bFNOalhhLWlWXzJXTkh50gFWQVVfeXFMUDNMQ0RQSkxMMmt2bGpOcGdYOUJBeTJKMzFRQ0E3bFk2eWhaUkh2Qjh5aUtUSnJwa21jX0dkMXNEUVMxcEVfNGRvQWMwa1FJSll4OEhQSGc?oc=5",
+      "source": "UDN",
+      "published": "2026-11-25T16:01:53+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "客戶與供應鏈"
+      ],
+      "score": 3.79,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "首度造訪！臺積電下週亞利桑那廠擴建典禮 川普將出席",
+      "snippet_zh": ""
+    },
+    {
+      "id": "6474f2aa45e5b8e2",
+      "title": "JX金属－野村が目標株価引き下げ 銅価格の下落を反映し利益予想を減額〔DZH 個別株情報〕(時事通信)",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQeFNDMzF5NmsweW40ZHpXWVBwY0dZcTJkQWM0bEU1VnFyeHR4VmxhLXptMnBHMjg4SmdJSE5pb041aWNqS2gzX1Fza1lQbUN1SlZ2M0ZNRGxBYVNFRVY3dlM4WDFFaGtleTdQeldvc3JoX3NpWDc3YTJaSnZEZ0NOcjBGTF9ZSWc?oc=5",
+      "source": "Yahoo!ファイナンス",
+      "published": "2026-11-27T01:03:28+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.78,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "041254d257377823",
+      "title": "鎧俠攜手輝達以SSD 擴充 GPU 記憶體容量，突破 1 PB 並支援處理2 兆個向量- 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBvYnNMS3dlNjJHN0hUMWc2V3d0UTA2RHVVMVpCR2hseFFES3hIVlA1SzNZOW1qNjNPdExqSDZnV0VoOU92Ukl0RWM4cFZyeGJnM09EUXhQbFQ?oc=5",
+      "source": "CMoney",
+      "published": "2026-11-26T08:39:13+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "鎧俠 (Kioxia)"
+      ],
+      "categories": [
+        "技術與新產品"
+      ],
+      "score": 3.69,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "4d075ef37aedb4ce",
+      "title": "Gold and Silver Price Forecast: Silver Leads Rebound as Ratio Falls",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNbTNvNmdrVlhUYXQtcFBkNTlSSEFMQjNfRkl1STktMTE4VDBiXzJIY0U1RTBCZFBCNGhlbmVScG1vM2FSR25ld05RejhzeDVkOTNyb05fT1Q3S1ljZ2UzeE1XMk1FWU5ldGwxSng4VVVocXctRjk1R0NMTlRqbEdqZE1PQUR5MkZ3UGNGZzFFaXJPd00tMEIxdkM5Z0NabVlkZE13SGdNLS1qMy1OdDNjMnlSeElUQ0xL?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-27T03:36:52+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.3,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8743d04bb42e2650",
+      "title": "有研新材（600206）11月26日主力资金净卖出1.71亿元",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNXJjelhvVzNxVkFRYjFGMXNnMTdNX21TSHBrMzBpa1NnZGRqMmV6bGxnRzJVYlY3b3JoejhJNWNLVFpzVWd1WVVGdlRtSUZqbjRrN2p4TUR6Uk9xT18wZDZnV2dON3ZnSXZ3bnlRbmctLW9nY1VleGlKYkJmbVNHb0xDcm1taXF2?oc=5",
+      "source": "Sohu",
+      "published": "2026-11-27T00:31:19+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "有研新材（600206）11月26日主力資金淨賣出1.71億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "3c7ddae9701680c2",
+      "title": "欧莱新材：融资净买入156.39万元，融资余额1.78亿元",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QR2dXS09uRFFGVF9hSUVtd0VsUDBrZ1BJanBXQVNHbmZJVjFrc0M5ZlZWOWV0ZEFnSnQ3V3ZPY1NyeXdUMy1PSW1xcDBoT2NFbm0zNUZUQ3BMSlhrTG1mVWwzdTlTUQ?oc=5",
+      "source": "东方财富网",
+      "published": "2026-11-27T00:07:13+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材：融資淨買入156.39萬元，融資餘額1.78億元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "60480e0a4c1d4150",
+      "title": "鎧俠攜輝達用144顆SSD擴充GPU可用容量AI資料不必全擠進HBM",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBpclVUSVMzOHlkNWxtRkt2WEViN3lzQUpzd19qTWhQS05KVWhOYWZuT1J4V0x1QU1VVm9jRXNjanlGVG1PME04TjRDSnFlbTA?oc=5",
+      "source": "鉅亨網",
+      "published": "2026-11-27T00:00:04+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "鎧俠 (Kioxia)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "7693d12a9bba3f61",
+      "title": "1785 光洋科 - 好可憐，連息都不填的 - 股市爆料同學會",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5PUFAzRm80R2dBWlZKU0Y4THlTeHVpRnZZaUJON3lLaWJ2NmhCVGRFbkpHZXFQcFp4dFVvUWtoQ1pzSmpzNGc2SmpRRkw0SUFkOUlPOTUtWkc?oc=5",
+      "source": "CMoney",
+      "published": "2026-11-26T04:21:43+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "光洋科 (Solar Applied Materials)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.86,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9fcf6fc290b2d0bd",
+      "title": "Gold rebounds from one-year low as AI jitters ease",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYW55b1BZTkM4emFaZmljMEIzZlBhd2duLWJnRlpMaVA1UnBMaXpEQTdYU0JQUF93QWRkMEV0ZHlaUFhJM3JwTkVLSFNQcDhJSW43VEJ3ME9uQmVvaXpaVkV6eG1CWnBISXFncTVTQjI0NElBcUZDTXlNZEw0S0RCSGxFa25EX29sYzJVZHJmREFnckNW?oc=5",
+      "source": "Reuters",
+      "published": "2026-11-27T03:28:00+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "652ccaaaa010e0e9",
+      "title": "11-23收评，好当家，莲花控股，瀛通通讯，有研新材，利通电子",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0yNkNmZ2hjc1doYmxmeTQtbnltUzNNYnplZUhCSFBwTHBVMndQTHkxVkplTDZiM2JuX1ZiMWNoamRPQmNLSDJhTWtBYUFTX29GT1VNRFpOUzBtUUNuNkd4REtFS2ZkdVNMUTZr?oc=5",
+      "source": "财富号",
+      "published": "2026-11-23T08:11:00+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "有研新材 (GRINM)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.45,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "11-23收評，好當家，蓮花控股，瀛通通訊，有研新材，利通電子",
+      "snippet_zh": ""
+    },
+    {
+      "id": "fb3ff616d451895f",
+      "title": "美股已陷熊市了？資深策略師：流動性觸頂下滑比特幣、金價跌是前兆| 全球財經| 全球",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1Tb1Bna0VDZy0ycW1vaWNlSzVMWC11QU1WTHdid2xpUUljVXJtQ2NvLXYwWm1CX3VDRlR4VVFaaEJLbHQydUVpaXpHVUg4QlVN?oc=5",
+      "source": "UDN",
+      "published": "2026-11-26T08:56:25+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.39,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "9ba3fb7c3bf8fe35",
+      "title": "【放送レポート】石川界人「聞いたことない久野さんが聞ける瞬間が面白くて」～『JX金属presents 久野美咲のおはなししてくの？』 共演作『ハートにチャージして』吹き替えの舞台裏を語る (2026年11月20日掲載)",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YZmt4MGhQQ3VBNVRkQ0JRM3R4Qk5CTGU4TUxmVm1qb2RhR0pNSVIxYVZ0Si00MjQ3OFNkV1U1dFFfeXRvTjRrNUdIUjJhQko3UzZSa0ZnNjFrQUowUmc?oc=5",
+      "source": "ライブドアニュース",
+      "published": "2026-11-20T12:06:17+00:00",
+      "snippet": "",
+      "edition": "ja",
+      "entities": [
+        "JX金屬 (JX Advanced Metals)"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.05,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "a050d2d55b7b8235",
       "title": "台積電CoWoS產能滿載 研調：日月光、艾克爾料受惠",
@@ -698,44 +1081,42 @@
     {
       "name": "黃金",
       "code": "Au",
-      "price": 3591.1,
+      "price": 3656.1,
       "prev": 3535.8,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 1.56
+      "change_pct": 3.4
     },
     {
       "name": "白銀",
       "code": "Ag",
-      "price": 41.66,
+      "price": 43.83,
       "prev": 40.05,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 4.02
+      "change_pct": 9.44
     },
     {
       "name": "鉑金",
       "code": "Pt",
-      "price": 1278.5,
+      "price": 1326.9,
       "prev": 1241.4,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 2.99
+      "change_pct": 6.89
     },
     {
       "name": "鈀金",
       "code": "Pd",
-      "price": 870.5,
+      "price": 905.5,
       "prev": 831.1,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "unit": "USD/oz",
       "source": "Yahoo Finance",
-      "change_pct": 4.74
+      "change_pct": 8.95
     }
-  ],
-  "papers": [],
-  "research_days": 30
+  ]
 }
