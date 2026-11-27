@@ -36,8 +36,8 @@
         "客戶與供應鏈"
       ],
       "score": 6.19,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電擴建亞利桑那廠並評估德州建廠,強調台灣仍是研發與先進製程核心,與先前中央社報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "臺積電亞利桑那擴建、評估德州建廠臺灣仍是研發與先進製程核心－中央社",
       "snippet_zh": ""
@@ -58,8 +58,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.46,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電美國新廠動土,川普將出席典禮。",
+      "importance": 2,
       "reason": "",
       "title_zh": "臺積電美國新廠動土 川普將出席",
       "snippet_zh": ""
@@ -80,8 +80,8 @@
         "客戶與供應鏈"
       ],
       "score": 5.36,
-      "summary": "",
-      "importance": 0,
+      "summary": "AI 推升晶片投資布局,川普將出席台積電亞利桑那州新廠動土典禮,美國晶圓產能持續擴充。",
+      "importance": 3,
       "reason": "",
       "title_zh": "AI推升晶片投資佈局 川普將出席臺積電亞利桑那州新廠動土典禮 | 國際",
       "snippet_zh": ""
@@ -102,8 +102,8 @@
         "營收與財報"
       ],
       "score": 5.21,
-      "summary": "",
-      "importance": 0,
+      "summary": "矽光子商機帶動光焱營收近半來自半導體,其 10 億元新廠與日月光比鄰。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -120,11 +120,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.88,
-      "summary": "",
-      "importance": 0,
+      "summary": "魏哲家將率隊主持台積電亞利桑那廠擴建典禮,川普將出席,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "魏哲家領軍臺積電AZ廠擴建典禮 川普將出席!",
       "snippet_zh": ""
@@ -141,11 +142,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.85,
-      "summary": "",
-      "importance": 0,
+      "summary": "台積電亞利桑那廠 12/4 舉辦擴建典禮,彭博稱川普將親自出席,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "臺積電亞利桑那廠 12/4 辦擴建典禮，彭博：川普將親自出席",
       "snippet_zh": ""
@@ -162,11 +164,12 @@
         "台積電 (TSMC)"
       ],
       "categories": [
+        "擴產與投資",
         "客戶與供應鏈"
       ],
       "score": 3.79,
-      "summary": "",
-      "importance": 0,
+      "summary": "川普將首度造訪台積電亞利桑那廠,出席下週擴建典禮,與同日報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "首度造訪！臺積電下週亞利桑那廠擴建典禮 川普將出席",
       "snippet_zh": ""
@@ -183,13 +186,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "原物料與價格"
       ],
       "score": 3.78,
-      "summary": "",
-      "importance": 0,
+      "summary": "野村證券反映銅價下跌,調降 JX金屬獲利預估並下修目標價;靶材龍頭的金屬事業獲利受銅價拖累。",
+      "importance": 3,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "JX金屬:野村下調目標價,反映銅價下跌而調降獲利預估(時事通信)",
       "snippet_zh": ""
     },
     {
@@ -207,8 +211,8 @@
         "技術與新產品"
       ],
       "score": 3.69,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠與輝達以 SSD 擴充 GPU 記憶體容量突破 1PB,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -228,10 +232,10 @@
         "原物料與價格"
       ],
       "score": 3.3,
-      "summary": "",
-      "importance": 0,
+      "summary": "金銀比下降,白銀在貴金屬反彈中表現領先。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "金銀價格預測:金銀比下降,白銀領漲反彈",
       "snippet_zh": ""
     },
     {
@@ -246,11 +250,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "有研新材 11/26 主力資金淨賣出 1.71 億元,屬資金流向資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "有研新材（600206）11月26日主力資金淨賣出1.71億元",
       "snippet_zh": ""
@@ -267,11 +272,12 @@
         "歐萊新材"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "歐萊新材融資淨買入 156.39 萬元,融資餘額 1.78 億元,屬籌碼面資訊。",
+      "importance": 1,
       "reason": "",
       "title_zh": "歐萊新材：融資淨買入156.39萬元，融資餘額1.78億元",
       "snippet_zh": ""
@@ -288,11 +294,12 @@
         "鎧俠 (Kioxia)"
       ],
       "categories": [
+        "技術與新產品",
         "產業動態"
       ],
       "score": 2.98,
-      "summary": "",
-      "importance": 0,
+      "summary": "鎧俠與輝達以 144 顆 SSD 擴充 GPU 可用容量,讓 AI 資料不必全部放進 HBM,與先前報導為同一事件。",
+      "importance": 2,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -309,11 +316,12 @@
         "光洋科 (Solar Applied Materials)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.86,
-      "summary": "",
-      "importance": 0,
+      "summary": "網路論壇投資人抱怨光洋科除息後未填息,屬個股討論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -330,13 +338,14 @@
         "行情綜合:Precious Metals"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.5,
-      "summary": "",
-      "importance": 0,
+      "summary": "市場對 AI 相關交易的疑慮緩解,金價自一年低點回升。",
+      "importance": 2,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "AI 疑慮緩解,金價自一年低點反彈",
       "snippet_zh": ""
     },
     {
@@ -351,11 +360,12 @@
         "有研新材 (GRINM)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.45,
-      "summary": "",
-      "importance": 0,
+      "summary": "11/23 盤後收評提及有研新材等個股,屬行情評論。",
+      "importance": 1,
       "reason": "",
       "title_zh": "11-23收評，好當家，蓮花控股，瀛通通訊，有研新材，利通電子",
       "snippet_zh": ""
@@ -372,11 +382,12 @@
         "行情綜合:貴金屬"
       ],
       "categories": [
+        "原物料與價格",
         "產業動態"
       ],
       "score": 2.39,
-      "summary": "",
-      "importance": 0,
+      "summary": "資深策略師認為流動性觸頂下滑,比特幣與金價下跌是美股轉弱的前兆,與先前報導為同一事件。",
+      "importance": 1,
       "reason": "",
       "title_zh": "",
       "snippet_zh": ""
@@ -393,13 +404,14 @@
         "JX金屬 (JX Advanced Metals)"
       ],
       "categories": [
+        "營收與財報",
         "產業動態"
       ],
       "score": 2.05,
-      "summary": "",
-      "importance": 0,
+      "summary": "JX金屬冠名廣播節目的播出報導,屬企業形象活動,與業務無直接關聯。",
+      "importance": 1,
       "reason": "",
-      "title_zh": "",
+      "title_zh": "【節目報導】石川界人:「能聽到從沒聽過的久野小姐很有趣」——《JX金屬 presents 久野美咲的說故事時間》談共演作吹替幕後",
       "snippet_zh": ""
     },
     {
