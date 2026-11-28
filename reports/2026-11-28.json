@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-28T07:28:23.031754+08:00",
+  "generated": "2026-11-28T11:30:28.602250+08:00",
   "days": 7,
   "digest": {
     "overview": "本期焦點是記憶體與先進封裝的擴產潮:華邦電擬兩年投入 1,127 億元擴產並推動約 360 億元併購,三星表示 AI 資料中心 SSD 需求達預期 2 至 3 倍、同步加速擴產,鎧俠產能也已售罄至 2027 年。先進封裝方面,日月光先進封裝營收估暴增 233%,輝達在台積電 CoWoS 的占比下降、ASIC 客戶搶食產能,Amkor 也看好類 CoWoS 訂單。晶圓廠端,台積電德國廠完成主體結構、美國擬布局第二座先進晶圓廠,聯電擴建新加坡廠,台積電供應鏈論壇並增列「全球支援」評選,供應商的海外服務能力更受重視。靶材市場方面,市調預估鈷濺鍍靶材至 2035 年年增 5–8%,中國靶材股江豐電子、有研新材、歐萊新材、阿石創 11/27 同步漲停。貴金屬在感恩節後強勁反彈,金價較 11/25 上漲 3.75% 至 3,668 美元,白銀大漲 9.11%。",
@@ -19,6 +19,112 @@
     "source": "claude"
   },
   "items": [
+    {
+      "id": "e1d973f695d04faf",
+      "title": "AI泡沫疑慮升溫、台積電仍積極在美擴產美系投行揭背後訊號| 財經",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE96bXRPdG1NeHREQTBRUWwtYmdncE50akQtWlNCZV8yTnBHTW1KRHhGcXQwOEY1TlRBY2Jid3FLSWpzeVhhd0ludVF6YUN0UkRBZ0pqd21YWWR6UVk?oc=5",
+      "source": "Newtalk新聞",
+      "published": "2026-11-26T07:58:49+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "台積電 (TSMC)"
+      ],
+      "categories": [
+        "擴產與投資",
+        "客戶與供應鏈"
+      ],
+      "score": 5.24,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "AI泡沫疑慮升溫、臺積電仍積極在美擴產美系投行揭背後訊號| 財經",
+      "snippet_zh": ""
+    },
+    {
+      "id": "8af0f6f9646128da",
+      "title": "Price of gold in total freefall, $22.5t vanishes",
+      "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNRm5rbGxNOVBWZS1FTThGbjNTa0k5RXlwZDFtS1VaSWtCZllUR0g4Um1BZWt4c0dRZW1GZEt2RkNxSkViZjNNcF9EeVBGUTRQUkFzdndJNDlSTzVWR0RfLXdGazlvR0daYVc1Sk82YnYzTkJyS0Q2dzV2aEFwamtuSC1SWlZWemFNWkN4TWRsVnZlcXpBRTFKNlotU2psZmxiYk4za3lTd1cyeFVxeGI2aVlKUmc5SlFYSWhXcEo4TmZMaUlLQ1psRUdnUTdLdjVIU3ZQN2JRejNsT0dPWFdiMWhhMjQwUURVa01JNF9xZHJSejRPb2FB0gH8AUFVX3lxTE1hY3lSWFViR2pTN3NtaE5JM29odVRaMTZCMmVtUDUzV3lwOW0zWXRwSlowY1dvM1NTMXZoRDFoZVQ1eEI0dmtmdkxYVFV0aHhoWG10ajEzeDNfdkZESjdybVp2NUJfejhxSWE4WVRkSkJfejZvcFhqNm5mdnFfQTNRY1B2dzkxbVJUaDlwelpQXzNLRUtnR2ZMSE5TMEVoeDFYVm5LeDgxQ3dfTzRhQWtlY2hTajVjdUlHekJKbjVKWExfMGFHNEc1Ukx0bWQtc05hSDJ3eG1qRkZOVjh0bFB5dHB3NnFXOE51TXVDSFFaeEhmLWQ0SWdhaEdhZA?oc=5",
+      "source": "News.com.au",
+      "published": "2026-11-28T02:16:35+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.29,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "da0da091ca934723",
+      "title": "連央行都在賣金？黃金價格暴跌近四成，到底誰在拋售？見底了嗎？ #黃金 #金價 #黃金分析",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5hNHdvdUtVNFprTW5mUVQtc2NNelpBa0RTSVYyUTJvTGNZeDFJZTQtdGpCVFpfSHQ3TDdpVEZoZ3lxTkJIUjZCem9XblRKMnVUaDRiYkRwSHllT1F5T3RF?oc=5",
+      "source": "Kuai.Media",
+      "published": "2026-11-27T23:33:32+00:00",
+      "snippet": "",
+      "edition": "zh-TW",
+      "entities": [
+        "行情綜合:貴金屬"
+      ],
+      "categories": [
+        "原物料與價格"
+      ],
+      "score": 3.28,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
+    {
+      "id": "023de15d48dc2b47",
+      "title": "欧莱新材（688530）11月27日主力资金净买入2145.09万元",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE84OUJ0Z2ZaOTFJYnFnYVh1Rm11SEZZNm1ZRUpSUjItcEp4elllSEdTX3V5VGRVZDlZOFNjNjlGSWE2dlhHRVdDZk5kNVNET19GTUZ1TnhVS2FhWjNuLWpvVDd3?oc=5",
+      "source": "手机网易网",
+      "published": "2026-11-28T00:51:28+00:00",
+      "snippet": "",
+      "edition": "zh-CN",
+      "entities": [
+        "歐萊新材"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.98,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "歐萊新材（688530）11月27日主力資金淨買入2145.09萬元",
+      "snippet_zh": ""
+    },
+    {
+      "id": "40b0ab582d05f7a8",
+      "title": "Gold and Palladium: The Comeback Meets Its First Test",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRkc2a2pBcVVCeF92Y3Q2TjVqcFZWb0VwUGRrNFh2ZVhBd3NYS1NVcFJpRUJHYl9VS0d6SnlvcG0xOHpwNTlsalc0S1lSNkpROTNkMU5hUldqZzRQSGs1NzFtcnBLVXlZUVVlWWxZZ1BmaklmTzFJNlF5UkRZZ2syVmN2Vi1lemNTWmxrVWNYOGZWMXU5RkhWTmRsSldva1hUUGZ0akRR?oc=5",
+      "source": "FXEmpire",
+      "published": "2026-11-28T03:14:10+00:00",
+      "snippet": "",
+      "edition": "en",
+      "entities": [
+        "行情綜合:Precious Metals"
+      ],
+      "categories": [
+        "產業動態"
+      ],
+      "score": 2.5,
+      "summary": "",
+      "importance": 0,
+      "reason": "",
+      "title_zh": "",
+      "snippet_zh": ""
+    },
     {
       "id": "339e7017d652f89a",
       "title": "AI泡沫疑慮擋不住訂單！日月光先進封裝營收估暴增233％ 京元電大客戶追著要產能",

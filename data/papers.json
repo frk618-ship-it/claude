@@ -15,11 +15,12 @@
   "doi": "10.1088/1361-6595/aec733",
   "source": "OpenAlex",
   "topics": [
+   "濺鍍行為與靶材利用率",
    "其他靶材研究"
   ],
-  "summary": "",
-  "importance": 0,
-  "title_zh": "",
+  "summary": "研究以氦氣進行鉬靶 HiPIMS 濺鍍,搭配電離區模型分析;離子化機率約 88–95%、回吸機率約 87–98%,離子化通量比例隨峰值電壓(650–1000 V)由 27% 提升至 49%。",
+  "importance": 3,
+  "title_zh": "以氦氣為工作氣體的鉬靶高功率脈衝磁控濺鍍",
   "abstract_zh": "",
   "tier": "related",
   "collected": "2026-11-28"
