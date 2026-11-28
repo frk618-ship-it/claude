@@ -3,13 +3,13 @@
  "source": "silver-ai-trader",
  "app_url": "https://silver-ai.streamlit.app/",
  "symbol": "SI=F",
- "generated_at": "2026-11-27T04:22:45+00:00",
+ "generated_at": "2026-11-28T04:02:44+00:00",
  "model": {
   "source": "冠軍模型",
   "method": "direct",
   "horizon": 5,
-  "holdout_da_h": 41.1,
-  "holdout_n_h": 107,
+  "holdout_da_h": 39.6,
+  "holdout_n_h": 106,
   "algorithm": "TimesFM",
   "pred_target": "multi",
   "pred_target_name": "多日報酬率（直接預測 T+1…T+N）",
@@ -21,72 +21,72 @@
   "holdout_n": 111,
   "trained_at": "2026-11-26T14:41:18+00:00"
  },
- "base_date": "2026-11-26",
- "base_price": 43.76,
+ "base_date": "2026-11-27",
+ "base_price": 43.702,
  "live_quote": {
-  "price": 42.085,
-  "time": "2026-11-26T04:58:00+00:00",
+  "price": 43.91,
+  "time": "2026-11-27T17:59:00+00:00",
   "source": "Yahoo Finance"
  },
  "path": [
   {
-   "date": "2026-11-27",
-   "price": 42.8815,
-   "p_up": null
-  },
-  {
    "date": "2026-11-30",
-   "price": 44.7206,
+   "price": 44.6663,
    "p_up": null
   },
   {
    "date": "2026-12-01",
-   "price": 45.1608,
+   "price": 47.8275,
    "p_up": null
   },
   {
    "date": "2026-12-02",
-   "price": 45.5175,
+   "price": 47.9492,
    "p_up": null
   },
   {
    "date": "2026-12-03",
-   "price": 43.8712,
+   "price": 47.2985,
+   "p_up": null
+  },
+  {
+   "date": "2026-12-04",
+   "price": 45.2108,
    "p_up": null
   }
  ],
  "drivers": [
   {
-   "name": "白銀日報酬率 (ROC)",
-   "effect": -0.1193
-  },
-  {
-   "name": "CNN Fear & Greed",
-   "effect": -0.1168
-  },
-  {
    "name": "SLV ETF 成交量",
-   "effect": -0.0998
-  },
-  {
-   "name": "COT 管理基金淨部位",
-   "effect": 0.0902
-  },
-  {
-   "name": "白銀 MA5",
-   "effect": 0.0485
-  },
-  {
-   "name": "實質利率 TIPS 5Y (%)",
-   "effect": 0.0443
+   "effect": -0.223
   },
   {
    "name": "白銀庫存代理 (SLV oz/share×1k)",
-   "effect": -0.0354
+   "effect": 0.1558
   },
   {
    "name": "VIX 變動率 (ROC)",
-   "effect": 0.023
+   "effect": -0.1253
+  },
+  {
+   "name": "10 年期利率 (^TNX)",
+   "effect": 0.1164
+  },
+  {
+   "name": "白銀日報酬率 (ROC)",
+   "effect": -0.1024
+  },
+  {
+   "name": "白銀 RSI (12)",
+   "effect": -0.1017
+  },
+  {
+   "name": "銅期貨價格 (HG=F)",
+   "effect": -0.0785
+  },
+  {
+   "name": "MA Cross (MA5−MA20)",
+   "effect": -0.0625
   }
  ],
  "drivers_horizon": 5,
